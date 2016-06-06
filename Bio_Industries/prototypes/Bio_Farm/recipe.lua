@@ -254,9 +254,9 @@ data:extend(
 		ingredients =
 		{
 			{type = "item", name = "sulfur", amount = 1},
-			{type="item", name="bi-crushed-stone", amount=3},
+			{type="item", name="bi-crushed-stone", amount=5},
 			{type="fluid", name="nitrogen", amount=1},
-			{type="item", name="bi-ash", amount=6}
+			{type="item", name="bi-ash", amount=5}
 		},
 		results=
 		{

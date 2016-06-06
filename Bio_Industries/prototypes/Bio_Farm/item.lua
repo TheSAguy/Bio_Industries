@@ -112,26 +112,6 @@ data:extend({
 
 	{
 		type = "item",
-		name = "bi-phosphate",
-		icon = "__Bio_Industries__/graphics/icons/phosphate.png",
-		flags = {"goes-to-main-inventory"},
-		subgroup = "intermediate-product",
-		order = "b[phosphate]",
-		stack_size = 100
-	},
-
-	{
-		type = "item",
-		name = "bi-potassium",
-		icon = "__Bio_Industries__/graphics/icons/potassium.png",
-		flags = {"goes-to-main-inventory"},
-		subgroup = "intermediate-product",
-		order = "b[potassium]",
-		stack_size = 100
-	},
-
-	{
-		type = "item",
 		name = "bi-fertilizer",
 		icon = "__Bio_Industries__/graphics/icons/fertilizer_32.png",
 		flags = {"goes-to-main-inventory"},
@@ -158,7 +138,6 @@ data:extend({
 		order = "b[cellulose]",
 		stack_size = 200
 	},
-
 
 	{
 		type = "item",
