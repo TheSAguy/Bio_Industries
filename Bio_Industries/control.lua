@@ -1,31 +1,48 @@
 require ("defines")
 require ("util")
 require ("scripts.util_ext")
+require ("control_bio_cannon")
+
+
+local loaded
+if not BI_Config then BI_Config = {} end
+require ("config")
+
+--------------------------------------------------------------------
+script.on_load(function()
+	if not loaded then
+		loaded = true
+		if global.Bio_Cannon_Table ~= nil then
+			script.on_event(defines.events.on_tick, ticker)
+		end
+	end
+end)
 
 
 script.on_init(function()
-    init_bio_industries()
+	loaded = true
+	
+	if global.Bio_Cannon_Table ~= nil then
+		script.on_event(defines.events.on_tick, ticker)
+	end
 end)
+---------------------------------------------------------------------
 
-script.on_load(function()
-    init_bio_industries()
-end)
 
-function init_bio_industries()
-    script.on_event(defines.events.on_built_entity, On_Built)
-    script.on_event(defines.events.on_robot_built_entity, On_Built)
-    script.on_event(defines.events.on_preplayer_mined_item, On_Remove)
-    script.on_event(defines.events.on_robot_pre_mined, On_Remove)
-    --script.on_event(defines.events.on_entity_died, On_Remove)
-	script.on_event(defines.events.on_entity_died, On_Death)
-end
-
+script.on_event({defines.events.on_built_entity,}, function(event) On_Built(event) end)
+script.on_event({defines.events.on_robot_built_entity,}, function(event) On_Built(event) end)
+script.on_event({defines.events.on_preplayer_mined_item,}, function(event) On_Remove(event) end)
+script.on_event({defines.events.on_robot_pre_mined,}, function(event) On_Remove(event) end)
+--script.on_event({defines.events.on_entity_died,}, function(event) On_Remove(event) end)
+script.on_event({defines.events.on_entity_died,}, function(event) On_Death(event) end)
+	
 ---------------------------------------------
 function On_Built(event)
     local entity = event.created_entity
+   
     --- Bio Farm has been built
-	
 	if entity and entity.name == "bi_bio_farm" then
+	writeDebug("Bio Farm has been built")
 		local surface = entity.surface
 		local force = entity.force
 		local position = entity.position		   
@@ -48,11 +65,10 @@ function On_Built(event)
 		group_entities(cantor(position.x,position.y), { b_farm, create_pole, create_panel, create_lamp })	  
 
 	end
-
 	
-	    --- Bio Garden has been built
-
+	--- Bio Garden has been built
 	if entity and entity.name == "bi-Bio_Garden" then
+	writeDebug("Bio Garden has been built")
 		local surface = entity.surface
 		local force = entity.force
 		local position = entity.position		   
@@ -68,10 +84,9 @@ function On_Built(event)
 
 	end
 	
-		
-	    --- Bio Solar Farm has been built
-
+	--- Bio Solar Farm has been built
 	if entity and entity.name == "bi_bio_Solar_Farm" then
+	writeDebug("Bio Solar Farm has been built")
 		local surface = entity.surface
 		local force = entity.force
 		local position = entity.position		   
@@ -91,8 +106,45 @@ function On_Built(event)
 
 	end
 	
-end
+	--- Bio Cannon has been built
+	local New_Bio_Cannon
+	local New_Bio_CannonI
+	local New_Bio_CannonR
 
+	if entity.name == "Bio_Cannon_Area" then
+	writeDebug("Bio Cannon has been built")				
+		local surface = entity.surface
+		local force = entity.force
+		local position = entity.position
+	
+		New_Bio_Cannon  = surface.create_entity({name = "Bio_Cannon", position = position, direction = event.created_entity.direction, force = force})
+		New_Bio_CannonI = surface.create_entity({name = "Bio_Cannon".."i", position = position, direction = event.created_entity.direction, force = force})
+		New_Bio_CannonR = surface.create_entity({name = "Bio_Cannon".."r", position = position, direction = event.created_entity.direction, force = force})
+		
+		New_Bio_CannonI.health = event.created_entity.health
+		
+		event.created_entity.destroy()
+
+		New_Bio_Cannon.destructible = false
+		New_Bio_Cannon.operable = false
+		New_Bio_Cannon.minable = false
+		
+		New_Bio_CannonI.operable = true
+		New_Bio_CannonI.minable = true
+		
+		New_Bio_CannonR.operable = false
+		New_Bio_CannonR.destructible = false
+		New_Bio_CannonR.minable = false
+		
+		if global.Bio_Cannon_Table == nil then
+			global.Bio_Cannon_Table = {}
+			script.on_event(defines.events.on_tick, ticker)
+		end
+
+		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonI,New_Bio_CannonR,0})
+		
+	end
+end
 
 ---------------------------------------------
 function On_Remove(event)
@@ -236,4 +288,13 @@ end
 
 function ungroup_entities(entity_groupid)
     return ungroup("entities", entity_groupid)
+end
+
+--- DeBug Messages 
+function writeDebug(message)
+	if BI_Config.QCCode then 
+		for i, player in ipairs(game.players) do
+			player.print(tostring(message))
+		end
+	end
 end

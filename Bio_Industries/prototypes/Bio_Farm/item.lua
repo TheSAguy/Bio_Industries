@@ -112,20 +112,20 @@ data:extend({
 
 	{
 		type = "item",
-		name = "bi-fertilizer",
-		icon = "__Bio_Industries__/graphics/icons/fertilizer_32.png",
+		name = "fertiliser",
+		icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
-		order = "b[fertilizer]",
+		order = "b[fertiliser]",
 		stack_size = 200
 	},
 	{
 		type = "item",
-		name = "bi-adv-fertilizer",
-		icon = "__Bio_Industries__/graphics/icons/advanced_fertilizer_32.png",
+		name = "bi-adv-fertiliser",
+		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
-		order = "c[fertilizer]",
+		order = "c[fertiliser]",
 		stack_size = 200
 	},	
 

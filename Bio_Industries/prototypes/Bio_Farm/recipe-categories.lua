@@ -19,11 +19,6 @@ data:extend(
 		type = "recipe-category",
 		name = "biofarm-mod-dummy"
 	},
-	
-	-- Bio Garden
-	{
-    type = "recipe-category",
-    name = "clean-air"
-	}
+
 }
 )

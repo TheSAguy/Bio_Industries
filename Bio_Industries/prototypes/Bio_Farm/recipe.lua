@@ -29,7 +29,7 @@ data:extend({
 		result = "bi_bio_farm"
 	},
 	
-		--- Raw Wood from Water
+		--- Raw Wood from Water (BASIC)
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk1",
@@ -38,14 +38,21 @@ data:extend({
 		energy_required = 500,
 		ingredients =
 		{
-		  {type="item", name="bi-seedling", amount=20},     
-		  {type="fluid", name="water", amount=100},
+			{type="item", name="bi-seedling", amount=20},     
+			{type="fluid", name="water", amount=100},
 		},
+		--[[
+		results =
+		{
+			{type = "item", name = "raw-wood", amount_min = 20, amount_max = 50},
+			--{type = "item", name = "raw-wood", amount_min = 30, amount_max = 50, probability = 0.5},
+		},
+		]]
 		result_count = 40,
 		result = "raw-wood"
 	},
 	
-		--- Raw Wood from Water & Fertilizer
+		--- Raw Wood from Water & fertiliser
 	{
     type = "recipe",
     name = "bi-Logs_Mk2",
@@ -55,15 +62,22 @@ data:extend({
 	ingredients =
     {
       {type="item", name="bi-seedling", amount=30},     
-	  {type="item", name="bi-fertilizer", amount=10},     
+	  {type="item", name="fertiliser", amount=10},     
       {type="fluid", name="water", amount=100},
     },
+	--[[
+	results =
+		{
+			{type = "item", name = "raw-wood", amount_min = 45, amount_max = 90},
+			--{type = "item", name = "raw-wood", amount_min = 45, amount_max = 75, probability = 0.75},
+		},
+	]]	
     result_count = 75,
     result = "raw-wood"
 	},
 	
 		
-		--- Raw Wood from Fertilizer & NE_enhanced-nutrient-solution (Natural Evolution Mod)
+		--- Raw Wood from fertiliser & NE_enhanced-nutrient-solution (Natural Evolution Mod)
 	{
     type = "recipe",
     name = "bi-Logs_Mk3",
@@ -74,29 +88,29 @@ data:extend({
     {
       {type="item", name="bi-seedling", amount=50},     
       {type="fluid", name="water", amount=100},
-	  --{type="item", name="bi-adv-fertilizer", amount=5},     -- Will be added if you have Natural Evolution Buildings Mod installed.
+	  --{type="item", name="bi-adv-fertiliser", amount=5},     -- Will be added if you have Natural Evolution Buildings Mod installed.
     },
     result_count = 150,
     result = "raw-wood"
 	},
 	
 	
-		-- Advanced FERTILIZER --
+		-- Advanced fertiliser --
 	{
 		type = "recipe",
-		name = "bi-adv-fertilizer",
+		name = "bi-adv-fertiliser",
 		category = "chemistry",
 		energy_required = 125,
-		icon = "__Bio_Industries__/graphics/icons/advanced_fertilizer_32.png",
+		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
 		ingredients =
 		{
-			{type="item", name="bi-fertilizer", amount=25},
+			{type="item", name="fertiliser", amount=25},
 			{type="item", name="bi-woodpulp", amount=50},
 			--{type="fluid", name="NE_enhanced-nutrient-solution", amount=5}, -- Will be added if you have Natural Evolution Buildings Mod installed.
 		},
 		results=
 		{
-			{type="item", name="bi-adv-fertilizer", amount=50}
+			{type="item", name="bi-adv-fertiliser", amount=50}
 		},
 		enabled = "false"
 	},
@@ -230,27 +244,14 @@ data:extend(
 		},
 		enabled = "false"
 	},
-	-- LIQUID CO2
+
+	-- fertiliser--
 	{
 		type = "recipe",
-		name = "bi-liquid-co2",
-		category = "chemistry",
-		subgroup = "intermediate-product",
-		energy_required = 10,
-		ingredients ={{type="fluid", name="liquid-air", amount=1}},
-		results=
-		{
-			{type="fluid", name="bi-liquid-co2", amount=1}
-		},
-		enabled = "false"
-	},
-	-- FERTILIZER--
-	{
-		type = "recipe",
-		name = "bi-fertilizer",
+		name = "bi-fertiliser",
 		category = "chemistry",
 		energy_required = 5,
-		icon = "__Bio_Industries__/graphics/icons/fertilizer_32.png",
+		icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
 		ingredients =
 		{
 			{type = "item", name = "sulfur", amount = 1},
@@ -260,64 +261,11 @@ data:extend(
 		},
 		results=
 		{
-			{type="item", name="bi-fertilizer", amount=5}
+			{type="item", name="fertiliser", amount=5}
 		},
 		enabled = "false"
 	},
-	-- BIOMASS --
-	{
-		type = "recipe",
-		name = "bi-biomass-0",
-		icon = "__Bio_Industries__/graphics/icons/biomass.png",
-		subgroup = "intermediate-product",
-		category = "biofarm-mod-bioreactor",
-		energy_required = 10,
-		ingredients =
-		{
-			{type="fluid", name="water", amount=10},
-			{type="fluid", name="bi-liquid-co2", amount=1},
-			{type="item", name="bi-fertilizer", amount=1}
-		},
-		results=
-		{
-			{type="fluid", name="bi-biomass", amount=2},
-		},
-		enabled = "false"
-	},	
-	-- CELLULOSE --
-	{
-		type = "recipe",
-		name = "bi-cellulose",
-		category = "chemistry",
-		energy_required = 10,
-		ingredients =
-		{
-			{type="fluid", name="bi-biomass", amount=1.6}
-		},
-		results=
-		{
-			{type="item", name="bi-cellulose", amount=1 }
-		},
-		enabled = "false"
-	},
-	-- PLASTIC --
-	{
-		type = "recipe",
-		name = "bi-platic",
-		category = "chemistry",
-		subgroup = "raw-material",
-		order = "g[plastic-bar]",
-		energy_required = 1,
-		ingredients =
-		{
-			{type="item", name="bi-cellulose", amount=2}
-		},
-		results=
-		{
-			{type="item", name="plastic-bar", amount=1}
-		},
-		enabled = "false"
-	},
+
 	-- COKERY --
 	{
 		type = "recipe",
@@ -336,14 +284,6 @@ data:extend(
 		enabled = "false",
 		result_count = 1
 	},
-	-- BIO Reactor --
-	{
-		type = "recipe",
-		name = "bi-bioreactor",
-		ingredients = {{"assembling-machine-1",1},{"steel-plate",5},{"electronic-circuit",5}},
-		result = "bi-bioreactor",
-		enabled = "false",
-		result_count = 1
-	},
+
 
 })

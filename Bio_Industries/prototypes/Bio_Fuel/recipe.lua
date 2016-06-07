@@ -12,8 +12,8 @@ data:extend({
     enabled = false,
     ingredients =
     {
-      {type="item", name="bi-seedling", amount=25},
-      --{type="fluid", name="NE_revitalization-solution", amount=20} <-- Will be added if you are using NE Buildings
+		{type="item", name="bi-cellulose", amount=1},
+      --{type="fluid", name="NE_revitalization-solution", amount=10} <-- Will be added if you are using NE Buildings
     },
     results=
     {
@@ -32,8 +32,8 @@ data:extend({
     energy_required = 5,
     ingredients =
     {
-		{type="fluid", name="bi-Bio_Fuel", amount=8},
-		{type="fluid", name="crude-oil", amount=2},
+		{type="fluid", name="bi-Bio_Fuel", amount=9},
+		{type="fluid", name="crude-oil", amount=1},
     },
     results=
     {
@@ -46,5 +46,91 @@ data:extend({
     order = "a[oil-processing]-y[bi-Fuel_Conversion]"
   },
 
-  
+})
+
+--- Plastics
+data:extend({
+
+	-- BIO Reactor --
+	{
+		type = "recipe",
+		name = "bi-bioreactor",
+		ingredients = {{"assembling-machine-1",1},{"steel-plate",5},{"electronic-circuit",5}},
+		result = "bi-bioreactor",
+		enabled = "false",
+		result_count = 1
+	},
+	
+		-- PLASTIC --
+	{
+		type = "recipe",
+		name = "bi-platic",
+		category = "chemistry",
+		subgroup = "raw-material",
+		order = "g[plastic-bar]",
+		energy_required = 1,
+		ingredients =
+		{
+			{type="item", name="bi-cellulose", amount=2}
+		},
+		results=
+		{
+			{type="item", name="plastic-bar", amount=1}
+		},
+		enabled = "false"
+	},
+	
+		-- BIOMASS --
+	{
+		type = "recipe",
+		name = "bi-biomass-0",
+		icon = "__Bio_Industries__/graphics/icons/biomass.png",
+		subgroup = "intermediate-product",
+		category = "biofarm-mod-bioreactor",
+		energy_required = 10,
+		ingredients =
+		{
+			{type="fluid", name="water", amount=10},
+			{type="fluid", name="bi-liquid-co2", amount=1},
+			{type="item", name="fertiliser", amount=1}
+		},
+		results=
+		{
+			{type="fluid", name="bi-biomass", amount=3},
+		},
+		enabled = "false"
+	},	
+	
+	-- CELLULOSE --
+	{
+		type = "recipe",
+		name = "bi-cellulose",
+		category = "chemistry",
+		energy_required = 10,
+		ingredients =
+		{
+			{type="fluid", name="bi-biomass", amount=2},
+			{type="item", name="bi-seedling", amount=25},
+		},
+		results=
+		{
+			{type="item", name="bi-cellulose", amount=1 }
+		},
+		enabled = "false"
+	},
+	
+	-- LIQUID CO2
+	{
+		type = "recipe",
+		name = "bi-liquid-co2",
+		category = "chemistry",
+		subgroup = "intermediate-product",
+		energy_required = 10,
+		ingredients ={{type="fluid", name="liquid-air", amount=1}},
+		results=
+		{
+			{type="fluid", name="bi-liquid-co2", amount=1}
+		},
+		enabled = "false"
+	},
 })
