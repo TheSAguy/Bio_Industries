@@ -96,7 +96,7 @@ end
 
 if BI_Config.Bio_Cannon then
 	------- Adds a Biological Hive Buster Ammo
---	if BI_Config.mod.NEEnemies then
+	if BI_Config.mod.NEEnemies then
 
 	-- Add Bio Projectile
 		require("prototypes.Bio_Cannon.bio-projectile")
@@ -105,7 +105,7 @@ if BI_Config.Bio_Cannon then
 		bobmods.lib.remove_recipe_item ("Bio_Cannon_Bio_Ammo", "alien-artifact")
 		bobmods.lib.add_new_recipe_item ("Bio_Cannon_Bio_Ammo", {type="fluid", name="NE_alien_toxin", amount=50})
 		
-	--end
+	end
 
 	------- Changes Hive Buster Recipe
 	if BI_Config.mod.NEBuildings then
@@ -116,6 +116,22 @@ if BI_Config.Bio_Cannon then
 
 	end
 end
+
+------------ Changing order/sorting
+if data.raw["item"]["solar-panel-large-3"] then 
+	data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
+	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
+	data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
+	data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+end
+
+if data.raw["item-subgroup"]["bob-fluid"] then 
+	data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
+	--data.raw["recipe"]["bi-Bio_Fuel"].order="a[oil-processing]-z[bi-Bio_Fuel]"	
+	data.raw["recipe"]["bi-Fuel_Conversion"].subgroup = "bob-fluid"
+	--data.raw["recipe"]["bi-Fuel_Conversion"].order="a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]"
+end
+
 
 
 	

@@ -10,7 +10,7 @@ data:extend({
     subgroup = "energy",
     place_result = "bi_bio_Solar_Farm",
     stack_size = 10,
-	--enable = false,
+	enable = false,
   },
 
   {

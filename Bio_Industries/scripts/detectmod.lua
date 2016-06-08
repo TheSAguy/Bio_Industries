@@ -15,10 +15,38 @@ else
 	BI_Config.mod.NEBuildings=false
 end
 
+--Detect DyTechWar
+if data.raw["unit"]["young-berserk-biter"] ~= nil and data.raw["unit"]["young-berserk-spitter"] ~= nil then
+	BI_Config.mod.DyTechWar=true
+else 
+	BI_Config.mod.DyTechWar=false
+end
 
 --Detect DyTech Core
-if data.raw["item"]["stone-gear-wheel"] ~= nil or data.raw["item"]["rubber-seed"] ~= nil then
+if data.raw["item"]["stone-gear-wheel"] ~= nil then
 	BI_Config.mod.DyTechCore=true
 else 
 	BI_Config.mod.DyTechCore=false
+end
+
+--Detect Bob's Enemies
+if data.raw["unit"]["bob-big-piercing-biter"] ~= nil and data.raw["unit"]["bob-big-electric-spitter"] ~= nil then
+	BI_Config.mod.BobEnemies=true
+else 
+	BI_Config.mod.BobEnemies=false
+end
+
+--Detect Supreme Warfare
+if data.raw["technology"]["artillery"] ~= nil and data.raw["technology"]["advanced-artillery"] ~= nil then
+	BI_Config.mod.SupremeWarfare=true
+else 
+	BI_Config.mod.SupremeWarfare=false
+end
+
+
+--Detect N.E. Enemies
+if data.raw["unit"]["small-biter-Mk2"] ~= nil or data.raw["unit"]["small-spitter-Mk2"] ~= nil or data.raw["logistic-container"]["Artifact-collector-area"] ~= nil then
+	BI_Config.mod.NEEnemies=true
+else 
+	BI_Config.mod.NEEnemies=false
 end
