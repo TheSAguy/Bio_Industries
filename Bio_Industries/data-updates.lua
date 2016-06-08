@@ -4,7 +4,7 @@ require ("scripts.detectmod") --Detect supported Mods, currently DyTechWar and B
 require ("scripts.item-functions") -- From Bob's Libary 
 require ("scripts.recipe-functions") -- From Bob's Libary 
 require ("scripts.technology-functions") -- From Bob's Libary 
-
+require ("config")
 
 ---- Inrease Wood Stack Size
 data.raw.item["raw-wood"].stack_size = 400
@@ -96,7 +96,7 @@ end
 
 if BI_Config.Bio_Cannon then
 	------- Adds a Biological Hive Buster Ammo
-	if BI_Config.mod.NEEnemies then
+--	if BI_Config.mod.NEEnemies then
 
 	-- Add Bio Projectile
 		require("prototypes.Bio_Cannon.bio-projectile")
@@ -105,7 +105,7 @@ if BI_Config.Bio_Cannon then
 		bobmods.lib.remove_recipe_item ("Bio_Cannon_Bio_Ammo", "alien-artifact")
 		bobmods.lib.add_new_recipe_item ("Bio_Cannon_Bio_Ammo", {type="fluid", name="NE_alien_toxin", amount=50})
 		
-	end
+	--end
 
 	------- Changes Hive Buster Recipe
 	if BI_Config.mod.NEBuildings then
