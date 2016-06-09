@@ -127,11 +127,21 @@ end
 
 if data.raw["item-subgroup"]["bob-fluid"] then 
 	data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
-	--data.raw["recipe"]["bi-Bio_Fuel"].order="a[oil-processing]-z[bi-Bio_Fuel]"	
+	data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
 	data.raw["recipe"]["bi-Fuel_Conversion"].subgroup = "bob-fluid"
-	--data.raw["recipe"]["bi-Fuel_Conversion"].order="a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]"
+	data.raw["recipe"]["bi-Fuel_Conversion"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"
 end
 
-
+if data.raw["item-subgroup"]["bob-material"] then 
+	data.raw["recipe"]["bi-charcoal"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-charcoal-2"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-coal"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-coal-2"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-coke-coal"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-ash"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-ash-2"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-crushed-stone"].subgroup = "bob-material"
+	
+end
 
 	

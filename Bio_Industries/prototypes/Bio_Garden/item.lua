@@ -9,7 +9,7 @@ data:extend({
     icon = "__Bio_Industries__/graphics/icons/bio_garden_icon.png",
     flags = { "goes-to-quickbar" },
     subgroup = "production-machine",
-    order = "f[Bio_Garden]",
+    order = "x[bi]-b[bi-Bio_Garden]",
     place_result = "bi-Bio_Garden",
     stack_size = 10
   },
@@ -20,6 +20,7 @@ data:extend({
     icon = "__base__/graphics/icons/small-lamp.png",
     flags = {"hidden"},
     subgroup = "production-machine",
+	order = "x[bi]-b[bi-Bio_Garden]",
     place_result = "bi_light_for_Bio_Garden",
     stack_size= 10,
 	enable = false,

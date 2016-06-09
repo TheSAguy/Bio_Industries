@@ -8,7 +8,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
-		order = "a[bi]-a[bi_bio_farm]",
+		order = "x[bi]-a[bi_bio_farm]",
 		place_result = "bi_bio_farm",
 		stack_size= 10,
 	},
@@ -20,7 +20,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Lamp.png",
 		flags = {"hidden"},
 		subgroup = "production-machine",
-		order = "a[bi]-a[bi_bio_farm]",
+		order = "x[bi]-a[bi_bio_farm]",
 		place_result = "bi_light_for_Bio_Farm",
 		stack_size= 10,
 		enable = false,
@@ -33,7 +33,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
 		flags = {"hidden"},
 		subgroup = "energy-pipe-distribution",
-		order = "a[bi]-a[bi_bio_farm]",
+		order = "x[bi]-a[bi_bio_farm]",
 		place_result = "bi_medium-electric-pole_for_Bio_Farm",
 		stack_size = 50,
 		enable = false,
@@ -46,7 +46,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Solar.png",
 		flags = {"hidden"},
 		subgroup = "energy",
-		order = "a[bi]-a[bi_bio_farm]",
+		order = "x[bi]-a[bi_bio_farm]",
 		place_result = "bi_solar-panel_for_Bio_Farm",
 		stack_size = 50,
 		enable = false,
@@ -59,7 +59,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/cokery.png",
 		flags = {"goes-to-quickbar"},
 		subgroup = "production-machine",
-		order = "a[bi]-b[bi-cokery]",
+		order = "x[bi]-b[bi-cokery]",
 		place_result = "bi-cokery",
 		stack_size = 10
 	},
@@ -71,13 +71,38 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/stone-crusher.png",
 		flags = {"goes-to-quickbar"},
 		subgroup = "production-machine",
-		order = "a[bi]-c[bi-stone-crusher]",
+		order = "x[bi]-c[bi-stone-crusher]",
 		place_result = "bi-stone-crusher",
 		stack_size = 10
 	},
 
+	--- BioReactor
+	{
+		type = "item",
+		name = "bi-bioreactor",
+		icon = "__Bio_Industries__/graphics/icons/bioreactor.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "production-machine",
+		order = "x[bi]-d[bi-bioreactor]",
+		place_result = "bi-bioreactor",
+		stack_size = 10
+	},
+	
 	
   -- Raw Msterials
+  
+  	
+	---- Celluluse
+	{
+		type = "item",
+		name = "bi-cellulose",
+		icon = "__Bio_Industries__/graphics/icons/cellulose.png",
+		flags = {"goes-to-main-inventory"},
+		subgroup = "intermediate-product",
+		order = "b[cellulose]",
+		stack_size = 200
+	},
+	
   ---- Seedling
 	{
 		type = "item",
@@ -96,10 +121,22 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "2MJ",
 		subgroup = "raw-material",	
-		order = "b[woodpulp]",
+		order = "b[woodpulp]",			
+		order = "a-b[bi-woodpulp]",
 		stack_size = 200
 	},  
 
+		--- Ash 
+	{
+		type = "item",
+		name = "bi-ash",
+		icon = "__Bio_Industries__/graphics/icons/ash.png",
+		flags = {"goes-to-main-inventory"},
+		subgroup = "raw-material",
+		order = "a-b[bi-ash]"
+		stack_size = 200
+	},
+	
 	--- Charcoal
 	{
 		type = "item",
@@ -108,7 +145,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "6MJ",
 		subgroup = "raw-material",
-		order = "b[charcoal]",
+		order = "b-a[charcoal]",
 		stack_size = 50
 	},  
 
@@ -120,20 +157,10 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "18MJ",
 		subgroup = "raw-material",
-		order = "b[coke-coal]",
+		order = "d-a[bi-coke-coal]",
 		stack_size = 50
 	},
 
-	--- Ash 1
-	{
-		type = "item",
-		name = "bi-ash",
-		icon = "__Bio_Industries__/graphics/icons/ash.png",
-		flags = {"goes-to-main-inventory"},
-		subgroup = "raw-material",
-		order = "b[ash]",
-		stack_size = 200
-	},
 
 	--- Crushed Stone
 	{
@@ -142,7 +169,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/crushed-stone.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
-		order = "b[crushed-stone]",
+		order = "z-a[bi-crushed-stone]",
 		stack_size = 100
 	},
 
@@ -165,7 +192,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
-		order = "c[fertiliser]",
+		order = "b[fertiliser]-b[bi-adv-fertiliser]",
 		stack_size = 200
 	},	
 
