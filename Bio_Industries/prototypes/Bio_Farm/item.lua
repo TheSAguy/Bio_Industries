@@ -133,7 +133,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/ash.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
-		order = "a-b[bi-ash]"
+		order = "a-b[bi-ash]",
 		stack_size = 200
 	},
 	

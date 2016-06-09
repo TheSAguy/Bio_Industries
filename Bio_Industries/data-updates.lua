@@ -119,29 +119,38 @@ end
 
 ------------ Changing order/sorting
 if data.raw["item"]["solar-panel-large-3"] then 
-	data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
-	data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+	if BI_Config.Bio_Solar_Farm then
+		data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
+		data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
+		data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
+		data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+	end
 end
 
 if data.raw["item-subgroup"]["bob-fluid"] then 
-	data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
-	data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
-	data.raw["recipe"]["bi-Fuel_Conversion"].subgroup = "bob-fluid"
-	data.raw["recipe"]["bi-Fuel_Conversion"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"
+	if BI_Config.Bio_Fuel then
+		data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
+		data.raw["recipe"]["bi-Fuel_Conversion"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi-Fuel_Conversion"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"
+		data.raw["recipe"]["bi-platic"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi-platic"].order = "g[plastic-bar]"
+		data.raw["recipe"]["bi-cellulose"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi-cellulose"].order = "g[plastic-bar]"
+	end
 end
 
 if data.raw["item-subgroup"]["bob-material"] then 
-	data.raw["recipe"]["bi-charcoal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-charcoal-2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-coal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-coal-2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-coke-coal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-ash"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-ash-2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-crushed-stone"].subgroup = "bob-material"
-	
+	if BI_Config.Bio_Farm then
+		data.raw["recipe"]["bi-charcoal"].subgroup = "bob-material"
+		data.raw["recipe"]["bi-charcoal-2"].subgroup = "bob-material"
+		data.raw["recipe"]["bi-coal"].subgroup = "bob-material"
+		data.raw["recipe"]["bi-coal-2"].subgroup = "bob-material"
+		data.raw["recipe"]["bi-coke-coal"].subgroup = "bob-material"
+		data.raw["recipe"]["bi-ash"].subgroup = "bob-material"
+		data.raw["recipe"]["bi-ash-2"].subgroup = "bob-material"
+		data.raw["recipe"]["bi-crushed-stone"].subgroup = "bob-material"
+	end	
 end
 
 	

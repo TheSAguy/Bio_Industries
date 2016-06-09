@@ -85,7 +85,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-biomass-0",
 		icon = "__Bio_Industries__/graphics/icons/biomass.png",
-		subgroup = "intermediate-product",
+		subgroup = "raw-material",
 		category = "biofarm-mod-bioreactor",
 		energy_required = 10,
 		ingredients =
