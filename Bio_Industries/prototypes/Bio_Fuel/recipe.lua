@@ -19,9 +19,9 @@ data:extend({
     {
       {type="fluid", name="bi-Bio_Fuel", amount=20},
     },
-    --subgroup = "Evolution-fluids"
+    --subgroup = "Evolution-fluids",
 	subgroup = "fluid-recipes",
-	order = "a[oil-processing]-z[bi-Bio_Fuel]"
+	order = "a[oil-processing]-z[bi-Bio_Fuel]",
   },
   -- Bio Fuel conversion to Oil products 
   {
@@ -43,7 +43,7 @@ data:extend({
     },
     icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
     subgroup = "fluid-recipes",  
-	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]"
+	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
   },
 
 })
@@ -85,7 +85,6 @@ data:extend({
 		type = "recipe",
 		name = "bi-biomass-0",
 		icon = "__Bio_Industries__/graphics/icons/biomass.png",
-		subgroup = "raw-material",
 		category = "biofarm-mod-bioreactor",
 		energy_required = 10,
 		ingredients =
@@ -98,7 +97,9 @@ data:extend({
 		{
 			{type="fluid", name="bi-biomass", amount=3},
 		},
-		enabled = "false"
+		enabled = "false",
+		subgroup = "fluid-recipes",
+		order = "x[oil-processing]-z[bi-biomass]"
 	},	
 	
 	-- CELLULOSE --
@@ -116,21 +117,22 @@ data:extend({
 		{
 			{type="item", name="bi-cellulose", amount=1 }
 		},
-		enabled = "false"
+		enabled = "false",
 	},
 	
 	-- LIQUID CO2
 	{
 		type = "recipe",
 		name = "bi-liquid-co2",
-		category = "chemistry",
-		subgroup = "intermediate-product",
+		category = "chemistry",	
 		energy_required = 10,
 		ingredients ={{type="fluid", name="liquid-air", amount=1}},
 		results=
 		{
 			{type="fluid", name="bi-liquid-co2", amount=1}
 		},
-		enabled = "false"
+		enabled = "false",
+		subgroup = "fluid-recipes",
+		order = "x[oil-processing]-z[bi-liquid-co2]"
 	},
 })

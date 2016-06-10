@@ -374,6 +374,8 @@ data:extend(
 						},
 		energy_usage = "50kW"
 	},
+	
+
 	-- BIOREACTOR
 	{
 		type = "assembling-machine",

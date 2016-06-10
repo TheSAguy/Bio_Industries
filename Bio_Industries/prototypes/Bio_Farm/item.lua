@@ -76,6 +76,7 @@ data:extend({
 		stack_size = 10
 	},
 
+
 	--- BioReactor
 	{
 		type = "item",
@@ -87,11 +88,11 @@ data:extend({
 		place_result = "bi-bioreactor",
 		stack_size = 10
 	},
+
 	
-	
-  -- Raw Msterials
+  -- Raw Materials
   
-  	
+
 	---- Celluluse
 	{
 		type = "item",
@@ -102,7 +103,7 @@ data:extend({
 		order = "b[cellulose]",
 		stack_size = 200
 	},
-	
+
   ---- Seedling
 	{
 		type = "item",
@@ -110,6 +111,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 		flags = { "goes-to-quickbar" },
 		subgroup = "raw-material",
+		
 		stack_size= 50,
 	},
   
@@ -133,7 +135,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/ash.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
-		order = "a-b[bi-ash]",
+		order = "a[bi]-a-b[bi-ash]",
 		stack_size = 200
 	},
 	
@@ -145,7 +147,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "6MJ",
 		subgroup = "raw-material",
-		order = "b-a[charcoal]",
+		order = "a[bi]-a-c[charcoal]",
 		stack_size = 50
 	},  
 
@@ -157,7 +159,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "18MJ",
 		subgroup = "raw-material",
-		order = "d-a[bi-coke-coal]",
+		order = "a[bi]-a-e[bi-coke-coal]",
 		stack_size = 50
 	},
 
@@ -169,7 +171,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/crushed-stone.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
-		order = "z-a[bi-crushed-stone]",
+		order = "a[bi]-a-z[bi-crushed-stone]",
 		stack_size = 100
 	},
 

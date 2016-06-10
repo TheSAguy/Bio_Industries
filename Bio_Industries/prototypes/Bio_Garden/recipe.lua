@@ -16,7 +16,7 @@ data:extend({
 		  {"bi-crushed-stone", 50},
 		  {"bi-seedling", 50}
 		},
-		result = "bi-Bio_Garden"
+		result = "bi-Bio_Garden",
 	},
  
  
@@ -38,7 +38,7 @@ data:extend({
       {type="item", name="bi-Purified_Air", amount=1, probability=0},
     },
     icon = "__Bio_Industries__/graphics/icons/clean-air.png",
-    order = "clean-air"
+    order = "zzz-clean-air"
 	},
 
 
@@ -59,7 +59,7 @@ data:extend({
       {type="item", name="bi-Purified_Air", amount=1, probability=0},
     },
     icon = "__Bio_Industries__/graphics/icons/clean-air.png",
-    order = "clean-air2"
+    order = "zzz-clean-air2"
 	},
 	
   }
