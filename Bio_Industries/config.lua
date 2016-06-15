@@ -40,7 +40,7 @@ BI.Bio_Cannon = true
 
 ----------------------------- END -------------------------------------------
 
-BI.QCCode = true
+BI.QCCode = false
 -- Used for QC
 -- Displays messages used for checking my code
 
