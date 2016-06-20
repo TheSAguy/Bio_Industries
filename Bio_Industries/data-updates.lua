@@ -10,6 +10,18 @@ require ("config")
 data.raw.item["raw-wood"].stack_size = 400
 
 
+if BI_Config.Wood_Products then
+
+	data.raw.item["wood"].place_as_tile =
+	{
+		result = "wood-floor",
+		condition_size = 4,
+		condition = { "water-tile" }
+	}
+
+end
+
+
 --- Got tierd of reaching limits...
 if BI_Config.QCCode then
 	if data.raw.player.player.build_distance < 24 then

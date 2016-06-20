@@ -5,6 +5,8 @@ local BI = BI_Config
 
 drs9999 - Treefarm Mod
 SpeedDaemon - Greenhouse Mod
+Simdezimon - Wood Floors
+Klonan  - Big Wooden Pole and Wooden Fence
 Bobingabout - Bob's Mods - Learned a lot from looking at your amazing work. 
 YuokiTani - Art - Amazing Work!!!
 
@@ -37,6 +39,16 @@ BI.Bio_Solar_Farm = true
 
 BI.Bio_Cannon = true
 --- Enable the Bio Hive Buster - Turrent that only fires at Spawners
+
+
+
+
+BI.Wood_Products = true
+--- Enables wood products like:
+	-- Wood Fence
+	-- Big Wood Pole
+	-- Wood Flooring
+	-- Wood Rail
 
 ----------------------------- END -------------------------------------------
 
