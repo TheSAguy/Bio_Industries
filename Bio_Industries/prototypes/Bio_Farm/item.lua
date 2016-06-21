@@ -1,8 +1,20 @@
 data:extend({
 
+	---- Seedling
+  {
+    type = "item",
+    name = "bi-seedling",
+    icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+    flags = { "goes-to-quickbar" },
+    subgroup = "trees",
+    --place_result="bi-seedling",
+	place_result="bi-seedling",
+    stack_size= 50
+  },
+
 
   ----Bio Farm
-		{
+	{
 		type= "item",
 		name= "bi_bio_farm",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",

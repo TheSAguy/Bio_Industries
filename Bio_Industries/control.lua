@@ -10,12 +10,19 @@ require ("config")
 
 --------------------------------------------------------------------
 script.on_load(function()
+
 	if not loaded then
 		loaded = true
 		if global.Bio_Cannon_Table ~= nil then
 			script.on_event(defines.events.on_tick, ticker)
 		end
 	end
+	
+	if global.ts == nil then
+		global.ts = {}
+		global.ts.growing = {}
+	end
+	
 end)
 
 
@@ -24,6 +31,11 @@ script.on_init(function()
 	
 	if global.Bio_Cannon_Table ~= nil then
 		script.on_event(defines.events.on_tick, ticker)
+	end
+	
+	if global.ts == nil then
+		global.ts = {}
+		global.ts.growing = {}
 	end
 end)
 ---------------------------------------------------------------------
@@ -144,6 +156,12 @@ function On_Built(event)
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonI,New_Bio_CannonR,0})
 		
 	end
+	
+	--- Seedling planted
+	if event.created_entity.name == "bi-seedling" then
+		global.ts.growing[event.created_entity.position] = math.floor(game.tick / 60)
+	end
+	
 end
 
 ---------------------------------------------
@@ -266,10 +284,32 @@ function On_Death(event)
 	
 end
 
+--------------------
+---- Growing Tree
 
+script.on_event(defines.events.on_tick, function(event)
+  if game.tick % 60 == 0 then
+    for k, v in pairs(global.ts.growing) do
+      if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
+        local foundtree = false
+		local entities = game.get_surface(1).find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = 'bi-seedling'}
+		for _,entity in pairs(entities) do
+          entity.destroy()
+          foundtree = true
+        end
+        
+        local treetype = "pinetree"
 
+        if foundtree then
+          game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+        end
+        global.ts.growing[k] = nil
+      end
+    end
+  end
+end)
 
---- Utils
+--- Utils for grouping
 function group_entities(entity_list)
     return group_entities(nil, entity_list)
 end
