@@ -14,11 +14,11 @@ if BI_Config.Wood_Products then
 
 	data.raw.item["wood"].place_as_tile =
 	{
-		result = "wood-floor",
+		result = "bi-wood-floor",
 		condition_size = 4,
 		condition = { "water-tile" }
 	}
-
+	bobmods.lib.add_technology_recipe ("logistics", "bi-big-wooden-pole")
 end
 
 

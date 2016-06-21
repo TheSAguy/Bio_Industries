@@ -9,8 +9,8 @@ data:extend({
 		  {"wood", 10},    
 		  {"small-electric-pole", 2},  
 		},
-		result = "big-wooden-pole",
-		enabled = "true"
+		result = "bi-big-wooden-pole",
+		enabled = "false",
 	},
 	
 	
@@ -20,9 +20,10 @@ data:extend({
 		
 		ingredients =
 		{
-		  {"wood", 6}
+		  {"wood", 4},
+		  {"raw-wood", 2},
 		},
-		result = "bi-wooden-fence"
+		result = "bi-wooden-fence",
 		enabled = "true",
 	}
   
