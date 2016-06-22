@@ -23,6 +23,12 @@ script.on_load(function()
 		global.ts.growing = {}
 	end
 	
+	if not global.numSeedlings then
+          global.numSeedlings = 0
+	elseif global.numSeedlings < 0 then
+          global.numSeedlings = 0
+	end
+	
 end)
 
 
@@ -37,6 +43,13 @@ script.on_init(function()
 		global.ts = {}
 		global.ts.growing = {}
 	end
+		
+	if not global.numSeedlings then
+          global.numSeedlings = 0
+	elseif global.numSeedlings < 0 then
+          global.numSeedlings = 0
+	end
+	
 end)
 ---------------------------------------------------------------------
 
@@ -160,6 +173,8 @@ function On_Built(event)
 	--- Seedling planted
 	if event.created_entity.name == "bi-seedling" then
 		global.ts.growing[event.created_entity.position] = math.floor(game.tick / 60)
+		global.numSeedlings = global.numSeedlings + 1
+		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
 	end
 	
 end
@@ -220,7 +235,14 @@ function On_Remove(event)
         ungroup_entities(pos_hash)
 	end
 
-	
+	--- Seedling Removed
+	if event.entity.name == "bi-seedling" then
+		global.numSeedlings = global.numSeedlings - 1
+		if global.numSeedlings < 0 then
+			global.numSeedlings = 0
+		end
+		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+	end
 	
 end
 
@@ -280,7 +302,14 @@ function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
-	
+	--- Seedling Removed
+	if event.entity.name == "bi-seedling" then
+		global.numSeedlings = global.numSeedlings - 1
+		if global.numSeedlings < 0 then
+			global.numSeedlings = 0
+		end
+		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+	end
 	
 end
 
@@ -288,19 +317,24 @@ end
 ---- Growing Tree
 
 script.on_event(defines.events.on_tick, function(event)
-  if game.tick % 60 == 0 then
+  if game.tick % 60 == 0 and global.numSeedlings > 0 then
     for k, v in pairs(global.ts.growing) do
       if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
         local foundtree = false
-		local entities = game.get_surface(1).find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = 'bi-seedling'}
+		local entities = game.get_surface(1).find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
 		for _,entity in pairs(entities) do
-          entity.destroy()
-          foundtree = true
+			entity.destroy()
+			global.numSeedlings = global.numSeedlings - 1
+		if global.numSeedlings < 0 then
+				global.numSeedlings = 0
+		end
+			writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+			foundtree = true
         end
         
 		local treetype = math.random(9)
         treetype = "tree-0".. treetype
-		
+		--- Convert sapling into a tree
         if foundtree then
           game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
         end

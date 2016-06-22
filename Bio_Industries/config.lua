@@ -52,7 +52,7 @@ BI.Wood_Products = true
 
 ----------------------------- END -------------------------------------------
 
-BI.QCCode = false
+BI.QCCode = true
 -- Used for QC
 -- Displays messages used for checking my code
 

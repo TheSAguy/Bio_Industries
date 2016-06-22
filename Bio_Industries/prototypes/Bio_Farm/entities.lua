@@ -97,9 +97,9 @@ data:extend({
     },
     emissions_per_tick = -0.0006,
     max_health = 10,
-    collision_box = {{-0.25, -0.25}, {0.25, 0.25}},
-    selection_box = {{-0.25, -0.25}, {0.25, 0.25}},
-    drawing_box = {{-0.3, -0.5}, {0.2, 0.4}},
+    collision_box = {{-0.8, -0.8}, {0.8, 0.8}},
+    selection_box = {{-0.8, -0.8}, {0.8, 0.8}},
+    drawing_box = {{-0.4, -0.6}, {0.2, 0.4}},
     subgroup = "trees",
     vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
 	pictures =
