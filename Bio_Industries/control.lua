@@ -298,8 +298,9 @@ script.on_event(defines.events.on_tick, function(event)
           foundtree = true
         end
         
-        local treetype = "pinetree"
-
+		local treetype = math.random(9)
+        treetype = "tree-0".. treetype
+		
         if foundtree then
           game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
         end

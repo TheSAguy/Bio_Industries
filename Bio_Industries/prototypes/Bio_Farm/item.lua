@@ -5,10 +5,24 @@ data:extend({
     type = "item",
     name = "bi-seedling",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
-    flags = { "goes-to-quickbar" },
+    flags = {"goes-to-main-inventory"},
     subgroup = "trees",
-    --place_result="bi-seedling",
+	order = "x[bi]-a[bi-seedling]",
 	place_result="bi-seedling",
+	fuel_value = "1MJ",
+    stack_size= 50
+  },
+
+  
+  	---- Pinetree
+  {
+    type = "item",
+    name = "bi-pinetree",
+    icon = "__Bio_Industries__/graphics/icons/pinetree.png",
+    flags = { "goes-to-quickbar","hidden" },
+    subgroup = "trees",
+	order = "x[bi]-a[bi-seedling]",
+	place_result="bi-pinetree",
     stack_size= 50
   },
 
@@ -116,17 +130,6 @@ data:extend({
 		stack_size = 200
 	},
 
-  ---- Seedling
-	{
-		type = "item",
-		name = "bi-seedling",
-		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
-		flags = { "goes-to-quickbar" },
-		subgroup = "raw-material",
-		
-		stack_size= 50,
-	},
-  
   --- Wood Pulp
 	{
 		type = "item",
