@@ -21,7 +21,7 @@ YuokiTani - Art - Amazing Work!!!
 ---------------------------------------------------------------------------]]
 
 
-BI.Bio_Farm = true
+BI.Bio_Farm = true -- Just leave that as True!
 --- Enable the Bio Farm
 
 
@@ -52,7 +52,7 @@ BI.Wood_Products = true
 
 ----------------------------- END -------------------------------------------
 
-BI.QCCode = true
+BI.QCCode = false
 -- Used for QC
 -- Displays messages used for checking my code
 

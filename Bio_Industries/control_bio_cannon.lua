@@ -1,6 +1,7 @@
 require ("defines")
 require ("util")
 
+--[[
 function ticker()
 	if global.Bio_Cannon_Table ~= nil then
 		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
@@ -32,7 +33,7 @@ function ticker()
 	end
 end
 
-
+]]
 
 function Bio_Cannon_Check(Bio_Cannon_List)
 	

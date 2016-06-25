@@ -4,6 +4,46 @@ require ("util")
 
 data:extend({
 
+
+---- Seedling
+  {
+   type = "tree",
+	--type = "item-entity",
+    name = "bi-seedling",
+    icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+	order = "x[bi]-a[bi-seedling]",
+    --flags = {"placeable-neutral", "breaths-air", "placeable-player"},
+	flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    minable =
+    {
+      mining_particle = "wooden-particle",
+      mining_time = 0.25,
+      result = "bi-seedling",
+      count = 1
+    },
+    emissions_per_tick = -0.0006,
+    max_health = 5,
+
+    collision_box = {{-0.65, -0.65}, {0.65, 0.65}},
+    selection_box = {{-0.7, -0.7}, {0.7, 0.7}},
+    drawing_box = {{-0.7, -0.7}, {0.7, 0.7}},
+    subgroup = "trees",
+	--subgroup = "intermediate-product",
+	--subgroup = "production-machine",
+    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
+	pictures =
+	{
+	  {
+		filename = "__Bio_Industries__/graphics/icons/Seedling.png",
+		priority = "extra-high",
+		width = 32,
+		height = 32,
+		shift = {0.0, 0.0}
+      },
+	},
+  },
+  
+  --[[
 ---- Pine Tree
   {
     type = "tree",
@@ -81,40 +121,7 @@ data:extend({
     }
   },
   
----- Seedling
-  {
-    type = "tree",
-    name = "bi-seedling",
-    icon = "__Bio_Industries__/graphics/icons/Seedling.png",
-	order = "x[bi]-a[bi-seedling]",
-    flags = {"placeable-neutral", "breaths-air"},
-    minable =
-    {
-      mining_particle = "wooden-particle",
-      mining_time = 0.5,
-      result = "bi-seedling",
-      count = 1
-    },
-    emissions_per_tick = -0.0006,
-    max_health = 10,
-    collision_box = {{-0.8, -0.8}, {0.8, 0.8}},
-    selection_box = {{-0.8, -0.8}, {0.8, 0.8}},
-    drawing_box = {{-0.4, -0.6}, {0.2, 0.4}},
-    subgroup = "trees",
-    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-	pictures =
-	{
-	  {
-		filename = "__Bio_Industries__/graphics/icons/Seedling.png",
-		priority = "extra-high",
-		width = 32,
-		height = 32,
-		shift = {0.0, 0.0}
-      },
-	},
-  },
-  
-
+  ]]
 
 	------- Bio Farm
   {

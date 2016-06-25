@@ -14,7 +14,7 @@ script.on_load(function()
 	if not loaded then
 		loaded = true
 		if global.Bio_Cannon_Table ~= nil then
-			script.on_event(defines.events.on_tick, ticker)
+			script.on_event(defines.events.on_tick, function(event)	ticker(event) end)			
 		end
 	end
 	
@@ -29,6 +29,10 @@ script.on_load(function()
           global.numSeedlings = 0
 	end
 	
+	if global.numSeedlings ~= nil then
+		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)		
+	end
+	
 end)
 
 
@@ -36,7 +40,7 @@ script.on_init(function()
 	loaded = true
 	
 	if global.Bio_Cannon_Table ~= nil then
-		script.on_event(defines.events.on_tick, ticker)
+		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)
 	end
 	
 	if global.ts == nil then
@@ -49,6 +53,10 @@ script.on_init(function()
 	elseif global.numSeedlings < 0 then
           global.numSeedlings = 0
 	end
+
+	if global.numSeedlings ~= nil then
+		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)		
+	end
 	
 end)
 ---------------------------------------------------------------------
@@ -58,13 +66,20 @@ script.on_event({defines.events.on_built_entity,}, function(event) On_Built(even
 script.on_event({defines.events.on_robot_built_entity,}, function(event) On_Built(event) end)
 script.on_event({defines.events.on_preplayer_mined_item,}, function(event) On_Remove(event) end)
 script.on_event({defines.events.on_robot_pre_mined,}, function(event) On_Remove(event) end)
---script.on_event({defines.events.on_entity_died,}, function(event) On_Remove(event) end)
 script.on_event({defines.events.on_entity_died,}, function(event) On_Death(event) end)
 	
 ---------------------------------------------
 function On_Built(event)
     local entity = event.created_entity
    
+   
+	--- Seedling planted
+	if entity.name == "bi-seedling" then
+		global.ts.growing[entity.position] = math.floor(game.tick / 60)
+		global.numSeedlings = global.numSeedlings + 1
+		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+	end
+	
     --- Bio Farm has been built
 	if entity and entity.name == "bi_bio_farm" then
 	writeDebug("Bio Farm has been built")
@@ -132,11 +147,14 @@ function On_Built(event)
 	end
 	
 	--- Bio Cannon has been built
+
+
+	if entity.name == "Bio_Cannon_Area" then
+	
 	local New_Bio_Cannon
 	local New_Bio_CannonI
 	local New_Bio_CannonR
-
-	if entity.name == "Bio_Cannon_Area" then
+	
 	writeDebug("Bio Cannon has been built")				
 		local surface = entity.surface
 		local force = entity.force
@@ -163,18 +181,11 @@ function On_Built(event)
 		
 		if global.Bio_Cannon_Table == nil then
 			global.Bio_Cannon_Table = {}
-			script.on_event(defines.events.on_tick, ticker)
+			script.on_event(defines.events.on_tick, function(event)	ticker(event) end)
 		end
 
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonI,New_Bio_CannonR,0})
 		
-	end
-	
-	--- Seedling planted
-	if event.created_entity.name == "bi-seedling" then
-		global.ts.growing[event.created_entity.position] = math.floor(game.tick / 60)
-		global.numSeedlings = global.numSeedlings + 1
-		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
 	end
 	
 end
@@ -314,35 +325,109 @@ function On_Death(event)
 end
 
 --------------------
----- Growing Tree
 
-script.on_event(defines.events.on_tick, function(event)
+
+function ticker(event) 
+---- Growing Tree
   if game.tick % 60 == 0 and global.numSeedlings > 0 then
     for k, v in pairs(global.ts.growing) do
       if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
         local foundtree = false
 		local entities = game.get_surface(1).find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
+		local currentTilename = game.get_surface(1).get_tile(k.x, k.y).name
+		writeDebug("The current tile is: " .. currentTilename)
 		for _,entity in pairs(entities) do
 			entity.destroy()
 			global.numSeedlings = global.numSeedlings - 1
 		if global.numSeedlings < 0 then
-				global.numSeedlings = 0
+			global.numSeedlings = 0
 		end
 			writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
 			foundtree = true
         end
         
-		local treetype = math.random(9)
-        treetype = "tree-0".. treetype
-		--- Convert sapling into a tree
-        if foundtree then
-          game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
-        end
+		--- Depending on Terain, choose tree type & Convert seedling into a tree
+		local growth_chance = math.random(100)
+		if 	currentTilename == "grass" then 
+			treetype = "tree-05"
+			if growth_chance > 5 and foundtree then
+				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+			end
+			
+		elseif currentTilename == "grass-medium" then 
+			treetype = "tree-04"
+			if growth_chance > 10 and foundtree then
+				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+			end
+		
+		elseif currentTilename == "grass-dry" then 
+			treetype = math.random(2)
+			treetype = "tree-0".. treetype
+			if growth_chance > 20 and foundtree then
+				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+			end
+		
+		elseif currentTilename == "dirt" or currentTilename == "dirt-dark" then 
+			treetype = math.random(2)
+			treetype = treetype + 5
+			treetype = "tree-0".. treetype
+			if growth_chance > 80 and foundtree then
+				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+			end
+		
+		else
+			treetype = math.random(3)
+			if treetype == 1 then
+				treetype = "tree-03"
+			elseif treetype == 2 then
+				treetype = "tree-08"
+			else
+				treetype = "tree-09"
+			end
+			if growth_chance > 50 and foundtree then
+				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+			end
+		
+		end		
         global.ts.growing[k] = nil
       end
     end
   end
-end)
+  
+  --- Bio Cannon stuff
+  	if global.Bio_Cannon_Table ~= nil then
+		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
+			global.Bio_Cannon_Counter = 60		
+			for ix, vx in pairs(global.Bio_Cannon_Table) do
+				if vx[1].valid and vx[2].valid and vx[3].valid then
+				vx[4]=vx[4]-1
+					if vx[4] <=0 then
+						Bio_Cannon_Check(vx)
+					end
+				else
+				if vx[1].valid then
+					vx[1].destroy()
+				end
+				if vx[2].valid then
+					vx[2].destroy()
+				end	
+				if vx[3].valid then
+					vx[3].destroy()
+				end	
+				end
+				
+			end		
+		else
+			global.Bio_Cannon_Counter = global.Bio_Cannon_Counter - 1
+		end
+	else
+		--script.on_event(defines.events.on_tick, nil)
+		script.on_event(defines.events.on_tick, function(event)	ticker() end)
+		--script.on_event(defines.events.on_tick, function(event)
+		
+	end
+  
+end
 
 --- Utils for grouping
 function group_entities(entity_list)

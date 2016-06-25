@@ -72,6 +72,8 @@ if BI_Config.Wood_Products then
 	require("prototypes.Wood_Products.entities")
 	require("prototypes.Wood_Products.item")
 	require("prototypes.Wood_Products.recipe")
+--	require("prototypes.Wood_Products.demo-railpictures-concrete")
+	
 
 end
 

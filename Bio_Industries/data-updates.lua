@@ -10,18 +10,6 @@ require ("config")
 data.raw.item["raw-wood"].stack_size = 400
 
 
-if BI_Config.Wood_Products then
-
-	data.raw.item["wood"].place_as_tile =
-	{
-		result = "bi-wood-floor",
-		condition_size = 4,
-		condition = { "water-tile" }
-	}
-	bobmods.lib.add_technology_recipe ("logistics", "bi-big-wooden-pole")
-end
-
-
 --- Got tierd of reaching limits...
 if BI_Config.QCCode then
 	if data.raw.player.player.build_distance < 24 then
@@ -31,6 +19,52 @@ if BI_Config.QCCode then
 		data.raw.player.player.drop_item_distance = 20
 	end 
 end
+
+
+if BI_Config.Wood_Products then
+	--- Wood Floors
+	data.raw.item["wood"].place_as_tile =
+	{
+		result = "bi-wood-floor",
+		condition_size = 4,
+		condition = { "water-tile" }
+	}
+	bobmods.lib.add_technology_recipe ("logistics", "bi-big-wooden-pole")
+	
+	---- Update Rails 
+	require("prototypes.Wood_Products.demo-railpictures-concrete")
+	
+	-- vanilla rail recipe update
+	bobmods.lib.add_new_recipe_item ("straight-rail", {type="item", name="concrete", amount=8})
+	bobmods.lib.add_new_recipe_item ("curved-rail", {type="item", name="concrete", amount=32})
+	
+	--- rail icon update
+	data.raw.item["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
+	data.raw.item["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
+	data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
+	data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
+	
+	-- vanilla rail images update
+	data.raw["straight-rail"]["straight-rail"].pictures = railpictures_c()
+	data.raw["curved-rail"]["curved-rail"].pictures = railpictures_c()
+	data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
+	data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
+
+	--- Wood Rail added to Tech 
+	bobmods.lib.add_technology_recipe ("railway", "bi-straight-rail-wood")
+	bobmods.lib.add_technology_recipe ("railway", "bi-curved-rail-wood")
+	
+	--- If Bob, move Vanilla Rail to Rail 2.
+	if data.raw.technology["bob-railway-2"] then
+		bobmods.lib.remove_technology_recipe ("railway", "straight-rail")
+		bobmods.lib.remove_technology_recipe ("railway", "curved-rail")
+		bobmods.lib.add_technology_recipe ("bob-railway-2", "straight-rail")
+		bobmods.lib.add_technology_recipe ("bob-railway-2", "curved-rail")
+	end	
+	
+end
+
+
 
 --- Adds Solar Farm to solar-energy Tech
 if BI_Config.Bio_Solar_Farm then
@@ -45,11 +79,17 @@ end
 
 	
 if BI_Config.Bio_Farm then	
-	--- Changes phosphate & potassium recipes if bob's
+	--- Changes fertiliser recipes if bob's
 	if data.raw.item["sodium-hydroxide"] then
 		bobmods.lib.remove_recipe_item ("bi-fertiliser", "sulfur")
 		bobmods.lib.add_new_recipe_item ("bi-fertiliser", {type="item", name="sodium-hydroxide", amount=10})
 	end	
+	
+	
+	--- Make Bio Farm use glass if Bob's
+	if data.raw.item.glass  then
+		bobmods.lib.replace_recipe_item("bi_bio_farm", "copper-cable", "glass")
+	end
 	
 	------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
 	if BI_Config.mod.NEBuildings then

@@ -6,14 +6,15 @@ data:extend({
     name = "bi-seedling",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
     flags = {"goes-to-main-inventory"},
-    subgroup = "trees",
+    --subgroup = "trees",
+	subgroup = "intermediate-product",
 	order = "x[bi]-a[bi-seedling]",
 	place_result="bi-seedling",
 	fuel_value = "1MJ",
     stack_size= 50
   },
 
-  
+  --[[
   	---- Pinetree
   {
     type = "item",
@@ -25,7 +26,7 @@ data:extend({
 	place_result="bi-pinetree",
     stack_size= 50
   },
-
+	]]
 
   ----Bio Farm
 	{
