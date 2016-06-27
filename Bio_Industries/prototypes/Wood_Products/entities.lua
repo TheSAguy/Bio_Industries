@@ -476,7 +476,7 @@ data:extend({
     name = "bi-straight-rail-wood",   
 	icon = "__Bio_Industries__/graphics/icons/straight-rail-wood.png",
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
-    minable = {mining_time = 1, result = "bi-straight-rail-wood"},
+    minable = {mining_time = 0.5, result = "bi-rail-wood"},
     max_health = 60,
     corpse = "straight-rail-remnants",
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
@@ -489,7 +489,7 @@ data:extend({
     name = "bi-curved-rail-wood",   
 	icon = "__Bio_Industries__/graphics/icons/curved-rail-wood.png",
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
-    minable = {mining_time = 1, result = "bi-curved-rail-wood"},
+    minable = {mining_time = 0.5, result = "bi-rail-wood", count = 4},
     max_health = 120,
     corpse = "curved-rail-remnants",
     collision_box = {{-0.75, -0.55}, {0.75, 1.6}},
@@ -497,6 +497,7 @@ data:extend({
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
     pictures = railpictures(),
+	placeable_by = { item="rail", count = 4}
   },
 
   --[[

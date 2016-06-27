@@ -1,4 +1,6 @@
-require ("defines")
+---Bio Industries - v.1.0.0
+
+--require ("defines")
 require ("util")
 require ("scripts.util_ext")
 require ("control_bio_cannon")
@@ -330,12 +332,16 @@ end
 function ticker(event) 
 ---- Growing Tree
   if game.tick % 60 == 0 and global.numSeedlings > 0 then
+
     for k, v in pairs(global.ts.growing) do
       if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
         local foundtree = false
-		local entities = game.get_surface(1).find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
-		local currentTilename = game.get_surface(1).get_tile(k.x, k.y).name
+		local surface = game.surfaces['nauvis']
+  		local force = k.force
+		local entities = surface.find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
+		local currentTilename = surface.get_tile(k.x, k.y).name
 		writeDebug("The current tile is: " .. currentTilename)
+		
 		for _,entity in pairs(entities) do
 			entity.destroy()
 			global.numSeedlings = global.numSeedlings - 1
@@ -351,20 +357,20 @@ function ticker(event)
 		if 	currentTilename == "grass" then 
 			treetype = "tree-05"
 			if growth_chance > 5 and foundtree then
-				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+				surface.create_entity({ name=treetype, amount=1, position=k})
 			end
 			
 		elseif currentTilename == "grass-medium" then 
 			treetype = "tree-04"
 			if growth_chance > 10 and foundtree then
-				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+				surface.create_entity({ name=treetype, amount=1, position=k})
 			end
 		
 		elseif currentTilename == "grass-dry" then 
 			treetype = math.random(2)
 			treetype = "tree-0".. treetype
 			if growth_chance > 20 and foundtree then
-				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+				surface.create_entity({ name=treetype, amount=1, position=k})
 			end
 		
 		elseif currentTilename == "dirt" or currentTilename == "dirt-dark" then 
@@ -372,7 +378,7 @@ function ticker(event)
 			treetype = treetype + 5
 			treetype = "tree-0".. treetype
 			if growth_chance > 80 and foundtree then
-				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+				surface.create_entity({ name=treetype, amount=1, position=k})
 			end
 		
 		else
@@ -385,7 +391,7 @@ function ticker(event)
 				treetype = "tree-09"
 			end
 			if growth_chance > 50 and foundtree then
-				game.get_surface(1).create_entity({ name=treetype, amount=1, position=k})
+				surface.create_entity({ name=treetype, amount=1, position=k})
 			end
 		
 		end		

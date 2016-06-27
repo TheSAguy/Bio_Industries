@@ -72,7 +72,7 @@ data:extend({
 	},
 	--Inventory
 
-		{
+	{
 		type = "ammo-turret",
 		name = "Bio_Cannoni",
 		icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
@@ -110,6 +110,7 @@ data:extend({
                           res.run_mode = "backward"
                           return res
                        end)(),
+		call_for_help_radius = 40			   
 
 	},
 		---- Radar

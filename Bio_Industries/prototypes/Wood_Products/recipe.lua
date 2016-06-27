@@ -27,31 +27,24 @@ data:extend({
 		enabled = "true",
 	},
   
-  
+
     {
-    type = "recipe",
-    name = "bi-straight-rail-wood",
-    enabled = false,
-    ingredients =
-    {
-      {"stone", 1},
-      {"iron-stick", 1},
-      {"steel-plate", 1},
-	  {"raw-wood", 4}
-    },
-    result = "bi-straight-rail-wood",
-    result_count = 2
+		type = "recipe",
+		name = "bi-rail-wood",
+		enabled = false,
+		ingredients =
+		{
+		  {"stone", 1},
+		  {"iron-stick", 1},
+		  {"steel-plate", 1},
+		  {"raw-wood", 4}
+		},
+		result = "bi-rail-wood",
+		result_count = 2,
+		requester_paste_multiplier = 4
   },
   
   
-  {
-    type = "recipe",
-    name = "bi-curved-rail-wood",
-    enabled = false,
-    ingredients = {{"stone", 4}, {"iron-stick", 4}, {"steel-plate", 4}, {"raw-wood", 12}},
-    result = "bi-curved-rail-wood",
-    result_count = 2
-  },
   
  })
 

@@ -35,31 +35,23 @@ if BI_Config.Wood_Products then
 	require("prototypes.Wood_Products.demo-railpictures-concrete")
 	
 	-- vanilla rail recipe update
-	bobmods.lib.add_new_recipe_item ("straight-rail", {type="item", name="concrete", amount=8})
-	bobmods.lib.add_new_recipe_item ("curved-rail", {type="item", name="concrete", amount=32})
+	bobmods.lib.add_new_recipe_item ("rail", {type="item", name="concrete", amount=8})
 	
-	--- rail icon update
-	data.raw.item["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
-	data.raw.item["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
-	data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
-	data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
-	
-	-- vanilla rail images update
+
+	-- vanilla rail icon & images update
 	data.raw["straight-rail"]["straight-rail"].pictures = railpictures_c()
 	data.raw["curved-rail"]["curved-rail"].pictures = railpictures_c()
 	data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
 	data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
+	data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
 
 	--- Wood Rail added to Tech 
-	bobmods.lib.add_technology_recipe ("railway", "bi-straight-rail-wood")
-	bobmods.lib.add_technology_recipe ("railway", "bi-curved-rail-wood")
+	bobmods.lib.add_technology_recipe ("railway", "bi-rail-wood")
 	
 	--- If Bob, move Vanilla Rail to Rail 2.
 	if data.raw.technology["bob-railway-2"] then
-		bobmods.lib.remove_technology_recipe ("railway", "straight-rail")
-		bobmods.lib.remove_technology_recipe ("railway", "curved-rail")
-		bobmods.lib.add_technology_recipe ("bob-railway-2", "straight-rail")
-		bobmods.lib.add_technology_recipe ("bob-railway-2", "curved-rail")
+		bobmods.lib.remove_technology_recipe ("railway", "rail")
+		bobmods.lib.add_technology_recipe ("bob-railway-2", "rail")
 	end	
 	
 end

@@ -1,4 +1,4 @@
-require("defines")
+--require("defines")
 
 -------------------------------------------------------------------
 -- A-sync Action Queue
