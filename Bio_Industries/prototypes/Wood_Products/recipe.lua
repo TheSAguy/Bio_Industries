@@ -20,7 +20,7 @@ data:extend({
 		
 		ingredients =
 		{
-		  {"wood", 4},
+		  {"wood", 2},
 		  {"raw-wood", 2},
 		},
 		result = "bi-wooden-fence",

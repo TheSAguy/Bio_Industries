@@ -2,18 +2,17 @@ require ("prototypes.Bio_Farm.pipeConnectors")
 require ("util")
 
 
+
 data:extend({
 
-
+ 
 ---- Seedling
   {
-   type = "tree",
-	--type = "item-entity",
+    type = "land-mine",
     name = "bi-seedling",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 	order = "x[bi]-a[bi-seedling]",
-    --flags = {"placeable-neutral", "breaths-air", "placeable-player"},
-	flags = {"placeable-neutral", "placeable-player", "player-creation"},
+	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air",},
     minable =
     {
       mining_particle = "wooden-particle",
@@ -27,23 +26,31 @@ data:extend({
     collision_box = {{-0.65, -0.65}, {0.65, 0.65}},
     selection_box = {{-0.7, -0.7}, {0.7, 0.7}},
     drawing_box = {{-0.7, -0.7}, {0.7, 0.7}},
-    subgroup = "trees",
-	--subgroup = "intermediate-product",
-	--subgroup = "production-machine",
+    --subgroup = "trees",
+	subgroup = "intermediate-product",
+
     vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-	pictures =
+	picture_safe =
 	{
-	  {
-		filename = "__Bio_Industries__/graphics/icons/Seedling.png",
+		filename = "__Bio_Industries__/graphics/icons/Seedling_a.png",
 		priority = "extra-high",
 		width = 32,
 		height = 32,
-		shift = {0.0, 0.0}
-      },
-	},
+    },
+	picture_set =
+    {
+		filename = "__Bio_Industries__/graphics/icons/Seedling_b.png",
+		priority = "extra-high",
+		width = 32,
+		height = 32,
+    },
+	trigger_radius = 0,
   },
   
+  
+  
   --[[
+  
 ---- Pine Tree
   {
     type = "tree",
