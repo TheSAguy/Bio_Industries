@@ -130,7 +130,7 @@ data:extend({
 		type = "technology",
 		name = "bi-fertiliser",
 		icon_size = 128,
-		icon = "__Bio_Industries__/graphics/technology/fertiliser_128.png",
+		icon = "__Bio_Industries__/graphics/technology/Fertiliser_128.png",
 		effects = {
 
 			{

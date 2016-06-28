@@ -3,12 +3,13 @@ if not BI_Config then BI_Config = {} end
 if not BI_Config.mod then BI_Config.mod = {} end
 if not BI_Functions then BI_Functions = {} end
 
-if not bobmods then bobmods = {} end
-if not bobmods.lib then bobmods.lib = {} end
+if not thxbob then thxbob = {} end
+if not thxbob.lib then thxbob.lib = {} end
 
 
 --- Help Files
 require ("scripts.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
+require ("scripts.legacy") -- From Bob's Libary 
 require ("scripts.item-functions") -- From Bob's Libary 
 require ("scripts.recipe-functions") -- From Bob's Libary 
 require ("scripts.technology-functions") -- From Bob's Libary 
@@ -45,8 +46,8 @@ if BI_Config.Bio_Garden then
 	require("prototypes.Bio_Garden.item")
 	require("prototypes.Bio_Garden.recipe")
 	require("prototypes.Bio_Garden.recipe-categories")
-	bobmods.lib.add_technology_recipe ("bi-fertiliser", "bi-Bio_Garden")
-	bobmods.lib.add_technology_recipe ("bi-fertiliser", "bi-Clean_Air")
+	thxbob.lib.add_technology_recipe ("bi-fertiliser", "bi-Bio_Garden")
+	thxbob.lib.add_technology_recipe ("bi-fertiliser", "bi-Clean_Air")
 	
 end
 

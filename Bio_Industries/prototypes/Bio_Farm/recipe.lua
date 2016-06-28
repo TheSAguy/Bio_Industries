@@ -257,6 +257,28 @@ data:extend({
 		enabled = "false"
 	},
 
+		-- fertiliser from sodium-hydroxide--
+	{
+		type = "recipe",
+		name = "bi-fertiliser-2",
+		category = "chemistry",
+		order = "b[fertiliser]",
+		energy_required = 5,
+		icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
+		ingredients =
+		{
+			--{type = "item", name = "sodium-hydroxide", amount = 10},
+			{type="item", name="bi-crushed-stone", amount=5},
+			{type="fluid", name="nitrogen", amount=1},
+			{type="item", name="bi-ash", amount=5}
+		},
+		results=
+		{
+			{type="item", name="fertiliser", amount=5}
+		},
+		enabled = "false"
+	},
+
 		
 		-- Advanced fertiliser --
 	{
