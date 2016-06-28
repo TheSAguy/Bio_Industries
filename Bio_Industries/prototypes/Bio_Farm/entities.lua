@@ -358,7 +358,6 @@ data:extend({
 data:extend(
 {
 
- 
 	-- COKERY
 	{
 		type = "assembling-machine",

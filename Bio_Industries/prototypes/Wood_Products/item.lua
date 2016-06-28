@@ -24,29 +24,7 @@ data:extend({
 		fuel_value = "24MJ",
 		stack_size = 50
 	},
-	--[[
-	{
-		type = "item",
-		name = "bi-straight-rail-wood",
-		icon = "__Bio_Industries__/graphics/icons/straight-rail-wood.png",
-		flags = {"goes-to-quickbar"},
-		subgroup = "transport",
-		order = "a[train-system]-a[straight-rail-wood]",
-		place_result = "bi-straight-rail-wood",
-		stack_size = 100
-	},
 
-	{
-		type = "item",
-		name = "bi-curved-rail-wood",
-		icon = "__Bio_Industries__/graphics/icons/curved-rail-wood.png",
-		flags = {"goes-to-quickbar"},
-		subgroup = "transport",
-		order = "a[train-system]-b[curved-rail-wood]",
-		place_result = "bi-curved-rail-wood",
-		stack_size = 50
-	},
-]]
 	{
 		type = "rail-planner",
 		name = "bi-rail-wood",

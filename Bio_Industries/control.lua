@@ -464,3 +464,45 @@ function writeDebug(message)
 		end
 	end
 end
+
+if BI_Config.QCCode then 
+
+	script.on_event(defines.events.on_player_created, function(event)
+		local player = game.players[event.player_index]
+		start_items(player)
+
+	end)
+
+
+	function start_items(player)
+
+		player.insert{name="iron-plate", count=100}
+		player.insert{name="electronic-circuit", count=200}
+		player.insert{name="steel-plate", count=50}
+		player.insert{name="copper-plate", count=50}
+		player.insert{name="iron-gear-wheel", count=50}
+		player.insert{name="stone", count=50}
+		player.insert{name="steel-axe", count=3}				  
+		player.insert{name="submachine-gun", count=1}
+		player.insert{name="piercing-rounds-magazine", count=150}  
+		player.insert{name="combat-shotgun", count=1}
+		player.insert{name="piercing-shotgun-shell", count=50}  
+		player.insert{name="rail", count=50}  
+		player.insert{name="bi-rail-wood", count=50}  
+		player.insert{name="bi_bio_farm", count=5}  
+		player.insert{name="Bio_Cannon_Area", count=2}
+		player.insert{name="Bio_Cannon_Basic_Ammo", count=20}
+		player.insert{name="Bio_Cannon_Poison_Ammo", count=20}
+		player.insert{name="bi_bio_Solar_Farm", count=2}
+		player.insert{name="burner-inserter", count=50}
+		player.insert{name="inserter", count=30}
+		player.insert{name="transport-belt", count=200}
+		player.insert{name="small-electric-pole", count=20}
+		player.insert{name="burner-mining-drill", count=20}
+		player.insert{name="stone-furnace", count=35}
+		player.insert{name="assembling-machine-1", count=20}
+		player.insert{name="bi-seedling", count=50}
+
+	end
+
+end
