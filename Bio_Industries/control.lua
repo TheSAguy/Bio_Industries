@@ -427,9 +427,8 @@ function ticker(event)
 			global.Bio_Cannon_Counter = global.Bio_Cannon_Counter - 1
 		end
 	else
-		--script.on_event(defines.events.on_tick, nil)
+
 		script.on_event(defines.events.on_tick, function(event)	ticker() end)
-		--script.on_event(defines.events.on_tick, function(event)
 		
 	end
   
@@ -459,7 +458,7 @@ end
 --- DeBug Messages 
 function writeDebug(message)
 	if BI_Config.QCCode then 
-		for i, player in ipairs(game.players) do
+		for i, player in pairs(game.players) do
 			player.print(tostring(message))
 		end
 	end

@@ -1,39 +1,5 @@
---require ("defines")
 require ("util")
 
---[[
-function ticker()
-	if global.Bio_Cannon_Table ~= nil then
-		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
-			global.Bio_Cannon_Counter = 60		
-			for ix, vx in pairs(global.Bio_Cannon_Table) do
-				if vx[1].valid and vx[2].valid and vx[3].valid then
-				vx[4]=vx[4]-1
-					if vx[4] <=0 then
-						Bio_Cannon_Check(vx)
-					end
-				else
-				if vx[1].valid then
-					vx[1].destroy()
-				end
-				if vx[2].valid then
-					vx[2].destroy()
-				end	
-				if vx[3].valid then
-					vx[3].destroy()
-				end	
-				end
-				
-			end		
-		else
-			global.Bio_Cannon_Counter = global.Bio_Cannon_Counter - 1
-		end
-	else
-		script.on_event(defines.events.on_tick, nil)
-	end
-end
-
-]]
 
 function Bio_Cannon_Check(Bio_Cannon_List)
 	
@@ -108,9 +74,8 @@ end
 
 --- DeBug Messages 
 function writeDebug(message)
-	if QC_Check then 
-	--if NEConfig.QCCode then 
-		for i, player in ipairs(game.players) do
+	if BI_Config.QCCode then 
+		for i, player in pairs(game.players) do
 			player.print(tostring(message))
 		end
 	end
