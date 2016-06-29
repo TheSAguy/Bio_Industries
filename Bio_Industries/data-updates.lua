@@ -151,6 +151,7 @@ if BI_Config.Bio_Cannon then
 	if BI_Config.mod.NEBuildings then
 
 	-- Add Bio Projectile
+		require("prototypes.Bio_Cannon.damage-type")
 		require("prototypes.Bio_Cannon.bio-projectile")
 		thxbob.lib.add_technology_recipe ("Bio_Cannon", "Bio_Cannon_Bio_Ammo")
 		data.raw.recipe["Bio_Cannon_Bio_Ammo"].category = "crafting-with-fluid"

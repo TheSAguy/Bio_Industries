@@ -65,6 +65,7 @@ if BI_Config.Bio_Cannon then
 	require("prototypes.Bio_Cannon.projectiles-item")
 	require("prototypes.Bio_Cannon.projectiles-recipe")
 	require("prototypes.Bio_Cannon.projectiles-entity")
+
 end
 
 --- Wood Products
