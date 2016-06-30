@@ -200,7 +200,13 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
 		order = "b[fertiliser]",
-		stack_size = 200
+		stack_size = 200,
+	    place_as_tile =
+		{
+		result = "grass",
+		condition_size = 1,
+		condition = { "water-tile" }
+		},	
 	},
 	
 	--- Adv Fertiliser
@@ -211,7 +217,13 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
 		order = "b[fertiliser]-b[bi-adv-fertiliser]",
-		stack_size = 200
+		stack_size = 200,
+		place_as_tile =
+		{
+		result = "grass",
+		condition_size = 1,
+		condition = { "water-tile" }
+		},	
 	},	
 
 	
