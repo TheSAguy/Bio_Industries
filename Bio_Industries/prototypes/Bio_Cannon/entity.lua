@@ -2,45 +2,76 @@ require "util"
 
 inv_extension =
 {
-  filename = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
-  priority = "medium",
-  width = 1,
-  height = 1,
-  direction_count = 1,
-  frame_count = 1,
-  axially_symmetrical = false,
-  shift = {0, 0}
+	filename = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
+	priority = "medium",
+	width = 1,
+	height = 1,
+	direction_count = 1,
+	frame_count = 1,
+	axially_symmetrical = false,
+	shift = {0, 0}
 }
+
+inv_extension2 =
+{
+	filename = "__Bio_Industries__/graphics/entities/biocannon/bio_cannon_closed.png",
+	priority = "extra-high",
+	scale = 1,
+	width = 384,
+	height = 384,
+	direction_count = 1,
+	frame_count = 1,
+	axially_symmetrical = false,
+	shift = {1.125, -1.625}
+}
+
+
 data:extend({
 
 	-- Bio Cannon Artillery Range Overlay
-   {
-		type = "container",
+	{
+		type = "ammo-turret",
 		name = "Bio_Cannon_Area",
 		icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
-		flags = {"placeable-neutral", "player-creation"},
+		flags = {"placeable-neutral", "placeable-player", "player-creation"},
 		open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 		close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-		--minable = {mining_time = 5, result = "Bio_Cannon_Area"},
+		--minable = {mining_time = 10, result = "Bio_Cannon_Area"},
 		max_health = 450,
 		corpse = "big-remnants",
 		dying_explosion = "massive-explosion",
+		automated_ammo_count = 10,
 		resistances = {},
-		collision_box = {{-3.8, -3.8}, {3.8, 3.8}},
-		selection_box = {{0, 0}, {0, 0}},
+		collision_box = {{-4.25, -4.25}, {4.25, 4.25}},
+		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		order = "i[items][Bio_Cannon]",
 		inventory_size = 1,
-		picture =
+		attack_parameters =
 		{
-			filename = "__Bio_Industries__/graphics/entities/biocannon/radius75.png",
-			priority = "extra-high",
-			scale = 3,
-			width = 1600,
-			height = 1600,
+			type = "projectile",
+			ammo_category = "Bio_Cannon_Ammo",
+			cooldown = 2,
+			range = 75,
+			projectile_creation_distance = 1.8,
+			action ={}
+		},
+		folding_speed = 0.08,
 
-		}
+		folded_animation = (function()
+                          local res = util.table.deepcopy(inv_extension2)
+                          res.frame_count = 1
+                          res.line_length = 1
+                          return res
+                       end)(),
+		folding_animation = (function()
+                          local res = util.table.deepcopy(inv_extension2)
+                          res.run_mode = "backward"
+                          return res
+                       end)(),
+		call_for_help_radius = 40			   
+
 	},
-
+	
 	-- Bio Cannon Artillery
    {
 		type = "container",
@@ -94,7 +125,7 @@ data:extend({
 			type = "projectile",
 			ammo_category = "Bio_Cannon_Ammo",
 			cooldown = 2,
-			range = 0,
+			range = 75,
 			projectile_creation_distance = 1.8,
 			action ={}
 		},
