@@ -227,12 +227,16 @@ data:extend({
 		category = "chemistry",
 		subgroup = "intermediate-product",
 		energy_required = 10,
-		ingredients ={{type="fluid", name="liquid-air", amount=2}},
+		ingredients =
+		{
+		  {type="fluid", name="liquid-air", amount=2}
+		},
 		results=
 		{
-			{type="fluid", name="nitrogen", amount=2}
+		  {type="fluid", name="nitrogen", amount=2},
 		},
-		enabled = "false"
+		enabled = "false",
+		main_product= "nitrogen",
 	},
 
 	-- fertiliser--
