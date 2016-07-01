@@ -13,6 +13,7 @@ require ("scripts.legacy") -- From Bob's Libary
 require ("scripts.item-functions") -- From Bob's Libary 
 require ("scripts.recipe-functions") -- From Bob's Libary 
 require ("scripts.technology-functions") -- From Bob's Libary 
+require ("scripts.functions") -- From Bob's Libary 
 require ("scripts.NE_Functions")
 require ("config")
 

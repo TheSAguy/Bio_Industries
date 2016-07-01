@@ -1,6 +1,5 @@
----Bio Industries - v.1.0.5
+---Bio Industries - v.1.0.6
 
---require ("defines")
 require ("util")
 require ("scripts.util_ext")
 require ("control_bio_cannon")
