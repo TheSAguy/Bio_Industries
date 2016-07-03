@@ -49,9 +49,9 @@ if BI_Config.Wood_Products then
 	--- Wood Rail added to Tech 
 	thxbob.lib.add_technology_recipe ("railway", "bi-rail-wood")
 	
-	if data.raw.item["bi-crushed-stone"]  then
+	if data.raw.item["stone-crushed"]  then
 		thxbob.lib.remove_recipe_item ("rail", "stone")
-		thxbob.lib.add_new_recipe_item ("rail", {type="item", name="bi-crushed-stone", amount=6})
+		thxbob.lib.add_new_recipe_item ("rail", {type="item", name="stone-crushed", amount=6})
 	end
 	
 	--- If Bob, move Vanilla Rail to Rail 2.
@@ -79,13 +79,14 @@ end
 if BI_Config.Bio_Farm then	
 	--- Changes fertiliser recipes if bob's
 	if data.raw.item["sodium-hydroxide"] then
-		--thxbob.lib.remove_recipe_item ("bi-fertiliser", "sulfur")
 		thxbob.lib.add_new_recipe_item ("bi-fertiliser-2", {type="item", name="sodium-hydroxide", amount=10})
 		thxbob.lib.add_technology_recipe ("bi-fertiliser", "bi-fertiliser-2")
 		
 	end	
 	
 	
+	--update crushed stone icon
+	data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
 	--- Make Bio Farm use glass if Bob's
 	if data.raw.item.glass  then
 		thxbob.lib.replace_recipe_item("bi_bio_farm", "copper-cable", "glass")

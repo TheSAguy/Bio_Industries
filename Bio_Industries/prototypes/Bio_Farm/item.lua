@@ -183,11 +183,11 @@ data:extend({
 	--- Crushed Stone
 	{
 		type = "item",
-		name = "bi-crushed-stone",
+		name = "stone-crushed",
 		icon = "__Bio_Industries__/graphics/icons/crushed-stone.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
-		order = "a[bi]-a-z[bi-crushed-stone]",
+		order = "a[bi]-a-z[stone-crushed]",
 		stack_size = 100
 	},
 

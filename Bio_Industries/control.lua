@@ -1,4 +1,4 @@
----Bio Industries - v.1.0.6
+---Bio Industries - v.1.0.7
 
 require ("util")
 require ("scripts.util_ext")
@@ -19,17 +19,6 @@ script.on_load(function()
 		end
 	end
 	
-	if global.ts == nil then
-		global.ts = {}
-		global.ts.growing = {}
-	end
-	
-	if not global.numSeedlings then
-          global.numSeedlings = 0
-	elseif global.numSeedlings < 0 then
-          global.numSeedlings = 0
-	end
-	
 	if global.numSeedlings ~= nil then
 		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)		
 	end
@@ -40,7 +29,7 @@ end)
 script.on_init(function()
 	loaded = true
 	
-	if global.Bio_Cannon_Table ~= nil then
+	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
 		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)
 	end
 	
@@ -55,12 +44,30 @@ script.on_init(function()
           global.numSeedlings = 0
 	end
 
-	if global.numSeedlings ~= nil then
-		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)		
+end)
+
+script.on_configuration_changed(function()
+	loaded = true
+	
+	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
+		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)
 	end
+	
+	if global.ts == nil then
+		global.ts = {}
+		global.ts.growing = {}
+	end
+		
+	if not global.numSeedlings then
+          global.numSeedlings = 0
+	elseif global.numSeedlings < 0 then
+          global.numSeedlings = 0
+	end
+
 	
 end)
 ---------------------------------------------------------------------
+
 
 
 script.on_event({defines.events.on_built_entity,}, function(event) On_Built(event) end)

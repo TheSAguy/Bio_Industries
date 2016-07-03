@@ -199,11 +199,11 @@ data:extend({
 		name = "bi-crushed-stone",
 		category = "biofarm-mod-crushing",
 		subgroup = "raw-material",
-		order = "a[bi]-a-z[bi-crushed-stone]",
+		order = "a[bi]-a-z[stone-crushed]",
 		energy_required = 5,
 		ingredients = {{"stone",1}},
-		result = "bi-crushed-stone",
-		result_count = 3,
+		result = "stone-crushed",
+		result_count = 2,
 		enabled = "false"
 	},
 	-- LIQUID-AIR --
@@ -250,7 +250,7 @@ data:extend({
 		ingredients =
 		{
 			{type = "item", name = "sulfur", amount = 1},
-			{type="item", name="bi-crushed-stone", amount=5},
+			{type="item", name="stone-crushed", amount=5},
 			{type="fluid", name="nitrogen", amount=1},
 			{type="item", name="bi-ash", amount=5}
 		},
@@ -272,7 +272,7 @@ data:extend({
 		ingredients =
 		{
 			--{type = "item", name = "sodium-hydroxide", amount = 10},
-			{type="item", name="bi-crushed-stone", amount=5},
+			{type="item", name="stone-crushed", amount=5},
 			{type="fluid", name="nitrogen", amount=1},
 			{type="item", name="bi-ash", amount=5}
 		},

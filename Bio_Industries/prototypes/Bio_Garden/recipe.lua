@@ -13,7 +13,7 @@ data:extend({
 		ingredients =
 		{
 		  {"stone-wall", 12},
-		  {"bi-crushed-stone", 50},
+		  {"stone-crushed", 50},
 		  {"bi-seedling", 50}
 		},
 		result = "bi-Bio_Garden",
