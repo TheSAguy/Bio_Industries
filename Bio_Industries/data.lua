@@ -8,13 +8,13 @@ if not thxbob.lib then thxbob.lib = {} end
 
 
 --- Help Files
-require ("scripts.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
-require ("scripts.legacy") -- From Bob's Libary 
-require ("scripts.item-functions") -- From Bob's Libary 
-require ("scripts.recipe-functions") -- From Bob's Libary 
-require ("scripts.technology-functions") -- From Bob's Libary 
-require ("scripts.functions") -- From Bob's Libary 
-require ("scripts.NE_Functions")
+require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
+require ("libs.legacy") -- From Bob's Libary 
+require ("libs.item-functions") -- From Bob's Libary 
+require ("libs.recipe-functions") -- From Bob's Libary 
+require ("libs.technology-functions") -- From Bob's Libary 
+require ("libs.functions") -- From Bob's Libary 
+require ("libs.NE_Functions")
 require ("config")
 
 --- Bio Farm
@@ -75,7 +75,6 @@ if BI_Config.Wood_Products then
 	require("prototypes.Wood_Products.entities")
 	require("prototypes.Wood_Products.item")
 	require("prototypes.Wood_Products.recipe")
---	require("prototypes.Wood_Products.demo-railpictures-concrete")
 	
 
 end

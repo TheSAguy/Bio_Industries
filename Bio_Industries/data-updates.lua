@@ -1,10 +1,10 @@
 
 --- Help Files
-require ("scripts.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
-require ("scripts.item-functions") -- From Bob's Libary 
-require ("scripts.recipe-functions") -- From Bob's Libary 
-require ("scripts.technology-functions") -- From Bob's Libary 
-require ("scripts.legacy") -- From Bob's Libary 
+require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
+require ("libs.item-functions") -- From Bob's Libary 
+require ("libs.recipe-functions") -- From Bob's Libary 
+require ("libs.technology-functions") -- From Bob's Libary 
+require ("libs.legacy") -- From Bob's Libary 
 require ("config")
 
 ---- Inrease Wood Stack Size
@@ -13,6 +13,11 @@ data.raw.item["raw-wood"].stack_size = 400
 --- Move Stone Crusher up
 thxbob.lib.add_technology_recipe ("automation-2", "bi-stone-crusher")
 thxbob.lib.add_technology_recipe ("automation-2", "bi-crushed-stone")
+
+
+--- Concrete Recipe Tweak
+thxbob.lib.remove_recipe_item ("concrete", "iron-ore")
+thxbob.lib.add_new_recipe_item ("concrete", {type="item", name="iron-stick", amount=2})
 
 
 --- Got tierd of reaching limits...
@@ -97,33 +102,40 @@ if BI_Config.Bio_Farm then
 	end
 	
 	------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
-	if BI_Config.mod.NEBuildings then
-		require("prototypes.Bio_Farm.technology2")
-		thxbob.lib.add_new_recipe_item ("bi-Logs_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
-		thxbob.lib.add_new_recipe_item ("bi-adv-fertiliser", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
+		if BI_Config.mod.NEBuildings then
+			require("prototypes.Bio_Farm.technology2")
+			thxbob.lib.add_new_recipe_item ("bi-Logs_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
+			thxbob.lib.add_new_recipe_item ("bi-adv-fertiliser", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
 
-		--- Adds Clean Air 2 recipe - Using Advanced fertiliser
-		if BI_Config.Bio_Garden then
-			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Clean_Air2")
-			table.insert(data.raw.recipe["bi-Clean_Air2"].ingredients,{type="item", name="bi-adv-fertiliser", amount=1})
-		end
-		
-	---- Add Bio Fuel & Plastic
-		if BI_Config.Bio_Fuel then 
-			require("prototypes.Bio_Fuel.fluid")
-			require("prototypes.Bio_Fuel.recipe")
-			require("prototypes.Bio_Fuel.technology")
-			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-bioreactor")
-			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-liquid-co2")
-			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-cellulose")
-			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-biomass-0")
-			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Bio_Fuel")
-			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Fuel_Conversion")
-			thxbob.lib.add_new_recipe_item ("bi-Bio_Fuel", {type="fluid", name="NE_revitalization-solution", amount=10})
-		end
-		
-	end
+			--- Adds Clean Air 2 recipe - Using Advanced fertiliser
+			if BI_Config.Bio_Garden then
+				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Clean_Air2")
+				table.insert(data.raw.recipe["bi-Clean_Air2"].ingredients,{type="item", name="bi-adv-fertiliser", amount=1})
+			end
+			
+		---- Add Bio Fuel & Plastic
+			if BI_Config.Bio_Fuel then 
+				require("prototypes.Bio_Fuel.item")
+				require("prototypes.Bio_Fuel.fluid")
+				require("prototypes.Bio_Fuel.recipe")
+				require("prototypes.Bio_Fuel.entities")
+				require("prototypes.Bio_Fuel.technology")
+				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-bioreactor")
+				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-liquid-co2")
+				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-cellulose")
+				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-biomass-0")
+				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Bio_Fuel")
+				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Fuel_Conversion")
+				thxbob.lib.add_new_recipe_item ("bi-Bio_Fuel", {type="fluid", name="NE_revitalization-solution", amount=10})
 
+			end
+			
+		end
+
+	
+
+		
+	
 
 	------- DyTech Support
 	if BI_Config.mod.DyTechCore then

@@ -103,7 +103,7 @@ data:extend({
 		stack_size = 10
 	},
 
-
+--[[
 	--- BioReactor
 	{
 		type = "item",
@@ -130,7 +130,7 @@ data:extend({
 		order = "b[cellulose]",
 		stack_size = 200
 	},
-
+]]
   --- Wood Pulp
 	{
 		type = "item",

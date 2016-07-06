@@ -1,8 +1,8 @@
 ---Bio Industries - v.1.0.9
 
 require ("util")
-require ("scripts.util_ext")
-require ("control_bio_cannon")
+require ("libs/util_ext")
+require ("libs/event")
 
 
 local loaded
@@ -15,12 +15,12 @@ script.on_load(function()
 	if not loaded then
 		loaded = true
 		if global.Bio_Cannon_Table ~= nil then
-			script.on_event(defines.events.on_tick, function(event)	ticker(event) end)			
+			Event.register(defines.events.on_tick, function(event) end)			
 		end
 	end
 	
 	if global.numSeedlings ~= nil then
-		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)		
+		Event.register(defines.events.on_tick, function(event) end)		
 	end
 	
 end)
@@ -30,7 +30,7 @@ script.on_init(function()
 	loaded = true
 	
 	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
-		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)
+		Event.register(defines.events.on_tick, function(event) end)
 	end
 	
 	if global.ts == nil then
@@ -50,7 +50,7 @@ script.on_configuration_changed(function()
 	loaded = true
 	
 	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
-		script.on_event(defines.events.on_tick, function(event)	ticker(event) end)
+		Event.register(defines.events.on_tick, function(event) end)
 	end
 	
 	if global.ts == nil then
@@ -189,7 +189,7 @@ function On_Built(event)
 		
 		if global.Bio_Cannon_Table == nil then
 			global.Bio_Cannon_Table = {}
-			script.on_event(defines.events.on_tick, function(event)	ticker(event) end)
+			Event.register(defines.events.on_tick, function(event) end)
 		end
 
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonI,New_Bio_CannonR,0})
@@ -334,78 +334,80 @@ end
 
 --------------------
 
+Event.register(defines.events.on_tick, function(event)	
 
-function ticker(event) 
 ---- Growing Tree
-  if game.tick % 60 == 0 and global.numSeedlings > 0 then
+	if game.tick % 60 == 0 and global.numSeedlings > 0 then
 
-    for k, v in pairs(global.ts.growing) do
-      if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
-        local foundtree = false
-		local surface = game.surfaces['nauvis']
-  		local force = k.force
-		local entities = surface.find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
-		local currentTilename = surface.get_tile(k.x, k.y).name
-		writeDebug("The current tile is: " .. currentTilename)
-		
-		for _,entity in pairs(entities) do
-			entity.destroy()
-			global.numSeedlings = global.numSeedlings - 1
-		if global.numSeedlings < 0 then
-			global.numSeedlings = 0
+		for k, v in pairs(global.ts.growing) do
+			if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
+				local foundtree = false
+				local surface = game.surfaces['nauvis']
+				local force = k.force
+				local entities = surface.find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
+				local currentTilename = surface.get_tile(k.x, k.y).name
+				writeDebug("The current tile is: " .. currentTilename)
+				
+				for _,entity in pairs(entities) do
+					entity.destroy()
+					global.numSeedlings = global.numSeedlings - 1
+				if global.numSeedlings < 0 then
+					global.numSeedlings = 0
+				end
+					writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+					foundtree = true
+				end
+				
+				--- Depending on Terain, choose tree type & Convert seedling into a tree
+				local growth_chance = math.random(100)
+				if 	currentTilename == "grass" then 
+					treetype = "tree-05"
+					if growth_chance > 5 and foundtree then
+						surface.create_entity({ name=treetype, amount=1, position=k})
+					end
+					
+				elseif currentTilename == "grass-medium" then 
+					treetype = "tree-04"
+					if growth_chance > 10 and foundtree then
+						surface.create_entity({ name=treetype, amount=1, position=k})
+					end
+				
+				elseif currentTilename == "grass-dry" then 
+					treetype = math.random(2)
+					treetype = "tree-0".. treetype
+					if growth_chance > 20 and foundtree then
+						surface.create_entity({ name=treetype, amount=1, position=k})
+					end
+				
+				elseif currentTilename == "dirt" or currentTilename == "dirt-dark" then 
+					treetype = math.random(2)
+					treetype = treetype + 5
+					treetype = "tree-0".. treetype
+					if growth_chance > 80 and foundtree then
+						surface.create_entity({ name=treetype, amount=1, position=k})
+					end
+				
+				else
+					treetype = math.random(3)
+					if treetype == 1 then
+						treetype = "tree-03"
+					elseif treetype == 2 then
+						treetype = "tree-08"
+					else
+						treetype = "tree-09"
+					end
+					if growth_chance > 50 and foundtree then
+						surface.create_entity({ name=treetype, amount=1, position=k})
+					end
+				
+				end		
+				global.ts.growing[k] = nil
+			end
 		end
-			writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
-			foundtree = true
-        end
-        
-		--- Depending on Terain, choose tree type & Convert seedling into a tree
-		local growth_chance = math.random(100)
-		if 	currentTilename == "grass" then 
-			treetype = "tree-05"
-			if growth_chance > 5 and foundtree then
-				surface.create_entity({ name=treetype, amount=1, position=k})
-			end
-			
-		elseif currentTilename == "grass-medium" then 
-			treetype = "tree-04"
-			if growth_chance > 10 and foundtree then
-				surface.create_entity({ name=treetype, amount=1, position=k})
-			end
-		
-		elseif currentTilename == "grass-dry" then 
-			treetype = math.random(2)
-			treetype = "tree-0".. treetype
-			if growth_chance > 20 and foundtree then
-				surface.create_entity({ name=treetype, amount=1, position=k})
-			end
-		
-		elseif currentTilename == "dirt" or currentTilename == "dirt-dark" then 
-			treetype = math.random(2)
-			treetype = treetype + 5
-			treetype = "tree-0".. treetype
-			if growth_chance > 80 and foundtree then
-				surface.create_entity({ name=treetype, amount=1, position=k})
-			end
-		
-		else
-			treetype = math.random(3)
-			if treetype == 1 then
-				treetype = "tree-03"
-			elseif treetype == 2 then
-				treetype = "tree-08"
-			else
-				treetype = "tree-09"
-			end
-			if growth_chance > 50 and foundtree then
-				surface.create_entity({ name=treetype, amount=1, position=k})
-			end
-		
-		end		
-        global.ts.growing[k] = nil
-      end
-    end
-  end
-  
+	end
+end)
+
+ Event.register(defines.events.on_tick, function(event)	 
   --- Bio Cannon stuff
   	if global.Bio_Cannon_Table ~= nil then
 		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
@@ -434,11 +436,88 @@ function ticker(event)
 		end
 	else
 
-		script.on_event(defines.events.on_tick, function(event)	ticker() end)
+		 Event.register(defines.events.on_tick, function() end)
 		
 	end
   
+end)
+
+
+
+function Bio_Cannon_Check(Bio_Cannon_List)
+	
+	local Bio_Cannon=Bio_Cannon_List[1]
+	local Bio_Cannoni=Bio_Cannon_List[2]
+	local inventory = Bio_Cannoni.get_inventory(1)
+	local inventoryContent = inventory.get_contents()
+	local AmmoType
+	local ammo = 0
+	local spawner
+	local target
+	local delay
+
+	
+	if inventoryContent ~= nil then
+		for n,a in pairs(inventoryContent) do
+			AmmoType=n
+			ammo=a
+		end
+	end
+	
+	if ammo > 0 and Bio_Cannon_List[3].energy > 0 then	
+			
+			local radius = 75
+			local pos = Bio_Cannon.position
+			local area = {{pos.x - radius, pos.y - radius}, {pos.x + radius, pos.y + radius}}
+	
+			--- Look for spawners
+			spawner = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
+				
+			writeDebug("The Number of Spawners are: " .. #spawner)
+			--Find Spawner Target
+			if #spawner > 0 and target == nil then
+				for _,enemy in pairs(spawner) do
+					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
+					writeDebug("The Distance is: " .. distance)
+					if (distance > 10) and (distance < (radius+1)) then
+					
+						if target == nil then
+							target={enemy}
+						end
+					end
+				end
+			end
+
+
+		--Fire at Spawner
+		if target ~= nil then
+
+			Bio_Cannon.surface.create_entity({name=AmmoType, position = {x = Bio_Cannon.position.x - 0.5, y = Bio_Cannon.position.y - 4.5}, force = Bio_Cannon.force, target = target[1], speed= 0.1})
+			Bio_Cannon.surface.pollute(Bio_Cannon.position,100) -- The firing of the Hive Buster will causes Pollution
+			Bio_Cannon.surface.set_multi_command{command = {type=defines.command.attack, target=Bio_Cannon, distraction=defines.distraction.by_enemy},unit_count = math.floor(100 * game.evolution_factor), unit_search_distance = 500}
+			
+			--Reduce Ammo
+			ammo = ammo-1
+			inventory.clear()
+			if ammo > 0 then
+				inventory.insert({name = AmmoType, count = ammo})
+			end
+			
+			--Delay between shots
+			if AmmoType == "Bio_Cannon_Basic_Ammo" then 
+				delay = 10
+			elseif AmmoType == "Bio_Cannon_Poison_Ammo" then 
+				delay = 15
+			else 
+			delay = 20
+			end
+			
+			Bio_Cannon_List[4]=delay
+			
+		end
+	end
 end
+
 
 --- Utils for grouping
 function group_entities(entity_list)
@@ -470,44 +549,3 @@ function writeDebug(message)
 	end
 end
 
-if BI_Config.QCCode then 
-
-	script.on_event(defines.events.on_player_created, function(event)
-		local player = game.players[event.player_index]
-		start_items(player)
-
-	end)
-
-
-	function start_items(player)
-
-		player.insert{name="iron-plate", count=100}
-		player.insert{name="electronic-circuit", count=200}
-		player.insert{name="steel-plate", count=50}
-		player.insert{name="copper-plate", count=50}
-		player.insert{name="iron-gear-wheel", count=50}
-		player.insert{name="stone", count=50}
-		player.insert{name="steel-axe", count=3}				  
-		player.insert{name="submachine-gun", count=1}
-		player.insert{name="piercing-rounds-magazine", count=150}  
-		player.insert{name="combat-shotgun", count=1}
-		player.insert{name="piercing-shotgun-shell", count=50}  
-		player.insert{name="rail", count=50}  
-		player.insert{name="bi-rail-wood", count=50}  
-		player.insert{name="bi_bio_farm", count=5}  
-		player.insert{name="Bio_Cannon_Area", count=2}
-		player.insert{name="Bio_Cannon_Basic_Ammo", count=20}
-		player.insert{name="Bio_Cannon_Poison_Ammo", count=20}
-		player.insert{name="bi_bio_Solar_Farm", count=2}
-		player.insert{name="burner-inserter", count=50}
-		player.insert{name="inserter", count=30}
-		player.insert{name="transport-belt", count=200}
-		player.insert{name="small-electric-pole", count=20}
-		player.insert{name="burner-mining-drill", count=20}
-		player.insert{name="stone-furnace", count=35}
-		player.insert{name="assembling-machine-1", count=20}
-		player.insert{name="bi-seedling", count=50}
-
-	end
-
-end

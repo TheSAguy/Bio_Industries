@@ -501,7 +501,7 @@ data:extend(
 		energy_usage = "50kW"
 	},
 	
-
+--[[
 	-- BIOREACTOR
 	{
 		type = "assembling-machine",
@@ -580,6 +580,6 @@ data:extend(
 		crafting_speed = 1,
 		energy_usage = "10kW"
 	},
-
-  }
-)
+	]]
+	
+})

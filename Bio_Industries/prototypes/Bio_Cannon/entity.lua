@@ -125,7 +125,7 @@ data:extend({
 			type = "projectile",
 			ammo_category = "Bio_Cannon_Ammo",
 			cooldown = 2,
-			range = 75,
+			range = 0,
 			projectile_creation_distance = 1.8,
 			action ={}
 		},

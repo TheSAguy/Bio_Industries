@@ -80,6 +80,23 @@ data:extend({
 		enabled = "false"
 	},
 	
+		
+	-- LIQUID CO2
+	{
+		type = "recipe",
+		name = "bi-liquid-co2",
+		category = "chemistry",	
+		energy_required = 10,
+		ingredients ={{type="fluid", name="liquid-air", amount=1}},
+		results=
+		{
+			{type="fluid", name="bi-liquid-co2", amount=1}
+		},
+		enabled = "false",
+		subgroup = "fluid-recipes",
+		order = "x[oil-processing]-z[bi-liquid-co2]"
+	},
+	
 		-- BIOMASS --
 	{
 		type = "recipe",
@@ -119,20 +136,5 @@ data:extend({
 		},
 		enabled = "false",
 	},
-	
-	-- LIQUID CO2
-	{
-		type = "recipe",
-		name = "bi-liquid-co2",
-		category = "chemistry",	
-		energy_required = 10,
-		ingredients ={{type="fluid", name="liquid-air", amount=1}},
-		results=
-		{
-			{type="fluid", name="bi-liquid-co2", amount=1}
-		},
-		enabled = "false",
-		subgroup = "fluid-recipes",
-		order = "x[oil-processing]-z[bi-liquid-co2]"
-	},
+
 })
