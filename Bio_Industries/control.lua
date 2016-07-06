@@ -1,37 +1,25 @@
----Bio Industries - v.1.0.9
+---Bio Industries - v.1.1.0
 
 require ("util")
 require ("libs/util_ext")
 require ("libs/event")
 
 
-local loaded
+
 if not BI_Config then BI_Config = {} end
 require ("config")
 
 --------------------------------------------------------------------
 script.on_load(function()
 
-	if not loaded then
-		loaded = true
-		if global.Bio_Cannon_Table ~= nil then
-			Event.register(defines.events.on_tick, function(event) end)			
-		end
-	end
-	
-	if global.numSeedlings ~= nil then
-		Event.register(defines.events.on_tick, function(event) end)		
+	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
+		Event.register(defines.events.on_tick, function(event) end)
 	end
 	
 end)
 
 
 script.on_init(function()
-	loaded = true
-	
-	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
-		Event.register(defines.events.on_tick, function(event) end)
-	end
 	
 	if global.ts == nil then
 		global.ts = {}
@@ -47,7 +35,6 @@ script.on_init(function()
 end)
 
 script.on_configuration_changed(function()
-	loaded = true
 	
 	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
 		Event.register(defines.events.on_tick, function(event) end)
@@ -407,6 +394,8 @@ Event.register(defines.events.on_tick, function(event)
 	end
 end)
 
+
+----- Bio Cannon Stuff
  Event.register(defines.events.on_tick, function(event)	 
   --- Bio Cannon stuff
   	if global.Bio_Cannon_Table ~= nil then
@@ -436,12 +425,11 @@ end)
 		end
 	else
 
-		 Event.register(defines.events.on_tick, function() end)
+		-- Event.register(defines.events.on_tick, function() end)
 		
 	end
   
 end)
-
 
 
 function Bio_Cannon_Check(Bio_Cannon_List)
