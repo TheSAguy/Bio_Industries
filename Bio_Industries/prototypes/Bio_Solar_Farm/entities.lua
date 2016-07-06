@@ -13,14 +13,15 @@ data:extend({
 	flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable"},
 	selectable_in_game = false,
     max_health = 1,
-    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
+	collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
+    selection_box = {{-0.2, -0.2}, {0.2, 0.2}},
 	energy_source =
     {
       type = "electric",
       usage_priority = "secondary-input"
     },
     energy_usage_per_tick = "1kW",
-	light = {intensity = 0, size = 0},
+	light = {intensity = 0.1, size = 1},
     picture_off =
     {
       filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On.png",

@@ -21,6 +21,10 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi_bio_farm"
 			},		
+	--		{
+	--			type = "unlock-recipe",
+	--			recipe = "bi-stone-crusher"
+	--		},
 		},
 		prerequisites = {"optics"},
 		unit =
@@ -132,11 +136,6 @@ data:extend({
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Fertiliser_128.png",
 		effects = {
-
-			{
-				type = "unlock-recipe",
-				recipe = "bi-stone-crusher"
-			},
 			{
 				type = "unlock-recipe",
 				recipe = "bi-crushed-stone"

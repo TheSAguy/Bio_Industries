@@ -10,6 +10,10 @@ require ("config")
 ---- Inrease Wood Stack Size
 data.raw.item["raw-wood"].stack_size = 400
 
+--- Move Stone Crusher up
+thxbob.lib.add_technology_recipe ("automation-2", "bi-stone-crusher")
+thxbob.lib.add_technology_recipe ("automation-2", "bi-crushed-stone")
+
 
 --- Got tierd of reaching limits...
 if BI_Config.QCCode then
