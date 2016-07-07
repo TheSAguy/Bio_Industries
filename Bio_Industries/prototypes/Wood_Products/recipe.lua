@@ -34,7 +34,7 @@ data:extend({
 		enabled = false,
 		ingredients =
 		{
-		  {"stone-crushed", 6},
+		  {"stone", 1},
 		  {"iron-stick", 1},
 		  {"steel-plate", 1},
 		  {"raw-wood", 4}

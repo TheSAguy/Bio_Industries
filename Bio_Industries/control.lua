@@ -1,4 +1,4 @@
----Bio Industries - v.1.1.2
+---Bio Industries - v.1.1.3
 
 require ("util")
 require ("libs/util_ext")
@@ -18,7 +18,6 @@ script.on_load(function()
 	
 end)
 
-
 script.on_init(function()
 	
 	if global.ts == nil then
@@ -32,6 +31,10 @@ script.on_init(function()
           global.numSeedlings = 0
 	end
 
+	if global.Bio_Walls_Table == nil then
+          global.Bio_Walls_Table = {}
+	end
+	
 end)
 
 script.on_configuration_changed(function()
@@ -51,6 +54,9 @@ script.on_configuration_changed(function()
           global.numSeedlings = 0
 	end
 
+	if global.Bio_Walls_Table == nil then
+          global.Bio_Walls_Table = {}
+	end
 	
 end)
 ---------------------------------------------------------------------
@@ -142,8 +148,6 @@ function On_Built(event)
 	end
 	
 	--- Bio Cannon has been built
-
-
 	if entity.name == "Bio_Cannon_Area" then
 	
 	local New_Bio_Cannon
@@ -180,6 +184,21 @@ function On_Built(event)
 		end
 
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonI,New_Bio_CannonR,0})
+		
+	end
+
+	--- Bio Wall built
+	if entity.name == "living-wall" then
+		if global.Bio_Walls_Table == nil then
+          global.Bio_Walls_Table = {}
+		end
+		writeDebug("Bio Wall has been built")				
+		--local surface = entity.surface
+		--local force = entity.force
+		--local position = entity.position
+		local Created_BioWall = event.created_entity
+		
+		table.insert(global.Bio_Walls_Table, Created_BioWall)
 		
 	end
 	
@@ -321,9 +340,10 @@ end
 
 --------------------
 
+---- Growing Tree
 Event.register(defines.events.on_tick, function(event)	
 
----- Growing Tree
+
 	if game.tick % 60 == 0 and global.numSeedlings > 0 then
 
 		for k, v in pairs(global.ts.growing) do
@@ -395,6 +415,29 @@ Event.register(defines.events.on_tick, function(event)
 end)
 
 
+---- Bio Wall Stuff
+Event.register(defines.events.on_tick, function(event)	
+
+	if game.tick % 60 == 0 and global.Bio_Walls_Table ~= nil then
+
+		for k,BioWall in pairs(global.Bio_Walls_Table) do
+			if BioWall.valid then
+				local HP = BioWall.health
+				local hp_regen = 5
+				if HP < 350 then
+					NewHP = HP + hp_regen
+					BioWall.health = NewHP
+				end
+			else
+				table.remove(global.Bio_Walls_Table, k)
+			end
+		end
+	end
+	
+
+end)
+
+
 ----- Bio Cannon Stuff
  Event.register(defines.events.on_tick, function(event)	 
   --- Bio Cannon stuff
@@ -430,6 +473,8 @@ end)
 	end
   
 end)
+
+
 
 
 function Bio_Cannon_Check(Bio_Cannon_List)

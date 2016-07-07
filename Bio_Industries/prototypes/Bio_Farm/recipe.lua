@@ -36,7 +36,7 @@ data:extend({
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood1]",
 		enabled = "false",
-		energy_required = 500,
+		energy_required = 600,
 		ingredients =
 		{
 			{type="item", name="bi-seedling", amount=20},     

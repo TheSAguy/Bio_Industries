@@ -23,13 +23,6 @@ YuokiTani - Art - Amazing Work!!
 ---------------------------------------------------------------------------]]
 
 
-BI.Bio_Farm = true -- Just leave that as True!
---- Enable the Bio Farm
---- Base part of the mod. 
-
-BI.Bio_Fuel = true -- Bio Farm must be true and you have to play with Natural Evolution Buildings mod.
---- Enable the Bio Fuel. Make fuel from plants and animals. (You'll need Natural Evolution Buildings mod for this to work.)
-
 
 BI.Bio_Garden = true -- Bio Farm must be true. It uses fertiliser...
 --- Enable the Bio Garden
@@ -45,6 +38,9 @@ BI.Bio_Cannon = true
 --- Enable the Bio Conno - Turrent that only fires at Spawners. Has a range of 75.
 
 
+BI.Bio_Fuel = true -- Bio Farm must be true and you have to play with Natural Evolution Buildings mod.
+--- Enable the Bio Fuel. Make fuel from plants and animals. (You'll need Natural Evolution Buildings mod for this to work.)
+--- Enable Plastic
 
 
 BI.Wood_Products = true
@@ -54,9 +50,32 @@ BI.Wood_Products = true
 	-- Wood Flooring
 	-- Wood Rail (Uses wood. Vanilla rail now uses Concrete)
 
+
+BI.Bio_Wall = true
+--- Enables new walls
+
+
+	
+BI.Recipe_Tweaks = true
+--- Making some Vanilla recipe's more realistic.
+--- Stone Wall: adds Iron Sticks (Rebarb) to recipe
+--- Concrete: Uses Iron Sticks (Rebarb) and not Iron-Ore
+--- Rail (Vanilla and Wood): Uses Crushed Stone and not Stone
+--- Trees Give Random 1 - 7 Raw Wood.
+	
+	
+	
+	
+	
 ----------------------------- END -------------------------------------------
 
-BI.QCCode = false
+
+BI.Bio_Farm = true -- Just leave that as True! (Core Module)
+--- Enable the Bio Farm
+--- Base part of the mod. 
+
+
+BI.QCCode = true
 -- Used for QC
 -- Displays messages used for checking my code
 

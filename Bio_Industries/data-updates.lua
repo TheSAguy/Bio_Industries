@@ -10,16 +10,36 @@ require ("config")
 ---- Inrease Wood Stack Size
 data.raw.item["raw-wood"].stack_size = 400
 
---- Move Stone Crusher up
+--- Move Stone Crusher up in tech tree
 thxbob.lib.add_technology_recipe ("automation-2", "bi-stone-crusher")
 thxbob.lib.add_technology_recipe ("automation-2", "bi-crushed-stone")
 
 
---- Concrete Recipe Tweak
-thxbob.lib.remove_recipe_item ("concrete", "iron-ore")
-thxbob.lib.add_new_recipe_item ("concrete", {type="item", name="iron-stick", amount=2})
 
+if BI_Config.Recipe_Tweaks then
+	--- Concrete Recipe Tweak
+	thxbob.lib.remove_recipe_item ("concrete", "iron-ore")
+	thxbob.lib.add_new_recipe_item ("concrete", {type="item", name="iron-stick", amount=2})
+	--- Stone Wall
+	thxbob.lib.add_new_recipe_item ("stone-wall", {type="item", name="iron-stick", amount=1})
 
+	--- Rail
+	if data.raw.item["stone-crushed"] and BI_Config.Wood_Products then
+		thxbob.lib.remove_recipe_item ("rail", "stone")
+		thxbob.lib.add_new_recipe_item ("rail", {type="item", name="stone-crushed", amount=6})
+		thxbob.lib.remove_recipe_item ("bi-rail-wood", "stone")
+		thxbob.lib.add_new_recipe_item ("bi-rail-wood", {type="item", name="stone-crushed", amount=6})
+	end
+	
+	--- Trees Give Random 1 - 7 Raw Wood.
+	for i = 1, 9, 1 do
+		local tree_name = "tree-0" .. i
+		data.raw.tree[tree_name].minable = 	{mining_particle = "wooden-particle", mining_time = 2, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 7},}}
+  	end
+	
+end
+
+	
 --- Got tierd of reaching limits...
 if BI_Config.QCCode then
 	if data.raw.player.player.build_distance < 24 then
@@ -47,7 +67,6 @@ if BI_Config.Wood_Products then
 	-- vanilla rail recipe update
 	thxbob.lib.add_new_recipe_item ("rail", {type="item", name="concrete", amount=8})
 	
-
 	-- vanilla rail icon & images update
 	data.raw["straight-rail"]["straight-rail"].pictures = railpictures_c()
 	data.raw["curved-rail"]["curved-rail"].pictures = railpictures_c()
@@ -58,10 +77,6 @@ if BI_Config.Wood_Products then
 	--- Wood Rail added to Tech 
 	thxbob.lib.add_technology_recipe ("railway", "bi-rail-wood")
 	
-	if data.raw.item["stone-crushed"]  then
-		thxbob.lib.remove_recipe_item ("rail", "stone")
-		thxbob.lib.add_new_recipe_item ("rail", {type="item", name="stone-crushed", amount=6})
-	end
 	
 	--- If Bob, move Vanilla Rail to Rail 2.
 	if data.raw.technology["bob-railway-2"] then
@@ -96,6 +111,8 @@ if BI_Config.Bio_Farm then
 	
 	--update crushed stone icon
 	data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
+	
+	
 	--- Make Bio Farm use glass if Bob's
 	if data.raw.item.glass  then
 		thxbob.lib.replace_recipe_item("bi_bio_farm", "copper-cable", "glass")
@@ -133,8 +150,6 @@ if BI_Config.Bio_Farm then
 		end
 
 	
-
-		
 	
 
 	------- DyTech Support

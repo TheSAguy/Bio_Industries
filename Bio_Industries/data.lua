@@ -80,4 +80,14 @@ if BI_Config.Wood_Products then
 end
 
 
+--- Bio Wall
+if BI_Config.Bio_Wall then
+
+	require("prototypes.Bio_Wall.entities")
+	require("prototypes.Bio_Wall.item")
+	require("prototypes.Bio_Wall.recipe")
+	require("prototypes.Bio_Wall.walls_tint")
+	--require("prototypes.Bio_Wall.technology")
+
+end
 
