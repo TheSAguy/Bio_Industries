@@ -1,15 +1,7 @@
 
 require("prototypes.Wood_Products.demo-railpictures-wood")
 
---[[
-require("prototypes.Wood_Products.demo-railpictures-concrete")
 
-
-railpictures_c = function()
-  return railpicturesinternal_c({{"metals", "metals"}, {"backplates", "backplates"}, {"ties", "ties"}, {"stone_path", "stone-path"}})
-end
-
-]]
 railpictures = function()
   return railpicturesinternal({{"metals", "metals"}, {"backplates", "backplates"}, {"ties", "ties"}, {"stone_path", "stone-path"}})
 end
@@ -497,36 +489,8 @@ data:extend({
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
     pictures = railpictures(),
-	placeable_by = { item="rail", count = 4}
+	placeable_by = { item="bi-rail-wood", count = 4}
   },
 
-  --[[
- {
-    type = "straight-rail",
-    name = "straight-rail",
-    icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png",
-    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
-    minable = {mining_time = 1, result = "straight-rail"},
-    max_health = 100,
-    corpse = "straight-rail-remnants",
-    collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
-    selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
-    rail_category = "regular",
-    pictures = railpictures_c(),
-  },
-  {
-    type = "curved-rail",
-    name = "curved-rail",
-    icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png",
-    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
-    minable = {mining_time = 1, result = "curved-rail"},
-    max_health = 200,
-    corpse = "curved-rail-remnants",
-    collision_box = {{-0.75, -0.55}, {0.75, 1.6}},
-    secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
-    selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
-    rail_category = "regular",
-    pictures = railpictures_c(),
-  },
-]]
+
 })
