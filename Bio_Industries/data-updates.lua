@@ -32,11 +32,11 @@ if BI_Config.Recipe_Tweaks then
 	end
 	
 	--- Trees Give Random 1 - 7 Raw Wood.
-	for i = 1, 9, 1 do
-		local tree_name = "tree-0" .. i
-		data.raw.tree[tree_name].minable = 	{mining_particle = "wooden-particle", mining_time = 2, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 7},}}
-  	end
-	
+	for _,tree in pairs(data.raw["tree"]) do
+		tree.minable = 	{mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6},}}
+		tree.collision_box = {{-0.08, -0.08}, {0.08, 0.08}}
+	end
+
 end
 
 	

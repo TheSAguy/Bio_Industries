@@ -75,7 +75,7 @@ BI.Bio_Farm = true -- Just leave that as True! (Core Module)
 --- Base part of the mod. 
 
 
-BI.QCCode = true
+BI.QCCode = false
 -- Used for QC
 -- Displays messages used for checking my code
 

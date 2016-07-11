@@ -423,7 +423,7 @@ Event.register(defines.events.on_tick, function(event)
 		for k,BioWall in pairs(global.Bio_Walls_Table) do
 			if BioWall.valid then
 				local HP = BioWall.health
-				local hp_regen = 5
+				local hp_regen = 1
 				if HP < 350 then
 					NewHP = HP + hp_regen
 					BioWall.health = NewHP
@@ -440,7 +440,7 @@ end)
 
 ----- Bio Cannon Stuff
  Event.register(defines.events.on_tick, function(event)	 
-  --- Bio Cannon stuff
+
   	if global.Bio_Cannon_Table ~= nil then
 		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
 			global.Bio_Cannon_Counter = 60		

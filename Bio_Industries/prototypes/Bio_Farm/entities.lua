@@ -23,9 +23,9 @@ data:extend({
     emissions_per_tick = -0.0006,
     max_health = 5,
 
-    collision_box = {{-0.65, -0.65}, {0.65, 0.65}},
-    selection_box = {{-0.7, -0.7}, {0.7, 0.7}},
-    drawing_box = {{-0.7, -0.7}, {0.7, 0.7}},
+    collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    --drawing_box = {{-0.7, -0.7}, {0.7, 0.7}},
     --subgroup = "trees",
 	subgroup = "intermediate-product",
 
