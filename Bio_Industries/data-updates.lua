@@ -31,12 +31,19 @@ if BI_Config.Recipe_Tweaks then
 		thxbob.lib.add_new_recipe_item ("bi-rail-wood", {type="item", name="stone-crushed", amount=6})
 	end
 	
-	--- Trees Give Random 1 - 7 Raw Wood.
+	--- Trees Give Random 1 - 6 Raw Wood.
 	for _,tree in pairs(data.raw["tree"]) do
+		tree.collision_box = {{-0.08, -0.08}, {0.08, 0.08}}	
+		if not (tree.name =="dead-tree" or tree.name == "dry-tree" or tree.name == "green-coral" or tree.name == "dead-grey-trunk" or tree.name == "dry-hairy-tree" or tree.name == "dead-dry-hairy-tree") then  
 		tree.minable = 	{mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6},}}
-		tree.collision_box = {{-0.08, -0.08}, {0.08, 0.08}}
+		end
 	end
+	
 
+	-- Make Steel Axe use Iron Axe as an upgrade
+	thxbob.lib.remove_recipe_item ("steel-axe", "iron-stick")
+	thxbob.lib.add_new_recipe_item ("steel-axe", {type="item", name="iron-axe", amount=1})
+	
 end
 
 	
@@ -129,6 +136,7 @@ if BI_Config.Bio_Farm then
 				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Clean_Air2")
 				table.insert(data.raw.recipe["bi-Clean_Air2"].ingredients,{type="item", name="bi-adv-fertiliser", amount=1})
 			end
+			
 			
 		---- Add Bio Fuel & Plastic
 			if BI_Config.Bio_Fuel then 

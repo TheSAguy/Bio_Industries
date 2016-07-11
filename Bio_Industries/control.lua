@@ -1,4 +1,4 @@
----Bio Industries - v.1.1.3
+---Bio Industries - v.1.2.0
 
 require ("util")
 require ("libs/util_ext")
@@ -31,9 +31,6 @@ script.on_init(function()
           global.numSeedlings = 0
 	end
 
-	if global.Bio_Walls_Table == nil then
-          global.Bio_Walls_Table = {}
-	end
 	
 end)
 
@@ -52,10 +49,6 @@ script.on_configuration_changed(function()
           global.numSeedlings = 0
 	elseif global.numSeedlings < 0 then
           global.numSeedlings = 0
-	end
-
-	if global.Bio_Walls_Table == nil then
-          global.Bio_Walls_Table = {}
 	end
 	
 end)
@@ -187,20 +180,7 @@ function On_Built(event)
 		
 	end
 
-	--- Bio Wall built
-	if entity.name == "living-wall" then
-		if global.Bio_Walls_Table == nil then
-          global.Bio_Walls_Table = {}
-		end
-		writeDebug("Bio Wall has been built")				
-		--local surface = entity.surface
-		--local force = entity.force
-		--local position = entity.position
-		local Created_BioWall = event.created_entity
-		
-		table.insert(global.Bio_Walls_Table, Created_BioWall)
-		
-	end
+
 	
 end
 
@@ -412,29 +392,6 @@ Event.register(defines.events.on_tick, function(event)
 			end
 		end
 	end
-end)
-
-
----- Bio Wall Stuff
-Event.register(defines.events.on_tick, function(event)	
-
-	if game.tick % 60 == 0 and global.Bio_Walls_Table ~= nil then
-
-		for k,BioWall in pairs(global.Bio_Walls_Table) do
-			if BioWall.valid then
-				local HP = BioWall.health
-				local hp_regen = 1
-				if HP < 350 then
-					NewHP = HP + hp_regen
-					BioWall.health = NewHP
-				end
-			else
-				table.remove(global.Bio_Walls_Table, k)
-			end
-		end
-	end
-	
-
 end)
 
 

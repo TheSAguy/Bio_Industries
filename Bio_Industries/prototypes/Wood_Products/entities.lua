@@ -99,8 +99,8 @@ data:extend({
     resistances = 
     {
       {
-        type = "fire",
-        percent = 50
+        type = "physical",
+        percent = 10
       }
     },
     collision_box = {{-0.3,-0.3}, {0.3,0.3}},
