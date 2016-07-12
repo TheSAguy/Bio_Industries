@@ -61,7 +61,9 @@ BI.Recipe_Tweaks = true
 --- Stone Wall: adds Iron Sticks (Rebarb) to recipe
 --- Concrete: Uses Iron Sticks (Rebarb) and not Iron-Ore
 --- Rail (Vanilla and Wood): Uses Crushed Stone and not Stone
---- Trees Give Random 1 - 7 Raw Wood.
+--- Trees Give Random 1 - 6 Raw Wood
+--- Tree Collision box made smaller
+--- Steel Axe requires Iron Axe
 	
 	
 	
