@@ -4,8 +4,9 @@ require ("util")
 
 data:extend({
 ------- Bio Solar Farm
-------- Bio Solar Farm Image
 
+
+------- Bio Solar Farm Image
   {
     type = "lamp",
     name = "bi_bio_Solar_Farm_Image",
@@ -18,6 +19,8 @@ data:extend({
 	energy_source =
     {
       type = "electric",
+	  render_no_network_icon = false,
+	  render_no_power_icon = false,
       usage_priority = "secondary-input"
     },
     energy_usage_per_tick = "1kW",

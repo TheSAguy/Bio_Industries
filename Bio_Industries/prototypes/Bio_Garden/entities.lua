@@ -57,52 +57,12 @@ data:extend({
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions = -0.2 -- the "-" means it eats pollution. Absorbs about 40 PU
+      emissions = -0.15 -- the "-" means it eats pollution. Absorbs about 30 PU
     },
     energy_usage = "200kW",
     ingredient_count = 1,
     module_slots = 0
   },
  
- -- Bio Garden Light
-  {
-    type = "lamp",
-    name = "bi_light_for_Bio_Garden",
-    icon = "__base__/graphics/icons/small-lamp.png",
-	flags = {"placeable-neutral", "player-creation", "not-repairable"},
-	selectable_in_game = false,
-	max_health = 1,
-    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
-	energy_source =
-    {
-      type = "electric",
-      usage_priority = "secondary-input"
-    },
-    energy_usage_per_tick = "5kW",
-    light = {intensity = 1, size = 40},
-    picture_off =
-    {
-      filename = "__base__/graphics/entity/small-lamp/light-off.png",
-      priority = "low",
-      width = 0,
-      height = 0,
-      frame_count = 1,
-      axially_symmetrical = false,
-      direction_count = 1,
-	  shift = {0.75, 0},
-    },
-    picture_on =
-    {
-      filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
-      priority = "low",
-      width = 0,
-      height = 0,
-      frame_count = 1,
-      axially_symmetrical = false,
-      direction_count = 1,
-	  shift = {0.75, 0},
-    },
 
-  },
-  	  
   })
