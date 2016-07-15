@@ -171,25 +171,6 @@ end
 function On_Remove(event)
 	
 	
-			
-	--- Bio Garden has been removed
-	local entity = event.entity
-   	if entity and entity.name == "bi-Bio_Garden" then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
-
-	
 	
 	--- Bio Farm has been removed
 	local entity = event.entity
@@ -239,23 +220,6 @@ end
 
 ---------------------------------------------
 function On_Death(event)
-	
-	--- Bio Garden has been destroyed
-	local entity = event.entity
-   	if entity and entity.name == "bi-Bio_Garden" then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
 	
 	--- Bio Farm has been destroyed
 	local entity = event.entity
