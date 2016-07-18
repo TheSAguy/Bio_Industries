@@ -280,7 +280,6 @@ Event.register(defines.events.on_tick, function(event)
 			if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
 				local foundtree = false
 				local surface = game.surfaces['nauvis']
-				local force = k.force
 				local entities = surface.find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
 				local currentTilename = surface.get_tile(k.x, k.y).name
 				writeDebug("The current tile is: " .. currentTilename)
@@ -288,9 +287,9 @@ Event.register(defines.events.on_tick, function(event)
 				for _,entity in pairs(entities) do
 					entity.destroy()
 					global.numSeedlings = global.numSeedlings - 1
-				if global.numSeedlings < 0 then
-					global.numSeedlings = 0
-				end
+					if global.numSeedlings < 0 then
+						global.numSeedlings = 0
+					end
 					writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
 					foundtree = true
 				end
@@ -299,20 +298,20 @@ Event.register(defines.events.on_tick, function(event)
 				local growth_chance = math.random(100)
 				if 	currentTilename == "grass" then 
 					treetype = "tree-05"
-					if growth_chance > 5 and foundtree then
+					if foundtree and surface.can_place_entity({ name=treetype, position=k}) then
 						surface.create_entity({ name=treetype, amount=1, position=k})
 					end
 					
 				elseif currentTilename == "grass-medium" then 
 					treetype = "tree-04"
-					if growth_chance > 10 and foundtree then
+					if growth_chance > 15 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
 						surface.create_entity({ name=treetype, amount=1, position=k})
 					end
 				
 				elseif currentTilename == "grass-dry" then 
 					treetype = math.random(2)
 					treetype = "tree-0".. treetype
-					if growth_chance > 20 and foundtree then
+					if growth_chance > 25 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
 						surface.create_entity({ name=treetype, amount=1, position=k})
 					end
 				
@@ -320,7 +319,7 @@ Event.register(defines.events.on_tick, function(event)
 					treetype = math.random(2)
 					treetype = treetype + 5
 					treetype = "tree-0".. treetype
-					if growth_chance > 80 and foundtree then
+					if growth_chance > 85 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
 						surface.create_entity({ name=treetype, amount=1, position=k})
 					end
 				
@@ -333,7 +332,7 @@ Event.register(defines.events.on_tick, function(event)
 					else
 						treetype = "tree-09"
 					end
-					if growth_chance > 50 and foundtree then
+					if growth_chance > 70 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
 						surface.create_entity({ name=treetype, amount=1, position=k})
 					end
 				
