@@ -44,6 +44,24 @@ if BI_Config.Recipe_Tweaks then
 	thxbob.lib.remove_recipe_item ("steel-axe", "iron-stick")
 	thxbob.lib.add_new_recipe_item ("steel-axe", {type="item", name="iron-axe", amount=1})
 	
+	--- Loot Picup	
+	if data.raw.player.player.loot_pickup_distance < 4 then
+		data.raw.player.player.loot_pickup_distance = 4 -- default 2
+	end	
+
+	--- Run Speed
+	if data.raw.player.player.running_speed < 0.15 then
+		data.raw.player.player.running_speed = 0.25 -- default 0.15
+	end	
+	
+	--- Reach
+	if data.raw.player.player.build_distance < 24 then
+		data.raw.player.player.build_distance = 24
+		data.raw.player.player.reach_distance = 20
+		data.raw.player.player.reach_resource_distance = 20
+		data.raw.player.player.drop_item_distance = 20
+	end	
+	
 end
 
 	

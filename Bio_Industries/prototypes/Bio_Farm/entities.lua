@@ -445,7 +445,7 @@ data:extend(
 			type = "electric",
 			input_priority = "secondary",
 			usage_priority = "secondary-input",
-			emissions = 6 / 3
+			emissions = 0.05     
 		},
 		energy_usage = "180kW",
 		crafting_speed = 2,
