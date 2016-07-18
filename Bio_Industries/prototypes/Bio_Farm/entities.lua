@@ -198,7 +198,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-input",
 	  drain = "50kW",
-	  emissions = -0.2,
+	  emissions = -0.1,
     },	
 
     energy_usage = "100kW",
@@ -370,75 +370,25 @@ data:extend(
 		minable = {hardness = 0.2, mining_time = 0.5, result = "bi-cokery"},
 		max_health = 200,
 		corpse = "medium-remnants",
-		resistances = {{type = "fire", percent = 70}},
-		collision_box = {{-1.2, -2.2}, {1.2, 2.2}},
-		selection_box = {{-1.5, -2.5}, {1.5, 2.5}},
+		resistances = {{type = "fire", percent = 95}},
+		collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+		selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
 		module_specification =
 		{
 			module_slots = 2
 		},
-		allowed_effects = {"consumption", "speed", "pollution"},
+		allowed_effects = {"consumption", "speed", "pollution"},	
 		animation =
-		{
-			north =
 			{
-				filename = "__Bio_Industries__/graphics/entities/cokery/cokery-idle.png",
-				width = 100,
-				height = 160,
-				frame_count = 1,
-				line_length = 1,
-				shift = {0, 0}
-			},
-			south =
-			{
-				filename = "__Bio_Industries__/graphics/entities/cokery/cokery-idle.png",
-				width = 100,
-				height = 160,
-				frame_count = 1,
-				line_length = 1,
-				shift = {0, 0}
-			},
-			west =
-			{
-				filename = "__Bio_Industries__/graphics/entities/cokery/cokery-idle.png",
-				width = 100,
-				height = 160,
-				frame_count = 1,
-				line_length = 1,
-				shift = {0, 0}
-			},
-			east =
-			{
-				filename = "__Bio_Industries__/graphics/entities/cokery/cokery-idle.png",
-				width = 100,
-				height = 160,
-				frame_count = 1,
-				line_length = 1,
-				shift = {0, 0}
-			}
-		},
-		working_visualisations =
-		{
-
-			{
-				north_position = { 0.0,  0.0},
-				south_position = { 0.0,  0.0},
-				west_position  = { 0.0,  0.0},	
-				east_position  = { 0.0,  0.0},	
-			
-				animation =
-				{
-					filename = "__Bio_Industries__/graphics/entities/cokery/cokery-anim.png",
-					frame_count = 28,
-					line_length = 14,
-					width = 100,
-					height = 160,
-					scale = 1.0,
-					shift = {0, 0},
-					animation_speed = 0.1
-				}
-			}
-		},
+				filename = "__Bio_Industries__/graphics/entities/cokery/cokery_sheet.png",
+				frame_count = 28,
+				line_length = 7,
+				width = 256,
+				height = 256,
+				scale = 0.5,
+				shift = {0.5, -0.5},
+				animation_speed = 0.1
+			},		
 		crafting_categories = {"biofarm-mod-smelting"},
 		energy_source =
 		{
