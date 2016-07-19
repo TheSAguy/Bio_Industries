@@ -55,24 +55,13 @@ if BI_Config.Recipe_Tweaks then
 	end	
 	
 	--- Reach
-	if data.raw.player.player.build_distance < 24 then
+	if BI_Config.Reach and data.raw.player.player.build_distance < 24 then
 		data.raw.player.player.build_distance = 24
 		data.raw.player.player.reach_distance = 20
 		data.raw.player.player.reach_resource_distance = 20
 		data.raw.player.player.drop_item_distance = 20
 	end	
 	
-end
-
-	
---- Got tierd of reaching limits...
-if BI_Config.QCCode then
-	if data.raw.player.player.build_distance < 24 then
-		data.raw.player.player.build_distance = 24
-		data.raw.player.player.reach_distance = 20
-		data.raw.player.player.reach_resource_distance = 20
-		data.raw.player.player.drop_item_distance = 20
-	end 
 end
 
 

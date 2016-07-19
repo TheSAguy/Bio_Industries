@@ -42,13 +42,7 @@ data:extend({
 			{type="item", name="bi-seedling", amount=20},     
 			{type="fluid", name="water", amount=100},
 		},
-		--[[
-		results =
-		{
-			{type = "item", name = "raw-wood", amount_min = 20, amount_max = 50},
-			--{type = "item", name = "raw-wood", amount_min = 30, amount_max = 50, probability = 0.5},
-		},
-		]]
+
 		result_count = 40,
 		result = "raw-wood"
 	},
@@ -67,13 +61,7 @@ data:extend({
 		  {type="item", name="fertiliser", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
-		--[[
-		results =
-			{
-				{type = "item", name = "raw-wood", amount_min = 45, amount_max = 90},
-				--{type = "item", name = "raw-wood", amount_min = 45, amount_max = 75, probability = 0.75},
-			},
-		]]	
+	
 		result_count = 75,
 		result = "raw-wood"
 	},

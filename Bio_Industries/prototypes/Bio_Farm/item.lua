@@ -14,20 +14,6 @@ data:extend({
     stack_size= 50
   },
 
-  --[[
-  	---- Pinetree
-  {
-    type = "item",
-    name = "bi-pinetree",
-    icon = "__Bio_Industries__/graphics/icons/pinetree.png",
-    flags = { "goes-to-quickbar","hidden" },
-    subgroup = "trees",
-	order = "x[bi]-a[bi-seedling]",
-	place_result="bi-pinetree",
-    stack_size= 50
-  },
-	]]
-
   ----Bio Farm
 	{
 		type= "item",

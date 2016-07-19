@@ -1,4 +1,4 @@
----Bio Industries - v.1.2.3
+---Bio Industries - v.1.2.4
 
 require ("util")
 require ("libs/util_ext")
@@ -9,10 +9,13 @@ require ("libs/event")
 if not BI_Config then BI_Config = {} end
 require ("config")
 
+local max_grow_time = 5000
+
+
 --------------------------------------------------------------------
 script.on_load(function()
 
-	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
+	if global.Bio_Cannon_Table ~= nil then
 		Event.register(defines.events.on_tick, function(event) end)
 	end
 	
@@ -20,37 +23,24 @@ end)
 
 script.on_init(function()
 	
-	if global.ts == nil then
-		global.ts = {}
-		global.ts.growing = {}
+	if global.bi == nil then
+		global.bi = {}	
+		global.bi.tree_growing = {}
 	end
-		
-	if not global.numSeedlings then
-          global.numSeedlings = 0
-	elseif global.numSeedlings < 0 then
-          global.numSeedlings = 0
-	end
-
 	
 end)
 
 script.on_configuration_changed(function()
 	
-	if global.Bio_Cannon_Table ~= nil or global.numSeedlings ~= nil then
+	if global.Bio_Cannon_Table ~= nil then
 		Event.register(defines.events.on_tick, function(event) end)
 	end
 	
-	if global.ts == nil then
-		global.ts = {}
-		global.ts.growing = {}
+	if global.bi == nil then
+		global.bi = {}
+		global.bi.tree_growing = {}
 	end
-		
-	if not global.numSeedlings then
-          global.numSeedlings = 0
-	elseif global.numSeedlings < 0 then
-          global.numSeedlings = 0
-	end
-	
+
 end)
 ---------------------------------------------------------------------
 
@@ -69,9 +59,10 @@ function On_Built(event)
    
 	--- Seedling planted
 	if entity.name == "bi-seedling" then
-		global.ts.growing[entity.position] = math.floor(game.tick / 60)
-		global.numSeedlings = global.numSeedlings + 1
-		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+
+		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time})
+		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
+
 	end
 	
     --- Bio Farm has been built
@@ -209,11 +200,14 @@ function On_Remove(event)
 
 	--- Seedling Removed
 	if event.entity.name == "bi-seedling" then
-		global.numSeedlings = global.numSeedlings - 1
-		if global.numSeedlings < 0 then
-			global.numSeedlings = 0
+	
+		for k, v in pairs(global.bi.tree_growing) do
+			if v.position.x == event.entity.position.x and v.position.y == event.entity.position.y then
+				table.remove(global.bi.tree_growing, k)
+				return
+			end
 		end
-		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+
 	end
 	
 end
@@ -258,12 +252,16 @@ function On_Death(event)
 	end
 
 	--- Seedling Removed
+	
 	if event.entity.name == "bi-seedling" then
-		global.numSeedlings = global.numSeedlings - 1
-		if global.numSeedlings < 0 then
-			global.numSeedlings = 0
+	
+		for k, v in pairs(global.bi.tree_growing) do
+			if v.position.x == event.entity.position.x and v.position.y == event.entity.position.y then
+				table.remove(global.bi.tree_growing, k)
+				return
+			end
 		end
-		writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
+
 	end
 	
 end
@@ -273,75 +271,77 @@ end
 ---- Growing Tree
 Event.register(defines.events.on_tick, function(event)	
 
+	--if game.tick % 60 == 0 and #global.bi.tree_growing > 0 then
+		while #global.bi.tree_growing > 0 do
+			if event.tick < global.bi.tree_growing[1].time then break end
 
-	if game.tick % 60 == 0 and global.numSeedlings > 0 then
-
-		for k, v in pairs(global.ts.growing) do
-			if math.random() < ((game.tick / 60) - (v + 60)) / 3600 then
-				local foundtree = false
-				local surface = game.surfaces['nauvis']
-				local entities = surface.find_entities_filtered{area = {{k.x - .25, k.y - .25}, {k.x + .25, k.y + .25}}, name = "bi-seedling"}
-				local currentTilename = surface.get_tile(k.x, k.y).name
-				writeDebug("The current tile is: " .. currentTilename)
-				
-				for _,entity in pairs(entities) do
-					entity.destroy()
-					global.numSeedlings = global.numSeedlings - 1
-					if global.numSeedlings < 0 then
-						global.numSeedlings = 0
-					end
-					writeDebug("The the number of Seedlings planted is: " .. global.numSeedlings)
-					foundtree = true
-				end
-				
-				--- Depending on Terain, choose tree type & Convert seedling into a tree
-				local growth_chance = math.random(100)
-				if 	currentTilename == "grass" then 
-					treetype = "tree-05"
-					if foundtree and surface.can_place_entity({ name=treetype, position=k}) then
-						surface.create_entity({ name=treetype, amount=1, position=k})
-					end
-					
-				elseif currentTilename == "grass-medium" then 
-					treetype = "tree-04"
-					if growth_chance > 15 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
-						surface.create_entity({ name=treetype, amount=1, position=k})
-					end
-				
-				elseif currentTilename == "grass-dry" then 
-					treetype = math.random(2)
-					treetype = "tree-0".. treetype
-					if growth_chance > 25 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
-						surface.create_entity({ name=treetype, amount=1, position=k})
-					end
-				
-				elseif currentTilename == "dirt" or currentTilename == "dirt-dark" then 
-					treetype = math.random(2)
-					treetype = treetype + 5
-					treetype = "tree-0".. treetype
-					if growth_chance > 85 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
-						surface.create_entity({ name=treetype, amount=1, position=k})
-					end
-				
-				else
-					treetype = math.random(3)
-					if treetype == 1 then
-						treetype = "tree-03"
-					elseif treetype == 2 then
-						treetype = "tree-08"
-					else
-						treetype = "tree-09"
-					end
-					if growth_chance > 70 and foundtree and surface.can_place_entity({ name=treetype, position=k}) then
-						surface.create_entity({ name=treetype, amount=1, position=k})
-					end
-				
-				end		
-				global.ts.growing[k] = nil
-			end
+			Grow_tree(global.bi.tree_growing[1].position)
+			table.remove(global.bi.tree_growing, 1)
 		end
-	end
+	--end
 end)
+
+
+function Grow_tree(pos)
+	
+	local foundtree = false
+	local surface = game.surfaces['nauvis']
+	local tree = surface.find_entity("bi-seedling", pos)
+	local currentTilename = surface.get_tile(pos.x, pos.y).name
+	writeDebug("The current tile is: " .. currentTilename)
+				
+	if tree then
+		foundtree = true
+		tree.destroy()
+		
+		--- Depending on Terain, choose tree type & Convert seedling into a tree
+		local growth_chance = math.random(100)
+		if 	currentTilename == "grass" then 
+			treetype = "tree-05"
+			if foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+				surface.create_entity({ name=treetype, amount=1, position=pos})
+			end
+					
+		elseif currentTilename == "grass-medium" then 
+			treetype = "tree-04"
+			if growth_chance > 15 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+				surface.create_entity({ name=treetype, amount=1, position=pos})
+			end
+		
+		elseif currentTilename == "grass-dry" then 
+			treetype = math.random(2)
+			treetype = "tree-0".. treetype
+			if growth_chance > 25 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+				surface.create_entity({ name=treetype, amount=1, position=pos})
+			end
+		
+		elseif currentTilename == "dirt" or currentTilename == "dirt-dark" then 
+			treetype = math.random(2)
+			treetype = treetype + 5
+			treetype = "tree-0".. treetype
+			if growth_chance > 85 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+				surface.create_entity({ name=treetype, amount=1, position=pos})
+			end
+		
+		else
+			treetype = math.random(3)
+			if treetype == 1 then
+				treetype = "tree-03"
+			elseif treetype == 2 then
+				treetype = "tree-08"
+			else
+				treetype = "tree-09"
+			end
+			if growth_chance > 70 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+				surface.create_entity({ name=treetype, amount=1, position=pos})
+			end
+				
+		end		
+
+	end
+	
+end
+
 
 
 ----- Bio Cannon Stuff

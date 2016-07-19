@@ -64,7 +64,13 @@ BI.Recipe_Tweaks = true
 --- Trees Give Random 1 - 6 Raw Wood
 --- Tree Collision box made smaller
 --- Steel Axe requires Iron Axe
+--- Player running speed slightly increased from 0.15 to 0.25
+--- Loot Pickup dostance doubled
+--- Reach
+	BI.Reach = false
+	--- Double player Reach
 	
+
 	
 	
 	
