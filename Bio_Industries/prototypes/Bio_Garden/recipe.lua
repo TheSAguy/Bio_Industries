@@ -14,7 +14,7 @@ data:extend({
 		{
 		  {"stone-wall", 12},
 		  {"stone-crushed", 50},
-		  {"bi-seedling", 50}
+		  {"seedling", 50}
 		},
 		result = "bi-Bio_Garden",
 	},

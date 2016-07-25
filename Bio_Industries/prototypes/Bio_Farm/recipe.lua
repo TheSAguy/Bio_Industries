@@ -10,7 +10,7 @@ data:extend({
 		ingredients = {{"raw-wood",1}},
 		results=
 		{
-		  {type="item", name="bi-seedling", amount=2},
+		  {type="item", name="seedling", amount=2},
 		  {type="item", name="bi-woodpulp", amount=1}
 		},
 	},
@@ -39,7 +39,7 @@ data:extend({
 		energy_required = 600,
 		ingredients =
 		{
-			{type="item", name="bi-seedling", amount=20},     
+			{type="item", name="seedling", amount=20},     
 			{type="fluid", name="water", amount=100},
 		},
 
@@ -57,7 +57,7 @@ data:extend({
 		energy_required = 350,
 		ingredients =
 		{
-		  {type="item", name="bi-seedling", amount=30},     
+		  {type="item", name="seedling", amount=30},     
 		  {type="item", name="fertiliser", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
@@ -77,7 +77,7 @@ data:extend({
 		energy_required = 200,
 		ingredients =
 		{
-		  {type="item", name="bi-seedling", amount=50},     
+		  {type="item", name="seedling", amount=50},     
 		  {type="fluid", name="water", amount=100},
 		  --{type="item", name="bi-adv-fertiliser", amount=5},     -- Will be added if you have Natural Evolution Buildings Mod installed.
 		},

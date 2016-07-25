@@ -3,13 +3,13 @@ data:extend({
 	---- Seedling
   {
     type = "item",
-    name = "bi-seedling",
+    name = "seedling",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
     flags = {"goes-to-main-inventory"},
     --subgroup = "trees",
 	subgroup = "intermediate-product",
 	order = "x[bi]-a[bi-seedling]",
-	place_result="bi-seedling",
+	place_result="seedling",
 	fuel_value = "1MJ",
     stack_size= 50
   },

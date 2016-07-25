@@ -1,4 +1,4 @@
----Bio Industries - v.1.2.4
+---Bio Industries - v.1.2.5
 
 require ("util")
 require ("libs/util_ext")
@@ -58,7 +58,7 @@ function On_Built(event)
    
    
 	--- Seedling planted
-	if entity.name == "bi-seedling" then
+	if entity.name == "seedling" then
 
 		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time})
 		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
@@ -199,7 +199,7 @@ function On_Remove(event)
 	end
 
 	--- Seedling Removed
-	if event.entity.name == "bi-seedling" then
+	if event.entity.name == "seedling" then
 	
 		for k, v in pairs(global.bi.tree_growing) do
 			if v.position.x == event.entity.position.x and v.position.y == event.entity.position.y then
@@ -253,7 +253,7 @@ function On_Death(event)
 
 	--- Seedling Removed
 	
-	if event.entity.name == "bi-seedling" then
+	if event.entity.name == "seedling" then
 	
 		for k, v in pairs(global.bi.tree_growing) do
 			if v.position.x == event.entity.position.x and v.position.y == event.entity.position.y then
@@ -286,7 +286,7 @@ function Grow_tree(pos)
 	
 	local foundtree = false
 	local surface = game.surfaces['nauvis']
-	local tree = surface.find_entity("bi-seedling", pos)
+	local tree = surface.find_entity("seedling", pos)
 	local currentTilename = surface.get_tile(pos.x, pos.y).name
 	writeDebug("The current tile is: " .. currentTilename)
 				

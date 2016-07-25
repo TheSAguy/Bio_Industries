@@ -9,7 +9,7 @@ data:extend({
 ---- Seedling
   {
     type = "land-mine",
-    name = "bi-seedling",
+    name = "seedling",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 	order = "x[bi]-a[bi-seedling]",
 	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air",},
@@ -17,7 +17,7 @@ data:extend({
     {
       mining_particle = "wooden-particle",
       mining_time = 0.25,
-      result = "bi-seedling",
+      result = "seedling",
       count = 1
     },
     emissions_per_tick = -0.0006,

@@ -128,7 +128,7 @@ data:extend({
 		ingredients =
 		{
 			{type="fluid", name="bi-biomass", amount=2},
-			{type="item", name="bi-seedling", amount=25},
+			{type="item", name="seedling", amount=25},
 		},
 		results=
 		{

@@ -62,6 +62,11 @@ if BI_Config.Recipe_Tweaks then
 		data.raw.player.player.drop_item_distance = 20
 	end	
 	
+	
+	--- Disassemble of Burner Miner Drill and Steel Furnace
+	require("prototypes.Bio_Tweaks.recipe")
+	thxbob.lib.add_technology_recipe ("advanced-material-processing", "bi-steel-furnace-disassemble")
+	
 end
 
 
@@ -253,6 +258,11 @@ if data.raw["item-subgroup"]["bob-material"] then
 		data.raw["recipe"]["bi-ash-2"].subgroup = "bob-material"
 		data.raw["recipe"]["bi-crushed-stone"].subgroup = "bob-material"
 	end	
+end
+
+if data.raw["item"]["bob-greenhouse"] then 
+	data.raw["item"]["seedling"].place_result="seedling"
+	data.raw["item"]["seedling"].icon = "__Bio_Industries__/graphics/icons/Seedling.png"
 end
 
 	
