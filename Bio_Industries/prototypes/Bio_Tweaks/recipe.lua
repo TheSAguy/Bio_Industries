@@ -16,9 +16,9 @@ data:extend(
 		},
 		results=
 		{
-		  {"iron-gear-wheel", 2},
-		  {"stone-furnace", 1},
-		  {"iron-plate", 2}
+		--  {"iron-gear-wheel", 2},
+		  {"stone", 4},
+		  {"iron-plate", 6}
 		},
 		--enabled = false
 	},
