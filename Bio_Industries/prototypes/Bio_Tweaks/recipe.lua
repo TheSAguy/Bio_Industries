@@ -16,11 +16,11 @@ data:extend(
 		},
 		results=
 		{
-		--  {"iron-gear-wheel", 2},
+		  --{"iron-gear-wheel", 2},
 		  {"stone", 4},
 		  {"iron-plate", 6}
 		},
-		--enabled = false
+
 	},
 
 	{

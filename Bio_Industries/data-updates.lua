@@ -127,6 +127,9 @@ if BI_Config.Bio_Farm then
 		
 	end	
 	
+	if BI_Config.Bio_Fuel or BI_Config.mod.NEBuildings or BI_Config.Bio_Garden then
+	require("prototypes.Bio_Farm.technology2")
+	end
 	
 	--update crushed stone icon
 	data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
@@ -136,10 +139,27 @@ if BI_Config.Bio_Farm then
 	if data.raw.item.glass  then
 		thxbob.lib.replace_recipe_item("bi_bio_farm", "copper-cable", "glass")
 	end
+
+			
+	---- Add Bio Fuel & Plastic
+		if BI_Config.Bio_Fuel then 
+			require("prototypes.Bio_Fuel.item")
+			require("prototypes.Bio_Fuel.fluid")
+			require("prototypes.Bio_Fuel.recipe")
+			require("prototypes.Bio_Fuel.entities")
+			require("prototypes.Bio_Fuel.technology")
+			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-bioreactor")
+			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-liquid-co2")
+			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-cellulose")
+			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-biomass-0")
+			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Bio_Fuel")
+			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Fuel_Conversion")
+			
+		end
 	
 	------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
 		if BI_Config.mod.NEBuildings then
-			require("prototypes.Bio_Farm.technology2")
+			
 			thxbob.lib.add_new_recipe_item ("bi-Logs_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
 			thxbob.lib.add_new_recipe_item ("bi-adv-fertiliser", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
 
@@ -149,23 +169,9 @@ if BI_Config.Bio_Farm then
 				table.insert(data.raw.recipe["bi-Clean_Air2"].ingredients,{type="item", name="bi-adv-fertiliser", amount=1})
 			end
 			
-			
-		---- Add Bio Fuel & Plastic
-			if BI_Config.Bio_Fuel then 
-				require("prototypes.Bio_Fuel.item")
-				require("prototypes.Bio_Fuel.fluid")
-				require("prototypes.Bio_Fuel.recipe")
-				require("prototypes.Bio_Fuel.entities")
-				require("prototypes.Bio_Fuel.technology")
-				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-bioreactor")
-				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-liquid-co2")
-				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-cellulose")
-				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-biomass-0")
-				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Bio_Fuel")
-				thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Fuel_Conversion")
-				thxbob.lib.add_new_recipe_item ("bi-Bio_Fuel", {type="fluid", name="NE_revitalization-solution", amount=10})
-
-			end
+			--- Change the recipe of Bio Fuel to use Revitalization Solution.
+			thxbob.lib.remove_recipe_item ("bi-Bio_Fuel", "alien-artifact")
+			thxbob.lib.add_new_recipe_item ("bi-Bio_Fuel", {type="fluid", name="NE_revitalization-solution", amount=10})
 			
 		end
 
@@ -221,7 +227,7 @@ if BI_Config.Bio_Cannon then
 	end
 end
 
------------- Changing order/sorting
+------------ Changing order/sorting/groups
 if data.raw["item"]["solar-panel-large-3"] then 
 	if BI_Config.Bio_Solar_Farm then
 		data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
@@ -260,9 +266,17 @@ if data.raw["item-subgroup"]["bob-material"] then
 	end	
 end
 
+------------ Support for Bob's Greenhouse
 if data.raw["item"]["bob-greenhouse"] then 
 	data.raw["item"]["seedling"].place_result="seedling"
 	data.raw["item"]["seedling"].icon = "__Bio_Industries__/graphics/icons/Seedling.png"
+	data.raw["item"]["seedling"].place_as_tile = {result = "grass",	condition_size = 1,	condition = { "water-tile" }}
+	data.raw["item"]["fertiliser"].icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png"
+		
 end
 
+	
+	
+	
+	
 	

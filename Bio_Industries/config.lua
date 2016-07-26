@@ -51,10 +51,6 @@ BI.Wood_Products = true
 	-- Wood Rail (Uses wood. Vanilla rail now uses Concrete)
 
 
-BI.Bio_Wall = true
---- Enables new walls
-
-
 	
 BI.Recipe_Tweaks = true
 --- Making some Vanilla recipe's more realistic.
@@ -65,7 +61,7 @@ BI.Recipe_Tweaks = true
 --- Tree Collision box made smaller
 --- Steel Axe requires Iron Axe
 --- Player running speed slightly increased from 0.15 to 0.25
---- Loot Pickup dostance doubled
+--- Loot Pickup distance doubled
 --- Reach
 	BI.Reach = false
 	--- Double player Reach
