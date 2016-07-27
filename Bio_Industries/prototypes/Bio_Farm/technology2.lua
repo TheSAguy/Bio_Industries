@@ -19,6 +19,10 @@ data:extend(
 				type = "unlock-recipe",
 				recipe = "bi-adv-fertiliser"
 			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi-Clean_Air2"
+			},
 
 		},
 		prerequisites = {

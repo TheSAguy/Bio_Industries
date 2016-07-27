@@ -13,6 +13,7 @@ data:extend({
     ingredients =
     {
 		{type="item", name="bi-cellulose", amount=2},
+		{type="item", name="alien-artifact", amount=1},
       --{type="fluid", name="NE_revitalization-solution", amount=10} <-- Will be added if you are using NE Buildings
     },
     results=

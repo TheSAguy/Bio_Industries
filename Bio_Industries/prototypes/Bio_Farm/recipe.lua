@@ -79,7 +79,7 @@ data:extend({
 		{
 		  {type="item", name="seedling", amount=50},     
 		  {type="fluid", name="water", amount=100},
-		  --{type="item", name="bi-adv-fertiliser", amount=5},     -- Will be added if you have Natural Evolution Buildings Mod installed.
+		  {type="item", name="bi-adv-fertiliser", amount=5},    
 		},
 		result_count = 150,
 		result = "raw-wood"
@@ -284,6 +284,7 @@ data:extend({
 		{
 			{type="item", name="fertiliser", amount=25},
 			{type="item", name="bi-woodpulp", amount=50},
+			{type="item", name="alien-artifact", amount=5},     
 			--{type="fluid", name="NE_enhanced-nutrient-solution", amount=5}, -- Will be added if you have Natural Evolution Buildings Mod installed.
 		},
 		results=

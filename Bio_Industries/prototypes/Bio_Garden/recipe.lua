@@ -52,7 +52,7 @@ data:extend({
     ingredients =
     {
       {type="fluid", name="water", amount=50},
-	  --{type="item", name="bi-adv-fertiliser", amount=1},     -- Will be added if you have Natural Evolution Buildings Mod installed.
+	  {type="item", name="bi-adv-fertiliser", amount=1},     
     },
     results=
     {
