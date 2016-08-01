@@ -1,4 +1,4 @@
----Bio Industries - v.1.2.8
+---Bio Industries - v.1.3.0
 
 require ("util")
 require ("libs/util_ext")

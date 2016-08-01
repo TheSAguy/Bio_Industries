@@ -5,7 +5,7 @@ data:extend({
 		type = "recipe",
 		name = "bi_bio_Solar_Farm",
 		enabled = "false",
-		--enabled = "true",
+		energy_required = 20,
 		ingredients = 
 		{
 			{"solar-panel",20},
