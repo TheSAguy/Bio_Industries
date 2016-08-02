@@ -56,7 +56,9 @@ data:extend({
 	flags = {"placeable-neutral", "player-creation", "not-repairable"},
 	minable = {hardness = 0.2, mining_time = 0.5, result = "bi_bio_Solar_Farm"},
     max_health = 100,
-    resistances = {{type = "fire", percent = 100}},
+	corpse = "big-remnants",
+	dying_explosion = "medium-explosion",
+    resistances = {{type = "fire", percent = 80}},
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
     selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
     energy_source =

@@ -328,8 +328,7 @@ data:extend(
 		flags = {"placeable-neutral","player-creation"},
 		minable = {hardness = 0.2,mining_time = 0.5,result = "bi-stone-crusher"},
 		max_health = 100,
-		corpse = "big-remnants",
-		dying_explosion = "medium-explosion",
+		corpse = "medium-remnants",
 		module_slots = 1,
 		resistances = {{type = "fire",percent = 70}},
 		working_sound = {
