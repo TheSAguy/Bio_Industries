@@ -11,7 +11,7 @@ data:extend({
 	order = "x[bi]-a[bi-seedling]",
 	place_result="seedling",
 	fuel_value = "1MJ",
-    stack_size= 50
+    stack_size= 200
   },
 
   ----Bio Farm
@@ -150,7 +150,7 @@ data:extend({
 		fuel_value = "6MJ",
 		subgroup = "raw-material",
 		order = "a[bi]-a-c[charcoal]",
-		stack_size = 50
+		stack_size = 200
 	},  
 
 	--- Coke Coal
@@ -162,7 +162,7 @@ data:extend({
 		fuel_value = "18MJ",
 		subgroup = "raw-material",
 		order = "a[bi]-a-e[bi-coke-coal]",
-		stack_size = 50
+		stack_size = 200
 	},
 
 
@@ -174,7 +174,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
 		order = "a[bi]-a-z[stone-crushed]",
-		stack_size = 100
+		stack_size = 200
 	},
 
 --- Intermediate items

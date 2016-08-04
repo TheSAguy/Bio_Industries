@@ -33,6 +33,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk1",
+		--icon = "__Bio_Industries__/graphics/icons/raw-wood-mk1.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood1]",
 		enabled = "false",
@@ -51,6 +52,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk2",
+		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk2.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood2]",
 		enabled = "false",
@@ -71,6 +73,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk3",
+		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk3.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood3]",
 		enabled = "false",
@@ -89,6 +92,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-ash",
+		icon = "__Bio_Industries__/graphics/icons/ash_raw-wood.png",
 		category = "biofarm-mod-smelting",
 		subgroup = "raw-material",
 		order = "a[bi]-a-b[bi-ash]",
@@ -102,6 +106,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-ash-2",
+		icon = "__Bio_Industries__/graphics/icons/ash_woodpulp.png",
 		category = "biofarm-mod-smelting",
 		subgroup = "raw-material",
 		order = "a[bi]-a-b[bi-ash2]",
@@ -116,11 +121,11 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-charcoal",
-		icon = "__Bio_Industries__/graphics/icons/charcoal.png",
+		icon = "__Bio_Industries__/graphics/icons/charcoal_woodpulp.png",
 		subgroup = "raw-material",
 		order = "a[bi]-a-c[charcoal1]",
 		category = "biofarm-mod-smelting",
-		energy_required = 36,
+		energy_required = 25,
 		ingredients = {{"bi-woodpulp",40}},
 		result = "bi-charcoal",
 		result_count = 18,
@@ -130,11 +135,11 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-charcoal-2",
-		icon = "__Bio_Industries__/graphics/icons/charcoal.png",
+		icon = "__Bio_Industries__/graphics/icons/charcoal_raw-wood.png",
 		subgroup = "raw-material",
 		order = "a[bi]-a-c[charcoal2]",
 		category = "biofarm-mod-smelting",
-		energy_required = 36,
+		energy_required = 40,
 		ingredients = {{"raw-wood",20}},
 		result = "bi-charcoal",
 		result_count = 18,
@@ -144,6 +149,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-coal",
+		icon = "__Bio_Industries__/graphics/icons/coal_mk1.png",
 		category = "biofarm-mod-smelting",
 		subgroup = "raw-material",
 		order = "a[bi]-a-d[bi-coal]",
@@ -157,10 +163,11 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-coal-2",
+		icon = "__Bio_Industries__/graphics/icons/coal_mk2.png",
 		category = "biofarm-mod-smelting",
 		subgroup = "raw-material",
 		order = "a[bi]-a-d[bi-coal2]",
-		energy_required = 18,
+		energy_required = 24,
 		ingredients = {{"bi-charcoal",12}},
 		result = "coal",
 		result_count = 10,
@@ -227,14 +234,14 @@ data:extend({
 		main_product= "nitrogen",
 	},
 
-	-- fertiliser--
+	-- fertiliser- Sulfur-
 	{
 		type = "recipe",
 		name = "bi-fertiliser",
+		icon = "__Bio_Industries__/graphics/icons/fertiliser_sulfur.png",
 		category = "chemistry",
 		order = "b[fertiliser]",
 		energy_required = 5,
-		icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
 		ingredients =
 		{
 			{type = "item", name = "sulfur", amount = 1},
@@ -253,10 +260,10 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-fertiliser-2",
+		icon = "__Bio_Industries__/graphics/icons/fertiliser_sodium-hydroxide.png",
 		category = "chemistry",
 		order = "b[fertiliser]",
-		energy_required = 5,
-		icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
+		energy_required = 5,	
 		ingredients =
 		{
 			--{type = "item", name = "sodium-hydroxide", amount = 10},
