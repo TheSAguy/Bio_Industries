@@ -65,42 +65,42 @@ function thxbob.lib.recipe.remove_ingredient(recipe, item)
 end
 
 function thxbob.lib.recipe.add_new_ingredient(recipe, item)
-  if data.raw.recipe[recipe] and thxbob.lib.item.get_basic_type(item) then
+  if data.raw.recipe[recipe] and thxbob.lib.item.get_type(thxbob.lib.item.basic_item(item).name) then
     thxbob.lib.item.add_new(data.raw.recipe[recipe].ingredients, thxbob.lib.item.basic_item(item))
   else
     if not data.raw.recipe[recipe] then
       log("Recipe " .. recipe .. " does not exist.")
     end
     if not thxbob.lib.item.get_type(item) then
-      log("Ingredient " .. item .. " does not exist.")
+      log("Ingredient " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
     end
   end
 end
 
 function thxbob.lib.recipe.add_ingredient(recipe, item)
-  if data.raw.recipe[recipe] and thxbob.lib.item.get_basic_type(item) then
+  if data.raw.recipe[recipe] and thxbob.lib.item.get_type(thxbob.lib.item.basic_item(item).name) then
     thxbob.lib.item.add(data.raw.recipe[recipe].ingredients, thxbob.lib.item.basic_item(item))
   else
     if not data.raw.recipe[recipe] then
       log("Recipe " .. recipe .. " does not exist.")
     end
-    if not thxbob.lib.item.get_type(item) then
-      log("Ingredient " .. item .. " does not exist.")
+    if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
+      log("Ingredient " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
     end
   end
 end
 
 
 function thxbob.lib.recipe.add_result(recipe, item)
-  if data.raw.recipe[recipe] and thxbob.lib.item.get_basic_type(item) then
+  if data.raw.recipe[recipe] and thxbob.lib.item.get_type(thxbob.lib.item.basic_item(item).name) then
     thxbob.lib.result_check(data.raw.recipe[recipe])
     thxbob.lib.item.add(data.raw.recipe[recipe].results, item)
   else
     if not data.raw.recipe[recipe] then
       log("Recipe " .. recipe .. " does not exist.")
     end
-    if not thxbob.lib.item.get_type(item) then
-      log("Ingredient " .. item .. " does not exist.")
+    if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
+      log("Item " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
     end
   end
 end
