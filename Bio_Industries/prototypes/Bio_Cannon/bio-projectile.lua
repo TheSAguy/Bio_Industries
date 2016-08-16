@@ -130,7 +130,7 @@ data:extend({
  {
     type= "recipe",
     name= "Bio_Cannon_Bio_Ammo",
-    enabled = "false",
+    enabled = false,
 	energy_required = 8,
 	ingredients = {{"Bio_Cannon_Basic_Ammo", 1},{"alien-artifact", 2}, {"explosive-rocket", 10}},
     result = "Bio_Cannon_Bio_Ammo",

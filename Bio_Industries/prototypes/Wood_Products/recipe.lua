@@ -10,7 +10,7 @@ data:extend({
 		  {"small-electric-pole", 2},  
 		},
 		result = "bi-big-wooden-pole",
-		enabled = "false",
+		enabled = false,
 	},
 	
 	

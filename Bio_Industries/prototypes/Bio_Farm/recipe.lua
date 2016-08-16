@@ -3,7 +3,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-seedling",
-		enabled = "false",
+		enabled = false,
 		subgroup = "raw-material",
 		energy_required = 0.5,
 		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
@@ -18,7 +18,8 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi_bio_farm",
-		enabled = "false",
+		enabled = false,
+		energy_required = 10,
 		ingredients = 
 		{
 		  {"iron-stick",20},
@@ -36,7 +37,7 @@ data:extend({
 		--icon = "__Bio_Industries__/graphics/icons/raw-wood-mk1.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood1]",
-		enabled = "false",
+		enabled = false,
 		energy_required = 600,
 		ingredients =
 		{
@@ -55,7 +56,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk2.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood2]",
-		enabled = "false",
+		enabled = false,
 		energy_required = 350,
 		ingredients =
 		{
@@ -76,7 +77,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk3.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood3]",
-		enabled = "false",
+		enabled = false,
 		energy_required = 200,
 		ingredients =
 		{
@@ -96,11 +97,11 @@ data:extend({
 		category = "biofarm-mod-smelting",
 		subgroup = "raw-material",
 		order = "a[bi]-a-b[bi-ash]",
+		enabled = false,
 		energy_required = 10,
 		ingredients = {{"raw-wood",5}},
 		result = "bi-ash",
-		result_count = 10,
-		enabled = "false"
+		result_count = 10,		
 	},   
 	-- ASH 2--
 	{
@@ -110,11 +111,11 @@ data:extend({
 		category = "biofarm-mod-smelting",
 		subgroup = "raw-material",
 		order = "a[bi]-a-b[bi-ash2]",
+		enabled = false,
 		energy_required = 5,
 		ingredients = {{"bi-woodpulp",10}},
 		result = "bi-ash",
 		result_count = 10,
-		enabled = "false"
 	}, 
 
 	-- CHARCOAL 1
@@ -129,7 +130,7 @@ data:extend({
 		ingredients = {{"bi-woodpulp",40}},
 		result = "bi-charcoal",
 		result_count = 18,
-		enabled = "false"
+		enabled = false,
 	},
 	-- CHARCOAL 2
 	{
@@ -143,7 +144,7 @@ data:extend({
 		ingredients = {{"raw-wood",20}},
 		result = "bi-charcoal",
 		result_count = 18,
-		enabled = "false"
+		enabled = false,
 	},	
 	-- COAL 1 --
 	{
@@ -157,7 +158,7 @@ data:extend({
 		ingredients = {{"bi-charcoal",12}},
 		result = "coal",
 		result_count = 8,
-		enabled = "false"
+		enabled = false,
 	},
 	-- COAL 2 --
 	{
@@ -171,7 +172,7 @@ data:extend({
 		ingredients = {{"bi-charcoal",12}},
 		result = "coal",
 		result_count = 10,
-		enabled = "false"
+		enabled = false,
 	},
 	-- COKE-COAL --
 	{
@@ -185,7 +186,7 @@ data:extend({
 		ingredients = {{"coal",15}},
 		result = "bi-coke-coal",
 		result_count = 10,
-		enabled = "false"
+		enabled = false,
 	},
  
 	-- CRUSHED STONE --
@@ -195,11 +196,11 @@ data:extend({
 		category = "biofarm-mod-crushing",
 		subgroup = "raw-material",
 		order = "a[bi]-a-z[stone-crushed]",
-		energy_required = 5,
+		energy_required = 2,
 		ingredients = {{"stone",1}},
 		result = "stone-crushed",
 		result_count = 2,
-		enabled = "false"
+		enabled = false,
 	},
 	-- LIQUID-AIR --
 	{
@@ -213,7 +214,7 @@ data:extend({
 		{
 			{type = "fluid", name = "liquid-air", amount = 10}
 		},
-		enabled = "false"
+		enabled = false,
 	},
 	-- -NITROGEN --
 	{
@@ -230,7 +231,7 @@ data:extend({
 		{
 		  {type="fluid", name="nitrogen", amount=2},
 		},
-		enabled = "false",
+		enabled = false,
 		main_product= "nitrogen",
 	},
 
@@ -253,7 +254,7 @@ data:extend({
 		{
 			{type="item", name="fertiliser", amount=5}
 		},
-		enabled = "false"
+		enabled = false,
 	},
 
 		-- fertiliser from sodium-hydroxide--
@@ -275,7 +276,7 @@ data:extend({
 		{
 			{type="item", name="fertiliser", amount=5}
 		},
-		enabled = "false"
+		enabled = false,
 	},
 
 		
@@ -298,7 +299,7 @@ data:extend({
 		{
 			{type="item", name="bi-adv-fertiliser", amount=50}
 		},
-		enabled = "false"
+		enabled = false,
 	},
 	
 	
@@ -306,18 +307,20 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-cokery",
+		energy_required = 10,
 		ingredients = {{"stone-furnace",3},{"steel-plate",10}},
 		result = "bi-cokery",
 		result_count = 1,
-		enabled = "false"
+		enabled = false,
 	},
 	-- STONE CRUSHER --
 	{
 		type = "recipe",
 		name = "bi-stone-crusher",
-		ingredients = {{"iron-plate",10},{"steel-plate",10},{"copper-cable",5},{"iron-gear-wheel",5}},
+		energy_required = 10,
+		ingredients = {{"iron-plate",10},{"steel-plate",10},{"iron-gear-wheel",5}},
 		result = "bi-stone-crusher",
-		enabled = "false",
+		enabled = false,
 		result_count = 1
 	},
 

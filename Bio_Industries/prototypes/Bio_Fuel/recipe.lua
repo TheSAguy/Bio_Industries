@@ -56,9 +56,10 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-bioreactor",
+		energy_required = 20,
 		ingredients = {{"assembling-machine-1",1},{"steel-plate",5},{"electronic-circuit",5}},
 		result = "bi-bioreactor",
-		enabled = "false",
+		enabled = false,
 		result_count = 1
 	},
 	
@@ -69,7 +70,7 @@ data:extend({
 		category = "chemistry",
 		subgroup = "raw-material",
 		order = "g[plastic-bar]",
-		energy_required = 1,
+		energy_required = 2,
 		ingredients =
 		{
 			{type="item", name="bi-cellulose", amount=2}
@@ -78,7 +79,7 @@ data:extend({
 		{
 			{type="item", name="plastic-bar", amount=1}
 		},
-		enabled = "false"
+		enabled = false,
 	},
 	
 		
@@ -87,13 +88,13 @@ data:extend({
 		type = "recipe",
 		name = "bi-liquid-co2",
 		category = "chemistry",	
-		energy_required = 10,
+		energy_required = 5,
 		ingredients ={{type="fluid", name="liquid-air", amount=1}},
 		results=
 		{
 			{type="fluid", name="bi-liquid-co2", amount=1}
 		},
-		enabled = "false",
+		enabled = false,
 		subgroup = "fluid-recipes",
 		order = "x[oil-processing]-z[bi-liquid-co2]"
 	},
@@ -115,7 +116,7 @@ data:extend({
 		{
 			{type="fluid", name="bi-biomass", amount=3},
 		},
-		enabled = "false",
+		enabled = false,
 		subgroup = "fluid-recipes",
 		order = "x[oil-processing]-z[bi-biomass]"
 	},	
@@ -135,7 +136,7 @@ data:extend({
 		{
 			{type="item", name="bi-cellulose", amount=1 }
 		},
-		enabled = "false",
+		enabled = false,
 	},
 
 })
