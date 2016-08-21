@@ -54,6 +54,11 @@ BI.Wood_Products = true
 	
 BI.Recipe_Tweaks = true
 --- Making some Vanilla recipe's more realistic.
+--*********************
+--- Recipe Changes might not take affect on existing games if you don't run:
+-- "/c game.player.force.reset_recipes()""
+--*********************
+
 --- Stone Wall: adds Iron Sticks (Rebarb) to recipe
 --- Concrete: Uses Iron Sticks (Rebarb) and not Iron-Ore
 --- Rail (Vanilla and Wood): Uses Crushed Stone and not Stone
@@ -65,8 +70,6 @@ BI.Recipe_Tweaks = true
 --- Reach
 	BI.Reach = false
 	--- Double player Reach
-	
-
 	
 	
 	
