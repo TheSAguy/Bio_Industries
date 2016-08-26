@@ -13,7 +13,7 @@ data:extend(
 		energy_required = 2,
 		ingredients =
 		{
-		  {type="fluid", name="water", amount=50},
+		 -- {type="fluid", name="water", amount=50},
 		  {type="item", name="burner-mining-drill", amount=1},   	  
 		},
 		results=
@@ -33,7 +33,7 @@ data:extend(
 		energy_required = 2,
 		ingredients =
 			{
-			  {type="fluid", name="water", amount=50},
+			--  {type="fluid", name="water", amount=50},
 			  {type="item", name="steel-furnace", amount=1},   	  
 			},
 		results=		
