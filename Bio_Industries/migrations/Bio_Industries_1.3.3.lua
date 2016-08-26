@@ -10,9 +10,9 @@ for index, force in pairs(game.forces) do
   force.reset_technologies()
 
 		if game.item_prototypes["bi-cellulose"] then	
-		if technologies["bi-organic-plastic"].researched then
-			recipes["bi-plastic"].enabled = true
-			recipes["bi-plastic"].reload()
+			if technologies["bi-organic-plastic"].researched then
+				recipes["bi-plastic"].enabled = true
+				recipes["bi-plastic"].reload()
+			end
 		end
-	
 end
