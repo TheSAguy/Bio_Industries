@@ -55,6 +55,21 @@ data:extend({
 				{
 					{
 					type = "create-entity",
+					entity_name = "big-fire-cloud",
+					check_buildability = true
+					},
+				}
+			}
+		},
+		{
+			type = "direct",
+			action_delivery = 
+			{
+				type = "instant",
+				target_effects =
+				{
+					{
+					type = "create-entity",
 					entity_name = "small-scorchmark",
 					check_buildability = true
 					},

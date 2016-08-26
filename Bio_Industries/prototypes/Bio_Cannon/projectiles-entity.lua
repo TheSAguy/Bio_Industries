@@ -51,6 +51,21 @@ data:extend({
 				{
 					{
 					type = "create-entity",
+					entity_name = "small-fire-cloud",
+					check_buildability = true
+					},
+				}
+			}
+		},
+		{
+			type = "direct",
+			action_delivery = 
+			{
+				type = "instant",
+				target_effects =
+				{
+					{
+					type = "create-entity",
 					entity_name = "small-scorchmark",
 					check_buildability = true
 					},
@@ -117,6 +132,21 @@ data:extend({
 				{
 					{
 					type = "create-entity",
+					entity_name = "medium-fire-cloud",
+					check_buildability = true
+					},
+				}
+			}
+		},
+		{
+			type = "direct",
+			action_delivery = 
+			{
+				type = "instant",
+				target_effects =
+				{
+					{
+					type = "create-entity",
 					entity_name = "small-scorchmark",
 					check_buildability = true
 					},
@@ -143,5 +173,163 @@ data:extend({
     }
   },
 
+   
+  ----- Fire Clouds. 
+  ---- Small Fire Cloud
+   {
+    type = "smoke-with-trigger",
+    name = "small-fire-cloud",
+    flags = {"not-on-map"},
+    show_when_smoke_off = true,
+    animation =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/fire.png",
+      priority = "low",
+      width = 30,
+      height = 50,
+      frame_count = 30,
+      animation_speed = 1,
+      line_length = 30,
+      scale = 3,
+    },
+    slow_down_factor = 0,
+    affected_by_wind = false,
+    cyclic = true,
+    duration = 60 * 8,
+    fade_away_duration = 2 * 60,
+    spread_duration = 8,
+    action =
+    {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+          type = "nested-result",
+          action =
+          {
+            type = "area",
+            perimeter = 3,
+            action_delivery =
+            {
+              type = "instant",
+              target_effects =
+              {
+                type = "damage",
+                damage = { amount = 3, type = "fire"}
+              }
+            }
+          }
+        }
+      }
+    },
+    action_frequency = 30
+  },
+  
+  --- medium File Cloud
+    {
+    type = "smoke-with-trigger",
+    name = "medium-fire-cloud",
+    flags = {"not-on-map"},
+    show_when_smoke_off = true,
+    animation =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/fire.png",
+      priority = "low",
+      width = 30,
+      height = 50,
+      frame_count = 30,
+      animation_speed = 1,
+      line_length = 30,
+      scale = 3,
+    },
+    slow_down_factor = 0,
+    affected_by_wind = false,
+    cyclic = true,
+    duration = 60 * 10,
+    fade_away_duration = 2 * 60,
+    spread_duration = 10,
+    action =
+    {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+          type = "nested-result",
+          action =
+          {
+            type = "area",
+            perimeter = 4,
+            action_delivery =
+            {
+              type = "instant",
+              target_effects =
+              {
+                type = "damage",
+                damage = { amount = 4, type = "fire"}
+              }
+            }
+          }
+        }
+      }
+    },
+    action_frequency = 30
+  },
+  
+   --- big File Cloud
+    {
+    type = "smoke-with-trigger",
+    name = "big-fire-cloud",
+    flags = {"not-on-map"},
+    show_when_smoke_off = true,
+    animation =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/fire.png",
+      priority = "low",
+      width = 30,
+      height = 50,
+      frame_count = 30,
+      animation_speed = 1,
+      line_length = 30,
+      scale = 3,
+    },
+    slow_down_factor = 0,
+    affected_by_wind = false,
+    cyclic = true,
+    duration = 60 * 12,
+    fade_away_duration = 2 * 60,
+    spread_duration = 12,
+    action =
+    {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+          type = "nested-result",
+          action =
+          {
+            type = "area",
+            perimeter = 5,
+            action_delivery =
+            {
+              type = "instant",
+              target_effects =
+              {
+                type = "damage",
+                damage = { amount = 5, type = "fire"}
+              }
+            }
+          }
+        }
+      }
+    },
+    action_frequency = 30
+  },
+  
 
 })

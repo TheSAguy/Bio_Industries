@@ -1,4 +1,4 @@
----Bio Industries - v.1.3.1
+---Bio Industries - v.1.3.2
 
 require ("util")
 require ("libs/util_ext")
@@ -271,14 +271,14 @@ end
 ---- Growing Tree
 Event.register(defines.events.on_tick, function(event)	
 
-	--if game.tick % 60 == 0 and #global.bi.tree_growing > 0 then
-		while #global.bi.tree_growing > 0 do
-			if event.tick < global.bi.tree_growing[1].time then break end
-
-			Grow_tree(global.bi.tree_growing[1].position)
-			table.remove(global.bi.tree_growing, 1)
+	while #global.bi.tree_growing > 0 do
+		if event.tick < global.bi.tree_growing[1].time then
+			break 
 		end
-	--end
+		Grow_tree(global.bi.tree_growing[1].position)
+		table.remove(global.bi.tree_growing, 1)
+	end
+
 end)
 
 
