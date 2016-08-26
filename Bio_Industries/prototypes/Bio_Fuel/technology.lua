@@ -12,7 +12,7 @@ data:extend(
 		effects = {
 			{
 				type = "unlock-recipe",
-				recipe = "bi-platic"
+				recipe = "bi-plastic"
 			}
 		},
 		prerequisites = {

@@ -66,7 +66,7 @@ data:extend({
 		-- PLASTIC --
 	{
 		type = "recipe",
-		name = "bi-platic",
+		name = "bi-plastic",
 		category = "chemistry",
 		subgroup = "raw-material",
 		order = "g[plastic-bar]",
