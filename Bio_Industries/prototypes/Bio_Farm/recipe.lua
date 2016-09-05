@@ -38,7 +38,7 @@ data:extend({
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood1]",
 		enabled = false,
-		energy_required = 600,
+		energy_required = 450,
 		ingredients =
 		{
 			{type="item", name="seedling", amount=20},     
@@ -57,7 +57,7 @@ data:extend({
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood2]",
 		enabled = false,
-		energy_required = 350,
+		energy_required = 260,
 		ingredients =
 		{
 		  {type="item", name="seedling", amount=30},     
@@ -78,7 +78,7 @@ data:extend({
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood3]",
 		enabled = false,
-		energy_required = 200,
+		energy_required = 150,
 		ingredients =
 		{
 		  {type="item", name="seedling", amount=50},     

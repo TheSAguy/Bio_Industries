@@ -77,7 +77,7 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="plastic-bar", amount=1}
+			{type="item", name="plastic-bar", amount=4}
 		},
 		enabled = false,
 	},
