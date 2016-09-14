@@ -23,7 +23,7 @@ else
 end
 
 --Detect DyTech Core
-if data.raw["item"]["stone-gear-wheel"] ~= nil then
+if data.raw["item"]["sulfur-seed"] ~= nil and data.raw["item"]["rubber-seed"] ~= nil then
 	BI_Config.mod.DyTechCore=true
 else 
 	BI_Config.mod.DyTechCore=false

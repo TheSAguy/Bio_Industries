@@ -20,16 +20,15 @@ data:extend({
 			},
 
 		},
-		prerequisites = {"military-3", "alien-technology"},
+		prerequisites = {"military-2", "alien-technology"},
 		unit = 
 		{
 			count = 100,
 			ingredients =
 			{
 				{"science-pack-1", 2},
-				{"science-pack-2", 2},
-				{"science-pack-3", 1},
-				{"alien-science-pack", 3}
+				{"science-pack-2", 2},				
+				{"alien-science-pack", 5}
 			},
 			time = 30,
 		}

@@ -55,9 +55,19 @@ data:extend({
 				{
 					{
 					type = "create-entity",
+					entity_name = "bio-cannon-explosion",
+					check_buildability = true
+					},
+					{
+					type = "create-entity",
 					entity_name = "big-fire-cloud",
 					check_buildability = true
 					},
+					{
+					type = "create-entity",
+					entity_name = "fire-flame",
+					check_buildability = true
+					},					
 				}
 			}
 		},
@@ -77,7 +87,7 @@ data:extend({
 			}
 		}
 	},
-	light = {intensity = 0.8, size = 6},
+	light = {intensity = 0.9, size = 8},
     animation =
     {
         filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Bio_Ammo.png",
@@ -93,7 +103,16 @@ data:extend({
         width = 18,
         height = 47,
         frame_count = 1
-    }
+    },
+	--[[
+	sound =
+	{
+		{
+			filename = "__Bio_Industries__/sound/launch.ogg",
+			volume = 4.0
+		},
+	},
+	]]
   },
 
 })

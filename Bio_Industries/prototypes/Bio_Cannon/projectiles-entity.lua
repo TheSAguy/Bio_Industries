@@ -4,7 +4,7 @@ require "util"
 local NE_Damage = 1
 if data.raw["unit"]["small-biter-Mk2"] ~= nil and data.raw["unit"]["small-spitter-Mk2"] ~= nil then
 
-	NE_Damage = 2
+	NE_Damage = 3
 	
 end
 
@@ -51,10 +51,21 @@ data:extend({
 				{
 					{
 					type = "create-entity",
+					entity_name = "bio-cannon-explosion",
+					check_buildability = true
+					},
+					{
+					type = "create-entity",
 					entity_name = "small-fire-cloud",
 					check_buildability = true
 					},
+					{
+					type = "create-entity",
+					entity_name = "fire-flame",
+					check_buildability = true
+					},
 				}
+				
 			}
 		},
 		{
@@ -73,7 +84,7 @@ data:extend({
 			}
 		}
 	},
-	light = {intensity = 0.8, size = 6},
+	light = {intensity = 0.7, size = 6},
     animation =
     {
         filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Basic_Ammo.png",
@@ -89,7 +100,16 @@ data:extend({
         width = 18,
         height = 47,
         frame_count = 1
-    }
+    },
+	--[[
+	sound =
+	{
+		{
+			filename = "__Bio_Industries__/sound/launch.ogg",
+			volume = 4.0
+		},
+	},
+	]]
   },
 
   --- Poison
@@ -132,7 +152,17 @@ data:extend({
 				{
 					{
 					type = "create-entity",
+					entity_name = "bio-cannon-explosion",
+					check_buildability = true
+					},
+					{
+					type = "create-entity",
 					entity_name = "medium-fire-cloud",
+					check_buildability = true
+					},
+					{
+					type = "create-entity",
+					entity_name = "fire-flame",
 					check_buildability = true
 					},
 				}
@@ -154,7 +184,7 @@ data:extend({
 			}
 		}
 	},
-	light = {intensity = 0.8, size = 6},
+	light = {intensity = 0.8, size = 7},
     animation =
     {
         filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Poison_Ammo.png",
@@ -170,7 +200,16 @@ data:extend({
         width = 18,
         height = 47,
         frame_count = 1
-    }
+    },
+	--[[
+	sound =
+	{
+		{
+			filename = "__Bio_Industries__/sound/launch.ogg",
+			volume = 4.0
+		},
+	},
+	]]
   },
 
    
@@ -210,14 +249,14 @@ data:extend({
           action =
           {
             type = "area",
-            perimeter = 3,
+            perimeter = 6,
             action_delivery =
             {
               type = "instant",
               target_effects =
               {
                 type = "damage",
-                damage = { amount = 3, type = "fire"}
+                damage = { amount = 6, type = "fire"}
               }
             }
           }
@@ -262,14 +301,14 @@ data:extend({
           action =
           {
             type = "area",
-            perimeter = 4,
+            perimeter = 10,
             action_delivery =
             {
               type = "instant",
               target_effects =
               {
                 type = "damage",
-                damage = { amount = 4, type = "fire"}
+                damage = { amount = 8, type = "fire"}
               }
             }
           }
@@ -314,14 +353,14 @@ data:extend({
           action =
           {
             type = "area",
-            perimeter = 5,
+            perimeter = 12,
             action_delivery =
             {
               type = "instant",
               target_effects =
               {
                 type = "damage",
-                damage = { amount = 5, type = "fire"}
+                damage = { amount = 10, type = "fire"}
               }
             }
           }
@@ -330,6 +369,37 @@ data:extend({
     },
     action_frequency = 30
   },
+  
+  	{
+		type = "smoke-with-trigger",
+		name = "bio-cannon-explosion",
+		flags = {"not-on-map"},
+		show_when_smoke_off = true,
+		animation =
+		{
+			filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/explosion.png",
+			priority = "low",
+			width = 256,
+			height = 128,
+			frame_count = 12,
+			animation_speed = 0.2,
+			line_length = 3,
+			scale = 2,
+		},
+		sound =
+		{
+		{
+			filename = "__Bio_Industries__/sound/boom.ogg",
+			volume = 4.0
+		},
+		},
+		slow_down_factor = 0,
+		affected_by_wind = false,
+		cyclic = false,
+		duration = 60 * 5,
+		spread_duration = 10,
+	},
+
   
 
 })

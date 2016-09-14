@@ -185,7 +185,10 @@ if BI_Config.Bio_Farm then
 		thxbob.lib.add_technology_recipe ("bi_bio_farming", "bi-sulfur-wood")
 		thxbob.lib.add_technology_recipe ("bi-fertiliser", "bi-sulfur-wood_Mk2")
 
-		
+		data.raw["item"]["sulfur-seed"].stack_size = 200
+		data.raw["item"]["sulfur-wood"].stack_size = 200
+		data.raw["item"]["rubber-seed"].stack_size = 200
+		--data.raw["item"]["resin"].stack_size = 200
 		--- If you're using NE Buildings, add an advanced recipe
 		if BI_Config.mod.NEBuildings then
 			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-resin_Mk3")
