@@ -15,6 +15,9 @@ function thxbob.lib.recipe.replace_ingredient(recipe, old, new)
     if amount > 0 then
       thxbob.lib.recipe.remove_ingredient(recipe, old)
       thxbob.lib.recipe.add_ingredient(recipe, {new, amount})
+      return true
+    else
+      return false
     end
   else
     if not data.raw.recipe[recipe] then
@@ -23,19 +26,23 @@ function thxbob.lib.recipe.replace_ingredient(recipe, old, new)
     if not thxbob.lib.item.get_type(new) then
       log("Ingredient " .. new .. " does not exist.")
     end
+    return false
   end
 end
 
 function thxbob.lib.recipe.replace_ingredient_crude(recipe, old, new)
   if data.raw.recipe[recipe] and thxbob.lib.item.get_basic_type(new) then
+    local replaced = false
     for i, ingredient in pairs(data.raw.recipe[recipe].ingredients) do
       if ingredient[1] == old or ingredient.name == old then
         local item = thxbob.lib.item.basic_item(ingredient)
         item.name = new
         item.type = thxbob.lib.item.get_basic_type(new)
         ingredient = item
+        replaced = true
       end
     end
+    return replaced
   else
     if not data.raw.recipe[recipe] then
       log("Recipe " .. recipe .. " does not exist.")
@@ -43,6 +50,7 @@ function thxbob.lib.recipe.replace_ingredient_crude(recipe, old, new)
     if not thxbob.lib.item.get_type(new) then
       log("Ingredient " .. new .. " does not exist.")
     end
+    return false
   end
 end
 

@@ -2,7 +2,7 @@ if not thxbob.lib.item then thxbob.lib.item = {} end
 
 
 function thxbob.lib.item.get_type(name)
-  local item_types = {"ammo", "armor", "capsule", "fluid", "gun", "item", "mining-tool", "module", "tool"}
+  local item_types = {"ammo", "armor", "capsule", "fluid", "gun", "item", "mining-tool", "module", "tool", "item-with-entity-data"}
   local item_type = nil
   for i, type_name in pairs(item_types) do
     if data.raw[type_name][name] then item_type = type_name end
@@ -41,6 +41,14 @@ function thxbob.lib.item.basic_item(inputs)
     item.type = inputs.type
   else
     item.type = thxbob.lib.item.get_basic_type(item.name)
+  end
+
+  if item.type == "item" then
+    if item.amount > 0 and item.amount < 1 then
+      item.amount = 1
+    else
+      item.amount = math.floor(item.amount)
+    end
   end
 
   return item
@@ -123,7 +131,7 @@ function thxbob.lib.item.add(list, item_in) --increments amount if exists
   for i, object in pairs(list) do
     if object[1] == item.name or object.name == item.name then
       addit = false
-      object = thxbob.lib.item.combine(object, item)
+      list[i] = thxbob.lib.item.combine(object, item)
     end
   end
   if addit then table.insert(list, item) end
