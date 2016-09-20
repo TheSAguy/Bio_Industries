@@ -1,14 +1,12 @@
 require "util"
+require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
 
----- Doubles damage if you're playing with NE Enemies
-local NE_Damage = 1
 
-if data.raw["unit"]["small-biter-Mk2"] ~= nil and data.raw["unit"]["small-spitter-Mk2"] ~= nil then
-
+if BI_Config.mod.NEEnemies or data.raw["logistic-container"]["Artifact-collector-area"] or data.raw["ammo"]["Biological-bullet-magazine"] then
 	NE_Damage = 2
-	
+else
+	NE_Damage = 1
 end
-
 
 
 data:extend({
@@ -20,7 +18,7 @@ data:extend({
     type = "projectile",
     name = "Bio_Cannon_Bio_Ammo",
     flags = {"not-on-map"},
-    acceleration = 0.0005,
+    acceleration = 0.0007,
 	action =
 	{
 		{
