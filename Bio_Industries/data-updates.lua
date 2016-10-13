@@ -193,8 +193,8 @@ if BI_Config.Bio_Farm then
 		if BI_Config.mod.NEBuildings then
 			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-resin_Mk3")
 			thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-sulfur-wood_Mk3")
-			thxbob.lib.add_new_recipe_item ("bi-resin_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
-			thxbob.lib.add_new_recipe_item ("bi-sulfur-wood_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
+			thxbob.lib.add_new_recipe_item ("bi-resin_Mk3", {type="item", name="bi-adv-fertiliser", amount=3})
+			thxbob.lib.add_new_recipe_item ("bi-sulfur-wood_Mk3", {type="item", name="bi-adv-fertiliser", amount=3})
 
 		end
 
