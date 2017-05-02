@@ -1,4 +1,4 @@
----Bio Industries - v.1.4.7
+---Bio Industries - v.1.5.1
 
 require ("util")
 require ("libs/util_ext")
@@ -7,10 +7,10 @@ require ("libs/event")
 
 
 if not BI_Config then BI_Config = {} end
-require ("config")
+
 
 local max_grow_time = 5000
-
+local QC_Mod = false
 
 --------------------------------------------------------------------
 script.on_load(function()
@@ -433,7 +433,7 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 
 			Bio_Cannon.surface.create_entity({name=AmmoType, position = {x = Bio_Cannon.position.x - 0.5, y = Bio_Cannon.position.y - 4.5}, force = Bio_Cannon.force, target = target[1], speed= 0.1})
 			Bio_Cannon.surface.pollute(Bio_Cannon.position,100) -- The firing of the Hive Buster will causes Pollution
-			Bio_Cannon.surface.set_multi_command{command = {type=defines.command.attack, target=Bio_Cannon, distraction=defines.distraction.by_enemy},unit_count = math.floor(100 * game.evolution_factor), unit_search_distance = 500}
+			Bio_Cannon.surface.set_multi_command{command = {type=defines.command.attack, target=Bio_Cannon, distraction=defines.distraction.by_enemy},unit_count = math.floor(100 * game.forces.enemy.evolution_factor), unit_search_distance = 500}
 			
 			--Reduce Ammo
 			ammo = ammo-1
@@ -481,7 +481,8 @@ end
 
 --- DeBug Messages 
 function writeDebug(message)
-	if BI_Config.QCCode then 
+	--if settings.startup["BI_QC"].value then 
+	if QC_Mod == true then 
 		for i, player in pairs(game.players) do
 			player.print(tostring(message))
 		end

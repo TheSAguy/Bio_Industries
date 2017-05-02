@@ -1,6 +1,5 @@
 
 
---- Imported from Tree Farm Mod
 data:extend(
 {
 
@@ -32,7 +31,8 @@ data:extend(
 			count = 150,
 			ingredients = {
 				{"science-pack-1", 4},
-				{"science-pack-2", 2}
+				{"science-pack-2", 2},
+				{"science-pack-3", 1},
 			},
 			time = 30
 		}

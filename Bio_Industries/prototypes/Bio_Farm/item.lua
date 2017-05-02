@@ -11,6 +11,7 @@ data:extend({
 	order = "x[bi]-a[bi-seedling]",
 	place_result="seedling",
 	fuel_value = "1MJ",
+	fuel_category = "chemical",
     stack_size= 200
   },
 
@@ -124,6 +125,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Woodpulp_32.png",
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "2MJ",
+		fuel_category = "chemical",
 		subgroup = "raw-material",	
 		order = "b[woodpulp]",			
 		order = "a-b[bi-woodpulp]",
@@ -148,6 +150,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/charcoal.png",
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "6MJ",
+		fuel_category = "chemical",
 		subgroup = "raw-material",
 		order = "a[bi]-a-c[charcoal]",
 		stack_size = 200
@@ -160,6 +163,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/coke-coal.png",
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "18MJ",
+		fuel_category = "chemical",
 		subgroup = "raw-material",
 		order = "a[bi]-a-e[bi-coke-coal]",
 		stack_size = 200

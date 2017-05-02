@@ -164,7 +164,16 @@ data:extend({
     name= "Bio_Cannon_Bio_Ammo",
     enabled = false,
 	energy_required = 8,
-	ingredients = {{"Bio_Cannon_Basic_Ammo", 1},{"alien-artifact", 2}, {"explosive-rocket", 10}},
+
+	ingredients =
+		{
+			{type="item", name="Bio_Cannon_Basic_Ammo", amount=1},
+			{type="item", name="bi-explosive-rocket", amount=10},
+			{type="fluid", name="sulfuric-acid", amount=20},     
+
+		},
+	
+	
     result = "Bio_Cannon_Bio_Ammo",
 	result_count = 2,
  },

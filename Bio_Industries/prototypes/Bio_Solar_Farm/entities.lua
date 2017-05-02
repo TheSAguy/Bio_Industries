@@ -77,7 +77,7 @@ data:extend({
 	  scale = 3/2,
 	  --shift = {0.75, 0},
     },
-    production = "2000kW"
+    production = "5000kW"
   },
   
   })

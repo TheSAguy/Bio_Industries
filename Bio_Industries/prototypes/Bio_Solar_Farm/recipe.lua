@@ -5,12 +5,12 @@ data:extend({
 		type = "recipe",
 		name = "bi_bio_Solar_Farm",
 		enabled = false,
-		energy_required = 20,
+		energy_required = 200,
 		ingredients = 
 		{
-			{"solar-panel",20},
-			{"medium-electric-pole",10},
-			{"concrete",40},
+			{"solar-panel",50},
+			{"medium-electric-pole",25},
+			{"concrete",400},
 					
 		},
 		result = "bi_bio_Solar_Farm"

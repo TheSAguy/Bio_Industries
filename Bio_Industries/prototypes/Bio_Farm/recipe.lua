@@ -89,6 +89,20 @@ data:extend({
 		result = "raw-wood"
 	},
 	
+	-- Woodpulp--
+	{
+		type = "recipe",
+		name = "bi-woodpulp",
+		icon = "__Bio_Industries__/graphics/icons/Woodpulp_raw-wood.png",
+		category = "biofarm-mod-smelting",
+		subgroup = "raw-material",
+		order = "a[bi]-a-b[bi-woodpulp]",
+		enabled = false,
+		energy_required = 5,
+		ingredients = {{"raw-wood",2}},
+		result = "bi-woodpulp",
+		result_count = 8,
+	}, 
 	-- ASH --
 	{
 		type = "recipe",
@@ -225,11 +239,11 @@ data:extend({
 		energy_required = 10,
 		ingredients =
 		{
-		  {type="fluid", name="liquid-air", amount=2}
+		  {type="fluid", name="liquid-air", amount=20}
 		},
 		results=
 		{
-		  {type="fluid", name="nitrogen", amount=2},
+		  {type="fluid", name="nitrogen", amount=20},
 		},
 		enabled = false,
 		main_product= "nitrogen",
@@ -247,7 +261,7 @@ data:extend({
 		{
 			{type = "item", name = "sulfur", amount = 1},
 			{type="item", name="stone-crushed", amount=5},
-			{type="fluid", name="nitrogen", amount=1},
+			{type="fluid", name="nitrogen", amount=10},
 			{type="item", name="bi-ash", amount=5}
 		},
 		results=
@@ -269,7 +283,7 @@ data:extend({
 		{
 			--{type = "item", name = "sodium-hydroxide", amount = 10},
 			{type="item", name="stone-crushed", amount=5},
-			{type="fluid", name="nitrogen", amount=1},
+			{type="fluid", name="nitrogen", amount=10},
 			{type="item", name="bi-ash", amount=5}
 		},
 		results=
@@ -292,7 +306,7 @@ data:extend({
 		{
 			{type="item", name="fertiliser", amount=25},
 			{type="item", name="bi-woodpulp", amount=50},
-			{type="item", name="alien-artifact", amount=5},     
+			--{type="fluid", name="sulfuric-acid", amount=50},     
 			--{type="fluid", name="NE_enhanced-nutrient-solution", amount=5}, -- Will be added if you have Natural Evolution Buildings Mod installed.
 		},
 		results=

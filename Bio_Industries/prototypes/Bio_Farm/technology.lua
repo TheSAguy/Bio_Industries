@@ -63,6 +63,10 @@ data:extend({
 			},
 			{
 				type = "unlock-recipe",
+				recipe = "bi-woodpulp"
+			},
+			{
+				type = "unlock-recipe",
 				recipe = "bi-cokery"
 			}
 		},
@@ -123,7 +127,8 @@ data:extend({
 			ingredients = {
 				{"science-pack-1", 2},
 				{"science-pack-2", 2},
-				{"science-pack-3", 1}
+				{"science-pack-3", 1},
+				{"production-science-pack", 1},
 			},
 			time = 30
 		},

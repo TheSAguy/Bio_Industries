@@ -2,9 +2,14 @@
 require("prototypes.Wood_Products.demo-railpictures-wood")
 
 
-railpictures = function()
-  return railpicturesinternal({{"metals", "metals"}, {"backplates", "backplates"}, {"ties", "ties"}, {"stone_path", "stone-path"}})
+rail_pictures = function()
+  return rail_pictures_internal({{"metals", "metals", mipmap = true},
+                                 {"backplates", "backplates", mipmap = true},
+                                 {"ties", "ties", variations = 3},
+                                 {"stone_path", "stone-path", variations = 3},
+                                 {"stone_path_background", "stone-path-background", variations = 3}})
 end
+
 
 
 data:extend({
@@ -459,10 +464,9 @@ data:extend({
       }
     }
   },
-  
-  
+
   --------------- Rail
-  
+
     {
     type = "straight-rail",
     name = "bi-straight-rail-wood",   
@@ -474,7 +478,7 @@ data:extend({
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
-    pictures = railpictures(),
+    pictures = rail_pictures(),
   },
   {
     type = "curved-rail",
@@ -488,7 +492,7 @@ data:extend({
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
-    pictures = railpictures(),
+    pictures = rail_pictures(),
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
 

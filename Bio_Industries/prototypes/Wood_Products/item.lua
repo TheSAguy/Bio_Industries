@@ -8,8 +8,9 @@ data:extend({
 		subgroup = "energy-pipe-distribution",
 		order = "a[energy]-b[small-electric-pole]",
 		place_result = "bi-big-wooden-pole",
-		stack_size = 50,
-		fuel_value = "20MJ"
+		fuel_value = "20MJ",
+		fuel_category = "chemical",
+		stack_size = 50
 
 	},
 
@@ -22,6 +23,7 @@ data:extend({
 		order = "a-a[stone-wall]-a[wooden-fence]",
 		place_result = "bi-wooden-fence",
 		fuel_value = "24MJ",
+		fuel_category = "chemical",
 		stack_size = 50
 	},
 
@@ -39,6 +41,6 @@ data:extend({
 		curved_rail = "bi-curved-rail-wood"
 	},
 
-	
+
 })
 

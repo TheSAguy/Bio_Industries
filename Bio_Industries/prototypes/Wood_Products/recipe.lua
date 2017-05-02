@@ -43,7 +43,7 @@ data:extend({
 		result_count = 2,
 		requester_paste_multiplier = 4
   },
-  
+
   
   
  })
