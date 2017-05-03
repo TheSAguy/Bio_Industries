@@ -119,9 +119,13 @@ if BI.Settings.Bio_Solar_Farm  then
 	if data.raw.technology["bob-solar-energy-2"] then
 		thxbob.lib.add_technology_recipe ("bob-solar-energy-2", "bi_bio_Solar_Farm")
 		thxbob.lib.replace_recipe_item("bi_bio_Solar_Farm", "solar-panel", "solar-panel-large")
+		-- Solar Mat
+		thxbob.lib.add_technology_recipe ("bob-solar-energy-2", "bi_solar_mat")
 		
 	else
 		thxbob.lib.add_technology_recipe ("solar-energy", "bi_bio_Solar_Farm")
+		-- Solar mat
+		thxbob.lib.add_technology_recipe ("solar-energy", "bi_solar_mat")
 	end	
 end
 

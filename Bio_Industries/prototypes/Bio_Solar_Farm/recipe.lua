@@ -16,7 +16,22 @@ data:extend({
 		result = "bi_bio_Solar_Farm"
 	},
 	
+	-- solar mat
+	{
+		type = "recipe",
+		name = "bi_solar_mat",
+		enabled = false,
+		energy_required = 5,
+		ingredients = 
+		{
+		  {"steel-plate", 1},
+		  {"electronic-circuit", 3},
+		  {"copper-plate", 1}						
+		},
+		result = "bi-solar-mat"
+	},
 	
+
 	
  })
 

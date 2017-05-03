@@ -80,5 +80,190 @@ data:extend({
     production = "5000kW"
   },
   
+  
+---- Solar Floor
+	{
+	  type = "tile",
+	  name = "bi-solar-mat",
+	  needs_correction = false,
+	  minable = {hardness = 0.1, mining_time = 0.25, result = "bi-solar-mat"},
+	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
+	  collision_mask = {"ground-tile", "not-colliding-with-itself"},
+	  --collision_mask = { "player-layer" },
+	  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
+	  walking_speed_modifier = .2,
+	  layer = 62,
+	  decorative_removal_probability = 0.4,
+	  variants =
+	  {
+		main =
+		{
+		  {
+			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar1.png",
+			count = 4,
+			size = 1
+		  },
+		  {
+			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar2.png",
+			count = 1,
+			size = 2,
+			probability = 1,
+		  },
+		},
+		inner_corner =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-inner-corner.png",
+		  count = 8
+		},
+		outer_corner =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-outer-corner.png",
+		  count = 8
+		},
+		side =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-side.png",
+		  count = 8
+		},
+		u_transition =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-u.png",
+		  count = 8
+		},
+		o_transition =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-o.png",
+		  count = 1
+		}
+	  },
+	  walking_sound =
+	  {
+		{
+		  filename = "__base__/sound/walking/concrete-01.ogg",
+		  volume = 1.2
+		},
+		{
+		  filename = "__base__/sound/walking/concrete-02.ogg",
+		  volume = 1.2
+		},
+		{
+		  filename = "__base__/sound/walking/concrete-03.ogg",
+		  volume = 1.2
+		},
+		{
+		  filename = "__base__/sound/walking/concrete-04.ogg",
+		  volume = 1.2
+		}
+	  },
+	  map_color={r=139, g=115, b=85},
+	  ageing=0,
+	  vehicle_friction_modifier = dirt_vehicle_speed_modifer
+	},
+	
+    ------- Solar Pole
+  {
+    type = "electric-pole",
+    name = "bi_solar_pole",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+	flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable"},
+	selectable_in_game = false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+    collision_box = {{-0, -0}, {0, 0}},
+	collision_mask = {},
+    maximum_wire_distance = 4,
+    supply_area_distance = 3,
+    pictures =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      priority = "low",
+      width = 0,
+      height = 0,
+	  frame_count = 1,
+      axially_symmetrical = false,
+      direction_count = 4,
+	  shift = {0.75, 0},
+    },
+    connection_points =
+    {
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+ 
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      }
+
+	},
+    radius_visualisation_picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      width = 0,
+      height = 0,
+      priority = "low"
+    },
+  },
+  
+   ------- Solar Mat - Solar Panel
+  {
+    type = "solar-panel",
+    name = "bi_solar-panel_for_Solar-Mat",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Solar.png",
+	flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable"},
+	selectable_in_game = false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+    collision_box = {{-0, -0}, {0, 0}},
+	collision_mask = {},
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "solar"
+    },
+    picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      priority = "low",
+      width = 0,
+      height = 0,
+    },
+    production = "20kW"
+  },
+  
   })
+ 
+
  

@@ -1,5 +1,5 @@
 ---Bio Industries - v.1.5.2
-
+local QC_Mod = true
 require ("util")
 require ("libs/util_ext")
 require ("libs/event")
@@ -10,7 +10,7 @@ if not BI_Config then BI_Config = {} end
 
 
 local max_grow_time = 5000
-local QC_Mod = false
+
 
 --------------------------------------------------------------------
 script.on_load(function()
@@ -51,6 +51,13 @@ script.on_event({defines.events.on_robot_built_entity,}, function(event) On_Buil
 script.on_event({defines.events.on_preplayer_mined_item,}, function(event) On_Remove(event) end)
 script.on_event({defines.events.on_robot_pre_mined,}, function(event) On_Remove(event) end)
 script.on_event({defines.events.on_entity_died,}, function(event) On_Death(event) end)
+
+script.on_event({defines.events.on_player_built_tile,}, function(event) Tile_Built(event) end)
+script.on_event({defines.events.on_robot_built_tile,}, function(event) Tile_Built(event) end)
+script.on_event({defines.events.on_player_mined_tile,}, function(event) Tile_Remove(event) end)
+script.on_event({defines.events.on_robot_mined_tile,}, function(event) Tile_Remove(event) end)
+
+
 	
 ---------------------------------------------
 function On_Built(event)
@@ -132,6 +139,30 @@ function On_Built(event)
 
 	end
 	
+
+    --- Bio Solar Mat has been built
+	if entity.name == "bi-solar-mat" then
+--	if entity and entity.name == "bi-solar-mat" then
+	writeDebug("Solar Mat has been built")
+		local surface = entity.surface
+		local force = entity.force
+		local position = entity.position		   
+		local solar_mat = entity
+		local sm_pole_name = "bi_solar_pole"  
+		local sm_panel_name = "bi_solar-panel_for_Solar-Mat"  
+		  
+		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
+		local create_sm_panel = surface.create_entity({name = sm_panel_name, position = position, force = force})
+		  
+		create_sm_pole.minable = false
+		create_sm_pole.destructible = false
+		create_sm_panel.minable = false
+		create_sm_panel.destructible = false
+		
+		group_entities(cantor(position.x,position.y), { solar_mat, create_sm_pole, create_sm_panel })	  
+
+	end
+
 	
 	
 	--- Bio Cannon has been built
@@ -177,6 +208,39 @@ function On_Built(event)
 
 	
 end
+
+---------------------------------------------
+function Tile_Built(event)
+    --local entity = event.created_entity
+	local surface = game.surfaces['nauvis']  
+	local currentTilename = surface.get_tile(position.x,position.y).name
+    --- Bio Solar Mat has been built
+	if currentTilename == "bi-solar-mat" then
+--	if entity and entity.name == "bi-solar-mat" then
+	writeDebug("Solar Mat has been built")
+		local surface = entity.surface
+		local force = entity.force
+		local position = entity.position		   
+		local solar_mat = entity
+		local sm_pole_name = "bi_solar_pole"  
+		local sm_panel_name = "bi_solar-panel_for_Solar-Mat"  
+		  
+		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
+		local create_sm_panel = surface.create_entity({name = sm_panel_name, position = position, force = force})
+		  
+		create_sm_pole.minable = false
+		create_sm_pole.destructible = false
+		create_sm_panel.minable = false
+		create_sm_panel.destructible = false
+		
+		group_entities(cantor(position.x,position.y), { solar_mat, create_sm_pole, create_sm_panel })	  
+
+	end
+
+
+	
+end
+
 
 ---------------------------------------------
 function On_Remove(event)
@@ -234,7 +298,23 @@ function On_Remove(event)
         ungroup_entities(pos_hash)
 	end
 
-	
+	--- Solar Map has been removed
+   	if entity and entity.name == "bi-solar-mat" then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+
+		
 	
 	--- Seedling Removed
 	if event.entity.name == "seedling" then
@@ -247,6 +327,31 @@ function On_Remove(event)
 		end
 
 	end
+	
+end
+
+---------------------------------------------
+function Tile_Remove(event)
+	
+	local entity = event.entity	
+	
+
+	--- Solar Map has been removed
+   	if entity and entity.name == "bi-solar-mat" then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+
 	
 end
 
@@ -304,6 +409,25 @@ function On_Death(event)
         end
         ungroup_entities(pos_hash)
 	end
+
+	--- Solar Map has been destroyed
+   	if entity and entity.name == "bi-solar-mat" then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+
+		
+	
 	
 	--- Seedling Removed
 	
