@@ -508,6 +508,7 @@ data:extend({
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
     collision_box = {{-0, -0}, {0, 0}},
+	collision_mask = {},
     maximum_wire_distance = 8,
     supply_area_distance = 5,
  

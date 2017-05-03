@@ -89,6 +89,7 @@ data:extend({
 		resistances = {},
 		collision_box = {{0, 0}, {0, 0}},
 		selection_box = {{0, 0}, {0, 0}},
+		collision_mask = {},
 		order = "i[items][Bio_Cannon]",
 		inventory_size = 1,
 		picture =
@@ -158,6 +159,7 @@ data:extend({
 	resistances = {},
 	collision_box = {{-4.0, -4.0}, {4.0, 4.0}},
 	selection_box = {{-4.25, -4.25}, {4.25, 4.25}},
+	collision_mask = {},
 	order = "i[items][Bio_Cannon]",
     energy_per_sector = "22MJ",
     max_distance_of_nearby_sector_revealed = 5,
