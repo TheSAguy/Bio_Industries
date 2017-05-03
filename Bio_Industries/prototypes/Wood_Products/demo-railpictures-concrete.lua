@@ -10,7 +10,6 @@ end
 
 
 
-
 rail_pictures_internal_c = function(elems)
   local keys = {{"straight_rail", "horizontal", 64, 128, 0, 0, true},
                 {"straight_rail", "vertical", 128, 64, 0, 0, true},

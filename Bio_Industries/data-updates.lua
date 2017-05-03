@@ -87,6 +87,7 @@ if BI.Settings.Wood_Products then
 
 	---- Update Rails 
 	require("prototypes.Wood_Products.demo-railpictures-concrete")
+	require("prototypes.Wood_Products.demo-remnants-concrete")
 	
 	-- vanilla rail recipe update
 	thxbob.lib.add_new_recipe_item("rail", {type="item", name="concrete", amount=8})

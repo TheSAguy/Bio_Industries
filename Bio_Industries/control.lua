@@ -1,4 +1,4 @@
----Bio Industries - v.1.5.1
+---Bio Industries - v.1.5.2
 
 require ("util")
 require ("libs/util_ext")
@@ -114,6 +114,26 @@ function On_Built(event)
 
 	end
 	
+		--- Concrete Rail has been built
+	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+	writeDebug("Concrete Rail has been built")
+		local surface = entity.surface
+		local force = entity.force
+		local position = entity.position		   
+		local rail_track = entity
+		local pole_name = "bi_medium-electric-pole_for_rail"  		
+		
+		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
+				
+		create_rail_pole.minable = false
+		create_rail_pole.destructible = false 
+		
+		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
+
+	end
+	
+	
+	
 	--- Bio Cannon has been built
 	if entity.name == "Bio_Cannon_Area" then
 	
@@ -161,10 +181,9 @@ end
 ---------------------------------------------
 function On_Remove(event)
 	
-	
+	local entity = event.entity	
 	
 	--- Bio Farm has been removed
-	local entity = event.entity
    	if entity and entity.name == "bi_bio_farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
@@ -182,7 +201,6 @@ function On_Remove(event)
 
 			
 	--- Bio Solar Farm has been removed
-	local entity = event.entity
    	if entity and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
@@ -198,6 +216,26 @@ function On_Remove(event)
         ungroup_entities(pos_hash)
 	end
 
+	
+				
+	--- Concrete Rail has been removed
+   	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+
+	
+	
 	--- Seedling Removed
 	if event.entity.name == "seedling" then
 	
@@ -214,9 +252,10 @@ end
 
 ---------------------------------------------
 function On_Death(event)
+
+	local entity = event.entity
 	
 	--- Bio Farm has been destroyed
-	local entity = event.entity
    	if entity and entity.name == "bi_bio_farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
@@ -235,7 +274,6 @@ function On_Death(event)
 
 
 		--- Bio Solar Farm has been destroyed
-	local entity = event.entity
    	if entity and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
@@ -251,6 +289,22 @@ function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
+			--- Concrete Rail has been destroyed
+   		if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+	
 	--- Seedling Removed
 	
 	if event.entity.name == "seedling" then

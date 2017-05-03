@@ -196,49 +196,51 @@ data:extend({
       direction_count = 4,
 	  shift = {0.75, 0},
     },
+
     connection_points =
     {
       {
         shadow =
         {
-          copper = {2.55, 0.4},
+
         },
         wire =
         {
-          copper = {-0.03, -2.5},
+
         }
       },
       {
         shadow =
         {
-          copper = {2.9, 0.1},
+ 
         },
         wire =
         {
-          copper = {0.05, -2.75},
+
         }
       },
       {
         shadow =
         {
-          copper = {1.5, -0.2},
+
         },
         wire =
         {
-          copper = {-0.43, -2.4},
+
         }
       },
       {
         shadow =
         {
-          copper = {2.88, 0.2},
+
         },
         wire =
         {
-          copper = {0, -2.7},
+
         }
       }
-    },
+
+	},
     radius_visualisation_picture =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
@@ -247,6 +249,7 @@ data:extend({
       priority = "low"
     },
   },
+  
   ------- Bio Farm Solar Panel
   {
     type = "solar-panel",

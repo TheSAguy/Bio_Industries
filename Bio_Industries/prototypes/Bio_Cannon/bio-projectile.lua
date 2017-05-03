@@ -168,7 +168,7 @@ data:extend({
 	ingredients =
 		{
 			{type="item", name="Bio_Cannon_Basic_Ammo", amount=1},
-			{type="item", name="bi-explosive-rocket", amount=10},
+			{type="item", name="explosive-rocket", amount=10},
 			{type="fluid", name="sulfuric-acid", amount=20},     
 
 		},

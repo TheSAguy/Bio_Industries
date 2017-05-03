@@ -1,5 +1,6 @@
 
 require("prototypes.Wood_Products.demo-railpictures-wood")
+require("prototypes.Wood_Products.demo-remnants-wood")
 
 
 rail_pictures = function()
@@ -474,7 +475,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
     minable = {mining_time = 0.5, result = "bi-rail-wood"},
     max_health = 60,
-    corpse = "straight-rail-remnants",
+    corpse = "straight-rail-remnants-wood",
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
@@ -487,7 +488,7 @@ data:extend({
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
     minable = {mining_time = 0.5, result = "bi-rail-wood", count = 4},
     max_health = 120,
-    corpse = "curved-rail-remnants",
+    corpse = "curved-rail-remnants-wood",
     collision_box = {{-0.75, -0.55}, {0.75, 1.6}},
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
@@ -496,5 +497,81 @@ data:extend({
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
 
+  ------- Rail Pole
+  {
+    type = "electric-pole",
+    name = "bi_medium-electric-pole_for_rail",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+	--flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable", "not-on-map"},
+	flags = {"placeable-neutral", "placeable-off-grid", "not-repairable", "not-on-map"},
+	selectable_in_game = false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+    collision_box = {{-0, -0}, {0, 0}},
+    maximum_wire_distance = 8,
+    supply_area_distance = 5,
+ 
+    pictures =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      priority = "low",
+      width = 0,
+      height = 0,
+	  frame_count = 1,
+      axially_symmetrical = false,
+      direction_count = 4,
+	  shift = {0.75, 0},
+    },
+    connection_points =
+    {
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      }
+    },
+    radius_visualisation_picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      width = 0,
+      height = 0,
+      priority = "low"
+    },
+  },
 
 })
