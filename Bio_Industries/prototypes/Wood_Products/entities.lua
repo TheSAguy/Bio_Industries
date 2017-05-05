@@ -1,7 +1,7 @@
 
 require("prototypes.Wood_Products.demo-railpictures-wood")
 require("prototypes.Wood_Products.demo-remnants-wood")
-
+--require ("prototypes.Bio_Farm.utility-sprites_tweak")
 
 rail_pictures = function()
   return rail_pictures_internal({{"metals", "metals", mipmap = true},
@@ -523,6 +523,54 @@ data:extend({
       direction_count = 4,
 	  shift = {0.75, 0},
     },
+	 connection_points =
+    {
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      }
+    },
+	--[[
     connection_points =
     {
       {
@@ -566,6 +614,8 @@ data:extend({
         }
       }
     },
+	]]
+	
     radius_visualisation_picture =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
