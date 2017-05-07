@@ -7,10 +7,12 @@ require ("libs.item-functions") -- From Bob's Libary
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 
 require ("libs.legacy") -- From Bob's Libary 
---require ("config")
+
 
 ---- Inrease Wood Stack Size
-data.raw.item["raw-wood"].stack_size = 400
+if data.raw.item["raw-wood"].stack_size < 400 then
+	data.raw.item["raw-wood"].stack_size = 400
+end
 
 --- Move Stone Crusher up in tech tree
 thxbob.lib.add_technology_recipe ("automation-2", "bi-stone-crusher")

@@ -1,4 +1,4 @@
-rail_pictures_internal = function(elems)
+rail_pictures_internal_w = function(elems)
   local keys = {{"straight_rail", "horizontal", 64, 128, 0, 0, true},
                 {"straight_rail", "vertical", 128, 64, 0, 0, true},
                 {"straight_rail", "diagonal-left-top", 96, 96, 0.5, 0.5, true},

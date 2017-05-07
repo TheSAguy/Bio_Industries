@@ -48,7 +48,7 @@ data:extend({
 	{
 		type = "item",
 		name = "bi_solar_pole",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+		icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 		flags = {"hidden"},
 		subgroup = "energy-pipe-distribution",
 		order = "x[bi]-a[bi_bio_farm]",
@@ -61,7 +61,7 @@ data:extend({
 	{
 		type = "item",
 		name = "bi_solar-panel_for_Solar-Mat",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Solar.png",
+		icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 		flags = {"hidden"},
 		subgroup = "energy",
 		order = "x[bi]-a[bi_bio_farm]",

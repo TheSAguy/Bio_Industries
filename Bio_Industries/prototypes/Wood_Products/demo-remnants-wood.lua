@@ -1,6 +1,6 @@
 
-destroyed_rail_pictures = function()
-  return rail_pictures_internal({{"metals", "metals-remnants", mipmap = true, variations = 3},
+destroyed_rail_pictures_w = function()
+  return rail_pictures_internal_w({{"metals", "metals-remnants", mipmap = true, variations = 3},
                                  {"backplates", "backplates-remnants", mipmap = true, variations = 3},
                                  {"ties", "ties-remnants", variations = 3},
                                  {"stone_path", "stone-path-remnants", variations = 3},
@@ -22,7 +22,7 @@ data:extend(
     tile_width = 2,
     tile_height = 2,
     bending_type = "straight",
-    pictures = destroyed_rail_pictures(),
+    pictures = destroyed_rail_pictures_w(),
     time_before_removed = 60 * 60 * 45,
     time_before_shading_off = 60 * 60 * 1
   },
@@ -39,7 +39,7 @@ data:extend(
     tile_width = 4,
     tile_height = 8,
     bending_type = "turn",
-    pictures = destroyed_rail_pictures(),
+    pictures = destroyed_rail_pictures_w(),
     time_before_removed = 60 * 60 * 45,
     time_before_shading_off = 60 * 60 * 1
   },

@@ -3,8 +3,8 @@ require("prototypes.Wood_Products.demo-railpictures-wood")
 require("prototypes.Wood_Products.demo-remnants-wood")
 --require ("prototypes.Bio_Farm.utility-sprites_tweak")
 
-rail_pictures = function()
-  return rail_pictures_internal({{"metals", "metals", mipmap = true},
+rail_pictures_w = function()
+  return rail_pictures_internal_w({{"metals", "metals", mipmap = true},
                                  {"backplates", "backplates", mipmap = true},
                                  {"ties", "ties", variations = 3},
                                  {"stone_path", "stone-path", variations = 3},
@@ -479,7 +479,7 @@ data:extend({
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
-    pictures = rail_pictures(),
+    pictures = rail_pictures_w(),
   },
   {
     type = "curved-rail",
@@ -493,7 +493,7 @@ data:extend({
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
-    pictures = rail_pictures(),
+    pictures = rail_pictures_w(),
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
 
