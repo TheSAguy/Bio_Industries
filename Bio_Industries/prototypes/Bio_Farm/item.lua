@@ -12,7 +12,7 @@ data:extend({
 	place_result="seedling",
 	fuel_value = "1MJ",
 	fuel_category = "chemical",
-    stack_size= 200
+    stack_size= 400
   },
 
   ----Bio Farm
@@ -129,7 +129,7 @@ data:extend({
 		subgroup = "raw-material",	
 		order = "b[woodpulp]",			
 		order = "a-b[bi-woodpulp]",
-		stack_size = 200
+		stack_size = 400
 	},  
 
 		--- Ash 
@@ -140,7 +140,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
 		order = "a[bi]-a-b[bi-ash]",
-		stack_size = 200
+		stack_size = 400
 	},
 	
 	--- Charcoal
@@ -153,7 +153,7 @@ data:extend({
 		fuel_category = "chemical",
 		subgroup = "raw-material",
 		order = "a[bi]-a-c[charcoal]",
-		stack_size = 200
+		stack_size = 400
 	},  
 
 	--- Coke Coal
@@ -166,7 +166,7 @@ data:extend({
 		fuel_category = "chemical",
 		subgroup = "raw-material",
 		order = "a[bi]-a-e[bi-coke-coal]",
-		stack_size = 200
+		stack_size = 400
 	},
 
 
@@ -178,7 +178,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
 		order = "a[bi]-a-z[stone-crushed]",
-		stack_size = 200
+		stack_size = 400
 	},
 
 --- Intermediate items

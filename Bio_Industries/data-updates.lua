@@ -9,10 +9,6 @@ require ("libs.technology-functions") -- From Bob's Libary
 require ("libs.legacy") -- From Bob's Libary 
 
 
----- Inrease Wood Stack Size
-if data.raw.item["raw-wood"].stack_size < 400 then
-	data.raw.item["raw-wood"].stack_size = 400
-end
 
 --- Move Stone Crusher up in tech tree
 thxbob.lib.add_technology_recipe ("automation-2", "bi-stone-crusher")
@@ -139,9 +135,16 @@ if data.raw.item["sodium-hydroxide"] then
 	
 end	
 	
-if BI.Settings.BI_Bio_Fuel or BI_Config.mod.NEBuildings or BI.Settings.Bio_Garden then
-require("prototypes.Bio_Farm.technology2")
+if BI.Settings.BI_Bio_Fuel or BI_Config.mod.NEBuildings then
+	require("prototypes.Bio_Farm.technology2")
 end
+
+if (BI_Config.mod.NEBuildings and BI.Settings.Bio_Garden) or  (BI.Settings.BI_Bio_Fuel and BI.Settings.Bio_Garden) then
+	thxbob.lib.add_technology_recipe ("bi-advanced-biotechnology", "bi-Clean_Air2")
+end
+	
+	
+
 	
 --update crushed stone icon
 data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
