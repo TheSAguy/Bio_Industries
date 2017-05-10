@@ -22,7 +22,7 @@ data:extend(
     type = "bool-setting",
     name = "BI_Recipe_Tweaks",
     setting_type = "startup",
-    default_value = false,
+    default_value = true,
     per_user = false,
   },
 
