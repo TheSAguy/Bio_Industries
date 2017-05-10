@@ -1,20 +1,5 @@
 data:extend(
 {
-  {
-    type = "bool-setting",
-    name = "BI_Bio_Garden",
-    setting_type = "startup",
-    default_value = true,
-    per_user = false,
-  },
-
-  {
-    type = "bool-setting",
-    name = "BI_Bio_Solar_Farm",
-    setting_type = "startup",
-    default_value = true,
-    per_user = false,
-  },
 
   {
     type = "bool-setting",
@@ -32,14 +17,6 @@ data:extend(
     per_user = false,
   },
 
-
-  {
-    type = "bool-setting",
-    name = "BI_Wood_Products",
-    setting_type = "startup",
-    default_value = false,
-    per_user = false,
-  },
 
   {
     type = "bool-setting",

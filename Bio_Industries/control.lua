@@ -43,17 +43,25 @@ script.on_configuration_changed(function()
 
 end)
 ---------------------------------------------------------------------
+script.on_event(defines.events.on_player_joined_game, function(event)
+   local player = game.players[event.player_index]
+   local force = player.force
+   local techs = force.technologies
+   
+	if settings.startup["angels-use-angels-barreling"] and settings.startup["angels-use-angels-barreling"].value then
+      techs['fluid-handling'].researched = false
+      techs['bi-fertiliser'].reload()
+      local _t = techs['angels-fluid-barreling'].researched
+      techs['angels-fluid-barreling'].researched = false
+      techs['angels-fluid-barreling'].researched = _t
+   end
+   
+end)
 
 
 
-script.on_event({defines.events.on_built_entity,}, function(event) On_Built(event) end)
-script.on_event({defines.events.on_robot_built_entity,}, function(event) On_Built(event) end)
-script.on_event({defines.events.on_preplayer_mined_item,}, function(event) On_Remove(event) end)
-script.on_event({defines.events.on_robot_pre_mined,}, function(event) On_Remove(event) end)
-script.on_event({defines.events.on_entity_died,}, function(event) On_Death(event) end)
 
-
---[[	
+--[[
 local function Player_Tile_Built(event)
 
 	local player = game.players[event.player_index]
@@ -123,27 +131,28 @@ local function Robot_Tile_Built(event)
 end
 
 
-
+---------------------------------------------
 local function Tile_Remove(event)
 	
 
-	local player = game.players[event.player_index]
-	local robot = event.robot
-	local surface = player and player.surface or robot.surface
-	local position = event.positions
+     local player = game.players[event.player_index]
+     local tile_name = event.item_stack.name
+     local tile = game.item_prototypes[tile_name].place_as_tile_result
 
-	for i, position in ipairs(position) do
-		local currentTilename = surface.get_tile(position.x,position.y).name
-		writeDebug(currentTilename)
-		
+     if tile and player.mining_state.mining and tile_name == "bi-solar-mat" then
+          local tile_position = player.mining_state.position
 
-		if currentTilename == "bi-solar-mat" then
+          
+		  --game.print("Tile "..tile_name..", pos "..serpent.line(tile_position))
+		  
+
 			writeDebug("Solar Mat Removed")
 		--- Solar Map has been removed
-			--local pos_hash = cantor(entity.position.x,entity.position.y)
-			local pos_hash = cantor(event.position.x,event.position.y)
+
+			local pos_hash = cantor(tile_position.x, tile_position.y)
 			local entity_group = getGroup_entities(pos_hash)
 			if entity_group then
+			writeDebug("Made it here")
 				for ix, vx in ipairs(entity_group) do
 					if vx == entity then
                     --vx.destroy()
@@ -151,37 +160,14 @@ local function Tile_Remove(event)
 						vx.destroy()
 					end
 				end
+			else
+			writeDebug("Nope!")
 			end
         ungroup_entities(pos_hash)
 			
-		end
-		
-	end	
-			
-end
 
-
----------------------------------------------
-local function Tile_Remove(event)
-	
-	local entity = event.entity	
-
-
-	--- Solar Map has been removed
-   	if entity and entity.name == "bi-solar-mat" then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
+		  
+     end
 
 	
 end
@@ -194,29 +180,13 @@ script.on_event(player_build_event, Player_Tile_Built)
 local robot_build_event = {defines.events.on_robot_built_tile}
 script.on_event(robot_build_event, Robot_Tile_Built)
 
-local remove_events = {defines.events.on_player_mined_tile, defines.events.on_robot_mined_tile}
+local remove_events = {defines.events.on_player_mined_item, defines.events.on_robot_mined }
 script.on_event(remove_events, Tile_Remove)
 
 ]]
 
-script.on_event(defines.events.on_player_joined_game, function(event)
-   local player = game.players[event.player_index]
-   local force = player.force
-   local techs = force.technologies
-   
-	if settings.startup["angels-use-angels-barreling"] and settings.startup["angels-use-angels-barreling"].value then
-      techs['fluid-handling'].researched = false
-      techs['bi-fertiliser'].reload()
-      local _t = techs['angels-fluid-barreling'].researched
-      techs['angels-fluid-barreling'].researched = false
-      techs['angels-fluid-barreling'].researched = _t
-   end
-   
-end)
-
-
 ---------------------------------------------
-function On_Built(event)
+local function On_Built(event)
     local entity = event.created_entity
    
    
@@ -345,10 +315,8 @@ function On_Built(event)
 end
 
 
-
-
 ---------------------------------------------
-function On_Remove(event)
+local function On_Remove(event)
 	
 	local entity = event.entity	
 	
@@ -386,7 +354,8 @@ function On_Remove(event)
 	end
 
 	
-				
+		-- Power Rail - Not implemented yet.
+	--[[			
 	--- Concrete Rail has been removed
    	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -402,7 +371,8 @@ function On_Remove(event)
         end
         ungroup_entities(pos_hash)
 	end
-
+	]]
+	
 	--- Solar Map has been removed
    	if entity and entity.name == "bi-solar-mat" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -437,7 +407,7 @@ end
 
 
 ---------------------------------------------
-function On_Death(event)
+local function On_Death(event)
 
 	local entity = event.entity
 	
@@ -510,6 +480,21 @@ function On_Death(event)
 	end
 	
 end
+
+---------------------------
+
+local build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity}
+script.on_event(build_events, On_Built)
+
+local pre_remove_events = {defines.events.on_preplayer_mined_item, defines.events.on_robot_pre_mined}
+script.on_event(pre_remove_events, On_Remove)
+
+local death_events = {defines.events.on_entity_died}
+script.on_event(death_events, On_Death)
+
+
+
+
 
 --------------------
 

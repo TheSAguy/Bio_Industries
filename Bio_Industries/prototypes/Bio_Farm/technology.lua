@@ -160,6 +160,14 @@ data:extend({
 			{
             type = "unlock-recipe",
             recipe = "bi-Logs_Mk2"
+			},
+			{
+            type = "unlock-recipe",
+            recipe = "bi-Bio_Garden"
+			},
+			{
+            type = "unlock-recipe",
+            recipe = "bi-Clean_Air"
 			}
 
 		},

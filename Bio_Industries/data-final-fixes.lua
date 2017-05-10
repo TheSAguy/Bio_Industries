@@ -7,7 +7,7 @@ end
 
 
 -- 5dim Stack changes
-if settings.startup["5d-change-stack"] then
+if settings.startup["5d-change-stack"] and settings.startup["5d-change-stack"].value then
    if data.raw.item["raw-wood"] then
       data.raw.item["raw-wood"].stack_size = math.max(210, data.raw.item['raw-wood'].stack_size)
    end
