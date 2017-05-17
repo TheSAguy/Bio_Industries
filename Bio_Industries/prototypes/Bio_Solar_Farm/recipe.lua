@@ -31,7 +31,20 @@ data:extend({
 		result = "bi-solar-mat"
 	},
 	
-
+	--- BI Accumulator
+	{
+		type = "recipe",
+		name = "bi_accumulator",
+		energy_required = 10,
+		enabled = false,
+		ingredients =
+		{
+		  {"accumulator", 60},
+		  {"copper-cable", 60},
+		  {"concrete",120},
+		},
+		result = "bi_accumulator"
+	},
 	
  })
 

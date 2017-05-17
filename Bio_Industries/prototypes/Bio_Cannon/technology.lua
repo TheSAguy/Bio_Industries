@@ -20,7 +20,7 @@ data:extend({
 			},
 
 		},
-		prerequisites = {"military-3"},
+		prerequisites = {"military-2"},
 		unit = 
 		{
 			count = 100,
@@ -28,8 +28,7 @@ data:extend({
 			{
 				{"science-pack-1", 2},
 				{"science-pack-2", 2},	
-				{"science-pack-3", 2},	
-				{"military-science-pack", 1},				
+				{"military-science-pack", 4},				
 			},
 			time = 30,
 		}

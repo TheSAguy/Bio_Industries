@@ -69,5 +69,22 @@ data:extend({
 		stack_size = 50,
 		enable = false,
 	},	
+	
+	--- BI Accumulator
+	{
+    type = "item",
+		name = "bi_accumulator",
+		icon = "__base__/graphics/icons/accumulator.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "energy",
+		order = "e[accumulator]-a[bi-accumulator]",
+		place_result = "bi_accumulator",
+		stack_size = 5
+	},
+  
+  
+  
+	
+	
 
 })
