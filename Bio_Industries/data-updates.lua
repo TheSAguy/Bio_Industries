@@ -113,6 +113,7 @@ end
 
 
 --- Adds Solar Farm to solar-energy Tech
+thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
 
 if data.raw.technology["bob-solar-energy-2"] then
 	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
@@ -122,8 +123,11 @@ if data.raw.technology["bob-solar-energy-2"] then
 	
 else
 	thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_bio_Solar_Farm")
+	
 	-- Solar mat
 	--thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
+
+	
 end	
 
 

@@ -116,7 +116,7 @@ data:extend({
 		dying_explosion = "massive-explosion",
 		automated_ammo_count = 10,
 		resistances = {},
-		collision_box = {{-4.25, -4.25}, {4.25, 4.25}},
+		collision_box = {{-4.20, -4.20}, {4.20, 4.20}},
 		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		order = "i[items][Bio_Cannon]",
 		inventory_size = 1,

@@ -263,16 +263,17 @@ data:extend({
     production = "20kW"
   },
   
+  ---- BI Accumulator
     {
     type = "accumulator",
     name = "bi_accumulator",
-    icon = "__base__/graphics/icons/accumulator.png",
+    icon = "__Bio_Industries__/graphics/icons/bi_LargeAccumulator.png",
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi_accumulator"},
     max_health = 150,
 	corpse = "big-remnants",
-    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
-    selection_box = {{-1, -1}, {1, 1}},
+    collision_box = {{-2, -2}, {2, 2}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     energy_source =
     {
       type = "electric",
@@ -283,32 +284,35 @@ data:extend({
     },
     picture =
     {
-      filename = "__base__/graphics/entity/accumulator/accumulator.png",
+      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/bi_LargeAccumulator.png",
       priority = "extra-high",
-      width = 124,
-      height = 103,
-      shift = {0.6875, -0.203125}
+      width = 245,
+      height = 245,
+      shift = {1, -0.5},
+	  scale = 0.9,
     },
     charge_animation =
     {
-      filename = "__base__/graphics/entity/accumulator/accumulator-charge-animation.png",
-      width = 138,
-      height = 135,
+      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/bi_LargeAccumulatorAnimated.png",
+      width = 250,
+      height = 250,
       line_length = 8,
       frame_count = 24,
-      shift = {0.46875, -0.640625},
+      shift = {1, -0.5},
+	  scale = 0.9,
       animation_speed = 0.5
     },
     charge_cooldown = 30,
     charge_light = {intensity = 0.3, size = 7, color = {r = 1.0, g = 1.0, b = 1.0}},
     discharge_animation =
     {
-      filename = "__base__/graphics/entity/accumulator/accumulator-discharge-animation.png",
-      width = 147,
-      height = 128,
+      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/bi_LargeAccumulatorAnimated.png",
+      width = 250,
+      height = 250,
       line_length = 8,
       frame_count = 24,
-      shift = {0.390625, -0.53125},
+      shift = {1, -0.5},
+	  scale = 0.9,
       animation_speed = 0.5
     },
     discharge_cooldown = 60,

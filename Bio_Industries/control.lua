@@ -1,4 +1,4 @@
----Bio Industries - v.1.5.5
+---Bio Industries - v.1.6.0
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
@@ -552,7 +552,16 @@ function Grow_tree(pos)
 			if growth_chance > 85 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
 				surface.create_entity({ name=treetype, amount=1, position=pos})
 			end
+				
+		elseif currentTilename == "red-desert" or currentTilename == "red-desert-dark" then 
+			treetype = math.random(2)
+			treetype = treetype + 5
+			treetype = "tree-0".. treetype
+			if growth_chance > 95 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+				surface.create_entity({ name=treetype, amount=1, position=pos})
+			end
 		
+		---- Sand and Dark Sand
 		else
 			treetype = math.random(3)
 			if treetype == 1 then
@@ -711,7 +720,6 @@ end
 
 --- DeBug Messages 
 function writeDebug(message)
-	--if settings.startup["BI_QC"].value then 
 	if QC_Mod == true then 
 		for i, player in pairs(game.players) do
 			player.print(tostring(message))

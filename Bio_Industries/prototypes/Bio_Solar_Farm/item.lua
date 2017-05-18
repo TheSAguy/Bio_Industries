@@ -74,7 +74,7 @@ data:extend({
 	{
     type = "item",
 		name = "bi_accumulator",
-		icon = "__base__/graphics/icons/accumulator.png",
+		icon = "__Bio_Industries__/graphics/icons/bi_LargeAccumulator.png",
 		flags = {"goes-to-quickbar"},
 		subgroup = "energy",
 		order = "e[accumulator]-a[bi-accumulator]",
