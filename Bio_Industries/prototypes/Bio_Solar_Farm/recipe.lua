@@ -35,13 +35,13 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi_accumulator",
-		energy_required = 10,
+		energy_required = 80,
 		enabled = false,
 		ingredients =
 		{
-		  {"accumulator", 60},
-		  {"copper-cable", 60},
-		  {"concrete",120},
+		  {"accumulator", 50},
+		  {"copper-cable", 50},
+		  {"concrete",200},
 		},
 		result = "bi_accumulator"
 	},

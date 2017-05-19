@@ -56,15 +56,6 @@ if BI.Settings.BI_Recipe_Tweaks then
 		data.raw.player.player.running_speed = 0.25 -- default 0.15
 	end	
 	
-	--[[
-	--- Reach
-	if BI_Config.Reach and data.raw.player.player.build_distance < 24 then
-		data.raw.player.player.build_distance = 24
-		data.raw.player.player.reach_distance = 20
-		data.raw.player.player.reach_resource_distance = 20
-		data.raw.player.player.drop_item_distance = 20
-	end	
-	]]
 	
 	--- Disassemble of Burner Miner Drill and Steel Furnace
 	require("prototypes.Bio_Tweaks.recipe")
@@ -112,8 +103,24 @@ end
 
 
 
---- Adds Solar Farm to solar-energy Tech
-thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
+--- Adds Bi Accumulator Tech
+if data.raw.technology["bob-solar-energy-2"] then
+	
+	thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
+		
+	--- Change Bi Accumulator Recipe if Bob's
+	if data.raw.item["large-accumulator"]  then
+		thxbob.lib.recipe.replace_ingredient("bi_accumulator", "accumulator", "large-accumulator")
+	end
+		
+	
+else
+
+	thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
+	
+end	
+
+
 
 if data.raw.technology["bob-solar-energy-2"] then
 	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
@@ -273,6 +280,13 @@ if data.raw["item"]["solar-panel-large-3"] then
 	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
 	data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
 	data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+end
+
+
+------------ Changing order/sorting/groups
+if data.raw["item-subgroup"]["bob-energy-accumulator"] then 
+	data.raw["item"]["bi_accumulator"].subgroup = "bob-energy-accumulator"
+	data.raw["item"]["bi_accumulator"].order="e[accumulator]-a[accumulator]-x"	
 end
 
 
