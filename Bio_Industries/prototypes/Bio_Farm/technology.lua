@@ -75,7 +75,8 @@ data:extend({
 		{
 			count = 100,
 			ingredients = {
-				{"science-pack-1", 1}
+				{"science-pack-1", 2},
+				{"science-pack-2", 1}
 			},
 			time = 30
 		},
@@ -101,10 +102,11 @@ data:extend({
 		{
 			count = 100,
 			ingredients = {
-				{"science-pack-1", 1},
-				{"science-pack-2", 1}
+				{"science-pack-1", 3},
+				{"science-pack-2", 2},
+				{"science-pack-3", 1},
 			},
-			time = 30
+			time = 35
 		},
 		upgrade = true,
 	},
@@ -123,14 +125,14 @@ data:extend({
 		prerequisites = {"bi-coal-processing-2"},
 		unit = 
 		{
-			count = 50,
+			count = 100,
 			ingredients = {
-				{"science-pack-1", 2},
+				{"science-pack-1", 3},
 				{"science-pack-2", 2},
 				{"science-pack-3", 1},
 				{"production-science-pack", 1},
 			},
-			time = 30
+			time = 40
 		},
 		upgrade = true,
 	},
