@@ -1,4 +1,4 @@
----Bio Industries - v.1.6.2
+---Bio Industries - v.1.6.3
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
@@ -13,24 +13,8 @@ local max_grow_time = 5000
 
 
 --------------------------------------------------------------------
-script.on_load(function()
 
-	if global.Bio_Cannon_Table ~= nil then
-		Event.register(defines.events.on_tick, function(event) end)
-	end
-	
-end)
-
-script.on_init(function()
-	
-	if global.bi == nil then
-		global.bi = {}	
-		global.bi.tree_growing = {}
-	end
-	
-end)
-
-script.on_configuration_changed(function()
+local function On_Init()
 	
 	if global.Bio_Cannon_Table ~= nil then
 		Event.register(defines.events.on_tick, function(event) end)
@@ -41,7 +25,47 @@ script.on_configuration_changed(function()
 		global.bi.tree_growing = {}
 	end
 
-end)
+end
+
+---------------------------------------------				 
+local function On_Load()
+
+	if global.Bio_Cannon_Table ~= nil then
+		Event.register(defines.events.on_tick, function(event) end)
+	end
+	
+end
+
+
+--------------------------------------------------------------------
+local function On_Config_Change()
+
+	
+	if global.Bio_Cannon_Table ~= nil then
+		Event.register(defines.events.on_tick, function(event) end)
+	end
+	
+	if global.bi == nil then
+		global.bi = {}
+		global.bi.tree_growing = {}
+	end
+
+
+	-- enable researched recipes
+	for i, force in pairs(game.forces) do
+		for _, tech in pairs(force.technologies) do
+			if tech.researched then
+				for _, effect in pairs(tech.effects) do
+					if effect.type == "unlock-recipe" then          
+						force.recipes[effect.recipe].enabled = true
+					end
+				end
+			end
+		end
+	end
+	
+end
+
 ---------------------------------------------------------------------
 script.on_event(defines.events.on_player_joined_game, function(event)
    local player = game.players[event.player_index]
@@ -481,18 +505,6 @@ local function On_Death(event)
 	
 end
 
----------------------------
-
-local build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity}
-script.on_event(build_events, On_Built)
-
-local pre_remove_events = {defines.events.on_preplayer_mined_item, defines.events.on_robot_pre_mined}
-script.on_event(pre_remove_events, On_Remove)
-
-local death_events = {defines.events.on_entity_died}
-script.on_event(death_events, On_Death)
-
-
 
 
 
@@ -718,6 +730,27 @@ function ungroup_entities(entity_groupid)
     return ungroup("entities", entity_groupid)
 end
 
+
+
+---------------------------
+
+script.on_load(On_Load)
+script.on_configuration_changed(On_Config_Change)
+script.on_init(On_Init)
+
+
+local build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity}
+script.on_event(build_events, On_Built)
+
+local pre_remove_events = {defines.events.on_preplayer_mined_item, defines.events.on_robot_pre_mined}
+script.on_event(pre_remove_events, On_Remove)
+
+local death_events = {defines.events.on_entity_died}
+script.on_event(death_events, On_Death)
+
+
+
+---------------------------
 --- DeBug Messages 
 function writeDebug(message)
 	if QC_Mod == true then 
