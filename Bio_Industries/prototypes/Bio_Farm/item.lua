@@ -1,19 +1,19 @@
 data:extend({
 
 	---- Seedling
-  {
-    type = "item",
-    name = "seedling",
-    icon = "__Bio_Industries__/graphics/icons/Seedling.png",
-    flags = {"goes-to-main-inventory"},
-    --subgroup = "trees",
-	subgroup = "intermediate-product",
-	order = "x[bi]-a[bi-seedling]",
-	place_result="seedling",
-	fuel_value = "1MJ",
-	fuel_category = "chemical",
-    stack_size= 400
-  },
+	{
+		type = "item",
+		name = "seedling",
+		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		flags = {"goes-to-main-inventory"},
+		--subgroup = "trees",
+		subgroup = "intermediate-product",
+		order = "x[bi]-a[bi-seedling]",
+		place_result="seedling",
+		fuel_value = "1MJ",
+		fuel_category = "chemical",
+		stack_size= 400
+	},
 
   ----Bio Farm
 	{
@@ -164,6 +164,8 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "18MJ",
 		fuel_category = "chemical",
+		fuel_acceleration_multiplier = 1.1,
+		fuel_top_speed_multiplier = 1.025,
 		subgroup = "raw-material",
 		order = "a[bi]-a-e[bi-coke-coal]",
 		stack_size = 400
