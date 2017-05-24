@@ -1,4 +1,4 @@
----Bio Industries - v.1.6.3
+---Bio Industries - v.1.6.4
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
@@ -23,6 +23,12 @@ local function On_Init()
 	if global.bi == nil then
 		global.bi = {}
 		global.bi.tree_growing = {}
+	end
+	
+	-- enable researched recipes
+	for i, force in pairs(game.forces) do
+		force.reset_technologies()
+		force.reset_recipes()
 	end
 
 end
@@ -84,7 +90,7 @@ end)
 
 
 
-
+-- Solar Mat, not yet implemented
 --[[
 local function Player_Tile_Built(event)
 
@@ -272,7 +278,7 @@ local function On_Built(event)
 	end
 	
 	-- Power Rail - Not implemented yet.
-	--[[	
+	
 	--- Concrete Rail has been built
 	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 	writeDebug("Concrete Rail has been built")
@@ -290,7 +296,7 @@ local function On_Built(event)
 		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
 
 	end
-	]]
+
 
 	
 	

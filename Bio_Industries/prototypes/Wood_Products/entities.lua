@@ -501,17 +501,16 @@ data:extend({
   {
     type = "electric-pole",
     name = "bi_medium-electric-pole_for_rail",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
-	--flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable", "not-on-map"},
-	flags = {"placeable-neutral", "placeable-off-grid", "not-repairable", "not-on-map"},
+    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",	
+	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
 	selectable_in_game = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
     collision_box = {{-0, -0}, {0, 0}},
 	collision_mask = {},
-    maximum_wire_distance = 8,
-    supply_area_distance = 5,
- 
+    maximum_wire_distance = 5,
+    supply_area_distance = 4,
+ --[[
     pictures =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
@@ -523,98 +522,32 @@ data:extend({
       direction_count = 4,
 	  shift = {0.75, 0},
     },
-	 connection_points =
+]]
+			pictures ={
+      filename = "__Bio_Industries__/graphics/icons/empty-electric-pole.png",
+      line_length = 1,
+      width = 123,
+      height = 124,
+      direction_count = 1,
+      shift = {0, 0}
+    },	
+	
+	connection_points =
     {
       {
         shadow =
         {
+          copper = {0, 0},
 
         },
         wire =
         {
-          copper_wire_tweak = {-0, -0},
+          copper = {0, 0},
 
         }
       },
-      {
-        shadow =
-        {
+	},
 
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      }
-    },
-	--[[
-    connection_points =
-    {
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      }
-    },
-	]]
 	
     radius_visualisation_picture =
     {

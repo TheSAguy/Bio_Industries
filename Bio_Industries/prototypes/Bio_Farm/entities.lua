@@ -25,8 +25,6 @@ data:extend({
 
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    --drawing_box = {{-0.7, -0.7}, {0.7, 0.7}},
-    --subgroup = "trees",
 	subgroup = "intermediate-product",
 
     vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
