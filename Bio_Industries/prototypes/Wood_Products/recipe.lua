@@ -37,7 +37,7 @@ data:extend({
 		  {"stone", 1},
 		  {"iron-stick", 1},
 		  {"steel-plate", 1},
-		  {"raw-wood", 4}
+		  {"raw-wood", 8}
 		},
 		result = "bi-rail-wood",
 		result_count = 2,

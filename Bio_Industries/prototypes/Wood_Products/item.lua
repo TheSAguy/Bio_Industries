@@ -41,20 +41,6 @@ data:extend({
 		curved_rail = "bi-curved-rail-wood"
 	},
 
-	  ---- Electric pole for Rail
-	{
-		type = "item",
-		name = "bi_medium-electric-pole_for_rail",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
-		flags = {"hidden"},
-		subgroup = "energy-pipe-distribution",
-		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_medium-electric-pole_for_rail",
-		stack_size = 50,
-		enable = false,
-	},
-  
-  
 
 })
 
