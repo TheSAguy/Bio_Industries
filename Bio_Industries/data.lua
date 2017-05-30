@@ -14,6 +14,7 @@ if not thxbob.lib then thxbob.lib = {} end
 BI.Settings.Bio_Cannon = settings.startup["BI_Bio_Cannon"].value
 BI.Settings.BI_Bio_Fuel = settings.startup["BI_Bio_Fuel"].value
 BI.Settings.BI_Recipe_Tweaks = settings.startup["BI_Recipe_Tweaks"].value
+BI.Settings.BI_Rail_Tweaks = settings.startup["BI_Rail_Variety"].value
 
 
 --- Help Files
@@ -58,6 +59,11 @@ require("prototypes.Wood_Products.item")
 require("prototypes.Wood_Products.recipe")
 
 
+if BI.Settings.BI_Rail_Tweaks  then
+	require("prototypes.Wood_Products.entities_rail")
+else
+	require("prototypes.Wood_Products.entities_rail_normal")	
+end
 
 
 if BI.Settings.Bio_Cannon then

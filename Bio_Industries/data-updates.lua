@@ -88,7 +88,15 @@ data.raw["straight-rail"]["straight-rail"].pictures = rail_pictures_c()
 data.raw["curved-rail"]["curved-rail"].pictures = rail_pictures_c()
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
 data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
-data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
+
+if BI.Settings.BI_Rail_Tweaks  then
+	data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete-power.png"
+else
+	data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
+end
+
+
+
 
 --- Wood Rail added to Tech 
 thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")

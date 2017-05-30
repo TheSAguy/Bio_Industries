@@ -27,20 +27,6 @@ data:extend({
 		stack_size = 50
 	},
 
-	{
-		type = "rail-planner",
-		name = "bi-rail-wood",
-		icon = "__Bio_Industries__/graphics/icons/rail-wood.png",
-		icon = "__Bio_Industries__/graphics/icons/rail-wood.png",
-		flags = {"goes-to-quickbar"},
-		subgroup = "transport",
-		order = "a[train-system]-a[rail]",
-		place_result = "bi-straight-rail-wood",
-		stack_size = 100,
-		straight_rail = "bi-straight-rail-wood",
-		curved_rail = "bi-curved-rail-wood"
-	},
-
 
 })
 

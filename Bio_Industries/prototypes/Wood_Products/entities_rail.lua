@@ -1,7 +1,7 @@
 
 require("prototypes.Wood_Products.demo-railpictures-wood")
 require("prototypes.Wood_Products.demo-remnants-wood")
---require ("prototypes.Bio_Farm.utility-sprites_tweak")
+
 
 rail_pictures_w = function()
   return rail_pictures_internal_w({{"metals", "metals", mipmap = true},
@@ -101,7 +101,7 @@ data:extend({
     {
     type = "electric-pole",
     name = "bi-electric-to-rail",
-    icon = "__base__/graphics/icons/medium-electric-pole.png",
+    icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png",
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-electric-to-rail"},
     max_health = 100,
@@ -200,6 +200,20 @@ data:extend({
   -------------
   --- Items
   
+  	{
+		type = "rail-planner",
+		name = "bi-rail-wood",
+		icon = "__Bio_Industries__/graphics/icons/rail-wood-bridge.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "transport",
+		order = "a[train-system]-a[rail]",
+		place_result = "bi-straight-rail-wood",
+		stack_size = 100,
+		straight_rail = "bi-straight-rail-wood",
+		curved_rail = "bi-curved-rail-wood"
+	},
+
+  
   	  ---- Electric pole for Rail
 	{
 		type = "item",
@@ -214,11 +228,11 @@ data:extend({
 	},
   
   
-  	  ---- Electric pole for Rail
+  	  ---- Electric to Rail Connector
 	{
 		type = "item",
 		name = "bi-electric-to-rail",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+		icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png",
 		flags = {"hidden"},
 		subgroup = "energy-pipe-distribution",
 		order = "x[bi]-a[bi_bio_farm]",
@@ -226,6 +240,7 @@ data:extend({
 		stack_size = 50,
 		enable = false,
 	},
+  
   
   --- Recipe
     {
