@@ -52,16 +52,17 @@ data:extend({
   ------- Rail Pole
   {
     type = "electric-pole",
-    name = "bi_medium-electric-pole_for_rail",
+    name = "bi_electric_pole_curved_rail",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",	
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
 	selectable_in_game = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
     collision_box = {{-0, -0}, {0, 0}},
+	drawing_box = {{0, 0}, {0, 0}},
 	collision_mask = {},
-    maximum_wire_distance = 8,
-    supply_area_distance = 2,
+    maximum_wire_distance = 9,
+    supply_area_distance = 0,
 	pictures =
 	{
       filename = "__Bio_Industries__/graphics/icons/empty-electric-pole.png",
@@ -78,12 +79,65 @@ data:extend({
         shadow =
         {
           copper = {0, 0},
-
+          red = {0, 0},
+          green = {0, 0}
         },
         wire =
         {
           copper = {0, 0},
+          red = {0, 0},
+          green = {0, 0}
+        }
+      },
+	},
 
+	
+    radius_visualisation_picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      width = 0,
+      height = 0,
+      priority = "low"
+    },
+  },
+--- Electric Pole straight_rail
+  {
+    type = "electric-pole",
+    name = "bi_electric_pole_straight_rail",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",	
+	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
+	selectable_in_game = false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+    collision_box = {{-0, -0}, {0, 0}},
+	drawing_box = {{0, 0}, {0, 0}},
+	collision_mask = {},
+    maximum_wire_distance = 3,
+    supply_area_distance = 0,
+	pictures =
+	{
+      filename = "__Bio_Industries__/graphics/icons/empty-electric-pole.png",
+      line_length = 1,
+      width = 123,
+      height = 124,
+      direction_count = 1,
+      shift = {0, 0}
+    },	
+	
+	connection_points =
+    {
+      {
+        shadow =
+        {
+          copper = {0, 0},
+          red = {0, 0},
+          green = {0, 0}
+        },
+        wire =
+        {
+          copper = {0, 0},
+          red = {0, 0},
+          green = {0, 0}
         }
       },
 	},
@@ -98,6 +152,7 @@ data:extend({
     },
   },
 
+  
     {
     type = "electric-pole",
     name = "bi-electric-to-rail",
@@ -117,7 +172,7 @@ data:extend({
     collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     drawing_box = {{-0.5, -2.8}, {0.5, 0.5}},
-    maximum_wire_distance = 2,
+    maximum_wire_distance = 3,
     supply_area_distance = 2,
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     pictures =
@@ -217,16 +272,27 @@ data:extend({
   	  ---- Electric pole for Rail
 	{
 		type = "item",
-		name = "bi_medium-electric-pole_for_rail",
+		name = "bi_electric_pole_curved_rail",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
 		flags = {"hidden"},
 		subgroup = "energy-pipe-distribution",
 		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_medium-electric-pole_for_rail",
+		place_result = "bi_electric_pole_curved_rail",
 		stack_size = 50,
 		enable = false,
 	},
   
+  	{
+		type = "item",
+		name = "bi_electric_pole_straight_rail",
+		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+		flags = {"hidden"},
+		subgroup = "energy-pipe-distribution",
+		order = "x[bi]-a[bi_bio_farm]",
+		place_result = "bi_electric_pole_straight_rail",
+		stack_size = 50,
+		enable = false,
+	},
   
   	  ---- Electric to Rail Connector
 	{
@@ -238,7 +304,7 @@ data:extend({
 		order = "x[bi]-a[bi_bio_farm]",
 		place_result = "bi-electric-to-rail",
 		stack_size = 50,
-		enable = false,
+
 	},
   
   
@@ -246,13 +312,13 @@ data:extend({
     {
     type = "recipe",
     name = "bi-electric-to-rail",
-    enabled = false,
+    enabled = true,
     ingredients =
     {
       {"steel-plate", 1},
       {"copper-cable", 2}
     },
-    result = "medium-electric-pole",
+    result = "bi-electric-to-rail",
     requester_paste_multiplier = 4
   },
   

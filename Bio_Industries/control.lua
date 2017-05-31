@@ -6,7 +6,9 @@ require ("libs/event")
 
 
 
-if not BI_Config then BI_Config = {} end
+if not BI then BI = {} end
+if not BI.Settings then BI.Settings = {} end
+BI.Settings.BI_Rail_Tweaks = settings.startup["BI_Rail_Variety"].value
 
 
 local max_grow_time = 5000
@@ -280,13 +282,13 @@ local function On_Built(event)
 	-- Power Rail - Not implemented yet.
 	
 	--- Concrete Rail has been built
-	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+	if entity and entity.name == "curved-rail" and BI.Settings.BI_Rail_Tweaks then
 	writeDebug("Concrete Rail has been built")
 		local surface = entity.surface
 		local force = entity.force
 		local position = entity.position		   
 		local rail_track = entity
-		local pole_name = "bi_medium-electric-pole_for_rail"  		
+		local pole_name = "bi_electric_pole_curved_rail"  		
 		
 		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
 				
@@ -297,8 +299,49 @@ local function On_Built(event)
 
 	end
 
+	if entity and entity.name == "straight-rail" and BI.Settings.BI_Rail_Tweaks then
+	writeDebug("Concrete Rail has been built")
+		local surface = entity.surface
+		local force = entity.force
+		local position = entity.position		   
+		local rail_track = entity
+		local pole_name = "bi_electric_pole_straight_rail"  		
+		
+		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
+				
+		create_rail_pole.minable = false
+		create_rail_pole.destructible = false 
+		
+		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
+
+	end
 
 	
+--[[	
+
+   if entity.name=="bi_medium-electric-pole_for_rail" then   
+      for _,neighbour in pairs(entity.neighbours.copper) do
+         if neighbour.name ~= "bi_medium-electric-pole_for_rail" or entity.name ~= "bi-electric-to-rail" then
+		    --entity.disconnect_neighbour(neighbour)
+			entity.connect_neighbour(neighbour)
+			entity.connect_neighbour({wire = defines.wire_type.red, target_entity = neighbour});
+			entity.connect_neighbour({wire = defines.wire_type.green, target_entity = neighbour});
+		 end
+		 
+      end
+   end
+
+	
+
+   if entity.type=="electric-pole" then   
+      for _,neighbour in pairs(entity.neighbours.copper) do
+         if neighbour.name == "bi_medium-electric-pole_for_rail" then
+            entity.disconnect_neighbour(neighbour)
+         end
+      end
+   end
+
+	]]
 	
 	--- Bio Cannon has been built
 	if entity.name == "Bio_Cannon_Area" then
@@ -385,9 +428,9 @@ local function On_Remove(event)
 
 	
 		-- Power Rail - Not implemented yet.
-	--[[			
+		
 	--- Concrete Rail has been removed
-   	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+   	if ((entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail")) and BI.Settings.BI_Rail_Tweaks then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -401,7 +444,7 @@ local function On_Remove(event)
         end
         ungroup_entities(pos_hash)
 	end
-	]]
+
 	
 	--- Solar Map has been removed
    	if entity and entity.name == "bi-solar-mat" then
@@ -476,9 +519,9 @@ local function On_Death(event)
 	end
 
 		-- Power Rail - Not implemented yet.
-	--[[
+	
 	--- Concrete Rail has been destroyed
-   	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+   	if ((entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail")) and BI.Settings.BI_Rail_Tweaks then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -493,9 +536,7 @@ local function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
-	]]
 	
-
 	--- Seedling Removed
 	
 	if event.entity.name == "seedling" then
