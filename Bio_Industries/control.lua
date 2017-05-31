@@ -282,13 +282,13 @@ local function On_Built(event)
 	-- Power Rail - Not implemented yet.
 	
 	--- Concrete Rail has been built
-	if entity and entity.name == "curved-rail" and BI.Settings.BI_Rail_Tweaks then
+	if ((entity and entity.name == "curved-rail") or (entity and entity.name == "straight-rail")) and BI.Settings.BI_Rail_Tweaks then
 	writeDebug("Concrete Rail has been built")
 		local surface = entity.surface
 		local force = entity.force
 		local position = entity.position		   
 		local rail_track = entity
-		local pole_name = "bi_electric_pole_curved_rail"  		
+		local pole_name = "bi_electric_pole_rail_hidden"  		
 		
 		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
 				
@@ -299,24 +299,7 @@ local function On_Built(event)
 
 	end
 
-	if entity and entity.name == "straight-rail" and BI.Settings.BI_Rail_Tweaks then
-	writeDebug("Concrete Rail has been built")
-		local surface = entity.surface
-		local force = entity.force
-		local position = entity.position		   
-		local rail_track = entity
-		local pole_name = "bi_electric_pole_straight_rail"  		
 		
-		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
-				
-		create_rail_pole.minable = false
-		create_rail_pole.destructible = false 
-		
-		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
-
-	end
-
-	
 --[[	
 
    if entity.name=="bi_medium-electric-pole_for_rail" then   
@@ -331,17 +314,17 @@ local function On_Built(event)
       end
    end
 
-	
+	]]
 
    if entity.type=="electric-pole" then   
       for _,neighbour in pairs(entity.neighbours.copper) do
-         if neighbour.name == "bi_medium-electric-pole_for_rail" then
+         if entity.name == "bi_electric_pole_rail_hidden" or neighbour.name == "bi_electric_pole_rail_hidden" then
             entity.disconnect_neighbour(neighbour)
          end
       end
    end
 
-	]]
+	
 	
 	--- Bio Cannon has been built
 	if entity.name == "Bio_Cannon_Area" then

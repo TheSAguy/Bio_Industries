@@ -52,7 +52,7 @@ data:extend({
   ------- Rail Pole
   {
     type = "electric-pole",
-    name = "bi_electric_pole_curved_rail",
+    name = "bi_electric_pole_rail_hidden",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",	
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
 	selectable_in_game = false,
@@ -61,58 +61,7 @@ data:extend({
     collision_box = {{-0, -0}, {0, 0}},
 	drawing_box = {{0, 0}, {0, 0}},
 	collision_mask = {},
-    maximum_wire_distance = 9,
-    supply_area_distance = 0,
-	pictures =
-	{
-      filename = "__Bio_Industries__/graphics/icons/empty-electric-pole.png",
-      line_length = 1,
-      width = 123,
-      height = 124,
-      direction_count = 1,
-      shift = {0, 0}
-    },	
-	
-	connection_points =
-    {
-      {
-        shadow =
-        {
-          copper = {0, 0},
-          red = {0, 0},
-          green = {0, 0}
-        },
-        wire =
-        {
-          copper = {0, 0},
-          red = {0, 0},
-          green = {0, 0}
-        }
-      },
-	},
-
-	
-    radius_visualisation_picture =
-    {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
-      width = 0,
-      height = 0,
-      priority = "low"
-    },
-  },
---- Electric Pole straight_rail
-  {
-    type = "electric-pole",
-    name = "bi_electric_pole_straight_rail",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",	
-	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
-	selectable_in_game = false,
-    max_health = 1,
-    resistances = {{type = "fire", percent = 100}},
-    collision_box = {{-0, -0}, {0, 0}},
-	drawing_box = {{0, 0}, {0, 0}},
-	collision_mask = {},
-    maximum_wire_distance = 3,
+    maximum_wire_distance = 3.99,
     supply_area_distance = 0,
 	pictures =
 	{
@@ -272,28 +221,17 @@ data:extend({
   	  ---- Electric pole for Rail
 	{
 		type = "item",
-		name = "bi_electric_pole_curved_rail",
+		name = "bi_electric_pole_rail_hidden",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
 		flags = {"hidden"},
 		subgroup = "energy-pipe-distribution",
 		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_electric_pole_curved_rail",
+		place_result = "bi_electric_pole_rail",
 		stack_size = 50,
 		enable = false,
 	},
   
-  	{
-		type = "item",
-		name = "bi_electric_pole_straight_rail",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
-		flags = {"hidden"},
-		subgroup = "energy-pipe-distribution",
-		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_electric_pole_straight_rail",
-		stack_size = 50,
-		enable = false,
-	},
-  
+
   	  ---- Electric to Rail Connector
 	{
 		type = "item",
