@@ -26,16 +26,6 @@ data:extend(
     per_user = false,
   },
 
-  
-  {
-    type = "bool-setting",
-    name = "BI_Rail_Variety",
-    setting_type = "startup",
-    default_value = true,
-    per_user = false,
-  },
-
-
 
 
 --[[

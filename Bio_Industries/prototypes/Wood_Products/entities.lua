@@ -497,4 +497,165 @@ data:extend({
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
 
+  --Wooden rail for Bridge
+  {
+    type = "straight-rail",
+    name = "bi-straight-rail-wood-bridge",   
+	icon = "__Bio_Industries__/graphics/icons/straight-rail-wood.png",
+    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
+	collision_mask = { "object-layer", "not-colliding-with-itself" },
+    minable = {mining_time = 0.5, result = "bi-rail-wood-bridge"},
+    max_health = 60,
+    corpse = "straight-rail-remnants-wood",
+    collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
+    selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
+    rail_category = "regular",
+    pictures = rail_pictures_w(),
+  },
+  {
+    type = "curved-rail",
+    name = "bi-curved-rail-wood-bridge",   
+	icon = "__Bio_Industries__/graphics/icons/rail-wood.png",
+    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
+	collision_mask = { "object-layer", "not-colliding-with-itself" },
+    minable = {mining_time = 0.5, result = "bi-rail-wood-bridge", count = 4},
+    max_health = 120,
+    corpse = "curved-rail-remnants-wood",
+    collision_box = {{-0.75, -0.55}, {0.75, 1.6}},
+    secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
+    selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
+    rail_category = "regular",
+    pictures = rail_pictures_w(),
+	placeable_by = { item="bi-rail-wood-bridge", count = 4}
+  },
+
+  
+  
+  ------- Rail Pole - Hidden
+  {
+    type = "electric-pole",
+    name = "bi_medium-electric-pole_for_rail",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+	flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable", "not-on-map"},
+	selectable_in_game = false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+    collision_box = {{-0, -0}, {0, 0}},
+	collision_mask = {},
+    maximum_wire_distance = 8,
+    supply_area_distance = 5,
+ 
+    pictures =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      priority = "low",
+      width = 0,
+      height = 0,
+	  frame_count = 1,
+      axially_symmetrical = false,
+      direction_count = 4,
+	  shift = {0.75, 0},
+    },
+	 connection_points =
+    {
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      }
+    },
+	--[[
+    connection_points =
+    {
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+
+        }
+      }
+    },
+	]]
+	
+    radius_visualisation_picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      width = 0,
+      height = 0,
+      priority = "low"
+    },
+  },
+
 })

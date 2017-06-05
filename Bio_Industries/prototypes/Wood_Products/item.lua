@@ -27,6 +27,50 @@ data:extend({
 		stack_size = 50
 	},
 
+	{
+		type = "rail-planner",
+		name = "bi-rail-wood",
+		icon = "__Bio_Industries__/graphics/icons/rail-wood.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "transport",
+		order = "a[train-system]-a[rail]",
+		place_result = "bi-straight-rail-wood",
+		stack_size = 100,
+		straight_rail = "bi-straight-rail-wood",
+		curved_rail = "bi-curved-rail-wood"
+	},
+
+	  --- Wooden Bridge Rail
+  
+  	{
+		type = "rail-planner",
+		name = "bi-rail-wood-bridge",
+		icon = "__Bio_Industries__/graphics/icons/rail-wood-bridge.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "transport",
+		order = "a[train-system]-aa[rail]",
+		place_result = "bi-straight-rail-wood-bridge",
+		stack_size = 100,
+		straight_rail = "bi-straight-rail-wood-bridge",
+		curved_rail = "bi-curved-rail-wood-bridge"
+	},
+
+  
+	
+	  ---- Electric pole for Rail
+	{
+		type = "item",
+		name = "bi_medium-electric-pole_for_rail",
+		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+		flags = {"hidden"},
+		subgroup = "energy-pipe-distribution",
+		order = "x[bi]-a[bi_bio_farm]",
+		place_result = "bi_medium-electric-pole_for_rail",
+		stack_size = 50,
+		enable = false,
+	},
+  
+  
 
 })
 
