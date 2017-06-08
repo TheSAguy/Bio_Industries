@@ -3,15 +3,11 @@ require ("util")
 
 
 data:extend({
-------- Bio Solar Farm
-
-
 ------- Bio Solar Farm Image
   {
     type = "lamp",
     name = "bi_bio_Solar_Farm_Image",
     icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon.png",
-	--flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable"},
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
 	selectable_in_game = false,
     max_health = 1,
@@ -35,7 +31,6 @@ data:extend({
       frame_count = 1,
       direction_count = 1,
 	  scale = 3/2,
-	  --shift = {0.75, 0},
     },
     picture_on =
     {
@@ -46,7 +41,6 @@ data:extend({
       frame_count = 1,
       direction_count = 1,
 	  scale = 3/2,
-	  --shift = {0.75, 0},
     },
 	},
   ------- Bio Farm Solar Panel
@@ -76,7 +70,6 @@ data:extend({
       frame_count = 1,
       direction_count = 1,
 	  scale = 3/2,
-	  --shift = {0.75, 0},
     },
     production = "5000kW"
   },
@@ -90,16 +83,15 @@ data:extend({
 	  minable = {hardness = 0.1, mining_time = 0.25, result = "bi-solar-mat"},
 	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
 	  collision_mask = {"ground-tile", "not-colliding-with-itself"},
-	  --collision_mask = { "player-layer" },
 	  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	  walking_speed_modifier = .2,
+	  walking_speed_modifier = 1.05,
 	  layer = 62,
-	  decorative_removal_probability = 0.4,
+	  decorative_removal_probability = 1,
 	  variants =
 	  {
 		main =
-		{
-		  {
+		{	
+		 {
 			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar1.png",
 			count = 4,
 			size = 1
@@ -156,24 +148,27 @@ data:extend({
 		  volume = 1.2
 		}
 	  },
-	  map_color={r=139, g=115, b=85},
+	  map_color={r=93, g=138, b=168},
 	  ageing=0,
 	  vehicle_friction_modifier = dirt_vehicle_speed_modifer
 	},
 	
-    ------- Solar Pole
+ 
+   ------- Hidden Electric pole for Solar Mat
   {
     type = "electric-pole",
     name = "bi_solar_pole",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
-	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
+	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
 	selectable_in_game = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
-    collision_box = {{-0, -0}, {0, 0}},
-	collision_mask = {},
-    maximum_wire_distance = 4,
-    supply_area_distance = 3,
+	collision_mask = { "resource-layer" },
+    collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
+    selection_box = {{0, 0}, {0, 0}},
+	
+    maximum_wire_distance = 2,
+    supply_area_distance = 2,
     pictures =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
@@ -238,17 +233,20 @@ data:extend({
     },
   },
   
-   ------- Solar Mat - Solar Panel
+   ------- ------- Hidden Solar Panel for Solar Mat 
   {
     type = "solar-panel",
     name = "bi_solar-panel_for_Solar-Mat",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Solar.png",
-	flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable", "not-blueprintable"},
+	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
 	selectable_in_game = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
-    collision_box = {{-0, -0}, {0, 0}},
-	collision_mask = {},
+	collision_mask = { "resource-layer" },
+    collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
+    selection_box = {{0, 0}, {0, 0}},
+	
+	
     energy_source =
     {
       type = "electric",
@@ -261,8 +259,9 @@ data:extend({
       width = 0,
       height = 0,
     },
-    production = "20kW"
+    production = "15kW"
   },
+  
   
   ---- BI Accumulator
     {

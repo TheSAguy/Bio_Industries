@@ -126,13 +126,13 @@ if data.raw.technology["bob-solar-energy-2"] then
 	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
 	thxbob.lib.recipe.replace_ingredient("bi_bio_Solar_Farm", "solar-panel", "solar-panel-large")
 	-- Solar Mat
-	--thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
+	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
 	
 else
 	thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_bio_Solar_Farm")
 	
 	-- Solar mat
-	--thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
+	thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
 
 	
 end	
