@@ -275,11 +275,13 @@ end
 
 
 ------------ Changing order/sorting/groups
-if data.raw["item"]["solar-panel-large-3"] then 
+if data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
 	data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
 	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
 	data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
 	data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
+
 end
 
 

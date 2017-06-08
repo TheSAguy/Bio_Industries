@@ -33,8 +33,8 @@ data:extend({
 	icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 	flags = {"goes-to-main-inventory"},
 	subgroup = "energy",
-	order = "d[solar-panel]-a[solar-panel]-a[bi_solar-mat]",
-	stack_size = 1000,
+    order = "d[solar-panel]-aa[solar-panel-1-a]",
+	stack_size = 400,
 	place_as_tile =
 		 {
 		  result = "bi-solar-mat",

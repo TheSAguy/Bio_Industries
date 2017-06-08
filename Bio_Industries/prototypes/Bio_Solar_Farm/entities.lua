@@ -84,7 +84,7 @@ data:extend({
 	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
 	  collision_mask = {"ground-tile", "not-colliding-with-itself"},
 	  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	  walking_speed_modifier = 1.05,
+	  walking_speed_modifier = 1.35,
 	  layer = 62,
 	  decorative_removal_probability = 1,
 	  variants =
