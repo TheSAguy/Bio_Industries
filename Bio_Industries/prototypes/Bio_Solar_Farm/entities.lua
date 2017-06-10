@@ -84,7 +84,7 @@ data:extend({
 	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
 	  collision_mask = {"ground-tile", "not-colliding-with-itself"},
 	  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	  walking_speed_modifier = 1.35,
+	  walking_speed_modifier = 1.45,
 	  layer = 62,
 	  decorative_removal_probability = 1,
 	  variants =
@@ -163,11 +163,11 @@ data:extend({
 	selectable_in_game = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
-	collision_mask = { "resource-layer" },
-    collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
+	collision_mask = {"ground-tile"},
+    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
     selection_box = {{0, 0}, {0, 0}},
 	
-    maximum_wire_distance = 2,
+    maximum_wire_distance = 1,
     supply_area_distance = 2,
     pictures =
     {
@@ -180,7 +180,7 @@ data:extend({
       direction_count = 4,
 	  shift = {0.75, 0},
     },
-    connection_points =
+	 connection_points =
     {
       {
         shadow =
@@ -189,16 +189,7 @@ data:extend({
         },
         wire =
         {
-
-        }
-      },
-      {
-        shadow =
-        {
- 
-        },
-        wire =
-        {
+          copper_wire = {-0, -0},
 
         }
       },
@@ -209,6 +200,7 @@ data:extend({
         },
         wire =
         {
+          copper_wire = {-0, -0},
 
         }
       },
@@ -219,11 +211,71 @@ data:extend({
         },
         wire =
         {
+          copper_wire = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0, -0},
 
         }
       }
+    },
+	--[[
+	connection_points =
+    {
+      {
+        shadow =
+        {
 
-	},
+        },
+        wire =
+        {
+          copper_wire = {-0.5, -0.5},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0.5, -0.5},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0.5, -0.5},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0.5, -0.5},
+
+        }
+      }
+    },
+	]]
     radius_visualisation_picture =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
@@ -242,8 +294,8 @@ data:extend({
 	selectable_in_game = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
-	collision_mask = { "resource-layer" },
-    collision_box = {{-0.15, -0.15}, {0.15, 0.15}},
+	collision_mask = {"ground-tile"},
+    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
     selection_box = {{0, 0}, {0, 0}},
 	
 	
@@ -259,7 +311,7 @@ data:extend({
       width = 0,
       height = 0,
     },
-    production = "15kW"
+    production = "10kW"
   },
   
   

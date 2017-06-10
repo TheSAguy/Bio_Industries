@@ -25,8 +25,8 @@ data:extend({
 		ingredients = 
 		{
 		  {"steel-plate", 1},
-		  {"electronic-circuit", 3},
-		  {"copper-plate", 1}						
+		  {"advanced-circuit", 3},
+		  {"copper-cable", 4}						
 		},
 		result = "bi-solar-mat"
 	},
