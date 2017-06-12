@@ -26,6 +26,15 @@ data:extend(
     per_user = false,
   },
 
+  
+  {
+    type = "bool-setting",
+    name = "BI_Alt_Solar_Farm_Image",
+    setting_type = "startup",
+    default_value = false,
+    per_user = false,
+  },
+
 
 
 --[[

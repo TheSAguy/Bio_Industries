@@ -329,6 +329,56 @@ end
 
 	
 
+
+if settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
+
+
+data.raw["lamp"]["bi_bio_Solar_Farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+data.raw["solar-panel"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+data.raw["item"]["bi_bio_Solar_Farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+data.raw["item"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+
+
+data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_off =
+    {
+      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
+      priority = "high",
+      width = 319,
+      height = 298,
+      frame_count = 1,
+      direction_count = 1,
+	  --scale = 3/2,
+    }
+
+
+
+data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_on =
+    {
+      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_Off_alt.png",
+      priority = "high",
+      width = 319,
+      height = 298,
+      frame_count = 1,
+      direction_count = 1,
+	  --scale = 3/2,
+    }
+
+
+data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
+    {
+      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
+      priority = "low",
+      width = 319,
+      height = 298,
+      frame_count = 1,
+      direction_count = 1,
+	  --scale = 3/2,
+    }
+
+
+	
+end
+	
 	
 	
 	
