@@ -314,9 +314,11 @@ if data.raw["item-subgroup"]["bob-material"] then
 	data.raw["recipe"]["bi-coke-coal"].subgroup = "bob-material"
 	data.raw["recipe"]["bi-ash"].subgroup = "bob-material"
 	data.raw["recipe"]["bi-ash-2"].subgroup = "bob-material"
+	data.raw["recipe"]["bi-woodpulp"].subgroup = "bob-material"
 	data.raw["recipe"]["bi-crushed-stone"].subgroup = "bob-material"
 
 end
+
 
 ------------ Support for Bob's Greenhouse
 if data.raw["item"]["bob-greenhouse"] then 

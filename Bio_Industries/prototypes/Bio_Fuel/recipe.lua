@@ -6,7 +6,6 @@ data:extend({
   {
     type = "recipe",
     name = "bi-Bio_Fuel",
-    --category = "chemistry",
 	category = "biofarm-mod-bioreactor",
     energy_required = 10,
     enabled = false,
@@ -24,6 +23,8 @@ data:extend({
 	subgroup = "fluid-recipes",
 	order = "a[oil-processing]-z[bi-Bio_Fuel]",
   },
+  
+  
   -- Bio Fuel conversion to Oil products 
   {
     type = "recipe",
@@ -56,11 +57,31 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-bioreactor",
-		energy_required = 20,
-		ingredients = {{"assembling-machine-1",1},{"steel-plate",5},{"electronic-circuit",5}},
-		result = "bi-bioreactor",
-		enabled = false,
-		result_count = 1
+		normal =
+		{
+			enabled = false,
+			energy_required = 20
+			ingredients = 
+			{
+			  {"assembling-machine-1",1},
+			  {"steel-plate",5},
+			  {"electronic-circuit",5},
+			},
+			result = "bi-bioreactor",
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 30
+			ingredients = 
+			{
+			  {"assembling-machine-1",2},
+			  {"steel-plate",5},
+			  {"electronic-circuit",5},
+			},
+			result = "bi-bioreactor",
+		},
+		
 	},
 	
 		-- PLASTIC --
