@@ -19,14 +19,16 @@ for index, force in pairs(game.forces) do
 	end
 
 
-	if technologies["military-2"].researched then
-		recipes["Bio_Cannon"].enabled = true
-		recipes["Bio_Cannon"].reload()
-		recipes["Bio_Cannon_Basic_Ammo"].enabled = true
-		recipes["Bio_Cannon_Basic_Ammo"].reload()
-		recipes["Bio_Cannon_Poison_Ammo"].enabled = true
-		recipes["Bio_Cannon_Poison_Ammo"].reload()
-	end
+	if game.entity_prototypes["Bio_Cannon"] then	
+		if technologies["military-2"].researched then
+			recipes["Bio_Cannon"].enabled = true
+			recipes["Bio_Cannon"].reload()
+			recipes["Bio_Cannon_Basic_Ammo"].enabled = true
+			recipes["Bio_Cannon_Basic_Ammo"].reload()
+			recipes["Bio_Cannon_Poison_Ammo"].enabled = true
+			recipes["Bio_Cannon_Poison_Ammo"].reload()
+		end
+	end	
 		
 
 			

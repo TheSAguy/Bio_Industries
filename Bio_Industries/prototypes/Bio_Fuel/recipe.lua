@@ -60,7 +60,7 @@ data:extend({
 		normal =
 		{
 			enabled = false,
-			energy_required = 20
+			energy_required = 20,
 			ingredients = 
 			{
 			  {"assembling-machine-1",1},
@@ -72,7 +72,7 @@ data:extend({
 		expensive =
 		{
 			enabled = false,
-			energy_required = 30
+			energy_required = 30,
 			ingredients = 
 			{
 			  {"assembling-machine-1",2},
