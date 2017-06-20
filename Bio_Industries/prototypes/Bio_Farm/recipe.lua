@@ -18,16 +18,36 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi_bio_farm",
-		enabled = false,
-		energy_required = 10,
-		ingredients = 
+
+		normal =
 		{
-		  {"iron-stick",20},
-		  {"copper-cable",10},
-		  {"stone",20},
-		  {"small-lamp",10}
+			enabled = false,
+			energy_required = 10,
+			ingredients = 
+			{
+			  {"iron-stick",20},
+			  {"copper-cable",10},
+			  {"stone",20},
+			  {"small-lamp",10},
+			},
+		  result = "bi_bio_farm",
+		  result_count = 1,
 		},
-		result = "bi_bio_farm"
+		expensive =
+		{
+			enabled = false,
+			energy_required = 15,
+			ingredients = 
+			{
+			  {"iron-stick",20},
+			  {"copper-cable",80},
+			  {"stone",80},
+			  {"small-lamp",10},
+			},
+		  result = "bi_bio_farm",
+		  result_count = 1,
+		},
+
 	},
 	
 		--- Raw Wood from Water (BASIC)
@@ -320,22 +340,64 @@ data:extend({
 	-- COKERY --
 	{
 		type = "recipe",
-		name = "bi-cokery",
-		energy_required = 10,
-		ingredients = {{"stone-furnace",3},{"steel-plate",10}},
-		result = "bi-cokery",
-		result_count = 1,
-		enabled = false,
+		name = "bi-cokery",	
+		normal =
+		{
+			enabled = false,
+			energy_required = 10,
+			ingredients = 
+			{
+			  {"stone-furnace",3},
+			  {"steel-plate",10},
+			},
+		  result = "bi-cokery",
+		  result_count = 1,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 15,
+			ingredients = 
+			{
+			  {"stone-furnace",3},
+			  {"steel-plate",10},
+			},
+		  result = "bi-cokery",
+		  result_count = 1,
+		},
+
 	},
 	-- STONE CRUSHER --
 	{
 		type = "recipe",
 		name = "bi-stone-crusher",
-		energy_required = 10,
-		ingredients = {{"iron-plate",10},{"steel-plate",10},{"iron-gear-wheel",5}},
-		result = "bi-stone-crusher",
-		enabled = false,
-		result_count = 1
+		normal =
+		{
+			enabled = false,
+			energy_required = 15,
+			ingredients = 
+			{
+			  {"iron-plate",10},
+			  {"steel-plate",10},
+			  {"iron-gear-wheel",5},
+			},
+		  result = "bi-stone-crusher",
+		  result_count = 1,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 10,
+			ingredients = 
+			{
+			  {"iron-plate",10},
+			  {"steel-plate",10},
+			  {"iron-gear-wheel",5},
+			},
+		  result = "bi-stone-crusher",
+		  result_count = 1,
+		},
+
 	},
 
 

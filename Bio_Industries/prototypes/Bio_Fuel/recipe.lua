@@ -35,13 +35,12 @@ data:extend({
     ingredients =
     {
 		{type="fluid", name="bi-Bio_Fuel", amount=70},
-		{type="fluid", name="crude-oil", amount=30},
     },
     results=
     {
 		{type="fluid", name="light-oil", amount=35},  
-		{type="fluid", name="heavy-oil", amount=20},
-        {type="fluid", name="petroleum-gas", amount=45},
+		{type="fluid", name="heavy-oil", amount=15},
+        {type="fluid", name="petroleum-gas", amount=20},
     },
     icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
     subgroup = "fluid-recipes",  
@@ -68,6 +67,7 @@ data:extend({
 			  {"electronic-circuit",5},
 			},
 			result = "bi-bioreactor",
+			result_count = 1,
 		},
 		expensive =
 		{
@@ -80,6 +80,7 @@ data:extend({
 			  {"electronic-circuit",5},
 			},
 			result = "bi-bioreactor",
+			result_count = 1,
 		},
 		
 	},

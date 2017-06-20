@@ -73,6 +73,8 @@ local function On_Config_Change()
 end
 
 ---------------------------------------------------------------------
+
+--- Used for some compatibility with Angels Mods
 script.on_event(defines.events.on_player_joined_game, function(event)
    local player = game.players[event.player_index]
    local force = player.force
@@ -757,6 +759,7 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 	local AmmoType
 	local ammo = 0
 	local spawner
+	local worms
 	local target
 	local delay
 
@@ -770,16 +773,17 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 	
 	if ammo > 0 and Bio_Cannon_List[3].energy > 0 then	
 			
-			local radius = 75
+			local radius = 85 -- Radius it looks for a Spawner / Worm to fire at
 			local pos = Bio_Cannon.position
 			local area = {{pos.x - radius, pos.y - radius}, {pos.x + radius, pos.y + radius}}
 	
 			--- Look for spawners
 			spawner = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
+			worms = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
 				
 			writeDebug("The Number of Spawners are: " .. #spawner)
 			--Find Spawner Target
-			if #spawner > 0 and target == nil then
+			if (#spawner > 0 or #worms > 0)  and target == nil then
 				for _,enemy in pairs(spawner) do
 					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
 					writeDebug("The Distance is: " .. distance)

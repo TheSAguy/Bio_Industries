@@ -187,7 +187,6 @@ if data.raw.item["alien-artifact"] then
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser", {type="item", name="alien-artifact", amount=5})
 
 	--- Bio Fuel will use Alien Artifact	
-	--thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="item", name="alien-artifact", amount=1})
 	thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="item", name="alien-artifact", amount=1})
 
 	--- Bio Cannon Ammo will use Alien Artifact
@@ -196,7 +195,6 @@ if data.raw.item["alien-artifact"] then
 else
 
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser", {type="fluid", name="sulfuric-acid", amount=50})
-	--thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="fluid", name="sulfuric-acid", amount=10})
 	thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="fluid", name="sulfuric-acid", amount=10})
 	
 end	
@@ -331,7 +329,7 @@ end
 
 	
 
-
+-------- Use Alternative Solar Farm Image
 if settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
 
@@ -349,7 +347,6 @@ data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_off =
       height = 298,
       frame_count = 1,
       direction_count = 1,
-	  --scale = 3/2,
     }
 
 
@@ -362,7 +359,6 @@ data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_on =
       height = 298,
       frame_count = 1,
       direction_count = 1,
-	  --scale = 3/2,
     }
 
 
@@ -374,7 +370,6 @@ data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
       height = 298,
       frame_count = 1,
       direction_count = 1,
-	  --scale = 3/2,
     }
 
 
