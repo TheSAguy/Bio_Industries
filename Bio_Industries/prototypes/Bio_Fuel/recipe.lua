@@ -39,10 +39,16 @@ data:extend({
     },
     results=
     {
+<<<<<<< HEAD
 	    {type="fluid", name="heavy-oil", amount=35},
 		{type="fluid", name="light-oil", amount=15},
 		{type="fluid", name="petroleum-gas", amount=20}
 
+=======
+		{type="fluid", name="light-oil", amount=35},  
+		{type="fluid", name="heavy-oil", amount=15},
+        {type="fluid", name="petroleum-gas", amount=20},
+>>>>>>> origin/master
     },
     icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
     subgroup = "fluid-recipes",  
