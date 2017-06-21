@@ -25,27 +25,54 @@ data:extend({
   },
   
   
-  -- Bio Fuel conversion to Oil products 
+  -- Bio Fuel conversion to Oil products    
   {
     type = "recipe",
-    name = "bi-Fuel_Conversion",
+    name = "bi-Fuel_Conversion-1",
     category = "oil-processing",
     enabled = false,
     energy_required = 5,
     ingredients =
     {
+		{type="fluid", name="steam", amount=50},
 		{type="fluid", name="bi-Bio_Fuel", amount=70},
-		{type="fluid", name="crude-oil", amount=30},
     },
     results=
     {
-		{type="fluid", name="light-oil", amount=35},  
-		{type="fluid", name="heavy-oil", amount=20},
-        {type="fluid", name="petroleum-gas", amount=45},
+	    {type="fluid", name="heavy-oil", amount=35},
+		{type="fluid", name="light-oil", amount=15},
+		{type="fluid", name="petroleum-gas", amount=20}
+
     },
     icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
     subgroup = "fluid-recipes",  
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
+  },
+
+  
+  
+  {
+    type = "recipe",
+    name = "bi-Fuel_Conversion-2",
+    category = "oil-processing",
+    enabled = false,
+    energy_required = 5,
+    ingredients =
+    {
+		{type="fluid", name="water", amount=50},
+		{type="fluid", name="bi-Bio_Fuel", amount=75},
+		{type="item", name="coal", amount=25},
+    },
+    results=
+    {
+	    {type="fluid", name="heavy-oil", amount=10},
+		{type="fluid", name="light-oil", amount=25},
+		{type="fluid", name="crude-oil", amount=65},
+
+    },
+    icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png",
+    subgroup = "fluid-recipes",  
+	order = "a[oil-processing]-b[advanced-oil-processing]-z[bi-Fuel_Conversion]",
   },
 
 })
@@ -68,6 +95,7 @@ data:extend({
 			  {"electronic-circuit",5},
 			},
 			result = "bi-bioreactor",
+			result_count = 1,
 		},
 		expensive =
 		{
@@ -80,6 +108,7 @@ data:extend({
 			  {"electronic-circuit",5},
 			},
 			result = "bi-bioreactor",
+			result_count = 1,
 		},
 		
 	},

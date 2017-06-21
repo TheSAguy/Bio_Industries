@@ -10,6 +10,51 @@ if not BI_Config then BI_Config = {} end
 
 
 local max_grow_time = 5000
+local Bi_Industries = {}
+
+Bi_Industries.fertility = {  -- out of 100, so 100 = always
+	-- Vanilla
+	["grass-medium"]    = 100, 
+	["grass"]           = 85, 
+	["grass-dry"]       = 75,
+	["dirt"]            = 45,
+	["dirt-dark"]       = 35,
+	["sand"]            = 25,
+	["sand-dark"]       = 15,
+	["red-desert"]      = 10,
+	["red-desert-dark"] = 5,
+	-- Alien biomes
+	["grass-red"]         = 95,
+	["grass-orange"]      = 95,
+	["grass-yellow"]      = 95,
+	["grass-yellow-fade"] = 90,
+	["grass-purple-fade"] = 90,
+	["grass-purple"]      = 95,
+	["dirt-red-dark"]     = 45,
+	["dirt-brown-dark"]   = 45,
+	["grass-blue-fade"]   = 90,
+	["grass-blue"]        = 95,
+	["dirt-red"]          = 35,
+	["dirt-brown"]        = 35,
+	["dirt-tan-dark"]     = 45,
+	["dirt-dull-dark"]    = 45,
+	["dirt-grey-dark"]    = 45,
+	["dirt-tan"]          = 25,
+	["dirt-dull"]         = 25,
+	["dirt-grey"]         = 25,
+	["sand-red-dark"]     = 15,
+	["sand-orange-dark"]  = 15,
+	["sand-gold-dark"]    = 15,
+	["sand-dull-dark"]    = 10,
+	["sand-grey-dark"]    = 10,
+	["sand-red"]          = 10,
+	["sand-orange"]       = 10,
+	["sand-gold"]         = 10,
+	["sand-dull"]         = 7.5,
+	["sand-grey"]         = 7.5,
+	["snow"]              = 2.5,
+	["volcanic-cool"]     = 2.5,
+}
 
 
 --------------------------------------------------------------------
@@ -73,6 +118,8 @@ local function On_Config_Change()
 end
 
 ---------------------------------------------------------------------
+
+--- Used for some compatibility with Angels Mods
 script.on_event(defines.events.on_player_joined_game, function(event)
    local player = game.players[event.player_index]
    local force = player.force
@@ -644,6 +691,8 @@ function Grow_tree(pos)
 	local surface = game.surfaces['nauvis']
 	local tree = surface.find_entity("seedling", pos)
 	local currentTilename = surface.get_tile(pos.x, pos.y).name
+	local fertility = 5
+	local growth_chance = math.random(100) -- Random value. Tree will grow if it's this value is smaller that the 'Fertility' value
 	writeDebug("The current tile is: " .. currentTilename)
 				
 	if tree then
@@ -651,23 +700,34 @@ function Grow_tree(pos)
 		tree.destroy()
 		
 		--- Depending on Terain, choose tree type & Convert seedling into a tree
-		local growth_chance = math.random(100)
+		
+		
+		if Bi_Industries.fertility[currentTilename] then
+			fertility = Bi_Industries.fertility[currentTilename]
+		end
+		
 		if 	currentTilename == "grass" then 
 			treetype = "tree-05"
-			if foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
 				surface.create_entity({ name=treetype, amount=1, position=pos})
 			end
 					
 		elseif currentTilename == "grass-medium" then 
 			treetype = "tree-04"
-			if growth_chance > 15 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
 				surface.create_entity({ name=treetype, amount=1, position=pos})
 			end
 		
 		elseif currentTilename == "grass-dry" then 
 			treetype = math.random(2)
 			treetype = "tree-0".. treetype
-			if growth_chance > 25 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
 				surface.create_entity({ name=treetype, amount=1, position=pos})
 			end
 		
@@ -675,7 +735,9 @@ function Grow_tree(pos)
 			treetype = math.random(2)
 			treetype = treetype + 5
 			treetype = "tree-0".. treetype
-			if growth_chance > 85 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
 				surface.create_entity({ name=treetype, amount=1, position=pos})
 			end
 				
@@ -683,11 +745,13 @@ function Grow_tree(pos)
 			treetype = math.random(2)
 			treetype = treetype + 5
 			treetype = "tree-0".. treetype
-			if growth_chance > 95 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
 				surface.create_entity({ name=treetype, amount=1, position=pos})
 			end
 		
-		---- Sand and Dark Sand
+		---- Sand and Dark Sand & Any other Tile Type
 		else
 			treetype = math.random(3)
 			if treetype == 1 then
@@ -697,7 +761,9 @@ function Grow_tree(pos)
 			else
 				treetype = "tree-09"
 			end
-			if growth_chance > 70 and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
 				surface.create_entity({ name=treetype, amount=1, position=pos})
 			end
 				
@@ -757,6 +823,7 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 	local AmmoType
 	local ammo = 0
 	local spawner
+	local worms
 	local target
 	local delay
 
@@ -770,16 +837,17 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 	
 	if ammo > 0 and Bio_Cannon_List[3].energy > 0 then	
 			
-			local radius = 75
+			local radius = 85 -- Radius it looks for a Spawner / Worm to fire at
 			local pos = Bio_Cannon.position
 			local area = {{pos.x - radius, pos.y - radius}, {pos.x + radius, pos.y + radius}}
 	
 			--- Look for spawners
 			spawner = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
+			worms = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
 				
 			writeDebug("The Number of Spawners are: " .. #spawner)
 			--Find Spawner Target
-			if #spawner > 0 and target == nil then
+			if (#spawner > 0 or #worms > 0)  and target == nil then
 				for _,enemy in pairs(spawner) do
 					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
 					writeDebug("The Distance is: " .. distance)

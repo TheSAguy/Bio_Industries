@@ -59,7 +59,12 @@ if BI.Settings.BI_Recipe_Tweaks then
 	
 	--- Disassemble of Burner Miner Drill and Steel Furnace
 	require("prototypes.Bio_Tweaks.recipe")
-	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi-steel-furnace-disassemble")
+	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_steel_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_burner_mining_drill_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_stone_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_burner_inserter_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_long_handed_inserter_disassemble")
+	
 	
 end
 
@@ -175,7 +180,8 @@ if BI.Settings.BI_Bio_Fuel then
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-0")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Bio_Fuel")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-2")
 		
 end
 
@@ -187,7 +193,6 @@ if data.raw.item["alien-artifact"] then
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser", {type="item", name="alien-artifact", amount=5})
 
 	--- Bio Fuel will use Alien Artifact	
-	--thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="item", name="alien-artifact", amount=1})
 	thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="item", name="alien-artifact", amount=1})
 
 	--- Bio Cannon Ammo will use Alien Artifact
@@ -196,7 +201,6 @@ if data.raw.item["alien-artifact"] then
 else
 
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser", {type="fluid", name="sulfuric-acid", amount=50})
-	--thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="fluid", name="sulfuric-acid", amount=10})
 	thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="fluid", name="sulfuric-acid", amount=10})
 	
 end	
@@ -296,8 +300,10 @@ if data.raw["item-subgroup"]["bob-fluid"] then
 	if BI.Settings.BI_Bio_Fuel and BI_Config.mod.NEBuildings then
 		data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
 		data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
-		data.raw["recipe"]["bi-Fuel_Conversion"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi-Fuel_Conversion"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"	
+		data.raw["recipe"]["bi-Fuel_Conversion-1"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi-Fuel_Conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"	
+		data.raw["recipe"]["bi-Fuel_Conversion-2"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi-Fuel_Conversion-2"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion]"	
 		data.raw["recipe"]["bi-plastic"].subgroup = "bob-resource-chemical"
 		data.raw["recipe"]["bi-plastic"].order = "g[plastic-bar]"
 		data.raw["recipe"]["bi-cellulose"].subgroup = "bob-resource-chemical"
@@ -324,14 +330,14 @@ end
 if data.raw["item"]["bob-greenhouse"] then 
 	data.raw["item"]["seedling"].place_result="seedling"
 	data.raw["item"]["seedling"].icon = "__Bio_Industries__/graphics/icons/Seedling.png"
-	data.raw["item"]["fertiliser"].place_as_tile = {result = "grass",	condition_size = 1,	condition = { "water-tile" }}
+	data.raw["item"]["fertiliser"].place_as_tile = {result = "grass-medium",	condition_size = 1,	condition = { "water-tile" }}
 	data.raw["item"]["fertiliser"].icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png"
 		
 end
 
 	
 
-
+-------- Use Alternative Solar Farm Image
 if settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
 
@@ -349,7 +355,6 @@ data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_off =
       height = 298,
       frame_count = 1,
       direction_count = 1,
-	  --scale = 3/2,
     }
 
 
@@ -362,7 +367,6 @@ data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_on =
       height = 298,
       frame_count = 1,
       direction_count = 1,
-	  --scale = 3/2,
     }
 
 
@@ -374,7 +378,6 @@ data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
       height = 298,
       frame_count = 1,
       direction_count = 1,
-	  --scale = 3/2,
     }
 
 

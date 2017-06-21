@@ -90,34 +90,6 @@ data:extend({
 		stack_size = 10
 	},
 
---[[
-	--- BioReactor
-	{
-		type = "item",
-		name = "bi-bioreactor",
-		icon = "__Bio_Industries__/graphics/icons/bioreactor.png",
-		flags = {"goes-to-quickbar"},
-		subgroup = "production-machine",
-		order = "x[bi]-d[bi-bioreactor]",
-		place_result = "bi-bioreactor",
-		stack_size = 10
-	},
-
-	
-  -- Raw Materials
-  
-
-	---- Celluluse
-	{
-		type = "item",
-		name = "bi-cellulose",
-		icon = "__Bio_Industries__/graphics/icons/cellulose.png",
-		flags = {"goes-to-main-inventory"},
-		subgroup = "intermediate-product",
-		order = "b[cellulose]",
-		stack_size = 200
-	},
-]]
   --- Wood Pulp
 	{
 		type = "item",
@@ -195,7 +167,7 @@ data:extend({
 		stack_size = 200,
 	    place_as_tile =
 		{
-		result = "grass",
+		result = "grass-medium",
 		condition_size = 1,
 		condition = { "water-tile" }
 		},	
@@ -212,7 +184,7 @@ data:extend({
 		stack_size = 200,
 		place_as_tile =
 		{
-		result = "grass",
+		result = "grass-medium",
 		condition_size = 1,
 		condition = { "water-tile" }
 		},	
