@@ -12,14 +12,12 @@ data:extend({
     ingredients =
     {
 		{type="item", name="bi-cellulose", amount=2},
-	  --{type="fluid", name="sulfuric-acid", amount=10},
       --{type="fluid", name="NE_revitalization-solution", amount=10} <-- Will be added if you are using NE Buildings
     },
     results=
     {
       {type="fluid", name="bi-Bio_Fuel", amount=30},
     },
-    --subgroup = "Evolution-fluids",
 	subgroup = "fluid-recipes",
 	order = "a[oil-processing]-z[bi-Bio_Fuel]",
   },
@@ -39,16 +37,10 @@ data:extend({
     },
     results=
     {
-<<<<<<< HEAD
 	    {type="fluid", name="heavy-oil", amount=35},
 		{type="fluid", name="light-oil", amount=15},
 		{type="fluid", name="petroleum-gas", amount=20}
 
-=======
-		{type="fluid", name="light-oil", amount=35},  
-		{type="fluid", name="heavy-oil", amount=15},
-        {type="fluid", name="petroleum-gas", amount=20},
->>>>>>> origin/master
     },
     icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
     subgroup = "fluid-recipes",  
