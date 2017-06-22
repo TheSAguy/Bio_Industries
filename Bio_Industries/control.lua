@@ -9,7 +9,6 @@ require ("libs/event")
 if not BI_Config then BI_Config = {} end
 
 
-local max_grow_time = 5000
 local Bi_Industries = {}
 
 Bi_Industries.fertility = {  -- out of 100, so 100 = always
@@ -143,7 +142,12 @@ local function On_Built(event)
    
 	--- Seedling planted
 	if entity.name == "seedling" then
-
+		
+		local position = entity.position	
+		local fretility = 5
+		currentTilename = surface.get_tile(position.x, position.y).name
+		fertility = Bi_Industries.fertility[currentTilename]				
+		local max_grow_time = math.random(5000) + 5000 - (5000 * fertility)
 		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time})
 		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
 
