@@ -156,7 +156,7 @@ if BI.Settings.BI_Bio_Fuel or BI_Config.mod.NEBuildings then
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Clean_Air2")
 end
 
-	
+
 --update crushed stone icon
 data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
 	
@@ -165,8 +165,7 @@ data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed
 if data.raw.item.glass  then
 	thxbob.lib.recipe.replace_ingredient("bi_bio_farm", "copper-cable", "glass")
 end
-
-			
+	
 ---- Add Bio Fuel & Plastic
 if BI.Settings.BI_Bio_Fuel then 
 	require("prototypes.Bio_Fuel.item")

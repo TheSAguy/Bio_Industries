@@ -1,4 +1,4 @@
----Bio Industries - v.1.6.7
+---Bio Industries - v.1.7.1
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
@@ -113,6 +113,7 @@ local function On_Config_Change()
 			end
 		end
 	end
+	
 	
 end
 
@@ -842,21 +843,36 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 	
 	if ammo > 0 and Bio_Cannon_List[3].energy > 0 then	
 			
-			local radius = 85 -- Radius it looks for a Spawner / Worm to fire at
+			local radius = 80 -- Radius it looks for a Spawner / Worm to fire at
+			local radius2 = 85 -- Radius it looks for a Spawner / Worm to fire at
 			local pos = Bio_Cannon.position
+			
 			local area = {{pos.x - radius, pos.y - radius}, {pos.x + radius, pos.y + radius}}
 	
 			--- Look for spawners
 			spawner = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
-			worms = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
+			worms = Bio_Cannon.surface.find_entities_filtered({area = area, type = "turret", force= "enemy"})
 				
 			writeDebug("The Number of Spawners are: " .. #spawner)
+			writeDebug("The Number of Worms are: " .. #worms)
 			--Find Spawner Target
-			if (#spawner > 0 or #worms > 0)  and target == nil then
+			if #spawner > 0 and target == nil then
 				for _,enemy in pairs(spawner) do
 					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
 					writeDebug("The Distance is: " .. distance)
-					if (distance > 10) and (distance < (radius+1)) then
+					if (distance > 10) and (distance < (radius2+1)) then
+					
+						if target == nil then
+							target={enemy}
+						end
+					end
+				end
+			-- First attack the Spawners, then worms.
+			elseif #worms > 0 and target == nil then
+				for _,enemy in pairs(worms) do
+					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
+					writeDebug("The Distance is: " .. distance)
+					if (distance > 10) and (distance < (radius2+1)) then
 					
 						if target == nil then
 							target={enemy}
@@ -864,6 +880,8 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 					end
 				end
 			end
+			
+	
 
 
 		--Fire at Spawner

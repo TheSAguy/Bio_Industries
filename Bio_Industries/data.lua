@@ -18,7 +18,6 @@ BI.Settings.BI_Recipe_Tweaks = settings.startup["BI_Recipe_Tweaks"].value
 
 --- Help Files
 require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
---require ("libs.legacy") -- From Bob's Libary 
 require ("libs.item-functions") -- From Bob's Libary 
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 

@@ -6,6 +6,7 @@ data:extend({
   {
     type = "recipe",
     name = "bi-Bio_Fuel",
+	icon = "__Bio_Industries__/graphics/icons/bio-fuel.png",
 	category = "biofarm-mod-bioreactor",
     energy_required = 10,
     enabled = false,
@@ -27,6 +28,7 @@ data:extend({
   {
     type = "recipe",
     name = "bi-Fuel_Conversion-1",
+	icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
     category = "oil-processing",
     enabled = false,
     energy_required = 5,
@@ -42,7 +44,7 @@ data:extend({
 		{type="fluid", name="petroleum-gas", amount=20}
 
     },
-    icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
+    
     subgroup = "fluid-recipes",  
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
   },
@@ -52,6 +54,7 @@ data:extend({
   {
     type = "recipe",
     name = "bi-Fuel_Conversion-2",
+	icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png",
     category = "oil-processing",
     enabled = false,
     energy_required = 5,
@@ -68,7 +71,7 @@ data:extend({
 		{type="fluid", name="crude-oil", amount=65},
 
     },
-    icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png",
+
     subgroup = "fluid-recipes",  
 	order = "a[oil-processing]-b[advanced-oil-processing]-z[bi-Fuel_Conversion]",
   },
