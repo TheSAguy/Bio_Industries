@@ -105,6 +105,10 @@ data:extend({
     resistances = 
     {
       {
+        type = "fire",
+        percent = 100
+      },
+	  {
         type = "physical",
         percent = 10
       }
