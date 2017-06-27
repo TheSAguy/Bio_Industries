@@ -6,6 +6,7 @@ data:extend(
     name = "BI_Bio_Cannon",
     setting_type = "startup",
     default_value = true,
+	order = "a[modifier]-a[Bio_Cannon]",
     per_user = false,
   },
 
@@ -14,6 +15,7 @@ data:extend(
     name = "BI_Bio_Fuel",
     setting_type = "startup",
     default_value = true,
+	order = "a[modifier]-b[Bio_Fuel]",
     per_user = false,
   },
 
@@ -23,6 +25,7 @@ data:extend(
     name = "BI_Recipe_Tweaks",
     setting_type = "startup",
     default_value = true,
+	order = "a[modifier]-c[Recipe_Tweaks]",
     per_user = false,
   },
 
@@ -32,6 +35,7 @@ data:extend(
     name = "BI_Alt_Solar_Farm_Image",
     setting_type = "startup",
     default_value = false,
+	order = "a[modifier]-d[Alt_Solar_Farm_Image]",
     per_user = false,
   },
 

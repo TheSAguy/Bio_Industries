@@ -6,7 +6,7 @@ require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob'
 require ("libs.item-functions") -- From Bob's Libary 
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 
---require ("libs.legacy") -- From Bob's Libary 
+
 
 
 
@@ -166,25 +166,7 @@ if data.raw.item.glass  then
 	thxbob.lib.recipe.replace_ingredient("bi_bio_farm", "copper-cable", "glass")
 end
 	
----- Add Bio Fuel & Plastic
-if BI.Settings.BI_Bio_Fuel then 
-	require("prototypes.Bio_Fuel.item")
-	require("prototypes.Bio_Fuel.fluid")
-	require("prototypes.Bio_Fuel.recipe")
-	require("prototypes.Bio_Fuel.entities")
-	require("prototypes.Bio_Fuel.technology")
 
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-bioreactor")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-liquid-co2")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-0")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Bio_Fuel")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-2")
-		
-end
-
-	
 	
 --- if the Alien Artifact is in the game, use if for some recipes
 if data.raw.item["alien-artifact"] then

@@ -697,7 +697,7 @@ function Grow_tree(pos)
 	local surface = game.surfaces['nauvis']
 	local tree = surface.find_entity("seedling", pos)
 	local currentTilename = surface.get_tile(pos.x, pos.y).name
-	local fertility = 5
+	local fertility = 0 -- fertility will be zero if terrain type not listed above, so nothing will grow on it.
 	local growth_chance = math.random(100) -- Random value. Tree will grow if it's this value is smaller that the 'Fertility' value
 	writeDebug("The current tile is: " .. currentTilename)
 				

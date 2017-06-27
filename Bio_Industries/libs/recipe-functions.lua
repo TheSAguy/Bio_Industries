@@ -209,12 +209,54 @@ end
 
 
 
-function thxbob.lib.recipe.remove_difficulty_ingredient(recipe, difficulty, item)
-  if data.raw.recipe[recipe] then
-
-    if data.raw.recipe[recipe][difficulty] then
-      thxbob.lib.item.remove(data.raw.recipe[recipe][difficulty].ingredients, item)
+local function split_line(recipe, tag)
+  if data.raw.recipe[recipe][tag] then
+    if not data.raw.recipe[recipe].normal[tag] then
+      data.raw.recipe[recipe].normal[tag] = table.deepcopy(data.raw.recipe[recipe][tag])
     end
+    if not data.raw.recipe[recipe].expensive[tag] then
+      data.raw.recipe[recipe].expensive[tag] = table.deepcopy(data.raw.recipe[recipe][tag])
+    end
+  end
+end
+
+
+function thxbob.lib.recipe.difficulty_split(recipe)
+  if data.raw.recipe[recipe] then
+    if not data.raw.recipe[recipe].normal then 
+      data.raw.recipe[recipe].normal = {} 
+    end
+    if not data.raw.recipe[recipe].expensive then 
+      data.raw.recipe[recipe].expensive = {} 
+    end
+    split_line(recipe, "energy_required")
+    if data.raw.recipe[recipe].enabled == false then
+      if data.raw.recipe[recipe].normal.enabled ~= true then
+        data.raw.recipe[recipe].normal.enabled = false
+      end
+      if data.raw.recipe[recipe].expensive.enabled ~= true then
+        data.raw.recipe[recipe].expensive.enabled = false
+      end
+    end
+    split_line(recipe, "ingredients")
+    split_line(recipe, "result")
+    split_line(recipe, "results")
+    split_line(recipe, "result_count")
+    split_line(recipe, "requester_paste_multiplier")
+  else
+    log("Recipe " .. recipe .. " does not exist.")
+  end
+end
+
+
+
+function thxbob.lib.recipe.remove_difficulty_ingredient(recipe, difficulty, item)
+  if data.raw.recipe[recipe] and (difficulty == "normal" or difficulty == "expensive") then
+
+    if not data.raw.recipe[recipe][difficulty] then
+      thxbob.lib.recipe.difficulty_split(recipe)
+    end
+    thxbob.lib.item.remove(data.raw.recipe[recipe][difficulty].ingredients, item)
 
   else
     log("Recipe " .. recipe .. " does not exist.")
@@ -225,9 +267,10 @@ end
 function thxbob.lib.recipe.add_new_difficulty_ingredient(recipe, difficulty, item)
   if data.raw.recipe[recipe] and thxbob.lib.item.get_type(thxbob.lib.item.basic_item(item).name) and (difficulty == "normal" or difficulty == "expensive") then
 
-    if data.raw.recipe[recipe][difficulty] then
-      thxbob.lib.item.add_new(data.raw.recipe[recipe][difficulty].ingredients, thxbob.lib.item.basic_item(item))
+    if not data.raw.recipe[recipe][difficulty] then
+      thxbob.lib.recipe.difficulty_split(recipe)
     end
+    thxbob.lib.item.add_new(data.raw.recipe[recipe][difficulty].ingredients, thxbob.lib.item.basic_item(item))
 
   else
     if not data.raw.recipe[recipe] then
@@ -245,9 +288,10 @@ end
 function thxbob.lib.recipe.add_difficulty_ingredient(recipe, difficulty, item)
   if data.raw.recipe[recipe] and thxbob.lib.item.get_type(thxbob.lib.item.basic_item(item).name) and (difficulty == "normal" or difficulty == "expensive") then
 
-    if data.raw.recipe[recipe][difficulty] then
-      thxbob.lib.item.add(data.raw.recipe[recipe][difficulty].ingredients, thxbob.lib.item.basic_item(item))
+    if not data.raw.recipe[recipe][difficulty] then
+      thxbob.lib.recipe.difficulty_split(recipe)
     end
+    thxbob.lib.item.add(data.raw.recipe[recipe][difficulty].ingredients, thxbob.lib.item.basic_item(item))
 
   else
     if not data.raw.recipe[recipe] then
@@ -266,10 +310,11 @@ end
 function thxbob.lib.recipe.add_difficulty_result(recipe, difficulty, item)
   if data.raw.recipe[recipe] and thxbob.lib.item.get_type(thxbob.lib.item.basic_item(item).name) and (difficulty == "normal" or difficulty == "expensive") then
 
-    if data.raw.recipe[recipe][difficulty] then
-      thxbob.lib.result_check(data.raw.recipe[recipe][difficulty])
-      thxbob.lib.item.add(data.raw.recipe[recipe][difficulty].results, item)
+    if not data.raw.recipe[recipe][difficulty] then
+      thxbob.lib.recipe.difficulty_split(recipe)
     end
+    thxbob.lib.result_check(data.raw.recipe[recipe][difficulty])
+    thxbob.lib.item.add(data.raw.recipe[recipe][difficulty].results, item)
 
   else
     if not data.raw.recipe[recipe] then
@@ -287,10 +332,11 @@ end
 function thxbob.lib.recipe.remove_difficulty_result(recipe, difficulty, item)
   if data.raw.recipe[recipe] and (difficulty == "normal" or difficulty == "expensive") then
 
-    if data.raw.recipe[recipe][difficulty] then
-      thxbob.lib.result_check(data.raw.recipe[recipe][difficulty])
-      thxbob.lib.item.remove(data.raw.recipe[recipe][difficulty].results, item)
+    if not data.raw.recipe[recipe][difficulty] then
+      thxbob.lib.recipe.difficulty_split(recipe)
     end
+    thxbob.lib.result_check(data.raw.recipe[recipe][difficulty])
+    thxbob.lib.item.remove(data.raw.recipe[recipe][difficulty].results, item)
 
   else
     if not data.raw.recipe[recipe] then

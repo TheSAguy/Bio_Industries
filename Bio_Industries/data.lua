@@ -76,5 +76,23 @@ if BI.Settings.Bio_Cannon then
 
 end
 
+---- Add Bio Fuel & Plastic
+if BI.Settings.BI_Bio_Fuel then 
+	require("prototypes.Bio_Fuel.item")
+	require("prototypes.Bio_Fuel.fluid")
+	require("prototypes.Bio_Fuel.recipe")
+	require("prototypes.Bio_Fuel.entities")
+	require("prototypes.Bio_Fuel.technology")
 
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-bioreactor")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-liquid-co2")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-0")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Bio_Fuel")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-2")
+		
+end
+
+	
 
