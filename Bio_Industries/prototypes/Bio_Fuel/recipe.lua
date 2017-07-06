@@ -76,11 +76,43 @@ data:extend({
 	order = "a[oil-processing]-b[advanced-oil-processing]-z[bi-Fuel_Conversion]",
   },
 
-})
 
---- Plastics
-data:extend({
 
+
+	--- Bio Boiler ---
+
+	{
+		type = "recipe",
+		name = "bio_boiler",
+		normal =
+		{
+			enabled = false,
+			energy_required = 10,
+			ingredients = 
+			{
+			  {"boiler",1},
+			  {"steel-plate",5},
+			  {"concrete",5},
+			},
+			result = "bio_boiler",
+			result_count = 1,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 15,
+			ingredients = 
+			{
+			  {"boiler",2},
+			  {"steel-plate",5},
+			  {"concrete",5},
+			},
+			result = "bio_boiler",
+			result_count = 1,
+		},
+		
+	},
+  
 	-- BIO Reactor --
 	{
 		type = "recipe",
@@ -133,23 +165,7 @@ data:extend({
 		enabled = false,
 	},
 	
-		
-	-- LIQUID CO2
-	{
-		type = "recipe",
-		name = "bi-liquid-co2",
-		category = "chemistry",	
-		energy_required = 5,
-		ingredients ={{type="fluid", name="liquid-air", amount=10}},
-		results=
-		{
-			{type="fluid", name="bi-liquid-co2", amount=10}
-		},
-		enabled = false,
-		subgroup = "fluid-recipes",
-		order = "x[oil-processing]-z[bi-liquid-co2]"
-	},
-	
+
 		-- BIOMASS --
 	{
 		type = "recipe",
@@ -160,7 +176,7 @@ data:extend({
 		ingredients =
 		{
 			{type="fluid", name="water", amount=10},
-			{type="fluid", name="bi-liquid-co2", amount=10},
+			{type="fluid", name="liquid-air", amount=10},
 			{type="item", name="fertiliser", amount=1}
 		},
 		results=

@@ -15,7 +15,7 @@ thxbob.lib.tech.add_recipe_unlock("automation-2", "bi-stone-crusher")
 thxbob.lib.tech.add_recipe_unlock("automation-2", "bi-crushed-stone")
 
 
-
+---- Game Tweaks ----
 if BI.Settings.BI_Recipe_Tweaks then
 	--- Concrete Recipe Tweak
 	thxbob.lib.recipe.remove_ingredient ("concrete", "iron-ore")
@@ -35,7 +35,7 @@ if BI.Settings.BI_Recipe_Tweaks then
 	
 	--- Trees Give Random 1 - 6 Raw Wood.
 	for _,tree in pairs(data.raw["tree"]) do
-		tree.collision_box = {{-0.08, -0.08}, {0.08, 0.08}}	
+		tree.collision_box = {{-0.05, -0.05}, {0.05, 0.05}}	
 		if not (tree.name =="dead-tree" or tree.name == "dry-tree" or tree.name == "green-coral" or tree.name == "dead-grey-trunk" or tree.name == "dry-hairy-tree" or tree.name == "dead-dry-hairy-tree") then  
 		tree.minable = 	{mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6},}}
 		end
@@ -156,6 +156,17 @@ if BI.Settings.BI_Bio_Fuel or BI_Config.mod.NEBuildings then
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Clean_Air2")
 end
 
+-- Adds Bio recipes
+if BI.Settings.BI_Bio_Fuel then 
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-bioreactor")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-0")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Bio_Fuel")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-2")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bio_boiler")
+	
+end
 
 --update crushed stone icon
 data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
@@ -186,7 +197,8 @@ else
 	
 end	
 
-	
+
+
 ------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
 if BI_Config.mod.NEBuildings then
 		

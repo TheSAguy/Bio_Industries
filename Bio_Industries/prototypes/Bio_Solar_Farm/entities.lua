@@ -79,6 +79,7 @@ data:extend({
 	{
 	  type = "tile",
 	  name = "bi-solar-mat",
+	  icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 	  needs_correction = false,
 	  minable = {hardness = 0.1, mining_time = 0.25, result = "bi-solar-mat"},
 	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
@@ -289,7 +290,7 @@ data:extend({
   {
     type = "solar-panel",
     name = "bi_solar-panel_for_Solar-Mat",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Solar.png",
+    icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
 	selectable_in_game = false,
     max_health = 1,

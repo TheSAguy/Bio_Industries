@@ -534,7 +534,7 @@ data:extend({
   },
 
   
-  
+  --- Not Implemented ---
   ------- Rail Pole - Hidden
   {
     type = "electric-pole",

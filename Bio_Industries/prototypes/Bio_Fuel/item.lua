@@ -25,6 +25,16 @@
 		place_result = "bi-bioreactor",
 		stack_size = 10
 	},
-	
+	--- Bio Boiler
+	{
+		type = "item",
+		name = "bio_boiler",
+		icon = "__Bio_Industries__/graphics/icons/bio_boiler.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "energy",
+		order = "b[steam-power]-b[boiler]",
+		place_result = "bio_boiler",
+		stack_size = 50
+	},
 	
 })

@@ -1,60 +1,11 @@
----Bio Industries - v.1.7.1
+---Bio Industries - v.1.7.2
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
 require ("libs/event")
-
-
+require ("control_tree")
 
 if not BI_Config then BI_Config = {} end
-
-
-local Bi_Industries = {}
-
-Bi_Industries.fertility = {  -- out of 100, so 100 = always
-	-- Vanilla
-	["grass-medium"]    = 100, 
-	["grass"]           = 85, 
-	["grass-dry"]       = 75,
-	["dirt"]            = 45,
-	["dirt-dark"]       = 35,
-	["sand"]            = 25,
-	["sand-dark"]       = 15,
-	["red-desert"]      = 10,
-	["red-desert-dark"] = 5,
-	-- Alien biomes
-	["grass-red"]         = 95,
-	["grass-orange"]      = 95,
-	["grass-yellow"]      = 95,
-	["grass-yellow-fade"] = 90,
-	["grass-purple-fade"] = 90,
-	["grass-purple"]      = 95,
-	["dirt-red-dark"]     = 45,
-	["dirt-brown-dark"]   = 45,
-	["grass-blue-fade"]   = 90,
-	["grass-blue"]        = 95,
-	["dirt-red"]          = 35,
-	["dirt-brown"]        = 35,
-	["dirt-tan-dark"]     = 45,
-	["dirt-dull-dark"]    = 45,
-	["dirt-grey-dark"]    = 45,
-	["dirt-tan"]          = 25,
-	["dirt-dull"]         = 25,
-	["dirt-grey"]         = 25,
-	["sand-red-dark"]     = 15,
-	["sand-orange-dark"]  = 15,
-	["sand-gold-dark"]    = 15,
-	["sand-dull-dark"]    = 10,
-	["sand-grey-dark"]    = 10,
-	["sand-red"]          = 10,
-	["sand-orange"]       = 10,
-	["sand-gold"]         = 10,
-	["sand-dull"]         = 7.5,
-	["sand-grey"]         = 7.5,
-	["snow"]              = 2.5,
-	["volcanic-cool"]     = 2.5,
-}
-
 
 --------------------------------------------------------------------
 
@@ -67,8 +18,11 @@ local function On_Init()
 	if global.bi == nil then
 		global.bi = {}
 		global.bi.tree_growing = {}
+		global.bi.terrains = {}
 	end
 	
+	
+
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
 		force.reset_technologies()
@@ -77,7 +31,7 @@ local function On_Init()
 
 end
 
----------------------------------------------				 
+--------------------------------------------------------------------			 
 local function On_Load()
 
 	if global.Bio_Cannon_Table ~= nil then
@@ -98,6 +52,7 @@ local function On_Config_Change()
 	if global.bi == nil then
 		global.bi = {}
 		global.bi.tree_growing = {}
+		global.bi.terrains = {}
 	end
 
 
@@ -117,7 +72,7 @@ local function On_Config_Change()
 	
 end
 
----------------------------------------------------------------------
+--------------------------------------------------------------------
 
 --- Used for some compatibility with Angels Mods
 script.on_event(defines.events.on_player_joined_game, function(event)
@@ -136,23 +91,14 @@ script.on_event(defines.events.on_player_joined_game, function(event)
 end)
 
 
----------------------------------------------
+--------------------------------------------------------------------
 local function On_Built(event)
     local entity = event.created_entity
    
    
 	--- Seedling planted
 	if entity.name == "seedling" then
-		
-		local surface = entity.surface
-		local position = entity.position	
-		local fretility = 5
-		currentTilename = surface.get_tile(position.x, position.y).name
-		fertility = Bi_Industries.fertility[currentTilename]				
-		local max_grow_time = math.random(5000) + 5000 - (50 * fertility)
-		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time})
-		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
-
+		seed_planted (event)
 	end
 	
     --- Bio Farm has been built
@@ -272,7 +218,7 @@ local function On_Built(event)
 end
 
 
----------------------------------------------
+--------------------------------------------------------------------
 local function On_Remove(event)
 	
 	local entity = event.entity	
@@ -363,7 +309,7 @@ local function On_Remove(event)
 end
 
 
----------------------------------------------
+--------------------------------------------------------------------
 local function On_Death(event)
 
 	local entity = event.entity
@@ -570,8 +516,7 @@ local function Robot_Tile_Built(event)
 		
 end
 
-
----------------------------------------------
+--------------------------------------------------------------------
 local function Player_Tile_Remove(event)
 	
 
@@ -622,7 +567,6 @@ local function Player_Tile_Remove(event)
 end
 
 
----------------------------------------------
 local function Robot_Tile_Remove(event)
 	
 
@@ -673,111 +617,7 @@ local function Robot_Tile_Remove(event)
 
 	
 end
---------------------
-
-
-
----- Growing Tree
-Event.register(defines.events.on_tick, function(event)	
-
-	while #global.bi.tree_growing > 0 do
-		if event.tick < global.bi.tree_growing[1].time then
-			break 
-		end
-		Grow_tree(global.bi.tree_growing[1].position)
-		table.remove(global.bi.tree_growing, 1)
-	end
-
-end)
-
-
-function Grow_tree(pos)
-	
-	local foundtree = false
-	local surface = game.surfaces['nauvis']
-	local tree = surface.find_entity("seedling", pos)
-	local currentTilename = surface.get_tile(pos.x, pos.y).name
-	local fertility = 0 -- fertility will be zero if terrain type not listed above, so nothing will grow on it.
-	local growth_chance = math.random(100) -- Random value. Tree will grow if it's this value is smaller that the 'Fertility' value
-	writeDebug("The current tile is: " .. currentTilename)
-				
-	if tree then
-		foundtree = true
-		tree.destroy()
-		
-		--- Depending on Terain, choose tree type & Convert seedling into a tree
-		
-		
-		if Bi_Industries.fertility[currentTilename] then
-			fertility = Bi_Industries.fertility[currentTilename]
-		end
-		
-		if 	currentTilename == "grass" then 
-			treetype = "tree-05"
-			writeDebug("The Growth Chance is: " .. growth_chance)
-			writeDebug("The Fertility is: " .. fertility)
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
-			end
-					
-		elseif currentTilename == "grass-medium" then 
-			treetype = "tree-04"
-			writeDebug("The Growth Chance is: " .. growth_chance)
-			writeDebug("The Fertility is: " .. fertility)
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
-			end
-		
-		elseif currentTilename == "grass-dry" then 
-			treetype = math.random(2)
-			treetype = "tree-0".. treetype
-			writeDebug("The Growth Chance is: " .. growth_chance)
-			writeDebug("The Fertility is: " .. fertility)
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
-			end
-		
-		elseif currentTilename == "dirt" or currentTilename == "dirt-dark" then 
-			treetype = math.random(2)
-			treetype = treetype + 5
-			treetype = "tree-0".. treetype
-			writeDebug("The Growth Chance is: " .. growth_chance)
-			writeDebug("The Fertility is: " .. fertility)
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
-			end
-				
-		elseif currentTilename == "red-desert" or currentTilename == "red-desert-dark" then 
-			treetype = math.random(2)
-			treetype = treetype + 5
-			treetype = "tree-0".. treetype
-			writeDebug("The Growth Chance is: " .. growth_chance)
-			writeDebug("The Fertility is: " .. fertility)
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
-			end
-		
-		---- Sand and Dark Sand & Any other Tile Type
-		else
-			treetype = math.random(3)
-			if treetype == 1 then
-				treetype = "tree-03"
-			elseif treetype == 2 then
-				treetype = "tree-08"
-			else
-				treetype = "tree-09"
-			end
-			writeDebug("The Growth Chance is: " .. growth_chance)
-			writeDebug("The Fertility is: " .. fertility)
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
-			end
-				
-		end		
-
-	end
-	
-end
+--------------------------------------------------------------------
 
 
 
@@ -816,8 +656,6 @@ end
 	end
   
 end)
-
-
 
 
 function Bio_Cannon_Check(Bio_Cannon_List)
@@ -914,30 +752,8 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 end
 
 
---- Utils for grouping
-function group_entities(entity_list)
-    return group_entities(nil, entity_list)
-end
 
-function group_entities(entity_groupid, entity_list)
-    return group("entities", entity_groupid, entity_list)
-end
-
-function getGroup_entities(entity_groupid)
-    return getGroup("entities", entity_groupid)
-end
-
-function getGroup_entities_by_member(entity_id)
-    return getGroup_byMember("entities", entity_id)
-end
-
-function ungroup_entities(entity_groupid)
-    return ungroup("entities", entity_groupid)
-end
-
-
-
----------------------------
+--------------------------------------------------------------------
 
 script.on_load(On_Load)
 script.on_configuration_changed(On_Config_Change)
@@ -967,8 +783,9 @@ script.on_event(remove_events, Robot_Tile_Remove)
 
 
 
----------------------------
+--------------------------------------------------------------------
 --- DeBug Messages 
+--------------------------------------------------------------------
 function writeDebug(message)
 	if QC_Mod == true then 
 		for i, player in pairs(game.players) do

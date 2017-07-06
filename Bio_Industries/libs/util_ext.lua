@@ -1,5 +1,29 @@
 --require("defines")
 
+
+--- Utils for grouping
+function group_entities(entity_list)
+    return group_entities(nil, entity_list)
+end
+
+function group_entities(entity_groupid, entity_list)
+    return group("entities", entity_groupid, entity_list)
+end
+
+function getGroup_entities(entity_groupid)
+    return getGroup("entities", entity_groupid)
+end
+
+function getGroup_entities_by_member(entity_id)
+    return getGroup_byMember("entities", entity_id)
+end
+
+function ungroup_entities(entity_groupid)
+    return ungroup("entities", entity_groupid)
+end
+
+
+
 -------------------------------------------------------------------
 -- A-sync Action Queue
 --
