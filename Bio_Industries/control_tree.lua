@@ -1,6 +1,8 @@
 
 -- All tree Growing stuff
 
+require ("stdlib/event/event")
+
 local Bi_Industries = {}
 
 

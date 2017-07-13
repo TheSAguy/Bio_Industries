@@ -1,8 +1,8 @@
----Bio Industries - v.1.7.2
+---Bio Industries - v.1.7.3
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
-require ("libs/event")
+require ("stdlib/event/event")
 require ("control_tree")
 
 if not BI_Config then BI_Config = {} end
