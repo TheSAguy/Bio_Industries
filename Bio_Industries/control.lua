@@ -530,7 +530,8 @@ local function Player_Tile_Remove(event)
 		
 		writeDebug("Solar Mat Removed")
 	
-		local surface = game.surfaces[1]
+		--local surface = game.surfaces[1]
+		local surface = player.surface
 		local radius = 0.5
 		local area = {{tile_position.x - radius, tile_position.y - radius}, {tile_position.x + radius, tile_position.y + radius}}
 			
@@ -581,7 +582,8 @@ local function Robot_Tile_Remove(event)
 
 		writeDebug("Solar Mat Removed")	
 	
-		local surface = game.surfaces[1] or robot.surface
+		--local surface = game.surfaces[1] or robot.surface
+		local surface = robot.surface
 		local radius = 0.5
 		local area = {{tile_position.x - radius, tile_position.y - radius}, {tile_position.x + radius, tile_position.y + radius}}
 			

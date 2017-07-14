@@ -71,7 +71,7 @@ function seed_planted (event)
 		end
 		
 		local max_grow_time = math.random(5000) + 4000 - (40 * fertility)
-		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time})
+		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time, surface = surface})
 		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
 
 end
@@ -84,7 +84,8 @@ Event.register(defines.events.on_tick, function(event)
 		if event.tick < global.bi.tree_growing[1].time then
 			break 
 		end
-		Grow_tree(global.bi.tree_growing[1].position)
+
+		Grow_tree(global.bi.tree_growing[1].position, global.bi.tree_growing[1].surface)
 		table.remove(global.bi.tree_growing, 1)
 	end
 
@@ -649,10 +650,10 @@ end
 
 
 
-function Grow_tree(pos)
+function Grow_tree(pos, surface)
 	
 	local foundtree = false
-	local surface = game.surfaces[1]
+	--local surface = game.surfaces[1]
 	local tree = surface.find_entity("seedling", pos)
 	local currentTilename = surface.get_tile(pos.x, pos.y).name
 	local fertility = 0 -- fertility will be zero if terrain type not listed above, so nothing will grow on it.
