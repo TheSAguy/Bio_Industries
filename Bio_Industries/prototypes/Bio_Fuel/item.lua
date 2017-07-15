@@ -21,7 +21,7 @@
 		icon = "__Bio_Industries__/graphics/icons/bioreactor.png",
 		flags = {"goes-to-quickbar"},
 		subgroup = "production-machine",
-		order = "a[bi]-d[bi-bioreactor]",
+		order = "z[bi]-a[bi-bioreactor]",
 		place_result = "bi-bioreactor",
 		stack_size = 10
 	},

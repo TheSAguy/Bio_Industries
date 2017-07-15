@@ -162,6 +162,7 @@ data:extend({
  {
     type= "recipe",
     name= "Bio_Cannon_Bio_Ammo",
+	category = "crafting-with-fluid",
     enabled = false,
 	energy_required = 8,
 
@@ -169,7 +170,9 @@ data:extend({
 		{
 			{type="item", name="Bio_Cannon_Basic_Ammo", amount=1},
 			{type="item", name="explosive-rocket", amount=10},
-			{type="fluid", name="sulfuric-acid", amount=20},     
+			--{type="item", name="alien-artifact", amount=5},
+			{type="fluid", name="NE_alien_toxin", amount=50},
+			--{type="fluid", name="sulfuric-acid", amount=20},     
 
 		},
 	

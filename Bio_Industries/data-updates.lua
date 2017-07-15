@@ -187,8 +187,6 @@ if data.raw.item["alien-artifact"] then
 	--- Bio Fuel will use Alien Artifact	
 	thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="item", name="alien-artifact", amount=1})
 
-	--- Bio Cannon Ammo will use Alien Artifact
-	thxbob.lib.recipe.add_new_ingredient("Bio_Cannon_Bio_Ammo", {type="item", name="alien-artifact", amount=5})
 	
 else
 
@@ -257,10 +255,6 @@ if BI.Settings.Bio_Cannon then
 		require("prototypes.Bio_Cannon.damage-type")
 		require("prototypes.Bio_Cannon.bio-projectile")
 		thxbob.lib.tech.add_recipe_unlock("Bio_Cannon", "Bio_Cannon_Bio_Ammo")
-		data.raw.recipe["Bio_Cannon_Bio_Ammo"].category = "crafting-with-fluid"
-		thxbob.lib.recipe.remove_ingredient ("Bio_Cannon_Bio_Ammo", "alien-artifact")
-		thxbob.lib.recipe.add_new_ingredient ("Bio_Cannon_Bio_Ammo", {type="fluid", name="NE_alien_toxin", amount=50})
-
 
 	------- Changes Bio Cannon Recipe
 		thxbob.lib.recipe.remove_ingredient ("Bio_Cannon", "advanced-circuit")
