@@ -8,9 +8,9 @@ local Bi_Industries = {}
 
 Bi_Industries.fertility = {  -- out of 100, so 100 = always
 	-- Vanilla
-	["grass-dry"]    = 65,
 	["grass-medium"]    = 100,
 	["grass"]    = 85,
+	["grass-dry"]    = 65,
 	["dirt"]    = 47,
 	["dirt-dark"]    = 36,
 	["sand"]    = 22,
