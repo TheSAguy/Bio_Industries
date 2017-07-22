@@ -2,14 +2,15 @@ require "util"
 
 inv_extension =
 {
-	filename = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
-	priority = "medium",
-	width = 1,
-	height = 1,
+	filename = "__Bio_Industries__/graphics/entities/biocannon/bio_cannon_open.png",
+	priority = "low",
+	scale = 1,
+	width = 384,
+	height = 384,
 	direction_count = 1,
 	frame_count = 1,
 	axially_symmetrical = false,
-	shift = {0, 0}
+	shift = {1.125, -1.625}
 }
 
 inv_extension2 =

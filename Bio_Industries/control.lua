@@ -241,7 +241,7 @@ local function On_Remove(event)
 
 			
 	--- Bio Solar Farm has been removed
-   	if entity and entity.name == "bi_bio_Solar_Farm" then
+   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -257,27 +257,8 @@ local function On_Remove(event)
 	end
 
 	
-		-- Power Rail - Not implemented yet.
-	--[[			
-	--- Concrete Rail has been removed
-   	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
-	]]
-	
 	--- Solar Map has been removed
-   	if entity and entity.name == "bi-solar-mat" then
+   	if entity.valid and entity.name == "bi-solar-mat" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -295,10 +276,10 @@ local function On_Remove(event)
 		
 	
 	--- Seedling Removed
-	if event.entity.name == "seedling" then
+	if entity.valid and entity.name == "seedling" then
 	
 		for k, v in pairs(global.bi.tree_growing) do
-			if v.position.x == event.entity.position.x and v.position.y == event.entity.position.y then
+			if v.position.x == entity.position.x and v.position.y == entity.position.y then
 				table.remove(global.bi.tree_growing, k)
 				return
 			end
@@ -306,6 +287,24 @@ local function On_Remove(event)
 
 	end
 	
+			-- Power Rail - Not implemented yet.
+	--[[			
+	--- Concrete Rail has been removed
+   	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+	]]
 end
 
 
@@ -315,7 +314,7 @@ local function On_Death(event)
 	local entity = event.entity
 	
 	--- Bio Farm has been destroyed
-   	if entity and entity.name == "bi_bio_farm" then
+   	if entity.valid and entity.name == "bi_bio_farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -333,7 +332,7 @@ local function On_Death(event)
 
 
 		--- Bio Solar Farm has been destroyed
-   	if entity and entity.name == "bi_bio_Solar_Farm" then
+   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -348,6 +347,21 @@ local function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
+
+	--- Seedling Removed
+	
+	if entity.valid and entity.name == "seedling" then
+	
+		for k, v in pairs(global.bi.tree_growing) do
+			if v.position.x == entity.position.x and v.position.y == entity.position.y then
+				table.remove(global.bi.tree_growing, k)
+				return
+			end
+		end
+
+	end
+	
+	
 		-- Power Rail - Not implemented yet.
 	--[[
 	--- Concrete Rail has been destroyed
@@ -368,19 +382,6 @@ local function On_Death(event)
 
 	]]
 	
-
-	--- Seedling Removed
-	
-	if event.entity.name == "seedling" then
-	
-		for k, v in pairs(global.bi.tree_growing) do
-			if v.position.x == event.entity.position.x and v.position.y == event.entity.position.y then
-				table.remove(global.bi.tree_growing, k)
-				return
-			end
-		end
-
-	end
 	
 end
 
@@ -535,7 +536,6 @@ local function Player_Tile_Remove(event)
 		
 		writeDebug("Solar Mat Removed")
 	
-		--local surface = game.surfaces[1]
 		local surface = player.surface
 		local radius = 0.5
 		local area = {{tile_position.x - radius, tile_position.y - radius}, {tile_position.x + radius, tile_position.y + radius}}
@@ -587,7 +587,6 @@ local function Robot_Tile_Remove(event)
 
 		writeDebug("Solar Mat Removed")	
 	
-		--local surface = game.surfaces[1] or robot.surface
 		local surface = robot.surface
 		local radius = 0.5
 		local area = {{tile_position.x - radius, tile_position.y - radius}, {tile_position.x + radius, tile_position.y + radius}}
