@@ -29,17 +29,31 @@ data:extend(
     per_user = false,
   },
 
-  
+  {
+    type = "bool-setting",
+    name = "BI_Solar_Farm",
+    setting_type = "startup",
+    default_value = true,
+	order = "a[modifier]-d[Solar_Farm]",
+    per_user = false,
+  },
   {
     type = "bool-setting",
     name = "BI_Alt_Solar_Farm_Image",
     setting_type = "startup",
     default_value = false,
-	order = "a[modifier]-d[Alt_Solar_Farm_Image]",
+	order = "a[modifier]-e[Alt_Solar_Farm_Image]",
     per_user = false,
   },
 
-
+  {
+    type = "bool-setting",
+    name = "BI_Accumulator",
+    setting_type = "startup",
+    default_value = true,
+	order = "a[modifier]-f[BI_Accumulator]",
+    per_user = false,
+  },
 
 --[[
 Types of settings:
