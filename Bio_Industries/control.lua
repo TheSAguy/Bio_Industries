@@ -457,7 +457,12 @@ local function Robot_Tile_Built(event)
 	local robot = event.robot
 	local surface = robot.surface
 	local position = event.positions
-
+	
+	-- fix #2 Error while running event Bio_Industries::on_robot_built_tile
+	if surface == nil then
+		return
+	end
+	
 	for i, position in ipairs(position) do
 		local currentTilename = surface.get_tile(position.x,position.y).name
 		
