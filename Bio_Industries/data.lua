@@ -14,6 +14,8 @@ if not thxbob.lib then thxbob.lib = {} end
 BI.Settings.Bio_Cannon = settings.startup["BI_Bio_Cannon"].value
 BI.Settings.BI_Bio_Fuel = settings.startup["BI_Bio_Fuel"].value
 BI.Settings.BI_Recipe_Tweaks = settings.startup["BI_Recipe_Tweaks"].value
+BI.Settings.BI_Solar_Farm = settings.startup["BI_Solar_Farm"].value
+BI.Settings.BI_Accumulator = settings.startup["BI_Accumulator"].value
 
 
 --- Help Files

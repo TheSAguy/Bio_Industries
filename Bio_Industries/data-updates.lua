@@ -109,33 +109,37 @@ end
 
 
 --- Adds Bi Accumulator Tech
-if data.raw.technology["bob-solar-energy-2"] then
-	
-	thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
+if BI.Settings.BI_Accumulator then
+	if data.raw.technology["bob-solar-energy-2"] then
 		
-	--- Change Bi Accumulator Recipe if Bob's
-	if data.raw.item["large-accumulator"]  then
-		thxbob.lib.recipe.replace_ingredient("bi_accumulator", "accumulator", "large-accumulator")
+		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
+			
+		--- Change Bi Accumulator Recipe if Bob's
+		if data.raw.item["large-accumulator"]  then
+			thxbob.lib.recipe.replace_ingredient("bi_accumulator", "accumulator", "large-accumulator")
+		end
+			
+		
+	else
+
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
+		
+	end	
+end
+
+
+if data.raw.technology["bob-solar-energy-2"] then
+	if BI.Settings.BI_Solar_Farm then
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
+		thxbob.lib.recipe.replace_ingredient("bi_bio_Solar_Farm", "solar-panel", "solar-panel-large")
 	end
-		
-	
-else
-
-	thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
-	
-end	
-
-
-
-if data.raw.technology["bob-solar-energy-2"] then
-	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
-	thxbob.lib.recipe.replace_ingredient("bi_bio_Solar_Farm", "solar-panel", "solar-panel-large")
 	-- Solar Mat
 	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
 	
 else
-	thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_bio_Solar_Farm")
-	
+	if BI.Settings.BI_Solar_Farm then
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_bio_Solar_Farm")
+	end
 	-- Solar mat
 	thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
 
@@ -267,17 +271,19 @@ end
 
 ------------ Changing order/sorting/groups
 if data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
-	data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
-	data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+	if BI.Settings.BI_Solar_Farm then
+		data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
+		data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
+		data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
+		data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+	end
 	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
 
 end
 
 
 ------------ Changing order/sorting/groups
-if data.raw["item-subgroup"]["bob-energy-accumulator"] then 
+if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Accumulator then 
 	data.raw["item"]["bi_accumulator"].subgroup = "bob-energy-accumulator"
 	data.raw["item"]["bi_accumulator"].order="e[accumulator]-a[accumulator]-x"	
 end
@@ -325,7 +331,7 @@ end
 	
 
 -------- Use Alternative Solar Farm Image
-if settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
+if BI.Settings.BI_Solar_Farm and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
 
 data.raw["lamp"]["bi_bio_Solar_Farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
