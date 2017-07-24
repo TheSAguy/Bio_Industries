@@ -105,10 +105,10 @@ if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
 end	
 
+--- Make it so that the Base game tile "grass-medium" can't be placed in blueprints
+data.raw["tile"]["grass-medium"].can_be_part_of_blueprint = false
 
-
-
---- Adds Bi Accumulator Tech
+--- Adds Bio Accumulator Tech
 if BI.Settings.BI_Accumulator then
 	if data.raw.technology["bob-solar-energy-2"] then
 		
@@ -164,6 +164,7 @@ end
 if BI.Settings.BI_Bio_Fuel then 
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-bioreactor")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose-2")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-0")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Bio_Fuel")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")
@@ -215,44 +216,10 @@ if BI_Config.mod.NEBuildings then
 end
 	
 
-	------- DyTech Support
-if BI_Config.mod.DyTechCore then
-
-require("prototypes.Bio_Farm.dytech_recipe")
-		
-	thxbob.lib.tech.add_recipe_unlock("bi_bio_farming", "bi-resin")
-	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-resin_Mk2")
-	thxbob.lib.tech.add_recipe_unlock("bi_bio_farming", "bi-sulfur-wood")
-	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-sulfur-wood_Mk2")
-
-	
-	if data.raw.item["sulfur-seed"].stack_size < 400 then
-	data.raw.item["sulfur-seed"].stack_size = 400
-	end
-
-	if data.raw.item["sulfur-wood"].stack_size < 400 then
-	data.raw.item["sulfur-wood"].stack_size = 400
-	end
-
-	if data.raw.item["rubber-seed"].stack_size < 400 then
-	data.raw.item["rubber-seed"].stack_size = 400
-	end
-
-	--- If you're using NE Buildings, add an advanced recipe
-	if BI_Config.mod.NEBuildings then
-		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-resin_Mk3")
-		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur-wood_Mk3")
-		thxbob.lib.recipe.add_new_ingredient ("bi-resin_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
-		thxbob.lib.recipe.add_new_ingredient ("bi-sulfur-wood_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
-
-	end
-
-end
-
 
 
 if BI.Settings.Bio_Cannon then
-	------- Adds a Biological Hive Buster Ammo
+	------- Adds a Biological Bio Cannon Ammo
 	if BI_Config.mod.NEBuildings then
 
 	-- Add Bio Projectile
@@ -378,5 +345,39 @@ data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
 end
 	
 	
+------- DyTech Support (Might be outdated....
+if BI_Config.mod.DyTechCore then
+
+require("prototypes.Bio_Farm.dytech_recipe")
+		
+	thxbob.lib.tech.add_recipe_unlock("bi_bio_farming", "bi-resin")
+	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-resin_Mk2")
+	thxbob.lib.tech.add_recipe_unlock("bi_bio_farming", "bi-sulfur-wood")
+	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-sulfur-wood_Mk2")
+
 	
+	if data.raw.item["sulfur-seed"].stack_size < 400 then
+	data.raw.item["sulfur-seed"].stack_size = 400
+	end
+
+	if data.raw.item["sulfur-wood"].stack_size < 400 then
+	data.raw.item["sulfur-wood"].stack_size = 400
+	end
+
+	if data.raw.item["rubber-seed"].stack_size < 400 then
+	data.raw.item["rubber-seed"].stack_size = 400
+	end
+
+	--- If you're using NE Buildings, add an advanced recipe
+	if BI_Config.mod.NEBuildings then
+		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-resin_Mk3")
+		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur-wood_Mk3")
+		thxbob.lib.recipe.add_new_ingredient ("bi-resin_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
+		thxbob.lib.recipe.add_new_ingredient ("bi-sulfur-wood_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
+
+	end
+
+end
+
+
 	

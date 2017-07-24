@@ -146,13 +146,13 @@ data:extend({
 		
 	},
 	
-		-- PLASTIC --
+		-- PLASTIC 1 --
 	{
 		type = "recipe",
 		name = "bi-plastic",
 		category = "chemistry",
 		subgroup = "raw-material",
-		order = "g[plastic-bar]",
+		order = "g1[plastic-bar]",
 		energy_required = 2,
 		ingredients =
 		{
@@ -161,6 +161,26 @@ data:extend({
 		results=
 		{
 			{type="item", name="plastic-bar", amount=4}
+		},
+		enabled = false,
+	},
+	
+		{
+		type = "recipe",
+		name = "bi-plastic-2",
+		category = "chemistry",
+		subgroup = "raw-material",
+		order = "g2[plastic-bar]",
+		energy_required = 2,
+		ingredients =
+		{
+			{type="fluid", name="steam", amount=50},
+			{type="item", name="bi-woodpulp", amount=10},
+			{type="fluid", name="light-oil", amount=40},
+		},
+		results=
+		{
+			{type="item", name="plastic-bar", amount=10}
 		},
 		enabled = false,
 	},
@@ -193,6 +213,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-cellulose",
 		category = "chemistry",
+		order = "[bi-cellulose-1]",
 		energy_required = 10,
 		ingredients =
 		{
@@ -205,5 +226,22 @@ data:extend({
 		},
 		enabled = false,
 	},
-
+	{
+		type = "recipe",
+		name = "bi-cellulose-2",
+		category = "chemistry",
+		order = "[bi-cellulose-2]",
+		energy_required = 10,
+		ingredients =
+		{
+			{type="fluid", name="steam", amount=50},
+			{type="item", name="bi-woodpulp", amount=5},
+			{type="fluid", name="sulfuric-acid", amount=50}, 
+		},
+		results=
+		{
+			{type="item", name="bi-cellulose", amount=15 }
+		},
+		enabled = false,
+	},
 })

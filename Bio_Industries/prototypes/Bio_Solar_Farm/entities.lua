@@ -71,7 +71,7 @@ if BI.Settings.BI_Solar_Farm then
 		  direction_count = 1,
 		  scale = 3/2,
 		},
-		production = "5000kW"
+		production = "4000kW"
 	  },
 	  
 	})  
@@ -339,8 +339,8 @@ if BI.Settings.BI_Accumulator then
 		  type = "electric",
 		  buffer_capacity = "500MJ",
 		  usage_priority = "terciary",
-		  input_flow_limit = "30MW",
-		  output_flow_limit = "30MW"
+		  input_flow_limit = "25MW",
+		  output_flow_limit = "25MW"
 		},
 		picture =
 		{

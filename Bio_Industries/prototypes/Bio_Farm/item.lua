@@ -167,7 +167,7 @@ data:extend({
 		stack_size = 200,
 	    place_as_tile =
 		{
-		result = "grass-medium",
+		result = "grass",
 		condition_size = 1,
 		condition = { "water-tile" }
 		},	

@@ -13,6 +13,10 @@ data:extend(
 			{
 				type = "unlock-recipe",
 				recipe = "bi-plastic"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi-plastic-2"
 			}
 		},
 		prerequisites = {
