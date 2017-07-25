@@ -2,83 +2,6 @@
 
 data:extend({
 
-  ---- Bio Fuel
-  {
-    type = "recipe",
-    name = "bi-Bio_Fuel",
-	icon = "__Bio_Industries__/graphics/icons/bio-fuel.png",
-	category = "biofarm-mod-bioreactor",
-    energy_required = 10,
-    enabled = false,
-    ingredients =
-    {
-		{type="item", name="bi-cellulose", amount=2},
-      --{type="fluid", name="NE_revitalization-solution", amount=10} <-- Will be added if you are using NE Buildings
-    },
-    results=
-    {
-      {type="fluid", name="bi-Bio_Fuel", amount=30},
-    },
-	subgroup = "fluid-recipes",
-	order = "a[oil-processing]-z[bi-Bio_Fuel]",
-  },
-  
-  
-  -- Bio Fuel conversion to Oil products    
-  {
-    type = "recipe",
-    name = "bi-Fuel_Conversion-1",
-	icon = "__Bio_Industries__/graphics/icons/bio_conversion.png",
-    category = "oil-processing",
-    enabled = false,
-    energy_required = 5,
-    ingredients =
-    {
-		{type="fluid", name="steam", amount=50},
-		{type="fluid", name="bi-Bio_Fuel", amount=70},
-    },
-    results=
-    {
-	    {type="fluid", name="heavy-oil", amount=35},
-		{type="fluid", name="light-oil", amount=15},
-		{type="fluid", name="petroleum-gas", amount=20}
-
-    },
-    
-    subgroup = "fluid-recipes",  
-	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
-  },
-
-  
-  
-  {
-    type = "recipe",
-    name = "bi-Fuel_Conversion-2",
-	icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png",
-    category = "oil-processing",
-    enabled = false,
-    energy_required = 5,
-    ingredients =
-    {
-		{type="fluid", name="water", amount=50},
-		{type="fluid", name="bi-Bio_Fuel", amount=75},
-		{type="item", name="coal", amount=25},
-    },
-    results=
-    {
-	    {type="fluid", name="heavy-oil", amount=10},
-		{type="fluid", name="light-oil", amount=25},
-		{type="fluid", name="crude-oil", amount=65},
-
-    },
-
-    subgroup = "fluid-recipes",  
-	order = "a[oil-processing]-b[advanced-oil-processing]-z[bi-Fuel_Conversion]",
-  },
-
-
-
-
 	--- Bio Boiler ---
 
 	{
@@ -146,21 +69,67 @@ data:extend({
 		
 	},
 	
-		-- PLASTIC 1 --
+	
+
+	
+	----_______________________ NEW _______________________________
+	
+		-- CELLULOSE --
 	{
 		type = "recipe",
-		name = "bi-plastic",
+		name = "bi-cellulose-1",
 		category = "chemistry",
-		subgroup = "raw-material",
-		order = "g1[plastic-bar]",
-		energy_required = 2,
+		order = "[bi-cellulose-1]",
+		energy_required = 20,
 		ingredients =
 		{
-			{type="item", name="bi-cellulose", amount=2}
+			{type="item", name="bi-woodpulp", amount=10},
+			{type="fluid", name="sulfuric-acid", amount=10}, 
 		},
 		results=
 		{
-			{type="item", name="plastic-bar", amount=4}
+			{type="item", name="bi-cellulose", amount=10 }
+		},
+		enabled = false,
+	},
+	
+	{
+		type = "recipe",
+		name = "bi-cellulose-2",
+		category = "chemistry",
+		order = "[bi-cellulose-2]",
+		energy_required = 5,
+		ingredients =
+		{
+			{type="fluid", name="steam", amount=10},
+			{type="item", name="bi-woodpulp", amount=10},
+			{type="fluid", name="sulfuric-acid", amount=20}, 
+		},
+		results=
+		{
+			{type="item", name="bi-cellulose", amount=10 }
+		},
+		enabled = false,
+	},
+	
+	
+		-- PLASTIC --
+	{
+		type = "recipe",
+		name = "bi-plastic-1",
+		category = "chemistry",
+		subgroup = "raw-material",
+		order = "g[plastic-bar-1]",
+		energy_required = 1,
+		ingredients =
+		{
+			{type="fluid", name="steam", amount=10},
+			{type="item", name="raw-wood", amount=10},
+			{type="fluid", name="light-oil", amount=20},
+		},
+		results=
+		{
+			{type="item", name="plastic-bar", amount=2}
 		},
 		enabled = false,
 	},
@@ -170,78 +139,210 @@ data:extend({
 		name = "bi-plastic-2",
 		category = "chemistry",
 		subgroup = "raw-material",
-		order = "g2[plastic-bar]",
-		energy_required = 2,
+		order = "g[plastic-bar-2]",
+		energy_required = 1,
 		ingredients =
 		{
-			{type="fluid", name="steam", amount=50},
-			{type="item", name="bi-woodpulp", amount=10},
-			{type="fluid", name="light-oil", amount=40},
+			{type="item", name="bi-cellulose", amount=1},
+			{type="fluid", name="petroleum-gas", amount=10},
 		},
 		results=
 		{
-			{type="item", name="plastic-bar", amount=10}
+			{type="item", name="plastic-bar", amount=2}
 		},
 		enabled = false,
 	},
 	
 
-		-- BIOMASS --
+			-- BIOMASS --
 	{
 		type = "recipe",
-		name = "bi-biomass-0",
+		name = "bi-biomass-1",
 		icon = "__Bio_Industries__/graphics/icons/biomass.png",
 		category = "biofarm-mod-bioreactor",
 		energy_required = 10,
 		ingredients =
 		{
-			{type="fluid", name="water", amount=10},
+			{type="fluid", name="water", amount=90},
 			{type="fluid", name="liquid-air", amount=10},
-			{type="item", name="fertiliser", amount=1}
+			{type="fluid", name="bi-biomass", amount=10},
+			--{type="item", name="bi-cellulose", amount=10}
 		},
 		results=
 		{
-			{type="fluid", name="bi-biomass", amount=30},
+			{type="fluid", name="bi-biomass", amount=50},
 		},
 		enabled = false,
 		subgroup = "fluid-recipes",
-		order = "x[oil-processing]-z[bi-biomass]"
+		order = "x[oil-processing]-z1[bi-biomass]"
 	},	
 	
-	-- CELLULOSE --
 	{
 		type = "recipe",
-		name = "bi-cellulose",
-		category = "chemistry",
-		order = "[bi-cellulose-1]",
+		name = "bi-biomass-2",
+		icon = "__Bio_Industries__/graphics/icons/biomass.png",
+		category = "biofarm-mod-bioreactor",
 		energy_required = 10,
 		ingredients =
 		{
-			{type="fluid", name="bi-biomass", amount=20},
-			{type="item", name="seedling", amount=25},
+			{type="fluid", name="water", amount=90},
+			{type="fluid", name="liquid-air", amount=10},
+			{type="fluid", name="bi-biomass", amount=10},
+			--{type="item", name="bi-cellulose", amount=10},
+			{type="item", name="bi-ash", amount=10},		
 		},
 		results=
 		{
-			{type="item", name="bi-cellulose", amount=1 }
+			{type="fluid", name="bi-biomass", amount=100},
 		},
 		enabled = false,
-	},
+		subgroup = "fluid-recipes",
+		order = "x[oil-processing]-z2[bi-biomass]"
+	},	
+	
 	{
 		type = "recipe",
-		name = "bi-cellulose-2",
+		name = "bi-biomass-3",
+		icon = "__Bio_Industries__/graphics/icons/biomass.png",
+		category = "biofarm-mod-bioreactor",
+		energy_required = 60,
+		ingredients =
+		{
+			{type="fluid", name="water", amount=100},
+			{type="item", name="fertiliser", amount=10},
+		},
+		results=
+		{
+			{type="fluid", name="bi-biomass", amount=10},
+		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		order = "x[oil-processing]-z3[bi-biomass]"
+	},	
+	
+	---- Biomass to Light-oil
+
+  {
+    type = "recipe",
+    name = "bi-Fuel_Conversion-1",
+	icon = "__Bio_Industries__/graphics/icons/bio_conversion_1.png", 
+    category = "oil-processing",
+    enabled = false,
+    energy_required = 5,
+    ingredients =
+    {
+		{type="fluid", name="bi-biomass", amount=100},
+		{type="fluid", name="water", amount=10},
+    },
+    results=
+    {
+	    {type="item", name="bi-cellulose", amount=2},
+		{type="fluid", name="light-oil", amount=80},
+    },
+    
+    subgroup = "fluid-recipes",  
+	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
+  },
+
+  	---- Biomass to PG
+
+  {
+    type = "recipe",
+    name = "bi-Fuel_Conversion-2",
+	icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png", 
+    category = "oil-processing",
+    enabled = false,
+    energy_required = 5,
+    ingredients =
+    {
+		{type="fluid", name="bi-biomass", amount=10},
+		{type="fluid", name="water", amount=10},
+    },
+    results=
+    {
+	    {type="fluid", name="petroleum-gas", amount=20}
+    },
+    
+    subgroup = "fluid-recipes",  
+	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
+  },
+
+  --- Bio Battery
+  	
+	{
+		type = "recipe",
+		name = "bi-battery",
+		icon = "__base__/graphics/icons/battery.png",
 		category = "chemistry",
-		order = "[bi-cellulose-2]",
+		energy_required = 5,
+		ingredients =
+		{
+			{type="item", name="plastic-bar", amount=1},
+			{type="fluid", name="bi-biomass", amount=10},
+			{type="item", name="bi-cellulose", amount=1},	
+		},
+		results=
+		{
+			{type="item", name="battery", amount=1},	
+		},
+		enabled = false,
+		crafting_machine_tint =
+		{
+			primary = {r = 0.970, g = 0.611, b = 0.000, a = 0.000}, -- #f79b0000
+			secondary = {r = 0.000, g = 0.680, b = 0.894, a = 0.357}, -- #00ade45b
+			tertiary = {r = 0.430, g = 0.805, b = 0.726, a = 0.000}, -- #6dcdb900
+		}
+	},	
+	
+	  --- Bio Acid
+  	
+	{
+		type = "recipe",
+		name = "bi-acid",
+		icon = "__base__/graphics/icons/fluid/sulfuric-acid.png",
+		category = "chemistry",
 		energy_required = 10,
 		ingredients =
 		{
-			{type="fluid", name="steam", amount=50},
-			{type="item", name="bi-woodpulp", amount=5},
+			{type="fluid", name="water", amount=90},
+			{type="fluid", name="bi-biomass", amount=10},
+			{type="item", name="bi-cellulose", amount=5},
+		},
+		results=
+		{
 			{type="fluid", name="sulfuric-acid", amount=50}, 
 		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		crafting_machine_tint =
+		{
+			primary = {r = 0.875, g = 0.735, b = 0.000, a = 0.000}, -- #dfbb0000
+			secondary = {r = 0.103, g = 0.940, b = 0.000, a = 0.000}, -- #1aef0000
+			tertiary = {r = 0.564, g = 0.795, b = 0.000, a = 0.000}, -- #8fca0000
+		}
+		--order = "x[bi-acid]"
+	},	
+	
+		-- Sulfuric acid to Sulfur --
+	{
+		type = "recipe",
+		name = "bi-sulfur",
+		icon = "__base__/graphics/icons/sulfur.png",
+		category = "chemistry",
+		--order = "b[fertiliser]-b[bi-adv-fertiliser-1]",
+		energy_required = 10,		
+		ingredients =
+		{
+			{type="fluid", name="sulfuric-acid", amount=10}, 
+			{type="item", name="bi-ash", amount=10},
+		},
 		results=
 		{
-			{type="item", name="bi-cellulose", amount=15 }
+			{type="item", name="sulfur", amount=10}
 		},
 		enabled = false,
 	},
+	
+	
+	
 })

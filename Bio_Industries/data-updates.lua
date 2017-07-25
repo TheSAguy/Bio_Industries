@@ -163,13 +163,20 @@ end
 -- Adds Bio recipes
 if BI.Settings.BI_Bio_Fuel then 
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-bioreactor")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose-1")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose-2")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-0")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Bio_Fuel")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-1")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-2")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-3")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-battery")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")	
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-2")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-acid")	
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur")	
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bio_boiler")
+	
+	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-1", {type="fluid", name="bi-biomass", amount=10})
+	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-2", {type="fluid", name="bi-biomass", amount=10})
 	
 end
 
@@ -187,16 +194,8 @@ end
 --- if the Alien Artifact is in the game, use if for some recipes
 if data.raw.item["alien-artifact"] then
 	--- Advanced Fertiliser will use Alien Artifact
-	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser", {type="item", name="alien-artifact", amount=5})
-
-	--- Bio Fuel will use Alien Artifact	
-	thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="item", name="alien-artifact", amount=1})
-
-	
-else
-
-	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser", {type="fluid", name="sulfuric-acid", amount=50})
-	thxbob.lib.recipe.add_new_ingredient("bi-Bio_Fuel", {type="fluid", name="sulfuric-acid", amount=10})
+	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-1", {type="item", name="alien-artifact", amount=5})
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-adv-fertiliser-1")
 	
 end	
 
@@ -205,14 +204,9 @@ end
 ------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
 if BI_Config.mod.NEBuildings then
 		
-	thxbob.lib.recipe.remove_ingredient ("bi-adv-fertiliser", "alien-artifact")
-	thxbob.lib.recipe.add_new_ingredient ("bi-adv-fertiliser", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
-	--- Adds Clean Air 2 recipe - Using Advanced fertiliser
-			
-	--- Change the recipe of Bio Fuel to use Revitalization Solution.
-	thxbob.lib.recipe.remove_ingredient ("bi-Bio_Fuel", "alien-artifact")
-	thxbob.lib.recipe.add_new_ingredient ("bi-Bio_Fuel", {type="fluid", name="NE_revitalization-solution", amount=10})
-			
+	thxbob.lib.recipe.remove_ingredient ("bi-adv-fertiliser-1", "alien-artifact")
+	thxbob.lib.recipe.add_new_ingredient ("bi-adv-fertiliser-1", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
+
 end
 	
 
@@ -258,8 +252,8 @@ end
 
 if data.raw["item-subgroup"]["bob-fluid"] then 
 	if BI.Settings.BI_Bio_Fuel and BI_Config.mod.NEBuildings then
-		data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
+		--data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
+		--data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
 		data.raw["recipe"]["bi-Fuel_Conversion-1"].subgroup = "bob-fluid"
 		data.raw["recipe"]["bi-Fuel_Conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"	
 		data.raw["recipe"]["bi-Fuel_Conversion-2"].subgroup = "bob-fluid"

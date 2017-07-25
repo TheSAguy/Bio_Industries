@@ -14,9 +14,15 @@ data:extend(
 				type = "unlock-recipe",
 				recipe = "bi-Logs_Mk3"
 			},
+		--[[
 			{
 				type = "unlock-recipe",
-				recipe = "bi-adv-fertiliser"
+				recipe = "bi-adv-fertiliser-1"
+			},
+			]]
+			{
+				type = "unlock-recipe",
+				recipe = "bi-adv-fertiliser-2"
 			},
 		},
 		prerequisites = {

@@ -280,9 +280,8 @@ data:extend({
 		ingredients =
 		{
 			{type = "item", name = "sulfur", amount = 1},
-			{type="item", name="stone-crushed", amount=5},
 			{type="fluid", name="nitrogen", amount=10},
-			{type="item", name="bi-ash", amount=5}
+			{type="item", name="bi-ash", amount=10}
 		},
 		results=
 		{
@@ -301,10 +300,10 @@ data:extend({
 		energy_required = 5,	
 		ingredients =
 		{
-			--{type = "item", name = "sodium-hydroxide", amount = 10},
-			{type="item", name="stone-crushed", amount=5},
+			--{type = "item", name = "sodium-hydroxide", amount = 10}, -- will be added in data updates
+			--{type="item", name="stone-crushed", amount=5},
 			{type="fluid", name="nitrogen", amount=10},
-			{type="item", name="bi-ash", amount=5}
+			{type="item", name="bi-ash", amount=10}
 		},
 		results=
 		{
@@ -317,21 +316,40 @@ data:extend({
 		-- Advanced fertiliser --
 	{
 		type = "recipe",
-		name = "bi-adv-fertiliser",
-		category = "chemistry",
-		order = "b[fertiliser]-b[bi-adv-fertiliser]",
-		energy_required = 125,
+		name = "bi-adv-fertiliser-1",
 		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
+		category = "chemistry",
+		order = "b[fertiliser]-b[bi-adv-fertiliser-1]",
+		energy_required = 50,		
 		ingredients =
 		{
 			{type="item", name="fertiliser", amount=25},
-			{type="item", name="bi-woodpulp", amount=50},
-			--{type="fluid", name="sulfuric-acid", amount=50},     
+			--{type="item", name="bi-biomass", amount=10}, -- <== Need to add during Data Updates
 			--{type="fluid", name="NE_enhanced-nutrient-solution", amount=5}, -- Will be added if you have Natural Evolution Buildings Mod installed.
 		},
 		results=
 		{
 			{type="item", name="bi-adv-fertiliser", amount=50}
+		},
+		enabled = false,
+	},
+	
+	{
+		type = "recipe",
+		name = "bi-adv-fertiliser-2",
+		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
+		category = "chemistry",
+		order = "b[fertiliser]-b[bi-adv-fertiliser-2]",
+		energy_required = 50,
+		ingredients =
+		{
+			{type="item", name="fertiliser", amount=20},
+			--{type="item", name="bi-biomass", amount=10}, -- <== Need to add during Data Updates
+			{type="item", name="bi-woodpulp", amount=10},
+		},
+		results=
+		{
+			{type="item", name="bi-adv-fertiliser", amount=20}
 		},
 		enabled = false,
 	},
