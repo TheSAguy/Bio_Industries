@@ -54,7 +54,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk1",
-		--icon = "__Bio_Industries__/graphics/icons/raw-wood-mk1.png",
+		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk1.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood1]",
 		enabled = false,
@@ -69,13 +69,35 @@ data:extend({
 		result = "raw-wood"
 	},
 	
-		--- Raw Wood from Water & fertiliser
+		
+		--- Raw Wood from Water & Ash
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk2",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk2.png",
 		category = "biofarm-mod-dummy",
 		order = "a[bi]-a-a[raw-wood2]",
+		enabled = false,
+		energy_required = 360,
+		ingredients =
+		{
+		  {type="item", name="seedling", amount=30},     
+		  {type="item", name="bi-ash", amount=10},     
+		  {type="fluid", name="water", amount=100},
+		},
+	
+		result_count = 50,
+		result = "raw-wood"
+	},
+	
+		
+		--- Raw Wood from Water & fertiliser
+	{
+		type = "recipe",
+		name = "bi-Logs_Mk3",
+		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk3.png",
+		category = "biofarm-mod-dummy",
+		order = "a[bi]-a-a[raw-wood3]",
 		enabled = false,
 		energy_required = 260,
 		ingredients =
@@ -93,10 +115,10 @@ data:extend({
 		--- Raw Wood from fertiliser & NE_enhanced-nutrient-solution (Natural Evolution Mod)
 	{
 		type = "recipe",
-		name = "bi-Logs_Mk3",
-		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk3.png",
+		name = "bi-Logs_Mk4",
+		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk4.png",
 		category = "biofarm-mod-dummy",
-		order = "a[bi]-a-a[raw-wood3]",
+		order = "a[bi]-a-a[raw-wood4]",
 		enabled = false,
 		energy_required = 150,
 		ingredients =

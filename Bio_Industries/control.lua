@@ -1,4 +1,4 @@
----Bio Industries - v.1.7.6
+---Bio Industries - v.1.8.0
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")

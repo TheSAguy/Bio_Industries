@@ -12,7 +12,7 @@ data:extend(
 		effects = {
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Logs_Mk3"
+				recipe = "bi-Logs_Mk4"
 			},
 		--[[
 			{

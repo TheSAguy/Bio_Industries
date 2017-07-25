@@ -67,6 +67,10 @@ data:extend({
 			},
 			{
 				type = "unlock-recipe",
+				recipe = "bi-Logs_Mk2"
+			},
+			{
+				type = "unlock-recipe",
 				recipe = "bi-cokery"
 			}
 		},
@@ -161,7 +165,7 @@ data:extend({
 			},
 			{
             type = "unlock-recipe",
-            recipe = "bi-Logs_Mk2"
+            recipe = "bi-Logs_Mk3"
 			},
 			{
             type = "unlock-recipe",
