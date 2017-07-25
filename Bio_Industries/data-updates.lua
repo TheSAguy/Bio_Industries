@@ -258,10 +258,14 @@ if data.raw["item-subgroup"]["bob-fluid"] then
 		data.raw["recipe"]["bi-Fuel_Conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"	
 		data.raw["recipe"]["bi-Fuel_Conversion-2"].subgroup = "bob-fluid"
 		data.raw["recipe"]["bi-Fuel_Conversion-2"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion]"	
-		data.raw["recipe"]["bi-plastic"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi-plastic"].order = "g[plastic-bar]"
-		data.raw["recipe"]["bi-cellulose"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi-cellulose"].order = "g[plastic-bar]"
+		data.raw["recipe"]["bi-plastic-1"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi-plastic-1"].order = "g[plastic-bar-1]"
+		data.raw["recipe"]["bi-plastic-2"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi-plastic-2"].order = "g[plastic-bar-2]"
+		data.raw["recipe"]["bi-cellulose-1"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi-cellulose-1"].order = "g[cellulose-1]"
+		data.raw["recipe"]["bi-cellulose-2"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi-cellulose-2"].order = "g[cellulose-2]"
 	end
 end
 
