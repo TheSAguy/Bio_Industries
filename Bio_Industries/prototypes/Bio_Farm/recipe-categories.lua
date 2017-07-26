@@ -17,8 +17,12 @@ data:extend(
 
 	{
 		type = "recipe-category",
-		name = "biofarm-mod-dummy"
+		name = "biofarm-mod-farm"
 	},
 
+	{
+		type = "recipe-category",
+		name = "biofarm-mod-greenhouse"
+	},
 }
 )

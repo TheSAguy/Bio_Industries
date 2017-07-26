@@ -169,8 +169,8 @@ if BI.Settings.BI_Bio_Fuel then
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-2")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-3")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-battery")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-1")	
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Fuel_Conversion-2")
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-1")	
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-2")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-acid")	
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur")	
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bio_boiler")
@@ -254,10 +254,10 @@ if data.raw["item-subgroup"]["bob-fluid"] then
 	if BI.Settings.BI_Bio_Fuel and BI_Config.mod.NEBuildings then
 		--data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
 		--data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
-		data.raw["recipe"]["bi-Fuel_Conversion-1"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi-Fuel_Conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"	
-		data.raw["recipe"]["bi-Fuel_Conversion-2"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi-Fuel_Conversion-2"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion]"	
+		data.raw["recipe"]["bi-biomass_conversion-1"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi-biomass_conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"	
+		data.raw["recipe"]["bi-biomass_conversion-2"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi-biomass_conversion-2"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion]"	
 		data.raw["recipe"]["bi-plastic-1"].subgroup = "bob-resource-chemical"
 		data.raw["recipe"]["bi-plastic-1"].order = "g[plastic-bar-1]"
 		data.raw["recipe"]["bi-plastic-2"].subgroup = "bob-resource-chemical"

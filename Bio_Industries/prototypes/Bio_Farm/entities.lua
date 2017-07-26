@@ -106,7 +106,7 @@ data:extend({
 		},
 	},
 
-    crafting_categories = {"biofarm-mod-dummy"},
+    crafting_categories = {"biofarm-mod-farm"},
     crafting_speed = 1,
     energy_source =
 
@@ -114,7 +114,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-input",
 	  drain = "50kW",
-	  emissions = -0.1, -- the "-" means it eats pollution. Absorbs about 10 PU
+	  emissions = -0.2, -- the "-" means it eats pollution. Absorbs about 20 PU
     },	
 
     energy_usage = "100kW",
@@ -274,6 +274,86 @@ data:extend({
     production = "100kW"
   },
   
+  
+  
+  ---- Greenhouse
+    {
+    type = "assembling-machine",
+    name = "bio-greenhouse",
+    icon = "__Bio_Industries__/graphics/icons/bio_greenhouse.png",
+    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    minable = {hardness = 0.2, mining_time = 0.25, result = "bio-greenhouse"},
+    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    max_health = 250,
+    corpse = "medium-remnants",
+    dying_explosion = "medium-explosion",
+    crafting_categories = {"biofarm-mod-greenhouse"},
+    crafting_speed = 0.75,
+    energy_source =
+
+	{
+      type = "electric",
+      usage_priority = "primary-input",
+	  drain = "25kW",
+	  emissions = -0.1, -- the "-" means it eats pollution. Absorbs about 10 PU
+    },	
+
+    energy_usage = "50kW",
+    ingredient_count = 2,
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 70
+      }
+    },
+    fluid_boxes =
+    {
+      {
+        production_type = "input",
+        pipe_picture = assembler3pipepictures(),
+        pipe_covers = pipecoverspictures(),
+        base_area = 10,
+        base_level = -1,
+        pipe_connections = {{ type="input", position = {0, -2} }}
+      },
+    },
+	module_specification =
+    {
+      module_slots = 2
+    },
+    allowed_effects = {"consumption", "speed"}
+    animation =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse.png",
+      width = 266,
+      height = 182,
+      frame_count = 1,
+	  scale = 0.5,
+      shift = {0.2, 0.15}
+    },
+    working_visualisations =
+    {
+      {
+        light = {intensity = 1, size = 6},
+        animation =
+        {
+          filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse.pn",
+		  width = 266,
+		  height = 182,
+		  frame_count = 1,
+		  scale = 0.5,
+          shift = {0.2, 0.15}
+        }
+      }
+    },
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+  },
+  
+  
   })
  
  ---- Originally from the old Tree Farm Mod.
@@ -326,7 +406,7 @@ data:extend(
 	{
 		type = "furnace",
 		name = "bi-stone-crusher",
-		icon = "__Bio_Industries__/graphics/icons/stone-crusher.png",
+		icon = "__Bio_Industries__/graphics/icons/stone_crusher.png",
 		flags = {"placeable-neutral","player-creation"},
 		minable = {hardness = 0.2,mining_time = 0.5,result = "bi-stone-crusher"},
 		max_health = 100,

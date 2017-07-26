@@ -7,7 +7,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-resin",
-		category = "biofarm-mod-dummy",
+		category = "biofarm-mod-farm",
 		enabled = false,
 		energy_required = 400,
 		ingredients =
@@ -23,7 +23,7 @@ data:extend({
 	{
     type = "recipe",
     name = "bi-resin_Mk2",
-    category = "biofarm-mod-dummy",
+    category = "biofarm-mod-farm",
     enabled = false,
     energy_required = 300,
 	ingredients =
@@ -41,7 +41,7 @@ data:extend({
 	{
     type = "recipe",
     name = "bi-resin_Mk3",
-    category = "biofarm-mod-dummy",
+    category = "biofarm-mod-farm",
     enabled = false,
     energy_required = 200,
 	ingredients =
@@ -59,7 +59,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-sulfur-wood",
-		category = "biofarm-mod-dummy",
+		category = "biofarm-mod-farm",
 		enabled = false,
 		energy_required = 400,
 		ingredients =
@@ -75,7 +75,7 @@ data:extend({
 	{
     type = "recipe",
     name = "bi-sulfur-wood_Mk2",
-    category = "biofarm-mod-dummy",
+    category = "biofarm-mod-farm",
     enabled = false,
     energy_required = 300,
 	ingredients =
@@ -93,7 +93,7 @@ data:extend({
 	{
     type = "recipe",
     name = "bi-sulfur-wood_Mk3",
-    category = "biofarm-mod-dummy",
+    category = "biofarm-mod-farm",
     enabled = false,
     energy_required = 200,
 	ingredients =

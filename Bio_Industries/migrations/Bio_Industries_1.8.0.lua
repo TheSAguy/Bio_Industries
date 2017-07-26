@@ -44,10 +44,10 @@ for index, force in pairs(game.forces) do
 			recipes["bi-biomass-3"].reload()
 			recipes["bi-battery"].enabled = true
 			recipes["bi-battery"].reload()
-			recipes["bi-Fuel_Conversion-1"].enabled = true
-			recipes["bi-Fuel_Conversion-1"].reload()
-			recipes["bi-Fuel_Conversion-2"].enabled = true
-			recipes["bi-Fuel_Conversion-2"].reload()
+			recipes["bi-biomass_conversion-1"].enabled = true
+			recipes["bi-biomass_conversion-1"].reload()
+			recipes["bi-biomass_conversion-2"].enabled = true
+			recipes["bi-biomass_conversion-2"].reload()
 			recipes["bi-acid"].enabled = true
 			recipes["bi-acid"].reload()
 			recipes["bi-sulfur"].enabled = true

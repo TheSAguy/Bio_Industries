@@ -50,12 +50,47 @@ data:extend({
 
 	},
 	
+		--- Bio Greenhouse
+	{
+		type = "recipe",
+		name = "bi-greenhouse",
+
+		normal =
+		{
+			enabled = false,
+			energy_required = 5,
+			ingredients = 
+			{
+			  {"iron-stick",10},
+			  {"stone-crushed",10},
+			  {"small-lamp",5},
+			},
+		  result = "bi-greenhouse",
+		  result_count = 1,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 8,
+			ingredients = 
+			{
+			  {"iron-stick",15},
+			  {"stone-crushed",15},
+			  {"small-lamp",5},
+			},
+		  result = "bi-greenhouse",
+		  result_count = 1,
+		},
+
+	},
+	
+	
 		--- Raw Wood from Water (BASIC)
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk1",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk1.png",
-		category = "biofarm-mod-dummy",
+		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood1]",
 		enabled = false,
 		energy_required = 450,
@@ -75,7 +110,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-Logs_Mk2",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk2.png",
-		category = "biofarm-mod-dummy",
+		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood2]",
 		enabled = false,
 		energy_required = 360,
@@ -96,7 +131,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-Logs_Mk3",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk3.png",
-		category = "biofarm-mod-dummy",
+		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood3]",
 		enabled = false,
 		energy_required = 260,
@@ -117,7 +152,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-Logs_Mk4",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk4.png",
-		category = "biofarm-mod-dummy",
+		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood4]",
 		enabled = false,
 		energy_required = 150,
@@ -249,6 +284,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-crushed-stone",
+		icon = "__Bio_Industries__/graphics/icons/stone_crusher.png",
 		category = "biofarm-mod-crushing",
 		subgroup = "raw-material",
 		order = "a[bi]-a-z[stone-crushed]",

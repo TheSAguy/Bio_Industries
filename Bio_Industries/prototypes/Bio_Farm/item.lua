@@ -66,6 +66,19 @@ data:extend({
 		enable = false,
 	},
   
+  
+  ----Bio Greenhouse
+	{
+		type= "item",
+		name= "bio-greenhouse",
+		icon = "__Bio_Industries__/graphics/icons/bio_greenhouse.png",
+		flags= { "goes-to-quickbar" },
+		subgroup = "production-machine",
+		order = "x[bi]-a[bi_bio_greenhouse]",
+		place_result = "bio-greenhouse",
+		stack_size= 10,
+	},
+  
  	--- Cokery
 	{
 		type = "item",
