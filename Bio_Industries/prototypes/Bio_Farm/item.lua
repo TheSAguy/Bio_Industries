@@ -95,7 +95,7 @@ data:extend({
 	{
 		type = "item",
 		name = "bi-stone-crusher",
-		icon = "__Bio_Industries__/graphics/icons/stone-crusher.png",
+		icon = "__Bio_Industries__/graphics/icons/stone_crusher.png",
 		flags = {"goes-to-quickbar"},
 		subgroup = "production-machine",
 		order = "x[bi]-c[bi-stone-crusher]",

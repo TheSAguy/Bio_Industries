@@ -53,7 +53,7 @@ data:extend({
 		--- Bio Greenhouse
 	{
 		type = "recipe",
-		name = "bi-greenhouse",
+		name = "bio_greenhouse",
 
 		normal =
 		{
@@ -65,7 +65,7 @@ data:extend({
 			  {"stone-crushed",10},
 			  {"small-lamp",5},
 			},
-		  result = "bi-greenhouse",
+		  result = "bio-greenhouse",
 		  result_count = 1,
 		},
 		expensive =
@@ -78,7 +78,7 @@ data:extend({
 			  {"stone-crushed",15},
 			  {"small-lamp",5},
 			},
-		  result = "bi-greenhouse",
+		  result = "bio-greenhouse",
 		  result_count = 1,
 		},
 

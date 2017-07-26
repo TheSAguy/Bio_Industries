@@ -277,7 +277,7 @@ data:extend({
   
   
   ---- Greenhouse
-    {
+   {
     type = "assembling-machine",
     name = "bio-greenhouse",
     icon = "__Bio_Industries__/graphics/icons/bio_greenhouse.png",
@@ -323,7 +323,7 @@ data:extend({
     {
       module_slots = 2
     },
-    allowed_effects = {"consumption", "speed"}
+    allowed_effects = {"consumption", "speed"},
     animation =
     {
       filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse.png",
@@ -339,7 +339,7 @@ data:extend({
         light = {intensity = 1, size = 6},
         animation =
         {
-          filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse.pn",
+          filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse.png",
 		  width = 266,
 		  height = 182,
 		  frame_count = 1,

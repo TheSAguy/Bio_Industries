@@ -21,10 +21,11 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi_bio_farm"
 			},		
-	--		{
-	--			type = "unlock-recipe",
-	--			recipe = "bi-stone-crusher"
-	--		},
+			{
+				type = "unlock-recipe",
+				recipe = "bio_greenhouse"
+			},	
+
 		},
 		prerequisites = {"optics"},
 		unit =
