@@ -12,6 +12,10 @@ data:extend(
 		effects = {
 			{
 				type = "unlock-recipe",
+				recipe = "bi-Seedling_Mk4"
+			},
+			{
+				type = "unlock-recipe",
 				recipe = "bi-Logs_Mk4"
 			},
 		--[[

@@ -81,7 +81,7 @@ end
 ---- Add Bio Fuel & Plastic
 if BI.Settings.BI_Bio_Fuel then 
 	require("prototypes.Bio_Fuel.item")
-	require("prototypes.Bio_Fuel.fluid")
+	--require("prototypes.Bio_Fuel.fluid")
 	require("prototypes.Bio_Fuel.recipe")
 	require("prototypes.Bio_Fuel.entities")
 	require("prototypes.Bio_Fuel.technology")

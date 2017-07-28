@@ -11,7 +11,7 @@ data:extend({
 		{
 			{
 				type = "unlock-recipe",
-				recipe = "bi-seedling"
+				recipe = "bi-Seedling_Mk1"
 			},
 			{
 				type = "unlock-recipe",
@@ -65,6 +65,10 @@ data:extend({
 			{
 				type = "unlock-recipe",
 				recipe = "bi-woodpulp"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi-Seedling_Mk2"
 			},
 			{
 				type = "unlock-recipe",
@@ -163,6 +167,10 @@ data:extend({
 			{
 				type = "unlock-recipe",
 				recipe = "bi-fertiliser"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi-Seedling_Mk3"
 			},
 			{
             type = "unlock-recipe",

@@ -252,8 +252,6 @@ end
 
 if data.raw["item-subgroup"]["bob-fluid"] then 
 	if BI.Settings.BI_Bio_Fuel and BI_Config.mod.NEBuildings then
-		--data.raw["recipe"]["bi-Bio_Fuel"].subgroup = "bob-fluid"
-		--data.raw["recipe"]["bi-Bio_Fuel"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Bio_Fuel]"	
 		data.raw["recipe"]["bi-biomass_conversion-1"].subgroup = "bob-fluid"
 		data.raw["recipe"]["bi-biomass_conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-y[bi-Fuel_Conversion]"	
 		data.raw["recipe"]["bi-biomass_conversion-2"].subgroup = "bob-fluid"

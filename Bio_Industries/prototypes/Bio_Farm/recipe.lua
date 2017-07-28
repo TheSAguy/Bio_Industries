@@ -12,10 +12,10 @@ data:extend({
 		results=
 		{
 		  {type="item", name="bi-seed", amount=1},
-		  --{type="item", name="bi-woodpulp", amount=1}
+		  {type="item", name="bi-woodpulp", amount=2}
 		},
 	},
-
+--[[
 	--- Seedling
 	{
 		type = "recipe",
@@ -37,6 +37,90 @@ data:extend({
 		  {type="item", name="bi-woodpulp", amount=10}
 		},
 	},
+	]]
+	
+		--- Seedlings from Water (BASIC)
+	{
+		type = "recipe",
+		name = "bi-Seedling_Mk1",
+		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi-Seedling_Mk1]",
+		enabled = false,
+		energy_required = 150,
+		ingredients =
+		{
+			{type="item", name="bi-seed", amount=20},     
+			{type="fluid", name="water", amount=100},
+		},
+
+		result_count = 40,
+		result = "seedling"
+	},
+	
+		
+		--- Seedlings from Water & Ash
+	{
+		type = "recipe",
+		name = "bi-Seedling_Mk2",
+		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi-Seedling_Mk2]",
+		enabled = false,
+		energy_required = 120,
+		ingredients =
+		{
+		  {type="item", name="bi-seed", amount=30},     
+		  {type="item", name="bi-ash", amount=10},     
+		  {type="fluid", name="water", amount=100},
+		},
+	
+		result_count = 50,
+		result = "seedling"
+	},
+	
+		
+		--- Seedlings from Water & fertiliser
+	{
+		type = "recipe",
+		name = "bi-Seedling_Mk3",
+		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi-Seedling_Mk3]",
+		enabled = false,
+		energy_required = 85,
+		ingredients =
+		{
+		  {type="item", name="bi-seed", amount=30},     
+		  {type="item", name="fertiliser", amount=10},     
+		  {type="fluid", name="water", amount=100},
+		},
+	
+		result_count = 75,
+		result = "seedling"
+	},
+	
+		
+		--- Seedlings from fertiliser & NE_enhanced-nutrient-solution (Natural Evolution Mod)
+	{
+		type = "recipe",
+		name = "bi-Seedling_Mk4",
+		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi-Seedling_Mk4]",
+		enabled = false,
+		energy_required = 50,
+		ingredients =
+		{
+		  {type="item", name="bi-seed", amount=50},     
+		  {type="fluid", name="water", amount=100},
+		  {type="item", name="bi-adv-fertiliser", amount=5},    
+		},
+		result_count = 150,
+		result = "seedling"
+	},
+	
+	
 	--- Bio Farm
 	{
 		type = "recipe",
@@ -116,7 +200,7 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood1]",
 		enabled = false,
-		energy_required = 450,
+		energy_required = 300,
 		ingredients =
 		{
 			{type="item", name="seedling", amount=20},     
@@ -136,7 +220,7 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood2]",
 		enabled = false,
-		energy_required = 360,
+		energy_required = 240,
 		ingredients =
 		{
 		  {type="item", name="seedling", amount=30},     
@@ -157,7 +241,7 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood3]",
 		enabled = false,
-		energy_required = 260,
+		energy_required = 170,
 		ingredients =
 		{
 		  {type="item", name="seedling", amount=30},     
@@ -178,7 +262,7 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood4]",
 		enabled = false,
-		energy_required = 150,
+		energy_required = 100,
 		ingredients =
 		{
 		  {type="item", name="seedling", amount=50},     
