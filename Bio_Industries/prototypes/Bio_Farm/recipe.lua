@@ -1,17 +1,40 @@
 data:extend({
+
+	--- Seed
+	{
+		type = "recipe",
+		name = "bi_seed",
+		enabled = true,
+		subgroup = "raw-material",
+		energy_required = 0.25,
+		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
+		ingredients = {{"raw-wood",2}},
+		results=
+		{
+		  {type="item", name="bi-seed", amount=1},
+		  --{type="item", name="bi-woodpulp", amount=1}
+		},
+	},
+
 	--- Seedling
 	{
 		type = "recipe",
 		name = "bi-seedling",
+		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		category = "biofarm-mod-greenhouse",
 		enabled = false,
 		subgroup = "raw-material",
-		energy_required = 0.5,
-		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
-		ingredients = {{"raw-wood",1}},
+		energy_required = 25,
+		ingredients =
+		{
+			{type="item", name="bi-seed", amount=20},     
+			{type="fluid", name="water", amount=100},
+		},
+		
 		results=
 		{
-		  {type="item", name="seedling", amount=2},
-		  {type="item", name="bi-woodpulp", amount=1}
+		  {type="item", name="seedling", amount=20},
+		  {type="item", name="bi-woodpulp", amount=10}
 		},
 	},
 	--- Bio Farm

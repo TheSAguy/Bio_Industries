@@ -1,12 +1,26 @@
 data:extend({
 
+	---- Seed
+	{
+		type = "item",
+		name = "bi-seed",
+		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
+		flags = {"goes-to-main-inventory"},
+		subgroup = "intermediate-product",
+		order = "x[bi]-a[bi-seed]",
+		--place_result="bi-seed",
+		fuel_value = "0.5MJ",
+		fuel_category = "chemical",
+		stack_size= 400
+	},
+
+
 	---- Seedling
 	{
 		type = "item",
 		name = "seedling",
 		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 		flags = {"goes-to-main-inventory"},
-		--subgroup = "trees",
 		subgroup = "intermediate-product",
 		order = "x[bi]-a[bi-seedling]",
 		place_result="seedling",

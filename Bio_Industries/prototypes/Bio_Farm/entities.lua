@@ -295,7 +295,7 @@ data:extend({
 	{
       type = "electric",
       usage_priority = "primary-input",
-	  drain = "25kW",
+	  drain = "15kW",
 	  emissions = -0.1, -- the "-" means it eats pollution. Absorbs about 10 PU
     },	
 
@@ -326,12 +326,12 @@ data:extend({
     allowed_effects = {"consumption", "speed"},
     animation =
     {
-      filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse.png",
+      filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse_off.png",
       width = 266,
       height = 182,
       frame_count = 1,
 	  scale = 0.5,
-      shift = {0.2, 0.15}
+      shift = {0.3, 0}
     },
     working_visualisations =
     {
@@ -339,12 +339,12 @@ data:extend({
         light = {intensity = 1, size = 6},
         animation =
         {
-          filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse.png",
+          filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse_on.png",
 		  width = 266,
 		  height = 182,
 		  frame_count = 1,
 		  scale = 0.5,
-          shift = {0.2, 0.15}
+		  shift = {0.3, 0}
         }
       }
     },
