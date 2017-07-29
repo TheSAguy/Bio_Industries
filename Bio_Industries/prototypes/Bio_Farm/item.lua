@@ -8,10 +8,9 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
 		order = "x[bi]-a[bi-seed]",
-		--place_result="bi-seed",
 		fuel_value = "0.5MJ",
 		fuel_category = "chemical",
-		stack_size= 400
+		stack_size= 800
 	},
 
 

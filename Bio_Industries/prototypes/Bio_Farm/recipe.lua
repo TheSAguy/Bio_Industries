@@ -1,30 +1,16 @@
 data:extend({
 
-	--- Seed-1 To get seed if you don't have any.
+	
+
+	--- Seeds from Water (BASIC)
 	{
 		type = "recipe",
 		name = "bi_seed_1",
-		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
-		order = "a[bi]-a-a[bi_seed]",
+		icon = "__Bio_Industries__/graphics/icons/bio_seed1.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi_seed_1]",
 		enabled = false,
-		subgroup = "raw-material",
-		energy_required = 0.25,
-		ingredients = {{"raw-wood",2}},
-		results=
-		{
-		  {type="item", name="bi-seed", amount=1},
-		  {type="item", name="bi-woodpulp", amount=2}
-		},
-	},
-	
-	{
-		type = "recipe",
-		name = "bi_seed_2",
-		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
-		category = "biofarm-mod-farm",
-		order = "a[bi]-a-aa[bi_seed]",
-		enabled = false,
-		energy_required = 300,
+		energy_required = 200,
 		ingredients =
 		{
 			{type="item", name="raw-wood", amount=20},     
@@ -34,6 +20,70 @@ data:extend({
 		result_count = 40,
 		result = "bi-seed"
 	},
+	
+	
+	--- Seeds from Water & Ash	
+	{
+		type = "recipe",
+		name = "bi_seed_2",
+		icon = "__Bio_Industries__/graphics/icons/bio_seed2.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi_seed_2]",
+		enabled = false,
+		energy_required = 180,
+		ingredients =
+		{
+			{type="item", name="raw-wood", amount=20},     
+			{type="item", name="bi-ash", amount=10},   
+			{type="fluid", name="water", amount=40},
+		},
+
+		result_count = 60,
+		result = "bi-seed"
+	},
+	
+
+	
+	--- Seeds from Water & Fertiliser
+	{
+		type = "recipe",
+		name = "bi_seed_3",
+		icon = "__Bio_Industries__/graphics/icons/bio_seed3.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi_seed_3]",
+		enabled = false,
+		energy_required = 140,
+		ingredients =
+		{
+			{type="item", name="raw-wood", amount=20},     
+			{type="item", name="fertiliser", amount=10},   
+			{type="fluid", name="water", amount=40},
+		},
+
+		result_count = 80,
+		result = "bi-seed"
+	},
+	
+		--- Seeds from Water & Adv-fertiliser 
+	{
+		type = "recipe",
+		name = "bi_seed_4",
+		icon = "__Bio_Industries__/graphics/icons/bio_seed4.png",
+		category = "biofarm-mod-greenhouse",
+		order = "a[bi]-a-a[bi_seed_4]",
+		enabled = false,
+		energy_required = 120,
+		ingredients =
+		{
+			{type="item", name="raw-wood", amount=20},     
+			{type="item", name="bi-adv-fertiliser", amount=10},   
+			{type="fluid", name="water", amount=40},
+		},
+
+		result_count = 100,
+		result = "bi-seed"
+	},
+	
 	
 	
 	
@@ -61,7 +111,7 @@ data:extend({
 	},
 	]]
 	
-		--- Seedlings from Water (BASIC)
+	--- Seedlings from Water (BASIC)
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk1",
@@ -81,7 +131,7 @@ data:extend({
 	},
 	
 		
-		--- Seedlings from Water & Ash
+	--- Seedlings from Water & Ash
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk2",
@@ -102,7 +152,7 @@ data:extend({
 	},
 	
 		
-		--- Seedlings from Water & fertiliser
+	--- Seedlings from Water & Fertiliser
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk3",
@@ -123,7 +173,7 @@ data:extend({
 	},
 	
 		
-		--- Seedlings from adv-fertiliser 
+	--- Seedlings from Water & Adv-fertiliser 
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk4",
@@ -136,7 +186,7 @@ data:extend({
 		{
 		  {type="item", name="bi-seed", amount=50},     
 		  {type="fluid", name="water", amount=100},
-		  {type="item", name="bi-adv-fertiliser", amount=5},    
+		  {type="item", name="bi-adv-fertiliser", amount=10},    
 		},
 		result_count = 150,
 		result = "seedling"
@@ -289,7 +339,7 @@ data:extend({
 		{
 		  {type="item", name="seedling", amount=50},     
 		  {type="fluid", name="water", amount=100},
-		  {type="item", name="bi-adv-fertiliser", amount=5},    
+		  {type="item", name="bi-adv-fertiliser", amount=10},    
 		},
 		result_count = 150,
 		result = "raw-wood"
@@ -307,7 +357,7 @@ data:extend({
 		energy_required = 5,
 		ingredients = {{"raw-wood",2}},
 		result = "bi-woodpulp",
-		result_count = 8,
+		result_count = 6,
 	}, 
 	-- ASH --
 	{

@@ -23,11 +23,6 @@ data:extend({
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_2"
-			},
-			
-			{
-				type = "unlock-recipe",
 				recipe = "bi_bio_farm"
 			},		
 			{
@@ -74,6 +69,10 @@ data:extend({
 			{
 				type = "unlock-recipe",
 				recipe = "bi-woodpulp"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_seed_2"
 			},
 			{
 				type = "unlock-recipe",
@@ -181,6 +180,10 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi-Seedling_Mk3"
 			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_seed_3"
+			},	
 			{
             type = "unlock-recipe",
             recipe = "bi-Logs_Mk3"

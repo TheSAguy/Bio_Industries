@@ -12,17 +12,38 @@ for index, force in pairs(game.forces) do
   
   
   	if game.entity_prototypes["bi_bio_farm"] then	
+		if technologies["bi_bio_farming"].researched then
+			recipes["bio_greenhouse"].enabled = true
+			recipes["bio_greenhouse"].reload()
+			recipes["bi_seed_1"].enabled = true
+			recipes["bi_seed_1"].reload()
+			recipes["bi-Seedling_Mk1"].enabled = true
+			recipes["bi-Seedling_Mk1"].reload()
+		end
+		
 		if technologies["bi-coal-processing"].researched then
 			recipes["bi-Logs_Mk2"].enabled = true
 			recipes["bi-Logs_Mk2"].reload()
+			recipes["bi_seed_2"].enabled = true
+			recipes["bi_seed_2"].reload()
+			recipes["bi-Seedling_Mk2"].enabled = true
+			recipes["bi-Seedling_Mk2"].reload()
 		end
 		if technologies["bi-fertiliser"].researched then
 			recipes["bi-Logs_Mk3"].enabled = true
 			recipes["bi-Logs_Mk3"].reload()
+			recipes["bi_seed_3"].enabled = true
+			recipes["bi_seed_3"].reload()
+			recipes["bi-Seedling_Mk3"].enabled = true
+			recipes["bi-Seedling_Mk3"].reload()
 		end
 		if technologies["bi-advanced-biotechnology"].researched then
 			recipes["bi-Logs_Mk4"].enabled = true
 			recipes["bi-Logs_Mk4"].reload()
+			recipes["bi_seed_4"].enabled = true
+			recipes["bi_seed_4"].reload()
+			recipes["bi-Seedling_Mk4"].enabled = true
+			recipes["bi-Seedling_Mk4"].reload()
 			recipes["bi-adv-fertiliser-2"].enabled = true
 			recipes["bi-adv-fertiliser-2"].reload()			
 		end
