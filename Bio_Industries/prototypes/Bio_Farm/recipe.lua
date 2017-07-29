@@ -1,13 +1,14 @@
 data:extend({
 
-	--- Seed
+	--- Seed-1 To get seed if you don't have any.
 	{
 		type = "recipe",
-		name = "bi_seed",
-		enabled = true,
+		name = "bi_seed_1",
+		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
+		order = "a[bi]-a-a[bi_seed]",
+		enabled = false,
 		subgroup = "raw-material",
 		energy_required = 0.25,
-		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
 		ingredients = {{"raw-wood",2}},
 		results=
 		{
@@ -15,6 +16,27 @@ data:extend({
 		  {type="item", name="bi-woodpulp", amount=2}
 		},
 	},
+	
+	{
+		type = "recipe",
+		name = "bi_seed_2",
+		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
+		category = "biofarm-mod-farm",
+		order = "a[bi]-a-aa[bi_seed]",
+		enabled = false,
+		energy_required = 300,
+		ingredients =
+		{
+			{type="item", name="raw-wood", amount=20},     
+			{type="fluid", name="water", amount=100},
+		},
+
+		result_count = 40,
+		result = "bi-seed"
+	},
+	
+	
+	
 --[[
 	--- Seedling
 	{
@@ -43,7 +65,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk1",
-		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		icon = "__Bio_Industries__/graphics/icons/Seedling1.png",
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk1]",
 		enabled = false,
@@ -63,7 +85,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk2",
-		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		icon = "__Bio_Industries__/graphics/icons/Seedling2.png",
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk2]",
 		enabled = false,
@@ -84,7 +106,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk3",
-		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		icon = "__Bio_Industries__/graphics/icons/Seedling3.png",
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk3]",
 		enabled = false,
@@ -101,11 +123,11 @@ data:extend({
 	},
 	
 		
-		--- Seedlings from fertiliser & NE_enhanced-nutrient-solution (Natural Evolution Mod)
+		--- Seedlings from adv-fertiliser 
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk4",
-		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+		icon = "__Bio_Industries__/graphics/icons/Seedling4.png",
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk4]",
 		enabled = false,
@@ -122,42 +144,7 @@ data:extend({
 	
 	
 	--- Bio Farm
-	{
-		type = "recipe",
-		name = "bi_bio_farm",
-
-		normal =
-		{
-			enabled = false,
-			energy_required = 10,
-			ingredients = 
-			{
-			  {"iron-stick",20},
-			  {"copper-cable",10},
-			  {"stone",20},
-			  {"small-lamp",10},
-			},
-		  result = "bi_bio_farm",
-		  result_count = 1,
-		},
-		expensive =
-		{
-			enabled = false,
-			energy_required = 15,
-			ingredients = 
-			{
-			  {"iron-stick",20},
-			  {"copper-cable",80},
-			  {"stone",80},
-			  {"small-lamp",10},
-			},
-		  result = "bi_bio_farm",
-		  result_count = 1,
-		},
-
-	},
-	
-		--- Bio Greenhouse
+			--- Bio Greenhouse
 	{
 		type = "recipe",
 		name = "bio_greenhouse",
@@ -190,6 +177,41 @@ data:extend({
 		},
 
 	},
+	
+	{
+		type = "recipe",
+		name = "bi_bio_farm",
+
+		normal =
+		{
+			enabled = false,
+			energy_required = 10,
+			ingredients = 
+			{
+			  {"bio-greenhouse",4},
+			  {"copper-cable",10},
+			  {"stone-brick",10},
+			},
+		  result = "bi_bio_farm",
+		  result_count = 1,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 15,
+			ingredients = 
+			{
+			  {"bio-greenhouse",8},
+			  {"copper-cable",20},
+			  {"stone-brick",20},
+			},
+		  result = "bi_bio_farm",
+		  result_count = 1,
+		},
+
+	},
+	
+
 	
 	
 		--- Raw Wood from Water (BASIC)
@@ -254,7 +276,7 @@ data:extend({
 	},
 	
 		
-		--- Raw Wood from fertiliser & NE_enhanced-nutrient-solution (Natural Evolution Mod)
+		--- Raw Wood from adv-fertiliser
 	{
 		type = "recipe",
 		name = "bi-Logs_Mk4",

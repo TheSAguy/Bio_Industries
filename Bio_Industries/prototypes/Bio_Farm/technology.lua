@@ -19,6 +19,15 @@ data:extend({
 			},
 			{
 				type = "unlock-recipe",
+				recipe = "bi_seed_1"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_seed_2"
+			},
+			
+			{
+				type = "unlock-recipe",
 				recipe = "bi_bio_farm"
 			},		
 			{
