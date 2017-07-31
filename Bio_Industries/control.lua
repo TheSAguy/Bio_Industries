@@ -97,12 +97,12 @@ local function On_Built(event)
    
    
 	--- Seedling planted
-	if entity.name == "seedling" then
+	if entity.valid and entity.name == "seedling" then
 		seed_planted (event)
 	end
 	
     --- Bio Farm has been built
-	if entity and entity.name == "bi_bio_farm" then
+	if entity.valid and entity.name == "bi_bio_farm" then
 	writeDebug("Bio Farm has been built")
 		local surface = entity.surface
 		local force = entity.force
@@ -129,7 +129,7 @@ local function On_Built(event)
 
 	
 	--- Bio Solar Farm has been built
-	if entity and entity.name == "bi_bio_Solar_Farm" then
+	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 	writeDebug("Bio Solar Farm has been built")
 		local surface = entity.surface
 		local force = entity.force
@@ -174,7 +174,7 @@ local function On_Built(event)
 	
 	
 	--- Bio Cannon has been built
-	if entity.name == "Bio_Cannon_Area" then
+	if entity.valid and entity.name == "Bio_Cannon_Area" then
 	
 	local New_Bio_Cannon
 	local New_Bio_CannonI
@@ -224,7 +224,7 @@ local function On_Remove(event)
 	local entity = event.entity	
 	
 	--- Bio Farm has been removed
-   	if entity and entity.name == "bi_bio_farm" then
+   	if entity.valid and entity.name == "bi_bio_farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
