@@ -21,7 +21,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
-		order = "x[bi]-a[bi-seedling]",
+		order = "x[bi]-b[bi-seedling]",
 		place_result="seedling",
 		fuel_value = "1MJ",
 		fuel_category = "chemical",

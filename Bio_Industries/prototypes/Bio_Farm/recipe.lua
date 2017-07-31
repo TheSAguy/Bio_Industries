@@ -8,7 +8,7 @@ data:extend({
 		name = "bi_seed_1",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed1.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi_seed_1]",
+		order = "a[bi]-ssw-a1[bi_seed_1]",		
 		enabled = false,
 		energy_required = 100,
 		ingredients =
@@ -28,7 +28,7 @@ data:extend({
 		name = "bi_seed_2",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed2.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi_seed_2]",
+		order = "a[bi]-ssw-a1[bi_seed_2]",		
 		enabled = false,
 		energy_required = 90,
 		ingredients =
@@ -50,7 +50,7 @@ data:extend({
 		name = "bi_seed_3",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed3.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi_seed_3]",
+		order = "a[bi]-ssw-a1[bi_seed_3]",		
 		enabled = false,
 		energy_required = 75,
 		ingredients =
@@ -70,7 +70,7 @@ data:extend({
 		name = "bi_seed_4",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed4.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi_seed_4]",
+		order = "a[bi]-ssw-a1[bi_seed_4]",		
 		enabled = false,
 		energy_required = 50,
 		ingredients =
@@ -84,40 +84,13 @@ data:extend({
 		result = "bi-seed"
 	},
 	
-	
-	
-	
---[[
-	--- Seedling
-	{
-		type = "recipe",
-		name = "bi-seedling",
-		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
-		category = "biofarm-mod-greenhouse",
-		enabled = false,
-		subgroup = "raw-material",
-		energy_required = 25,
-		ingredients =
-		{
-			{type="item", name="bi-seed", amount=20},     
-			{type="fluid", name="water", amount=100},
-		},
-		
-		results=
-		{
-		  {type="item", name="seedling", amount=20},
-		  {type="item", name="bi-woodpulp", amount=10}
-		},
-	},
-	]]
-	
 	--- Seedlings from Water (BASIC)
 	{
 		type = "recipe",
 		name = "bi-Seedling_Mk1",
 		icon = "__Bio_Industries__/graphics/icons/Seedling1.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi-Seedling_Mk1]",
+		order = "a[bi]-ssw-b1[bi-Seedling_Mk1]",
 		enabled = false,
 		energy_required = 200,
 		ingredients =
@@ -137,7 +110,7 @@ data:extend({
 		name = "bi-Seedling_Mk2",
 		icon = "__Bio_Industries__/graphics/icons/Seedling2.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi-Seedling_Mk2]",
+		order = "a[bi]-ssw-b1[bi-Seedling_Mk2]",
 		enabled = false,
 		energy_required = 180,
 		ingredients =
@@ -158,7 +131,7 @@ data:extend({
 		name = "bi-Seedling_Mk3",
 		icon = "__Bio_Industries__/graphics/icons/Seedling3.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi-Seedling_Mk3]",
+		order = "a[bi]-ssw-b1[bi-Seedling_Mk3]",
 		enabled = false,
 		energy_required = 150,
 		ingredients =
@@ -179,7 +152,7 @@ data:extend({
 		name = "bi-Seedling_Mk4",
 		icon = "__Bio_Industries__/graphics/icons/Seedling4.png",
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-a-a[bi-Seedling_Mk4]",
+		order = "a[bi]-ssw-b1[bi-Seedling_Mk4]",
 		enabled = false,
 		energy_required = 100,
 		ingredients =
@@ -270,7 +243,7 @@ data:extend({
 		name = "bi-Logs_Mk1",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk1.png",
 		category = "biofarm-mod-farm",
-		order = "a[bi]-a-a[raw-wood1]",
+		order = "a[bi]-ssw-c1[raw-wood1]",
 		enabled = false,
 		energy_required = 400,
 		ingredients =
@@ -290,7 +263,7 @@ data:extend({
 		name = "bi-Logs_Mk2",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk2.png",
 		category = "biofarm-mod-farm",
-		order = "a[bi]-a-a[raw-wood2]",
+		order = "a[bi]-ssw-c1[raw-wood2]",
 		enabled = false,
 		energy_required = 360,
 		ingredients =
@@ -311,7 +284,7 @@ data:extend({
 		name = "bi-Logs_Mk3",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk3.png",
 		category = "biofarm-mod-farm",
-		order = "a[bi]-a-a[raw-wood3]",
+		order = "a[bi]-ssw-c1[raw-wood3]",
 		enabled = false,
 		energy_required = 300,
 		ingredients =
@@ -332,7 +305,7 @@ data:extend({
 		name = "bi-Logs_Mk4",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk4.png",
 		category = "biofarm-mod-farm",
-		order = "a[bi]-a-a[raw-wood4]",
+		order = "a[bi]-ssw-c1[raw-wood4]",
 		enabled = false,
 		energy_required = 200,
 		ingredients =
