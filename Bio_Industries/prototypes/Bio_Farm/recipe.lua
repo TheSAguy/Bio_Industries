@@ -10,7 +10,7 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi_seed_1]",
 		enabled = false,
-		energy_required = 200,
+		energy_required = 100,
 		ingredients =
 		{
 			{type="item", name="raw-wood", amount=20},     
@@ -30,7 +30,7 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi_seed_2]",
 		enabled = false,
-		energy_required = 180,
+		energy_required = 90,
 		ingredients =
 		{
 			{type="item", name="raw-wood", amount=20},     
@@ -38,7 +38,7 @@ data:extend({
 			{type="fluid", name="water", amount=40},
 		},
 
-		result_count = 60,
+		result_count = 50,
 		result = "bi-seed"
 	},
 	
@@ -52,7 +52,7 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi_seed_3]",
 		enabled = false,
-		energy_required = 140,
+		energy_required = 75,
 		ingredients =
 		{
 			{type="item", name="raw-wood", amount=20},     
@@ -60,7 +60,7 @@ data:extend({
 			{type="fluid", name="water", amount=40},
 		},
 
-		result_count = 80,
+		result_count = 60,
 		result = "bi-seed"
 	},
 	
@@ -72,7 +72,7 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi_seed_4]",
 		enabled = false,
-		energy_required = 120,
+		energy_required = 50,
 		ingredients =
 		{
 			{type="item", name="raw-wood", amount=20},     
@@ -80,7 +80,7 @@ data:extend({
 			{type="fluid", name="water", amount=40},
 		},
 
-		result_count = 100,
+		result_count = 80,
 		result = "bi-seed"
 	},
 	
@@ -119,7 +119,7 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk1]",
 		enabled = false,
-		energy_required = 150,
+		energy_required = 200,
 		ingredients =
 		{
 			{type="item", name="bi-seed", amount=20},     
@@ -139,15 +139,15 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk2]",
 		enabled = false,
-		energy_required = 120,
+		energy_required = 180,
 		ingredients =
 		{
-		  {type="item", name="bi-seed", amount=30},     
+		  {type="item", name="bi-seed", amount=25},     
 		  {type="item", name="bi-ash", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
 	
-		result_count = 50,
+		result_count = 60,
 		result = "seedling"
 	},
 	
@@ -160,7 +160,7 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk3]",
 		enabled = false,
-		energy_required = 85,
+		energy_required = 150,
 		ingredients =
 		{
 		  {type="item", name="bi-seed", amount=30},     
@@ -168,7 +168,7 @@ data:extend({
 		  {type="fluid", name="water", amount=100},
 		},
 	
-		result_count = 75,
+		result_count = 90,
 		result = "seedling"
 	},
 	
@@ -181,14 +181,14 @@ data:extend({
 		category = "biofarm-mod-greenhouse",
 		order = "a[bi]-a-a[bi-Seedling_Mk4]",
 		enabled = false,
-		energy_required = 50,
+		energy_required = 100,
 		ingredients =
 		{
-		  {type="item", name="bi-seed", amount=50},     
+		  {type="item", name="bi-seed", amount=40},     
 		  {type="fluid", name="water", amount=100},
 		  {type="item", name="bi-adv-fertiliser", amount=10},    
 		},
-		result_count = 150,
+		result_count = 160,
 		result = "seedling"
 	},
 	
@@ -272,7 +272,7 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood1]",
 		enabled = false,
-		energy_required = 300,
+		energy_required = 400,
 		ingredients =
 		{
 			{type="item", name="seedling", amount=20},     
@@ -292,7 +292,7 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood2]",
 		enabled = false,
-		energy_required = 240,
+		energy_required = 360,
 		ingredients =
 		{
 		  {type="item", name="seedling", amount=30},     
@@ -300,7 +300,7 @@ data:extend({
 		  {type="fluid", name="water", amount=100},
 		},
 	
-		result_count = 50,
+		result_count = 75,
 		result = "raw-wood"
 	},
 	
@@ -313,15 +313,15 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood3]",
 		enabled = false,
-		energy_required = 170,
+		energy_required = 300,
 		ingredients =
 		{
-		  {type="item", name="seedling", amount=30},     
+		  {type="item", name="seedling", amount=45},     
 		  {type="item", name="fertiliser", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
 	
-		result_count = 75,
+		result_count = 135,
 		result = "raw-wood"
 	},
 	
@@ -334,14 +334,14 @@ data:extend({
 		category = "biofarm-mod-farm",
 		order = "a[bi]-a-a[raw-wood4]",
 		enabled = false,
-		energy_required = 100,
+		energy_required = 200,
 		ingredients =
 		{
-		  {type="item", name="seedling", amount=50},     
+		  {type="item", name="seedling", amount=80},     
 		  {type="fluid", name="water", amount=100},
 		  {type="item", name="bi-adv-fertiliser", amount=10},    
 		},
-		result_count = 150,
+		result_count = 320,
 		result = "raw-wood"
 	},
 	

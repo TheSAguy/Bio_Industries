@@ -113,12 +113,14 @@ if BI.Settings.BI_Accumulator then
 	if data.raw.technology["bob-solar-energy-2"] then
 		
 		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
-			
+		
+--[[		
 		--- Change Bi Accumulator Recipe if Bob's
 		if data.raw.item["large-accumulator"]  then
 			thxbob.lib.recipe.replace_ingredient("bi_accumulator", "accumulator", "large-accumulator")
 		end
-			
+	]]
+	
 		
 	else
 
@@ -131,7 +133,7 @@ end
 if data.raw.technology["bob-solar-energy-2"] then
 	if BI.Settings.BI_Solar_Farm then
 		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
-		thxbob.lib.recipe.replace_ingredient("bi_bio_Solar_Farm", "solar-panel", "solar-panel-large")
+		--thxbob.lib.recipe.replace_ingredient("bi_bio_Solar_Farm", "solar-panel", "solar-panel-large")
 	end
 	-- Solar Mat
 	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
