@@ -77,23 +77,7 @@ function seed_planted (event)
 end
 
 
----- Growing Tree
-Event.register(defines.events.on_tick, function(event)	
-
-	while #global.bi.tree_growing > 0 do
-		if event.tick < global.bi.tree_growing[1].time then
-			break 
-		end
-
-		Grow_tree(global.bi.tree_growing[1].position, global.bi.tree_growing[1].surface)
-		table.remove(global.bi.tree_growing, 1)
-	end
-
-end)
-
-
-
-function get_random_from_table (table)
+local function get_random_from_table (table)
    -- compressed table if some elements was deleted and we have {[1] = value1, [3] = value3}
    local compressed_table = {}
    for i, value in pairs (table) do
@@ -105,8 +89,9 @@ function get_random_from_table (table)
 end
 
 
-function get_random_tree_for_terrain (terrain_name) -- text
-   -- local terrain_names = {"grass-medium", "grass", "grass-dry", "dirt", "dirt-dark", "sand", "sand-dark", "red-desert", "red-desert-dark"}
+
+local function get_random_tree_for_terrain (terrain_name) -- text
+  
    local terrains = {}
    --Vanilla
 	terrains["grass-medium"] = 
@@ -649,8 +634,7 @@ end
 
 
 
-
-function Grow_tree(pos, surface)
+local function Grow_tree(pos, surface)
 	
 	local foundtree = false
 	--local surface = game.surfaces[1]
@@ -698,6 +682,25 @@ function Grow_tree(pos, surface)
 	end
 	
 end
+
+
+
+---- Growing Tree
+Event.register(defines.events.on_tick, function(event)	
+
+	while #global.bi.tree_growing > 0 do
+		if event.tick < global.bi.tree_growing[1].time then
+			break 
+		end
+
+		Grow_tree(global.bi.tree_growing[1].position, global.bi.tree_growing[1].surface)
+		table.remove(global.bi.tree_growing, 1)
+	end
+
+end)
+
+
+
 
 
 
