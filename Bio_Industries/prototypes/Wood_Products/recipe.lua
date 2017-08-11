@@ -130,11 +130,19 @@ data:extend({
 		normal =
 		{
 			energy_required = 1,
+<<<<<<< HEAD
 			enabled = true,
 			ingredients = 
 			{	  
 			  {"copper-plate", 1},
 			  {"raw-wood", 12}
+=======
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"copper-plate", 1},
+			  {"raw-wood", 10}
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
 			},
 		  result = "bi-wood-pipe",
 		  result_count = 4,
@@ -143,11 +151,19 @@ data:extend({
 		expensive =
 		{
 			energy_required = 2,
+<<<<<<< HEAD
 			enabled = true,
 			ingredients = 
 			{	  
 			  {"copper-plate", 1},
 			  {"raw-wood", 16}
+=======
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"copper-plate", 1},
+			  {"raw-wood", 10}
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
 			},
 		  result = "bi-wood-pipe",
 		  result_count = 4,

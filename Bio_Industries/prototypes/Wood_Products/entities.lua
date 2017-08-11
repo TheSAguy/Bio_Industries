@@ -19,14 +19,24 @@ pipepictures_w = function()
     {
       filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-straight-vertical-single.png",
       priority = "extra-high",
+<<<<<<< HEAD
       width = 64,
       height = 64,
+=======
+      width = 80,
+      height = 80,
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
       hr_version =
       {
         filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-vertical-single.png",
         priority = "extra-high",
+<<<<<<< HEAD
         width = 128,
         height = 128,
+=======
+        width = 160,
+        height = 160,
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
         scale = 0.5
       }
     },
@@ -70,9 +80,15 @@ pipepictures_w = function()
       {
         filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-horizontal-window.png",
         priority = "extra-high",
+<<<<<<< HEAD
         width = 256,
         height = 256,
         scale = 0.25
+=======
+        width = 128,
+        height = 128,
+        scale = 0.5
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
       }
     },
     straight_horizontal =
@@ -85,9 +101,15 @@ pipepictures_w = function()
       {
         filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-horizontal.png",
         priority = "extra-high",
+<<<<<<< HEAD
         width = 256,
         height = 256,
         scale = 0.25
+=======
+        width = 128,
+        height = 128,
+        scale = 0.5
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
       }
     },
     corner_up_right =
@@ -265,9 +287,15 @@ pipepictures_w = function()
       {
         filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-ending-right.png",
         priority = "extra-high",
+<<<<<<< HEAD
         width = 256,
         height = 256,
         scale = 0.25
+=======
+        width = 128,
+        height = 128,
+        scale = 0.5
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
       }
     },
     ending_left =
@@ -280,9 +308,15 @@ pipepictures_w = function()
       {
         filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-ending-left.png",
         priority = "extra-high",
+<<<<<<< HEAD
         width = 256,
         height = 256,
         scale = 0.25
+=======
+        width = 128,
+        height = 128,
+        scale = 0.5
+>>>>>>> 95b057e238108e81c24cf61e89e59568ea0aa431
       }
     },
     horizontal_window_background =
