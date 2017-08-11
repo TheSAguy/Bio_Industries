@@ -288,7 +288,9 @@ if data.raw["item-subgroup"]["pipe"] then
 
 	data.raw["item"]["bi-wood-pipe"].subgroup = "pipe"
 	data.raw["item"]["bi-wood-pipe"].order = "a[pipe]-a[pipe]-1-0"	
-
+	data.raw["item"]["bi-pipe-to-ground-wood"].subgroup = "pipe-to-ground"
+	data.raw["item"]["bi-pipe-to-ground-wood"].order = "a[pipe]-b[pipe-to-ground]-1-0"	
+	
 end
 
 

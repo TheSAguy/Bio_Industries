@@ -85,6 +85,16 @@ data:extend({
 		stack_size = 100
 	},
   
-
+	{
+		type = "item",
+		name = "bi-pipe-to-ground-wood",
+		icon = "__Bio_Industries__/graphics/icons/pipe-to-ground-wood.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "energy-pipe-distribution",
+		order = "a[pipe]-1b[pipe-to-ground]",
+		place_result = "bi-pipe-to-ground-wood",
+		stack_size = 50
+	},
+	  
 })
 

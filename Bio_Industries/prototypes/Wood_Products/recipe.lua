@@ -156,6 +156,35 @@ data:extend({
   },
   
   
+  {
+		type = "recipe",
+		name = "bi_pipe_to_ground_wood",
+		normal =
+		{
+			energy_required = 2,
+			enabled = true,
+			ingredients = 
+			{	  
+			  {"copper-plate", 4},
+			  {"bi-wood-pipe", 5}
+			},
+		  result = "bi-pipe-to-ground-wood",
+		  result_count = 2,
+		},
+		expensive =
+		{
+			energy_required = 4,
+			enabled = true,
+			ingredients = 
+			{	  
+			  {"copper-plate", 5},
+			  {"bi-wood-pipe", 6}
+			},
+		  result = "bi-pipe-to-ground-wood",
+		  result_count = 2,
+		},
+  },
   
+
  })
 
