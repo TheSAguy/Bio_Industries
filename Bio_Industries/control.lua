@@ -1,11 +1,10 @@
----Bio Industries - v.1.8.0
+---Bio Industries - v.1.8.1
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
 require ("control_tree")
 
-if not BI_Config then BI_Config = {} end
 
 --------------------------------------------------------------------
 
@@ -528,7 +527,7 @@ local function Player_Tile_Remove(event)
 
      local player = game.players[event.player_index]
      local tile_name = event.item_stack.name
-     local tile = game.item_prototypes[tile_name].place_as_tile_result
+	 local tile = game.item_prototypes[tile_name] and game.item_prototypes[tile_name].place_as_tile_result
 
 	 --- Solar Map has been removed
      if tile and player.mining_state.mining and tile_name == "bi-solar-mat" then
@@ -576,12 +575,12 @@ end
 local function Robot_Tile_Remove(event)
 	
 
-	 local robot = event.robot 
-     local tile_name = event.item_stack.name
-     local tile = game.item_prototypes[tile_name].place_as_tile_result
-
+	local robot = event.robot 
+    local tile_name = event.item_stack.name
+	local tile = game.item_prototypes[tile_name] and game.item_prototypes[tile_name].place_as_tile_result
+	
 	 --- Solar Map has been removed
-	 if tile and tile_name == "bi-solar-mat" then
+	if tile and tile_name == "bi-solar-mat" then
 	 
 		local tile_position = robot.position 
 
@@ -626,45 +625,8 @@ end
 --------------------------------------------------------------------
 
 
-
 ----- Bio Cannon Stuff
- Event.register(defines.events.on_tick, function(event)	 
-
-  	if global.Bio_Cannon_Table ~= nil then
-		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
-			global.Bio_Cannon_Counter = 60		
-			for ix, vx in pairs(global.Bio_Cannon_Table) do
-				if vx[1].valid and vx[2].valid and vx[3].valid then
-				vx[4]=vx[4]-1
-					if vx[4] <=0 then
-						Bio_Cannon_Check(vx)
-					end
-				else
-				if vx[1].valid then
-					vx[1].destroy()
-				end
-				if vx[2].valid then
-					vx[2].destroy()
-				end	
-				if vx[3].valid then
-					vx[3].destroy()
-				end	
-				end
-				
-			end		
-		else
-			global.Bio_Cannon_Counter = global.Bio_Cannon_Counter - 1
-		end
-	else
-
-		-- Event.register(defines.events.on_tick, function() end)
-		
-	end
-  
-end)
-
-
-function Bio_Cannon_Check(Bio_Cannon_List)
+local function Bio_Cannon_Check(Bio_Cannon_List)
 	
 	local Bio_Cannon=Bio_Cannon_List[1]
 	local Bio_Cannoni=Bio_Cannon_List[2]
@@ -756,6 +718,43 @@ function Bio_Cannon_Check(Bio_Cannon_List)
 		end
 	end
 end
+
+
+----- Bio Cannon Stuff
+ Event.register(defines.events.on_tick, function(event)	 
+
+  	if global.Bio_Cannon_Table ~= nil then
+		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
+			global.Bio_Cannon_Counter = 60		
+			for ix, vx in pairs(global.Bio_Cannon_Table) do
+				if vx[1].valid and vx[2].valid and vx[3].valid then
+				vx[4]=vx[4]-1
+					if vx[4] <=0 then
+						Bio_Cannon_Check(vx)
+					end
+				else
+				if vx[1].valid then
+					vx[1].destroy()
+				end
+				if vx[2].valid then
+					vx[2].destroy()
+				end	
+				if vx[3].valid then
+					vx[3].destroy()
+				end	
+				end
+				
+			end		
+		else
+			global.Bio_Cannon_Counter = global.Bio_Cannon_Counter - 1
+		end
+	else
+
+		-- Event.register(defines.events.on_tick, function() end)
+		
+	end
+  
+end)
 
 
 

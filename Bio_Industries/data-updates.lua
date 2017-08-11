@@ -284,6 +284,15 @@ if data.raw["item-subgroup"]["bob-material"] then
 end
 
 
+if data.raw["item-subgroup"]["pipe"] then 
+
+	data.raw["item"]["bi-wood-pipe"].subgroup = "pipe"
+	data.raw["item"]["bi-wood-pipe"].order = "a[pipe]-a[pipe]-1-0"	
+
+end
+
+
+
 ------------ Support for Bob's Greenhouse
 if data.raw["item"]["bob-greenhouse"] then 
 	data.raw["item"]["seedling"].place_result="seedling"

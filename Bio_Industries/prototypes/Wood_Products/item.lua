@@ -71,6 +71,20 @@ data:extend({
 	},
   
   
+  --- Wood Pipe
+	{
+		type = "item",
+		name = "bi-wood-pipe",
+		icon = "__Bio_Industries__/graphics/icons/wood_pipe.png",
+		flags = {"goes-to-quickbar"},
+		subgroup = "energy-pipe-distribution",
+		order = "a[pipe]-1a[pipe]",
+		place_result = "bi-wood-pipe",
+		fuel_value = "10MJ",
+		fuel_category = "chemical",
+		stack_size = 100
+	},
+  
 
 })
 

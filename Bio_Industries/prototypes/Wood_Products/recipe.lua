@@ -124,6 +124,37 @@ data:extend({
 
   },
 
+  {
+		type = "recipe",
+		name = "bi_wood_pipe",
+		normal =
+		{
+			energy_required = 1,
+			enabled = true,
+			ingredients = 
+			{	  
+			  {"copper-plate", 1},
+			  {"raw-wood", 12}
+			},
+		  result = "bi-wood-pipe",
+		  result_count = 4,
+		  requester_paste_multiplier = 15
+		},
+		expensive =
+		{
+			energy_required = 2,
+			enabled = true,
+			ingredients = 
+			{	  
+			  {"copper-plate", 1},
+			  {"raw-wood", 16}
+			},
+		  result = "bi-wood-pipe",
+		  result_count = 4,
+		  requester_paste_multiplier = 15
+		},
+  },
+  
   
   
  })
