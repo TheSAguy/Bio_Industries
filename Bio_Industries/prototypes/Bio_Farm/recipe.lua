@@ -436,7 +436,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi-crushed-stone",
-		icon = "__Bio_Industries__/graphics/icons/stone_crusher.png",
+		icon = "__Bio_Industries__/graphics/icons/crushed-stone.png",
 		category = "biofarm-mod-crushing",
 		subgroup = "raw-material",
 		order = "a[bi]-a-z[stone-crushed]",
