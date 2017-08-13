@@ -99,7 +99,7 @@ data:extend({
 			ingredients = 
 			
 			{	  
-			  {"iron-stick", 4},
+			  {"bi-rail-wood", 1},
 			  {"steel-plate", 1},
 			  {"raw-wood", 32}
 			},
@@ -113,7 +113,7 @@ data:extend({
 			ingredients = 
 			
 			{	  
-			  {"iron-stick", 4},
+			  {"bi-rail-wood", 1},
 			  {"steel-plate", 1},
 			  {"raw-wood", 32}
 			},

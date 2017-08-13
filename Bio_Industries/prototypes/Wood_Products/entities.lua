@@ -1,7 +1,7 @@
 
 require("prototypes.Wood_Products.demo-railpictures-wood")
 require("prototypes.Wood_Products.demo-remnants-wood")
-
+--require ("prototypes.Wood_Products.pipes")
 
 rail_pictures_w = function()
   return rail_pictures_internal_w({{"metals", "metals", mipmap = true},
@@ -17,28 +17,28 @@ pipepictures_w = function()
   return {
     straight_vertical_single =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-straight-vertical-single.png",
+      filename = "__base__/graphics/entity/pipe/pipe-straight-vertical-single.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = 80,
+      height = 80,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-vertical-single.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-straight-vertical-single.png",
         priority = "extra-high",
-        width = 128,
-        height = 128,
+        width = 160,
+        height = 160,
         scale = 0.5
       }
     },
     straight_vertical =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-straight-vertical.png",
+      filename = "__base__/graphics/entity/pipe/pipe-straight-vertical.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-vertical.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-straight-vertical.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -47,13 +47,13 @@ pipepictures_w = function()
     },
     straight_vertical_window =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-straight-vertical-window.png",
+      filename = "__base__/graphics/entity/pipe/pipe-straight-vertical-window.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-vertical-window.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-straight-vertical-window.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -62,43 +62,43 @@ pipepictures_w = function()
     },
     straight_horizontal_window =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-straight-horizontal-window.png",
+      filename = "__base__/graphics/entity/pipe/pipe-straight-horizontal-window.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-horizontal-window.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-straight-horizontal-window.png",
         priority = "extra-high",
-        width = 256,
-        height = 256,
-        scale = 0.25
+        width = 128,
+        height = 128,
+        scale = 0.5
       }
     },
     straight_horizontal =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-straight-horizontal.png",
+      filename = "__base__/graphics/entity/pipe/pipe-straight-horizontal.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-straight-horizontal.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-straight-horizontal.png",
         priority = "extra-high",
-        width = 256,
-        height = 256,
-        scale = 0.25
+        width = 128,
+        height = 128,
+        scale = 0.5
       }
     },
     corner_up_right =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-corner-up-right.png",
+      filename = "__base__/graphics/entity/pipe/pipe-corner-up-right.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-corner-up-right.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-corner-up-right.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -107,13 +107,13 @@ pipepictures_w = function()
     },
     corner_up_left =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-corner-up-left.png",
+      filename = "__base__/graphics/entity/pipe/pipe-corner-up-left.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-corner-up-left.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-corner-up-left.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -122,13 +122,13 @@ pipepictures_w = function()
     },
     corner_down_right =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-corner-down-right.png",
+      filename = "__base__/graphics/entity/pipe/pipe-corner-down-right.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-corner-down-right.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-corner-down-right.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -137,13 +137,13 @@ pipepictures_w = function()
     },
     corner_down_left =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-corner-down-left.png",
+      filename = "__base__/graphics/entity/pipe/pipe-corner-down-left.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-corner-down-left.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-corner-down-left.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -152,13 +152,13 @@ pipepictures_w = function()
     },
     t_up =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-t-up.png",
+      filename = "__base__/graphics/entity/pipe/pipe-t-up.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-t-up.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-t-up.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -167,13 +167,13 @@ pipepictures_w = function()
     },
     t_down =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-t-down.png",
+      filename = "__base__/graphics/entity/pipe/pipe-t-down.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-t-down.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-t-down.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -182,13 +182,13 @@ pipepictures_w = function()
     },
     t_right =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-t-right.png",
+      filename = "__base__/graphics/entity/pipe/pipe-t-right.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-t-right.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-t-right.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -197,13 +197,13 @@ pipepictures_w = function()
     },
     t_left =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-t-left.png",
+      filename = "__base__/graphics/entity/pipe/pipe-t-left.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-         filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-t-left.png",
+         filename = "__base__/graphics/entity/pipe/hr-pipe-t-left.png",
          priority = "extra-high",
          width = 128,
          height = 128,
@@ -212,13 +212,13 @@ pipepictures_w = function()
     },
     cross =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-cross.png",
+      filename = "__base__/graphics/entity/pipe/pipe-cross.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-cross.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-cross.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -227,13 +227,13 @@ pipepictures_w = function()
     },
     ending_up =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-ending-up.png",
+      filename = "__base__/graphics/entity/pipe/pipe-ending-up.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-ending-up.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-ending-up.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -242,13 +242,13 @@ pipepictures_w = function()
       },
     ending_down =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-ending-down.png",
+      filename = "__base__/graphics/entity/pipe/pipe-ending-down.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-ending-down.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-ending-down.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -257,43 +257,43 @@ pipepictures_w = function()
     },
     ending_right =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-ending-right.png",
+      filename = "__base__/graphics/entity/pipe/pipe-ending-right.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-ending-right.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-ending-right.png",
         priority = "extra-high",
-        width = 256,
-        height = 256,
-        scale = 0.25
+        width = 128,
+        height = 128,
+        scale = 0.5
       }
     },
     ending_left =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-ending-left.png",
+      filename = "__base__/graphics/entity/pipe/pipe-ending-left.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-ending-left.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-ending-left.png",
         priority = "extra-high",
-        width = 256,
-        height = 256,
-        scale = 0.25
+        width = 128,
+        height = 128,
+        scale = 0.5
       }
     },
     horizontal_window_background =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-horizontal-window-background.png",
+      filename = "__base__/graphics/entity/pipe/pipe-horizontal-window-background.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-horizontal-window-background.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-horizontal-window-background.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -302,13 +302,13 @@ pipepictures_w = function()
     },
     vertical_window_background =
     {
-      filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/pipe-vertical-window-background.png",
+      filename = "__base__/graphics/entity/pipe/pipe-vertical-window-background.png",
       priority = "extra-high",
       width = 64,
       height = 64,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/wood_pipe/hr-pipe-vertical-window-background.png",
+        filename = "__base__/graphics/entity/pipe/hr-pipe-vertical-window-background.png",
         priority = "extra-high",
         width = 128,
         height = 128,
@@ -937,6 +937,7 @@ data:extend({
     },
 	vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     pictures = pipepictures_w(),
+	--pictures = pipe_pictures,
     working_sound =
     {
       sound = {
@@ -1002,13 +1003,13 @@ data:extend({
     {
       up =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/pipe-to-ground-up.png",
+        filename = "__base__/graphics/entity/pipe-to-ground/pipe-to-ground-up.png",
         priority = "high",
         width = 64,
         height = 64, --, shift = {0.10, -0.04}
         hr_version =
         {
-           filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/hr-pipe-to-ground-up.png",
+           filename = "__base__/graphics/entity/pipe-to-ground/hr-pipe-to-ground-up.png",
            priority = "extra-high",
            width = 128,
            height = 128,
@@ -1017,13 +1018,13 @@ data:extend({
       },
       down =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/pipe-to-ground-down.png",
+        filename = "__base__/graphics/entity/pipe-to-ground/pipe-to-ground-down.png",
         priority = "high",
         width = 64,
         height = 64, --, shift = {0.05, 0}
         hr_version =
         {
-           filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/hr-pipe-to-ground-down.png",
+           filename = "__base__/graphics/entity/pipe-to-ground/hr-pipe-to-ground-down.png",
            priority = "extra-high",
            width = 128,
            height = 128,
@@ -1032,13 +1033,13 @@ data:extend({
       },
       left =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/pipe-to-ground-left.png",
+        filename = "__base__/graphics/entity/pipe-to-ground/pipe-to-ground-left.png",
         priority = "high",
         width = 64,
         height = 64, --, shift = {-0.12, 0.1}
         hr_version =
         {
-           filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/hr-pipe-to-ground-left.png",
+           filename = "__base__/graphics/entity/pipe-to-ground/hr-pipe-to-ground-left.png",
            priority = "extra-high",
            width = 128,
            height = 128,
@@ -1047,20 +1048,20 @@ data:extend({
       },
       right =
       {
-        filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/pipe-to-ground-right.png",
+        filename = "__base__/graphics/entity/pipe-to-ground/pipe-to-ground-right.png",
         priority = "high",
         width = 64,
         height = 64, --, shift = {0.1, 0.1}
         hr_version =
         {
-           filename = "__Bio_Industries__/graphics/entities/wood_products/pipe-to-ground-wood/hr-pipe-to-ground-right.png",
+           filename = "__base__/graphics/entity/pipe-to-ground/hr-pipe-to-ground-right.png",
            priority = "extra-high",
            width = 128,
            height = 128,
            scale = 0.5
         }
       },
-    }
+    },
   },
 
  

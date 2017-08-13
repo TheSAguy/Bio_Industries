@@ -7,7 +7,7 @@ require ("libs.item-functions") -- From Bob's Libary
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 
 
-
+require ("prototypes.Wood_Products.pipes")
 
 
 --- Move Stone Crusher up in tech tree
