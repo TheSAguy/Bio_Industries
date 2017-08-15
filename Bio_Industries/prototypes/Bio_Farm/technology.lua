@@ -162,10 +162,6 @@ data:extend({
 		effects = {
 			{
 				type = "unlock-recipe",
-				recipe = "bi-crushed-stone"
-			},
-			{
-				type = "unlock-recipe",
 				recipe = "bi-liquid-air"
 			},
 			{

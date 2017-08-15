@@ -184,6 +184,38 @@ data:extend({
 		  result_count = 2,
 		},
   },
+
+  {
+    type = "recipe",
+    name = "bi_large_wooden_chest",
+	normal =
+		{
+			energy_required = 2,
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"copper-plate", 2},
+			  {"wooden-chest", 8}
+			},
+		  result = "bi-large-wooden-chest",
+		  result_count = 1,
+		  requester_paste_multiplier = 4
+		},
+	expensive =
+		{
+			energy_required = 4,
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"copper-plate", 4},
+			  {"wooden-chest", 8}
+			},
+		  result = "bi-large-wooden-chest",
+		  result_count = 1,
+		  requester_paste_multiplier = 4,
+		},
+
+  },
   
 
  })

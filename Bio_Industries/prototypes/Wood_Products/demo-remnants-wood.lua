@@ -22,7 +22,8 @@ data:extend(
     tile_width = 2,
     tile_height = 2,
     bending_type = "straight",
-    pictures = destroyed_rail_pictures_w(),
+    --pictures = destroyed_rail_pictures_w(),
+	pictures = destroyed_rail_pictures(),
     time_before_removed = 60 * 60 * 45,
     time_before_shading_off = 60 * 60 * 1
   },
@@ -39,7 +40,8 @@ data:extend(
     tile_width = 4,
     tile_height = 8,
     bending_type = "turn",
-    pictures = destroyed_rail_pictures_w(),
+    --pictures = destroyed_rail_pictures_w(),
+	pictures = destroyed_rail_pictures(),
     time_before_removed = 60 * 60 * 45,
     time_before_shading_off = 60 * 60 * 1
   },

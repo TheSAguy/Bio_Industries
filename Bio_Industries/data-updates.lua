@@ -7,12 +7,18 @@ require ("libs.item-functions") -- From Bob's Libary
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 
 
+----Update the Wood Pipe Images
 require ("prototypes.Wood_Products.pipes")
-
+--- Update the Rail Images
+require ("prototypes.Wood_Products.update_rails")
 
 --- Move Stone Crusher up in tech tree
 thxbob.lib.tech.add_recipe_unlock("automation-2", "bi-stone-crusher")
 thxbob.lib.tech.add_recipe_unlock("automation-2", "bi-crushed-stone")
+
+
+-- Add Large Wooden Chest
+thxbob.lib.tech.add_recipe_unlock("logistics-2", "bi_large_wooden_chest")
 
 
 ---- Game Tweaks ----
@@ -81,16 +87,16 @@ thxbob.lib.tech.add_recipe_unlock ("logistics", "bi-big-wooden-pole")
 
 
 ---- Update Standard Rails to use and look like concrete
-require("prototypes.Wood_Products.demo-railpictures-concrete")
-require("prototypes.Wood_Products.demo-remnants-concrete")
+--require("prototypes.Wood_Products.demo-railpictures-concrete")
+--require("prototypes.Wood_Products.demo-remnants-concrete")
 	
 -- vanilla rail recipe update
 thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
 
 
 -- vanilla rail icon & images update
-data.raw["straight-rail"]["straight-rail"].pictures = rail_pictures_c()
-data.raw["curved-rail"]["curved-rail"].pictures = rail_pictures_c()
+--data.raw["straight-rail"]["straight-rail"].pictures = rail_pictures_c()
+--data.raw["curved-rail"]["curved-rail"].pictures = rail_pictures_c()
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
 data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
 data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"

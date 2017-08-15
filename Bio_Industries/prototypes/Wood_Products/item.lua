@@ -95,6 +95,20 @@ data:extend({
 		place_result = "bi-pipe-to-ground-wood",
 		stack_size = 50
 	},
-	  
+	--- Large wooden chest
+	  {
+		type = "item",
+		name = "bi-large-wooden-chest",
+		icon = "__Bio_Industries__/graphics/icons/large_wooden_chest_icon.png",
+		flags = {"goes-to-quickbar"},
+		fuel_category = "chemical",
+		fuel_value = "16MJ",
+		subgroup = "storage",
+		order = "a[items]-a[wooden-chest2]",
+		place_result = "bi-large-wooden-chest",
+		stack_size = 50
+	  },
+
+	
 })
 

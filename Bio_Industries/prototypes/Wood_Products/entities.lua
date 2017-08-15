@@ -1,7 +1,7 @@
 
 require("prototypes.Wood_Products.demo-railpictures-wood")
 require("prototypes.Wood_Products.demo-remnants-wood")
---require ("prototypes.Wood_Products.pipes")
+
 
 rail_pictures_w = function()
   return rail_pictures_internal_w({{"metals", "metals", mipmap = true},
@@ -850,7 +850,8 @@ data:extend({
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
-    pictures = rail_pictures_w(),
+    --pictures = rail_pictures_w(),
+	pictures = rail_pictures(),
   },
   {
     type = "curved-rail",
@@ -864,7 +865,8 @@ data:extend({
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
-    pictures = rail_pictures_w(),
+    --pictures = rail_pictures_w(),
+	pictures = rail_pictures(),
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
 
@@ -881,7 +883,8 @@ data:extend({
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
-    pictures = rail_pictures_w(),
+    --pictures = rail_pictures_w(),
+	pictures = rail_pictures(),
   },
   {
     type = "curved-rail",
@@ -896,7 +899,8 @@ data:extend({
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
-    pictures = rail_pictures_w(),
+    --pictures = rail_pictures_w(),
+	pictures = rail_pictures(),
 	placeable_by = { item="bi-rail-wood-bridge", count = 4}
   },
 
@@ -1193,4 +1197,49 @@ data:extend({
     },
   },
 
+  ------- Large Wooden Chest
+    {
+    type = "container",
+    name = "bi-large-wooden-chest",
+	icon = "__Bio_Industries__/graphics/icons/large_wooden_chest_icon.png",
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 1, result = "bi-large-wooden-chest"},
+    max_health = 200,
+    corpse = "small-remnants",
+    collision_box = {{-0.7, -0.7}, {0.7, 0.7}},
+    selection_box = {{-1.0, -1.0}, {1.0, 1.0}},
+    fast_replaceable_group = "container",
+    inventory_size = 64,
+    open_sound = { filename = "__base__/sound/wooden-chest-open.ogg" },
+    close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
+    picture =
+    {
+      filename = "__Bio_Industries__/graphics/entities/wood_products/large_wooden_chest.png",
+      priority = "extra-high",
+      width = 92,
+      height = 66,
+      shift = {0.5, 0}
+    },
+    circuit_wire_connection_point =
+    {
+      shadow =
+      {
+        red = {0.734375, 0.453125},
+        green = {0.609375, 0.515625},
+      },
+      wire =
+      {
+        red = {0.40625, 0.21875},
+        green = {0.40625, 0.375},
+      }
+    },
+    circuit_connector_sprites = get_circuit_connector_sprites({0.1875, 0.15625}, nil, 18),
+    circuit_wire_max_distance = 9
+  },
+
+  
+  
+  
+  
 })

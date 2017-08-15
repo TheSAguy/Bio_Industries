@@ -178,7 +178,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		subgroup = "raw-material",
 		order = "a[bi]-a-z[stone-crushed]",
-		stack_size = 400
+		stack_size = 800
 	},
 
 --- Intermediate items
