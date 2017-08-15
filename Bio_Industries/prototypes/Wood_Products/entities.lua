@@ -1217,9 +1217,10 @@ data:extend({
     {
       filename = "__Bio_Industries__/graphics/entities/wood_products/large_wooden_chest.png",
       priority = "extra-high",
-      width = 92,
-      height = 66,
-      shift = {0.5, 0}
+      width = 184,
+      height = 132,
+      shift = {0.5, 0},
+	  scale = 0.5,
     },
     circuit_wire_connection_point =
     {
