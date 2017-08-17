@@ -38,14 +38,6 @@ if game.entity_prototypes["bi_bio_farm"] then
 		
 	end
 
-	if game.entity_prototypes["bi-stone-crusher"] then	
-		if technologies["automation-2"].researched then
-			recipes["bi-stone-crusher"].enabled = true
-			recipes["bi-stone-crusher"].reload()
-			recipes["bi-crushed-stone"].enabled = true
-			recipes["bi-crushed-stone"].reload()
-		end
-	end
 	
 	if game.entity_prototypes["bi-big-wooden-pole"] then	
 		if technologies["logistics"].researched then

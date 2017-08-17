@@ -23,12 +23,6 @@ data:extend(
 				type = "unlock-recipe",
 				recipe = "bi-Logs_Mk4"
 			},
-		--[[
-			{
-				type = "unlock-recipe",
-				recipe = "bi-adv-fertiliser-1"
-			},
-			]]
 			{
 				type = "unlock-recipe",
 				recipe = "bi-adv-fertiliser-2"
@@ -38,10 +32,10 @@ data:extend(
 			"bi-fertiliser"
 		},
 		unit = {
-			count = 150,
+			count = 200,
 			ingredients = {
-				{"science-pack-1", 4},
-				{"science-pack-2", 2},
+				{"science-pack-1", 1},
+				{"science-pack-2", 1},
 				{"science-pack-3", 1},
 			},
 			time = 30

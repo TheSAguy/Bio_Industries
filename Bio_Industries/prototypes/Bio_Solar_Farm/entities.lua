@@ -98,15 +98,18 @@ data:extend({
 		{	
 		 {
 			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar1.png",
-			count = 4,
-			size = 1
+			count = 1,
+			size = 1,
+			probability = 1,
 		  },
+--[[		  
 		  {
 			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar2.png",
 			count = 1,
 			size = 2,
 			probability = 1,
 		  },
+	]]	  
 		},
 		inner_corner =
 		{

@@ -34,7 +34,7 @@ data:extend({
 		prerequisites = {"optics"},
 		unit =
 		{
-			count = 20,
+			count = 25,
 			ingredients =
 			{
 			  {"science-pack-1", 1}
@@ -90,9 +90,9 @@ data:extend({
 		prerequisites = {"advanced-material-processing"},
 		unit = 
 		{
-			count = 100,
+			count = 150,
 			ingredients = {
-				{"science-pack-1", 2},
+				{"science-pack-1", 1},
 				{"science-pack-2", 1}
 			},
 			time = 30
@@ -117,10 +117,10 @@ data:extend({
 		prerequisites =	{"bi-coal-processing"},
 		unit = 
 		{
-			count = 100,
+			count = 150,
 			ingredients = {
-				{"science-pack-1", 3},
-				{"science-pack-2", 2},
+				{"science-pack-1", 1},
+				{"science-pack-2", 1},
 				{"science-pack-3", 1},
 			},
 			time = 35
@@ -142,10 +142,10 @@ data:extend({
 		prerequisites = {"bi-coal-processing-2"},
 		unit = 
 		{
-			count = 100,
+			count = 250,
 			ingredients = {
-				{"science-pack-1", 3},
-				{"science-pack-2", 2},
+				{"science-pack-1", 1},
+				{"science-pack-2", 1},
 				{"science-pack-3", 1},
 				{"production-science-pack", 1},
 			},
@@ -200,9 +200,9 @@ data:extend({
 			"bi_bio_farming"
 		},
 		unit = {
-			count = 200,
+			count = 250,
 			ingredients = {
-				{"science-pack-1", 2},
+				{"science-pack-1", 1},
 				{"science-pack-2", 1}
 			},
 			time = 30

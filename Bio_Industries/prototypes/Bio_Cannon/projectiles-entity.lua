@@ -31,11 +31,11 @@ data:extend({
 				{
 					{
 					type = "damage",
-					damage = {amount = 100 * NE_Damage, type = "physical"}
+					damage = {amount = 120 * NE_Damage, type = "physical"}
 					},
 					{
 					type = "damage",
-					damage = {amount = 150 * NE_Damage, type = "explosion"}
+					damage = {amount = 180 * NE_Damage, type = "explosion"}
 					},
 					
 				}
@@ -129,11 +129,11 @@ data:extend({
 				{
 					{
 					type = "damage",
-					damage = {amount = 100 * NE_Damage, type = "physical"}
+					damage = {amount = 120 * NE_Damage, type = "physical"}
 					},
 					{
 					type = "damage",
-					damage = {amount = 150 * NE_Damage, type = "explosion"}
+					damage = {amount = 180 * NE_Damage, type = "explosion"}
 					},
 					{
 					type = "damage",

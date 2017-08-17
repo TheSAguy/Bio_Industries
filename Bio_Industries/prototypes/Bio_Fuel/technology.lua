@@ -23,10 +23,10 @@ data:extend(
 			"bi-advanced-biotechnology"
 		},
 		unit = {
-			count = 150,
+			count = 200,
 			ingredients = {
-				{"science-pack-1", 2},
-				{"science-pack-2", 2},
+				{"science-pack-1", 1},
+				{"science-pack-2", 1},
 				{"science-pack-3", 1},
 				{"production-science-pack", 1},
 			},

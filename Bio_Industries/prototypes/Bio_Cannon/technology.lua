@@ -23,12 +23,12 @@ data:extend({
 		prerequisites = {"military-2"},
 		unit = 
 		{
-			count = 100,
+			count = 300,
 			ingredients =
 			{
-				{"science-pack-1", 2},
-				{"science-pack-2", 2},	
-				{"military-science-pack", 4},				
+				{"science-pack-1", 1},
+				{"science-pack-2", 1},	
+				{"military-science-pack", 1},				
 			},
 			time = 30,
 		}

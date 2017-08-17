@@ -40,7 +40,7 @@ data:extend({
 		stack_size= 10,
 	},
   
-  ---- Light inside Bio Farm
+  ---- Light inside Bio Farm (Hidden)
 	{
 		type= "item",
 		name= "bi_light_for_Bio_Farm",
@@ -53,7 +53,7 @@ data:extend({
 		enable = false,
 	},
   
-  ---- Electric pole inside Bio Farm
+  ---- Electric pole inside Bio Farm (Hidden)
 	{
 		type = "item",
 		name = "bi_medium-electric-pole_for_Bio_Farm",
@@ -66,7 +66,7 @@ data:extend({
 		enable = false,
 	},
   
-  ----- Solar Panel inside Bio Farm
+  ----- Solar Panel inside Bio Farm (Hidden)
 	{
 		type = "item",
 		name = "bi_solar-panel_for_Bio_Farm",
@@ -80,7 +80,7 @@ data:extend({
 	},
   
   
-  ----Bio Greenhouse
+  ----Bio Greenhouse (Nursery)
 	{
 		type= "item",
 		name= "bio-greenhouse",
@@ -127,7 +127,7 @@ data:extend({
 		subgroup = "raw-material",	
 		order = "b[woodpulp]",			
 		order = "a-b[bi-woodpulp]",
-		stack_size = 400
+		stack_size = 800
 	},  
 
 		--- Ash 

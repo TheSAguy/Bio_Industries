@@ -31,11 +31,11 @@ data:extend({
 				{
 					{
 					type = "damage",
-					damage = {amount = 100 * NE_Damage, type = "physical"}
+					damage = {amount = 120 * NE_Damage, type = "physical"}
 					},
 					{
 					type = "damage",
-					damage = {amount = 100 * NE_Damage, type = "explosion"}
+					damage = {amount = 180 * NE_Damage, type = "explosion"}
 					},
 					{
 					type = "damage",
@@ -178,7 +178,7 @@ data:extend({
 	
 	
     result = "Bio_Cannon_Bio_Ammo",
-	result_count = 2,
+	result_count = 1,
  },
 
  })

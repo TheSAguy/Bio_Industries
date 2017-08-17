@@ -6,7 +6,7 @@ require ("util")
 data:extend({
 
  
----- Seedling
+------- Seedling
   {
     type = "land-mine",
     name = "seedling",
@@ -45,8 +45,7 @@ data:extend({
 	trigger_radius = 0,
   },
   
- 
-	------- Bio Farm
+------- Bio Farm
   {
     type = "assembling-machine",
     name = "bi_bio_farm",
@@ -128,7 +127,8 @@ data:extend({
     },
     allowed_effects = {"consumption", "speed"}
   },
-  ------- Bio Farm Lamp
+
+------- Bio Farm Lamp
   {
     type = "lamp",
     name = "bi_light_for_Bio_Farm",
@@ -171,7 +171,8 @@ data:extend({
     },
 
   },
-  ------- Bio Farm Pole
+
+------- Bio Farm Pole
   {
     type = "electric-pole",
     name = "bi_medium-electric-pole_for_Bio_Farm",
@@ -248,7 +249,7 @@ data:extend({
     },
   },
   
-  ------- Bio Farm Solar Panel
+------- Bio Farm Solar Panel
   {
     type = "solar-panel",
     name = "bi_solar-panel_for_Bio_Farm",
@@ -273,10 +274,8 @@ data:extend({
     },
     production = "100kW"
   },
-  
-  
-  
-  ---- Greenhouse
+    
+------ Greenhouse
    {
     type = "assembling-machine",
     name = "bio-greenhouse",

@@ -13,8 +13,8 @@ require ("prototypes.Wood_Products.pipes")
 require ("prototypes.Wood_Products.update_rails")
 
 --- Move Stone Crusher up in tech tree
-thxbob.lib.tech.add_recipe_unlock("automation-2", "bi-stone-crusher")
-thxbob.lib.tech.add_recipe_unlock("automation-2", "bi-crushed-stone")
+thxbob.lib.tech.add_recipe_unlock("automation", "bi-stone-crusher")
+thxbob.lib.tech.add_recipe_unlock("automation", "bi-crushed-stone")
 
 
 -- Add Large Wooden Chest
