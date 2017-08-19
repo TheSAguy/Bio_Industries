@@ -13,7 +13,7 @@ Veden - He added some amazing code to my mod and has an amazing AI behavior mod:
 ThaPear, Semvoz,  Billw, Adil, Rseding91, Chlue - Coding help!
 Supercheese - Swarm Mod.
 Afforess - Misanthrope Mod.
-Darkfrei - Help with the solar-mat & tree stuff.
+Darkfrei - Help with the solar-mat, tree stuff, code optimazation, graphics and a bunch more stuff.
 drs9999 - Tree Farm Mod
 Veni - A lot of help with the Bio-Fuel section
 SpeedDaemon - Greenhouse Mod

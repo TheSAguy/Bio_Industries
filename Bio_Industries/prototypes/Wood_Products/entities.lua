@@ -1,8 +1,8 @@
 
-require("prototypes.Wood_Products.demo-railpictures-wood")
+--require("prototypes.Wood_Products.demo-railpictures-wood")
 require("prototypes.Wood_Products.demo-remnants-wood")
 
-
+--[[
 rail_pictures_w = function()
   return rail_pictures_internal_w({{"metals", "metals", mipmap = true},
                                  {"backplates", "backplates", mipmap = true},
@@ -10,7 +10,7 @@ rail_pictures_w = function()
                                  {"stone_path", "stone-path", variations = 3},
                                  {"stone_path_background", "stone-path-background", variations = 3}})
 end
-
+]]
 
 
 pipepictures_w = function()
@@ -879,7 +879,7 @@ data:extend({
 	collision_mask = { "object-layer", "not-colliding-with-itself" },
     minable = {mining_time = 0.5, result = "bi-rail-wood-bridge"},
     max_health = 60,
-    corpse = "straight-rail-remnants-wood",
+    corpse = "straight-rail-remnants-wood-bridge",
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
@@ -894,7 +894,7 @@ data:extend({
 	collision_mask = { "object-layer", "not-colliding-with-itself" },
     minable = {mining_time = 0.5, result = "bi-rail-wood-bridge", count = 4},
     max_health = 120,
-    corpse = "curved-rail-remnants-wood",
+    corpse = "curved-rail-remnants-wood-bridge",
     collision_box = {{-0.75, -0.55}, {0.75, 1.6}},
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
