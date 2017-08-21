@@ -1,16 +1,7 @@
 
---require("prototypes.Wood_Products.demo-railpictures-wood")
+
 require("prototypes.Wood_Products.demo-remnants-wood")
 
---[[
-rail_pictures_w = function()
-  return rail_pictures_internal_w({{"metals", "metals", mipmap = true},
-                                 {"backplates", "backplates", mipmap = true},
-                                 {"ties", "ties", variations = 3},
-                                 {"stone_path", "stone-path", variations = 3},
-                                 {"stone_path_background", "stone-path-background", variations = 3}})
-end
-]]
 
 
 pipepictures_w = function()

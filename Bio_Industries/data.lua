@@ -59,6 +59,15 @@ require("prototypes.Wood_Products.item")
 require("prototypes.Wood_Products.recipe")
 
 
+--- Dart Turret (Bio turret
+
+require("prototypes.Bio_Turret.item-group")
+require("prototypes.Bio_Turret.damage-type")
+require("prototypes.Bio_Turret.item")
+require("prototypes.Bio_Turret.recipe")
+require("prototypes.Bio_Turret.entity")
+
+
 
 
 if BI.Settings.Bio_Cannon then

@@ -1,6 +1,7 @@
 -------------------------
 -- Cross Mod Detection --
 -------------------------
+require ("util")
 
 if not BI_Config then BI_Config = {} end
 if not BI_Config.mod then BI_Config.mod = {} end
@@ -45,8 +46,16 @@ end
 
 
 --Detect N.E. Enemies
-if data.raw["unit"]["small-biter-Mk2"] ~= nil or data.raw["unit"]["small-spitter-Mk2"] ~= nil or data.raw["logistic-container"]["Artifact-collector-area"] ~= nil then
+if data.raw["unit"]["small-biter-Mk2"] ~= nil or data.raw["unit"]["small-spitter-Mk2"] ~= nil then
 	BI_Config.mod.NEEnemies=true
 else 
 	BI_Config.mod.NEEnemies=false
+end
+
+
+--Detect Endgame Combat
+if data.raw["recipe"]["concussion-turret"] ~= nil or data.raw["item"]["cannon-turret"] ~= nil then
+	BI_Config.mod.EndgameCombat=true
+else 
+	BI_Config.mod.EndgameCombat=false
 end

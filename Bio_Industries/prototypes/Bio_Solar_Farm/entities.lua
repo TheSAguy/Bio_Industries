@@ -333,7 +333,7 @@ if BI.Settings.BI_Accumulator then
 		icon = "__Bio_Industries__/graphics/icons/bi_LargeAccumulator.png",
 		flags = {"placeable-neutral", "player-creation"},
 		minable = {hardness = 0.2, mining_time = 0.5, result = "bi_accumulator"},
-		max_health = 150,
+		max_health = 500,
 		corpse = "big-remnants",
 		collision_box = {{-2, -2}, {2, 2}},
 		selection_box = {{-2.5, -2.5}, {2.5, 2.5}},

@@ -29,6 +29,7 @@ inv_extension2 =
 
 data:extend({
 
+
 	-- Bio Cannon Artillery Range Overlay
 	{
 		type = "ammo-turret",
@@ -52,6 +53,7 @@ data:extend({
 			ammo_category = "Bio_Cannon_Ammo",
 			cooldown = 2,
 			range = 85,
+			min_range = 20,
 			projectile_creation_distance = 1.8,
 			action ={}
 		},
@@ -71,7 +73,7 @@ data:extend({
 		call_for_help_radius = 40			   
 
 	},
-	
+--[[	
 	-- Bio Cannon Artillery
    {
 		type = "container",
@@ -101,11 +103,13 @@ data:extend({
 			shift = {1.125, -1.625}
 		}
 	},
+
+]]
 	--Inventory
 
 	{
 		type = "ammo-turret",
-		name = "Bio_Cannoni",
+		name = "Bio_Cannon",
 		icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
 		flags = {"placeable-neutral", "placeable-player", "player-creation"},
 		open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
@@ -147,11 +151,11 @@ data:extend({
 		---- Radar
   {
     type = "radar",
-    name = "Bio_Cannonr",
+    name = "Bio_Cannon_r",
     icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
 	selectable_in_game = false,
-    minable = {mining_time = 5, result = "Bio_Cannon_Area"},
+    --minable = {mining_time = 5, result = "Bio_Cannon_Area"},
 	max_health = 600,
 	corpse = "big-remnants",
 	dying_explosion = "massive-explosion",

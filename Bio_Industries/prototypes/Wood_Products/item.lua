@@ -104,7 +104,7 @@ data:extend({
 		fuel_category = "chemical",
 		fuel_value = "16MJ",
 		subgroup = "storage",
-		order = "a[items]-a[wooden-chest2]",
+		order = "a[items]-aa[wooden-chest]",
 		place_result = "bi-large-wooden-chest",
 		stack_size = 50
 	  },

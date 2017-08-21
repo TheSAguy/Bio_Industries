@@ -27,7 +27,7 @@ data:extend({
 			}
 		},
 		subgroup = "ammo",
-		order = "a[Bio_Cannon_Ammo]-a[Basic]",
+		order = "z[Bio_Cannon_Ammo]-a[Basic]",
 		stack_size = 50,
 	},
 
@@ -58,7 +58,7 @@ data:extend({
 			}
 		},
 		subgroup = "ammo",
-		order = "a[Bio_Cannon_Ammo]-b[Poison]",
+		order = "z[Bio_Cannon_Ammo]-b[Poison]",
 		stack_size = 50,
 	},
 

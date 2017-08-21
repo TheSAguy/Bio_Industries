@@ -145,7 +145,7 @@ data:extend({
 			}
 		},
 		subgroup = "ammo",
-		order = "a[Bio_Cannon_Ammo]-c[Bio]",
+		order = "z[Bio_Cannon_Ammo]-c[Bio]",
 		stack_size = 50,
 	},
 

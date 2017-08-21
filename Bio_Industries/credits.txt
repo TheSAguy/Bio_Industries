@@ -13,7 +13,8 @@ Veden - He added some amazing code to my mod and has an amazing AI behavior mod:
 ThaPear, Semvoz,  Billw, Adil, Rseding91, Chlue - Coding help!
 Supercheese - Swarm Mod.
 Afforess - Misanthrope Mod.
-Darkfrei - Help with the solar-mat, tree stuff, code optimazation, graphics and a bunch more stuff.
+Darkfrei - Help with the solar-mat & tree stuff.
+d3x0r - Wooden Rail Bridge images and rail work in general
 drs9999 - Tree Farm Mod
 Veni - A lot of help with the Bio-Fuel section
 SpeedDaemon - Greenhouse Mod
@@ -23,4 +24,4 @@ LukeM212 &  JJtJJ - Tree Mods
 DySoch - DyTech, showing me what was possible
 Bobingabout - Bob's Mods - Learned a lot from looking at your amazing work and am using a lot of your great code!
 YuokiTani - Art!!  Amazing work!
-
+And everyone else who give feedback/suggestions/help on the forums!

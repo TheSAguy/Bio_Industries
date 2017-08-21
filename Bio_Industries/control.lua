@@ -1,10 +1,11 @@
----Bio Industries - v.1.8.5
+---Bio Industries - v.1.8.6
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
+--require ("libs/detectmod")
 require ("stdlib/event/event")
 require ("control_tree")
-
+require ("control_bio_cannon")
 
 --------------------------------------------------------------------
 
@@ -68,7 +69,6 @@ local function On_Config_Change()
 		end
 	end
 	
-	
 end
 
 --------------------------------------------------------------------
@@ -93,7 +93,9 @@ end)
 --------------------------------------------------------------------
 local function On_Built(event)
     local entity = event.created_entity
-   
+   	local surface = entity.surface
+	local force = entity.force
+	local position = entity.position
    
 	--- Seedling planted
 	if entity.valid and entity.name == "seedling" then
@@ -103,9 +105,7 @@ local function On_Built(event)
     --- Bio Farm has been built
 	if entity.valid and entity.name == "bi_bio_farm" then
 	writeDebug("Bio Farm has been built")
-		local surface = entity.surface
-		local force = entity.force
-		local position = entity.position		   
+		   
 		local b_farm = entity
 		local pole_name = "bi_medium-electric-pole_for_Bio_Farm"  
 		local panel_name = "bi_solar-panel_for_Bio_Farm"  
@@ -130,9 +130,7 @@ local function On_Built(event)
 	--- Bio Solar Farm has been built
 	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 	writeDebug("Bio Solar Farm has been built")
-		local surface = entity.surface
-		local force = entity.force
-		local position = entity.position		   
+		   
 		local solar_farm = entity
 		local pole_name = "bi_medium-electric-pole_for_Bio_Farm"  		
 		local sf_image = "bi_bio_Solar_Farm_Image"   
@@ -171,7 +169,7 @@ local function On_Built(event)
 
 	]]
 	
-	
+	--[[
 	--- Bio Cannon has been built
 	if entity.valid and entity.name == "Bio_Cannon_Area" then
 	
@@ -211,6 +209,38 @@ local function On_Built(event)
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonI,New_Bio_CannonR,0})
 		
 	end
+	]]
+			
+	--- Bio Cannon has been built
+	if entity.valid and entity.name == "Bio_Cannon_Area" then
+	
+	
+	local New_Bio_Cannon
+	local New_Bio_CannonR
+	
+	writeDebug("Bio Cannon has been built")				
+
+		New_Bio_Cannon  = surface.create_entity({name = "Bio_Cannon", position = position, direction = event.created_entity.direction, force = force})
+		New_Bio_CannonR = surface.create_entity({name = "Bio_Cannon_r", position = position, direction = event.created_entity.direction, force = force})
+
+		New_Bio_Cannon.health = event.created_entity.health
+		
+		event.created_entity.destroy()
+	
+		
+		New_Bio_CannonR.operable = false
+		New_Bio_CannonR.destructible = false
+		New_Bio_CannonR.minable = false
+		
+		if global.Bio_Cannon_Table == nil then
+			global.Bio_Cannon_Table = {}
+			Event.register(defines.events.on_tick, function(event) end)
+		end
+
+		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonR,0})
+		
+	end
+
 
 
 	
@@ -623,140 +653,6 @@ local function Robot_Tile_Remove(event)
 	
 end
 --------------------------------------------------------------------
-
-
------ Bio Cannon Stuff
-local function Bio_Cannon_Check(Bio_Cannon_List)
-	
-	local Bio_Cannon=Bio_Cannon_List[1]
-	local Bio_Cannoni=Bio_Cannon_List[2]
-	local inventory = Bio_Cannoni.get_inventory(1)
-	local inventoryContent = inventory.get_contents()
-	local AmmoType
-	local ammo = 0
-	local spawner
-	local worms
-	local target
-	local delay
-
-	
-	if inventoryContent ~= nil then
-		for n,a in pairs(inventoryContent) do
-			AmmoType=n
-			ammo=a
-		end
-	end
-	
-	if ammo > 0 and Bio_Cannon_List[3].energy > 0 then	
-			
-			local radius = 80 -- Radius it looks for a Spawner / Worm to fire at
-			local radius2 = 85 -- Radius it looks for a Spawner / Worm to fire at
-			local pos = Bio_Cannon.position
-			
-			local area = {{pos.x - radius, pos.y - radius}, {pos.x + radius, pos.y + radius}}
-	
-			--- Look for spawners
-			spawner = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
-			worms = Bio_Cannon.surface.find_entities_filtered({area = area, type = "turret", force= "enemy"})
-				
-			writeDebug("The Number of Spawners are: " .. #spawner)
-			writeDebug("The Number of Worms are: " .. #worms)
-			--Find Spawner Target
-			if #spawner > 0 and target == nil then
-				for _,enemy in pairs(spawner) do
-					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
-					writeDebug("The Distance is: " .. distance)
-					if (distance > 10) and (distance < (radius2+1)) then
-					
-						if target == nil then
-							target={enemy}
-						end
-					end
-				end
-			-- First attack the Spawners, then worms.
-			elseif #worms > 0 and target == nil then
-				for _,enemy in pairs(worms) do
-					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
-					writeDebug("The Distance is: " .. distance)
-					if (distance > 10) and (distance < (radius2+1)) then
-					
-						if target == nil then
-							target={enemy}
-						end
-					end
-				end
-			end
-			
-	
-
-
-		--Fire at Spawner
-		if target ~= nil then
-
-			Bio_Cannon.surface.create_entity({name=AmmoType, position = {x = Bio_Cannon.position.x - 0.5, y = Bio_Cannon.position.y - 4.5}, force = Bio_Cannon.force, target = target[1], speed= 0.1})
-			Bio_Cannon.surface.pollute(Bio_Cannon.position,100) -- The firing of the Hive Buster will causes Pollution
-			Bio_Cannon.surface.set_multi_command{command = {type=defines.command.attack, target=Bio_Cannon, distraction=defines.distraction.by_enemy},unit_count = math.floor(100 * game.forces.enemy.evolution_factor), unit_search_distance = 500}
-			
-			--Reduce Ammo
-			ammo = ammo-1
-			inventory.clear()
-			if ammo > 0 then
-				inventory.insert({name = AmmoType, count = ammo})
-			end
-			
-			--Delay between shots
-			if AmmoType == "Bio_Cannon_Basic_Ammo" then 
-				delay = 10
-			elseif AmmoType == "Bio_Cannon_Poison_Ammo" then 
-				delay = 15
-			else 
-			delay = 20
-			end
-			
-			Bio_Cannon_List[4]=delay
-			
-		end
-	end
-end
-
-
------ Bio Cannon Stuff
- Event.register(defines.events.on_tick, function(event)	 
-
-  	if global.Bio_Cannon_Table ~= nil then
-		if global.Bio_Cannon_Counter == 0 or global.Bio_Cannon_Counter == nil then
-			global.Bio_Cannon_Counter = 60		
-			for ix, vx in pairs(global.Bio_Cannon_Table) do
-				if vx[1].valid and vx[2].valid and vx[3].valid then
-				vx[4]=vx[4]-1
-					if vx[4] <=0 then
-						Bio_Cannon_Check(vx)
-					end
-				else
-				if vx[1].valid then
-					vx[1].destroy()
-				end
-				if vx[2].valid then
-					vx[2].destroy()
-				end	
-				if vx[3].valid then
-					vx[3].destroy()
-				end	
-				end
-				
-			end		
-		else
-			global.Bio_Cannon_Counter = global.Bio_Cannon_Counter - 1
-		end
-	else
-
-		-- Event.register(defines.events.on_tick, function() end)
-		
-	end
-  
-end)
-
-
 
 --------------------------------------------------------------------
 
