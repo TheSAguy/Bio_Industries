@@ -52,6 +52,7 @@ for i, handler in pairs (global.rails) do
 	handler.table.sheet.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties.png"
 	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.sheet.filename)
 	handler.table.sheet.tint = tint
+	handler.table.sheet.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
 end
 log("End rails") 		---------------------
 end
@@ -83,6 +84,7 @@ for i, handler in pairs (global.remnants) do
 	handler.table.sheet.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties-remnants.png"
 	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.sheet.filename)
 	handler.table.sheet.tint = tint
+	handler.table.sheet.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
 end
 log("End remnants") 		---------------------
 end

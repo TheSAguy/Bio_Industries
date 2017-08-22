@@ -12,6 +12,8 @@ require ("prototypes.Wood_Products.pipes")
 --- Update the Rail Images
 require ("prototypes.Wood_Products.wooden_rail_bridge_update")
 require ("prototypes.Wood_Products.tint_rails_remnants_function")
+--- Bridge Rail Remnants
+require ("prototypes.Wood_Products.update_bridge_rails_remnants")
 
 	-- Concrete Rail
 set_tint_to_rails ({

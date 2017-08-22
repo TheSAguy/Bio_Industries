@@ -9,7 +9,7 @@ data:extend({
     icon = "__Bio_Industries__/graphics/icons/bio_turret_icon.png",
     flags = {"goes-to-quickbar"},
     subgroup = "defensive-structure",
-    order = "a[turret]-x[gun-turret]",
+	order = "aa[turret]-a[gun-turret]",
     place_result = "bio-turret",
     stack_size = 50
   },

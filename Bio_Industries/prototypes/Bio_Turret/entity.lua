@@ -1,6 +1,5 @@
 
 
---- Bio Ammo
 data:extend({
 
 
@@ -120,7 +119,7 @@ return
 			line_length = inputs.line_length and inputs.line_length or 8,
 			axially_symmetrical = false,
 			run_mode = inputs.run_mode and inputs.run_mode or "forward",
-			shift = { 0.25, 0 },
+			shift = { 0.25, -0.25 },
 		}
 	}
 }
@@ -137,15 +136,17 @@ data:extend({
     minable = {mining_time = 0.25, result = "bio-turret"},
     max_health = 250,
     corpse = "medium-remnants",
-    collision_box = {{-0.7, -0.7 }, {0.7, 0.7}},
-    selection_box = {{-1, -1 }, {1, 1}},
-    rotation_speed = 0.015,
+	 
+	 -- darkfrei: just another size of boxes, that's all
+    collision_box = {{-0.4, -0.4 }, {0.4, 0.4}},
+    selection_box = {{-.4, -.4 }, {.4, .4}},
+    rotation_speed = 0.05,
     preparing_speed = 0.08,
     folding_speed = 0.08,
     dying_explosion = "medium-explosion",
     inventory_size = 1,
     automated_ammo_count = 10,
-    attacking_speed = 0.05,
+    attacking_speed = 1, -- makes nothing, it's animation's parameter
    
 	folded_animation = turret_pic{direction_count = 8, line_length = 1},
 	preparing_animation = turret_pic{direction_count = 8, line_length = 1},
@@ -153,16 +154,20 @@ data:extend({
 	attacking_animation = turret_pic{},
 	folding_animation = turret_pic{direction_count = 8, line_length = 1, run_mode = "backward"},
 
-   vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+	
+	-- darkfrei: wood impact sound for woods!
+   --vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+   vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 }, 
     
     attack_parameters =
     {
       type = "projectile",
       ammo_category = "Bio_Turret_Ammo",
-      cooldown = 2,  --- default 6
-      projectile_creation_distance = 1.39375,
-	  projectile_center = {0.17, 0.65}, -- same as gun_turret_attack shift
-      shell_particle =
+      cooldown = 3.6,  -- cooldown = 6 -- darkfrei: means cooldown 6/60 sec or 10 shoots at second; = 60 is one shoot/sec
+      projectile_creation_distance = 1.41,
+	  projectile_center = {-0.0625, 0.55},
+	  -- darkfrei: darts haven't shells :)
+--[[      shell_particle =
       {
         name = "shell-particle",
         direction_deviation = 0.1,
@@ -172,7 +177,7 @@ data:extend({
         creation_distance = -1.925,
         starting_frame_speed = 0.2,
         starting_frame_speed_deviation = 0.1
-      },
+      }, ]]
       range = 20,
 	  sound =
 	  {
