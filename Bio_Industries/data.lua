@@ -66,7 +66,8 @@ require("prototypes.Bio_Turret.damage-type")
 require("prototypes.Bio_Turret.item")
 require("prototypes.Bio_Turret.recipe")
 require("prototypes.Bio_Turret.entity")
-require("prototypes.Bio_Turret.technology-updates")
+
+
 
 
 
@@ -84,8 +85,7 @@ if BI.Settings.Bio_Cannon then
 	require("prototypes.Bio_Cannon.projectiles-item")
 	require("prototypes.Bio_Cannon.projectiles-recipe")
 	require("prototypes.Bio_Cannon.projectiles-entity")
-	require("prototypes.Bio_Cannon.technology-updates")
-	
+
 end
 
 ---- Add Bio Fuel & Plastic

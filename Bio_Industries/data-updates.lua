@@ -37,18 +37,18 @@ set_tint_to_remnants ({
 	data.raw["rail-remnants"]["curved-rail-remnants-wood"]}, 
 	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
 
---[[
-	-- Wood Bridge Rail
-	set_tint_to_rails ({
-	data.raw["straight-rail"]["bi-straight-rail-wood-bridge"],
-	data.raw["curved-rail"]["bi-curved-rail-wood-bridge"]}, 
-	{r = 139/255, g = 69/255, b = 19/255, a = 1}) -- wood
+-- Damage Bonus to Ammo
+-- Don't duplicate what NE does
+if not (mods[Natural_Evolution_Buildings] or data.raw["item"]["TerraformingStation"] ~= nil) then
+	require("prototypes.Bio_Turret.technology-updates")
+end
 
-set_tint_to_remnants ({
-	data.raw["rail-remnants"]["straight-rail-remnants-wood"],
-	data.raw["rail-remnants"]["curved-rail-remnants-wood"]}, 
-	{r = 139/255, g = 69/255, b = 19/255, a = 1}) -- wood
-]]
+if not (mods[Natural_Evolution_Buildings] or data.raw["item"]["TerraformingStation"] ~= nil) then
+	-- Don't duplicate what NE does
+	if not mods[Natural_Evolution_Buildings] then
+		require("prototypes.Bio_Cannon.technology-updates")
+	end
+end
 
 --- Move Stone Crusher up in tech tree
 thxbob.lib.tech.add_recipe_unlock("automation", "bi-stone-crusher")

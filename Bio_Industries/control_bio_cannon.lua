@@ -26,8 +26,8 @@ local function Bio_Cannon_Check(Bio_Cannon_List)
 	
 	if ammo > 0 and Bio_Cannon_List[2].energy > 0 then	
 			
-			local radius = 80 -- Radius it looks for a Spawner / Worm to fire at
-			local radius2 = 85 -- Radius it looks for a Spawner / Worm to fire at
+			local radius = 85 -- Radius it looks for a Spawner / Worm to fire at
+			local radius2 = 90 -- Radius it looks for a Spawner / Worm to fire at
 			local pos = Bio_Cannon.position
 			
 			local area = {{pos.x - radius, pos.y - radius}, {pos.x + radius, pos.y + radius}}
