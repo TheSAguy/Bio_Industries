@@ -16,6 +16,7 @@ require ("prototypes.Wood_Products.tint_rails_remnants_function")
 require ("prototypes.Wood_Products.update_bridge_rails_remnants")
 
 	-- Concrete Rail
+	---- Update Standard Rails to use and look like concrete
 set_tint_to_rails ({
 	data.raw["straight-rail"]["straight-rail"],
 	data.raw["curved-rail"]["curved-rail"]}, 
@@ -37,13 +38,33 @@ set_tint_to_remnants ({
 	data.raw["rail-remnants"]["curved-rail-remnants-wood"]}, 
 	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
 
+		
+-- vanilla rail recipe update
+thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
+
+-- vanilla rail icon & images update
+data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
+data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
+data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
+
+--- Wood Rail added to Tech 
+thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")
+thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood-bridge")	
+	
+--- If Bob, move Vanilla Rail to Rail 2.
+if data.raw.technology["bob-railway-2"] then
+	thxbob.lib.tech.remove_recipe_unlock ("railway", "rail")
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
+end
+
+	
 -- Damage Bonus to Ammo
 -- Don't duplicate what NE does
-if not (mods[Natural_Evolution_Buildings] or data.raw["item"]["TerraformingStation"] ~= nil) then
+if not (mods["Natural_Evolution_Buildings"] or data.raw["item"]["TerraformingStation"] ~= nil) then
 	require("prototypes.Bio_Turret.technology-updates")
 end
 
-if not (mods[Natural_Evolution_Buildings] or data.raw["item"]["TerraformingStation"] ~= nil) then
+if not (mods["Natural_Evolution_Buildings"] or data.raw["item"]["TerraformingStation"] ~= nil) then
 	-- Don't duplicate what NE does
 	if not mods[Natural_Evolution_Buildings] then
 		require("prototypes.Bio_Cannon.technology-updates")
@@ -121,33 +142,11 @@ data.raw.item["wood"].place_as_tile =
 		condition_size = 4,
 		condition = { "water-tile" }
 	}
+	
+	-- Add Big electric pole to tech tree
 thxbob.lib.tech.add_recipe_unlock ("logistics", "bi-big-wooden-pole")
 
-
----- Update Standard Rails to use and look like concrete
---require("prototypes.Wood_Products.demo-railpictures-concrete")
---require("prototypes.Wood_Products.demo-remnants-concrete")
 	
--- vanilla rail recipe update
-thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
-
-
--- vanilla rail icon & images update
---data.raw["straight-rail"]["straight-rail"].pictures = rail_pictures_c()
---data.raw["curved-rail"]["curved-rail"].pictures = rail_pictures_c()
-data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
-data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
-data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
-
---- Wood Rail added to Tech 
-thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")
-thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood-bridge")	
-	
---- If Bob, move Vanilla Rail to Rail 2.
-if data.raw.technology["bob-railway-2"] then
-	thxbob.lib.tech.remove_recipe_unlock ("railway", "rail")
-	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
-end	
 
 --- Make it so that the Base game tile "grass-medium" can't be placed in blueprints
 data.raw["tile"]["grass-medium"].can_be_part_of_blueprint = false
@@ -157,15 +156,7 @@ if BI.Settings.BI_Accumulator then
 	if data.raw.technology["bob-solar-energy-2"] then
 		
 		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
-		
---[[		
-		--- Change Bi Accumulator Recipe if Bob's
-		if data.raw.item["large-accumulator"]  then
-			thxbob.lib.recipe.replace_ingredient("bi_accumulator", "accumulator", "large-accumulator")
-		end
-	]]
-	
-		
+				
 	else
 
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
@@ -177,7 +168,6 @@ end
 if data.raw.technology["bob-solar-energy-2"] then
 	if BI.Settings.BI_Solar_Farm then
 		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
-		--thxbob.lib.recipe.replace_ingredient("bi_bio_Solar_Farm", "solar-panel", "solar-panel-large")
 	end
 	-- Solar Mat
 	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
@@ -189,7 +179,6 @@ else
 	-- Solar mat
 	thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
 
-	
 end	
 
 
@@ -398,7 +387,7 @@ data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
 end
 	
 	
-------- DyTech Support (Might be outdated....
+------- DyTech Support (Might be outdated....)
 if BI_Config.mod.DyTechCore then
 
 require("prototypes.Bio_Farm.dytech_recipe")
