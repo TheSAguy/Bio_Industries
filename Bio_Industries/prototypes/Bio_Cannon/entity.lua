@@ -73,38 +73,7 @@ data:extend({
 		call_for_help_radius = 40			   
 
 	},
---[[	
-	-- Bio Cannon Artillery
-   {
-		type = "container",
-		name = "Bio_Cannon",
-		icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
-		flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
-		selectable_in_game = false,
-		open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
-		close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-		minable = {mining_time = 10, result = "Bio_Cannon_Area"},
-		max_health = 600,
-		corpse = "big-remnants",
-		dying_explosion = "massive-explosion",
-		resistances = {},
-		collision_box = {{0, 0}, {0, 0}},
-		selection_box = {{0, 0}, {0, 0}},
-		collision_mask = {},
-		order = "i[items][Bio_Cannon]",
-		inventory_size = 1,
-		picture =
-		{
-			filename = "__Bio_Industries__/graphics/entities/biocannon/bio_cannon_open.png",
-			priority = "extra-high",
-			scale = 1,
-			width = 384,
-			height = 384,
-			shift = {1.125, -1.625}
-		}
-	},
 
-]]
 	--Inventory
 
 	{
@@ -148,6 +117,8 @@ data:extend({
 		call_for_help_radius = 40			   
 
 	},
+	
+	
 		---- Radar
   {
     type = "radar",

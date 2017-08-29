@@ -26,8 +26,7 @@ local function Bio_Cannon_Check(Bio_Cannon_List)
 	
 	if ammo > 0 and Bio_Cannon_List[2].energy > 0 then	
 			
-			local radius = 85 -- Radius it looks for a Spawner / Worm to fire at
-			local radius2 = 90 -- Radius it looks for a Spawner / Worm to fire at
+			local radius = 90 -- Radius it looks for a Spawner / Worm to fire at
 			local pos = Bio_Cannon.position
 			
 			local area = {{pos.x - radius, pos.y - radius}, {pos.x + radius, pos.y + radius}}
@@ -43,7 +42,7 @@ local function Bio_Cannon_Check(Bio_Cannon_List)
 				for _,enemy in pairs(spawner) do
 					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
 					writeDebug("The Distance is: " .. distance)
-					if (distance > 20) and (distance < (radius2+1)) then
+					if (distance > 20) and (distance < (radius+1)) then
 					
 						if target == nil then
 							target={enemy}
@@ -55,7 +54,7 @@ local function Bio_Cannon_Check(Bio_Cannon_List)
 				for _,enemy in pairs(worms) do
 					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
 					writeDebug("The Distance is: " .. distance)
-					if (distance > 10) and (distance < (radius2+1)) then
+					if (distance > 20) and (distance < (radius+1)) then
 					
 						if target == nil then
 							target={enemy}

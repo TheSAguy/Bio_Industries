@@ -29,10 +29,10 @@ data:extend({
 	
 	{
 		type = "recipe",
-		name = "bi-wooden-fence",
+		name = "bi_wooden_fence",
 		normal =
 		{
-			enabled = false,
+			enabled = true,
 			ingredients = 
 			{
 			  {"wood", 2},
@@ -42,7 +42,7 @@ data:extend({
 		},
 		expensive =
 		{
-			enabled = false,
+			enabled = true,
 			ingredients = 
 			{
 			  {"wood", 4},

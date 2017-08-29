@@ -389,12 +389,12 @@ data:extend({
 		main =
 		{
 		  {
-			picture = "__Bio_Industries__/graphics/entities/wood_products/wood1.png",
+			picture = "__Bio_Industries__/graphics/entities/wood_products/wood_floor/wood1.png",
 			count = 4,
 			size = 1
 		  },
 		  {
-			picture = "__Bio_Industries__/graphics/entities/wood_products/wood2.png",
+			picture = "__Bio_Industries__/graphics/entities/wood_products/wood_floor/wood2.png",
 			count = 1,
 			size = 2,
 			probability = 1,
@@ -402,27 +402,27 @@ data:extend({
 		},
 		inner_corner =
 		{
-		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood-inner-corner.png",
+		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood_floor/wood-inner-corner.png",
 		  count = 8
 		},
 		outer_corner =
 		{
-		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood-outer-corner.png",
+		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood_floor/wood-outer-corner.png",
 		  count = 8
 		},
 		side =
 		{
-		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood-side.png",
+		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood_floor/wood-side.png",
 		  count = 8
 		},
 		u_transition =
 		{
-		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood-u.png",
+		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood_floor/wood-u.png",
 		  count = 8
 		},
 		o_transition =
 		{
-		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood-o.png",
+		  picture = "__Bio_Industries__/graphics/entities/wood_products/wood_floor/wood-o.png",
 		  count = 1
 		}
 	  },
@@ -564,6 +564,10 @@ data:extend({
         decrease = 2,
         percent = 15
       },
+	   {
+        type = "fire",
+        percent = -25
+      },
       {
         type = "impact",
         decrease = 15,
@@ -578,14 +582,14 @@ data:extend({
         layers =
         {
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-single-1.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-single-1.png",
             priority = "extra-high",
             width = 7,
             height = 46,
             shift = {0, -0.15625}
           },
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-single-shadow.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-single-shadow.png",
             priority = "extra-high",
             width = 38,
             height = 25,
@@ -600,14 +604,14 @@ data:extend({
           layers =
           {
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-vertical-1.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-vertical-1.png",
               priority = "extra-high",
               width = 7,
               height = 53,
               shift = {0, -0.15625}
             },
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-vertical-shadow.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-vertical-shadow.png",
               priority = "extra-high",
               width = 39,
               height = 66,
@@ -620,14 +624,14 @@ data:extend({
           layers =
           {
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-vertical-1.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-vertical-1.png",
               priority = "extra-high",
              width = 7,
               height = 53,
               shift = {0, -0.15625}
             },
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-vertical-shadow.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-vertical-shadow.png",
               priority = "extra-high",
               width = 39,
               height = 66,
@@ -640,14 +644,14 @@ data:extend({
           layers =
           {
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-vertical-1.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-vertical-1.png",
               priority = "extra-high",
               width = 7,
               height = 53,
               shift = {0, -0.15625}
             },
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-vertical-shadow.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-vertical-shadow.png",
               priority = "extra-high",
               width = 39,
               height = 66,
@@ -663,14 +667,14 @@ data:extend({
           layers =
           {
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-horizontal-1.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-horizontal-1.png",
               priority = "extra-high",
               width = 34,
               height = 47,
               shift = {0, -0.15625}
             },
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-horizontal-shadow.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-horizontal-shadow.png",
               priority = "extra-high",
               width = 84,
               height = 28,
@@ -683,14 +687,14 @@ data:extend({
           layers =
           {
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-horizontal-2.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-horizontal-2.png",
               priority = "extra-high",
               width = 34,
               height = 47,
               shift = {0, -0.15625}
             },
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-horizontal-shadow.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-horizontal-shadow.png",
               priority = "extra-high",
               width = 84,
               height = 28,
@@ -703,14 +707,14 @@ data:extend({
           layers =
           {
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-horizontal-3.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-horizontal-3.png",
               priority = "extra-high",
               width = 34,
               height = 47,
               shift = {0, -0.15625}
             },
             {
-              filename = "__Bio_Industries__/graphics/entities/wood_products/fence-straight-horizontal-shadow.png",
+              filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-straight-horizontal-shadow.png",
               priority = "extra-high",
               width = 84,
               height = 28,
@@ -725,14 +729,14 @@ data:extend({
         layers =
         {
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-corner-right-down.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-corner-right-down.png",
             priority = "extra-high",
             width = 23,
             height = 53,
             shift = {0.248125, -0.07625}
           },
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-corner-right-down-shadow.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-corner-right-down-shadow.png",
             priority = "extra-high",
             width = 52,
             height = 56,
@@ -746,14 +750,14 @@ data:extend({
         layers =
         {
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-corner-left-down.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-corner-left-down.png",
             priority = "extra-high",
             width = 21,
             height = 53,
             shift = {-0.248125, -0.07625}
           },
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-corner-left-down-shadow.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-corner-left-down-shadow.png",
             priority = "extra-high",
             width = 60,
             height = 56,
@@ -767,14 +771,14 @@ data:extend({
         layers =
         {
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-t-down.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-t-down.png",
             priority = "extra-high",
             width = 34,
             height = 53,
             shift = {0, -0.07625}
           },
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-t-down-shadow.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-t-down-shadow.png",
             priority = "extra-high",
             width = 71,
             height = 55,
@@ -788,14 +792,14 @@ data:extend({
         layers =
         {
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-ending-right.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-ending-right.png",
             priority = "extra-high",
             width = 23,
             height = 47,
             shift = {0.248125, -0.15625}
           },
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-ending-right-shadow.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-ending-right-shadow.png",
             priority = "extra-high",
             width = 49,
             height = 27,
@@ -809,14 +813,14 @@ data:extend({
         layers =
         {
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-ending-left.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-ending-left.png",
             priority = "extra-high",
             width = 21,
             height = 47,
             shift = {-0.248125, -0.15625}
           },
           {
-            filename = "__Bio_Industries__/graphics/entities/wood_products/fence-ending-left-shadow.png",
+            filename = "__Bio_Industries__/graphics/entities/wood_products/wood_fence/fence-ending-left-shadow.png",
             priority = "extra-high",
             width = 63,
             height = 27,
