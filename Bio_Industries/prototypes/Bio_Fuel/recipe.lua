@@ -346,6 +346,24 @@ data:extend({
 		enabled = false,
 	},
 	
+			-- Sulfuric acid to Sulfur --IF ANGELS INSTALLED
+	{
+		type = "recipe",
+		name = "bi-sulfur_angels",
+		icon = "__Bio_Industries__/graphics/icons/bio_sulfur.png",
+		category = "chemistry",
+		energy_required = 10,		
+		ingredients =
+		{
+			{type="fluid", name="sulfuric-acid", amount=50}, 
+			{type="item", name="bi-ash", amount=10},
+		},
+		results=
+		{
+			{type="item", name="sulfur", amount=10}
+		},
+		enabled = false,
+	},
 	
 	
 })

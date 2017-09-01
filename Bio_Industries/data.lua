@@ -88,10 +88,9 @@ if BI.Settings.Bio_Cannon then
 
 end
 
----- Add Bio Fuel & Plastic
+---- Add Bio Fuel & Plastic, etc.
 if BI.Settings.BI_Bio_Fuel then 
 	require("prototypes.Bio_Fuel.item")
-	--require("prototypes.Bio_Fuel.fluid")
 	require("prototypes.Bio_Fuel.recipe")
 	require("prototypes.Bio_Fuel.entities")
 	require("prototypes.Bio_Fuel.technology")

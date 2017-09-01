@@ -1,8 +1,7 @@
----Bio Industries - v.1.8.9
+---Bio Industries - v.1.9.0
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
---require ("libs/detectmod")
 require ("stdlib/event/event")
 require ("control_tree")
 require ("control_bio_cannon")
@@ -169,47 +168,6 @@ local function On_Built(event)
 
 	]]
 	
-	--[[
-	--- Bio Cannon has been built
-	if entity.valid and entity.name == "Bio_Cannon_Area" then
-	
-	local New_Bio_Cannon
-	local New_Bio_CannonI
-	local New_Bio_CannonR
-	
-	writeDebug("Bio Cannon has been built")				
-		local surface = entity.surface
-		local force = entity.force
-		local position = entity.position
-	
-		New_Bio_Cannon  = surface.create_entity({name = "Bio_Cannon", position = position, direction = event.created_entity.direction, force = force})
-		New_Bio_CannonI = surface.create_entity({name = "Bio_Cannon".."i", position = position, direction = event.created_entity.direction, force = force})
-		New_Bio_CannonR = surface.create_entity({name = "Bio_Cannon".."r", position = position, direction = event.created_entity.direction, force = force})
-		
-		New_Bio_CannonI.health = event.created_entity.health
-		
-		event.created_entity.destroy()
-
-		New_Bio_Cannon.destructible = false
-		New_Bio_Cannon.operable = false
-		New_Bio_Cannon.minable = false
-		
-		New_Bio_CannonI.operable = true
-		New_Bio_CannonI.minable = true
-		
-		New_Bio_CannonR.operable = false
-		New_Bio_CannonR.destructible = false
-		New_Bio_CannonR.minable = false
-		
-		if global.Bio_Cannon_Table == nil then
-			global.Bio_Cannon_Table = {}
-			Event.register(defines.events.on_tick, function(event) end)
-		end
-
-		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonI,New_Bio_CannonR,0})
-		
-	end
-	]]
 			
 	--- Bio Cannon has been built
 	if entity.valid and entity.name == "Bio_Cannon_Area" then
@@ -654,7 +612,6 @@ local function Robot_Tile_Remove(event)
 end
 --------------------------------------------------------------------
 
---------------------------------------------------------------------
 
 script.on_load(On_Load)
 script.on_configuration_changed(On_Config_Change)

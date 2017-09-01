@@ -66,7 +66,7 @@ end
 
 if not (mods["Natural_Evolution_Buildings"] or data.raw["item"]["TerraformingStation"] ~= nil) then
 	-- Don't duplicate what NE does
-	if not mods[Natural_Evolution_Buildings] then
+	if not mods["Natural_Evolution_Buildings"] then
 		require("prototypes.Bio_Cannon.technology-updates")
 	end
 end
@@ -207,8 +207,12 @@ if BI.Settings.BI_Bio_Fuel then
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-1")	
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-2")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-acid")	
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur")	
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bio_boiler")
+	if mods["angelspetrochem"] then
+		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur_angels")	
+	else
+		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur")	
+	end
 	
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-1", {type="fluid", name="bi-biomass", amount=10})
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-2", {type="fluid", name="bi-biomass", amount=10})
@@ -230,8 +234,7 @@ end
 if data.raw.item["alien-artifact"] then
 	--- Advanced Fertiliser will use Alien Artifact
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-1", {type="item", name="alien-artifact", amount=5})
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-adv-fertiliser-1")
-	
+	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-adv-fertiliser-1")	
 end	
 
 
