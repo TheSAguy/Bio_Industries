@@ -86,7 +86,7 @@ data:extend({
 	light = {intensity = 0.7, size = 6},
     animation =
     {
-        filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Basic_Ammo.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Basic_Ammo.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -94,7 +94,7 @@ data:extend({
     },
     shadow =
     {
-        filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Ammo-shadow.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -186,7 +186,7 @@ data:extend({
 	light = {intensity = 0.8, size = 7},
     animation =
     {
-        filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Poison_Ammo.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Poison_Ammo.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -194,7 +194,7 @@ data:extend({
     },
     shadow =
     {
-        filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Ammo-shadow.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -221,7 +221,7 @@ data:extend({
     show_when_smoke_off = true,
     animation =
     {
-      filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/fire.png",
+      filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/fire.png",
       priority = "low",
       width = 30,
       height = 50,
@@ -273,7 +273,7 @@ data:extend({
     show_when_smoke_off = true,
     animation =
     {
-      filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/fire.png",
+      filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/fire.png",
       priority = "low",
       width = 30,
       height = 50,
@@ -325,7 +325,7 @@ data:extend({
     show_when_smoke_off = true,
     animation =
     {
-      filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/fire.png",
+      filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/fire.png",
       priority = "low",
       width = 30,
       height = 50,
@@ -376,7 +376,7 @@ data:extend({
 		show_when_smoke_off = true,
 		animation =
 		{
-			filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/explosion.png",
+			filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/explosion.png",
 			priority = "low",
 			width = 256,
 			height = 128,

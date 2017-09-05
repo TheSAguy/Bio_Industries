@@ -4,7 +4,7 @@ data:extend({
 	{
 		type = "ammo",
 		name = "Bio_Cannon_Basic_Ammo",
-		icon = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Basic_Ammo_Icon.png",
+		icon = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Basic_Ammo_Icon.png",
 		flags = { "goes-to-main-inventory" },
 		ammo_type =
 		{
@@ -35,7 +35,7 @@ data:extend({
 	{
 		type = "ammo",
 		name = "Bio_Cannon_Poison_Ammo",
-		icon = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Poison_Ammo_Icon.png",
+		icon = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Poison_Ammo_Icon.png",
 		flags = { "goes-to-main-inventory" },
 		ammo_type =
 		{

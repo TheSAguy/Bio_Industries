@@ -1,30 +1,89 @@
 require "util"
 
-inv_extension =
-{
-	filename = "__Bio_Industries__/graphics/entities/biocannon/bio_cannon_open.png",
-	priority = "low",
-	scale = 1,
-	width = 384,
-	height = 384,
-	direction_count = 1,
-	frame_count = 1,
-	axially_symmetrical = false,
-	shift = {1.125, -1.625}
-}
 
-inv_extension2 =
-{
-	filename = "__Bio_Industries__/graphics/entities/biocannon/bio_cannon_closed.png",
-	priority = "extra-high",
-	scale = 1,
-	width = 384,
-	height = 384,
-	direction_count = 1,
-	frame_count = 1,
-	axially_symmetrical = false,
-	shift = {1.125, -1.625}
-}
+
+function preparing_animation()
+	return {layers = {{
+		priority = "medium",
+		width = 341,
+		height = 341,
+		direction_count = 1, -- folding[1],
+		frame_count = 12,  -- folding[2],
+		line_length = 6, -- folding[3],
+		run_mode = "forward",
+		axially_symmetrical = false,
+		scale = 1.1261,
+		shift = {1.125, -1.625},
+
+		filename = "__Bio_Industries__/graphics/entities/bio_cannon/bio_cannon.png",
+		}}}
+end
+
+function prepared_animation()
+	return {layers = {{
+		priority = "medium",
+		width = 341,
+		height = 341,
+		direction_count = 1, -- main [1],
+		frame_count = 1, -- -- always 1
+		line_length = 1, -- main [3],
+		axially_symmetrical = false,
+		scale = 1.1261,
+		shift = {1.125, -1.625},
+		filename = "__Bio_Industries__/graphics/entities/bio_cannon/bio_cannon_open.png",
+		}}}
+end
+
+--[[
+function attacking_animation()
+	return {layers = {{
+		priority = "medium",
+		width = 341,
+		height = 341,
+		direction_count = 1, -- main [1],
+		frame_count = 12, -- -- can be 2 or 3, when you have attacking animation; 1 for no animated
+		line_length = 6, -- main [3],
+		run_mode = "forward",
+		axially_symmetrical = false,
+		scale = 1.1261,
+		shift = {1.125, -1.625},
+		filename = "__Bio_Industries__/graphics/entities/bio_cannon/bio_cannon_attack.png",
+		}}}
+end
+]]
+function folding_animation()
+	return {layers = {{
+		priority = "medium",
+		width = 341,
+		height = 341,
+		direction_count = 1, -- folding[1],
+		frame_count = 12, -- folding[2],
+		line_length = 6, -- folding[3],
+		run_mode = "backward",
+		axially_symmetrical = false,
+		scale = 1.1261,
+		shift = {1.125, -1.625},
+
+		filename = "__Bio_Industries__/graphics/entities/bio_cannon/bio_cannon.png",
+}}}
+end
+
+function folded_animation()
+	return {layers = {{
+		priority = "medium",
+		width = 341,
+		height = 341,
+		direction_count = 1, -- folding[1],
+		frame_count = 1, -- idk why, for skipping second sprite
+		line_length = 1,
+		run_mode = "forward",
+		axially_symmetrical = false,
+		scale = 1.1261,
+		shift = {1.125, -1.625},
+		filename = "__Bio_Industries__/graphics/entities/bio_cannon/bio_cannon.png",
+		}}}
+end
+
 
 
 data:extend({
@@ -38,7 +97,7 @@ data:extend({
 		flags = {"placeable-neutral", "placeable-player", "player-creation"},
 		open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 		close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-		max_health = 600,
+		max_health = 900,
 		corpse = "big-remnants",
 		dying_explosion = "massive-explosion",
 		automated_ammo_count = 10,
@@ -58,18 +117,11 @@ data:extend({
 			action ={}
 		},
 		folding_speed = 0.08,
-
-		folded_animation = (function()
-                          local res = util.table.deepcopy(inv_extension2)
-                          res.frame_count = 1
-                          res.line_length = 1
-                          return res
-                       end)(),
-		folding_animation = (function()
-                          local res = util.table.deepcopy(inv_extension2)
-                          res.run_mode = "backward"
-                          return res
-                       end)(),
+		preparing_animation = preparing_animation(),
+		prepared_animation = prepared_animation(),
+		--attacking_animation = attacking_animation(),
+		folding_animation = folding_animation(),
+		folded_animation = folded_animation(),
 		call_for_help_radius = 40			   
 
 	},
@@ -84,15 +136,31 @@ data:extend({
 		open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 		close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 		minable = {mining_time = 10, result = "Bio_Cannon_Area"},
-		max_health = 600,
+		max_health = 900,
 		corpse = "big-remnants",
 		dying_explosion = "massive-explosion",
 		automated_ammo_count = 10,
-		resistances = {},
+		resistances =
+		{
+		  {
+			type = "fire",
+			percent = 90
+		  },
+		  {
+			type = "explosion",
+			percent = 30
+		  },
+		  {
+			type = "impact",
+			percent = 30
+		  }
+		},
 		collision_box = {{-4.20, -4.20}, {4.20, 4.20}},
 		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		order = "i[items][Bio_Cannon]",
 		inventory_size = 1,
+		prepare_range = 90,
+		preparing_speed = 0.012,
 		attack_parameters =
 		{
 			type = "projectile",
@@ -102,19 +170,15 @@ data:extend({
 			projectile_creation_distance = 1.8,
 			action ={}
 		},
-		folding_speed = 0.08,
-		folded_animation = (function()
-                          local res = util.table.deepcopy(inv_extension)
-                          res.frame_count = 1
-                          res.line_length = 1
-                          return res
-                       end)(),
-		folding_animation = (function()
-                          local res = util.table.deepcopy(inv_extension)
-                          res.run_mode = "backward"
-                          return res
-                       end)(),
-		call_for_help_radius = 40			   
+		folding_speed = 0.012,
+		
+		preparing_animation = preparing_animation(),
+		prepared_animation = prepared_animation(),
+		--attacking_animation = attacking_animation(),
+		folding_animation = folding_animation(),
+		folded_animation = folded_animation(),
+
+		call_for_help_radius = 90			   
 
 	},
 	

@@ -171,7 +171,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bio_greenhouse",
-
+		icon = "__Bio_Industries__/graphics/icons/bio_greenhouse.png",
 		normal =
 		{
 			enabled = false,
@@ -204,7 +204,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "bi_bio_farm",
-
+		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 		normal =
 		{
 			enabled = false,

@@ -88,7 +88,7 @@ data:extend({
 	light = {intensity = 0.9, size = 8},
     animation =
     {
-        filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Bio_Ammo.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Bio_Ammo.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -96,7 +96,7 @@ data:extend({
     },
     shadow =
     {
-        filename = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Ammo-shadow.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -122,7 +122,7 @@ data:extend({
 	{
 		type = "ammo",
 		name = "Bio_Cannon_Bio_Ammo",
-		icon = "__Bio_Industries__/graphics/entities/biocannon/projectiles/Bio_Cannon_Bio_Ammo_Icon.png",
+		icon = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Bio_Ammo_Icon.png",
 		flags = { "goes-to-main-inventory" },
 		ammo_type =
 		{

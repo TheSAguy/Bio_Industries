@@ -5,6 +5,7 @@ data:extend({
 		type = "item",
 		name = "bi-seed",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed.png",
+		category = "biofarm-mod-greenhouse",
 		flags = {"goes-to-main-inventory"},
 		subgroup = "intermediate-product",
 		order = "x[bi]-a[bi-seed]",
