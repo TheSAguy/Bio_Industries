@@ -274,7 +274,7 @@ data:extend({
     },
     production = "100kW"
   },
-    
+	
 ------ Greenhouse
    {
     type = "assembling-machine",
@@ -288,7 +288,7 @@ data:extend({
     corpse = "medium-remnants",
     dying_explosion = "medium-explosion",
     crafting_categories = {"biofarm-mod-greenhouse"},
-    crafting_speed = 0.75,
+    crafting_speed = 1,
     energy_source =
 
 	{
@@ -299,7 +299,7 @@ data:extend({
     },	
 
     energy_usage = "50kW",
-    ingredient_count = 2,
+    ingredient_count = 3,
     resistances =
     {
       {
@@ -351,13 +351,6 @@ data:extend({
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
   },
-  
-  
-  })
- 
- ---- Originally from the old Tree Farm Mod.
-data:extend(
-{
 
 	-- COKERY
 	{
@@ -401,6 +394,7 @@ data:extend(
 		ingredient_count = 1
 		
 	},
+	
 	-- STONECRUSHER
 	{
 		type = "furnace",

@@ -8,12 +8,11 @@ data:extend({
 		name = "bi_seed_1",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed1.png",
 		category = "biofarm-mod-greenhouse",	
-
 		energy_required = 100,
 		ingredients =
 		{
 			{type="fluid", name="water", amount=100},
-			{type="item", name="raw-wood", amount=20},     
+			{type="item", name="raw-wood", amount=20},    	
 		},
 		results=
 		{

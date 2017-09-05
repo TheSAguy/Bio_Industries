@@ -74,7 +74,7 @@ data:extend({
 	
 	----_______________________ NEW _______________________________
 	
-		-- CELLULOSE --
+		-- CELLULOSE 1 --
 	{
 		type = "recipe",
 		name = "bi-cellulose-1",
@@ -94,6 +94,7 @@ data:extend({
 		enabled = false,
 	},
 	
+	-- CELLULOSE 2 --
 	{
 		type = "recipe",
 		name = "bi-cellulose-2",
@@ -115,7 +116,7 @@ data:extend({
 	},
 	
 	
-		-- PLASTIC --
+		-- PLASTIC 1 --
 	{
 		type = "recipe",
 		name = "bi-plastic-1",
@@ -137,6 +138,7 @@ data:extend({
 		enabled = false,
 	},
 	
+	-- PLASTIC 2 --
 		{
 		type = "recipe",
 		name = "bi-plastic-2",
@@ -158,7 +160,7 @@ data:extend({
 	},
 	
 
-			-- BIOMASS --
+			-- BIOMASS 1 --
 	{
 		type = "recipe",
 		name = "bi-biomass-1",
@@ -180,6 +182,7 @@ data:extend({
 		order = "x[oil-processing]-z1[bi-biomass]"
 	},	
 	
+	-- BIOMASS 2 --
 	{
 		type = "recipe",
 		name = "bi-biomass-2",
@@ -202,6 +205,7 @@ data:extend({
 		order = "x[oil-processing]-z2[bi-biomass]"
 	},	
 	
+	-- BIOMASS 3 --
 	{
 		type = "recipe",
 		name = "bi-biomass-3",

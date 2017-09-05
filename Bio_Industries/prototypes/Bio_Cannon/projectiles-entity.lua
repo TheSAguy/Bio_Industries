@@ -1,12 +1,11 @@
 require "util"
-require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
 
-
-if BI_Config.mod.NEEnemies or data.raw["logistic-container"]["Artifact-collector-area"] or data.raw["ammo"]["Biological-bullet-magazine"] then
+if mods["Natural_Evolution_Enemies"] then
 	NE_Damage = 2
 else
 	NE_Damage = 1
 end
+
 
 
 data:extend({
