@@ -7,18 +7,21 @@ data:extend({
 		type = "recipe",
 		name = "bi_seed_1",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed1.png",
-		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-ssw-a1[bi_seed_1]",		
-		enabled = false,
+		category = "biofarm-mod-greenhouse",	
+
 		energy_required = 100,
 		ingredients =
 		{
-			{type="item", name="raw-wood", amount=20},     
 			{type="fluid", name="water", amount=100},
+			{type="item", name="raw-wood", amount=20},     
 		},
-
-		result_count = 40,
-		result = "bi-seed"
+		results=
+		{
+			{type="item", name="bi-seed", amount=40},
+		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		order = "a[bi]-ssw-a1[bi_seed_1]",		
 	},
 	
 	
@@ -33,13 +36,14 @@ data:extend({
 		energy_required = 90,
 		ingredients =
 		{
+			{type="fluid", name="water", amount=40},
 			{type="item", name="raw-wood", amount=20},     
 			{type="item", name="bi-ash", amount=10},   
-			{type="fluid", name="water", amount=40},
 		},
 
 		result_count = 50,
-		result = "bi-seed"
+		result = "bi-seed",
+		subgroup = "fluid-recipes",
 	},
 	
 
@@ -55,13 +59,14 @@ data:extend({
 		energy_required = 75,
 		ingredients =
 		{
+			{type="fluid", name="water", amount=40},
 			{type="item", name="raw-wood", amount=20},     
 			{type="item", name="fertiliser", amount=10},   
-			{type="fluid", name="water", amount=40},
 		},
 
 		result_count = 60,
-		result = "bi-seed"
+		result = "bi-seed",
+		subgroup = "fluid-recipes",
 	},
 	
 		--- Seeds from Water & Adv-fertiliser 
@@ -81,7 +86,8 @@ data:extend({
 		},
 
 		result_count = 80,
-		result = "bi-seed"
+		result = "bi-seed",
+		subgroup = "fluid-recipes",
 	},
 	
 	--- Seedlings from Water (BASIC)
@@ -100,7 +106,8 @@ data:extend({
 		},
 
 		result_count = 40,
-		result = "seedling"
+		result = "seedling",
+		subgroup = "fluid-recipes",
 	},
 	
 		
@@ -121,7 +128,8 @@ data:extend({
 		},
 	
 		result_count = 60,
-		result = "seedling"
+		result = "seedling",
+		subgroup = "fluid-recipes",
 	},
 	
 		
@@ -142,7 +150,8 @@ data:extend({
 		},
 	
 		result_count = 90,
-		result = "seedling"
+		result = "seedling",
+		subgroup = "fluid-recipes",
 	},
 	
 		
@@ -162,12 +171,13 @@ data:extend({
 		  {type="item", name="bi-adv-fertiliser", amount=10},    
 		},
 		result_count = 160,
-		result = "seedling"
+		result = "seedling",
+		subgroup = "fluid-recipes",
 	},
 	
 	
-	--- Bio Farm
-			--- Bio Greenhouse
+
+	--- Bio Greenhouse
 	{
 		type = "recipe",
 		name = "bio_greenhouse",
@@ -201,6 +211,7 @@ data:extend({
 
 	},
 	
+	--- Bio Farm
 	{
 		type = "recipe",
 		name = "bi_bio_farm",
@@ -253,7 +264,8 @@ data:extend({
 		},
 
 		result_count = 40,
-		result = "raw-wood"
+		result = "raw-wood",
+		subgroup = "fluid-recipes",
 	},
 	
 		
@@ -274,7 +286,8 @@ data:extend({
 		},
 	
 		result_count = 75,
-		result = "raw-wood"
+		result = "raw-wood",
+		subgroup = "fluid-recipes",
 	},
 	
 		
@@ -295,7 +308,8 @@ data:extend({
 		},
 	
 		result_count = 135,
-		result = "raw-wood"
+		result = "raw-wood",
+		subgroup = "fluid-recipes",
 	},
 	
 		
@@ -315,7 +329,8 @@ data:extend({
 		  {type="item", name="bi-adv-fertiliser", amount=10},    
 		},
 		result_count = 320,
-		result = "raw-wood"
+		result = "raw-wood",
+		subgroup = "fluid-recipes",
 	},
 	
 	-- Woodpulp--

@@ -170,7 +170,6 @@ data:extend({
 			{type="fluid", name="water", amount=90},
 			{type="fluid", name="liquid-air", amount=10},
 			{type="fluid", name="bi-biomass", amount=10},
-			--{type="item", name="bi-cellulose", amount=10}
 		},
 		results=
 		{
@@ -192,7 +191,6 @@ data:extend({
 			{type="fluid", name="water", amount=90},
 			{type="fluid", name="liquid-air", amount=10},
 			{type="fluid", name="bi-biomass", amount=10},
-			--{type="item", name="bi-cellulose", amount=10},
 			{type="item", name="bi-ash", amount=10},		
 		},
 		results=
