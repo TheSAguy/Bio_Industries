@@ -81,7 +81,7 @@ data:extend({
 	light = {intensity = 0.7, size = 6},
     animation =
     {
-        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Basic_Ammo.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Basic_Ammo.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -89,7 +89,7 @@ data:extend({
     },
     shadow =
     {
-        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -191,7 +191,7 @@ data:extend({
 	light = {intensity = 0.8, size = 7},
     animation =
     {
-        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Poison_Ammo.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Poison_Ammo.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -199,7 +199,7 @@ data:extend({
     },
     shadow =
     {
-        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
+        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
         priority = "extra-high",
         width = 18,
         height = 47,
