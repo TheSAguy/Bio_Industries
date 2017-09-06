@@ -11,7 +11,7 @@ end
 data:extend({
 	--Projectile
 
- -- Have Buster Ammo
+ -- Bio Cannon Ammo
  -- Basic
    {
     type = "projectile",
@@ -47,45 +47,41 @@ data:extend({
 				type = "instant",
 				target_effects =
 				{
+					   {
+						type = "nested-result",
+						action =
+						{
+						  type = "area",
+						  target_entities = false,
+						  repeat_count = 10,
+						  perimeter = 2,
+						  action_delivery =
+						  {
+							type = "projectile",
+							projectile = "NE-Napalm-Small",
+							starting_speed = 0.5
+						  }
+						}
+					  },
+					{
+					type = "create-entity",
+					entity_name = "small-scorchmark",
+					check_buildability = true
+					},					
 					{
 					type = "create-entity",
 					entity_name = "bio-cannon-explosion",
-					check_buildability = true
-					},
-					{
-					type = "create-entity",
-					entity_name = "small-fire-cloud",
-					check_buildability = true
-					},
-					{
-					type = "create-entity",
-					entity_name = "fire-flame",
-					check_buildability = true
 					},
 				}
 				
 			}
 		},
-		{
-			type = "direct",
-			action_delivery = 
-			{
-				type = "instant",
-				target_effects =
-				{
-					{
-					type = "create-entity",
-					entity_name = "small-scorchmark",
-					check_buildability = true
-					},
-				}
-			}
-		}
+
 	},
 	light = {intensity = 0.7, size = 6},
     animation =
     {
-        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Basic_Ammo.png",
+        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Basic_Ammo.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -93,7 +89,7 @@ data:extend({
     },
     shadow =
     {
-        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
+        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -103,11 +99,25 @@ data:extend({
 	sound =
 	{
 		{
-			filename = "__Bio_Industries__/sound/launch.ogg",
+			filename = "__Natural_Evolution_Buildings__/sound/launch.ogg",
 			volume = 4.0
 		},
 	},
 	]]
+	smoke =
+		{
+		  {
+			name = "smoke-fast",
+			deviation = {0.15, 0.15},
+			frequency = 1,
+			position = {0, -1},
+			slow_down_factor = 1,
+			starting_frame = 3,
+			starting_frame_deviation = 5,
+			starting_frame_speed = 0,
+			starting_frame_speed_deviation = 5
+		  }
+		}
   },
 
   --- Poison
@@ -148,44 +158,40 @@ data:extend({
 				type = "instant",
 				target_effects =
 				{
-					{
-					type = "create-entity",
-					entity_name = "bio-cannon-explosion",
-					check_buildability = true
-					},
-					{
-					type = "create-entity",
-					entity_name = "medium-fire-cloud",
-					check_buildability = true
-					},
-					{
-					type = "create-entity",
-					entity_name = "fire-flame",
-					check_buildability = true
-					},
-				}
-			}
-		},
-		{
-			type = "direct",
-			action_delivery = 
-			{
-				type = "instant",
-				target_effects =
-				{
+					   {
+						type = "nested-result",
+						action =
+						{
+						  type = "area",
+						  target_entities = false,
+						  repeat_count = 20,
+						  perimeter = 3,
+						  action_delivery =
+						  {
+							type = "projectile",
+							projectile = "NE-Napalm-Small",
+							starting_speed = 0.5
+						  }
+						}
+					  },
 					{
 					type = "create-entity",
 					entity_name = "small-scorchmark",
 					check_buildability = true
+					},					
+					{
+					type = "create-entity",
+					entity_name = "bio-cannon-explosion",
 					},
 				}
+				
 			}
-		}
+		},
 	},
 	light = {intensity = 0.8, size = 7},
     animation =
     {
-        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Poison_Ammo.png",
+        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Poison_Ammo.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -193,7 +199,7 @@ data:extend({
     },
     shadow =
     {
-        filename = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
+        filename = "__Natural_Evolution_Buildings__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Ammo-shadow.png",
         priority = "extra-high",
         width = 18,
         height = 47,
@@ -203,14 +209,27 @@ data:extend({
 	sound =
 	{
 		{
-			filename = "__Bio_Industries__/sound/launch.ogg",
+			filename = "__Natural_Evolution_Buildings__/sound/launch.ogg",
 			volume = 4.0
 		},
 	},
 	]]
+	smoke =
+		{
+		  {
+			name = "smoke-fast",
+			deviation = {0.15, 0.15},
+			frequency = 1,
+			position = {0, -1},
+			slow_down_factor = 1,
+			starting_frame = 3,
+			starting_frame_deviation = 5,
+			starting_frame_speed = 0,
+			starting_frame_speed_deviation = 5
+		  }
+		}	
   },
 
-   
   ----- Fire Clouds. 
   ---- Small Fire Cloud
    {
@@ -398,6 +417,49 @@ data:extend({
 		spread_duration = 10,
 	},
 
+  	--- Napalm Small
+    {
+    type = "projectile",
+    name = "NE-Napalm-Small",
+	flags = {"not-on-map"},
+    acceleration = 0,
+    action =
+    {
+      {
+        type = "direct",
+        action_delivery =
+        {
+          type = "instant",
+          target_effects =
+          {
+            {
+			  type = "create-entity",
+              entity_name = "fire-flame"
+            },
+
+          }
+        }
+      },
+
+    },
+    animation =
+    {
+      filename = "__core__/graphics/empty.png",
+      frame_count = 1,
+      width = 1,
+      height = 1,
+      priority = "high"
+    },
+    shadow =
+    {
+      filename = "__core__/graphics/empty.png",
+      frame_count = 1,
+      width = 1,
+      height = 1,
+      priority = "high"
+    }
+  },
   
+ 
 
 })

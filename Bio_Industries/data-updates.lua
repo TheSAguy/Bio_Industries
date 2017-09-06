@@ -250,21 +250,13 @@ end
 
 
 
-if BI.Settings.Bio_Cannon then
-	------- Adds a Biological Bio Cannon Ammo
-	if BI_Config.mod.NEBuildings then
-
-	-- Add Bio Projectile
-		require("prototypes.Bio_Cannon.damage-type")
-		require("prototypes.Bio_Cannon.bio-projectile")
-		thxbob.lib.tech.add_recipe_unlock("Bio_Cannon", "Bio_Cannon_Bio_Ammo")
+if BI.Settings.Bio_Cannon and mods["Natural_Evolution_Buildings"]then
 
 	------- Changes Bio Cannon Recipe
-		thxbob.lib.recipe.remove_ingredient ("Bio_Cannon", "advanced-circuit")
-		thxbob.lib.recipe.remove_ingredient ("Bio_Cannon", "steel-plate")
-		thxbob.lib.recipe.add_new_ingredient ("Bio_Cannon", {type="item", name="Building_Materials", amount=30})
+	thxbob.lib.recipe.remove_ingredient ("Bio_Cannon", "advanced-circuit")
+	thxbob.lib.recipe.remove_ingredient ("Bio_Cannon", "steel-plate")
+	thxbob.lib.recipe.add_new_ingredient ("Bio_Cannon", {type="item", name="Building_Materials", amount=30})
 
-	end
 end
 
 
