@@ -1230,7 +1230,7 @@ data:extend({
         green = {0.40625, 0.375},
       }
     },
-    circuit_connector_sprites = get_circuit_connector_sprites({0.1875, 0.15625}, nil, 18),
+    --circuit_connector_sprites = get_circuit_connector_sprites({0.1875, 0.15625}, nil, 18),
     circuit_wire_max_distance = 9
   },
 

@@ -407,7 +407,7 @@ if BI.Settings.BI_Accumulator then
 			green = {0.6875, 0.71875}
 		  }
 		},
-		circuit_connector_sprites = get_circuit_connector_sprites({0.46875, 0.5}, {0.46875, 0.8125}, 26),
+		--circuit_connector_sprites = get_circuit_connector_sprites({0.46875, 0.5}, {0.46875, 0.8125}, 26),
 		circuit_wire_max_distance = 9,
 		default_output_signal = {type = "virtual", name = "signal-A"}
 	  },
