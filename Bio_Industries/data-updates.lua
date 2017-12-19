@@ -60,11 +60,12 @@ end
 	
 -- Damage Bonus to Ammo
 -- Don't duplicate what NE does
-if not (mods["Natural_Evolution_Buildings"] or data.raw["item"]["TerraformingStation"] ~= nil) then
+
+if not mods["Natural_Evolution_Buildings"] then
 	require("prototypes.Bio_Turret.technology-updates")
 end
 
-if not (mods["Natural_Evolution_Buildings"] or data.raw["item"]["TerraformingStation"] ~= nil) then
+if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
 	-- Don't duplicate what NE does
 	if not mods["Natural_Evolution_Buildings"] then
 		require("prototypes.Bio_Cannon.technology-updates")
