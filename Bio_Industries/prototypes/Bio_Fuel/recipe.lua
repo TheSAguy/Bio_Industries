@@ -79,6 +79,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-cellulose-1",
 		icon = "__Bio_Industries__/graphics/icons/cellulose.png",
+		icon_size = 32,
 		category = "chemistry",
 		order = "[bi-cellulose-1]",
 		energy_required = 20,
@@ -99,6 +100,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-cellulose-2",
 		icon = "__Bio_Industries__/graphics/icons/cellulose_2.png",
+		icon_size = 32,
 		category = "chemistry",
 		order = "[bi-cellulose-2]",
 		energy_required = 5,
@@ -121,6 +123,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-plastic-1",
 		icon = "__Bio_Industries__/graphics/icons/plastic_bar_1.png",
+		icon_size = 32,
 		category = "chemistry",
 		subgroup = "raw-material",
 		order = "g[plastic-bar-1]",
@@ -143,6 +146,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-plastic-2",
 		icon = "__Bio_Industries__/graphics/icons/plastic_bar_2.png",
+		icon_size = 32,
 		category = "chemistry",
 		subgroup = "raw-material",
 		order = "g[plastic-bar-2]",
@@ -165,6 +169,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-biomass-1",
 		icon = "__Bio_Industries__/graphics/icons/biomass_1.png",
+		icon_size = 32,
 		category = "biofarm-mod-bioreactor",
 		energy_required = 10,
 		ingredients =
@@ -187,6 +192,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-biomass-2",
 		icon = "__Bio_Industries__/graphics/icons/biomass_2.png",
+		icon_size = 32,
 		category = "biofarm-mod-bioreactor",
 		energy_required = 10,
 		ingredients =
@@ -210,6 +216,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-biomass-3",
 		icon = "__Bio_Industries__/graphics/icons/biomass_3.png",
+		icon_size = 32,
 		category = "biofarm-mod-bioreactor",
 		energy_required = 60,
 		ingredients =
@@ -232,6 +239,7 @@ data:extend({
     type = "recipe",
     name = "bi-biomass_conversion-1",
 	icon = "__Bio_Industries__/graphics/icons/bio_conversion_1.png", 
+	icon_size = 32,
     category = "oil-processing",
     enabled = false,
     energy_required = 5,
@@ -255,7 +263,8 @@ data:extend({
   {
     type = "recipe",
     name = "bi-biomass_conversion-2",
-	icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png", 
+	icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png",
+	icon_size = 32,	
     category = "oil-processing",
     enabled = false,
     energy_required = 5,
@@ -279,6 +288,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-battery",
 		icon = "__Bio_Industries__/graphics/icons/bio_battery.png",
+		icon_size = 32,
 		category = "chemistry",
 		energy_required = 5,
 		ingredients =
@@ -306,6 +316,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-acid",
 		icon = "__Bio_Industries__/graphics/icons/bio_acid.png",
+		icon_size = 32,
 		category = "chemistry",
 		energy_required = 10,
 		ingredients =
@@ -334,6 +345,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-sulfur",
 		icon = "__Bio_Industries__/graphics/icons/bio_sulfur.png",
+		icon_size = 32,
 		category = "chemistry",
 		energy_required = 10,		
 		ingredients =
@@ -353,6 +365,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-sulfur_angels",
 		icon = "__Bio_Industries__/graphics/icons/bio_sulfur.png",
+		icon_size = 32,
 		category = "chemistry",
 		energy_required = 10,		
 		ingredients =

@@ -22,7 +22,7 @@ data:extend({
 	{
 		{
 			type = "area",
-			perimeter = 8,
+			radius = 8,
 			action_delivery =
 			{
 				type = "instant",
@@ -54,7 +54,7 @@ data:extend({
 						  type = "area",
 						  target_entities = false,
 						  repeat_count = 10,
-						  perimeter = 2,
+						  radius = 2,
 						  action_delivery =
 						  {
 							type = "projectile",
@@ -130,7 +130,7 @@ data:extend({
 	{
 		{
 			type = "area",
-			perimeter = 12,
+			radius = 12,
 			action_delivery =
 			{
 				type = "instant",
@@ -165,7 +165,7 @@ data:extend({
 						  type = "area",
 						  target_entities = false,
 						  repeat_count = 20,
-						  perimeter = 3,
+						  radius = 3,
 						  action_delivery =
 						  {
 							type = "projectile",
@@ -266,7 +266,7 @@ data:extend({
           action =
           {
             type = "area",
-            perimeter = 6,
+            radius = 6,
             action_delivery =
             {
               type = "instant",
@@ -318,7 +318,7 @@ data:extend({
           action =
           {
             type = "area",
-            perimeter = 10,
+            radius = 10,
             action_delivery =
             {
               type = "instant",
@@ -370,7 +370,7 @@ data:extend({
           action =
           {
             type = "area",
-            perimeter = 12,
+            radius = 12,
             action_delivery =
             {
               type = "instant",

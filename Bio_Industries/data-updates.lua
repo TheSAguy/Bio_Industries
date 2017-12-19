@@ -10,19 +10,21 @@ require ("libs.technology-functions") -- From Bob's Libary
 ----Update the Wood Pipe Images
 require ("prototypes.Wood_Products.pipes")
 --- Update the Rail Images
+
+-- NEED to FIX 
 require ("prototypes.Wood_Products.wooden_rail_bridge_update")
-require ("prototypes.Wood_Products.tint_rails_remnants_function")
 --- Bridge Rail Remnants
 require ("prototypes.Wood_Products.update_bridge_rails_remnants")
+require ("prototypes.Wood_Products.tint_rails_remnants_function")
 
 	-- Concrete Rail
 	---- Update Standard Rails to use and look like concrete
-set_tint_to_rails ({
+	set_tint_to_rails ({
 	data.raw["straight-rail"]["straight-rail"],
 	data.raw["curved-rail"]["curved-rail"]}, 
 	{r = 183/255, g = 183/255, b = 183/255, a = 1}) -- concrete
 	
-set_tint_to_remnants ({
+	set_tint_to_remnants ({
 	data.raw["rail-remnants"]["straight-rail-remnants"],
 	data.raw["rail-remnants"]["curved-rail-remnants"]}, 
 	{r = 183/255, g = 183/255, b = 183/255, a = 1}) -- concrete
@@ -33,10 +35,11 @@ set_tint_to_remnants ({
 	data.raw["curved-rail"]["bi-curved-rail-wood"]}, 
 	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
 	
-set_tint_to_remnants ({
+	set_tint_to_remnants ({
 	data.raw["rail-remnants"]["straight-rail-remnants-wood"],
 	data.raw["rail-remnants"]["curved-rail-remnants-wood"]}, 
 	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
+
 
 		
 -- vanilla rail recipe update
@@ -150,7 +153,16 @@ thxbob.lib.tech.add_recipe_unlock ("logistics", "bi-big-wooden-pole")
 	
 
 --- Make it so that the Base game tile "grass-medium" can't be placed in blueprints
-data.raw["tile"]["grass-medium"].can_be_part_of_blueprint = false
+---- OLD
+--data.raw["tile"]["grass-medium"].can_be_part_of_blueprint = false
+
+--- New as of 0.16
+data.raw["tile"]["grass-1"].can_be_part_of_blueprint = false
+data.raw["tile"]["grass-2"].can_be_part_of_blueprint = false
+data.raw["tile"]["grass-3"].can_be_part_of_blueprint = false
+data.raw["tile"]["grass-4"].can_be_part_of_blueprint = false
+
+
 
 --- Adds Bio Accumulator Tech
 if BI.Settings.BI_Accumulator then

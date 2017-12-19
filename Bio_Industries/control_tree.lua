@@ -5,7 +5,8 @@ require ("stdlib/event/event")
 
 local Bi_Industries = {}
 
-
+--- OLD 0.15
+--[[
 Bi_Industries.fertility = {  -- out of 100, so 100 = always
 	-- Vanilla
 	["grass-medium"]    = 100,
@@ -52,7 +53,66 @@ Bi_Industries.fertility = {  -- out of 100, so 100 = always
 	["volcanic-hot"]    = 1
 
 }
+]]
 
+Bi_Industries.fertility = {  -- out of 100, so 100 = always
+	-- Vanilla
+	["grass-1"]    = 100,
+	["grass-2"]    = 85,
+	["grass-3"]    = 65,
+	["grass-4"]    = 47,
+	["dry-dirt"]    = 36,
+	["dirt-1"]    = 30,
+	["dirt-2"]    = 28,
+	["dirt-3"]    = 26,
+	["dirt-4"]    = 24,
+	["dirt-5"]    = 22,
+	["dirt-6"]    = 20,
+	["dirt-7"]    = 18,
+	["sand-1"]    = 16,
+	["sand-2"]    = 14,
+	["sand-3"]    = 12,
+	["red-desert-0"]    = 8,
+	["red-desert-1"]    = 7,
+	["red-desert-2"]    = 6,
+	["red-desert-3"]    = 5
+
+		--[[
+	-- Alien biomes
+	["grass-red"]    = 65,
+	["grass-orange"]    = 65,
+	["grass-yellow"]    = 70,
+	["grass-yellow-fade"]    = 65,
+	["grass-blue-fade"]    = 55,
+	["grass-blue"]    = 60,
+	["grass-purple-fade"]    = 55,
+	["grass-purple"]    = 60,
+	["dirt-red"]    = 42,
+	["dirt-brown"]    = 46,
+	["dirt-tan"]    = 44,
+	["dirt-dull"]    = 38,
+	["dirt-grey"]    = 40,
+	["dirt-red-dark"]    = 41,
+	["dirt-brown-dark"]    = 45,
+	["dirt-tan-dark"]    = 43,
+	["dirt-dull-dark"]    = 37,
+	["dirt-grey-dark"]    = 39,
+	["sand-red"]    = 17,
+	["sand-orange"]    = 21,
+	["sand-gold"]    = 19,
+	["sand-dull"]    = 13,
+	["sand-grey"]    = 15,
+	["sand-red-dark"]    = 16,
+	["sand-orange-dark"]    = 20,
+	["sand-gold-dark"]    = 18,
+	["sand-dull-dark"]    = 12,
+	["sand-grey-dark"]    = 14,
+	["snow"]    = 2.5,
+	["volcanic-cool"]    = 3,
+	["volcanic-medium"]    = 2,
+	["volcanic-hot"]    = 1
+]]
+}
 
 
 --------------------

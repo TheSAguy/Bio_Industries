@@ -8,6 +8,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-Bio_Garden",
 		icon = "__Bio_Industries__/graphics/icons/bio_garden_icon.png",
+		icon_size = 32,
 		enabled = false,
 		energy_required = 10,
 		ingredients =
@@ -25,6 +26,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-Clean_Air",
 		icon = "__Bio_Industries__/graphics/icons/clean-air_mk1.png",
+		icon_size = 32,
 		order = "zzz-clean-air",
 		category = "clean-air",
 		enabled = false,
@@ -45,6 +47,7 @@ data:extend({
 		type = "recipe",
 		name = "bi-Clean_Air2",
 		icon = "__Bio_Industries__/graphics/icons/clean-air_mk2.png",
+		icon_size = 32,
 		order = "zzz-clean-air2",
 		category = "clean-air",
 		enabled = false,   

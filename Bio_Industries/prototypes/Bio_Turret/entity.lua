@@ -8,6 +8,7 @@ data:extend({
 		type = "ammo",
 		name = "basic-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/basic_dart_icon.png",
+		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
 		ammo_type =
 		{
@@ -55,6 +56,7 @@ data:extend({
 		type = "ammo",
 		name = "enhanced-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/enhanced_dart_icon.png",
+		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
 		ammo_type =
 		{
@@ -132,6 +134,7 @@ data:extend({
     type = "ammo-turret",
     name = "bio-turret",
     icon = "__Bio_Industries__/graphics/icons/bio_turret_icon.png",
+	icon_size = 32,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.25, result = "bio-turret"},
     max_health = 250,

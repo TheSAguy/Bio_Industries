@@ -10,6 +10,7 @@ data:extend({
     type = "assembling-machine",
 	name = "bi-Bio_Garden",
 	icon = "__Bio_Industries__/graphics/icons/bio_garden_icon.png",
+	icon_size = 32,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-Bio_Garden"},
     fast_replaceable_group = "bi-Bio_Garden",
