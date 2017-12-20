@@ -47,12 +47,12 @@ end
 log ("global table of rails is complete :" .. #global.rails)
 for i, handler in pairs (global.rails) do
 	--handler.name = "straight_rail_horizontal"
-	local was_filename = handler.table.sheet.filename
-	handler.table.sheet.filename = sheet_path_ties .. handler.name .. "-ties.png"
-	handler.table.sheet.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties.png"
-	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.sheet.filename)
-	handler.table.sheet.tint = tint
-	handler.table.sheet.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
+	local was_filename = handler.table.filename
+	handler.table.filename = sheet_path_ties .. handler.name .. "-ties.png"
+	handler.table.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties.png"
+	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.filename)
+	handler.table.tint = tint
+	handler.table.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
 end
 log("End rails") 		---------------------
 end
@@ -79,12 +79,12 @@ end
 log ("global table of remnants is complete :" .. #global.remnants)
 for i, handler in pairs (global.remnants) do
 	--remnants.name = "straight_rail_horizontal"
-	local was_filename = handler.table.sheet.filename
-	handler.table.sheet.filename = sheet_path_ties .. handler.name .. "-ties-remnants.png"
-	handler.table.sheet.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties-remnants.png"
-	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.sheet.filename)
-	handler.table.sheet.tint = tint
-	handler.table.sheet.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
+	local was_filename = handler.table.filename
+	handler.table.filename = sheet_path_ties .. handler.name .. "-ties-remnants.png"
+	handler.table.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties-remnants.png"
+	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.filename)
+	handler.table.tint = tint
+	handler.table.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
 end
 log("End remnants") 		---------------------
 end

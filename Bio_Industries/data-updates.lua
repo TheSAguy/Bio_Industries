@@ -11,7 +11,7 @@ require ("libs.technology-functions") -- From Bob's Libary
 require ("prototypes.Wood_Products.pipes")
 --- Update the Rail Images
 
--- NEED to FIX 
+
 require ("prototypes.Wood_Products.wooden_rail_bridge_update")
 --- Bridge Rail Remnants
 require ("prototypes.Wood_Products.update_bridge_rails_remnants")
@@ -41,7 +41,7 @@ require ("prototypes.Wood_Products.tint_rails_remnants_function")
 	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
 
 
-		
+	
 -- vanilla rail recipe update
 thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
 
@@ -340,7 +340,7 @@ end
 if data.raw["item"]["bob-greenhouse"] then 
 	data.raw["item"]["seedling"].place_result="seedling"
 	data.raw["item"]["seedling"].icon = "__Bio_Industries__/graphics/icons/Seedling.png"
-	data.raw["item"]["fertiliser"].place_as_tile = {result = "grass-medium",	condition_size = 1,	condition = { "water-tile" }}
+	data.raw["item"]["fertiliser"].place_as_tile = {result = "grass-2",	condition_size = 1,	condition = { "water-tile" }}
 	data.raw["item"]["fertiliser"].icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png"
 		
 end

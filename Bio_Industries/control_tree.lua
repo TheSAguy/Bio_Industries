@@ -77,7 +77,7 @@ Bi_Industries.fertility = {  -- out of 100, so 100 = always
 	["red-desert-2"]    = 6,
 	["red-desert-3"]    = 5
 
-		--[[
+		--[[ Needs updating once Bio Domes is updated
 	-- Alien biomes
 	["grass-red"]    = 65,
 	["grass-orange"]    = 65,
@@ -154,9 +154,8 @@ local function get_random_tree_for_terrain (terrain_name) -- text
   
    local terrains = {}
    --Vanilla
-	terrains["grass-medium"] = 
-	{
-	  name = "grass-medium",
+	terrains["grass-1"] = {
+	  name = "grass-1",
 	  trees = {
 	   "tree-02",   
 	   "tree-03",
@@ -164,8 +163,8 @@ local function get_random_tree_for_terrain (terrain_name) -- text
 	   "tree-05"
 	  }
 	}
-	terrains["grass"] = {
-	  name = "grass",
+	terrains["grass-2"] = {
+	  name = "grass-2",
 	  trees = {
 		"tree-01",
 		"tree-02",
@@ -176,8 +175,8 @@ local function get_random_tree_for_terrain (terrain_name) -- text
 		"tree-08"
 	  }
 	}
-	terrains["grass-dry"] = {
-	  name = "grass-dry",
+	terrains["grass-3"] = {
+	  name = "grass-3",
 	  trees = {     
 		"tree-01",
 		"tree-03",
@@ -186,15 +185,25 @@ local function get_random_tree_for_terrain (terrain_name) -- text
 		"tree-07"
 	  }
 	}
-	terrains["sand"] = {
-	  name = "sand",
+	terrains["grass-4"] = {
+	  name = "grass-4",
+	  trees = {     
+		"tree-01",
+		"tree-03",
+		"tree-04",
+		"tree-05",
+		"tree-07"
+	  }
+	}
+	terrains["sand-1"] = {
+	  name = "sand-1",
 	  trees = {
 		"tree-07",
 		"tree-09-brown",
 	  }
 	}
-	terrains["sand-dark"] = {
-	  name = "sand-dark",
+	terrains["sand-2"] = {
+	  name = "sand-2",
 	  trees = {
 		"tree-01",
 		"tree-07",
@@ -203,8 +212,16 @@ local function get_random_tree_for_terrain (terrain_name) -- text
 		"tree-09"
 	  }
 	}
-	terrains["dirt"] = {
-	  name = "dirt",
+	terrains["sand-3"] = {
+	  name = "sand-3",
+	  trees = {
+		"tree-07",
+		"tree-08-brown",
+		"tree-09-brown",
+	  }
+	}
+	terrains["dry-dirt"] = {
+	  name = "dry-dirt",
 	  trees = {
 		"tree-01",
 		"tree-07",
@@ -212,25 +229,80 @@ local function get_random_tree_for_terrain (terrain_name) -- text
 		"tree-09-brown"
 	  }
 	}
-	terrains["dirt-dark"] = {
-	  name = "dirt",
+	terrains["dirt-1"] = {
+	  name = "dirt-1",
 	  trees = {
 		"tree-08-brown",
 		"tree-09-brown"
 	  }
 	}
-	terrains["red-desert"] = {
-	  name = "red-desert",
+	terrains["dirt-2"] = {
+	  name = "dirt-2",
+	  trees = {
+		"tree-08-brown",
+		"tree-09-brown"
+	  }
+	}
+	terrains["dirt-3"] = {
+	  name = "dirt-3",
+	  trees = {
+		"tree-08-brown",
+		"tree-09-brown"
+	  }
+	}
+	terrains["dirt-4"] = {
+	  name = "dirt-4",
+	  trees = {
+		"tree-08-brown",
+		"tree-09-brown"
+	  }
+	}
+	terrains["dirt-5"] = {
+	  name = "dirt-5",
+	  trees = {
+		"tree-08-brown",
+		"tree-09-brown"
+	  }
+	}
+	terrains["dirt-6"] = {
+	  name = "dirt-7",
+	  trees = {
+		"tree-08-brown",
+		"tree-09-brown"
+	  }
+	}
+	terrains["dirt-7"] = {
+	  name = "dirt-7",
+	  trees = {
+		"tree-08-brown",
+		"tree-09-brown"
+	  }
+	}
+	terrains["red-desert-0"] = {
+	  name = "red-desert-0",
 	  trees = {
 		"tree-09-red"
 	  }
 	}
-	terrains["red-desert-dark"] = {
-	  name = "red-desert-dark",
+	terrains["red-desert-1"] = {
+	  name = "red-desert-1",
 	  trees = {
 		"tree-09-red"
 	  }
 	}
+	terrains["red-desert-2"] = {
+	  name = "red-desert-2",
+	  trees = {
+		"tree-09-red"
+	  }
+	}
+	terrains["red-desert-3"] = {
+	  name = "red-desert-3",
+	  trees = {
+		"tree-09-red"
+	  }
+	}
+--[[ TBD	
 	-- Alien biomes
 	terrains["sand-grey"] = {
 	  name = "sand-grey",
@@ -683,7 +755,7 @@ local function get_random_tree_for_terrain (terrain_name) -- text
 
 	  }
 	}
-		   
+]]		   
 
    for i, terrain in pairs (terrains) do
       if (terrain.name == terrain_name) then 

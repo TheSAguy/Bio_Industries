@@ -19,9 +19,9 @@ local type = { straight_rail_horizontal = { prefix="straight-rail", dir="horizon
 for class,info in pairs(type) do
    local proto = data.raw[info.prefix];
 log( "doing".. class.. " "..info.prefix .. "   "..info.dir.."    ".. tostring( proto ).. "   " );
-	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path.sheet.hr_version.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/hr-"..info.prefix.."-"..info.dir.."-stone-path.png"
-	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path_background.sheet.hr_version.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/hr-"..info.prefix.."-"..info.dir.."-stone-path-background.png"
-	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path.sheet.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/"..info.prefix.."-"..info.dir.."-stone-path.png"
-	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path_background.sheet.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/"..info.prefix.."-"..info.dir.."-stone-path-background.png"
+	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path.hr_version.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/hr-"..info.prefix.."-"..info.dir.."-stone-path.png"
+	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path_background.hr_version.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/hr-"..info.prefix.."-"..info.dir.."-stone-path-background.png"
+	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/"..info.prefix.."-"..info.dir.."-stone-path.png"
+	data.raw[info.prefix]["bi-"..info.prefix.."-wood-bridge"].pictures[class].stone_path_background.filename="__Bio_Industries__/graphics/entities/wood_products/rails/"..info.prefix.."-bridge/"..info.prefix.."-"..info.dir.."-stone-path-background.png"
 end
 
