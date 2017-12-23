@@ -1,4 +1,4 @@
----Bio Industries - v.1.9.4
+---Bio Industries - v.2.0.2
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
@@ -212,6 +212,7 @@ local function On_Remove(event)
 	
 	--- Bio Farm has been removed
    	if entity.valid and entity.name == "bi_bio_farm" then
+	writeDebug("Bio Farm has been removed")
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -509,108 +510,38 @@ local function Robot_Tile_Built(event)
 		
 end
 
+
 --------------------------------------------------------------------
+local function solar_mat_removed_at(surface, position)
+   local radius = 0.5
+   local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
+   local n = 0
+   for _,o in next,surface.find_entities_filtered{name='bi_solar_pole',area=area} or {}
+      do o.destroy() n = n+1 end
+   --writedebug(string.format('%g bi_solar_poles removed',n))
+   for _,o in next,surface.find_entities_filtered{name='bi_solar-panel_for_Solar-Mat',area=area} or {}
+      do o.destroy() n = n+1 end
+   --writedebug(string.format('bi_solar-panel_for_Solar-Mat',n))
+   end
+
 local function Player_Tile_Remove(event)
-	
-
-     local player = game.players[event.player_index]
-     local tile_name = event.item_stack.name
-	 local tile = game.item_prototypes[tile_name] and game.item_prototypes[tile_name].place_as_tile_result
-
-	 --- Solar Map has been removed
-     if tile and player.mining_state.mining and tile_name == "bi-solar-mat" then
-		local tile_position = player.mining_state.position 
-		
-		writeDebug("Solar Mat Removed")
-	
-		local surface = player.surface
-		local radius = 0.5
-		local area = {{tile_position.x - radius, tile_position.y - radius}, {tile_position.x + radius, tile_position.y + radius}}
-			
-		--- Remove the Hidden Pole
-		local entities = surface.find_entities(area)
-		local entity1 = entities[1]
-		entity1 = surface.find_entities_filtered{area=area, name="bi_solar_pole", limit=1}
-			
-		if entity1 then 		
-		
-			for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar_pole"})) do o.destroy() end	
-
-			writeDebug("bi_solar_pole Removed")
-		else
-			writeDebug("bi_solar_pole not found")				
-		end
-			
-		--- Remove the Hidden Solar Panel		
-		local entity2 = entities[1]
-		entity2 = surface.find_entities_filtered{area=area, name="bi_solar-panel_for_Solar-Mat", limit=1}	
-		
-		if entity2 then 
-				
-			for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar-panel_for_Solar-Mat"})) do o.destroy() end	
-
-			writeDebug("bi_solar-panel_for_Solar-Mat Removed")
-		else
-			writeDebug("bi_solar-panel_for_Solar-Mat not found")				
-		end
-
-
-    end
-	
-end
+   local player = game.players[event.player_index]
+   if event.item_stack.name == 'bi-solar-mat' and player.mining_state.mining then
+     -- writedebug(string.format('%g solar mats removed',event.item_stack.count))
+      return solar_mat_removed_at(player.surface, player.mining_state.position)
+      end
+   end
 
 
 local function Robot_Tile_Remove(event)
-	
-
-	local robot = event.robot 
-    local tile_name = event.item_stack.name
-	local tile = game.item_prototypes[tile_name] and game.item_prototypes[tile_name].place_as_tile_result
-	
-	 --- Solar Map has been removed
-	if tile and tile_name == "bi-solar-mat" then
-	 
-		local tile_position = robot.position 
-
-		writeDebug("Solar Mat Removed")	
-	
-		local surface = robot.surface
-		local radius = 0.5
-		local area = {{tile_position.x - radius, tile_position.y - radius}, {tile_position.x + radius, tile_position.y + radius}}
-			
-		--- Remove the Hidden Pole
-		local entities = surface.find_entities(area)
-		local entity1 = entities[1]
-		entity1 = surface.find_entities_filtered{area=area, name="bi_solar_pole", limit=1}
-		
-		if entity1 then 
-			
-			for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar_pole"})) do o.destroy() end	
-
-			writeDebug("bi_solar_pole Removed")
-		else
-			writeDebug("bi_solar_pole not found")				
-		end
-						
-		--- Remove the Hidden Solar Panel		
-		local entity2 = entities[1]
-		entity2 = surface.find_entities_filtered{area=area, name="bi_solar-panel_for_Solar-Mat", limit=1}	
-		
-		if entity2 then 
-		
-			for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar-panel_for_Solar-Mat"})) do o.destroy() end	
-			
-			writeDebug("bi_solar-panel_for_Solar-Mat Removed")
-		else
-			writeDebug("bi_solar-panel_for_Solar-Mat not found")				
-		end
-
-	  
-    end
-
-	
-end
+   local robot = event.robot 
+   if event.item_stack.name == 'bi-solar-mat' then
+     -- writedebug(string.format('%g solar mats removed',event.item_stack.count))
+      return solar_mat_removed_at(robot.surface,robot.position)
+      end
+   end
 --------------------------------------------------------------------
+
 
 
 script.on_load(On_Load)
@@ -621,7 +552,7 @@ script.on_init(On_Init)
 local build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity}
 script.on_event(build_events, On_Built)
 
-local pre_remove_events = {defines.events.on_preplayer_mined_item, defines.events.on_robot_pre_mined}
+local pre_remove_events = {defines.events.on_pre_player_mined_item, defines.events.on_robot_pre_mined}
 script.on_event(pre_remove_events, On_Remove)
 
 local death_events = {defines.events.on_entity_died}
