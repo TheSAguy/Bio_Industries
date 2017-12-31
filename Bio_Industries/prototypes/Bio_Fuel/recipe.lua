@@ -255,7 +255,7 @@ data:extend({
     },
     
     subgroup = "fluid-recipes",  
-	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
+	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-1]",
   },
 
   	---- Biomass to PG
@@ -279,9 +279,41 @@ data:extend({
     },
     
     subgroup = "fluid-recipes",  
-	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion]",
+	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-2]",
   },
 
+    	---- Biomass to Lube
+
+  {
+    type = "recipe",
+    name = "bi-biomass_conversion-3",
+	icon = "__Bio_Industries__/graphics/icons/bio_conversion_3.png",
+	icon_size = 32,	
+    category = "oil-processing",
+    enabled = false,
+    energy_required = 2.5,
+    ingredients =
+    {
+		{type="fluid", name="bi-biomass", amount=10},
+		{type="fluid", name="water", amount=10},
+    },
+    results=
+    {
+		{type="fluid", name="lubricant", amount=10}
+    },
+    
+    subgroup = "fluid-recipes",  
+	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-3]",
+	crafting_machine_tint =
+    {
+      primary = {r = 0.000, g = 0.260, b = 0.010, a = 0.000}, -- #00420200
+      secondary = {r = 0.071, g = 0.640, b = 0.000, a = 0.000}, -- #12a30000
+      tertiary = {r = 0.026, g = 0.520, b = 0.000, a = 0.000}, -- #06840000
+    }
+  },
+
+
+  
   --- Bio Battery
   	
 	{
