@@ -9,7 +9,7 @@ data:extend({
 		flags = { "goes-to-main-inventory" },
 		ammo_type =
 		{
-			category = "Bio_Cannon_Ammo",
+			category = "artillery-shell",
 			target_type = "direction",
 			action =
 			{
@@ -41,7 +41,7 @@ data:extend({
 		flags = { "goes-to-main-inventory" },
 		ammo_type =
 		{
-			category = "Bio_Cannon_Ammo",
+			category = "artillery-shell",
 			target_type = "direction",
 			action =
 			{

@@ -154,9 +154,8 @@ thxbob.lib.tech.add_recipe_unlock ("logistics", "bi-big-wooden-pole")
 
 	
 
---- Make it so that the Base game tile "grass-medium" can't be placed in blueprints
----- OLD
---data.raw["tile"]["grass-medium"].can_be_part_of_blueprint = false
+--- Make it so that the Base game tile "grass" can't be placed in blueprints
+
 
 --- New as of 0.16
 data.raw["tile"]["grass-1"].can_be_part_of_blueprint = false
@@ -345,7 +344,7 @@ end
 if data.raw["item"]["bob-greenhouse"] then 
 	data.raw["item"]["seedling"].place_result="seedling"
 	data.raw["item"]["seedling"].icon = "__Bio_Industries__/graphics/icons/Seedling.png"
-	data.raw["item"]["fertiliser"].place_as_tile = {result = "grass-2",	condition_size = 1,	condition = { "water-tile" }}
+	data.raw["item"]["fertiliser"].place_as_tile = {result = "grass-3",	condition_size = 1,	condition = { "water-tile" }}
 	data.raw["item"]["fertiliser"].icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png"
 		
 end

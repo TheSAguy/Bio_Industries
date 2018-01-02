@@ -58,25 +58,26 @@ Bi_Industries.fertility = {  -- out of 100, so 100 = always
 
 Bi_Industries.fertility = {  -- out of 100, so 100 = always
 	-- Vanilla
-	["grass-1"]    = 100,
-	["grass-2"]    = 85,
-	["grass-3"]    = 65,
-	["grass-4"]    = 47,
-	["dry-dirt"]    = 36,
-	["dirt-1"]    = 30,
-	["dirt-2"]    = 28,
-	["dirt-3"]    = 26,
-	["dirt-4"]    = 24,
-	["dirt-5"]    = 22,
-	["dirt-6"]    = 20,
-	["dirt-7"]    = 18,
-	["sand-1"]    = 16,
-	["sand-2"]    = 14,
-	["sand-3"]    = 12,
-	["red-desert-0"]    = 8,
-	["red-desert-1"]    = 7,
-	["red-desert-2"]    = 6,
-	["red-desert-3"]    = 5
+	["grass-1"] =  100,
+	["grass-3"] =  85,
+	["grass-2"] =  70,
+	["grass-4"] =  60,
+	["red-desert-0"] =  50,
+	["dirt-3"] =  40,
+	["dirt-5"] =  37,
+	["dirt-6"] =  34,
+	["dirt-7"] =  31,
+	["dirt-4"] =  28,
+	["dry-dirt"] =  25,
+	["dirt-2"] =  22,
+	["dirt-1"] =  19,
+	["red-desert-2"] =  16,
+	["red-desert-3"] =  13,
+	["sand-3"] =  10,
+	["sand-2"] =  7,
+	["sand-1"] =  4,
+	["red-desert-1"] =  1
+
 
 		--[[ Needs updating once Bio Domes is updated
 	-- Alien biomes
