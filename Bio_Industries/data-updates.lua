@@ -73,6 +73,8 @@ if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
 	if not mods["Natural_Evolution_Buildings"] then
 		require("prototypes.Bio_Cannon.technology-updates")
 	end
+	-- add Prototype Artillery as pre req for artillery
+	thxbob.lib.tech.add_prerequisite("artillery", "Bio_Cannon")
 end
 
 --- Move Stone Crusher up in tech tree

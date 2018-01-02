@@ -2,6 +2,7 @@
 -- All tree Growing stuff
 
 require ("stdlib/event/event")
+--require ("libs/trees-and-terrains")
 
 local Bi_Industries = {}
 
@@ -762,6 +763,7 @@ local function get_random_tree_for_terrain (terrain_name) -- text
          return get_random_from_table (terrain.trees)
       end
    end
+   
 end
 
 
@@ -769,7 +771,6 @@ end
 local function Grow_tree(pos, surface)
 	
 	local foundtree = false
-	--local surface = game.surfaces[1]
 	local tree = surface.find_entity("seedling", pos)
 	local currentTilename = surface.get_tile(pos.x, pos.y).name
 	local fertility = 0 -- fertility will be zero if terrain type not listed above, so nothing will grow on it.

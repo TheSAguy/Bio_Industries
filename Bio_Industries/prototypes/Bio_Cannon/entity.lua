@@ -51,6 +51,7 @@ function attacking_animation()
 		}}}
 end
 ]]
+
 function folding_animation()
 	return {layers = {{
 		priority = "medium",
@@ -88,6 +89,28 @@ end
 
 data:extend({
 
+
+-- GUN
+
+  {
+		type = "gun",
+		name = "proto-artillery",
+		icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
+		icon_size = 32,
+		flags = {"goes-to-main-inventory", "hidden"},
+		subgroup = "gun",
+		order = "z[artillery]-a[cannon]",
+		attack_parameters =
+		{
+			type = "projectile",
+			ammo_category = "Bio_Cannon_Ammo",
+			cooldown = 2,
+			range = 0,
+			projectile_creation_distance = 1.8,
+			action ={}
+		},
+		stack_size = 1
+  },
 
 	-- Bio Cannon Artillery Range Overlay
 	{
@@ -130,7 +153,7 @@ data:extend({
 	--Inventory
 
 	{
-		type = "ammo-turret",
+		type = "artillery-turret",
 		name = "Bio_Cannon",
 		icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
 		icon_size = 32,
@@ -161,17 +184,18 @@ data:extend({
 		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		order = "i[items][Bio_Cannon]",
 		inventory_size = 1,
+		gun = "proto-artillery",
+		turret_rotation_speed = 0.001,
+		turn_after_shooting_cooldown = 60,
+		cannon_parking_frame_count = 8,
+		cannon_parking_speed = 0.25,
+		manual_range_modifier = 2.5,
+		ammo_stack_limit = 5,
+		automated_ammo_count = 5,
+		alert_when_attacking = false,
 		prepare_range = 90,
 		preparing_speed = 0.012,
-		attack_parameters =
-		{
-			type = "projectile",
-			ammo_category = "Bio_Cannon_Ammo",
-			cooldown = 2,
-			range = 0,
-			projectile_creation_distance = 1.8,
-			action ={}
-		},
+
 		folding_speed = 0.012,
 		
 		preparing_animation = preparing_animation(),
