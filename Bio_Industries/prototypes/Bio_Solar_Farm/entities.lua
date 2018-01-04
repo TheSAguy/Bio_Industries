@@ -3,7 +3,7 @@ require ("util")
 
 if BI.Settings.BI_Solar_Farm then
 	data:extend({
-	------- Bio Solar Farm Image
+	------- Bio Solar Farm - Image Only, to make as if it switches on and off.
 	  {
 		type = "lamp",
 		name = "bi_bio_Solar_Farm_Image",
@@ -19,14 +19,14 @@ if BI.Settings.BI_Solar_Farm then
 		  type = "electric",
 		  render_no_network_icon = false,
 		  render_no_power_icon = false,
-		  usage_priority = "secondary-input"
+		  usage_priority = "lamp"
 		},
-		energy_usage_per_tick = "1kW",
+		energy_usage_per_tick = "0.1kW",
 		light = {intensity = 0.1, size = 1},
 		picture_off =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On.png",
-		  priority = "high",
+		  priority = "extra-high",
 		  width = 208,
 		  height = 192,
 		  frame_count = 1,
@@ -36,7 +36,7 @@ if BI.Settings.BI_Solar_Farm then
 		picture_on =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_Off.png",
-		  priority = "high",
+		  priority = "extra-high",
 		  width = 208,
 		  height = 192,
 		  frame_count = 1,
@@ -52,7 +52,7 @@ if BI.Settings.BI_Solar_Farm then
 		icon_size = 32,
 		flags = {"placeable-neutral", "player-creation"},
 		minable = {hardness = 0.25, mining_time = 0.5, result = "bi_bio_Solar_Farm"},
-		max_health = 200,
+		max_health = 600,
 		corpse = "big-remnants",
 		dying_explosion = "medium-explosion",
 		resistances = {{type = "fire", percent = 80}},

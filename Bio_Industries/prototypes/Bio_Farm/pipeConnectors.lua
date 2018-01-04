@@ -1,5 +1,5 @@
 
-
+--[[
 function pipecoverspictures()
   return
   {
@@ -69,7 +69,7 @@ function pipecoverspictures()
     }
   }
 end
-
+]]
 
 function assembler2pipepicturesCokery()
   return

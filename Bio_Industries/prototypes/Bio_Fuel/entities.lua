@@ -107,15 +107,15 @@ data:extend(
 		{
 		  {
 			type = "fire",
-			percent = 90
+			percent = 100
 		  },
 		  {
 			type = "explosion",
-			percent = 30
+			percent = 350
 		  },
 		  {
 			type = "impact",
-			percent = 30
+			percent = 35
 		  }
 		},
 		collision_box = {{-1.29, -0.79}, {1.29, 0.79}},
@@ -132,7 +132,8 @@ data:extend(
 			{type = "input-output", position = {-2, 0.5}},
 			{type = "input-output", position = {2, 0.5}}
 		  },
-		  production_type = "input-output"
+		  production_type = "input-output",
+		  filter = "water"
 		},
 		output_fluid_box =
 		{
@@ -144,17 +145,8 @@ data:extend(
 		  {
 			{type = "output", position = {0, -1.5}}
 		  },
-		  production_type = "output"
-		},
-		fluid_input =
-		{
-		  name = "water",
-		  amount = 0.0
-		},
-		fluid_output =
-		{
-		  name = "steam",
-		  amount = 0.0
+		  production_type = "output",
+		  filter = "steam"
 		},
 		energy_consumption = "1.8MW",
 		energy_source =

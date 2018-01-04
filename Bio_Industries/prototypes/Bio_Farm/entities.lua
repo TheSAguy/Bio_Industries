@@ -143,10 +143,10 @@ data:extend({
 	collision_mask = {},
 	energy_source =
     {
-      type = "electric",
-	  render_no_network_icon = false,
-	  render_no_power_icon = false,
-      usage_priority = "secondary-input"
+		type = "electric",
+		render_no_network_icon = false,
+		render_no_power_icon = false,
+		usage_priority = "lamp"
     },
     energy_usage_per_tick = "100kW",
     light = {intensity = 1, size = 45},

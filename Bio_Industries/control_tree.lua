@@ -2,61 +2,12 @@
 -- All tree Growing stuff
 
 require ("stdlib/event/event")
---require ("libs/trees-and-terrains")
+
 
 local Bi_Industries = {}
 
---- OLD 0.15
---[[
-Bi_Industries.fertility = {  -- out of 100, so 100 = always
-	-- Vanilla
-	["grass-medium"]    = 100,
-	["grass"]    = 85,
-	["grass-dry"]    = 65,
-	["dirt"]    = 47,
-	["dirt-dark"]    = 36,
-	["sand"]    = 22,
-	["sand-dark"]    = 11,
-	["red-desert"]    = 5,
-	["red-desert-dark"]    = 2.5,
-	-- Alien biomes
-	["grass-red"]    = 65,
-	["grass-orange"]    = 65,
-	["grass-yellow"]    = 70,
-	["grass-yellow-fade"]    = 65,
-	["grass-blue-fade"]    = 55,
-	["grass-blue"]    = 60,
-	["grass-purple-fade"]    = 55,
-	["grass-purple"]    = 60,
-	["dirt-red"]    = 42,
-	["dirt-brown"]    = 46,
-	["dirt-tan"]    = 44,
-	["dirt-dull"]    = 38,
-	["dirt-grey"]    = 40,
-	["dirt-red-dark"]    = 41,
-	["dirt-brown-dark"]    = 45,
-	["dirt-tan-dark"]    = 43,
-	["dirt-dull-dark"]    = 37,
-	["dirt-grey-dark"]    = 39,
-	["sand-red"]    = 17,
-	["sand-orange"]    = 21,
-	["sand-gold"]    = 19,
-	["sand-dull"]    = 13,
-	["sand-grey"]    = 15,
-	["sand-red-dark"]    = 16,
-	["sand-orange-dark"]    = 20,
-	["sand-gold-dark"]    = 18,
-	["sand-dull-dark"]    = 12,
-	["sand-grey-dark"]    = 14,
-	["snow"]    = 2.5,
-	["volcanic-cool"]    = 3,
-	["volcanic-medium"]    = 2,
-	["volcanic-hot"]    = 1
 
-}
-]]
-
-Bi_Industries.fertility = {  -- out of 100, so 100 = always
+Bi_Industries.fertility = {  -- out of 100, so 100 = always grow tree
 	-- Vanilla
 	["grass-1"] =  100,
 	["grass-3"] =  85,
@@ -129,652 +80,69 @@ function seed_planted (event)
 		if Bi_Industries.fertility[currentTilename] then
 			fertility = Bi_Industries.fertility[currentTilename]				
 		else
-			fertility = 0
+			fertility = 1 -- < Always a minimum of 1. 
 		end
 		
-		local max_grow_time = math.random(5000) + 4000 - (40 * fertility)
+		local max_grow_time = math.random(5000) + 4040 - (40 * fertility) --< Fertile tiles will grow faster than barren tiles
 		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time, surface = surface})
 		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
 
 end
 
 
-local function get_random_from_table (table)
-   -- compressed table if some elements was deleted and we have {[1] = value1, [3] = value3}
-   local compressed_table = {}
-   for i, value in pairs (table) do
-      if value then 
-         compressed_table[#compressed_table+1] = value
+function is_value_as_index_in_table (value, tabl) 
+  for index, v in pairs (tabl) do
+    if value == index then
+      return true
+    end
+  end
+  return false
+end
+
+
+terrains = require("libs/trees-and-terrains")
+
+function summ_weight (tabl)
+  local summ = 0
+  for i, tree_weights in pairs (tabl) do
+    if (type (tree_weights) == "table") and tree_weights.weight then
+      summ = summ + tree_weights.weight
+    end
+  end
+  return summ
+end
+
+function tree_from_max_index_tabl (max_index, tabl)
+  local rnd_index = math.random (max_index)
+  for tree_name, tree_weights in pairs (tabl) do
+    if (type (tree_weights) == "table") and tree_weights.weight then
+      rnd_index = rnd_index - tree_weights.weight
+      if rnd_index <= 0 then
+        return tree_name
       end
-   end
-   return compressed_table[math.random(1,#compressed_table)]
+    end
+  end
+  return nil
+end
+
+function random_tree (surface, position)
+  local tile = surface.get_tile(position.x, position.y)
+  local tile_name = tile.name
+  if is_value_as_index_in_table (tile_name, terrains) then
+    local trees_table = terrains[tile_name]
+    local max_index = summ_weight(trees_table)
+    return tree_from_max_index_tabl (max_index, trees_table)
+  end
 end
 
 
 
-local function get_random_tree_for_terrain (terrain_name) -- text
-  
-   local terrains = {}
-   --Vanilla
-	terrains["grass-1"] = {
-	  name = "grass-1",
-	  trees = {
-	   "tree-02",   
-	   "tree-03",
-	   "tree-04",
-	   "tree-05"
-	  }
-	}
-	terrains["grass-2"] = {
-	  name = "grass-2",
-	  trees = {
-		"tree-01",
-		"tree-02",
-		"tree-03",
-		"tree-04",
-		"tree-05",
-		"tree-07",
-		"tree-08"
-	  }
-	}
-	terrains["grass-3"] = {
-	  name = "grass-3",
-	  trees = {     
-		"tree-01",
-		"tree-03",
-		"tree-04",
-		"tree-05",
-		"tree-07"
-	  }
-	}
-	terrains["grass-4"] = {
-	  name = "grass-4",
-	  trees = {     
-		"tree-01",
-		"tree-03",
-		"tree-04",
-		"tree-05",
-		"tree-07"
-	  }
-	}
-	terrains["sand-1"] = {
-	  name = "sand-1",
-	  trees = {
-		"tree-07",
-		"tree-09-brown",
-	  }
-	}
-	terrains["sand-2"] = {
-	  name = "sand-2",
-	  trees = {
-		"tree-01",
-		"tree-07",
-		"tree-08-brown",
-		"tree-09-brown",
-		"tree-09"
-	  }
-	}
-	terrains["sand-3"] = {
-	  name = "sand-3",
-	  trees = {
-		"tree-07",
-		"tree-08-brown",
-		"tree-09-brown",
-	  }
-	}
-	terrains["dry-dirt"] = {
-	  name = "dry-dirt",
-	  trees = {
-		"tree-01",
-		"tree-07",
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["dirt-1"] = {
-	  name = "dirt-1",
-	  trees = {
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["dirt-2"] = {
-	  name = "dirt-2",
-	  trees = {
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["dirt-3"] = {
-	  name = "dirt-3",
-	  trees = {
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["dirt-4"] = {
-	  name = "dirt-4",
-	  trees = {
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["dirt-5"] = {
-	  name = "dirt-5",
-	  trees = {
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["dirt-6"] = {
-	  name = "dirt-7",
-	  trees = {
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["dirt-7"] = {
-	  name = "dirt-7",
-	  trees = {
-		"tree-08-brown",
-		"tree-09-brown"
-	  }
-	}
-	terrains["red-desert-0"] = {
-	  name = "red-desert-0",
-	  trees = {
-		"tree-09-red"
-	  }
-	}
-	terrains["red-desert-1"] = {
-	  name = "red-desert-1",
-	  trees = {
-		"tree-09-red"
-	  }
-	}
-	terrains["red-desert-2"] = {
-	  name = "red-desert-2",
-	  trees = {
-		"tree-09-red"
-	  }
-	}
-	terrains["red-desert-3"] = {
-	  name = "red-desert-3",
-	  trees = {
-		"tree-09-red"
-	  }
-	}
---[[ TBD	
-	-- Alien biomes
-	terrains["sand-grey"] = {
-	  name = "sand-grey",
-	  trees = {
-		"tree-09-grey",
-		"tree-02-white",
-		"tree-09-pink",
-		"tree-02-white-sparse",
-		"tree-05-green",
-		"tree-06-purple",
-		"tree-02-yellow"
-	  }
-	}
-	terrains["sand-grey-dark"] = {
-	  name = "sand-grey-dark",
-	  trees = {
-		"tree-09-grey",
-		"tree-02-white-sparse",
-		"tree-06-cyan",
-		"tree-09-pink",
-		"tree-05-green",
-		"tree-06-purple",
-		"tree-02-white",
-		"tree-02-yellow",
-		"tree-01-green"
-	  }
-	}
-	terrains["sand-dull-dark"] = {
-	  name = "sand-dull-dark",
-	  trees = {
-		"tree-09-pink",
-		"tree-09-grey",
-		"tree-06-cyan",
-		"tree-02-yellow",
-		"tree-09-yellow",
-		"tree-05-green",
-		"tree-06-purple",
-		"tree-02-white",
-		"tree-01-green",
-		"tree-01-orange",
-		"tree-02-white-sparse"
-	  }
-	}
-	terrains["dirt-grey"] = {
-	  name = "dirt-grey",
-	  trees = {
-		"tree-09-pink",
-		"tree-09-grey",
-		"tree-06-cyan",
-		"tree-02-white",
-		"tree-02-white-sparse",
-		"tree-02-yellow",
-		"tree-06-purple",
-		"tree-05-green",
-		"tree-09-yellow",
-		"tree-01-green"
-	  }
-	}
-	terrains["dirt-dull"] = {
-	  name = "dirt-dull",
-	  trees = {
-		"tree-06-cyan",
-		"tree-09-pink",
-		"tree-02-yellow",
-		"tree-09-grey",
-		"tree-05-green",
-		"tree-06-purple",
-		"tree-09-yellow",
-		"tree-02-white",
-		"tree-01-orange",
-		"tree-02-white-sparse",
-		"tree-04-red",
-		"tree-01-green"
-	  }
-	}
-	terrains["dirt-dull-dark"] = {
-	  name = "dirt-dull-dark",
-	  trees = {
-		"tree-06-cyan",
-		"tree-06-blue",
-		"tree-01-olive",
-		"tree-02-yellow",
-		"tree-01-green",
-		"tree-02-white-sparse",
-		"tree-09-pink",
-		"tree-06-purple",
-		"tree-02-white",
-		"tree-09-yellow"
-	  }
-	}
-	terrains["grass-blue-fade"] = {
-	  name = "grass-blue-fade",
-	  trees = {
-		"tree-06-blue",
-		"tree-06-purple",
-		"tree-06-cyan",
-		"tree-01-olive",
-		"tree-01-green",
-		"tree-02-yellow",
-		"tree-01-orange",
-		"tree-02-ruby",
-		"tree-02-white",
-		"tree-09-grey",
-		"tree-02-white-sparse",
-		"tree-09-pink"
-	  }
-	}
-	terrains["snow"] = {
-	  name = "snow",
-	  trees = {
-		"tree-02-white-sparse",
-		"tree-02-white"
-	  }
-	}
-	terrains["grass-purple-fade"] = {
-	  name = "grass-purple-fade",
-	  trees = {
-		"tree-06-blue",
-		"tree-06-purple",
-		"tree-01-green",
-		"tree-01-olive",
-		"tree-02-ruby",
-		"tree-02-white-sparse",
-		"tree-01-orange",
-		"tree-02-yellow"
-	  }
-	}
-	terrains["dirt-grey-dark"] = {
-	  name = "dirt-grey-dark",
-	  trees = {
-		"tree-06-cyan",
-		"tree-06-blue",
-		"tree-02-white",
-		"tree-02-white-sparse",
-		"tree-04-red",
-		"tree-02-yellow",
-		"tree-09-yellow",
-		"tree-02-ruby",
-		"tree-05-green",
-		"tree-06-purple"
-	  }
-	}
-	terrains["grass-blue"] = {
-	  name = "grass-blue",
-	  trees = {
-		"tree-06-blue",
-		"tree-06-purple",
-		"tree-02-white",
-		"tree-06-cyan",
-		"tree-02-white-sparse",
-		"tree-01-green",
-		"tree-09-pink",
-		"tree-09-yellow",
-		"tree-04-red",
-		"tree-01-orange",
-		"tree-02-ruby",
-		"tree-01-olive",
-		"tree-02-yellow"
-	  }
-	}
-	terrains["grass-purple"] = {
-	  name = "grass-purple",
-	  trees = {
-		"tree-06-purple",
-		"tree-06-blue",
-		"tree-02-white",
-		"tree-01-orange",
-		"tree-02-yellow",
-		"tree-02-white-sparse",
-		"tree-02-ruby",
-		"tree-04-red"
-	  }
-	}
-	terrains["sand-dull"] = {
-	  name = "sand-dull",
-	  trees = {
-		"tree-09-pink",
-		"tree-09-grey",
-		"tree-09-yellow",
-		"tree-02-white",
-		"tree-05-green",
-		"tree-06-purple",
-		"tree-01-orange",
-		"tree-02-white-sparse",
-		"tree-02-yellow",
-		"tree-02-orange",
-		"tree-04-red"
-	  }
-	}
-	terrains["grass-yellow-fade"] = {
-	  name = "grass-yellow-fade",
-	  trees = {
-		"tree-01-green",
-		"tree-05-green",
-		"tree-01-olive",
-		"tree-02-yellow",
-		"tree-02-orange",
-		"tree-08-yellow",
-		"tree-01-orange",
-		"tree-02-ruby",
-		"tree-09-yellow",
-		"tree-06-cyan",
-		"tree-06-purple",
-		"tree-09-pink",
-		"tree-02-white-sparse",
-		"tree-04-orange"
-	  }
-	}
-	terrains["volcanic-hot"] = {
-	  name = "volcanic-hot",
-	  trees = {
-		"tree-01-green",
-		"tree-04-red",
-		"tree-04-orange",
-		"tree-02-white",
-		"tree-02-white-sparse",
-		"tree-06-purple",
-		"tree-09-ruby",
-		"tree-05-green",
-		"tree-02-ruby",
-		"tree-01-orange",
-		"tree-09-pink",
-		"tree-09-yellow",
-		"tree-09-grey"
-	  }
-	}
-	terrains["sand-gold-dark"] = {
-	  name = "sand-gold-dark",
-	  trees = {
-		"tree-09-yellow",
-		"tree-02-yellow",
-		"tree-05-green",
-		"tree-02-white",
-		"tree-06-purple",
-		"tree-02-ruby",
-		"tree-01-orange",
-		"tree-09-pink",
-		"tree-09-red",
-		"tree-01-green",
-		"tree-02-white-sparse"
-	  }
-	}
-	terrains["sand-gold"] = {
-	  name = "sand-gold",
-	  trees = {
-		"tree-09-yellow",
-		"tree-06-purple",
-		"tree-05-green",
-		"tree-02-white",
-		"tree-01-orange",
-		"tree-09-red",
-		"tree-02-ruby",
-		"tree-01-green",
-		"tree-02-white-sparse",
-		"tree-09-pink",
-		"tree-09-brown",
-		"tree-04-orange",
-		"tree-02-yellow"
-	  }
-	}
-	terrains["grass-yellow"] = {
-	  name = "grass-yellow",
-	  trees = {
-		"tree-05-green",
-		"tree-02-orange",
-		"tree-08-yellow",
-		"tree-01-olive",
-		"tree-01-orange",
-		"tree-02-yellow",
-		"tree-02-ruby",
-		"tree-01-green",
-		"tree-02-white-sparse",
-		"tree-06-purple",
-		"tree-09-pink",
-		"tree-02-white",
-		"tree-09-yellow",
-		"tree-06-cyan"
-	  }
-	}
-	terrains["dirt-tan"] = {
-	  name = "dirt-tan",
-	  trees = {
-		"tree-02-yellow",
-		"tree-09-yellow",
-		"tree-09-ruby",
-		"tree-06-purple",
-		"tree-09-pink"
-	  }
-	}
-	terrains["sand-orange-dark"] = {
-	  name = "sand-orange-dark",
-	  trees = {
-		"tree-09-yellow",
-		"tree-09-ruby",
-		"tree-02-yellow",
-		"tree-02-ruby",
-		"tree-06-purple",
-		"tree-09-red",
-		"tree-09-brown",
-	  }
-	}
-	terrains["sand-orange"] = {
-	  name = "sand-orange",
-	  trees = {
-		"tree-09-yellow",
-		"tree-09-ruby",
-		"tree-06-purple",
-		"tree-02-yellow",
-	  }
-	}
-	terrains["dirt-tan-dark"] = {
-	  name = "dirt-tan-dark",
-	  trees = {
-		"tree-02-ruby",
-		"tree-02-orange",
-		"tree-08-yellow",
-		"tree-01-olive",
-		"tree-06-cyan",
-		"tree-01-orange",
-		"tree-09-ruby",
-		"tree-06-purple",
-		"tree-09-yellow",
-		"tree-09-pink",
-		"tree-04-red"
-	  }
-	} 
-	terrains["sand-red-dark"] = {
-	  name = "sand-red-dark",
-	  trees = {
-		"tree-09-yellow",
-		"tree-09-ruby",
-		"tree-02-ruby",
-		"tree-02-yellow"
-	  }
-	}
-	terrains["sand-red"] = {
-	  name = "sand-red",
-	  trees = {
-		"tree-09-ruby",
-		"tree-09-yellow",
-		"tree-09-brown",
-		"tree-06-purple",
-		"tree-05-green",
-		"tree-01-green",
-		"tree-04-red",
-		"tree-06-cyan",
-		"tree-09-pink"
-	  }
-	}
-	terrains["grass-orange"] = {
-	  name = "grass-orange",
-	  trees = {
-		"tree-02-orange",
-		"tree-01-orange",
-		"tree-04-red",
-		"tree-04-orange",
-		"tree-08-yellow",
-		"tree-02-yellow",
-		"tree-09-ruby",
-		"tree-09-yellow"
-	  }
-	}
-	terrains["dirt-brown"] = {
-	  name = "dirt-brown",
-	  trees = {
-		"tree-02-orange",
-		"tree-08-yellow",
-		"tree-02-yellow",
-		"tree-02-ruby",
-		"tree-01-orange",
-		"tree-04-orange",
-		"tree-06-cyan",
-		"tree-06-purple",
-		"tree-09-yellow"
-	  }
-	}
-	terrains["dirt-brown-dark"] = {
-	  name = "dirt-brown-dark",
-	  trees = {
-		"tree-02-orange",
-		"tree-08-yellow",
-		"tree-01-orange",
-		"tree-02-yellow",
-		"tree-02-ruby",
-		"tree-04-orange",
-		"tree-04-red",
-		"tree-06-purple",
-		"tree-09-pink",
-		"tree-01-olive"
-	  }
-	}
-	terrains["grass-red"] = {
-	  name = "grass-red",
-	  trees = {
-		"tree-01-orange",
-		"tree-04-red",
-		"tree-04-orange",
-		"tree-02-white",
-		"tree-05-green",
-		"tree-06-purple",
-		"tree-02-yellow",
-		"tree-09-yellow",
-		"tree-02-white-sparse"
-	  }
-	}
-	terrains["volcanic-cool"] = {
-	  name = "volcanic-cool",
-	  trees = {
-		"tree-04-red",
-		"tree-04-orange",
-		"tree-02-white",
-		"tree-06-purple",
-		"tree-05-green",
-		"tree-02-ruby",
-		"tree-09-ruby",
-		"tree-09-pink"
-	  }
-	}
-	terrains["volcanic-medium"] = {
-	  name = "volcanic-medium",
-	  trees = {
-		"tree-04-red",
-		"tree-04-orange",
-		"tree-02-yellow",
-		"tree-02-ruby",
-		"tree-09-ruby",
-		"tree-09-yellow"
-	  }
-	}
-	terrains["dirt-red-dark"] = {
-	  name = "dirt-red-dark",
-	  trees = {
-		"tree-01-orange",
-		"tree-04-red",
-		"tree-04-orange",
-		"tree-02-yellow",
-		"tree-02-ruby",
-		"tree-06-cyan",
-		"tree-09-yellow"
-	  }
-	}
-	terrains["dirt-red"] = {
-	  name = "dirt-red",
-	  trees = {
-		"tree-04-orange",
-		"tree-02-ruby",
-		"tree-01-orange",
-		"tree-04-red",
-		"tree-02-yellow"
-
-	  }
-	}
-]]		   
-
-   for i, terrain in pairs (terrains) do
-      if (terrain.name == terrain_name) then 
-         return get_random_from_table (terrain.trees)
-      end
-   end
-   
-end
-
-
-
-local function Grow_tree(pos, surface)
+local function Grow_tree(position, surface)
 	
 	local foundtree = false
-	local tree = surface.find_entity("seedling", pos)
-	local currentTilename = surface.get_tile(pos.x, pos.y).name
-	local fertility = 0 -- fertility will be zero if terrain type not listed above, so nothing will grow on it.
+	local tree = surface.find_entity("seedling", position)
+	local currentTilename = surface.get_tile(position.x, position.y).name
+	local fertility = 1 -- fertility will be 1 if terrain type not listed above, so very small change to grow.
 	local growth_chance = math.random(100) -- Random value. Tree will grow if it's this value is smaller that the 'Fertility' value
 
 				
@@ -785,19 +153,25 @@ local function Grow_tree(pos, surface)
 		--- Depending on Terain, choose tree type & Convert seedling into a tree
 		
 		
-		if get_random_tree_for_terrain (currentTilename) and Bi_Industries.fertility[currentTilename] then
+		if Bi_Industries.fertility[currentTilename] then
 			fertility = Bi_Industries.fertility[currentTilename]
 	
-			treetype = get_random_tree_for_terrain (currentTilename)
+
+			local tree_name = random_tree (surface, position)
+			if tree_name then
+			  local can_be_placed = surface.can_place_entity{name=tree_name, position=position, force = "neutral"}
+			  if can_be_placed and growth_chance <= fertility and foundtree then
+				local tree = surface.create_entity{name=tree_name, position=position, force = "neutral"}
+			  end
+			end
+
 
 			writeDebug("The current tile is: " .. currentTilename)
 			writeDebug("The Growth Chance is: " .. growth_chance)
 			writeDebug("The Fertility is: " .. fertility)
-			writeDebug("The Tree what will grow is: " .. treetype)
+			writeDebug(treetype)
 
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
-			end
+
 
 		
 		---- Hardcode anything else to tree 9 for now.
@@ -807,8 +181,8 @@ local function Grow_tree(pos, surface)
 			writeDebug("Terrain or Fertility not found")
 			writeDebug("The Growth Chance is: " .. growth_chance)
 			writeDebug("The Fertility is: " .. fertility)
-			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=pos}) then
-				surface.create_entity({ name=treetype, amount=1, position=pos})
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=position}) then
+				surface.create_entity({ name=treetype, amount=1, position=position})
 			end
 				
 		end		

@@ -476,7 +476,7 @@ data:extend({
     selection_box = {{-0.5,-0.5}, {0.5,0.5}},
     drawing_box = {{0,0}, {0,0}},
     maximum_wire_distance = 24,
-    supply_area_distance = 0,
+	supply_area_distance = 2,
     pictures =
     
 		{
