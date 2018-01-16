@@ -258,7 +258,6 @@ function is_value_as_index_in_table (value, tabl)
 end
 
 
-<<<<<<< HEAD
 terrains = require("libs/trees-and-terrains_alien_boimes")
 --[[
 
@@ -269,10 +268,6 @@ else
 end
 ]]
 
-=======
-terrains = require("libs/trees-and-terrains")
-
->>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
 function summ_weight (tabl)
   local summ = 0
   for i, tree_weights in pairs (tabl) do
