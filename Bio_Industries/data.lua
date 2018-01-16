@@ -19,7 +19,6 @@ BI.Settings.BI_Accumulator = settings.startup["BI_Accumulator"].value
 
 
 --- Help Files
-require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
 require ("libs.item-functions") -- From Bob's Libary 
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 

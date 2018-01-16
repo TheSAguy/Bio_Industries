@@ -2,7 +2,6 @@
 
 
 --- Help Files
-require ("libs.detectmod") --Detect supported Mods, currently DyTechWar and Bob's Enemies and others
 require ("libs.item-functions") -- From Bob's Libary 
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 
@@ -103,16 +102,29 @@ if BI.Settings.BI_Recipe_Tweaks then
 		thxbob.lib.recipe.add_new_ingredient ("bi-rail-wood", {type="item", name="stone-crushed", amount=6})
 	end
 
+		--- Trees Give Random 1 - 6 Raw Wood.
+	for _, tree in pairs(data.raw["tree"]) do
+   --CHECK FOR SINGLE RESULTS
+   if tree.minable and tree.minable.result then
+      --CHECK FOR VANILLA TREES RAW WOOD x 4
+      if tree.minable.result == "raw-wood" and tree.minable.count == 4 then
+         tree.minable = {mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6}}}
+      end
+   else
+      --CHECK FOR RESULTS TABLE
+      if tree.minable and tree.minable.results then
+         for k, results in pairs(tree.minable.results) do
+            --CHECK FOR RESULT RAW-WOOD x 4
+            if results.name == "raw-wood" and results.amount == 4 then
+               results.amount = nil
+               results.amount_min = 1
+               results.amount_max = 6
+            end
+         end      
+      end
+   end
+end
 	
-	--- Trees Give Random 1 - 6 Raw Wood.
-	for _,tree in pairs(data.raw["tree"]) do
-		tree.collision_box = {{-0.05, -0.05}, {0.05, 0.05}}	
-		if not (tree.name =="dead-tree" or tree.name == "dry-tree" or tree.name == "green-coral" or tree.name == "dead-grey-trunk" or tree.name == "dry-hairy-tree" or tree.name == "dead-dry-hairy-tree") then  
-		tree.minable = 	{mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6},}}
-		end
-	end
-	
-
 	-- Make Steel Axe use Iron Axe as an upgrade
 	thxbob.lib.recipe.remove_ingredient ("steel-axe", "iron-stick")
 	thxbob.lib.recipe.add_new_ingredient ("steel-axe", {type="item", name="iron-axe", amount=1})
@@ -170,10 +182,12 @@ if BI.Settings.BI_Accumulator then
 	if data.raw.technology["bob-solar-energy-2"] then
 		
 		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
-				
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_large_substation")
+		
 	else
 
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_large_substation")
 		
 	end	
 end
@@ -204,7 +218,7 @@ if data.raw.item["sodium-hydroxide"] then
 	
 end	
 	
-if BI.Settings.BI_Bio_Fuel or BI_Config.mod.NEBuildings then
+if BI.Settings.BI_Bio_Fuel or mods["Natural_Evolution_Buildings"] then
 	require("prototypes.Bio_Farm.technology2")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Clean_Air2")
 end
@@ -255,7 +269,8 @@ end
 
 
 ------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
-if BI_Config.mod.NEBuildings then
+if mods["Natural_Evolution_Buildings"] then
+
 		
 	thxbob.lib.recipe.remove_ingredient ("bi-adv-fertiliser-1", "alien-artifact")
 	thxbob.lib.recipe.add_new_ingredient ("bi-adv-fertiliser-1", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
@@ -292,11 +307,14 @@ end
 if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Accumulator then 
 	data.raw["item"]["bi_accumulator"].subgroup = "bob-energy-accumulator"
 	data.raw["item"]["bi_accumulator"].order="e[accumulator]-a[accumulator]-x"	
+	data.raw["item"]["bi-large-substation"].subgroup = "bob-energy-accumulator"
+	--data.raw["item"]["bi-large-substation"].order="e[accumulator]-a[accumulator]-x"	
+
 end
 
 
 if data.raw["item-subgroup"]["bob-fluid"] then 
-	if BI.Settings.BI_Bio_Fuel and BI_Config.mod.NEBuildings then
+	if BI.Settings.BI_Bio_Fuel and mods["Natural_Evolution_Buildings"] then
 		data.raw["recipe"]["bi-biomass_conversion-1"].subgroup = "bob-fluid"
 		data.raw["recipe"]["bi-biomass_conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-1]"	
 		data.raw["recipe"]["bi-biomass_conversion-2"].subgroup = "bob-fluid"
@@ -398,7 +416,9 @@ data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
 	
 end
 	
-	
+
+--[[	
+	-- Obsolete??
 ------- DyTech Support (Might be outdated....)
 if BI_Config.mod.DyTechCore then
 
@@ -423,7 +443,7 @@ require("prototypes.Bio_Farm.dytech_recipe")
 	end
 
 	--- If you're using NE Buildings, add an advanced recipe
-	if BI_Config.mod.NEBuildings then
+	if mods["Natural_Evolution_Buildings"] then
 		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-resin_Mk3")
 		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur-wood_Mk3")
 		thxbob.lib.recipe.add_new_ingredient ("bi-resin_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
@@ -432,6 +452,6 @@ require("prototypes.Bio_Farm.dytech_recipe")
 	end
 
 end
-
+]]
 
 	

@@ -81,7 +81,7 @@ if BI.Settings.BI_Accumulator then
 	data:extend({
 		--- BI Accumulator
 		{
-		type = "item",
+			type = "item",
 			name = "bi_accumulator",
 			icon = "__Bio_Industries__/graphics/icons/bi_LargeAccumulator.png",
 			icon_size = 32,
@@ -91,5 +91,21 @@ if BI.Settings.BI_Accumulator then
 			place_result = "bi_accumulator",
 			stack_size = 5
 		},
+		
+		
+			--- Large Substation
+		{
+			type = "item",
+			name = "bi-large-substation",
+			icon = "__Bio_Industries__/graphics/icons/bi_LargeSubstation_icon.png",
+			icon_size = 32,
+			flags = {"goes-to-quickbar"},
+			subgroup = "energy-pipe-distribution",
+			order = "a[energy]-d[substation]-[large-substation]",
+			place_result = "bi-large-substation",
+			stack_size = 50
+		},
 	})
 end
+
+

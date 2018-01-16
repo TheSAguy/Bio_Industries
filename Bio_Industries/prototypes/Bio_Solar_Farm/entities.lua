@@ -3,7 +3,7 @@ require ("util")
 
 if BI.Settings.BI_Solar_Farm then
 	data:extend({
-	------- Bio Solar Farm Image
+	------- Bio Solar Farm - Image Only, to make as if it switches on and off.
 	  {
 		type = "lamp",
 		name = "bi_bio_Solar_Farm_Image",
@@ -19,14 +19,14 @@ if BI.Settings.BI_Solar_Farm then
 		  type = "electric",
 		  render_no_network_icon = false,
 		  render_no_power_icon = false,
-		  usage_priority = "secondary-input"
+		  usage_priority = "lamp"
 		},
-		energy_usage_per_tick = "1kW",
+		energy_usage_per_tick = "0.1kW",
 		light = {intensity = 0.1, size = 1},
 		picture_off =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On.png",
-		  priority = "high",
+		  priority = "extra-high",
 		  width = 208,
 		  height = 192,
 		  frame_count = 1,
@@ -36,7 +36,7 @@ if BI.Settings.BI_Solar_Farm then
 		picture_on =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_Off.png",
-		  priority = "high",
+		  priority = "extra-high",
 		  width = 208,
 		  height = 192,
 		  frame_count = 1,
@@ -52,7 +52,7 @@ if BI.Settings.BI_Solar_Farm then
 		icon_size = 32,
 		flags = {"placeable-neutral", "player-creation"},
 		minable = {hardness = 0.25, mining_time = 0.5, result = "bi_bio_Solar_Farm"},
-		max_health = 200,
+		max_health = 600,
 		corpse = "big-remnants",
 		dying_explosion = "medium-explosion",
 		resistances = {{type = "fire", percent = 80}},
@@ -418,7 +418,79 @@ if BI.Settings.BI_Accumulator then
 		default_output_signal = {type = "virtual", name = "signal-A"}
 	  },
 	  
+
+	---- Large Substation
+	  {
+		type = "electric-pole",
+		name = "bi-large-substation",
+		icon = "__Bio_Industries__/graphics/icons/bi_LargeSubstation_icon.png",
+		icon_size = 32,
+		flags = {"placeable-neutral", "player-creation"},
+		minable = {hardness = 0.2, mining_time = 0.5, result = "bi-large-substation"},
+		max_health = 600,
+		corpse = "big-remnants",
+		dying_explosion = "big-explosion",
+		track_coverage_during_build_by_moving = true,
+		resistances =
+		{
+		  {
+			type = "fire",
+			percent = 90
+		  }
+		},
+		collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
+		selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+		drawing_box = {{-2.5, -5}, {2.5, 2.5}},
+		maximum_wire_distance = 25,
+		supply_area_distance = 50,
+		pictures =
+		{
+			filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/bi_LargeSubstation.png",
+			priority = "high",
+			width = 450,
+			height = 380,
+			shift = {1, -0.5},
+			direction_count = 1,
+			scale = 0.5,
+
+		},
+		
+		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+		working_sound =
+		{
+		  sound = { filename = "__base__/sound/substation.ogg" },
+		  apparent_volume = 1.8,
+		  audible_distance_modifier = 0.5,
+		  probability = 1 / (3 * 60) -- average pause between the sound is 3 seconds
+		},
+		connection_points =
+		{
+		  {
+			shadow =
+			{
+			  copper = {1.9, -0.6},
+			  green = {1.3, -0.6},
+			  red = {2.65, -0.6}
+			},
+			wire =
+			{
+			  copper = {-0.25, -2.71875},
+			  green = {-0.84375, -2.71875},
+			  red = {0.34375, -2.71875}
+			}
+		  },
+		},
+		radius_visualisation_picture =
+		{
+		  filename = "__base__/graphics/entity/small-electric-pole/electric-pole-radius-visualization.png",
+		  width = 12,
+		  height = 12,
+		  --scale = 3,
+		  --shift = {0.6, -0.6},
+		  priority = "extra-high-no-scale"
+		},
+	  },
+
+  
 	})
  end
-
- 
