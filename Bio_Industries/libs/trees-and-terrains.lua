@@ -1,5 +1,23 @@
 local terrains = {}
 terrains["sand-3"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "sand-3",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 8474
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "sand-3",
+    tree_name = "dead-grey-trunk",
+    weight = 9964
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "sand-3",
+    tree_name = "dead-tree-desert",
+    weight = 1343
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "sand-3",
     tree_name = "dry-hairy-tree",
@@ -78,6 +96,24 @@ terrains["sand-3"] = {
   }
 } 
 terrains["sand-2"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "sand-2",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 10694
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "sand-2",
+    tree_name = "dead-grey-trunk",
+    weight = 11722
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "sand-2",
+    tree_name = "dead-tree-desert",
+    weight = 1520
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "sand-2",
     tree_name = "dry-hairy-tree",
@@ -156,6 +192,24 @@ terrains["sand-2"] = {
   }
 } 
 terrains["dirt-3"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dirt-3",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 2759
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dirt-3",
+    tree_name = "dead-grey-trunk",
+    weight = 3724
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dirt-3",
+    tree_name = "dead-tree-desert",
+    weight = 558
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dirt-3",
     tree_name = "dry-hairy-tree",
@@ -239,6 +293,24 @@ terrains["dirt-3"] = {
   }
 } 
 terrains["dirt-5"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dirt-5",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 1401
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dirt-5",
+    tree_name = "dead-grey-trunk",
+    weight = 1597
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dirt-5",
+    tree_name = "dead-tree-desert",
+    weight = 245
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dirt-5",
     tree_name = "dry-hairy-tree",
@@ -322,6 +394,24 @@ terrains["dirt-5"] = {
   }
 } 
 terrains["dirt-7"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dirt-7",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 1045
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dirt-7",
+    tree_name = "dead-grey-trunk",
+    weight = 1141
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dirt-7",
+    tree_name = "dead-tree-desert",
+    weight = 151
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dirt-7",
     tree_name = "dry-hairy-tree",
@@ -405,6 +495,24 @@ terrains["dirt-7"] = {
   }
 } 
 terrains["dirt-6"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dirt-6",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 1310
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dirt-6",
+    tree_name = "dead-grey-trunk",
+    weight = 1493
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dirt-6",
+    tree_name = "dead-tree-desert",
+    weight = 218
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dirt-6",
     tree_name = "dry-hairy-tree",
@@ -488,6 +596,24 @@ terrains["dirt-6"] = {
   }
 } 
 terrains["grass-3"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "grass-3",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 2159
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "grass-3",
+    tree_name = "dead-grey-trunk",
+    weight = 2345
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "grass-3",
+    tree_name = "dead-tree-desert",
+    weight = 338
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "grass-3",
     tree_name = "dry-hairy-tree",
@@ -571,6 +697,24 @@ terrains["grass-3"] = {
   }
 } 
 terrains["grass-1"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "grass-1",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 2227
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "grass-1",
+    tree_name = "dead-grey-trunk",
+    weight = 2369
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "grass-1",
+    tree_name = "dead-tree-desert",
+    weight = 338
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "grass-1",
     tree_name = "dry-hairy-tree",
@@ -654,6 +798,24 @@ terrains["grass-1"] = {
   }
 } 
 terrains["dirt-1"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dirt-1",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 9204
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dirt-1",
+    tree_name = "dead-grey-trunk",
+    weight = 12571
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dirt-1",
+    tree_name = "dead-tree-desert",
+    weight = 1786
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dirt-1",
     tree_name = "dry-hairy-tree",
@@ -732,6 +894,24 @@ terrains["dirt-1"] = {
   }
 } 
 terrains["grass-4"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "grass-4",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 1311
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "grass-4",
+    tree_name = "dead-grey-trunk",
+    weight = 1344
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "grass-4",
+    tree_name = "dead-tree-desert",
+    weight = 187
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "grass-4",
     tree_name = "dry-hairy-tree",
@@ -815,6 +995,24 @@ terrains["grass-4"] = {
   }
 } 
 terrains["dry-dirt"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dry-dirt",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 5785
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dry-dirt",
+    tree_name = "dead-grey-trunk",
+    weight = 8266
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dry-dirt",
+    tree_name = "dead-tree-desert",
+    weight = 1164
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dry-dirt",
     tree_name = "dry-hairy-tree",
@@ -888,6 +1086,24 @@ terrains["dry-dirt"] = {
   }
 } 
 terrains["sand-1"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "sand-1",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 53337
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "sand-1",
+    tree_name = "dead-grey-trunk",
+    weight = 77600
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "sand-1",
+    tree_name = "dead-tree-desert",
+    weight = 10302
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "sand-1",
     tree_name = "dry-hairy-tree",
@@ -971,6 +1187,24 @@ terrains["sand-1"] = {
   }
 } 
 terrains["dirt-2"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dirt-2",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 5243
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dirt-2",
+    tree_name = "dead-grey-trunk",
+    weight = 7699
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dirt-2",
+    tree_name = "dead-tree-desert",
+    weight = 1081
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dirt-2",
     tree_name = "dry-hairy-tree",
@@ -1054,6 +1288,24 @@ terrains["dirt-2"] = {
   }
 } 
 terrains["red-desert-3"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "red-desert-3",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 1485
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "red-desert-3",
+    tree_name = "dead-grey-trunk",
+    weight = 2221
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "red-desert-3",
+    tree_name = "dead-tree-desert",
+    weight = 316
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-3",
     tree_name = "dry-hairy-tree",
@@ -1132,6 +1384,24 @@ terrains["red-desert-3"] = {
   }
 } 
 terrains["grass-2"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "grass-2",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 403
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "grass-2",
+    tree_name = "dead-grey-trunk",
+    weight = 356
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "grass-2",
+    tree_name = "dead-tree-desert",
+    weight = 58
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "grass-2",
     tree_name = "dry-hairy-tree",
@@ -1210,6 +1480,24 @@ terrains["grass-2"] = {
   }
 } 
 terrains["red-desert-0"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "red-desert-0",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 231
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "red-desert-0",
+    tree_name = "dead-grey-trunk",
+    weight = 230
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "red-desert-0",
+    tree_name = "dead-tree-desert",
+    weight = 37
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-0",
     tree_name = "dry-hairy-tree",
@@ -1288,6 +1576,24 @@ terrains["red-desert-0"] = {
   }
 } 
 terrains["red-desert-2"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "red-desert-2",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 1442
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "red-desert-2",
+    tree_name = "dead-grey-trunk",
+    weight = 2098
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "red-desert-2",
+    tree_name = "dead-tree-desert",
+    weight = 277
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-2",
     tree_name = "dry-hairy-tree",
@@ -1356,6 +1662,24 @@ terrains["red-desert-2"] = {
   }
 } 
 terrains["dirt-4"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "dirt-4",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 3291
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "dirt-4",
+    tree_name = "dead-grey-trunk",
+    weight = 4365
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "dirt-4",
+    tree_name = "dead-tree-desert",
+    weight = 622
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "dirt-4",
     tree_name = "dry-hairy-tree",
@@ -1429,6 +1753,24 @@ terrains["dirt-4"] = {
   }
 } 
 terrains["red-desert-1"] = {
+<<<<<<< HEAD
+=======
+  ["dead-dry-hairy-tree"] = {
+    tile_name = "red-desert-1",
+    tree_name = "dead-dry-hairy-tree",
+    weight = 1613
+  },
+  ["dead-grey-trunk"] = {
+    tile_name = "red-desert-1",
+    tree_name = "dead-grey-trunk",
+    weight = 1942
+  },
+  ["dead-tree-desert"] = {
+    tile_name = "red-desert-1",
+    tree_name = "dead-tree-desert",
+    weight = 280
+  },
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-1",
     tree_name = "dry-hairy-tree",

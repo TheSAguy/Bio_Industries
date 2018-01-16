@@ -1,6 +1,10 @@
 {
 	"name": "Bio_Industries",
+<<<<<<< HEAD
 	"version": "2.0.8",
+=======
+	"version": "2.0.5",
+>>>>>>> 61c25610c28a6a7288cc85bd604fc1936d8ab149
 	"factorio_version": "0.16",
 	"title": "Bio Industries",
 	"author": "TheSAguy",
