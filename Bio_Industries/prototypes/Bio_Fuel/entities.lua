@@ -111,7 +111,7 @@ data:extend(
 		  },
 		  {
 			type = "explosion",
-			percent = 350
+			percent = 100
 		  },
 		  {
 			type = "impact",
@@ -120,7 +120,7 @@ data:extend(
 		},
 		collision_box = {{-1.29, -0.79}, {1.29, 0.79}},
 		selection_box = {{-1.5, -1}, {1.5, 1}},
-		target_temperature = 250,
+		target_temperature = 165,
 		fluid_box =
 		{
 		  base_area = 1,
@@ -148,14 +148,14 @@ data:extend(
 		  production_type = "output",
 		  filter = "steam"
 		},
-		energy_consumption = "1.8MW",
+		energy_consumption = "1.35MW",
 		energy_source =
 		{
 		  type = "burner",
 		  fuel_category = "chemical",
-		  effectivity = 0.8,
-		  fuel_inventory_size = 1,
-		  emissions = 0.066 / 6.5,
+		  effectivity = 0.75,
+		  fuel_inventory_size = 2,
+		  emissions = 0.05 / 6.5,
 		  smoke =
 		  {
 			{
@@ -164,7 +164,7 @@ data:extend(
 			  south_position = util.by_pixel(38.5, -32),
 			  east_position = util.by_pixel(20, -70),
 			  west_position = util.by_pixel(-19, -8.5),
-			  frequency = 15,
+			  frequency = 20,
 			  starting_vertical_speed = 0.0,
 			  starting_frame_deviation = 60
 			}

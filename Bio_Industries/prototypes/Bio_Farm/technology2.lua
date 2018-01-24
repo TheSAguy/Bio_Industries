@@ -27,6 +27,10 @@ data:extend(
 				type = "unlock-recipe",
 				recipe = "bi-adv-fertiliser-2"
 			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_seed_bomb_advanced"
+			},
 		},
 		prerequisites = {
 			"bi-fertiliser"

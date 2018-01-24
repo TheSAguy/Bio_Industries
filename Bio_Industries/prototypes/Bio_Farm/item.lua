@@ -195,43 +195,183 @@ data:extend({
 		order = "a[bi]-a-z[stone-crushed]",
 		stack_size = 800
 	},
+	
+	--- Seeb Bomb - Basic
+	
+  {
+    type = "ammo",
+    name = "seed-bomb-basic",
+    icon = "__Bio_Industries__/graphics/icons/Seed_bomb_icon_b.png",
+    icon_size = 32,
+    flags = {"goes-to-main-inventory"},
+    ammo_type =
+    {
+      range_modifier = 3,
+      cooldown_modifier = 3,
+      target_type = "position",
+      category = "rocket",
+      action =
+      {
+        type = "direct",
+        action_delivery =
+        {
+          type = "projectile",
+          projectile = "seed-bomb-projectile-1",
+          starting_speed = 0.05,
+        }
+      }
+    },
+    subgroup = "ammo",
+    order = "a[rocket-launcher]-x[seed-bomb]-a",
+    stack_size = 10
+  },
+
+  	--- Seeb Bomb - Standard
+	
+  {
+    type = "ammo",
+    name = "seed-bomb-standard",
+    icon = "__Bio_Industries__/graphics/icons/Seed_bomb_icon_s.png",
+    icon_size = 32,
+    flags = {"goes-to-main-inventory"},
+    ammo_type =
+    {
+      range_modifier = 3,
+      cooldown_modifier = 3,
+      target_type = "position",
+      category = "rocket",
+      action =
+      {
+        type = "direct",
+        action_delivery =
+        {
+          type = "projectile",
+          projectile = "seed-bomb-projectile-2",
+          starting_speed = 0.05,
+        }
+      }
+    },
+    subgroup = "ammo",
+    order = "a[rocket-launcher]-x[seed-bomb]-b",
+    stack_size = 10
+  },
+  
+  	--- Seeb Bomb - Advanced
+	
+  {
+    type = "ammo",
+    name = "seed-bomb-advanced",
+    icon = "__Bio_Industries__/graphics/icons/Seed_bomb_icon_a.png",
+    icon_size = 32,
+    flags = {"goes-to-main-inventory"},
+    ammo_type =
+    {
+      range_modifier = 3,
+      cooldown_modifier = 3,
+      target_type = "position",
+      category = "rocket",
+      action =
+      {
+        type = "direct",
+        action_delivery =
+        {
+          type = "projectile",
+          projectile = "seed-bomb-projectile-3",
+          starting_speed = 0.05,
+        }
+      }
+    },
+    subgroup = "ammo",
+    order = "a[rocket-launcher]-x[seed-bomb]-c",
+    stack_size = 10
+  },
+})
+
 
 --- Intermediate items
-	--- Fertiliser
-	{
-		type = "item",
-		name = "fertiliser",
-		icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
-		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
-		subgroup = "intermediate-product",
-		order = "b[fertiliser]",
-		stack_size = 200,
-	    place_as_tile =
-		{
-			result = "grass-3",
-			condition_size = 1,
-			condition = { "water-tile" }
-		},	
-	},
-	
-	--- Adv Fertiliser
-	{
-		type = "item",
-		name = "bi-adv-fertiliser",
-		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
-		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
-		subgroup = "intermediate-product",
-		order = "b[fertiliser]-b[bi-adv-fertiliser]",
-		stack_size = 200,
-		place_as_tile =
-		{
-			result = "grass-1",
-			condition_size = 1,
-			condition = { "water-tile" }
-		},	
-	},	
+if mods["alien-biomes"] then
 
-	
-})
+	data:extend({
+		--- Fertiliser
+		{
+			type = "item",
+			name = "fertiliser",
+			icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
+			icon_size = 32,
+			flags = {"goes-to-main-inventory"},
+			subgroup = "intermediate-product",
+			order = "b[fertiliser]",
+			stack_size = 200,
+			place_as_tile =
+			{
+				result = "vegetation-green-grass-3",
+				condition_size = 1,
+				condition = { "water-tile" }
+			},	
+		},
+		
+		--- Adv Fertiliser
+		{
+			type = "item",
+			name = "bi-adv-fertiliser",
+			icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
+			icon_size = 32,
+			flags = {"goes-to-main-inventory"},
+			subgroup = "intermediate-product",
+			order = "b[fertiliser]-b[bi-adv-fertiliser]",
+			stack_size = 200,
+			place_as_tile =
+			{
+				result = "vegetation-green-grass-1",
+				condition_size = 1,
+				condition = { "water-tile" }
+			},	
+		},	
+
+		
+	})
+
+else
+
+	data:extend({
+		--- Fertiliser
+		{
+			type = "item",
+			name = "fertiliser",
+			icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png",
+			icon_size = 32,
+			flags = {"goes-to-main-inventory"},
+			subgroup = "intermediate-product",
+			order = "b[fertiliser]",
+			stack_size = 200,
+			place_as_tile =
+			{
+				result = "grass-3",
+				condition_size = 1,
+				condition = { "water-tile" }
+			},	
+		},
+		
+		--- Adv Fertiliser
+		{
+			type = "item",
+			name = "bi-adv-fertiliser",
+			icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
+			icon_size = 32,
+			flags = {"goes-to-main-inventory"},
+			subgroup = "intermediate-product",
+			order = "b[fertiliser]-b[bi-adv-fertiliser]",
+			stack_size = 200,
+			place_as_tile =
+			{
+				result = "grass-1",
+				condition_size = 1,
+				condition = { "water-tile" }
+			},	
+		},	
+
+		
+	})
+
+end
+

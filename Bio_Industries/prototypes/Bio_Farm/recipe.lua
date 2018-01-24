@@ -668,5 +668,94 @@ data:extend({
 
 	},
 
-
+ --- Seed Bomb - Basic
+ 
+	   {
+		type = "recipe",
+		name = "bi_seed_bomb_basic",
+		normal =
+		{
+		  enabled = false,
+		  energy_required = 8,
+		  ingredients =
+		  {
+			{"bi-seed", 400},
+			{"rocket", 1},
+		  },
+		  result = "seed-bomb-basic",
+		},
+		expensive =
+		{
+		  enabled = false,
+		  energy_required = 8,
+		  ingredients =
+		  {
+			{"bi-seed", 400},
+			{"rocket", 2},
+		  },
+		  result = "seed-bomb-basic",
+		}
+	  },
+	  
+	   --- Seed Bomb - Standard
+ 
+	   {
+		type = "recipe",
+		name = "bi_seed_bomb_standard",
+		normal =
+		{
+		  enabled = false,
+		  energy_required = 8,
+		  ingredients =
+		  {
+			{"bi-seed", 400},
+			{"fertiliser", 200},
+			{"rocket", 1},
+		  },
+		  result = "seed-bomb-standard",
+		},
+		expensive =
+		{
+		  enabled = false,
+		  energy_required = 8,
+		  ingredients =
+		  {
+			{"bi-seed", 400},
+			{"fertiliser", 200},
+			{"rocket", 2},
+		  },
+		  result = "seed-bomb-standard",
+		}
+	  },
+	  	   --- Seed Bomb - Advanced
+ 
+	   {
+		type = "recipe",
+		name = "bi_seed_bomb_advanced",
+		normal =
+		{
+		  enabled = false,
+		  energy_required = 8,
+		  ingredients =
+		  {
+			{"bi-seed", 400},
+			{"bi-adv-fertiliser", 200},
+			{"rocket", 1},
+		  },
+		  result = "seed-bomb-advanced",
+		},
+		expensive =
+		{
+		  enabled = false,
+		  energy_required = 8,
+		  ingredients =
+		  {
+			{"bi-seed", 400},
+			{"bi-adv-fertiliser", 200},
+			{"rocket", 2},
+		  },
+		  result = "seed-bomb-advanced",
+		}
+	  },
+	  
 })

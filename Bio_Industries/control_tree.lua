@@ -2,10 +2,17 @@
 -- All tree Growing stuff
 
 require ("stdlib/event/event")
+terrains = require("libs/trees-and-terrains_alien_boimes")
 
+--[[
+	if game.active_mods["alien-biomes"] then
+	    terrains = require("libs/trees-and-terrains_alien_boimes")
+	else
+		terrains = require("libs/trees-and-terrains")
+	end
+	]]
 
 local Bi_Industries = {}
-
 
 Bi_Industries.fertility = {  -- out of 100, so 100 = always grow tree
 	-- Vanilla
@@ -184,28 +191,28 @@ Bi_Industries.fertility = {  -- out of 100, so 100 = always grow tree
 	["mineral-white-sand-1"] = 10,
 	["mineral-white-sand-2"] = 10,
 	["mineral-white-sand-3"] = 10,
-	["vegetation-blue-grass-1"] = 80,
-	["vegetation-blue-grass-2"] = 80,
-	["vegetation-green-grass-1"] = 80,
-	["vegetation-green-grass-2"] = 80,
-	["vegetation-green-grass-3"] = 80,
-	["vegetation-green-grass-4"] = 80,
-	["vegetation-mauve-grass-1"] = 80,
-	["vegetation-mauve-grass-2"] = 80,
-	["vegetation-olive-grass-1"] = 80,
-	["vegetation-olive-grass-2"] = 80,
-	["vegetation-orange-grass-1"] = 80,
-	["vegetation-orange-grass-2"] = 80,
-	["vegetation-purple-grass-1"] = 80,
-	["vegetation-purple-grass-2"] = 80,
-	["vegetation-red-grass-1"] = 80,
-	["vegetation-red-grass-2"] = 80,
-	["vegetation-turquoise-grass-1"] = 80,
-	["vegetation-turquoise-grass-2"] = 80,
-	["vegetation-violet-grass-1"] = 80,
-	["vegetation-violet-grass-2"] = 80,
-	["vegetation-yellow-grass-1"] = 80,
-	["vegetation-yellow-grass-2"] = 80,
+	["vegetation-blue-grass-1"] = 70,
+	["vegetation-blue-grass-2"] = 70,
+	["vegetation-green-grass-1"] = 100,
+	["vegetation-green-grass-2"] = 70,
+	["vegetation-green-grass-3"] = 85,
+	["vegetation-green-grass-4"] = 70,
+	["vegetation-mauve-grass-1"] = 70,
+	["vegetation-mauve-grass-2"] = 70,
+	["vegetation-olive-grass-1"] = 70,
+	["vegetation-olive-grass-2"] = 70,
+	["vegetation-orange-grass-1"] = 70,
+	["vegetation-orange-grass-2"] = 70,
+	["vegetation-purple-grass-1"] = 70,
+	["vegetation-purple-grass-2"] = 70,
+	["vegetation-red-grass-1"] = 70,
+	["vegetation-red-grass-2"] = 70,
+	["vegetation-turquoise-grass-1"] = 70,
+	["vegetation-turquoise-grass-2"] = 70,
+	["vegetation-violet-grass-1"] = 70,
+	["vegetation-violet-grass-2"] = 70,
+	["vegetation-yellow-grass-1"] = 70,
+	["vegetation-yellow-grass-2"] = 70,
 	["volcanic-blue-heat-1"] = 1,
 	["volcanic-blue-heat-2"] = 1,
 	["volcanic-blue-heat-3"] = 1,
@@ -225,7 +232,6 @@ Bi_Industries.fertility = {  -- out of 100, so 100 = always grow tree
 
 }
 
-
 --------------------
 
 function seed_planted (event)
@@ -242,7 +248,27 @@ function seed_planted (event)
 		end
 		
 		local max_grow_time = math.random(5000) + 4040 - (40 * fertility) --< Fertile tiles will grow faster than barren tiles
-		table.insert(global.bi.tree_growing, {position = event.created_entity.position, time = event.tick + max_grow_time, surface = surface})
+		table.insert(global.bi.tree_growing, {position = position, time = event.tick + max_grow_time, surface = surface})
+		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
+
+end
+
+
+function seed_planted_trigger (event)
+   -- Seed Planted
+		local entity = event.entity
+		local surface = entity.surface
+		local position = entity.position	
+		local fretility
+		currentTilename = surface.get_tile(position.x, position.y).name
+		if Bi_Industries.fertility[currentTilename] then
+			fertility = Bi_Industries.fertility[currentTilename]				
+		else
+			fertility = 1 -- < Always a minimum of 1. 
+		end
+		
+		local max_grow_time = math.random(5000) + 4040 - (40 * fertility) --< Fertile tiles will grow faster than barren tiles
+		table.insert(global.bi.tree_growing, {position = position, time = event.tick + max_grow_time, surface = surface})
 		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
 
 end
@@ -258,15 +284,6 @@ function is_value_as_index_in_table (value, tabl)
 end
 
 
-terrains = require("libs/trees-and-terrains_alien_boimes")
---[[
-
-if game.active_mods["alien-biomes"] then
-	terrains = require("libs/trees-and-terrains_alien_boimes")
-else
-	terrains = require("libs/trees-and-terrains")
-end
-]]
 
 function summ_weight (tabl)
   local summ = 0
@@ -291,14 +308,19 @@ function tree_from_max_index_tabl (max_index, tabl)
   return nil
 end
 
+
+
+
+
 function random_tree (surface, position)
-  local tile = surface.get_tile(position.x, position.y)
-  local tile_name = tile.name
-  if is_value_as_index_in_table (tile_name, terrains) then
-    local trees_table = terrains[tile_name]
-    local max_index = summ_weight(trees_table)
-    return tree_from_max_index_tabl (max_index, trees_table)
-  end
+
+	local tile = surface.get_tile(position.x, position.y)
+	local tile_name = tile.name
+	if is_value_as_index_in_table (tile_name, terrains) then
+		local trees_table = terrains[tile_name]
+		local max_index = summ_weight(trees_table)
+		return tree_from_max_index_tabl (max_index, trees_table)
+	end
 end
 
 
@@ -307,6 +329,9 @@ local function Grow_tree(position, surface)
 	
 	local foundtree = false
 	local tree = surface.find_entity("seedling", position)
+	local tree2 = surface.find_entity("seedling-2", position)
+	local tree3 = surface.find_entity("seedling-3", position)
+	
 	local currentTilename = surface.get_tile(position.x, position.y).name
 	local fertility = 1 -- fertility will be 1 if terrain type not listed above, so very small change to grow.
 	local growth_chance = math.random(100) -- Random value. Tree will grow if it's this value is smaller that the 'Fertility' value
@@ -327,7 +352,7 @@ local function Grow_tree(position, surface)
 			if tree_name then
 			  local can_be_placed = surface.can_place_entity{name=tree_name, position=position, force = "neutral"}
 			  if can_be_placed and growth_chance <= fertility and foundtree then
-				local tree = surface.create_entity{name=tree_name, position=position, force = "neutral"}
+				local new_tree = surface.create_entity{name=tree_name, position=position, force = "neutral"}
 			  end
 			end
 
@@ -355,12 +380,100 @@ local function Grow_tree(position, surface)
 
 	end
 	
+	--- Standard Seed Bomb
+	if tree2 then
+		foundtree = true
+		tree2.destroy()
+		
+		--- Depending on Terain, choose tree type & Convert seedling into a tree
+		
+		
+		if Bi_Industries.fertility[currentTilename] then
+			fertility = Bi_Industries.fertility[currentTilename]
+	
+
+			local tree_name = random_tree (surface, position)
+			if tree_name then
+			  local can_be_placed = surface.can_place_entity{name=tree_name, position=position, force = "neutral"}
+			  if can_be_placed and growth_chance <= fertility and foundtree then
+				local new_tree = surface.create_entity{name=tree_name, position=position, force = "neutral"}
+			  end
+			end
+
+
+			writeDebug("The current tile is: " .. currentTilename)
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			writeDebug(treetype)
+
+
+
+		
+		---- Hardcode anything else to tree 9 for now.
+		else
+			treetype = "tree-09"
+			
+			writeDebug("Terrain or Fertility not found")
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=position}) then
+				surface.create_entity({ name=treetype, amount=1, position=position})
+			end
+				
+		end		
+
+	end
+	
+	--- Advanced Seed Bomb
+	if tree3 then
+		foundtree = true
+		tree3.destroy()
+		
+		--- Depending on Terain, choose tree type & Convert seedling into a tree
+		
+		
+		if Bi_Industries.fertility[currentTilename] then
+			fertility = Bi_Industries.fertility[currentTilename]
+	
+
+			local tree_name = random_tree (surface, position)
+			if tree_name then
+			  local can_be_placed = surface.can_place_entity{name=tree_name, position=position, force = "neutral"}
+			  if can_be_placed and growth_chance <= fertility and foundtree then
+				local new_tree = surface.create_entity{name=tree_name, position=position, force = "neutral"}
+			  end
+			end
+
+
+			writeDebug("The current tile is: " .. currentTilename)
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			writeDebug(treetype)
+
+
+
+		
+		---- Hardcode anything else to tree 9 for now.
+		else
+			treetype = "tree-09"
+			
+			writeDebug("Terrain or Fertility not found")
+			writeDebug("The Growth Chance is: " .. growth_chance)
+			writeDebug("The Fertility is: " .. fertility)
+			if growth_chance <= fertility and foundtree and surface.can_place_entity({ name=treetype, position=position}) then
+				surface.create_entity({ name=treetype, amount=1, position=position})
+			end
+				
+		end		
+
+	end
 end
 
 
 
 ---- Growing Tree
 Event.register(defines.events.on_tick, function(event)	
+
 
 	while #global.bi.tree_growing > 0 do
 		if event.tick < global.bi.tree_growing[1].time then
