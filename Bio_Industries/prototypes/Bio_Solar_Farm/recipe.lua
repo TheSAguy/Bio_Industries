@@ -53,5 +53,21 @@ if BI.Settings.BI_Accumulator then
 			result = "bi_accumulator"
 		},
 		
+		-- Large Substation	
+	  {
+		type = "recipe",
+		name = "bi_large_substation",
+		enabled = false,
+		ingredients =
+		{
+		  {"steel-plate", 10},
+		  {"concrete",200},
+		  {"substation", 4}
+		},
+		result = "bi-large-substation"
+	  },
+	  
+		
 	 })
 end
+
