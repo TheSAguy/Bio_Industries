@@ -1,4 +1,4 @@
----Bio Industries - v.2.1.0
+---Bio Industries - v.2.1.2
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
@@ -23,11 +23,20 @@ local function On_Init()
 	end
 	
 	
-	global.seed_bomb={}--this is used to define which equipment is put initially
-	global.seed_bomb["seedling"] = "seedling"
-	global.seed_bomb["seedling-2"] = "seedling-2"
-	global.seed_bomb["seedling-3"] = "seedling-3"
+	global.bi.seed_bomb={}
+	global.bi.seed_bomb["seedling"] = true
+	global.bi.seed_bomb["seedling-2"] = true
+	global.bi.seed_bomb["seedling-3"] = true
 	
+	if game.active_mods["alien-biomes"] then 
+		global.alien_biomes = true
+		global.bi.seed_bomb.terrain_name = "vegetation-green-grass-3"
+	else
+		global.alien_biomes = false
+		global.bi.seed_bomb.terrain_name = "grass-3"
+	end		
+	
+
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
 		force.reset_technologies()
@@ -63,10 +72,20 @@ local function On_Config_Change()
 		global.bi.terrains = {}
 	end
 
-	global.seed_bomb={}--this is used to define which equipment is put initially
-	global.seed_bomb["seedling"] = "seedling"
-	global.seed_bomb["seedling-2"] = "seedling-2"
-	global.seed_bomb["seedling-3"] = "seedling-3"
+	
+	global.bi.seed_bomb={}
+	global.bi.seed_bomb["seedling"] = true
+	global.bi.seed_bomb["seedling-2"] = true
+	global.bi.seed_bomb["seedling-3"] = true
+	
+	if game.active_mods["alien-biomes"] then 
+		global.bi.alien_biomes = true
+		global.bi.seed_bomb.terrain_name = "vegetation-green-grass-3"
+	else
+		global.bi.alien_biomes = false
+		global.bi.seed_bomb.terrain_name = "grass-3"
+	end		
+	
 
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -113,41 +132,28 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 	local New_tiles = {}
 	
 	-- Basic
-    if global.seed_bomb[ent.name] == "seedling" then
+    if global.bi.seed_bomb[ent.name] then
 		writeDebug("Seed Bomb Activated - Basic")
 		seed_planted_trigger (event)
     end
 	
 	-- Standard
-    if global.seed_bomb[ent.name] == "seedling-2" then
+    if global.bi.seed_bomb[ent.name] then
 		writeDebug("Seed Bomb Activated - Standard")
+			
+		surface.set_tiles{{name=global.bi.seed_bomb.terrain_name, position=position}}
+		seed_planted_trigger (event)
+
+    end
 		
-		local terrain_name
-		if game.active_mods["alien-biomes"] then 
-			terrain_name = "vegetation-green-grass-3"
-		else
-			terrain_name = "grass-3"
-		end		
-		surface.set_tiles{{name=terrain_name, position=position}}
-		seed_planted_trigger (event)
-
-    end
-	
-	
 	-- Advanced
-    if global.seed_bomb[ent.name] == "seedling-3" then
+    if global.bi.seed_bomb[ent.name] then
 		writeDebug("Seed Bomb Activated - Advanced")
-		local terrain_name
-		if game.active_mods["alien-biomes"] then 
-			terrain_name = "vegetation-green-grass-1"
-		else
-			terrain_name = "grass-1"
-		end		
-		surface.set_tiles{{name=terrain_name, position=position}}
+	
+		surface.set_tiles{{name=global.bi.seed_bomb.terrain_name, position=position}}
 		seed_planted_trigger (event)
 
     end
-
 	
 end)
 
@@ -438,12 +444,9 @@ local function On_Death(event)
 	
 end
 
-
 ----- Solar Mat stuff
-local function Player_Tile_Built(event)
-
-	local player = game.players[event.player_index]
-	local surface = player and player.surface
+--------------------------------------------------------------------
+local function Solar_Mat (event, surface)
 
 	for i, vv in ipairs(event.tiles) do
 		local position = vv.position
@@ -500,11 +503,22 @@ local function Player_Tile_Built(event)
 			
 		end
 	end	
+
+end
+
+
+local function Player_Tile_Built(event)
+
+	local player = game.players[event.player_index]
+	local surface = player and player.surface
+
+	Solar_Mat (event, surface)
 		
 end
 
 	
 local function Robot_Tile_Built(event)
+
 
 	local robot = event.robot
 	local surface = robot.surface
@@ -514,63 +528,8 @@ local function Robot_Tile_Built(event)
 		return
 	end
 	
-	for i, vv in ipairs(event.tiles) do
-	local position = vv.position
-		local currentTilename = surface.get_tile(position.x,position.y).name
-		
-		if currentTilename == "bi-solar-mat" then
-			writeDebug("Solar Mat has been built")
-			
-			local force = event.force
-			local solar_mat = surface.get_tile(position.x,position.y)
-			local sm_pole_name = "bi_solar_pole"  
-			local sm_panel_name = "bi_solar-panel_for_Solar-Mat"  
-			  
-			local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
-			local create_sm_panel = surface.create_entity({name = sm_panel_name, position = position, force = force})
-			  
-			create_sm_pole.minable = false
-			create_sm_pole.destructible = false
-			create_sm_panel.minable = false
-			create_sm_panel.destructible = false
-		
-		else
-		
-				
-			local radius = 0.5
-			local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
-			writeDebug("NOT Solar Mat")
-			local entities = surface.find_entities(area)
-			local entity1 = entities[1]
-			entity1 = surface.find_entities_filtered{area=area, name="bi_solar_pole", limit=1}
-				
-			if entity1 then 		
-			
-				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar_pole"})) do o.destroy() end	
+	Solar_Mat (event, surface)
 
-				writeDebug("bi_solar_pole Removed")
-			else
-				writeDebug("bi_solar_pole not found")				
-			end
-				
-			--- Remove the Hidden Solar Panel		
-			local entity2 = entities[1]
-			entity2 = surface.find_entities_filtered{area=area, name="bi_solar-panel_for_Solar-Mat", limit=1}	
-			
-			if entity2 then 
-					
-				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar-panel_for_Solar-Mat"})) do o.destroy() end	
-
-				writeDebug("bi_solar-panel_for_Solar-Mat Removed")
-			else
-				writeDebug("bi_solar-panel_for_Solar-Mat not found")				
-			end
-
-
-		
-		end
-	end	
-		
 end
 
 

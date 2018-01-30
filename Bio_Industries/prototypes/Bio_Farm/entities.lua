@@ -554,8 +554,8 @@ data:extend({
             {
               type = "area",
               target_entities = false,
-              repeat_count = 800,
-              radius = 30,
+              repeat_count = 600,
+              radius = 24,
               action_delivery =
               {
                 type = "projectile",
@@ -625,8 +625,8 @@ data:extend({
             {
               type = "area",
               target_entities = false,
-              repeat_count = 1000,
-              radius = 32,
+              repeat_count = 800,
+              radius = 27,
               action_delivery =
               {
                 type = "projectile",
@@ -696,8 +696,8 @@ data:extend({
 				{
 				  type = "area",
 				  target_entities = false,
-				  repeat_count = 1200,
-				  radius = 34,
+				  repeat_count = 1000,
+				  radius = 30,
 				  action_delivery =
 				  {
 					type = "projectile",

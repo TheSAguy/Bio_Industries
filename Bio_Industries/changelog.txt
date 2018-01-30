@@ -1,0 +1,88 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.1.2
+Date: 1. 30. 2018
+  Bugfixes:
+    - Fixed robots placing Musk mat
+
+---------------------------------------------------------------------------------------------------
+Version: 2.1.1
+Date: 1. 29. 2018
+  Features:
+    - Tweaked Bio Boiler. 
+    - Tweaked Seed Bombs. 
+
+---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+Date: 1. 28. 2018
+  Features:
+    - Tweaked Bio Boiler. 
+    - Added Seed Bombs. 
+    - Plant trees via rocket launcher. 
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.9
+Date: ???
+  Bugfixes:
+    - 16.17 Compatibility fix
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.8
+Date: ???
+  Features:
+    - Some Compatibility tweaks for Alien Biomes
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.7
+Date: ???
+  Bugfixes:
+    - Compatibility fix fit Explosive Termites
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.6
+Date: ???
+  Features:
+    - Added Huge Substation. 
+    - Added Angels Bio Processing compatibility
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.5
+Date: ???
+  Bugfixes:
+    - Fixed Large Wooden Pole supply area. 
+    - Fixed Bio Boiler. 
+    - Fixed pipe covers. 
+  Features:
+    - Updated tree planting to use weights for tree types.
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.4
+Date: ???
+  Features:
+    - Renamed Bio Cannon. Can now also use ammo in Artillery
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: ???
+  Features:
+    - Added lubricant recipe (from Biomass)
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: ???
+  Bugfixes:
+    - Fixed Mining items not removing hidden items
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: ???
+  Bugfixes:
+    - Fixed crash with Bob's Green house. 
+    - Fixed Rail tint. 
+    - Fixed tree spawning.
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: ???
+  Changes:
+    - Initial release of 0.16 compatible version. Rail tint not currently working. Not tested...
+

@@ -148,7 +148,7 @@ data:extend(
 		  production_type = "output",
 		  filter = "steam"
 		},
-		energy_consumption = "1.35MW",
+		energy_consumption = "3.6MW",
 		energy_source =
 		{
 		  type = "burner",
