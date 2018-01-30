@@ -181,17 +181,25 @@ data:extend({
 				recipe = "bi_seed_3"
 			},	
 			{
-            type = "unlock-recipe",
-            recipe = "bi-Logs_Mk3"
+				type = "unlock-recipe",
+				recipe = "bi-Logs_Mk3"
 			},
 			{
-            type = "unlock-recipe",
-            recipe = "bi-Bio_Garden"
+				type = "unlock-recipe",
+				recipe = "bi-Bio_Garden"
 			},
 			{
-            type = "unlock-recipe",
-            recipe = "bi-Clean_Air"
-			}
+				type = "unlock-recipe",
+				recipe = "bi-Clean_Air"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_seed_bomb_basic"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_seed_bomb_standard"
+			},
 
 		},
 		prerequisites = 

@@ -46,6 +46,85 @@ data:extend({
 	trigger_radius = 0,
   },
   
+  ------- Seedling - Dummy for Seed Bomb
+  {
+    type = "land-mine",
+    name = "seedling-2",
+    icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+	icon_size = 32,
+	order = "x[bi]-a[bi-seedling]",
+	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air",},
+    minable =
+    {
+      mining_particle = "wooden-particle",
+      mining_time = 0.25,
+      result = "seedling",
+      count = 1
+    },
+    emissions_per_tick = -0.0006,
+    max_health = 5,
+
+    collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+	subgroup = "intermediate-product",
+
+    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
+	picture_safe =
+	{
+		filename = "__Bio_Industries__/graphics/icons/Seedling_a.png",
+		priority = "extra-high",
+		width = 32,
+		height = 32,
+    },
+	picture_set =
+    {
+		filename = "__Bio_Industries__/graphics/icons/Seedling_b.png",
+		priority = "extra-high",
+		width = 32,
+		height = 32,
+    },
+	trigger_radius = 0,
+  },
+  
+    ------- Seedling - Dummy for Seed Bomb
+  {
+    type = "land-mine",
+    name = "seedling-3",
+    icon = "__Bio_Industries__/graphics/icons/Seedling.png",
+	icon_size = 32,
+	order = "x[bi]-a[bi-seedling]",
+	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air",},
+    minable =
+    {
+      mining_particle = "wooden-particle",
+      mining_time = 0.25,
+      result = "seedling",
+      count = 1
+    },
+    emissions_per_tick = -0.0006,
+    max_health = 5,
+
+    collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+	subgroup = "intermediate-product",
+
+    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
+	picture_safe =
+	{
+		filename = "__Bio_Industries__/graphics/icons/Seedling_a.png",
+		priority = "extra-high",
+		width = 32,
+		height = 32,
+    },
+	picture_set =
+    {
+		filename = "__Bio_Industries__/graphics/icons/Seedling_b.png",
+		priority = "extra-high",
+		width = 32,
+		height = 32,
+    },
+	trigger_radius = 0,
+  },
 ------- Bio Farm
   {
     type = "assembling-machine",
@@ -453,5 +532,351 @@ data:extend({
 		energy_usage = "50kW"
 	},
 
+	
+	--- Seed Bomb Projectile - 1
+  
+  {
+    type = "projectile",
+    name = "seed-bomb-projectile-1",
+    flags = {"not-on-map"},
+    acceleration = 0.005,
+    action =
+    {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+          {
+            type = "nested-result",
+            action =
+            {
+              type = "area",
+              target_entities = false,
+              repeat_count = 800,
+              radius = 30,
+              action_delivery =
+              {
+                type = "projectile",
+                projectile = "seed-bomb-wave-1",
+                starting_speed = 0.5
+              }
+            }
+          }
+        }
+      }
+    },
+    light = {intensity = 0.8, size = 15},
+    animation =
+    {
+      filename = "__base__/graphics/entity/rocket/rocket.png",
+      frame_count = 8,
+      line_length = 8,
+      width = 9,
+      height = 35,
+      shift = {0, 0},
+      priority = "high"
+    },
+    shadow =
+    {
+      filename = "__base__/graphics/entity/rocket/rocket-shadow.png",
+      frame_count = 1,
+      width = 7,
+      height = 24,
+      priority = "high",
+      shift = {0, 0}
+    },
+
+    smoke =
+    {
+      {
+        name = "smoke-fast",
+        deviation = {0.15, 0.15},
+        frequency = 1,
+        position = {0, -1},
+        slow_down_factor = 1,
+        starting_frame = 3,
+        starting_frame_deviation = 5,
+        starting_frame_speed = 0,
+        starting_frame_speed_deviation = 5
+      }
+    }
+  },
+ 
+ 	--- Seed Bomb Projectile - 2
+  
+  {
+    type = "projectile",
+    name = "seed-bomb-projectile-2",
+    flags = {"not-on-map"},
+    acceleration = 0.005,
+    action =
+    {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+          {
+            type = "nested-result",
+            action =
+            {
+              type = "area",
+              target_entities = false,
+              repeat_count = 1000,
+              radius = 32,
+              action_delivery =
+              {
+                type = "projectile",
+                projectile = "seed-bomb-wave-2",
+                starting_speed = 0.5
+              }
+            }
+          }
+        }
+      }
+    },
+    light = {intensity = 0.8, size = 15},
+    animation =
+    {
+      filename = "__base__/graphics/entity/rocket/rocket.png",
+      frame_count = 8,
+      line_length = 8,
+      width = 9,
+      height = 35,
+      shift = {0, 0},
+      priority = "high"
+    },
+    shadow =
+    {
+      filename = "__base__/graphics/entity/rocket/rocket-shadow.png",
+      frame_count = 1,
+      width = 7,
+      height = 24,
+      priority = "high",
+      shift = {0, 0}
+    },
+
+    smoke =
+    {
+      {
+        name = "smoke-fast",
+        deviation = {0.15, 0.15},
+        frequency = 1,
+        position = {0, -1},
+        slow_down_factor = 1,
+        starting_frame = 3,
+        starting_frame_deviation = 5,
+        starting_frame_speed = 0,
+        starting_frame_speed_deviation = 5
+      }
+    }
+  },
+ 
+ 	--- Seed Bomb Projectile - 3
+  
+  {
+    type = "projectile",
+    name = "seed-bomb-projectile-3",
+    flags = {"not-on-map"},
+    acceleration = 0.005,
+    action =
+    {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+			{
+				type = "nested-result",
+				action =
+				{
+				  type = "area",
+				  target_entities = false,
+				  repeat_count = 1200,
+				  radius = 34,
+				  action_delivery =
+				  {
+					type = "projectile",
+					projectile = "seed-bomb-wave-3",
+					starting_speed = 0.5
+				  }
+				}
+			}
+        }
+      }
+    },
+    light = {intensity = 0.8, size = 15},
+    animation =
+    {
+      filename = "__base__/graphics/entity/rocket/rocket.png",
+      frame_count = 8,
+      line_length = 8,
+      width = 9,
+      height = 35,
+      shift = {0, 0},
+      priority = "high"
+    },
+    shadow =
+    {
+      filename = "__base__/graphics/entity/rocket/rocket-shadow.png",
+      frame_count = 1,
+      width = 7,
+      height = 24,
+      priority = "high",
+      shift = {0, 0}
+    },
+
+    smoke =
+    {
+      {
+        name = "smoke-fast",
+        deviation = {0.15, 0.15},
+        frequency = 1,
+        position = {0, -1},
+        slow_down_factor = 1,
+        starting_frame = 3,
+        starting_frame_deviation = 5,
+        starting_frame_speed = 0,
+        starting_frame_speed_deviation = 5
+      }
+    }
+  },
+ 
+--- Seed Bomb Wave - 1
+	
+	{
+		type = "projectile",
+		name = "seed-bomb-wave-1",
+		flags = {"not-on-map"},
+		acceleration = 0,
+		action =
+		{
+		  {
+			type = "direct",
+			action_delivery =
+			{
+			  type = "instant",
+			  target_effects =
+			  {
+				{
+				  type = "create-entity",
+				  entity_name = "seedling",
+				  check_buildability = true,
+				  trigger_created_entity = true,
+				}
+			  }
+			}
+		  },
+		},
+		animation =
+		{
+		  filename = "__core__/graphics/empty.png",
+		  frame_count = 1,
+		  width = 1,
+		  height = 1,
+		  priority = "high"
+		},
+		shadow =
+		{
+		  filename = "__core__/graphics/empty.png",
+		  frame_count = 1,
+		  width = 1,
+		  height = 1,
+		  priority = "high"
+		}
+	},
+
+	--- Seed Bomb Wave - 2
+	
+	{
+		type = "projectile",
+		name = "seed-bomb-wave-2",
+		flags = {"not-on-map"},
+		acceleration = 0,
+		action =
+		{
+		  {
+			type = "direct",
+			action_delivery =
+			{
+			  type = "instant",
+			  target_effects =
+			  {
+
+					{
+					type = "create-entity",
+					entity_name = "seedling-2",
+					check_buildability = true,
+					trigger_created_entity = true,
+					}
+			  }
+			}
+		  },
+		},
+		animation =
+		{
+		  filename = "__core__/graphics/empty.png",
+		  frame_count = 1,
+		  width = 1,
+		  height = 1,
+		  priority = "high"
+		},
+		shadow =
+		{
+		  filename = "__core__/graphics/empty.png",
+		  frame_count = 1,
+		  width = 1,
+		  height = 1,
+		  priority = "high"
+		}
+	},
+	
+	--- Seed Bomb Wave - 3
+	
+	{
+		type = "projectile",
+		name = "seed-bomb-wave-3",
+		flags = {"not-on-map"},
+		acceleration = 0,
+		action =
+		{
+		  {
+			type = "direct",
+			action_delivery =
+			{
+			  type = "instant",
+			  target_effects =
+			  {
+				{
+				type = "create-entity",
+				entity_name = "seedling-3",
+				check_buildability = true,
+				trigger_created_entity = true,
+				},
+			  }
+			}
+		  },
+		},
+		animation =
+		{
+		  filename = "__core__/graphics/empty.png",
+		  frame_count = 1,
+		  width = 1,
+		  height = 1,
+		  priority = "high"
+		},
+		shadow =
+		{
+		  filename = "__core__/graphics/empty.png",
+		  frame_count = 1,
+		  width = 1,
+		  height = 1,
+		  priority = "high"
+		}
+	},
 	
 })

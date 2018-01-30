@@ -1,4 +1,4 @@
----Bio Industries - v.2.0.8
+---Bio Industries - v.2.1.0
 local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
@@ -23,13 +23,20 @@ local function On_Init()
 	end
 	
 	
-
+	global.seed_bomb={}--this is used to define which equipment is put initially
+	global.seed_bomb["seedling"] = "seedling"
+	global.seed_bomb["seedling-2"] = "seedling-2"
+	global.seed_bomb["seedling-3"] = "seedling-3"
+	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
 		force.reset_technologies()
 		force.reset_recipes()
 	end
 
+	
+	
+	
 end
 
 --------------------------------------------------------------------			 
@@ -56,6 +63,10 @@ local function On_Config_Change()
 		global.bi.terrains = {}
 	end
 
+	global.seed_bomb={}--this is used to define which equipment is put initially
+	global.seed_bomb["seedling"] = "seedling"
+	global.seed_bomb["seedling-2"] = "seedling-2"
+	global.seed_bomb["seedling-3"] = "seedling-3"
 
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -89,6 +100,58 @@ script.on_event(defines.events.on_player_joined_game, function(event)
    end
    
 end)
+
+
+
+---------------------------------------------
+script.on_event(defines.events.on_trigger_created_entity, function(event)
+	--- Used for Seed-bomb 
+	local ent=event.entity
+	local surface = ent.surface
+	local position = ent.position
+	local force = ent.force
+	local New_tiles = {}
+	
+	-- Basic
+    if global.seed_bomb[ent.name] == "seedling" then
+		writeDebug("Seed Bomb Activated - Basic")
+		seed_planted_trigger (event)
+    end
+	
+	-- Standard
+    if global.seed_bomb[ent.name] == "seedling-2" then
+		writeDebug("Seed Bomb Activated - Standard")
+		
+		local terrain_name
+		if game.active_mods["alien-biomes"] then 
+			terrain_name = "vegetation-green-grass-3"
+		else
+			terrain_name = "grass-3"
+		end		
+		surface.set_tiles{{name=terrain_name, position=position}}
+		seed_planted_trigger (event)
+
+    end
+	
+	
+	-- Advanced
+    if global.seed_bomb[ent.name] == "seedling-3" then
+		writeDebug("Seed Bomb Activated - Advanced")
+		local terrain_name
+		if game.active_mods["alien-biomes"] then 
+			terrain_name = "vegetation-green-grass-1"
+		else
+			terrain_name = "grass-1"
+		end		
+		surface.set_tiles{{name=terrain_name, position=position}}
+		seed_planted_trigger (event)
+
+    end
+
+	
+end)
+
+
 
 
 --------------------------------------------------------------------
@@ -381,10 +444,9 @@ local function Player_Tile_Built(event)
 
 	local player = game.players[event.player_index]
 	local surface = player and player.surface
-	local position = event.positions
 
-
-	for i, position in ipairs(position) do
+	for i, vv in ipairs(event.tiles) do
+		local position = vv.position
 		local currentTilename = surface.get_tile(position.x,position.y).name
 		
 		if currentTilename == "bi-solar-mat" then
@@ -444,17 +506,16 @@ end
 	
 local function Robot_Tile_Built(event)
 
-
 	local robot = event.robot
 	local surface = robot.surface
-	local position = event.positions
 	
 	-- fix #2 Error while running event Bio_Industries::on_robot_built_tile
 	if surface == nil then
 		return
 	end
 	
-	for i, position in ipairs(position) do
+	for i, vv in ipairs(event.tiles) do
+	local position = vv.position
 		local currentTilename = surface.get_tile(position.x,position.y).name
 		
 		if currentTilename == "bi-solar-mat" then
