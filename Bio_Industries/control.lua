@@ -1,5 +1,5 @@
----Bio Industries - v.2.1.2
-local QC_Mod = false
+--Bio_Industries Version   2.1.6
+local QC_Mod = FALSE
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
@@ -24,18 +24,9 @@ local function On_Init()
 	
 	
 	global.bi.seed_bomb={}
-	global.bi.seed_bomb["seedling"] = true
-	global.bi.seed_bomb["seedling-2"] = true
-	global.bi.seed_bomb["seedling-3"] = true
-	
-	if game.active_mods["alien-biomes"] then 
-		global.alien_biomes = true
-		global.bi.seed_bomb.terrain_name = "vegetation-green-grass-3"
-	else
-		global.alien_biomes = false
-		global.bi.seed_bomb.terrain_name = "grass-3"
-	end		
-	
+	global.bi.seed_bomb["seedling"] = "seedling"
+	global.bi.seed_bomb["seedling-2"] = "seedling-2"
+	global.bi.seed_bomb["seedling-3"] = "seedling-3"
 
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -74,18 +65,10 @@ local function On_Config_Change()
 
 	
 	global.bi.seed_bomb={}
-	global.bi.seed_bomb["seedling"] = true
-	global.bi.seed_bomb["seedling-2"] = true
-	global.bi.seed_bomb["seedling-3"] = true
-	
-	if game.active_mods["alien-biomes"] then 
-		global.bi.alien_biomes = true
-		global.bi.seed_bomb.terrain_name = "vegetation-green-grass-3"
-	else
-		global.bi.alien_biomes = false
-		global.bi.seed_bomb.terrain_name = "grass-3"
-	end		
-	
+	global.bi.seed_bomb["seedling"] = "seedling"
+	global.bi.seed_bomb["seedling-2"] = "seedling-2"
+	global.bi.seed_bomb["seedling-3"] = "seedling-3"
+
 
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -128,29 +111,42 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 	local ent=event.entity
 	local surface = ent.surface
 	local position = ent.position
-	local force = ent.force
-	local New_tiles = {}
 	
 	-- Basic
-    if global.bi.seed_bomb[ent.name] then
+    if global.bi.seed_bomb[ent.name] == "seedling" then
 		writeDebug("Seed Bomb Activated - Basic")
 		seed_planted_trigger (event)
-    end
+
 	
 	-- Standard
-    if global.bi.seed_bomb[ent.name] then
+    elseif global.bi.seed_bomb[ent.name] == "seedling-2" then
 		writeDebug("Seed Bomb Activated - Standard")
-			
-		surface.set_tiles{{name=global.bi.seed_bomb.terrain_name, position=position}}
+		local terrain_name_s
+		if game.active_mods["alien-biomes"] then 
+			terrain_name_s = "vegetation-green-grass-3"
+		else
+			terrain_name_s = "grass-3"
+		end
+
+		writeDebug(terrain_name_s)
+		
+		surface.set_tiles{{name=terrain_name_s, position=position}}
 		seed_planted_trigger (event)
 
-    end
+
 		
 	-- Advanced
-    if global.bi.seed_bomb[ent.name] then
+    elseif global.bi.seed_bomb[ent.name] == "seedling-3" then
 		writeDebug("Seed Bomb Activated - Advanced")
-	
-		surface.set_tiles{{name=global.bi.seed_bomb.terrain_name, position=position}}
+		local terrain_name_a
+		if game.active_mods["alien-biomes"] then 
+			terrain_name_a = "vegetation-green-grass-1"
+		else
+			terrain_name_a = "grass-1"
+		end	
+		writeDebug(terrain_name_a)	
+		
+		surface.set_tiles{{name=terrain_name_a, position=position}}
 		seed_planted_trigger (event)
 
     end
@@ -196,26 +192,28 @@ local function On_Built(event)
 
 	end
 
-	
+	--[[
 	--- Bio Solar Farm has been built
 	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 	writeDebug("Bio Solar Farm has been built")
 		   
 		local solar_farm = entity
-		local pole_name = "bi_medium-electric-pole_for_Bio_Farm"  		
+		--local pole_name = "bi_medium-electric-pole_for_Bio_Farm"  		
 		local sf_image = "bi_bio_Solar_Farm_Image"   
 		
-		local create_sf_pole = surface.create_entity({name = pole_name, position = position, force = force})
+		--local create_sf_pole = surface.create_entity({name = pole_name, position = position, force = force})
 		local create_sf_image = surface.create_entity({name = sf_image, position = position, force = force})
 		
-		create_sf_pole.minable = false
-		create_sf_pole.destructible = false 
+		--create_sf_pole.minable = false
+		--create_sf_pole.destructible = false 
 		create_sf_image.minable = false
 		create_sf_image.destructible = false
 		
-		group_entities(cantor(position.x,position.y), { solar_farm, create_sf_pole, create_sf_image })	  
+		--group_entities(cantor(position.x,position.y), { solar_farm, create_sf_pole, create_sf_image })	  
+		group_entities(cantor(position.x,position.y), { solar_farm, create_sf_image })	  
 
 	end
+	]]
 	
 	-- Power Rail - Not implemented yet.
 	--[[
@@ -512,8 +510,10 @@ local function Player_Tile_Built(event)
 	local player = game.players[event.player_index]
 	local surface = player and player.surface
 
-	Solar_Mat (event, surface)
-		
+
+		Solar_Mat (event, surface)
+
+	
 end
 
 	

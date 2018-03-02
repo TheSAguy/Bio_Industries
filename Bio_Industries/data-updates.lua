@@ -532,7 +532,7 @@ if data.raw["item"]["bob-greenhouse"] then
 end
 
 	
-
+--[[
 -------- Use Alternative Solar Farm Image
 if BI.Settings.BI_Solar_Farm and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
@@ -579,7 +579,7 @@ data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
 
 	
 end
-	
+	]]
 
 --[[	
 	-- Obsolete??

@@ -11,9 +11,11 @@ if BI.Settings.BI_Solar_Farm then
 		icon_size = 32,
 		flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
 		selectable_in_game = false,
-		max_health = 1,
-		collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
-		selection_box = {{-0.2, -0.2}, {0.2, 0.2}},
+		max_health = 600,
+		--collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
+		collision_box = {{-0, -0}, {0, 0}},
+		--selection_box = {{-0.2, -0.2}, {0.2, 0.2}},
+		selection_box = {{-0, -0}, {0, 0}},
 		energy_source =
 		{
 		  type = "electric",
@@ -27,22 +29,27 @@ if BI.Settings.BI_Solar_Farm then
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On.png",
 		  priority = "extra-high",
-		  width = 208,
-		  height = 192,
+		  width = 312,
+		  height = 289,
 		  frame_count = 1,
 		  direction_count = 1,
-		  scale = 3/2,
+		  --scale = 3/2,
+		  shift = {0.30, 0}
 		},
 		picture_on =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_Off.png",
 		  priority = "extra-high",
-		  width = 208,
-		  height = 192,
+		  width = 312,
+		  height = 289,
 		  frame_count = 1,
 		  direction_count = 1,
-		  scale = 3/2,
+		  --scale = 3/2,
+		  shift = {0.30, 0}
 		},
+		
+
+
 		},
 	  ------- Bio Farm Solar Panel
 	  {
@@ -67,11 +74,12 @@ if BI.Settings.BI_Solar_Farm then
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On.png",
 		  priority = "low",
-		  width = 208,
-		  height = 192,
+		  width = 312,
+		  height = 289,
 		  frame_count = 1,
 		  direction_count = 1,
-		  scale = 3/2,
+		  --scale = 3/2,
+		  shift = {0.30, 0}
 		},
 		production = "3600kW"
 	  },

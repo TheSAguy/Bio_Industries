@@ -408,13 +408,13 @@ data:extend({
       module_slots = 2
     },
     allowed_effects = {"consumption", "speed"},
-    animation =
+	animation =
     {
       filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse_off.png",
-      width = 266,
-      height = 182,
+      width = 113,
+      height = 93,
       frame_count = 1,
-	  scale = 0.5,
+      scale = 1,
       shift = {0.3, 0}
     },
     working_visualisations =
@@ -424,11 +424,11 @@ data:extend({
         animation =
         {
           filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse_on.png",
-		  width = 266,
-		  height = 182,
-		  frame_count = 1,
-		  scale = 0.5,
-		  shift = {0.3, 0}
+          width = 113,
+          height = 93,
+          frame_count = 1,
+          scale = 1,
+          shift = {0.3, 0}
         }
       }
     },
