@@ -149,8 +149,8 @@ data:extend({
 		},
 		{
         production_type = "input",
-        pipe_picture = assembler3pipepictures(),
-        pipe_covers = pipecoverspictures(),
+       -- pipe_picture = BioFarm_Pipe_Connectors_Right(),
+       -- pipe_covers = pipecoverspictures(),
         base_area = 10,
         base_level = -1,
         pipe_connections = {{ type="input", position = {1, -5} }}
@@ -162,6 +162,7 @@ data:extend({
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
     selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 
+	--[[
 	animation =
 	{
 		filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
@@ -185,7 +186,31 @@ data:extend({
 			shift = {0.75, 0},
 		},
 	},
+]]
+	animation =
+	{
+		filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
+		priority = "high",
+        width = 348,
+        height = 288,
+        shift = {0.96, 0},
+		frame_count = 1,
 
+	},
+	
+	working_visualisations =
+	{
+
+		animation =
+		{
+			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working.png",
+			priority = "high",
+			width = 348,
+			height = 288,
+			shift = {0.96, 0},
+			frame_count = 1,
+		},
+	},
     crafting_categories = {"biofarm-mod-farm"},
     crafting_speed = 1,
     energy_source =

@@ -15,6 +15,22 @@ data:extend({
 
 	},
 
+	--- Huge Wooden Pole
+	{
+		type = "item",
+		name = "bi-huge-wooden-pole",
+		icon = "__Bio_Industries__/graphics/icons/huge-wooden-pole.png",
+		icon_size = 32,
+		flags = {"goes-to-quickbar"},
+		subgroup = "energy-pipe-distribution",
+		order = "a[energy]-d[big-electric-pole]",
+		place_result = "bi-huge-wooden-pole",
+		fuel_value = "80MJ",
+		fuel_category = "chemical",
+		stack_size = 50
+
+	},
+	
 	{
 		type = "item",
 		name = "bi-wooden-fence",

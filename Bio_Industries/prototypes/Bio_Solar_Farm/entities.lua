@@ -1,8 +1,10 @@
 
 require ("util")
 
-if BI.Settings.BI_Solar_Farm then
+if BI.Settings.BI_Solar_Additions then
+	
 	data:extend({
+	
 	------- Bio Solar Farm - Image Only, to make as if it switches on and off.
 	  {
 		type = "lamp",
@@ -48,9 +50,8 @@ if BI.Settings.BI_Solar_Farm then
 		  shift = {0.30, 0}
 		},
 		
-
-
-		},
+	},
+		
 	  ------- Bio Farm Solar Panel
 	  {
 		type = "solar-panel",
@@ -84,261 +85,11 @@ if BI.Settings.BI_Solar_Farm then
 		production = "3600kW"
 	  },
 	  
-	})  
-end 
 
-data:extend({
 
----- Solar Floor
-	{
-	  type = "tile",
-	  name = "bi-solar-mat",
-	  icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
-	  icon_size = 32,
-	  needs_correction = false,
-	  minable = {hardness = 0.1, mining_time = 0.25, result = "bi-solar-mat"},
-	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
-	  collision_mask = {"ground-tile", "not-colliding-with-itself"},
-	  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	  walking_speed_modifier = 1.45,
-	  layer = 62,
-	  decorative_removal_probability = 1,
-	  variants =
-	  {
-		main =
-		{	
-		 {
-			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar1.png",
-			count = 1,
-			size = 1,
-			probability = 1,
-		  },
---[[		  
-		  {
-			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar2.png",
-			count = 1,
-			size = 2,
-			probability = 1,
-		  },
-	]]	  
-		},
-		inner_corner =
-		{
-		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-inner-corner.png",
-		  count = 8
-		},
-		outer_corner =
-		{
-		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-outer-corner.png",
-		  count = 8
-		},
-		side =
-		{
-		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-side.png",
-		  count = 8
-		},
-		u_transition =
-		{
-		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-u.png",
-		  count = 8
-		},
-		o_transition =
-		{
-		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-o.png",
-		  count = 1
-		}
-	  },
-	  walking_sound =
-	  {
-		{
-		  filename = "__base__/sound/walking/concrete-01.ogg",
-		  volume = 1.2
-		},
-		{
-		  filename = "__base__/sound/walking/concrete-02.ogg",
-		  volume = 1.2
-		},
-		{
-		  filename = "__base__/sound/walking/concrete-03.ogg",
-		  volume = 1.2
-		},
-		{
-		  filename = "__base__/sound/walking/concrete-04.ogg",
-		  volume = 1.2
-		}
-	  },
-	  map_color={r=93, g=138, b=168},
-	  ageing=0,
-	  vehicle_friction_modifier = dirt_vehicle_speed_modifer
-	},
-	
- 
-   ------- Hidden Electric pole for Solar Mat
-  {
-    type = "electric-pole",
-    name = "bi_solar_pole",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
-	icon_size = 32,
-	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
-	selectable_in_game = false,
-    max_health = 1,
-    resistances = {{type = "fire", percent = 100}},
-	collision_mask = {"ground-tile"},
-    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
-    selection_box = {{0, 0}, {0, 0}},
-	
-    maximum_wire_distance = 1,
-    supply_area_distance = 2,
-    pictures =
-    {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
-      priority = "low",
-      width = 0,
-      height = 0,
-	  frame_count = 1,
-      axially_symmetrical = false,
-      direction_count = 4,
-	  shift = {0.75, 0},
-    },
-	 connection_points =
-    {
-      {
-        shadow =
-        {
 
-        },
-        wire =
-        {
-          copper_wire = {-0, -0},
 
-        }
-      },
-      {
-        shadow =
-        {
 
-        },
-        wire =
-        {
-          copper_wire = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire = {-0, -0},
-
-        }
-      }
-    },
-	--[[
-	connection_points =
-    {
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire = {-0.5, -0.5},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire = {-0.5, -0.5},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire = {-0.5, -0.5},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire = {-0.5, -0.5},
-
-        }
-      }
-    },
-	]]
-    radius_visualisation_picture =
-    {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
-      width = 0,
-      height = 0,
-      priority = "low"
-    },
-  },
-  
-   ------- ------- Hidden Solar Panel for Solar Mat 
-  {
-    type = "solar-panel",
-    name = "bi_solar-panel_for_Solar-Mat",
-    icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
-	icon_size = 32,
-	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
-	selectable_in_game = false,
-    max_health = 1,
-    resistances = {{type = "fire", percent = 100}},
-	collision_mask = {"ground-tile"},
-    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
-    selection_box = {{0, 0}, {0, 0}},
-	
-	
-    energy_source =
-    {
-      type = "electric",
-      usage_priority = "solar"
-    },
-    picture =
-    {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
-      priority = "low",
-      width = 0,
-      height = 0,
-    },
-    production = "10kW"
-  },
-  
-})
- 
-if BI.Settings.BI_Accumulator then
-	data:extend({
 	  ---- BI Accumulator
 		{
 		type = "accumulator",
@@ -500,5 +251,516 @@ if BI.Settings.BI_Accumulator then
 	  },
 
   
-	})
- end
+
+
+
+---- Solar Floor
+	{
+	  type = "tile",
+	  name = "bi-solar-mat",
+	  icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
+	  icon_size = 32,
+	  needs_correction = false,
+	  minable = {hardness = 0.1, mining_time = 0.25, result = "bi-solar-mat"},
+	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
+	  collision_mask = {"ground-tile", "not-colliding-with-itself"},
+	  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
+	  walking_speed_modifier = 1.45,
+	  layer = 62,
+	  decorative_removal_probability = 1,
+	  variants =
+	  {
+		main =
+		{	
+		 {
+			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar1.png",
+			count = 1,
+			size = 1,
+			probability = 1,
+		  },
+--[[		  
+		  {
+			picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar2.png",
+			count = 1,
+			size = 2,
+			probability = 1,
+		  },
+	]]	  
+		},
+		inner_corner =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-inner-corner.png",
+		  count = 8
+		},
+		outer_corner =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-outer-corner.png",
+		  count = 8
+		},
+		side =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-side.png",
+		  count = 8
+		},
+		u_transition =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-u.png",
+		  count = 8
+		},
+		o_transition =
+		{
+		  picture = "__Bio_Industries__/graphics/entities/bio_solar_farm/solar-o.png",
+		  count = 1
+		}
+	  },
+	  walking_sound =
+	  {
+		{
+		  filename = "__base__/sound/walking/concrete-01.ogg",
+		  volume = 1.2
+		},
+		{
+		  filename = "__base__/sound/walking/concrete-02.ogg",
+		  volume = 1.2
+		},
+		{
+		  filename = "__base__/sound/walking/concrete-03.ogg",
+		  volume = 1.2
+		},
+		{
+		  filename = "__base__/sound/walking/concrete-04.ogg",
+		  volume = 1.2
+		}
+	  },
+	  map_color={r=93, g=138, b=168},
+	  ageing=0,
+	  vehicle_friction_modifier = dirt_vehicle_speed_modifer
+	},
+	
+ 
+   ------- Hidden Electric pole for Solar Mat
+  {
+    type = "electric-pole",
+    name = "bi_solar_pole",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+	icon_size = 32,
+	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+	selectable_in_game = false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+	collision_mask = {"ground-tile"},
+    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
+    selection_box = {{0, 0}, {0, 0}},
+	
+    maximum_wire_distance = 1,
+    supply_area_distance = 2,
+    pictures =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      priority = "low",
+      width = 0,
+      height = 0,
+	  frame_count = 1,
+      axially_symmetrical = false,
+      direction_count = 4,
+	  shift = {0.75, 0},
+    },
+	 connection_points =
+    {
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire = {-0, -0},
+
+        }
+      }
+    },
+
+    radius_visualisation_picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      width = 0,
+      height = 0,
+      priority = "low"
+    },
+  },
+  
+   ------- ------- Hidden Solar Panel for Solar Mat 
+  {
+    type = "solar-panel",
+    name = "bi_solar-panel_for_Solar-Mat",
+    icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
+	icon_size = 32,
+	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+	selectable_in_game = false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+	collision_mask = {"ground-tile"},
+    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
+    selection_box = {{0, 0}, {0, 0}},
+	
+	
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "solar"
+    },
+    picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      priority = "low",
+      width = 0,
+      height = 0,
+    },
+    production = "10kW"
+  },
+  
+
+
+
+  ------- ------- Solar Panel for Solar Plant / Boiler 
+  {
+    type = "solar-panel",
+    name = "bi-Solar-Boiler-panel",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Icon.png",
+	icon_size = 32,
+	flags = {"placeable-neutral", "player-creation"},
+	minable = {hardness = 0.2, mining_time = 1, result = "bi-Solar-Boiler-panel"},
+    max_health = 400,
+    resistances = {{type = "fire", percent = 100}},
+	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
+	selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+	
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "solar"
+    },
+    picture =
+          {
+            filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+            priority = "low",
+			width = 288,
+			height = 288,
+            hr_version = {
+              filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+              priority = "low",
+			  width = 288,
+			  height = 288,
+            }
+          },
+	
+
+	
+    overlay =
+    {
+      layers =
+      {
+          {
+            filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+            priority = "high",
+			width = 288,
+			height = 288,
+            hr_version = {
+              filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+              priority = "high",
+			  width = 288,
+			  height = 288,
+            }
+          },
+      }
+    },
+	
+	
+    production = "1.35MW"
+  },
+
+ 
+ 
+ ------- Bioler for Solar Plant / Boiler 
+  {
+    type = "boiler",
+    name = "bi-solar-boiler",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Icon.png",
+    icon_size = 32,
+	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+    max_health = 400,
+    corpse = "small-remnants",
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    mode = "output-to-separate-pipe",
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 100
+      },
+      {
+        type = "explosion",
+        percent = 30
+      },
+      {
+        type = "impact",
+        percent = 30
+      }
+    },
+	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
+	selection_box = {{-1.2, -1.2}, {1.2, 1.2}},
+	
+    target_temperature = 165,
+    fluid_box =
+    {
+      base_area = 1,
+      height = 2,
+      base_level = -1,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        {type = "input-output", position = {5, 0}},
+		{type = "input-output", position = {-5, 0}},
+      },
+      production_type = "input-output",
+      filter = "water"
+    },
+    output_fluid_box =
+    {
+      base_area = 1,
+      height = 2,
+      base_level = 1,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+       {type = "input-output", position = {0, 5}},
+	   {type = "input-output", position = {0, -5}},
+      },
+      production_type = "output",
+      filter = "steam"
+    },
+    energy_consumption = "1.35MW",
+    
+	energy_source =
+	  {
+		  type = "electric",
+		  input_priority = "secondary",
+		 -- usage_priority = "secondary-input",
+		  usage_priority = "solar",
+		  --emissions = 0.1 / 9.5 -- NO Emmisions
+	  },
+    working_sound =
+    {
+      sound =
+      {
+        filename = "__base__/sound/boiler.ogg",
+        volume = 0.9
+      },
+      max_sounds_per_type = 3
+    },
+
+    structure =
+    {
+      north =
+      {
+        layers =
+        {
+          {
+            filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+            priority = "high",
+			width = 288,
+			height = 288,
+            hr_version = {
+              filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+              priority = "high",
+			  width = 288,
+			  height = 288,
+            }
+          },
+        }
+      },
+      east =
+      {
+        layers =
+        {
+          {
+            filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+            priority = "high",
+			width = 288,
+			height = 288,
+            hr_version = {
+              filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+              priority = "high",
+			  width = 288,
+			  height = 288,
+            }
+          },
+        }
+      },
+      south =
+      {
+        layers =
+        {
+          {
+            filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+            priority = "high",
+			width = 288,
+			height = 288,
+            hr_version = {
+              filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+              priority = "high",
+			  width = 288,
+			  height = 288,
+            }
+          },
+
+        }
+      },
+      west =
+      {
+        layers =
+        {
+          {
+            filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+            priority = "high",
+			width = 288,
+			height = 288,
+            hr_version = {
+              filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Boiler.png",
+              priority = "high",
+			  width = 288,
+			  height = 288,
+            }
+          },
+
+        }
+      }
+    },
+
+	
+    fire_flicker_enabled = false,
+	fire = {},
+	
+
+    fire_glow_flicker_enabled = false,
+    fire_glow =
+    {
+      north =
+      {
+        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        priority = "extra-high",
+        frame_count = 1,
+        width = 62,
+        height = 62,
+        shift = {0, -3},
+        blend_mode = "additive",
+        hr_version = {
+          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          priority = "extra-high",
+          frame_count = 1,
+          width = 62,
+          height = 62,
+		  shift = {0, -3},
+          blend_mode = "additive",
+        }
+      },
+      east =
+      {
+        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        priority = "extra-high",
+        frame_count = 1,
+        width = 62,
+        height = 62,
+        shift = {0, -3},
+        blend_mode = "additive",
+        hr_version = {
+          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          priority = "extra-high",
+          frame_count = 1,
+          width = 62,
+          height = 62,
+		  shift = {0, -3},
+          blend_mode = "additive",
+        }
+      },
+      south =
+      {
+        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        priority = "extra-high",
+        frame_count = 1,
+        width = 62,
+        height = 62,
+        shift = {0, -3},
+        blend_mode = "additive",
+        hr_version = {
+          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          priority = "extra-high",
+          frame_count = 1,
+          width = 62,
+          height = 62,
+		  shift = {0, -3},
+          blend_mode = "additive",
+        }
+      },
+      west =
+      {
+        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        priority = "extra-high",
+        frame_count = 1,
+        width = 62,
+        height = 62,
+        shift = {0, -3},
+        blend_mode = "additive",
+        hr_version = {
+          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          priority = "extra-high",
+          frame_count = 1,
+          width = 62,
+          height = 62,
+		  shift = {0, -3},
+          blend_mode = "additive",
+        }
+      },
+    },
+
+    burning_cooldown = 20
+  },
+
+ 
+})
+
+	
+end 

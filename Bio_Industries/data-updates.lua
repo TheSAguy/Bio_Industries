@@ -137,8 +137,7 @@ end
 	--- Run Speed
 	if data.raw.player.player.running_speed < 0.15 then
 		data.raw.player.player.running_speed = 0.25 -- default 0.15
-	end	
-	
+	end		
 	
 	--- Disassemble of Burner Miner Drill and Steel Furnace
 	require("prototypes.Bio_Tweaks.recipe")
@@ -147,7 +146,6 @@ end
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_stone_furnace_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_burner_inserter_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_long_handed_inserter_disassemble")
-	
 	
 end
 
@@ -161,9 +159,9 @@ data.raw.item["wood"].place_as_tile =
 		condition = { "water-tile" }
 	}
 	
-	-- Add Big electric pole to tech tree
+	-- Add Big and Huge electric poles to tech tree
 thxbob.lib.tech.add_recipe_unlock ("logistics", "bi-big-wooden-pole")
-
+thxbob.lib.tech.add_recipe_unlock ("electric-energy-distribution-2", "bi_huge_wooden_pole")
 	
 
 --- Make it so that the Base game tile "grass" can't be placed in blueprints
@@ -335,54 +333,46 @@ if mods["alien-biomes"] then
 end
 
 
---- Adds Bio Accumulator Tech
-if BI.Settings.BI_Accumulator then
+--- Adds Solar Farm, Solar Plant, Musk Floor, Bio Accumulator and Substation to Tech tree
+if BI.Settings.BI_Solar_Additions then
 	if data.raw.technology["bob-solar-energy-2"] then
 		
 		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_large_substation")
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_Solar_Boiler_panel")
 		
 	else
 
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_large_substation")
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_bio_Solar_Farm")
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_Solar_Boiler_panel")
 		
 	end	
 end
 
 
-if data.raw.technology["bob-solar-energy-2"] then
-	if BI.Settings.BI_Solar_Farm then
-		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
-	end
-	-- Solar Mat
-	thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
-	
-else
-	if BI.Settings.BI_Solar_Farm then
-		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_bio_Solar_Farm")
-	end
-	-- Solar mat
-	thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
-
-end	
-
-
-
 --- Changes fertiliser recipes if bob's
 if data.raw.item["sodium-hydroxide"] then
+
 	thxbob.lib.recipe.add_new_ingredient ("bi-fertiliser-2", {type="item", name="sodium-hydroxide", amount=10})
 	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-fertiliser-2")
 	
 end	
 	
 if BI.Settings.BI_Bio_Fuel or mods["Natural_Evolution_Buildings"] then
+
 	require("prototypes.Bio_Farm.technology2")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Clean_Air2")
+	
 end
 
 -- Adds Bio recipes
 if BI.Settings.BI_Bio_Fuel then 
+
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-bioreactor")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose-1")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose-2")
@@ -395,6 +385,7 @@ if BI.Settings.BI_Bio_Fuel then
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-3")
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-acid")	
 	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bio_boiler")
+
 	if mods["angelspetrochem"] then
 		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur_angels")	
 	else
@@ -425,7 +416,6 @@ if data.raw.item["alien-artifact"] then
 end	
 
 
-
 ------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
 if mods["Natural_Evolution_Buildings"] then
 
@@ -435,8 +425,6 @@ if mods["Natural_Evolution_Buildings"] then
 
 end
 	
-
-
 
 if BI.Settings.Bio_Cannon and mods["Natural_Evolution_Buildings"]then
 
@@ -450,28 +438,31 @@ end
 
 ------------ Changing order/sorting/groups
 if data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
-	if BI.Settings.BI_Solar_Farm then
+	
+	if BI.Settings.BI_Solar_Additions then
 		data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
 		data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
 		data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
 		data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
 	end
+	
 	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
 
 end
 
 
 ------------ Changing order/sorting/groups
-if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Accumulator then 
+if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Solar_Additions then 
+	
 	data.raw["item"]["bi_accumulator"].subgroup = "bob-energy-accumulator"
 	data.raw["item"]["bi_accumulator"].order="e[accumulator]-a[accumulator]-x"	
 	data.raw["item"]["bi-large-substation"].subgroup = "bob-energy-accumulator"
-	--data.raw["item"]["bi-large-substation"].order="e[accumulator]-a[accumulator]-x"	
-
+	
 end
 
 
 if data.raw["item-subgroup"]["bob-fluid"] then 
+	
 	if BI.Settings.BI_Bio_Fuel and mods["Natural_Evolution_Buildings"] then
 		data.raw["recipe"]["bi-biomass_conversion-1"].subgroup = "bob-fluid"
 		data.raw["recipe"]["bi-biomass_conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-1]"	
@@ -488,6 +479,7 @@ if data.raw["item-subgroup"]["bob-fluid"] then
 		data.raw["recipe"]["bi-cellulose-2"].subgroup = "bob-resource-chemical"
 		data.raw["recipe"]["bi-cellulose-2"].order = "g[cellulose-2]"
 	end
+	
 end
 
 if data.raw["item-subgroup"]["bob-material"] then 
@@ -532,54 +524,57 @@ if data.raw["item"]["bob-greenhouse"] then
 end
 
 	
---[[
+
 -------- Use Alternative Solar Farm Image
-if BI.Settings.BI_Solar_Farm and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
+if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
 
-data.raw["lamp"]["bi_bio_Solar_Farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-data.raw["solar-panel"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-data.raw["item"]["bi_bio_Solar_Farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-data.raw["item"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["lamp"]["bi_bio_Solar_Farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["solar-panel"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["item"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
 
 
-data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_off =
-    {
-      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
-      priority = "high",
-      width = 319,
-      height = 298,
-      frame_count = 1,
-      direction_count = 1,
-    }
+	data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_off =
+		{
+		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
+		  priority = "low",
+		  width = 208,
+		  height = 192,
+		  frame_count = 1,
+		  direction_count = 1,
+		  scale = 3/2,
+		}
 
 
 
-data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_on =
-    {
-      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_Off_alt.png",
-      priority = "high",
-      width = 319,
-      height = 298,
-      frame_count = 1,
-      direction_count = 1,
-    }
+	data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_on =
+		{
+		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
+		  priority = "low",
+		  width = 208,
+		  height = 192,
+		  frame_count = 1,
+		  direction_count = 1,
+		  scale = 3/2,
+		}
 
 
-data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
-    {
-      filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
-      priority = "low",
-      width = 319,
-      height = 298,
-      frame_count = 1,
-      direction_count = 1,
-    }
+
+	data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
+		{
+		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
+		  priority = "low",
+		  width = 208,
+		  height = 192,
+		  frame_count = 1,
+		  direction_count = 1,
+		  scale = 3/2,
+		}
 
 
 	
 end
-	]]
+	
 
 --[[	
 	-- Obsolete??

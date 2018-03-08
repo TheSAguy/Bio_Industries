@@ -381,7 +381,144 @@ function pipecoverspicturesBioreactor()
         scale = 0.5
       }
     }
+ }
+ 
+end
+
+
+function BioFarm_Pipe_Connectors_Left()
+  return
+  {
+    north =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_l.png",
+      priority = "extra-high",
+      width = 51,
+      height = 35,
+	  shift = {0.25, 1},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_l.png",
+        priority = "extra-high",
+        width = 51,
+        height = 35,
+        shift = {0.25, 1},
+      }
+    },
+    east =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-E_l.png",
+      priority = "extra-high",
+      width = 18,
+      height = 48,
+      shift = {-1, -0.25},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-E_l.png",
+        priority = "extra-high",
+        width = 18,
+        height = 48,
+        shift = {-1, -0.25},
+      }
+    },
+    south =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-S_l.png",
+      priority = "extra-high",
+      width = 49,
+      height = 25,
+      shift = {0.5, -1},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-S_l.png",
+        priority = "extra-high",
+        width = 49,
+        height = 25,
+        shift = {0.5, -1},
+      }
+    },
+    west =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-W_l.png",
+      priority = "extra-high",
+      width = 16,
+      height = 51,
+      shift = {0.5, 0.5},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-W_l.png",
+        priority = "extra-high",
+        width = 16,
+        height = 51,
+        shift = {0.5, 0.5},
+      }
+    }
   }
 end
 
 
+
+--[[
+function BioFarm_Pipe_Connectors_Right()
+  return
+  {
+    north =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_r.png",
+      priority = "extra-high",
+      width = 51,
+      height = 35,
+      --shift = util.by_pixel(2.5, 14),
+	  shift = {-4, -4},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_r.png",
+        priority = "extra-high",
+        width = 51,
+        height = 35,
+        shift = {0.5, 0.5},
+      }
+    },
+    east =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-E_r.png",
+      priority = "extra-high",
+      width = 18,
+      height = 48,
+      shift = {-0.5, 0.5},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-E_r.png",
+        priority = "extra-high",
+        width = 18,
+        height = 48,
+        shift = {-0.5, 0.5},
+      }
+    },
+    south =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-S_r.png",
+      priority = "extra-high",
+      width = 49,
+      height = 25,
+      shift = {0.5, -0.5},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-S_r.png",
+        priority = "extra-high",
+        width = 49,
+        height = 25,
+        shift = {0.5, -0.5},
+      }
+    },
+    west =
+    {
+      filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-W_r.png",
+      priority = "extra-high",
+      width = 16,
+      height = 51,
+      shift = {-0.5, -0.5},
+      hr_version = {
+        filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-W_r.png",
+        priority = "extra-high",
+        width = 16,
+        height = 51,
+        shift = {-0.5, -0.5},
+      }
+    }
+  }
+end
+]]

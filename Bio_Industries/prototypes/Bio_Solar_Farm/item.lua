@@ -1,4 +1,4 @@
-if BI.Settings.BI_Solar_Farm then
+if BI.Settings.BI_Solar_Additions then
 	data:extend({
 	  {
 		type = "item",
@@ -13,6 +13,7 @@ if BI.Settings.BI_Solar_Farm then
 		enable = false,
 	  },
 
+		--[[
 	  {
 		type= "item",
 		name= "bi_bio_Solar_Farm_Image",
@@ -25,10 +26,10 @@ if BI.Settings.BI_Solar_Farm then
 		stack_size= 10,
 		enable = false,
 	  },
-	})
-end
+	  ]]
 
-data:extend({
+
+
 	--- Solar Mat
   {
 	type = "item",
@@ -47,7 +48,7 @@ data:extend({
 		 }
   },
 	 
-	
+	--[[
   ---- Electric pole for Solar Mat
 	{
 		type = "item",
@@ -75,10 +76,12 @@ data:extend({
 		stack_size = 50,
 		enable = false,
 	},	
-})
+	
+]]
 
-if BI.Settings.BI_Accumulator then
-	data:extend({
+
+
+
 		--- BI Accumulator
 		{
 			type = "item",
@@ -105,7 +108,41 @@ if BI.Settings.BI_Accumulator then
 			place_result = "bi-large-substation",
 			stack_size = 50
 		},
-	})
+
+--[[
+	----- Solar Boiler
+	  {
+    type = "item",
+    name = "bi-solar-boiler",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Icon.png",
+    icon_size = 32,
+    --flags = {"goes-to-quickbar"},
+	flags = {"hidden"},
+	enable = false,
+    subgroup = "energy",
+    order = "b[steam-power]-c[steam-engine]",
+    place_result = "bi-solar-boiler",
+    stack_size = 50
+  },
+  ]]
+
+    ----- Solar Panel for Solar Boiler
+	{
+		type = "item",
+		name = "bi-Solar-Boiler-panel",
+		icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Icon.png",
+		icon_size = 32,
+--		flags = {"hidden"},
+		flags = {"goes-to-quickbar"},
+		subgroup = "energy",
+		order = "b[steam-power]-c[steam-engine]",
+		place_result = "bi-Solar-Boiler-panel",
+		stack_size = 50,
+	--	enable = false,
+	},	
+	
+
+  
+  })
+  
 end
-
-

@@ -1,4 +1,4 @@
-if BI.Settings.BI_Solar_Farm then
+if BI.Settings.BI_Solar_Additions then
 	data:extend({
 
 		--- Bio Solar Farm
@@ -16,10 +16,8 @@ if BI.Settings.BI_Solar_Farm then
 			},
 			result = "bi_bio_Solar_Farm"
 		},
-	})
-end
-	
-data:extend({
+
+
 	-- solar mat
 	{
 		type = "recipe",
@@ -34,10 +32,8 @@ data:extend({
 		},
 		result = "bi-solar-mat"
 	},
-})
+	
 
-if BI.Settings.BI_Accumulator then
-	data:extend({	
 		--- BI Accumulator
 		{
 			type = "recipe",
@@ -68,6 +64,38 @@ if BI.Settings.BI_Accumulator then
 	  },
 	  
 		
-	 })
-end
 
+		-- solar boiler
+		--[[
+	{
+		type = "recipe",
+		name = "bi_solar_boiler",
+		enabled = true,
+		energy_required = 5,
+		ingredients = 
+		{
+		  {"solar-panel", 30},
+		  {"storage-tank", 4},
+		  {"pipe", 25}						
+		},
+		result = "bi-solar-boiler"
+	},
+	]]
+			-- solar boiler
+	{
+		type = "recipe",
+		name = "bi_Solar_Boiler_panel",
+		enabled = false,
+		energy_required = 5,
+		ingredients = 
+		{
+		  {"solar-panel", 20},
+		  {"storage-tank", 2},
+		  {"boiler", 1}						
+		},
+		result = "bi-Solar-Boiler-panel"
+	},
+	
+	
+})
+end

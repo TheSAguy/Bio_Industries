@@ -1,4 +1,4 @@
---Bio_Industries Version   2.1.6
+--Bio_Industries Version   2.1.8
 local QC_Mod = FALSE
 require ("util")
 require ("libs/util_ext")
@@ -192,28 +192,39 @@ local function On_Built(event)
 
 	end
 
-	--[[
-	--- Bio Solar Farm has been built
-	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
-	writeDebug("Bio Solar Farm has been built")
+--[[	
+	--- Bio Solar Boiler has been built
+	if entity.valid and entity.name == "bi-solar-boiler" then
+	writeDebug("Bio Solar Boiler has been built")
 		   
-		local solar_farm = entity
-		--local pole_name = "bi_medium-electric-pole_for_Bio_Farm"  		
-		local sf_image = "bi_bio_Solar_Farm_Image"   
+		local solar_boiler = entity
+		local boiler_solar = "bi-Solar-Boiler-panel"   		
+
+		local create_Boiler_panel = surface.create_entity({name = boiler_solar, position = position, force = force})
 		
-		--local create_sf_pole = surface.create_entity({name = pole_name, position = position, force = force})
-		local create_sf_image = surface.create_entity({name = sf_image, position = position, force = force})
-		
-		--create_sf_pole.minable = false
-		--create_sf_pole.destructible = false 
-		create_sf_image.minable = false
-		create_sf_image.destructible = false
-		
-		--group_entities(cantor(position.x,position.y), { solar_farm, create_sf_pole, create_sf_image })	  
-		group_entities(cantor(position.x,position.y), { solar_farm, create_sf_image })	  
+		create_Boiler_panel.minable = false
+		create_Boiler_panel.destructible = false	
+ 
+		group_entities(cantor(position.x,position.y), { solar_boiler, create_Boiler_panel })	  
 
 	end
 	]]
+	
+	--- Bio Solar Boiler / Solar Plant has been built
+	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
+	writeDebug("Bio Solar Boiler has been built")
+		   
+		local solar_plant = entity
+		local boiler_solar = "bi-solar-boiler"   		
+
+		local create_solar_boiler = surface.create_entity({name = boiler_solar, position = position, force = force})
+		
+		create_solar_boiler.minable = false
+		create_solar_boiler.destructible = false	
+ 
+		group_entities(cantor(position.x,position.y), { solar_plant, create_solar_boiler })	  
+
+	end
 	
 	-- Power Rail - Not implemented yet.
 	--[[
@@ -296,6 +307,7 @@ local function On_Remove(event)
         ungroup_entities(pos_hash)
 	end
 
+		
 			
 	--- Bio Solar Farm has been removed
    	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
@@ -313,8 +325,41 @@ local function On_Remove(event)
         ungroup_entities(pos_hash)
 	end
 
+--[[	
+	--- Bio Solar Boiler has been removed
+   	if entity.valid and entity.name == "bi-solar-boiler" then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+	]]
+		--- Bio Solar Boiler has been removed
+   	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
 	
-	--- Solar Map has been removed
+	
+	--- Solar Mat has been removed
    	if entity.valid and entity.name == "bi-solar-mat" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
@@ -387,7 +432,6 @@ local function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
-
 		--- Bio Solar Farm has been destroyed
    	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -404,7 +448,39 @@ local function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
-
+--[[
+	--- Bio Solar Boiler has been removed
+   	if entity.valid and entity.name == "bi-solar-boiler" then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+	]]
+			--- Bio Solar Boiler has been removed
+   	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+        ungroup_entities(pos_hash)
+	end
+	
 	--- Seedling Removed
 	
 	if entity.valid and entity.name == "seedling" then
@@ -511,7 +587,7 @@ local function Player_Tile_Built(event)
 	local surface = player and player.surface
 
 
-		Solar_Mat (event, surface)
+	if event.tiles then Solar_Mat (event, surface) end
 
 	
 end
@@ -528,7 +604,7 @@ local function Robot_Tile_Built(event)
 		return
 	end
 	
-	Solar_Mat (event, surface)
+	if event.tiles then Solar_Mat (event, surface) end
 
 end
 

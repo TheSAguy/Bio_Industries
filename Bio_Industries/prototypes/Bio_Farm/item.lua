@@ -43,7 +43,7 @@ data:extend({
 		place_result = "bi_bio_farm",
 		stack_size= 10,
 	},
-  
+  --[[
   ---- Light inside Bio Farm (Hidden)
 	{
 		type= "item",
@@ -85,7 +85,7 @@ data:extend({
 		stack_size = 50,
 		enable = false,
 	},
-  
+  ]]
   
   ----Bio Greenhouse (Nursery)
 	{

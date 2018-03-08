@@ -1,6 +1,6 @@
 data:extend({
 
-	
+	--- Big Electric Pole
 	{
 		type = "recipe",
 		name = "bi-big-wooden-pole",
@@ -23,6 +23,34 @@ data:extend({
 			  {"small-electric-pole", 4},  
 			},
 		  result = "bi-big-wooden-pole"
+		},	
+	},
+	
+	--- Huge Wooden Pole	
+	{
+		type = "recipe",
+		name = "bi_huge_wooden_pole",
+		normal =
+		{
+			enabled = true,
+			ingredients = 
+			{
+			  {"wood", 10}, 
+			  {"concrete", 100},   			  
+			  {"bi-big-wooden-pole", 4},  
+			},
+		  result = "bi-huge-wooden-pole"
+		},
+		expensive =
+		{
+			enabled = true,
+			ingredients = 
+			{
+			  {"wood", 20},  
+			  {"concrete", 150},   				  
+			  {"bi-big-wooden-pole", 6},  
+			},
+		  result = "bi-huge-wooden-pole"
 		},	
 	},
 	

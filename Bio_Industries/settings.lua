@@ -1,23 +1,26 @@
 data:extend(
 {
+
 	-- A
-  {
-    type = "bool-setting",
-    name = "BI_Bio_Cannon",
-    setting_type = "startup",
-    default_value = true,
-	order = "a[modifier]-a[Bio_Cannon]",
-    per_user = false,
-  },
-	-- B
    {
     type = "bool-setting",
-    name = "BI_Solar_Farm",
+    name = "BI_Solar_Additions",
     setting_type = "startup",
     default_value = true,
-	order = "b[modifier]-b[Solar_Farm]",
+	order = "a[modifier]-a[Solar_Farm]",
     per_user = false,
   },
+  --- A2
+    {
+    type = "bool-setting",
+    name = "BI_Alt_Solar_Farm_Image",
+    setting_type = "startup",
+    default_value = false,
+	order = "a[modifier]-ax[Alt_Solar_Farm_Image]",
+    per_user = false,
+  },
+  
+  --[[
  	-- C
   {
     type = "bool-setting",
@@ -27,36 +30,39 @@ data:extend(
 	order = "c[modifier]-c[BI_Accumulator]",
     per_user = false,
   },
-  	-- D
+  ]]
+  	-- B
   {
     type = "bool-setting",
     name = "BI_Bio_Fuel",
     setting_type = "startup",
     default_value = true,
-	order = "d[modifier]-d[Bio_Fuel]",
+	order = "b[modifier]-b[Bio_Fuel]",
     per_user = false,
   },
 
-	-- E
+	-- C
   {
     type = "bool-setting",
     name = "BI_Recipe_Tweaks",
     setting_type = "startup",
     default_value = true,
-	order = "e[modifier]-e[Recipe_Tweaks]",
+	order = "c[modifier]-c[Recipe_Tweaks]",
     per_user = false,
   },
-
-
-  --[[
+  
+	-- D
   {
     type = "bool-setting",
-    name = "BI_Alt_Solar_Farm_Image",
+    name = "BI_Bio_Cannon",
     setting_type = "startup",
-    default_value = false,
-	order = "a[modifier]-e[Alt_Solar_Farm_Image]",
+    default_value = true,
+	order = "d[modifier]-d[Bio_Cannon]",
     per_user = false,
   },
+
+  --[[
+
 ]]
 
 

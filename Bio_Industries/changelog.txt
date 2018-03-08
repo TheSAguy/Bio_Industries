@@ -1,8 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.7
+Date: 3. 3. 2018
+  Bugfixes:
+    - I think I messed up the Large Accumulator and Substation. Should now be fixed.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.6
-Date: 3. 2. 2018
+Date: 3. 3. 2018
   Features:
     - New Solar Farm Graphic. Thx to S_R_G
+  Bugfixes:
+    - Compatibility fix for LandMover_0.1.6
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.5
 Date: 2. 23. 2018
