@@ -54,7 +54,7 @@ data:extend({
 		},	
 	},
 	
-	
+	--- Wooden Fence
 	{
 		type = "recipe",
 		name = "bi_wooden_fence",
@@ -80,7 +80,7 @@ data:extend({
 		},	
 	},
   
-
+	--- Wooden Rail
     {
 		type = "recipe",
 		name = "bi-rail-wood",	
@@ -117,7 +117,7 @@ data:extend({
 
   },
 
---- Bridge Rail
+--- Wooden Bridge Rail
     {
 		type = "recipe",
 		name = "bi-rail-wood-bridge",	
@@ -152,7 +152,8 @@ data:extend({
 
   },
 
-  {
+	--- Wood Pipe
+    {
 		type = "recipe",
 		name = "bi_wood_pipe",
 		normal =
@@ -183,7 +184,7 @@ data:extend({
 		},
   },
   
-  
+  -- Wood Pipe to Ground
   {
 		type = "recipe",
 		name = "bi_pipe_to_ground_wood",
@@ -213,6 +214,7 @@ data:extend({
 		},
   },
 
+	--- Large Wooden Chest
   {
     type = "recipe",
     name = "bi_large_wooden_chest",

@@ -76,7 +76,7 @@ data:extend({
 	},
 
   
-	
+	--[[
 	  ---- Electric pole for Rail
 	{
 		type = "item",
@@ -91,7 +91,7 @@ data:extend({
 		enable = false,
 	},
   
-  
+  ]]
   --- Wood Pipe
 	{
 		type = "item",

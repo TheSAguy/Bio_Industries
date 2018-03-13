@@ -141,6 +141,8 @@ data:extend({
     {
 		{
         production_type = "input",
+        --pipe_picture = bio_farm_pipe_pictures(),	
+        --pipe_covers = bio_farm_pipe_covers_pictures(),
         pipe_picture = assembler3pipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
@@ -149,8 +151,9 @@ data:extend({
 		},
 		{
         production_type = "input",
-       -- pipe_picture = BioFarm_Pipe_Connectors_Right(),
-       -- pipe_covers = pipecoverspictures(),
+        pipe_picture = assembler3pipepictures(),
+        pipe_covers = pipecoverspictures(),
+		--pipe_covers = bio_farm_pipe_covers_pictures(),
         base_area = 10,
         base_level = -1,
         pipe_connections = {{ type="input", position = {1, -5} }}

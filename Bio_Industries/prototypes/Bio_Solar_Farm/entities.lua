@@ -342,10 +342,11 @@ if BI.Settings.BI_Solar_Additions then
   {
     type = "electric-pole",
     name = "bi_solar_pole",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+    icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 	icon_size = 32,
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
 	selectable_in_game = false,
+	draw_copper_wires=false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
 	collision_mask = {"ground-tile"},
@@ -464,6 +465,7 @@ if BI.Settings.BI_Solar_Additions then
 	flags = {"placeable-neutral", "player-creation"},
 	minable = {hardness = 0.2, mining_time = 1, result = "bi-Solar-Boiler-panel"},
     max_health = 400,
+	render_no_power_icon = true,
     resistances = {{type = "fire", percent = 100}},
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
 	selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
@@ -578,8 +580,8 @@ if BI.Settings.BI_Solar_Additions then
 	  {
 		  type = "electric",
 		  input_priority = "secondary",
-		 -- usage_priority = "secondary-input",
-		  usage_priority = "solar",
+		  usage_priority = "secondary-input",
+		  --usage_priority = "solar",
 		  --emissions = 0.1 / 9.5 -- NO Emmisions
 	  },
     working_sound =
@@ -685,7 +687,8 @@ if BI.Settings.BI_Solar_Additions then
         frame_count = 1,
         width = 62,
         height = 62,
-        shift = {0, -3},
+        shift = {0.09, -2.8},
+		scale = 1.5,
         blend_mode = "additive",
         hr_version = {
           filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
@@ -693,7 +696,8 @@ if BI.Settings.BI_Solar_Additions then
           frame_count = 1,
           width = 62,
           height = 62,
-		  shift = {0, -3},
+		  shift = {0.09, -2.8},
+		  scale = 1.5,
           blend_mode = "additive",
         }
       },

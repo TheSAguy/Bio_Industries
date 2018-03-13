@@ -192,23 +192,7 @@ local function On_Built(event)
 
 	end
 
---[[	
-	--- Bio Solar Boiler has been built
-	if entity.valid and entity.name == "bi-solar-boiler" then
-	writeDebug("Bio Solar Boiler has been built")
-		   
-		local solar_boiler = entity
-		local boiler_solar = "bi-Solar-Boiler-panel"   		
 
-		local create_Boiler_panel = surface.create_entity({name = boiler_solar, position = position, force = force})
-		
-		create_Boiler_panel.minable = false
-		create_Boiler_panel.destructible = false	
- 
-		group_entities(cantor(position.x,position.y), { solar_boiler, create_Boiler_panel })	  
-
-	end
-	]]
 	
 	--- Bio Solar Boiler / Solar Plant has been built
 	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
@@ -216,18 +200,22 @@ local function On_Built(event)
 		   
 		local solar_plant = entity
 		local boiler_solar = "bi-solar-boiler"   		
-
+		local sm_pole_name = "bi_solar_pole"  
+		
 		local create_solar_boiler = surface.create_entity({name = boiler_solar, position = position, force = force})
+		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
 		
 		create_solar_boiler.minable = false
 		create_solar_boiler.destructible = false	
- 
-		group_entities(cantor(position.x,position.y), { solar_plant, create_solar_boiler })	  
+ 		create_sm_pole.minable = false
+		create_sm_pole.destructible = false
+			
+		group_entities(cantor(position.x,position.y), { solar_plant, create_solar_boiler, create_sm_pole })	  
 
 	end
 	
 	-- Power Rail - Not implemented yet.
-	--[[
+
 	--- Concrete Rail has been built
 	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 	writeDebug("Concrete Rail has been built")
@@ -246,7 +234,7 @@ local function On_Built(event)
 
 	end
 
-	]]
+
 	
 			
 	--- Bio Cannon has been built
@@ -325,23 +313,7 @@ local function On_Remove(event)
         ungroup_entities(pos_hash)
 	end
 
---[[	
-	--- Bio Solar Boiler has been removed
-   	if entity.valid and entity.name == "bi-solar-boiler" then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
-	]]
+
 		--- Bio Solar Boiler has been removed
    	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -390,7 +362,7 @@ local function On_Remove(event)
 	end
 	
 			-- Power Rail - Not implemented yet.
-	--[[			
+		
 	--- Concrete Rail has been removed
    	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -406,7 +378,7 @@ local function On_Remove(event)
         end
         ungroup_entities(pos_hash)
 	end
-	]]
+
 end
 
 
@@ -448,23 +420,7 @@ local function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
---[[
-	--- Bio Solar Boiler has been removed
-   	if entity.valid and entity.name == "bi-solar-boiler" then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
-	]]
+
 			--- Bio Solar Boiler has been removed
    	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -496,7 +452,7 @@ local function On_Death(event)
 	
 	
 		-- Power Rail - Not implemented yet.
-	--[[
+
 	--- Concrete Rail has been destroyed
    	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -513,7 +469,7 @@ local function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
-	]]
+
 	
 	
 end

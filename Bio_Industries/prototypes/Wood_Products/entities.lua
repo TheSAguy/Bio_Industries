@@ -567,7 +567,7 @@ data:extend({
     collision_box = {{-0.3,-0.3}, {0.3,0.3}},
     selection_box = {{-0.5,-0.5}, {0.5,0.5}},
 	drawing_box = {{-1, -7}, {1, 0.5}},
-    maximum_wire_distance = 64,
+    maximum_wire_distance = 64, -- Factorio Max
 	supply_area_distance = 2,
 
     pictures =
@@ -585,57 +585,57 @@ data:extend({
       {
         shadow =
         {
-          copper = {2.7, 0},
-          green = {1.8, 0},
-          red = {3.6, 0}
+          copper = {5.7, -1.5},
+          green = {4.8, -1.5},
+          red = {6.6, -1.50}
         },
         wire =
         {
-          copper = {0, -3.125},
-          green = {-0.59375, -3.125},
-          red = {0.625, -3.125}
+          copper = {0, -6.125},
+          green = {-0.59375, -6.125},
+          red = {0.625, -6.125}
         }
       },
       {
         shadow =
         {
-          copper = {3.1, 0.2},
-          green = {2.3, -0.3},
-          red = {3.8, 0.6}
+          copper = {6.1, -1.3},
+          green = {5.3, -1.8},
+          red = {6.8, -0.9}
         },
         wire =
         {
-          copper = {-0.0625, -3.125},
-          green = {-0.5, -3.4375},
-          red = {0.34375, -2.8125}
+          copper = {-0.0625, -6.125},
+          green = {-0.5, -6.4375},
+          red = {0.34375, -5.8125}
         }
       },
       {
         shadow =
         {
-          copper = {2.9, 0.06},
-          green = {3.0, -0.6},
-          red = {3.0, 0.8}
+          copper = {5.9, -1.44},
+          green = {6.0, -2.1},
+          red = {6.0, -0.7}
         },
         wire =
         {
-          copper = {-0.09375, -3.09375},
-          green = {-0.09375, -3.53125},
-          red = {-0.09375, -2.65625}
+          copper = {-0.09375, -6.09375},
+          green = {-0.09375, -6.53125},
+          red = {-0.09375, -5.65625}
         }
       },
       {
         shadow =
         {
-          copper = {3.1, 0.2},
-          green = {3.8, -0.3},
-          red = {2.35, 0.6}
+          copper = {6.1, -1.3},
+          green = {6.8, -1.8},
+          red = {5.35, -0.9}
         },
         wire =
         {
-          copper = {-0.0625, -3.1875},
-          green = {0.375, -3.5},
-          red = {-0.46875, -2.90625}
+          copper = {-0.0625, -6.1875},
+          green = {0.375, -6.5},
+          red = {-0.46875, -5.90625}
         }
       }
     },
@@ -955,9 +955,9 @@ data:extend({
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
-    --pictures = rail_pictures_w(),
 	pictures = rail_pictures(),
   },
+  
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood",   
@@ -971,7 +971,6 @@ data:extend({
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
-    --pictures = rail_pictures_w(),
 	pictures = rail_pictures(),
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
@@ -990,9 +989,9 @@ data:extend({
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
-    --pictures = rail_pictures_w(),
 	pictures = rail_pictures(),
   },
+  
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood-bridge",   
@@ -1007,12 +1006,96 @@ data:extend({
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
-    --pictures = rail_pictures_w(),
 	pictures = rail_pictures(),
 	placeable_by = { item="bi-rail-wood-bridge", count = 4}
   },
 
  
+  ------- Rail Pole - Hidden
+  {
+    type = "electric-pole",
+    name = "bi_medium-electric-pole_for_rail",
+    icon = "__base__/graphics/icons/small-electric-pole.png",
+	icon_size = 32,
+	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
+	selectable_in_game = false,
+	draw_copper_wires=false,
+    max_health = 1,
+    resistances = {{type = "fire", percent = 100}},
+	collision_mask = {"ground-tile"},
+    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
+    selection_box = {{0, 0}, {0, 0}},
+    maximum_wire_distance = 8,
+    supply_area_distance = 2,
+	
+    pictures =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      priority = "low",
+      width = 0,
+      height = 0,
+	  frame_count = 1,
+      axially_symmetrical = false,
+      direction_count = 4,
+    },
+	 connection_points =
+    {
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      }
+    },
+
+	
+    radius_visualisation_picture =
+    {
+      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      width = 0,
+      height = 0,
+      priority = "low"
+    },
+  },
+
 	---- Wood Pipe
  {
     type = "pipe",
@@ -1179,135 +1262,6 @@ data:extend({
   },
 
  
-  --- Not Implemented ---
-  ------- Rail Pole - Hidden
-  {
-    type = "electric-pole",
-    name = "bi_medium-electric-pole_for_rail",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
-	icon_size = 32,
-	flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-repairable", "not-on-map"},
-	selectable_in_game = false,
-    max_health = 1,
-    resistances = {{type = "fire", percent = 100}},
-    collision_box = {{-0, -0}, {0, 0}},
-	collision_mask = {},
-    maximum_wire_distance = 8,
-    supply_area_distance = 5,
- 
-    pictures =
-    {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
-      priority = "low",
-      width = 0,
-      height = 0,
-	  frame_count = 1,
-      axially_symmetrical = false,
-      direction_count = 4,
-	  shift = {0.75, 0},
-    },
-	 connection_points =
-    {
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      }
-    },
-	--[[
-    connection_points =
-    {
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-
-        }
-      }
-    },
-	]]
-	
-    radius_visualisation_picture =
-    {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
-      width = 0,
-      height = 0,
-      priority = "low"
-    },
-  },
-
   ------- Large Wooden Chest
     {
     type = "container",

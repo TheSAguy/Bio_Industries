@@ -42,12 +42,18 @@ require ("prototypes.Wood_Products.tint_rails_remnants_function")
 
 	
 -- vanilla rail recipe update
+thxbob.lib.recipe.remove_ingredient ("rail", "iron-stick")
+thxbob.lib.recipe.remove_ingredient ("rail", "steel-plate")
 thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
+thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="medium-electric-pole", amount=1})
+
+
 
 -- vanilla rail icon & images update
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
 data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
 data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
+
 
 --- Wood Rail added to Tech 
 thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")
