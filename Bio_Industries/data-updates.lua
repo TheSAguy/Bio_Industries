@@ -448,8 +448,8 @@ if data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-en
 	if BI.Settings.BI_Solar_Additions then
 		data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
 		data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
-		data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
-		data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
+--		data.raw["item"]["bi_bio_Solar_Farm_Image"].subgroup = "bob-energy-solar-panel"
+--		data.raw["item"]["bi_bio_Solar_Farm_Image"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"
 	end
 	
 	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
@@ -580,7 +580,70 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 
 	
 end
+
+
+-------- Use Alternative Solar Farm Image
+if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image"].value then
+
+
+	data.raw["assembling-machine"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["lamp"]["bi_light_for_Bio_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["item"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+
+
+	data.raw["assembling-machine"]["bi_bio_farm"].animation =
+		{
+			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
+			priority = "high",
+			width = 320,
+			height = 320,
+			frame_count = 1,
+			shift = {0.75, 0},
+		}
+
+
+
+	data.raw["assembling-machine"]["bi_bio_farm"].working_visualisations =
+		{
+
+			animation =
+			{
+				filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working_alt.png",
+				priority = "high",
+				width = 320,
+				height = 320,
+				frame_count = 1,
+				shift = {0.75, 0},
+			},
+		}
+
+
+	data.raw["lamp"]["bi_light_for_Bio_Farm"].picture_off =
+		{
+			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
+			priority = "high",
+			width = 320,
+			height = 320,
+			frame_count = 1,
+			shift = {0.75, 0},
+		}
+
+
+
+	data.raw["lamp"]["bi_light_for_Bio_Farm"].picture_on =
+			{
+				filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working_alt.png",
+				priority = "high",
+				width = 320,
+				height = 320,
+				frame_count = 1,
+				shift = {0.75, 0},
+			}
+
+
 	
+end
+
 
 --[[	
 	-- Obsolete??

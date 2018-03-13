@@ -60,6 +60,16 @@ data:extend(
 	order = "d[modifier]-d[Bio_Cannon]",
     per_user = false,
   },
+    --- E
+    {
+    type = "bool-setting",
+    name = "BI_Alt_Farm_Image",
+    setting_type = "startup",
+    default_value = false,
+	order = "e[modifier]-e[BI_Alt_Farm_Image]",
+    per_user = false,
+  },
+  
 
   --[[
 
