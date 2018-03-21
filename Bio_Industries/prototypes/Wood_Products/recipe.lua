@@ -32,7 +32,7 @@ data:extend({
 		name = "bi_huge_wooden_pole",
 		normal =
 		{
-			enabled = true,
+			enabled = false,
 			ingredients = 
 			{
 			  {"wood", 10}, 
@@ -43,7 +43,7 @@ data:extend({
 		},
 		expensive =
 		{
-			enabled = true,
+			enabled = false,
 			ingredients = 
 			{
 			  {"wood", 20},  

@@ -1,4 +1,4 @@
---Bio_Industries Version   2.1.9
+--Bio_Industries Version   2.2.0
 local QC_Mod = FALSE
 require ("util")
 require ("libs/util_ext")
