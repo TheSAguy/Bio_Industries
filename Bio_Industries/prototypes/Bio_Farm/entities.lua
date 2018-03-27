@@ -3,6 +3,22 @@ require ("util")
 
 
 
+	inv_extension2 =
+{
+	
+		filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
+		priority = "high",
+		width = 320,
+		height = 320,
+		frame_count = 1,
+		direction_count = 1,
+		shift = {0.75, 0},
+		--axially_symmetrical = false,
+		
+
+}
+
+
 data:extend({
 
  
@@ -125,7 +141,8 @@ data:extend({
     },
 	trigger_radius = 0,
   },
-------- Bio Farm
+
+  ------- Bio Farm
   {
     type = "assembling-machine",
     name = "bi_bio_farm",
@@ -165,31 +182,6 @@ data:extend({
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
     selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 
-	--[[
-	animation =
-	{
-		filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
-		priority = "high",
-		width = 320,
-		height = 320,
-		frame_count = 1,
-		shift = {0.75, 0},
-	},
-	
-	working_visualisations =
-	{
-
-		animation =
-		{
-			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working.png",
-			priority = "high",
-			width = 320,
-			height = 320,
-			frame_count = 1,
-			shift = {0.75, 0},
-		},
-	},
-]]
 	animation =
 	{
 		filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
@@ -906,5 +898,205 @@ data:extend({
 		  priority = "high"
 		}
 	},
+	
+	  	--- 	Arboretum
+
+  --- Radar Arboretum
+  {
+    type = "radar",
+    name = "bi-Arboretum-Radar",
+    icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
+	icon_size = 32,	
+	flags = {"placeable-player", "player-creation", "not-deconstructable"},
+	order = "b[TerraformingStation]-a[TerraformingStation]",
+
+	minable = nil, 
+	max_health = 250,
+    corpse = "big-remnants",
+	dying_explosion = "medium-explosion",
+	resistances =
+    {
+      {
+        type = "fire",
+        percent = 70
+      }
+    },
+
+    collision_box = {{-0.70, -0.70}, {0.70, 0.70}},
+    selection_box = {{-0.75, -0.75}, {0.75, 0.75}},
+	
+    energy_per_sector = "2MJ",
+    max_distance_of_nearby_sector_revealed = 2,
+    max_distance_of_sector_revealed = 5,
+    energy_per_nearby_scan = "200kW",
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input",
+	  emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
+    },
+    energy_usage = "150kW",
+    pictures =
+    {
+      layers =
+      {
+        {
+          filename = "__base__/graphics/entity/radar/radar.png",
+          priority = "extra-high",
+          width = 98,
+          height = 128,
+          apply_projection = false,
+          direction_count = 64,
+          line_length = 8,
+          shift = util.by_pixel(1, -16),
+		  scale = 0.5,
+          hr_version = {
+            filename = "__base__/graphics/entity/radar/hr-radar.png",
+            priority = "extra-high",
+            width = 196,
+            height = 254,
+            apply_projection = false,
+            direction_count = 64,
+            line_length = 8,
+            shift = util.by_pixel(1, -16),
+            scale = 0.25
+          }
+        },
+      }
+    },
+	
+	
+  },
+
+  
+	---- Arboretum Area Overlay
+	{
+		type = "ammo-turret",
+		name = "bi-Arboretum-Area",
+		icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
+		icon_size = 32,
+		flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable"},
+		open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+		close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },	
+		max_health = 250,
+		corpse = "big-remnants",
+		dying_explosion = "medium-explosion",
+		collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
+		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+		collision_mask = { "object-layer", "not-colliding-with-itself" },
+		order = "x[bi]-a[bi-Arboretum]",
+		automated_ammo_count = 1,
+		resistances = {},	
+		inventory_size = 1,
+		attack_parameters =
+		{
+			type = "projectile",
+			ammo_category = "bullet",
+			cooldown = 2,
+			range = 75,
+			projectile_creation_distance = 0.1,
+			action ={}
+		},
+		folding_speed = 0.08,
+
+		folded_animation = (function()
+                          local res = util.table.deepcopy(inv_extension2)
+                          res.frame_count = 1
+                          res.line_length = 1
+                          return res
+                       end)(),
+
+		folding_animation = (function()
+                          local res = util.table.deepcopy(inv_extension2)
+                          res.run_mode = "backward"
+                          return res
+                       end)(),
+
+
+		call_for_help_radius = 1			   
+
+	},
+
+	
+	--- Assembling-Machine Arboretum
+ {
+    type = "assembling-machine",
+    name = "bi-Arboretum",
+    icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
+	icon_size = 32,
+    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-Arboretum-Area"},
+    max_health = 250,
+    corpse = "big-remnants",
+    dying_explosion = "medium-explosion",
+    resistances = {{type = "fire", percent = 70}},
+	fluid_boxes =
+    {
+		{
+        production_type = "input",
+        pipe_picture = assembler3pipepictures(),
+        pipe_covers = pipecoverspictures(),
+        base_area = 10,
+        base_level = -1,        
+		pipe_connections = {{ type="input", position = {-1, -5} }}
+		},
+		{
+        production_type = "input",
+        pipe_picture = assembler3pipepictures(),
+        pipe_covers = pipecoverspictures(),
+        base_area = 10,
+        base_level = -1,
+        pipe_connections = {{ type="input", position = {1, -5} }}
+		},
+      off_when_no_fluid_recipe = true
+	  
+    },
+
+	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
+    selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+	order = "x[bi]-a[bi-Arboretum]",
+
+	animation =
+	{
+			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
+			priority = "low",
+			width = 320,
+			height = 320,
+			frame_count = 1,
+			shift = {0.75, 0},
+	},
+	
+	working_visualisations =
+	{
+
+		animation =
+		{
+				filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working_alt.png",
+				priority = "low",
+				width = 320,
+				height = 320,
+				frame_count = 1,
+				shift = {0.75, 0},
+		},
+	},
+
+    crafting_categories = {"bi-arboretum"},
+    crafting_speed = 0.000000000001,
+    energy_source =
+	{
+      type = "electric",
+      usage_priority = "primary-input",
+	  --drain = "5W",
+	  emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
+    },	
+    energy_usage = "150kW",
+    ingredient_count = 3,
+    open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+    close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+	module_specification = {},
+
+  },	
+
 	
 })

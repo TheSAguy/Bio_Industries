@@ -88,12 +88,11 @@ data:extend({
 		{
 			enabled = false,
 			ingredients = 
-			{
-			
-			  {"stone", 1},
-			  {"iron-stick", 1},
-			  {"steel-plate", 1},
-			  {"raw-wood", 6}
+			{		
+				{"raw-wood", 6},
+				{"stone", 1},
+				{"steel-plate", 1},
+				{"iron-stick", 1},	  
 			},
 			result = "bi-rail-wood",
 			result_count = 2,
@@ -103,12 +102,11 @@ data:extend({
 		{
 			enabled = false,
 			ingredients = 
-			{
-			
-			  {"stone", 1},
-			  {"iron-stick", 1},
-			  {"steel-plate", 1},
-			  {"raw-wood", 6}
+			{			
+				{"raw-wood", 6},
+				{"stone", 1},
+				{"steel-plate", 1},			 
+				{"iron-stick", 1},
 			},
 			result = "bi-rail-wood",
 			result_count = 1,

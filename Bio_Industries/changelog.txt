@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.1
+Date: 3. 27. 2018
+  Features:
+    - Tweaked the Rail (again). Removed Power for now. Will add that back in as it's own type of rail
+	- Added the Terraformer. Plant trees and/or change terrain around the building
+
+---------------------------------------------------------------------------------------------------
 Version: 2.2.0
 Date: 3. 17. 2018
   Bugfixes:

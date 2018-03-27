@@ -24,5 +24,10 @@ data:extend(
 		type = "recipe-category",
 		name = "biofarm-mod-greenhouse"
 	},
+	
+	{
+		type = "recipe-category",
+		name = "bi-arboretum"
+	},
 }
 )

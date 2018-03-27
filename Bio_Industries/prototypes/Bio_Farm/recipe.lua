@@ -254,8 +254,6 @@ data:extend({
 
 	},
 	
-
-	
 	
 		--- Raw Wood from Water (BASIC)
 	{
@@ -757,5 +755,157 @@ data:extend({
 		  result = "seed-bomb-advanced",
 		}
 	  },
+	  
+	  
+	  	--- 	Arboretum
+	{
+		type = "recipe",
+		name = "bi_Arboretum",
+		icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
+		icon_size = 32,
+		normal =
+		{
+			enabled = false,
+			energy_required = 10,
+			ingredients = 
+			{
+			  {"bio-greenhouse",4},
+			  {"assembling-machine-2",2},
+			  {"stone-brick",10},
+			},
+		  result = "bi-Arboretum-Area",
+		  result_count = 1,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 15,
+			ingredients = 
+			{
+			  {"bio-greenhouse",4},
+			  {"assembling-machine-2",4},
+			  {"stone-brick",20},
+			},
+		  result = "bi-Arboretum-Area",
+		  result_count = 1,
+		},
+
+	},
+	
+
+	---   	--- 	Arboretum -  Plant Trees
+	{
+		type = "recipe",
+		name = "bi_Arboretum_r1",
+		icon = "__Bio_Industries__/graphics/icons/Seedling_b.png",
+		icon_size = 32,
+		category = "bi-arboretum",	
+		energy_required = 10000,
+		ingredients =
+		{
+			{type="item", name="seedling", amount=1},     
+			{type="fluid", name="water", amount=100},
+		},
+		results=
+		{
+			{type="item", name="bi_Arboretum_r1", amount=1, probability=0},
+		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		order = "a[bi]-ssw-a1[bi_Arboretum_r1]",		
+	},
+	
+			---   	--- 	Arboretum - Change Terrain
+	{
+		type = "recipe",
+		name = "bi_Arboretum_r2",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_1.png",
+		icon_size = 32,
+		category = "bi-arboretum",	
+		energy_required = 10000,
+		ingredients =
+		{  
+			{type="item", name="fertiliser", amount=1},    
+			{type="fluid", name="water", amount=100},			
+		},
+		results=
+		{
+			{type="item", name="bi_Arboretum_r2", amount=1, probability=0},
+		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		order = "a[bi]-ssw-a1[bi_Arboretum_r2]",		
+	},
+	  
+			---   	--- 	Arboretum -  Change Terrain - Advanced
+	{
+		type = "recipe",
+		name = "bi_Arboretum_r3",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_2.png",
+		icon_size = 32,
+		category = "bi-arboretum",	
+		energy_required = 10000,
+		ingredients =
+		{
+			{type="item", name="bi-adv-fertiliser", amount=1},    
+			{type="fluid", name="water", amount=100},			
+		},
+		results=
+		{
+			{type="item", name="bi_Arboretum_r3", amount=1, probability=0},
+		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		order = "a[bi]-ssw-a1[bi_Arboretum_r3]",		
+	},
+	    
+		---   	--- 	Arboretum -  Plant Trees & Change Terrain
+	{
+		type = "recipe",
+		name = "bi_Arboretum_r4",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_1.png",
+		icon_size = 32,
+		category = "bi-arboretum",	
+		energy_required = 10000,
+		ingredients =
+		{
+			{type="item", name="seedling", amount=1},     
+			{type="item", name="fertiliser", amount=1},    
+			{type="fluid", name="water", amount=100},			
+		},
+		results=
+		{
+			{type="item", name="bi_Arboretum_r4", amount=1, probability=0},
+		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		order = "a[bi]-ssw-a1[bi_Arboretum_r4]",		
+	},
+	  
+		---   	--- 	Arboretum -  Plant Trees & Change Terrain Advanced
+	{
+		type = "recipe",
+		name = "bi_Arboretum_r5",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_2.png",
+		icon_size = 32,
+		category = "bi-arboretum",	
+		energy_required = 10000,
+		ingredients =
+		{
+			{type="item", name="seedling", amount=1},     
+			{type="item", name="bi-adv-fertiliser", amount=1},    
+			{type="fluid", name="water", amount=100},			
+		},
+		results=
+		{
+			{type="item", name="bi_Arboretum_r5", amount=1, probability=0},
+		},
+		enabled = false,
+		subgroup = "fluid-recipes",
+		order = "a[bi]-ssw-a1[bi_Arboretum_r5]",		
+	},
+	  	  	  
+
+	  
 	  
 })

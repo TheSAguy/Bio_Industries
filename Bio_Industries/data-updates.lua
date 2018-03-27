@@ -42,10 +42,9 @@ require ("prototypes.Wood_Products.tint_rails_remnants_function")
 
 	
 -- vanilla rail recipe update
-thxbob.lib.recipe.remove_ingredient ("rail", "iron-stick")
-thxbob.lib.recipe.remove_ingredient ("rail", "steel-plate")
+--thxbob.lib.recipe.remove_ingredient ("rail", "iron-stick")
 thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
-thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="medium-electric-pole", amount=1})
+--thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="small-electric-pole", amount=1})
 
 
 
@@ -53,6 +52,7 @@ thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="medium-electric
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
 data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
 data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
+--data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete-power.png"
 
 
 --- Wood Rail added to Tech 
@@ -584,8 +584,8 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 	data.raw["assembling-machine"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["lamp"]["bi_light_for_Bio_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["item"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-
-
+	data.raw["recipe"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	
 	data.raw["assembling-machine"]["bi_bio_farm"].animation =
 		{
 			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
@@ -615,24 +615,28 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 
 	data.raw["lamp"]["bi_light_for_Bio_Farm"].picture_off =
 		{
-			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
-			priority = "high",
-			width = 320,
-			height = 320,
-			frame_count = 1,
-			shift = {0.75, 0},
+			  filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
+			  priority = "low",
+			  width = 0,
+			  height = 0,
+			  frame_count = 1,
+			  axially_symmetrical = false,
+			  direction_count = 1,
+			  shift = {0.75, 0},
 		}
 
 
 
 	data.raw["lamp"]["bi_light_for_Bio_Farm"].picture_on =
 			{
-				filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working_alt.png",
-				priority = "high",
-				width = 320,
-				height = 320,
-				frame_count = 1,
-				shift = {0.75, 0},
+			  filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
+			  priority = "low",
+			  width = 0,
+			  height = 0,
+			  frame_count = 1,
+			  axially_symmetrical = false,
+			  direction_count = 1,
+			  shift = {0.75, 0},
 			}
 
 

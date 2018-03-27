@@ -1,10 +1,11 @@
---Bio_Industries Version   2.2.0
-local QC_Mod = FALSE
+--Bio_Industries Version   2.2.1
+local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
 require ("control_tree")
 require ("control_bio_cannon")
+require ("control_arboretum")
 
 
 
@@ -28,13 +29,17 @@ local function On_Init()
 	global.bi.seed_bomb["seedling-2"] = "seedling-2"
 	global.bi.seed_bomb["seedling-3"] = "seedling-3"
 
+	
+	if global.Arboretum_Table == nil then
+		global.Arboretum_Table = {}
+	end
+	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
 		force.reset_technologies()
 		force.reset_recipes()
 	end
 
-	
 	
 	
 end
@@ -63,6 +68,10 @@ local function On_Config_Change()
 		global.bi.terrains = {}
 	end
 
+	if global.Arboretum_Table == nil then
+		global.Arboretum_Table = {}
+	end
+	
 	
 	global.bi.seed_bomb={}
 	global.bi.seed_bomb["seedling"] = "seedling"
@@ -192,7 +201,6 @@ local function On_Built(event)
 
 	end
 
-
 	
 	--- Bio Solar Boiler / Solar Plant has been built
 	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
@@ -214,8 +222,8 @@ local function On_Built(event)
 
 	end
 	
-	-- Power Rail - Not implemented yet.
-
+	-- Power Rail - Needs to be fixed
+	--[[
 	--- Concrete Rail has been built
 	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 	writeDebug("Concrete Rail has been built")
@@ -233,10 +241,8 @@ local function On_Built(event)
 		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
 
 	end
-
-
-	
-			
+]]
+		
 	--- Bio Cannon has been built
 	if entity.valid and entity.name == "Bio_Cannon_Area" then
 	
@@ -265,6 +271,36 @@ local function On_Built(event)
 
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonR,0})
 		
+	end
+
+	
+    --- Arboretum has been built
+	if entity.valid and entity.name == "bi-Arboretum-Area" then
+	writeDebug("Arboretum has been built")
+		   
+
+		local arboretum_new = "bi-Arboretum"
+		local radar_name = "bi-Arboretum-Radar"  
+		
+		local create_arboretum = surface.create_entity({name = arboretum_new, position = position, direction = entity.direction, force = force})
+		create_arboretum.health = event.created_entity.health
+		
+		local position_c = {position.x - 3.5, position.y + 3.5}
+		local create_radar = surface.create_entity({name = radar_name, position = position_c, direction = entity.direction, force = force})
+
+		  
+		create_radar.minable = false
+		create_radar.destructible = false
+
+		writeDebug("The entity unit# is: "..entity.unit_number)
+		writeDebug("The inventory unit# is: "..create_arboretum.unit_number)
+		writeDebug("The radar unit# is: "..create_radar.unit_number)
+		
+		event.created_entity.destroy()
+		
+		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar }
+  
+
 	end
 
 
@@ -361,8 +397,8 @@ local function On_Remove(event)
 
 	end
 	
-			-- Power Rail - Not implemented yet.
-		
+			-- Power Rail - 
+	--[[	
 	--- Concrete Rail has been removed
    	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -378,7 +414,18 @@ local function On_Remove(event)
         end
         ungroup_entities(pos_hash)
 	end
+	]]
+	
+		--- Arboretum has been removed
+   	if entity.valid and entity.name == "bi-Arboretum" then
+		writeDebug("Arboretum has been removed")
+	
+		global.Arboretum_Table[entity.unit_number].radar.destroy()
+		global.Arboretum_Table[entity.unit_number] = nil
+		
+	end
 
+		
 end
 
 
@@ -451,8 +498,8 @@ local function On_Death(event)
 	end
 	
 	
-		-- Power Rail - Not implemented yet.
-
+		-- Power Rail - 
+	--[[
 	--- Concrete Rail has been destroyed
    	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -468,11 +515,42 @@ local function On_Death(event)
         end
         ungroup_entities(pos_hash)
 	end
-
-
+	]]
 	
+		--- Arboretum has been destroyed
+   	if entity.valid and entity.name == "bi-Arboretum" then
+	writeDebug("Arboretum has been destroyed")
+	
+		global.Arboretum_Table[entity.unit_number].radar.destroy()
+		global.Arboretum_Table[entity.unit_number] = nil
+
+	end
 	
 end
+
+
+----------------Radars Scanning Function, used by Terraformer  -----------------------------
+script.on_event(defines.events.on_sector_scanned, function(event)
+	
+	---- Each time a Arboretum-Radar scans a sector  ----	
+	if event.radar.name == "bi-Arboretum-Radar" then
+		
+		
+		
+		local num = (event.radar.unit_number-1) --< Unit numberof assembler
+		
+		--writeDebug("The Radar Unit # is: "..event.radar.unit_number)
+		--writeDebug("The num (Asembler) Unit # is: "..num)
+
+		Get_Arboretum_Recipe(global.Arboretum_Table[num], event) 
+		
+
+		
+	end
+
+	
+end)
+
 
 ----- Solar Mat stuff
 --------------------------------------------------------------------

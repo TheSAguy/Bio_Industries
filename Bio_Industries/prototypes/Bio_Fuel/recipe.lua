@@ -174,9 +174,8 @@ data:extend({
 		energy_required = 10,
 		ingredients =
 		{
-			{type="fluid", name="water", amount=90},
-			{type="fluid", name="liquid-air", amount=10},
-			{type="fluid", name="bi-biomass", amount=10},
+			{type="fluid", name="water", amount=100},
+			{type="item", name="fertiliser", amount=10},
 		},
 		results=
 		{
@@ -221,8 +220,9 @@ data:extend({
 		energy_required = 60,
 		ingredients =
 		{
-			{type="fluid", name="water", amount=100},
-			{type="item", name="fertiliser", amount=10},
+			{type="fluid", name="water", amount=90},
+			{type="fluid", name="liquid-air", amount=10},
+			{type="fluid", name="bi-biomass", amount=10},
 		},
 		results=
 		{

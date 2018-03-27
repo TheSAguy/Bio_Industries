@@ -517,6 +517,27 @@ function seed_planted_trigger (event)
 end
 
 
+function seed_planted_arboretum (event, entity)
+   -- Seed Planted by arboretum
+		local surface = entity.surface
+		local position = entity.position	
+		local fertility
+		currentTilename = surface.get_tile(position.x, position.y).name
+		if Bi_Industries.fertility[currentTilename] then
+			fertility = Bi_Industries.fertility[currentTilename]				
+		else
+			fertility = 1 -- < Always a minimum of 1. 
+		end
+		
+		writeDebug("The Fertility is: " .. fertility)
+		local max_grow_time = math.random(5000) + 4040 - (40 * fertility) --< Fertile tiles will grow faster than barren tiles
+		table.insert(global.bi.tree_growing, {position = position, time = event.tick + max_grow_time, surface = surface})
+		table.sort(global.bi.tree_growing, function(a, b) return a.time < b.time end)
+
+end
+
+
+
 function is_value_as_index_in_table (value, tabl) 
   for index, v in pairs (tabl) do
     if value == index then

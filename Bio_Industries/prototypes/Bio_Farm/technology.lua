@@ -29,7 +29,15 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bio_greenhouse"
 			},	
-
+			{
+				type = "unlock-recipe",
+				recipe = "bi_Arboretum"
+			},	
+			{
+				type = "unlock-recipe",
+				recipe = "bi_Arboretum_r1"
+			},	
+			
 		},
 		prerequisites = {"optics"},
 		unit =
@@ -199,6 +207,14 @@ data:extend({
 			{
 				type = "unlock-recipe",
 				recipe = "bi_seed_bomb_standard"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_Arboretum_r2"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_Arboretum_r4"
 			},
 
 		},

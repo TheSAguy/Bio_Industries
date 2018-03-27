@@ -39,7 +39,7 @@ data:extend({
 		icon_size = 32,
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
-		order = "x[bi]-a[bi_bio_farm]",
+		order = "x[bi]-ab[bi_bio_farm]",
 		place_result = "bi_bio_farm",
 		stack_size= 10,
 	},
@@ -95,7 +95,7 @@ data:extend({
 		icon_size = 32,
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
-		order = "x[bi]-a[bi_bio_greenhouse]",
+		order = "x[bi]-aa[bi_bio_greenhouse]",
 		place_result = "bio-greenhouse",
 		stack_size= 10,
 	},
@@ -285,6 +285,76 @@ data:extend({
     order = "a[rocket-launcher]-x[seed-bomb]-c",
     stack_size = 10
   },
+  
+	  	--- 	Arboretum
+	{
+		type= "item",
+		name= "bi-Arboretum-Area",
+		icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
+		icon_size = 32,
+		flags= { "goes-to-quickbar" },
+		subgroup = "production-machine",
+		order = "x[bi]-a[bi-Arboretum]",
+		place_result = "bi-Arboretum-Area",
+		stack_size= 10,
+	},
+  
+    {
+		type = "item",
+		name = "bi_Arboretum_r1",
+		icon = "__Bio_Industries__/graphics/icons/Seedling_b.png",
+		icon_size = 32,
+		flags = {"hidden"},
+		subgroup = "terrain",
+		order = "bi_Arboretum_r1",
+		stack_size = 1
+	},
+  
+   
+    {
+		type = "item",
+		name = "bi_Arboretum_r2",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_1.png",
+		icon_size = 32,
+		flags = {"hidden"},
+		subgroup = "terrain",
+		order = "bi_Arboretum_r2",
+		stack_size = 1
+	},
+   
+      {
+		type = "item",
+		name = "bi_Arboretum_r3",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_2.png",
+		icon_size = 32,
+		flags = {"hidden"},
+		subgroup = "terrain",
+		order = "bi_Arboretum_r3",
+		stack_size = 1
+	},
+	
+     {
+		type = "item",
+		name = "bi_Arboretum_r4",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_1.png",
+		icon_size = 32,
+		flags = {"hidden"},
+		subgroup = "terrain",
+		order = "bi_Arboretum_r4",
+		stack_size = 1
+	},
+  	
+     {
+		type = "item",
+		name = "bi_Arboretum_r5",
+		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_2.png",
+		icon_size = 32,
+		flags = {"hidden"},
+		subgroup = "terrain",
+		order = "bi_Arboretum_r5",
+		stack_size = 1
+	},
+  
 })
 
 

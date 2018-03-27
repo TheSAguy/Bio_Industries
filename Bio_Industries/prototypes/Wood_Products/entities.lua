@@ -1010,7 +1010,7 @@ data:extend({
 	placeable_by = { item="bi-rail-wood-bridge", count = 4}
   },
 
- 
+ --[[
   ------- Rail Pole - Hidden
   {
     type = "electric-pole",
@@ -1095,7 +1095,7 @@ data:extend({
       priority = "low"
     },
   },
-
+]]
 	---- Wood Pipe
  {
     type = "pipe",

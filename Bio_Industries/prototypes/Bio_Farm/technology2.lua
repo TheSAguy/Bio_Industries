@@ -31,6 +31,14 @@ data:extend(
 				type = "unlock-recipe",
 				recipe = "bi_seed_bomb_advanced"
 			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_Arboretum_r3"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_Arboretum_r5"
+			},
 		},
 		prerequisites = {
 			"bi-fertiliser"
