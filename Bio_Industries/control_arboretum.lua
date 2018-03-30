@@ -3,25 +3,6 @@
 require ("stdlib/event/event")
 
 
-  local get_inventory_x = function(entity)
-    if not entity.valid then return nil end
-    local inventory = {}
-    for k = 1,10 do
-	
-      local inv = entity.get_inventory(k)
-      if inv then
-        inventory[k] = inv.get_contents()
-      end
-    end
-    if #inventory > 0 then
-      return inventory
-    else
-      return nil
-    end
-  end
-
-  
-
 function Get_Arboretum_Recipe(ArboretumTable, event)
 		
 
@@ -37,7 +18,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 
 			local Water_Name = ArboretumTable.inventory.fluidbox[1].name
 			local Water_Level = ArboretumTable.inventory.fluidbox[1].amount
-			local my_inv = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input).get_contents()
+			local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
 			local pass_qc = true
 			for i = 1, #Inventory do
 				if not Inventory[i].valid_for_read then
@@ -72,11 +53,10 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
-							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
-					
-							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
+							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}							
 
 							--- remove 1 inventory item
+							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
 							for i = 1, #Inventory do
 								local stack = Inventory[i]
 								if stack.count > 0 then
@@ -123,6 +103,16 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
 							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
+							
+							--- remove 1 inventory item
+							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
+							for i = 1, #Inventory do
+								local stack = Inventory[i]
+								if stack.count > 0 then
+								  stack.count  = stack.count - 1
+								end
+							end
+							
 							surface.set_tiles{{name=terrain_name_s, position=new_position}}
 							--- After sucessfully planting a tree, break out of the loop.
 							break
@@ -153,7 +143,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 						
 							local terrain_name_s
 							if game.active_mods["alien-biomes"] then 
-								terrain_name_s = "vegetation-green-grass-31"
+								terrain_name_s = "vegetation-green-grass-1"
 							else
 								terrain_name_s = "grass-1"
 							end
@@ -161,6 +151,16 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
 							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
+							
+														--- remove 1 inventory item
+							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
+							for i = 1, #Inventory do
+								local stack = Inventory[i]
+								if stack.count > 0 then
+								  stack.count  = stack.count - 1
+								end
+							end
+							
 							surface.set_tiles{{name=terrain_name_s, position=new_position}}
 							--- After sucessfully planting a tree, break out of the loop.
 							break
@@ -196,9 +196,12 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 								terrain_name = "grass-3"
 							end
 														
-							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
-						
+							--- Remove 100 Water
+							Water_Level = Water_Level - 100
+							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
+							
 							--- remove 1 inventory item
+							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
 							for i = 1, #Inventory do
 								local stack = Inventory[i]
 								if stack.count > 0 then
@@ -206,10 +209,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 								end
 							end
 							
-							--- Remove 100 Water
-							Water_Level = Water_Level - 100
-							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
-							
+			
 							surface.set_tiles{{name=terrain_name, position=new_position}}			
 							local create_seedling = surface.create_entity({name = "seedling", position = new_position, force = "neutral"})				
 							entity = create_seedling	
@@ -248,8 +248,15 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							else
 								terrain_name = "grass-1"
 							end
+
+
+							--- Remove 100 Water
+							Water_Level = Water_Level - 100
+							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
+
 							
 							--- remove 1 inventory item
+							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
 							for i = 1, #Inventory do
 								local stack = Inventory[i]
 								if stack.count > 0 then
@@ -257,9 +264,6 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 								end
 							end
 
-							--- Remove 100 Water
-							Water_Level = Water_Level - 100
-							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
 							
 							surface.set_tiles{{name=terrain_name, position=new_position}}							
 							local create_seedling = surface.create_entity({name = "seedling", position = new_position, force = "neutral"})

@@ -1010,7 +1010,40 @@ data:extend({
 	placeable_by = { item="bi-rail-wood-bridge", count = 4}
   },
 
- --[[
+  --------------- Rail
+
+    {
+    type = "straight-rail",
+    name = "bi-straight-rail-power",   
+	icon = "__Bio_Industries__/graphics/icons/rail-concrete-power",
+	icon_size = 32,
+    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
+    minable = {mining_time = 0.5, result = "bi-rail-power"},
+    max_health = 60,
+    corpse = "straight-rail-remnants",
+    collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
+    selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
+    rail_category = "regular",
+	pictures = rail_pictures(),
+  },
+  
+  {
+    type = "curved-rail",
+    name = "bi-curved-rail-power",   
+	icon = "__Bio_Industries__/graphics/icons/rail-concrete-power.png",
+	icon_size = 32,
+    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
+    minable = {mining_time = 0.5, result = "bi-rail-power", count = 4},
+    max_health = 120,
+    corpse = "curved-rail-remnants",
+    collision_box = {{-0.75, -0.55}, {0.75, 1.6}},
+    secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
+    selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
+    rail_category = "regular",
+	pictures = rail_pictures(),
+	placeable_by = { item="bi-rail-power", count = 4}
+  },
+
   ------- Rail Pole - Hidden
   {
     type = "electric-pole",
@@ -1036,7 +1069,7 @@ data:extend({
       height = 0,
 	  frame_count = 1,
       axially_symmetrical = false,
-      direction_count = 4,
+      direction_count = 16,
     },
 	 connection_points =
     {
@@ -1083,7 +1116,139 @@ data:extend({
           copper_wire_tweak = {-0, -0},
 
         }
-      }
+      },
+	  {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+	  {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
     },
 
 	
@@ -1095,7 +1260,7 @@ data:extend({
       priority = "low"
     },
   },
-]]
+
 	---- Wood Pipe
  {
     type = "pipe",
@@ -1307,6 +1472,13 @@ data:extend({
 
   
   
-  
-  
 })
+
+local my_pole_2 = util.table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
+my_pole_2.name = "power-to-rail-pole"
+my_pole_2.icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png"
+my_pole_2.minable = {mining_time = 1, result = "power-to-rail-pole"}
+my_pole_2.pictures.tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
+data:extend({my_pole_2})
+
+

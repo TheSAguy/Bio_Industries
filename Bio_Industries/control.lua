@@ -1,5 +1,5 @@
---Bio_Industries Version   2.2.1
-local QC_Mod = false
+--Bio_Industries Version   2.2.6
+local QC_Mod = true
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
@@ -222,26 +222,7 @@ local function On_Built(event)
 
 	end
 	
-	-- Power Rail - Needs to be fixed
-	--[[
-	--- Concrete Rail has been built
-	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
-	writeDebug("Concrete Rail has been built")
-		local surface = entity.surface
-		local force = entity.force
-		local position = entity.position		   
-		local rail_track = entity
-		local pole_name = "bi_medium-electric-pole_for_rail"  		
-		
-		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
-				
-		create_rail_pole.minable = false
-		create_rail_pole.destructible = false 
-		
-		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
 
-	end
-]]
 		
 	--- Bio Cannon has been built
 	if entity.valid and entity.name == "Bio_Cannon_Area" then
@@ -304,6 +285,126 @@ local function On_Built(event)
 	end
 
 
+	-- Power Rail
+
+
+	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+	--writeDebug("Concrete Rail has been built")
+		local surface = entity.surface
+		local force = entity.force
+		local position = entity.position		   
+		local rail_track = entity
+		local pole_name = "bi_medium-electric-pole_for_rail"  		
+		
+		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
+				
+		create_rail_pole.minable = false
+		create_rail_pole.destructible = false 
+		
+		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
+
+	end
+
+
+	
+	---- my Power Pole testing
+
+	
+--[[
+	--- Only connect hidden power pole to each other and power to rail poles.
+	if entity.valid and entity.name == "my-hidden-power-pole" then
+	
+	
+	writeDebug("Test 1a: The entity name is: "..entity.name)
+	writeDebug("Passed test 1a")
+	
+
+		for _,neighbour in pairs(entity.neighbours.copper) do
+		writeDebug("Test 1b: The neighbour name is: "..neighbour.name)
+		
+			if neighbour.name ~= "my-hidden-power-pole" then
+			if neighbour.name ~= "power-to-rail-pole" then
+			writeDebug("Passed test 1b")
+				entity.disconnect_neighbour(neighbour)
+			end
+			end
+
+			if neighbour.name == "power-to-rail-pole" then
+				entity.connect_neighbour(neighbour)
+			end
+			if neighbour.name == "power-to-rail-pole" then
+				entity.connect_neighbour(neighbour)
+			end
+
+		end
+	end
+
+
+	--- Disconnect any othr power lines from the hidden power pole
+	if entity.valid and entity.type == "electric-pole" then
+		if entity.name ~= "my-hidden-power-pole" then
+		if entity.name ~= "power-to-rail-pole" then
+		
+		writeDebug("Test 2a: The entity name is: "..entity.name)
+		writeDebug("Passed test 2a")
+
+			for _,neighbour in pairs(entity.neighbours.copper) do
+			
+			writeDebug("Test 2b: The neighbour name is: "..neighbour.name)
+				if neighbour.name == "my-hidden-power-pole" then
+				writeDebug("Passed test 2b")
+					entity.disconnect_neighbour(neighbour)
+				end
+			end
+		end
+		end
+	end
+]]
+
+
+	--- Only connect hidden power pole to each other and power to rail poles.
+	if entity.valid and entity.name == "bi_medium-electric-pole_for_rail" then
+	
+
+
+		for _,neighbour in pairs(entity.neighbours.copper) do
+
+		
+			if neighbour.name ~= "bi_medium-electric-pole_for_rail" then
+			if neighbour.name ~= "power-to-rail-pole" then
+
+				entity.disconnect_neighbour(neighbour)
+			end
+			end
+
+			if neighbour.name == "bi_medium-electric-pole_for_rail" then
+				entity.connect_neighbour(neighbour)
+			end
+			if neighbour.name == "power-to-rail-pole" then
+				entity.connect_neighbour(neighbour)
+			end
+
+		end
+	end
+
+
+	--- Disconnect any othr power lines from the hidden power pole
+	if entity.valid and entity.type == "electric-pole" then
+		if entity.name ~= "bi_medium-electric-pole_for_rail" then
+		if entity.name ~= "power-to-rail-pole" then
+		
+
+
+			for _,neighbour in pairs(entity.neighbours.copper) do
+
+				if neighbour.name == "bi_medium-electric-pole_for_rail" then
+
+					entity.disconnect_neighbour(neighbour)
+				end
+			end
+		end
+		end
+	end
 
 	
 end
@@ -703,6 +804,18 @@ local remove_events = {defines.events.on_robot_mined}
 script.on_event(remove_events, Robot_Tile_Remove)
 
 
+-------------------- For Testing --------------
+if QC_Mod == true then  
+
+	script.on_event(defines.events.on_player_created, function(event)
+	local iteminsert = game.players[event.player_index].insert
+	--iteminsert{name="my-hidden-power-pole", count=50}
+	iteminsert{name="power-to-rail-pole", count=50}
+	iteminsert{name="medium-electric-pole", count=50}
+	iteminsert{name="steel-axe", count=5}
+	end)
+
+end
 
 --------------------------------------------------------------------
 --- DeBug Messages 

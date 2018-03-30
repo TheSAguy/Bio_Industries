@@ -45,6 +45,7 @@ data:extend({
 		stack_size = 50
 	},
 
+	--- Wood Rail Planner
 	{
 		type = "rail-planner",
 		name = "bi-rail-wood",
@@ -75,23 +76,22 @@ data:extend({
 		curved_rail = "bi-curved-rail-wood-bridge"
 	},
 
-  
-	--[[
-	  ---- Electric pole for Rail
+  	--- Electric Rail Planner
 	{
-		type = "item",
-		name = "bi_medium-electric-pole_for_rail",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
+		type = "rail-planner",
+		name = "bi-rail-power",
+		icon = "__Bio_Industries__/graphics/icons/rail-concrete-power.png",
 		icon_size = 32,
-		flags = {"hidden"},
-		subgroup = "energy-pipe-distribution",
-		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_medium-electric-pole_for_rail",
-		stack_size = 50,
-		enable = false,
+		flags = {"goes-to-quickbar"},
+		subgroup = "transport",
+		order = "a[train-system]-ab[rail]",
+		place_result = "bi-straight-rail-power",
+		stack_size = 100,
+		straight_rail = "bi-straight-rail-power",
+		curved_rail = "bi-curved-rail-power"
 	},
-  
-  ]]
+
+
   --- Wood Pipe
 	{
 		type = "item",
@@ -133,6 +133,34 @@ data:extend({
 		stack_size = 50
 	  },
 
+	  
+	  ---- Power pole testing
+--[[	   
+	   {
+		type = "item",
+		name = "my-hidden-power-pole",
+		icon = "__base__/graphics/icons/medium-electric-pole.png",
+		icon_size = 32,
+		flags = {"goes-to-quickbar"},
+		subgroup = "energy-pipe-distribution",
+		order = "a[energy]-b[medium-electric-pole]-x",
+		place_result = "my-hidden-power-pole",
+		stack_size = 50
+		},
+		
+		]]	  
+	    {
+		type = "item",
+		name = "power-to-rail-pole",
+		icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png",
+		icon_size = 32,
+		flags = {"goes-to-quickbar"},
+		subgroup = "transport",
+		order = "a[train-system]-ac[rail]",
+		place_result = "power-to-rail-pole",
+		stack_size = 50
+		},
+	
 	
 })
 

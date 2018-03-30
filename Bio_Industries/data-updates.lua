@@ -39,20 +39,21 @@ require ("prototypes.Wood_Products.tint_rails_remnants_function")
 	data.raw["rail-remnants"]["curved-rail-remnants-wood"]}, 
 	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
 
-
+	--- Power Rail
+	set_tint_to_rails ({
+	data.raw["straight-rail"]["straight-rail"],
+	data.raw["curved-rail"]["curved-rail"]}, 
+	{r = 150/255, g = 150/255, b = 150/255, a = 1}) -- mix
 	
 -- vanilla rail recipe update
 --thxbob.lib.recipe.remove_ingredient ("rail", "iron-stick")
 thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
---thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="small-electric-pole", amount=1})
-
 
 
 -- vanilla rail icon & images update
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
 data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
 data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
---data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete-power.png"
 
 
 --- Wood Rail added to Tech 
@@ -65,6 +66,14 @@ if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
 end
 
+--- If Bob, move Vanilla Rail to Rail 2.
+if data.raw.technology["bob-railway-2"] then
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_rail_power")
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "power_to_rail_pole")
+else
+	thxbob.lib.tech.add_recipe_unlock("railway", "bi_rail_power")
+	thxbob.lib.tech.add_recipe_unlock("railway", "power_to_rail_pole")
+end
 	
 -- Damage Bonus to Ammo
 -- Don't duplicate what NE does

@@ -150,6 +150,39 @@ data:extend({
 
   },
 
+  	--- Power Rail
+    {
+		type = "recipe",
+		name = "bi_rail_power",	
+		normal =
+		{
+			enabled = false,
+			ingredients = 
+			{		
+				{"straight-rail", 2},
+				{"small-electric-pole", 1},
+
+			},
+			result = "bi-rail-power",
+			result_count = 2,
+			requester_paste_multiplier = 4
+		},
+		expensive =
+		{
+			enabled = false,
+			ingredients = 
+			{			
+				{"straight-rail", 1},
+				{"small-electric-pole", 1},
+
+			},
+			result = "bi-rail-power",
+			result_count = 1,
+			requester_paste_multiplier = 4
+		},	
+
+  },
+
 	--- Wood Pipe
     {
 		type = "recipe",
@@ -181,7 +214,34 @@ data:extend({
 		  requester_paste_multiplier = 15
 		},
   },
-  
+ 
+	--- Rail to Power Pole
+	{
+		type = "recipe",
+		name = "power_to_rail_pole",
+		normal =
+		{
+			enabled = false,
+			ingredients = 
+			{
+			  {"copper-plate", 1},    
+			  {"small-electric-pole", 1},  
+			},
+		  result = "power-to-rail-pole"
+		},
+		expensive =
+		{
+			enabled = false,
+			ingredients = 
+			{
+			  {"copper-plate", 2}
+			  {"small-electric-pole", 1},  
+			},
+		  result = "power-to-rail-pole"
+		},	
+	},
+	
+	
   -- Wood Pipe to Ground
   {
 		type = "recipe",

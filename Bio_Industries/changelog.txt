@@ -1,9 +1,33 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.5
+Date: 3. 28. 2018
+  Bugfixes:
+    - Fixed Migration Script
+
+---------------------------------------------------------------------------------------------------
+Version: 2.2.4
+Date: 3. 28. 2018
+  Bugfixes:
+    - Fixed Terraformer - Alien Biomes compatibility
+
+---------------------------------------------------------------------------------------------------
+Version: 2.2.3
+Date: 3. 27. 2018
+  Bugfixes:
+    - Fixed Terraformer crash
+
+---------------------------------------------------------------------------------------------------
+Version: 2.2.2
+Date: 3. 27. 2018
+  Bugfixes:
+    - Fixed Migration Script typo
+
+---------------------------------------------------------------------------------------------------
 Version: 2.2.1
 Date: 3. 27. 2018
   Features:
     - Tweaked the Rail (again). Removed Power for now. Will add that back in as it's own type of rail
-	- Added the Terraformer. Plant trees and/or change terrain around the building
+    - Added the Terraformer. Plant trees and/or change terrain around the building
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.0

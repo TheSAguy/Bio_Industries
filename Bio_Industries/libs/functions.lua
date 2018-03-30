@@ -2,7 +2,11 @@
 function thxbob.lib.table_merge(table1, table2)
   for index, value in pairs(table2) do
     if type(value) == "table" then
-      thxbob.lib.table_merge(table1[index], table2[index])
+      if type(table1[index]) == "table" then
+        thxbob.lib.table_merge(table1[index], table2[index])
+      else
+        table1[index] = util.table.deepcopy(table2[index])
+      end
     else
       table1[index] = value
     end
@@ -29,6 +33,7 @@ function thxbob.lib.result_check(object)
           if object.icon or object.subgroup or object.order or item.type ~= "item" then -- if we already have one, add the rest
             if not object.icon and data.raw[item.type][object.result].icon then
               object.icon = data.raw[item.type][object.result].icon 
+              object.icon_size = data.raw[item.type][object.result].icon_size
             end
             if not object.subgroup and data.raw[item.type][object.result].subgroup then
               object.subgroup = data.raw[item.type][object.result].subgroup
@@ -49,3 +54,7 @@ function thxbob.lib.result_check(object)
   end
 end
 
+
+function thxbob.lib.belt_speed_ips(ips)
+  return ips * 3/1280 --0.00234375
+end
