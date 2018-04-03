@@ -69,10 +69,10 @@ end
 --- If Bob, move Vanilla Rail to Rail 2.
 if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_rail_power")
-	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "power_to_rail_pole")
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_power_to_rail_pole")
 else
 	thxbob.lib.tech.add_recipe_unlock("railway", "bi_rail_power")
-	thxbob.lib.tech.add_recipe_unlock("railway", "power_to_rail_pole")
+	thxbob.lib.tech.add_recipe_unlock("railway", "bi_power_to_rail_pole")
 end
 	
 -- Damage Bonus to Ammo

@@ -159,8 +159,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{		
-				{"straight-rail", 2},
-				{"small-electric-pole", 1},
+				{"rail", 2},
+				{"copper-cable", 4},
 
 			},
 			result = "bi-rail-power",
@@ -172,8 +172,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{			
-				{"straight-rail", 1},
-				{"small-electric-pole", 1},
+				{"rail", 1},
+				{"copper-cable", 4},
 
 			},
 			result = "bi-rail-power",
@@ -218,14 +218,14 @@ data:extend({
 	--- Rail to Power Pole
 	{
 		type = "recipe",
-		name = "power_to_rail_pole",
+		name = "bi_power_to_rail_pole",
 		normal =
 		{
 			enabled = false,
 			ingredients = 
 			{
-			  {"copper-plate", 1},    
-			  {"small-electric-pole", 1},  
+			  {"copper-cable", 2},    
+			  {"medium-electric-pole", 1},  
 			},
 		  result = "power-to-rail-pole"
 		},
@@ -234,8 +234,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{
-			  {"copper-plate", 2}
-			  {"small-electric-pole", 1},  
+			  {"copper-cable", 4},
+			  {"medium-electric-pole", 1},  
 			},
 		  result = "power-to-rail-pole"
 		},	

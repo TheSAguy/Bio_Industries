@@ -176,6 +176,7 @@ local function On_Built(event)
 	if entity.valid and entity.name == "seedling" then
 		seed_planted (event)
 	end
+
 	
     --- Bio Farm has been built
 	if entity.valid and entity.name == "bi_bio_farm" then
@@ -222,7 +223,6 @@ local function On_Built(event)
 
 	end
 	
-
 		
 	--- Bio Cannon has been built
 	if entity.valid and entity.name == "Bio_Cannon_Area" then
@@ -286,15 +286,13 @@ local function On_Built(event)
 
 
 	-- Power Rail
-
-
-	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+	if (entity.valid and entity.name == "straight-rail") or (entity.valid and entity.name == "curved-rail") then
 	--writeDebug("Concrete Rail has been built")
 		local surface = entity.surface
 		local force = entity.force
 		local position = entity.position		   
 		local rail_track = entity
-		local pole_name = "bi_medium-electric-pole_for_rail"  		
+		local pole_name = "bi-rail-hidden-power-pole"  		
 		
 		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
 				
@@ -362,50 +360,40 @@ local function On_Built(event)
 ]]
 
 
-	--- Only connect hidden power pole to each other and power to rail poles.
-	if entity.valid and entity.name == "bi_medium-electric-pole_for_rail" then
+	--- Only connect "rail-hidden-power" to each other and "power-to-rail" poles.
+	if entity.valid and entity.name == "bi-rail-hidden-power-pole" then
 	
-
-
 		for _,neighbour in pairs(entity.neighbours.copper) do
-
 		
-			if neighbour.name ~= "bi_medium-electric-pole_for_rail" then
-			if neighbour.name ~= "power-to-rail-pole" then
-
+			if neighbour.name ~= "bi-rail-hidden-power-pole" and neighbour.name ~= "power-to-rail-pole" then
 				entity.disconnect_neighbour(neighbour)
 			end
-			end
-
-			if neighbour.name == "bi_medium-electric-pole_for_rail" then
+			
+			if neighbour.name == "bi-rail-hidden-power-pole" or neighbour.name == "power-to-rail-pole" then
 				entity.connect_neighbour(neighbour)
 			end
-			if neighbour.name == "power-to-rail-pole" then
-				entity.connect_neighbour(neighbour)
-			end
-
+		
 		end
+	
 	end
 
 
-	--- Disconnect any othr power lines from the hidden power pole
+	--- Disconnect any othr power lines from the rail-hidden-power pole
 	if entity.valid and entity.type == "electric-pole" then
-		if entity.name ~= "bi_medium-electric-pole_for_rail" then
-		if entity.name ~= "power-to-rail-pole" then
 		
-
-
+		if entity.name ~= "bi-rail-hidden-power-pole" and entity.name ~= "power-to-rail-pole" then
+			
 			for _,neighbour in pairs(entity.neighbours.copper) do
 
-				if neighbour.name == "bi_medium-electric-pole_for_rail" then
-
+				if neighbour.name == "bi-rail-hidden-power-pole" then
 					entity.disconnect_neighbour(neighbour)
 				end
+			
 			end
+	
 		end
-		end
+		
 	end
-
 	
 end
 

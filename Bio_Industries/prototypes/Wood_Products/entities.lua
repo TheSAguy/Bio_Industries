@@ -1015,7 +1015,7 @@ data:extend({
     {
     type = "straight-rail",
     name = "bi-straight-rail-power",   
-	icon = "__Bio_Industries__/graphics/icons/rail-concrete-power",
+	icon = "__Bio_Industries__/graphics/icons/rail-concrete-power.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
     minable = {mining_time = 0.5, result = "bi-rail-power"},
@@ -1047,7 +1047,7 @@ data:extend({
   ------- Rail Pole - Hidden
   {
     type = "electric-pole",
-    name = "bi_medium-electric-pole_for_rail",
+    name = "bi-rail-hidden-power-pole",
     icon = "__base__/graphics/icons/small-electric-pole.png",
 	icon_size = 32,
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},

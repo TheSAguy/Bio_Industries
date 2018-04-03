@@ -118,6 +118,7 @@ data:extend({
 		place_result = "bi-pipe-to-ground-wood",
 		stack_size = 50
 	},
+	
 	--- Large wooden chest
 	  {
 		type = "item",
@@ -134,21 +135,7 @@ data:extend({
 	  },
 
 	  
-	  ---- Power pole testing
---[[	   
-	   {
-		type = "item",
-		name = "my-hidden-power-pole",
-		icon = "__base__/graphics/icons/medium-electric-pole.png",
-		icon_size = 32,
-		flags = {"goes-to-quickbar"},
-		subgroup = "energy-pipe-distribution",
-		order = "a[energy]-b[medium-electric-pole]-x",
-		place_result = "my-hidden-power-pole",
-		stack_size = 50
-		},
-		
-		]]	  
+	  ---- Power pole to connect Rail to Power Grid
 	    {
 		type = "item",
 		name = "power-to-rail-pole",
