@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.2.6
+Date: 4. 3. 2018
+  Bugfixes:
+    - Fixed Biomass Recipe 3. Increased the output.
+  Features:
+    - Added Power Rail, now it's own entity.
+    - Tweaked Terraformer Recipies. 
+
+---------------------------------------------------------------------------------------------------
 Version: 2.2.5
 Date: 3. 28. 2018
   Bugfixes:

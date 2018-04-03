@@ -138,13 +138,13 @@ data:extend({
 	  ---- Power pole to connect Rail to Power Grid
 	    {
 		type = "item",
-		name = "power-to-rail-pole",
+		name = "bi-power-to-rail-pole",
 		icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png",
 		icon_size = 32,
 		flags = {"goes-to-quickbar"},
 		subgroup = "transport",
 		order = "a[train-system]-ac[rail]",
-		place_result = "power-to-rail-pole",
+		place_result = "bi-power-to-rail-pole",
 		stack_size = 50
 		},
 	

@@ -60,14 +60,11 @@ data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-
 thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")
 thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood-bridge")	
 	
---- If Bob, move Vanilla Rail to Rail 2.
+
+--- If Bob, move Vanilla Rail to Rail 2 also add Power Rail.
 if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.remove_recipe_unlock ("railway", "rail")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
-end
-
---- If Bob, move Vanilla Rail to Rail 2.
-if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_rail_power")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_power_to_rail_pole")
 else

@@ -227,7 +227,7 @@ data:extend({
 			  {"copper-cable", 2},    
 			  {"medium-electric-pole", 1},  
 			},
-		  result = "power-to-rail-pole"
+		  result = "bi-power-to-rail-pole"
 		},
 		expensive =
 		{
@@ -237,7 +237,7 @@ data:extend({
 			  {"copper-cable", 4},
 			  {"medium-electric-pole", 1},  
 			},
-		  result = "power-to-rail-pole"
+		  result = "bi-power-to-rail-pole"
 		},	
 	},
 	

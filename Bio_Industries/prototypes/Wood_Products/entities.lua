@@ -1475,9 +1475,9 @@ data:extend({
 })
 
 local my_pole_2 = util.table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
-my_pole_2.name = "power-to-rail-pole"
+my_pole_2.name = "bi-power-to-rail-pole"
 my_pole_2.icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png"
-my_pole_2.minable = {mining_time = 1, result = "power-to-rail-pole"}
+my_pole_2.minable = {mining_time = 1, result = "bi-power-to-rail-pole"}
 my_pole_2.pictures.tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
 data:extend({my_pole_2})
 

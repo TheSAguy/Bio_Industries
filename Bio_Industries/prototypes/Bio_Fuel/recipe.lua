@@ -226,7 +226,7 @@ data:extend({
 		},
 		results=
 		{
-			{type="fluid", name="bi-biomass", amount=10},
+			{type="fluid", name="bi-biomass", amount=35},
 		},
 		enabled = false,
 		subgroup = "fluid-recipes",
