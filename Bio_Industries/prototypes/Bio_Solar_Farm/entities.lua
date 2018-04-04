@@ -86,10 +86,6 @@ if BI.Settings.BI_Solar_Additions then
 	  },
 	  
 
-
-
-
-
 	  ---- BI Accumulator
 		{
 		type = "accumulator",
@@ -250,9 +246,6 @@ if BI.Settings.BI_Solar_Additions then
 		},
 	  },
 
-  
-
-
 
 ---- Solar Floor
 	{
@@ -346,7 +339,7 @@ if BI.Settings.BI_Solar_Additions then
 	icon_size = 32,
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
 	selectable_in_game = false,
-	draw_copper_wires=false,
+	draw_copper_wires = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
 	collision_mask = {"ground-tile"},
@@ -423,7 +416,8 @@ if BI.Settings.BI_Solar_Additions then
     },
   },
   
-   ------- ------- Hidden Solar Panel for Solar Mat 
+ 
+ ------- ------- Hidden Solar Panel for Solar Mat 
   {
     type = "solar-panel",
     name = "bi_solar-panel_for_Solar-Mat",
@@ -453,8 +447,6 @@ if BI.Settings.BI_Solar_Additions then
     production = "10kW"
   },
   
-
-
 
   ------- ------- Solar Panel for Solar Plant / Boiler 
   {
@@ -515,8 +507,7 @@ if BI.Settings.BI_Solar_Additions then
   },
 
  
- 
- ------- Bioler for Solar Plant / Boiler 
+  ------- Bioler for Solar Plant / Boiler 
   {
     type = "boiler",
     name = "bi-solar-boiler",

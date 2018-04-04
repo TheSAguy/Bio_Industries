@@ -1,5 +1,7 @@
---Bio_Industries Version   2.2.6
-local QC_Mod = false
+--Bio_Industries Version   2.2.8
+
+
+local QC_Mod = true
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
@@ -262,24 +264,28 @@ local function On_Built(event)
 
 		local arboretum_new = "bi-Arboretum"
 		local radar_name = "bi-Arboretum-Radar"  
+		local pole_name = "bi-hidden-power-pole"
 		
 		local create_arboretum = surface.create_entity({name = arboretum_new, position = position, direction = entity.direction, force = force})
-		create_arboretum.health = event.created_entity.health
+		--local create_pole = surface.create_entity({name = pole_name, position = position, direction = entity.direction, force = force})
 		
 		local position_c = {position.x - 3.5, position.y + 3.5}
 		local create_radar = surface.create_entity({name = radar_name, position = position_c, direction = entity.direction, force = force})
 
-		  
+
+		--create_pole.minable = false
+		--create_pole.destructible = false		
 		create_radar.minable = false
 		create_radar.destructible = false
 
-		writeDebug("The entity unit# is: "..entity.unit_number)
-		writeDebug("The inventory unit# is: "..create_arboretum.unit_number)
-		writeDebug("The radar unit# is: "..create_radar.unit_number)
+		--writeDebug("The entity unit# is: "..entity.unit_number)
+		--writeDebug("The inventory unit# is: "..create_arboretum.unit_number)
+		--writeDebug("The radar unit# is: "..create_radar.unit_number)
 		
 		event.created_entity.destroy()
 		
-		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar }
+		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar}
+		--global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar, pole=create_pole}
   
 
 	end
@@ -303,8 +309,6 @@ local function On_Built(event)
 
 	end
 
-
-	
 	
 	--- Only connect "rail-hidden-power" to each other and "power-to-rail" poles.
 	if entity.valid and entity.name == "bi-rail-hidden-power-pole" then
@@ -432,10 +436,9 @@ local function On_Remove(event)
 
 	end
 	
-			-- Power Rail - 
-	--[[	
-	--- Concrete Rail has been removed
-   	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+
+	--- Power Rail has been removed
+   	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -449,12 +452,12 @@ local function On_Remove(event)
         end
         ungroup_entities(pos_hash)
 	end
-	]]
+
 	
 		--- Arboretum has been removed
    	if entity.valid and entity.name == "bi-Arboretum" then
 		writeDebug("Arboretum has been removed")
-	
+
 		global.Arboretum_Table[entity.unit_number].radar.destroy()
 		global.Arboretum_Table[entity.unit_number] = nil
 		
@@ -486,6 +489,7 @@ local function On_Death(event)
         ungroup_entities(pos_hash)
 	end
 
+	
 		--- Bio Solar Farm has been destroyed
    	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
@@ -503,7 +507,7 @@ local function On_Death(event)
 	end
 
 
-			--- Bio Solar Boiler has been removed
+	--- Bio Solar Boiler has been removed
    	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
@@ -518,9 +522,9 @@ local function On_Death(event)
         end
         ungroup_entities(pos_hash)
 	end
+
 	
-	--- Seedling Removed
-	
+	--- Seedling Removed	
 	if entity.valid and entity.name == "seedling" then
 	
 		for k, v in pairs(global.bi.tree_growing) do
@@ -533,10 +537,8 @@ local function On_Death(event)
 	end
 	
 	
-		-- Power Rail - 
-	--[[
-	--- Concrete Rail has been destroyed
-   	if (entity and entity.name == "straight-rail") or (entity and entity.name == "curved-rail") then
+	--- Power Rail has been removed
+   	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -550,16 +552,19 @@ local function On_Death(event)
         end
         ungroup_entities(pos_hash)
 	end
-	]]
 	
-		--- Arboretum has been destroyed
+	
+	--- Arboretum has been destroyed
    	if entity.valid and entity.name == "bi-Arboretum" then
 	writeDebug("Arboretum has been destroyed")
 	
+
 		global.Arboretum_Table[entity.unit_number].radar.destroy()
 		global.Arboretum_Table[entity.unit_number] = nil
-
+		
 	end
+
+	
 	
 end
 
@@ -619,27 +624,29 @@ local function Solar_Mat (event, surface)
 			local entities = surface.find_entities(area)
 			local entity1 = entities[1]
 			entity1 = surface.find_entities_filtered{area=area, name="bi_solar_pole", limit=1}
-				
-			if entity1 then 		
 			
+						
+			if entity1 ~= nil then 		
+			writeDebug(entity1.name)	
 				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar_pole"})) do o.destroy() end	
 
-				writeDebug("bi_solar_pole Removed")
+				--writeDebug("bi_solar_pole Removed")
 			else
-				writeDebug("bi_solar_pole not found")				
+				--writeDebug("bi_solar_pole not found")				
 			end
 				
 			--- Remove the Hidden Solar Panel		
+				
 			local entity2 = entities[1]
 			entity2 = surface.find_entities_filtered{area=area, name="bi_solar-panel_for_Solar-Mat", limit=1}	
 			
-			if entity2 then 
-					
+			if entity2 ~= nil then 
+			writeDebug(entity2.name)		
 				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar-panel_for_Solar-Mat"})) do o.destroy() end	
 
-				writeDebug("bi_solar-panel_for_Solar-Mat Removed")
+				--writeDebug("bi_solar-panel_for_Solar-Mat Removed")
 			else
-				writeDebug("bi_solar-panel_for_Solar-Mat not found")				
+				--writeDebug("bi_solar-panel_for_Solar-Mat not found")				
 			end
 
 

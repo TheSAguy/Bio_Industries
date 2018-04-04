@@ -274,7 +274,7 @@ data:extend({
 
   },
 
-------- Bio Farm Pole
+------- Bio Farm Hidden Electric Pole
   {
     type = "electric-pole",
     name = "bi_medium-electric-pole_for_Bio_Farm",
@@ -551,10 +551,8 @@ data:extend({
 						},
 		energy_usage = "50kW"
 	},
-
 	
-	--- Seed Bomb Projectile - 1
-  
+	--- Seed Bomb Projectile - 1 
   {
     type = "projectile",
     name = "seed-bomb-projectile-1",
@@ -624,8 +622,7 @@ data:extend({
     }
   },
  
- 	--- Seed Bomb Projectile - 2
-  
+ 	--- Seed Bomb Projectile - 2 
   {
     type = "projectile",
     name = "seed-bomb-projectile-2",
@@ -695,8 +692,7 @@ data:extend({
     }
   },
  
- 	--- Seed Bomb Projectile - 3
-  
+ 	--- Seed Bomb Projectile - 3 
   {
     type = "projectile",
     name = "seed-bomb-projectile-3",
@@ -766,8 +762,8 @@ data:extend({
     }
   },
  
---- Seed Bomb Wave - 1
-	
+ 
+--- Seed Bomb Wave - 1	
 	{
 		type = "projectile",
 		name = "seed-bomb-wave-1",
@@ -810,8 +806,7 @@ data:extend({
 		}
 	},
 
-	--- Seed Bomb Wave - 2
-	
+	--- Seed Bomb Wave - 2	
 	{
 		type = "projectile",
 		name = "seed-bomb-wave-2",
@@ -855,8 +850,7 @@ data:extend({
 		}
 	},
 	
-	--- Seed Bomb Wave - 3
-	
+	--- Seed Bomb Wave - 3	
 	{
 		type = "projectile",
 		name = "seed-bomb-wave-3",
@@ -899,8 +893,7 @@ data:extend({
 		}
 	},
 	
-	  	--- 	Arboretum
-
+	--- 	Arboretum
   --- Radar Arboretum
   {
     type = "radar",
@@ -981,9 +974,9 @@ data:extend({
 		max_health = 250,
 		corpse = "big-remnants",
 		dying_explosion = "medium-explosion",
-		collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
+		collision_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
-		collision_mask = { "object-layer", "not-colliding-with-itself" },
+		--collision_mask = { "not-colliding-with-itself" },
 		order = "x[bi]-a[bi-Arboretum]",
 		automated_ammo_count = 1,
 		resistances = {},	
@@ -1100,3 +1093,11 @@ data:extend({
 
 	
 })
+
+local my_pole_1 = util.table.deepcopy(data.raw["electric-pole"]["bi_medium-electric-pole_for_Bio_Farm"])
+my_pole_1.name = "bi-hidden-power-pole"
+my_pole_1.draw_copper_wires = false
+data:extend({my_pole_1})
+
+
+

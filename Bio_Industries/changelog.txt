@@ -1,11 +1,24 @@
+Version: 2.2.8
+Date: 4. 4. 2018
+  Bugfixes:
+    - Fixed Local Naming
+
+---------------------------------------------------------------------------------------------------
+Version: 2.2.7
+Date: 4. 4. 2018
+  Bugfixes:
+    - Fixed Power Rail Removal
+  Features:
+    - Tweaked Terraformer Recipes.
+
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.6
 Date: 4. 3. 2018
   Bugfixes:
-    - Fixed Biomass Recipe 3. Increased the output.
+    - Fixed Biomass Recipe 3. Increased the output
   Features:
-    - Added Power Rail, now it's own entity.
-    - Tweaked Terraformer Recipies. 
+    - Added Power Rail, now its own entity
+    - Tweaked Terraformer Recipes
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.5
@@ -42,14 +55,14 @@ Date: 3. 27. 2018
 Version: 2.2.0
 Date: 3. 17. 2018
   Bugfixes:
-    - If using Bob's and disabeling solar
+    - If using Bob's and disabling solar
     - Hide Huge Power Pole Recipe from start
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.9
 Date: 3. 13. 2018
   Bugfixes:
-    - bi_bio_Solar_Farm_Image - Crash fix
+    - "bi_bio_Solar_Farm_Image" - Crash fix
   Features:
     - Option to use OLD Bio Farm Image
 

@@ -111,7 +111,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							terrain_name_g3 = "grass-3"
 						end
 						
-						if Bi_Industries.fertility[currentTilename] and currentTilename ~= terrain_name_g1 then
+						--if Bi_Industries.fertility[currentTilename] and currentTilename ~= terrain_name_g1 then
+						if Bi_Industries.fertility[currentTilename] and not Terrain_Check_1[currentTilename] then
 						
 							
 							--- Remove 100 Water
@@ -163,7 +164,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							terrain_name_g3 = "grass-3"
 						end	
 						
-						if Bi_Industries.fertility[currentTilename] then
+						if Bi_Industries.fertility[currentTilename] and currentTilename ~= terrain_name_g1 then
 							
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
