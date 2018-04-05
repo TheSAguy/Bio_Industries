@@ -4,7 +4,7 @@ data:extend({
 	--- Basic Dart
 	{
 		type = "recipe",
-		name = "basic_dart_magazine",
+		name = "bi_recipe_basic_dart_magazine",
 		
 		normal =
 		{
@@ -33,7 +33,7 @@ data:extend({
 		--- Enhanced Dart
 	{
 		type = "recipe",
-		name = "enhanced_dart_magazine",
+		name = "bi_recipe_enhanced_dart_magazine",
 		--category = "crafting-with-fluid",
 		
 		normal =
@@ -63,10 +63,10 @@ data:extend({
 	}, 	
 
 
-	--- Conversion Turret
+	--- Dart Turret
   {
     type = "recipe",
-    name = "bio_turret",
+    name = "bi_recipe_dart_turret",
     	
 	normal =
 		{

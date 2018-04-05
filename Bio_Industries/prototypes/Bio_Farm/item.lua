@@ -8,7 +8,8 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
 		flags = {"goes-to-main-inventory"},
-		subgroup = "intermediate-product",
+		--subgroup = "intermediate-product",
+		subgroup = "bio-bio-farm",
 		order = "x[bi]-a[bi-seed]",
 		fuel_value = "0.5MJ",
 		fuel_category = "chemical",
@@ -23,7 +24,8 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
-		subgroup = "intermediate-product",
+		--subgroup = "intermediate-product",
+		subgroup = "bio-bio-farm",
 		order = "x[bi]-b[bi-seedling]",
 		place_result="seedling",
 		fuel_value = "1MJ",
@@ -34,59 +36,16 @@ data:extend({
   ----Bio Farm
 	{
 		type= "item",
-		name= "bi_bio_farm",
+		name= "bi_recipe_bio_farm",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 		icon_size = 32,
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
-		order = "x[bi]-ab[bi_bio_farm]",
-		place_result = "bi_bio_farm",
+		order = "x[bi]-ab[bi_recipe_bio_farm]",
+		place_result = "bi_recipe_bio_farm",
 		stack_size= 10,
 	},
-  --[[
-  ---- Light inside Bio Farm (Hidden)
-	{
-		type= "item",
-		name= "bi_light_for_Bio_Farm",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Lamp.png",
-		icon_size = 32,
-		flags = {"hidden"},
-		subgroup = "production-machine",
-		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_light_for_Bio_Farm",
-		stack_size= 10,
-		enable = false,
-	},
-  
-  ---- Electric pole inside Bio Farm (Hidden)
-	{
-		type = "item",
-		name = "bi_medium-electric-pole_for_Bio_Farm",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
-		icon_size = 32,
-		flags = {"hidden"},
-		subgroup = "energy-pipe-distribution",
-		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_medium-electric-pole_for_Bio_Farm",
-		stack_size = 50,
-		enable = false,
-	},
-  
-  ----- Solar Panel inside Bio Farm (Hidden)
-	{
-		type = "item",
-		name = "bi_solar-panel_for_Bio_Farm",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Solar.png",
-		icon_size = 32,
-		flags = {"hidden"},
-		subgroup = "energy",
-		order = "x[bi]-a[bi_bio_farm]",
-		place_result = "bi_solar-panel_for_Bio_Farm",
-		stack_size = 50,
-		enable = false,
-	},
-  ]]
-  
+   
   ----Bio Greenhouse (Nursery)
 	{
 		type= "item",
@@ -301,57 +260,57 @@ data:extend({
   
     {
 		type = "item",
-		name = "bi_Arboretum_r1",
+		name = "bi_recipe_arboretum_r1",
 		icon = "__Bio_Industries__/graphics/icons/Seedling_b.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_Arboretum_r1",
+		order = "bi_recipe_arboretum_r1",
 		stack_size = 1
 	},
   
    
     {
 		type = "item",
-		name = "bi_Arboretum_r2",
+		name = "bi_recipe_arboretum_r2",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_1.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_Arboretum_r2",
+		order = "bi_recipe_arboretum_r2",
 		stack_size = 1
 	},
    
       {
 		type = "item",
-		name = "bi_Arboretum_r3",
+		name = "bi_recipe_arboretum_r3",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_2.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_Arboretum_r3",
+		order = "bi_recipe_arboretum_r3",
 		stack_size = 1
 	},
 	
      {
 		type = "item",
-		name = "bi_Arboretum_r4",
+		name = "bi_recipe_arboretum_r4",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_1.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_Arboretum_r4",
+		order = "bi_recipe_arboretum_r4",
 		stack_size = 1
 	},
   	
      {
 		type = "item",
-		name = "bi_Arboretum_r5",
+		name = "bi_recipe_arboretum_r5",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_2.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_Arboretum_r5",
+		order = "bi_recipe_arboretum_r5",
 		stack_size = 1
 	},
   

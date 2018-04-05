@@ -6,42 +6,42 @@ data:extend(
 
 	{
 		type = "technology",
-		name = "bi-advanced-biotechnology",
+		name = "bi_tech_advanced_biotechnology",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Biomass_128.png",
 		effects = {
 			
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_4"
+				recipe = "bi_recipe_seed_4"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Seedling_Mk4"
+				recipe = "bi_recipe_seedling_mk4"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Logs_Mk4"
+				recipe = "bi_recipe_logs_mk4"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-adv-fertiliser-2"
+				recipe = "bi_recipe_adv_fertiliser_2"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_bomb_advanced"
+				recipe = "bi_recipe_seed_bomb_advanced"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_Arboretum_r3"
+				recipe = "bi_recipe_arboretum_r3"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_Arboretum_r5"
+				recipe = "bi_recipe_arboretum_r5"
 			},
 		},
 		prerequisites = {
-			"bi-fertiliser"
+			"bi_tech_fertiliser"
 		},
 		unit = {
 			count = 200,

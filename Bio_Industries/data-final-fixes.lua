@@ -15,9 +15,9 @@ end
 
 
 if settings.startup["angels-use-angels-barreling"] and settings.startup["angels-use-angels-barreling"].value then
-   data.raw.technology["bi-fertiliser"].prerequisites = 
+   data.raw.technology["bi_tech_fertiliser"].prerequisites = 
       {
-         "bi_bio_farming",
+         "bi_tech_bio_farming",
          -- AND (
          "water-treatment", -- sulfur
          -- OR

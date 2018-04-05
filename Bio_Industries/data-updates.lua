@@ -66,10 +66,10 @@ if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.remove_recipe_unlock ("railway", "rail")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_rail_power")
-	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_power_to_rail_pole")
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_recipe_power_to_rail_pole")
 else
 	thxbob.lib.tech.add_recipe_unlock("railway", "bi_rail_power")
-	thxbob.lib.tech.add_recipe_unlock("railway", "bi_power_to_rail_pole")
+	thxbob.lib.tech.add_recipe_unlock("railway", "bi_recipe_power_to_rail_pole")
 end
 	
 -- Damage Bonus to Ammo
@@ -85,16 +85,16 @@ if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
 		require("prototypes.Bio_Cannon.technology-updates")
 	end
 	-- add Prototype Artillery as pre req for artillery
-	thxbob.lib.tech.add_prerequisite("artillery", "Bio_Cannon")
+	thxbob.lib.tech.add_prerequisite("artillery", "bi_tech_bio_cannon")
 end
 
 --- Move Stone Crusher up in tech tree
 thxbob.lib.tech.add_recipe_unlock("automation", "bi-stone-crusher")
-thxbob.lib.tech.add_recipe_unlock("automation", "bi-crushed-stone")
+thxbob.lib.tech.add_recipe_unlock("automation", "bi_recipe_crushed_stone")
 
 
 -- Add Large Wooden Chest
-thxbob.lib.tech.add_recipe_unlock("logistics-2", "bi_large_wooden_chest")
+thxbob.lib.tech.add_recipe_unlock("logistics-2", "bi_recipe_large_wooden_chest")
 
 
 ---- Game Tweaks ----
@@ -153,11 +153,11 @@ end
 	
 	--- Disassemble of Burner Miner Drill and Steel Furnace
 	require("prototypes.Bio_Tweaks.recipe")
-	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_steel_furnace_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_burner_mining_drill_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_stone_furnace_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_burner_inserter_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_long_handed_inserter_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
 	
 end
 
@@ -173,7 +173,7 @@ data.raw.item["wood"].place_as_tile =
 	
 	-- Add Big and Huge electric poles to tech tree
 thxbob.lib.tech.add_recipe_unlock ("logistics", "bi-big-wooden-pole")
-thxbob.lib.tech.add_recipe_unlock ("electric-energy-distribution-2", "bi_huge_wooden_pole")
+thxbob.lib.tech.add_recipe_unlock ("electric-energy-distribution-2", "bi_recipe_huge_wooden_pole")
 	
 
 --- Make it so that the Base game tile "grass" can't be placed in blueprints
@@ -349,19 +349,19 @@ end
 if BI.Settings.BI_Solar_Additions then
 	if data.raw.technology["bob-solar-energy-2"] then
 		
-		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_accumulator")
-		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_large_substation")
-		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_bio_Solar_Farm")
-		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_solar_mat")
-		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_Solar_Boiler_panel")
+		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_recipe_accumulator")
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_recipe_huge_substation")
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_bio_solar_farm")
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_solar_mat")
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_solar_boiler_panel")
 		
 	else
 
-		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_accumulator")
-		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_large_substation")
-		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_bio_Solar_Farm")
-		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_solar_mat")
-		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_Solar_Boiler_panel")
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_recipe_accumulator")
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_recipe_huge_substation")
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_bio_solar_farm")
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_solar_mat")
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_solar_boiler_panel")
 		
 	end	
 end
@@ -370,44 +370,46 @@ end
 --- Changes fertiliser recipes if bob's
 if data.raw.item["sodium-hydroxide"] then
 
-	thxbob.lib.recipe.add_new_ingredient ("bi-fertiliser-2", {type="item", name="sodium-hydroxide", amount=10})
-	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-fertiliser-2")
+	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="sodium-hydroxide", amount=10})
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
 	
 end	
 	
 if BI.Settings.BI_Bio_Fuel or mods["Natural_Evolution_Buildings"] then
 
 	require("prototypes.Bio_Farm.technology2")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-Clean_Air2")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_clean_air_2")
 	
 end
 
 -- Adds Bio recipes
 if BI.Settings.BI_Bio_Fuel then 
 
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-bioreactor")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose-1")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-cellulose-2")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-1")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-2")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass-3")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-battery")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-1")	
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-2")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-biomass_conversion-3")
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-acid")	
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bio_boiler")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi-bioreactor")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_cellulose_1")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_cellulose_2")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_1")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_2")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_3")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_battery")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_conversion_1")	
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_conversion_2")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_conversion_3")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_acid")	
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_boiler")
 
 	if mods["angelspetrochem"] then
-		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur_angels")	
+		thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_sulfur_angels")	
 	else
-		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur")	
+		thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_sulfur")	
 	end
 	
-	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-1", {type="fluid", name="bi-biomass", amount=10})
-	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-2", {type="fluid", name="bi-biomass", amount=10})
+	thxbob.lib.recipe.add_new_ingredient("bi_recipe_adv_fertiliser_1", {type="fluid", name="bi-biomass", amount=10})
+	thxbob.lib.recipe.add_new_ingredient("bi_recipe_adv_fertiliser_2", {type="fluid", name="bi-biomass", amount=10})
 	
 end
+
+
 
 --update crushed stone icon
 data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
@@ -415,7 +417,7 @@ data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed
 	
 --- Make Bio Farm use glass if Bob's
 if data.raw.item.glass  then
-	thxbob.lib.recipe.replace_ingredient("bi_bio_farm", "copper-cable", "glass")
+	thxbob.lib.recipe.replace_ingredient("bi_recipe_bio_farm", "copper-cable", "glass")
 end
 	
 
@@ -424,7 +426,7 @@ end
 if data.raw.item["alien-artifact"] then
 	--- Advanced Fertiliser will use Alien Artifact
 	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-1", {type="item", name="alien-artifact", amount=5})
-	thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-adv-fertiliser-1")	
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_adv_fertiliser_1")	
 end	
 
 
@@ -451,8 +453,8 @@ end
 ------------ Changing order/sorting/groups
 if BI.Settings.BI_Solar_Additions and data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
 	
-	data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
+	data.raw["item"]["bi_recipe_bio_solar_farm"].subgroup = "bob-energy-solar-panel"
+	data.raw["item"]["bi_recipe_bio_solar_farm"].order="d[solar-panel]-x[bi_recipe_bio_solar_farm]"	
 	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
 
 end
@@ -461,8 +463,8 @@ end
 ------------ Changing order/sorting/groups
 if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Solar_Additions then 
 	
-	data.raw["item"]["bi_accumulator"].subgroup = "bob-energy-accumulator"
-	data.raw["item"]["bi_accumulator"].order="e[accumulator]-a[accumulator]-x"	
+	data.raw["item"]["bi_recipe_accumulator"].subgroup = "bob-energy-accumulator"
+	data.raw["item"]["bi_recipe_accumulator"].order="e[accumulator]-a[accumulator]-x"	
 	data.raw["item"]["bi-large-substation"].subgroup = "bob-energy-accumulator"
 	
 end
@@ -471,35 +473,35 @@ end
 if data.raw["item-subgroup"]["bob-fluid"] then 
 	
 	if BI.Settings.BI_Bio_Fuel and mods["Natural_Evolution_Buildings"] then
-		data.raw["recipe"]["bi-biomass_conversion-1"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi-biomass_conversion-1"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-1]"	
-		data.raw["recipe"]["bi-biomass_conversion-2"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi-biomass_conversion-2"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-2]"	
-		data.raw["recipe"]["bi-biomass_conversion-3"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi-biomass_conversion-3"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-3]"		
-		data.raw["recipe"]["bi-plastic-1"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi-plastic-1"].order = "g[plastic-bar-1]"
-		data.raw["recipe"]["bi-plastic-2"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi-plastic-2"].order = "g[plastic-bar-2]"
-		data.raw["recipe"]["bi-cellulose-1"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi-cellulose-1"].order = "g[cellulose-1]"
-		data.raw["recipe"]["bi-cellulose-2"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi-cellulose-2"].order = "g[cellulose-2]"
+		data.raw["recipe"]["bi_recipe_biomass_conversion_1"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi_recipe_biomass_conversion_1"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-1]"	
+		data.raw["recipe"]["bi_recipe_biomass_conversion_2"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi_recipe_biomass_conversion_2"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-2]"	
+		data.raw["recipe"]["bi_recipe_biomass_conversion_3"].subgroup = "bob-fluid"
+		data.raw["recipe"]["bi_recipe_biomass_conversion_3"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-3]"		
+		data.raw["recipe"]["bi_recipe_plastic_1"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi_recipe_plastic_1"].order = "g[plastic-bar-1]"
+		data.raw["recipe"]["bi_recipe_plastic_2"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi_recipe_plastic_2"].order = "g[plastic-bar-2]"
+		data.raw["recipe"]["bi_recipe_cellulose_1"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi_recipe_cellulose_1"].order = "g[cellulose-1]"
+		data.raw["recipe"]["bi_recipe_cellulose_2"].subgroup = "bob-resource-chemical"
+		data.raw["recipe"]["bi_recipe_cellulose_2"].order = "g[cellulose-2]"
 	end
 	
 end
 
 if data.raw["item-subgroup"]["bob-material"] then 
 
-	data.raw["recipe"]["bi-charcoal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-charcoal-2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-coal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-coal-2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-coke-coal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-ash"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-ash-2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-woodpulp"].subgroup = "bob-material"
-	data.raw["recipe"]["bi-crushed-stone"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_charcoal"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_charcoal_2"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_coal"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_coal_2"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_coke_coal"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_ash_1"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_ash_2"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_woodpulp"].subgroup = "bob-material"
+	data.raw["recipe"]["bi_recipe_crushed_stone"].subgroup = "bob-material"
 
 end
 
@@ -536,12 +538,12 @@ end
 if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
 
-	data.raw["lamp"]["bi_bio_Solar_Farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-	data.raw["solar-panel"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-	data.raw["item"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["lamp"]["bi_recipe_bio_solar_farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["solar-panel"]["bi_recipe_bio_solar_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["item"]["bi_recipe_bio_solar_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
 
 
-	data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_off =
+	data.raw["lamp"]["bi_recipe_bio_solar_farm_Image"].picture_off =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
 		  priority = "low",
@@ -554,7 +556,7 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 
 
 
-	data.raw["lamp"]["bi_bio_Solar_Farm_Image"].picture_on =
+	data.raw["lamp"]["bi_recipe_bio_solar_farm_Image"].picture_on =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
 		  priority = "low",
@@ -567,7 +569,7 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 
 
 
-	data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
+	data.raw["solar-panel"]["bi_recipe_bio_solar_farm"].picture =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
 		  priority = "low",
@@ -587,12 +589,12 @@ end
 if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image"].value then
 
 
-	data.raw["assembling-machine"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["assembling-machine"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["lamp"]["bi_light_for_Bio_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["item"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["recipe"]["bi_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["item"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["recipe"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	
-	data.raw["assembling-machine"]["bi_bio_farm"].animation =
+	data.raw["assembling-machine"]["bi_recipe_bio_farm"].animation =
 		{
 			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
 			priority = "high",
@@ -604,7 +606,7 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 
 
 
-	data.raw["assembling-machine"]["bi_bio_farm"].working_visualisations =
+	data.raw["assembling-machine"]["bi_recipe_bio_farm"].working_visualisations =
 		{
 
 			animation =
@@ -649,42 +651,3 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 	
 end
 
-
---[[	
-	-- Obsolete??
-------- DyTech Support (Might be outdated....)
-if BI_Config.mod.DyTechCore then
-
-require("prototypes.Bio_Farm.dytech_recipe")
-		
-	thxbob.lib.tech.add_recipe_unlock("bi_bio_farming", "bi-resin")
-	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-resin_Mk2")
-	thxbob.lib.tech.add_recipe_unlock("bi_bio_farming", "bi-sulfur-wood")
-	thxbob.lib.tech.add_recipe_unlock("bi-fertiliser", "bi-sulfur-wood_Mk2")
-
-	
-	if data.raw.item["sulfur-seed"].stack_size < 400 then
-	data.raw.item["sulfur-seed"].stack_size = 400
-	end
-
-	if data.raw.item["sulfur-wood"].stack_size < 400 then
-	data.raw.item["sulfur-wood"].stack_size = 400
-	end
-
-	if data.raw.item["rubber-seed"].stack_size < 400 then
-	data.raw.item["rubber-seed"].stack_size = 400
-	end
-
-	--- If you're using NE Buildings, add an advanced recipe
-	if mods["Natural_Evolution_Buildings"] then
-		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-resin_Mk3")
-		thxbob.lib.tech.add_recipe_unlock("bi-advanced-biotechnology", "bi-sulfur-wood_Mk3")
-		thxbob.lib.recipe.add_new_ingredient ("bi-resin_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
-		thxbob.lib.recipe.add_new_ingredient ("bi-sulfur-wood_Mk3", {type="item", name="bi-adv-fertiliser", amount=5})
-
-	end
-
-end
-]]
-
-	

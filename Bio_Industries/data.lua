@@ -25,6 +25,9 @@ require ("libs.technology-functions") -- From Bob's Libary
 require ("libs.functions") -- From Bob's Libary 
 
 
+require("prototypes.category")
+
+
 --- Bio Farm
 require("prototypes.Bio_Farm.entities")
 require("prototypes.Bio_Farm.item")

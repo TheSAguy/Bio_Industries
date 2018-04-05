@@ -3,10 +3,9 @@
 data:extend({
 
 	--- Bio Boiler ---
-
 	{
 		type = "recipe",
-		name = "bio_boiler",
+		name = "bi_recipe_boiler",
 		normal =
 		{
 			enabled = false,
@@ -68,19 +67,15 @@ data:extend({
 		},
 		
 	},
-	
-	
-
-	
-	----_______________________ NEW _______________________________
-	
-		-- CELLULOSE 1 --
+		
+	-- CELLULOSE 1 --
 	{
 		type = "recipe",
-		name = "bi-cellulose-1",
+		name = "bi_recipe_cellulose_1",
 		icon = "__Bio_Industries__/graphics/icons/cellulose.png",
 		icon_size = 32,
 		category = "chemistry",
+		subgroup = "bio-bio-fuel-fluid",
 		order = "[bi-cellulose-1]",
 		energy_required = 20,
 		ingredients =
@@ -98,10 +93,11 @@ data:extend({
 	-- CELLULOSE 2 --
 	{
 		type = "recipe",
-		name = "bi-cellulose-2",
+		name = "bi_recipe_cellulose_2",
 		icon = "__Bio_Industries__/graphics/icons/cellulose_2.png",
 		icon_size = 32,
 		category = "chemistry",
+		subgroup = "bio-bio-fuel-fluid",
 		order = "[bi-cellulose-2]",
 		energy_required = 5,
 		ingredients =
@@ -118,10 +114,10 @@ data:extend({
 	},
 	
 	
-		-- PLASTIC 1 --
+	-- PLASTIC 1 --
 	{
 		type = "recipe",
-		name = "bi-plastic-1",
+		name = "bi_recipe_plastic_1",
 		icon = "__Bio_Industries__/graphics/icons/plastic_bar_1.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -140,11 +136,12 @@ data:extend({
 		},
 		enabled = false,
 	},
+
 	
 	-- PLASTIC 2 --
 		{
 		type = "recipe",
-		name = "bi-plastic-2",
+		name = "bi_recipe_plastic_2",
 		icon = "__Bio_Industries__/graphics/icons/plastic_bar_2.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -164,10 +161,10 @@ data:extend({
 	},
 	
 
-			-- BIOMASS 1 --
+	-- BIOMASS 1 --
 	{
 		type = "recipe",
-		name = "bi-biomass-1",
+		name = "bi_recipe_biomass_1",
 		icon = "__Bio_Industries__/graphics/icons/biomass_1.png",
 		icon_size = 32,
 		category = "biofarm-mod-bioreactor",
@@ -182,14 +179,14 @@ data:extend({
 			{type="fluid", name="bi-biomass", amount=50},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
+		subgroup = "bio-bio-fuel-fluid",
 		order = "x[oil-processing]-z1[bi-biomass]"
 	},	
 	
 	-- BIOMASS 2 --
 	{
 		type = "recipe",
-		name = "bi-biomass-2",
+		name = "bi_recipe_biomass_2",
 		icon = "__Bio_Industries__/graphics/icons/biomass_2.png",
 		icon_size = 32,
 		category = "biofarm-mod-bioreactor",
@@ -206,14 +203,14 @@ data:extend({
 			{type="fluid", name="bi-biomass", amount=100},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
+		subgroup = "bio-bio-fuel-fluid",
 		order = "x[oil-processing]-z2[bi-biomass]"
 	},	
 	
 	-- BIOMASS 3 --
 	{
 		type = "recipe",
-		name = "bi-biomass-3",
+		name = "bi_recipe_biomass_3",
 		icon = "__Bio_Industries__/graphics/icons/biomass_3.png",
 		icon_size = 32,
 		category = "biofarm-mod-bioreactor",
@@ -229,15 +226,14 @@ data:extend({
 			{type="fluid", name="bi-biomass", amount=35},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
+		subgroup = "bio-bio-fuel-fluid",
 		order = "x[oil-processing]-z3[bi-biomass]"
 	},	
 	
 	---- Biomass to Light-oil
-
   {
     type = "recipe",
-    name = "bi-biomass_conversion-1",
+    name = "bi_recipe_biomass_conversion_1",
 	icon = "__Bio_Industries__/graphics/icons/bio_conversion_1.png", 
 	icon_size = 32,
     category = "oil-processing",
@@ -254,15 +250,14 @@ data:extend({
 		{type="fluid", name="light-oil", amount=80},
     },
     
-    subgroup = "fluid-recipes",  
+    subgroup = "bio-bio-fuel-fluid",
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-1]",
   },
 
   	---- Biomass to PG
-
   {
     type = "recipe",
-    name = "bi-biomass_conversion-2",
+    name = "bi_recipe_biomass_conversion_2",
 	icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png",
 	icon_size = 32,	
     category = "oil-processing",
@@ -278,15 +273,14 @@ data:extend({
 	    {type="fluid", name="petroleum-gas", amount=20}
     },
     
-    subgroup = "fluid-recipes",  
+    subgroup = "bio-bio-fuel-fluid",
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-2]",
   },
 
-    	---- Biomass to Lube
-
+    ---- Biomass to Lube
   {
     type = "recipe",
-    name = "bi-biomass_conversion-3",
+    name = "bi_recipe_biomass_conversion_3",
 	icon = "__Bio_Industries__/graphics/icons/bio_conversion_3.png",
 	icon_size = 32,	
     category = "oil-processing",
@@ -302,7 +296,7 @@ data:extend({
 		{type="fluid", name="lubricant", amount=10}
     },
     
-    subgroup = "fluid-recipes",  
+    subgroup = "bio-bio-fuel-fluid",
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-3]",
 	crafting_machine_tint =
     {
@@ -313,12 +307,10 @@ data:extend({
   },
 
 
-  
-  --- Bio Battery
-  	
+  --- Bio Battery 	
 	{
 		type = "recipe",
-		name = "bi-battery",
+		name = "bi_recipe_battery",
 		icon = "__Bio_Industries__/graphics/icons/bio_battery.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -343,10 +335,9 @@ data:extend({
 	},	
 	
 	  --- Bio Acid
-  	
 	{
 		type = "recipe",
-		name = "bi-acid",
+		name = "bi_recipe_acid",
 		icon = "__Bio_Industries__/graphics/icons/bio_acid.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -372,10 +363,10 @@ data:extend({
 
 	},	
 	
-		-- Sulfuric acid to Sulfur --
+	-- Sulfuric acid to Sulfur --
 	{
 		type = "recipe",
-		name = "bi-sulfur",
+		name = "bi_recipe_sulfur",
 		icon = "__Bio_Industries__/graphics/icons/bio_sulfur.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -392,10 +383,10 @@ data:extend({
 		enabled = false,
 	},
 	
-			-- Sulfuric acid to Sulfur --IF ANGELS INSTALLED
+		-- Sulfuric acid to Sulfur --IF ANGELS INSTALLED (More Expensice)
 	{
 		type = "recipe",
-		name = "bi-sulfur_angels",
+		name = "bi_recipe_sulfur_angels",
 		icon = "__Bio_Industries__/graphics/icons/bio_sulfur.png",
 		icon_size = 32,
 		category = "chemistry",

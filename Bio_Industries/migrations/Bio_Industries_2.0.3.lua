@@ -12,10 +12,10 @@ for index, force in pairs(game.forces) do
 	
 
   	if game.entity_prototypes["bi-bioreactor"] then	
-		if technologies["bi-advanced-biotechnology"].researched then
+		if technologies["bi_tech_advanced_biotechnology"].researched then
 
-			recipes["bi-biomass_conversion-3"].enabled = true
-			recipes["bi-biomass_conversion-3"].reload()
+			recipes["bi_recipe_biomass_conversion_3"].enabled = true
+			recipes["bi_recipe_biomass_conversion_3"].reload()
 
 			
 		end

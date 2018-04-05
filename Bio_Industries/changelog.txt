@@ -62,7 +62,7 @@ Date: 3. 17. 2018
 Version: 2.1.9
 Date: 3. 13. 2018
   Bugfixes:
-    - "bi_bio_Solar_Farm_Image" - Crash fix
+    - "bi_recipe_bio_solar_farm_Image" - Crash fix
   Features:
     - Option to use OLD Bio Farm Image
 

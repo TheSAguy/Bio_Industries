@@ -21,7 +21,7 @@ data:extend({
     icon = "__Bio_Industries__/graphics/icons/Clean_Air2.png",
 	icon_size = 32,
     flags = {"goes-to-main-inventory", "hidden"},
-    subgroup = "raw-material",
+	subgroup = "bio-bio-gardens-fluid",
     order = "bi-Purified_Air",
     stack_size = 100
   },

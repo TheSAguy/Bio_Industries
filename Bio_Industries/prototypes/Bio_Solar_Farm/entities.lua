@@ -4,7 +4,7 @@ require ("util")
 if BI.Settings.BI_Solar_Additions then
 	
 	data:extend({
-	
+	--[[
 	------- Bio Solar Farm - Image Only, to make as if it switches on and off.
 	  {
 		type = "lamp",
@@ -51,7 +51,7 @@ if BI.Settings.BI_Solar_Additions then
 		},
 		
 	},
-		
+		]]
 	  ------- Bio Farm Solar Panel
 	  {
 		type = "solar-panel",

@@ -145,11 +145,11 @@ data:extend({
   ------- Bio Farm
   {
     type = "assembling-machine",
-    name = "bi_bio_farm",
+    name = "bi_recipe_bio_farm",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "bi_bio_farm"},
+    minable = {hardness = 0.2, mining_time = 0.5, result = "bi_recipe_bio_farm"},
     max_health = 250,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",

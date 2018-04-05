@@ -4,8 +4,8 @@ data:extend(
 {
   {
     type = "item-subgroup",
-    name = "Disassemble",
-    group = "production",
+    name = "bio-disassemble",
+    group = "bio-industries",
     order = "zzzz",
   },
  
@@ -13,12 +13,12 @@ data:extend(
  
 	{
 		type = "recipe",
-		name = "bi_burner_mining_drill_disassemble",
+		name = "bi_recipe_burner_mining_drill_disassemble",
 		icon = "__Bio_Industries__/graphics/icons/burner-mining-drill_disassemble.png",
 		icon_size = 32,
-		subgroup = "Disassemble",
+		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
-		order = "a[Disassemble]-a[bi_burner_mining_drill_disassemble]",
+		order = "a[Disassemble]-a[bi_recipe_burner_mining_drill_disassemble]",
 		energy_required = 2,
 		ingredients =
 			{
@@ -35,12 +35,12 @@ data:extend(
   
   	{
 		type = "recipe",
-		name = "bi_stone_furnace_disassemble",
+		name = "bi_recipe_stone_furnace_disassemble",
 		icon = "__Bio_Industries__/graphics/icons/stone_furnace_disassemble.png",
 		icon_size = 32,
-		subgroup = "Disassemble",
+		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
-		order = "a[Disassemble]-b[bi_stone_furnace_disassemble]",
+		order = "a[Disassemble]-b[bi_recipe_stone_furnace_disassemble]",
 		energy_required = 2,
 		ingredients =
 			{
@@ -58,12 +58,12 @@ data:extend(
 	
 	{
 		type = "recipe",
-		name = "bi_burner_inserter_disassemble",
+		name = "bi_recipe_burner_inserter_disassemble",
 		icon = "__Bio_Industries__/graphics/icons/burner_inserter_disassemble.png",
 		icon_size = 32,
-		subgroup = "Disassemble",
+		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
-		order = "a[Disassemble]-c[bi_burner_inserter_disassemble]",
+		order = "a[Disassemble]-c[bi_recipe_burner_inserter_disassemble]",
 		energy_required = 2,
 		ingredients =
 			{
@@ -80,12 +80,12 @@ data:extend(
 	
 	{
 		type = "recipe",
-		name = "bi_long_handed_inserter_disassemble",
+		name = "bi_recipe_long_handed_inserter_disassemble",
 		icon = "__Bio_Industries__/graphics/icons/long_handed_inserter_disassemble.png",
 		icon_size = 32,
-		subgroup = "Disassemble",
+		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
-		order = "a[Disassemble]-d[bi_long_handed_inserter_disassemble]",
+		order = "a[Disassemble]-d[bi_recipe_long_handed_inserter_disassemble]",
 		energy_required = 2,
 		ingredients =
 			{
@@ -105,12 +105,12 @@ data:extend(
 
 	{
 		type = "recipe",
-		name = "bi_steel_furnace_disassemble",
+		name = "bi_recipe_steel_furnace_disassemble",
 		icon = "__Bio_Industries__/graphics/icons/steel-furnace_disassemble.png",
 		icon_size = 32,
-		subgroup = "Disassemble",
+		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
-		order = "a[Disassemble]-e[bi_steel_furnace_disassemble]",
+		order = "a[Disassemble]-e[bi_recipe_steel_furnace_disassemble]",
 		energy_required = 2,
 		ingredients =
 			{

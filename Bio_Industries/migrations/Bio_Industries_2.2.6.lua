@@ -11,12 +11,12 @@ for index, force in pairs(game.forces) do
 		if  game.technology_prototypes["bob-railway-2"] and technologies["bob-railway-2"].researched then
 		
 			recipes["bi_rail_power"].enabled = true
-			recipes["bi_power_to_rail_pole"].reload()
+			recipes["bi_recipe_power_to_rail_pole"].reload()
 		
 		elseif  game.technology_prototypes["railway"] and technologies["railway"].researched then
 		
 			recipes["bi_rail_power"].enabled = true
-			recipes["bi_power_to_rail_pole"].reload()
+			recipes["bi_recipe_power_to_rail_pole"].reload()
 		end
 
 

@@ -47,7 +47,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 			local recipe_name = ArboretumTable.inventory.get_recipe().name
 			
 					
-				if recipe_name == "bi_Arboretum_r1" then
+				if recipe_name == "bi_recipe_arboretum_r1" then
 				
 					--writeDebug(recipe_name..": Just plant a tree")
 					local pos = ArboretumTable.inventory.position
@@ -89,7 +89,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					end
 					
 					
-				elseif recipe_name == "bi_Arboretum_r2" then
+				elseif recipe_name == "bi_recipe_arboretum_r2" then
 				
 					--writeDebug(recipe_name..": Just change terrain to grass - 3 (basic)")
 					local pos = ArboretumTable.inventory.position
@@ -141,7 +141,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					
 					end
 					
-				elseif recipe_name == "bi_Arboretum_r3" then
+				elseif recipe_name == "bi_recipe_arboretum_r3" then
 				
 
 					--writeDebug(recipe_name..": Just change terrain to grass - 1 (advanced)")
@@ -192,7 +192,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					
 					end
 					
-				elseif recipe_name == "bi_Arboretum_r4" then
+				elseif recipe_name == "bi_recipe_arboretum_r4" then
 				
 					--writeDebug(recipe_name..": Plant Tree AND change the terrain to grass - 3 (basic)")
 					local pos = ArboretumTable.inventory.position
@@ -258,7 +258,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					end
 					
 					
-				elseif recipe_name == "bi_Arboretum_r5" then
+				elseif recipe_name == "bi_recipe_arboretum_r5" then
 				
 					--writeDebug(recipe_name..": Plant Tree and change the terrain to grass - 1 (advanced)")
 					local pos = ArboretumTable.inventory.position

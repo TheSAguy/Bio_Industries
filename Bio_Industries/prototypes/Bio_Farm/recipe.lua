@@ -5,7 +5,7 @@ data:extend({
 	--- Seeds from Water (BASIC)
 	{
 		type = "recipe",
-		name = "bi_seed_1",
+		name = "bi_recipe_seed_1",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed1.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",	
@@ -20,19 +20,20 @@ data:extend({
 			{type="item", name="bi-seed", amount=40},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
-		order = "a[bi]-ssw-a1[bi_seed_1]",		
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
+		order = "a[bi]-ssw-a1[bi_recipe_seed_1]",		
 	},
 	
 	
 	--- Seeds from Water & Ash	
 	{
 		type = "recipe",
-		name = "bi_seed_2",
+		name = "bi_recipe_seed_2",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed2.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-ssw-a1[bi_seed_2]",		
+		order = "a[bi]-ssw-a1[bi_recipe_seed_2]",		
 		enabled = false,
 		energy_required = 90,
 		ingredients =
@@ -44,19 +45,19 @@ data:extend({
 
 		result_count = 50,
 		result = "bi-seed",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
 	
-
 	
 	--- Seeds from Water & Fertiliser
 	{
 		type = "recipe",
-		name = "bi_seed_3",
+		name = "bi_recipe_seed_3",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed3.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-ssw-a1[bi_seed_3]",		
+		order = "a[bi]-ssw-a1[bi_recipe_seed_3]",		
 		enabled = false,
 		energy_required = 75,
 		ingredients =
@@ -68,17 +69,19 @@ data:extend({
 
 		result_count = 60,
 		result = "bi-seed",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes,
+		subgroup = "bio-bio-farm-fluid",
 	},
+
 	
-		--- Seeds from Water & Adv-fertiliser 
+	--- Seeds from Water & Adv-fertiliser 
 	{
 		type = "recipe",
-		name = "bi_seed_4",
+		name = "bi_recipe_seed_4",
 		icon = "__Bio_Industries__/graphics/icons/bio_seed4.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
-		order = "a[bi]-ssw-a1[bi_seed_4]",		
+		order = "a[bi]-ssw-a1[bi_recipe_seed_4]",		
 		enabled = false,
 		energy_required = 50,
 		ingredients =
@@ -90,13 +93,15 @@ data:extend({
 
 		result_count = 80,
 		result = "bi-seed",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
+
 	
 	--- Seedlings from Water (BASIC)
 	{
 		type = "recipe",
-		name = "bi-Seedling_Mk1",
+		name = "bi_recipe_seedling_mk1",
 		icon = "__Bio_Industries__/graphics/icons/Seedling1.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
@@ -111,14 +116,15 @@ data:extend({
 
 		result_count = 40,
 		result = "seedling",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
+
 	
-		
 	--- Seedlings from Water & Ash
 	{
 		type = "recipe",
-		name = "bi-Seedling_Mk2",
+		name = "bi_recipe_seedling_mk2",
 		icon = "__Bio_Industries__/graphics/icons/Seedling2.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
@@ -134,14 +140,15 @@ data:extend({
 	
 		result_count = 60,
 		result = "seedling",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
 	
 		
 	--- Seedlings from Water & Fertiliser
 	{
 		type = "recipe",
-		name = "bi-Seedling_Mk3",
+		name = "bi_recipe_seedling_mk3",
 		icon = "__Bio_Industries__/graphics/icons/Seedling3.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
@@ -157,14 +164,15 @@ data:extend({
 	
 		result_count = 90,
 		result = "seedling",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
 	
 		
 	--- Seedlings from Water & Adv-fertiliser 
 	{
 		type = "recipe",
-		name = "bi-Seedling_Mk4",
+		name = "bi_recipe_seedling_mk4",
 		icon = "__Bio_Industries__/graphics/icons/Seedling4.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
@@ -179,15 +187,15 @@ data:extend({
 		},
 		result_count = 160,
 		result = "seedling",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
-	
-	
+		
 
 	--- Bio Greenhouse
 	{
 		type = "recipe",
-		name = "bio_greenhouse",
+		name = "bi_recipe_greenhouse",
 		icon = "__Bio_Industries__/graphics/icons/bio_greenhouse.png",
 		icon_size = 32,
 		normal =
@@ -218,11 +226,12 @@ data:extend({
 		},
 
 	},
+
 	
 	--- Bio Farm
 	{
 		type = "recipe",
-		name = "bi_bio_farm",
+		name = "bi_recipe_bio_farm",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 		icon_size = 32,
 		normal =
@@ -235,7 +244,7 @@ data:extend({
 			  {"copper-cable",10},
 			  {"stone-brick",10},
 			},
-		  result = "bi_bio_farm",
+		  result = "bi_recipe_bio_farm",
 		  result_count = 1,
 		},
 		expensive =
@@ -248,17 +257,17 @@ data:extend({
 			  {"copper-cable",20},
 			  {"stone-brick",20},
 			},
-		  result = "bi_bio_farm",
+		  result = "bi_recipe_bio_farm",
 		  result_count = 1,
 		},
 
 	},
 	
 	
-		--- Raw Wood from Water (BASIC)
+	--- Raw Wood from Water (BASIC)
 	{
 		type = "recipe",
-		name = "bi-Logs_Mk1",
+		name = "bi_recipe_logs_mk1",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk1.png",
 		icon_size = 32,
 		category = "biofarm-mod-farm",
@@ -273,14 +282,15 @@ data:extend({
 
 		result_count = 40,
 		result = "raw-wood",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
 	
 		
-		--- Raw Wood from Water & Ash
+	--- Raw Wood from Water & Ash
 	{
 		type = "recipe",
-		name = "bi-Logs_Mk2",
+		name = "bi_recipe_logs_mk2",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk2.png",
 		icon_size = 32,
 		category = "biofarm-mod-farm",
@@ -296,14 +306,15 @@ data:extend({
 	
 		result_count = 75,
 		result = "raw-wood",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
 	
 		
-		--- Raw Wood from Water & fertiliser
+	--- Raw Wood from Water & fertiliser
 	{
 		type = "recipe",
-		name = "bi-Logs_Mk3",
+		name = "bi_recipe_logs_mk3",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk3.png",
 		icon_size = 32,
 		category = "biofarm-mod-farm",
@@ -319,14 +330,15 @@ data:extend({
 	
 		result_count = 135,
 		result = "raw-wood",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
 	
 		
-		--- Raw Wood from adv-fertiliser
+	--- Raw Wood from adv-fertiliser
 	{
 		type = "recipe",
-		name = "bi-Logs_Mk4",
+		name = "bi_recipe_logs_mk4",
 		icon = "__Bio_Industries__/graphics/icons/raw-wood-mk4.png",
 		icon_size = 32,
 		category = "biofarm-mod-farm",
@@ -341,17 +353,19 @@ data:extend({
 		},
 		result_count = 320,
 		result = "raw-wood",
-		subgroup = "fluid-recipes",
+		--subgroup = "fluid-recipes",
+		subgroup = "bio-bio-farm-fluid",
 	},
+
 	
 	-- Woodpulp--
 	{
 		type = "recipe",
-		name = "bi-woodpulp",
+		name = "bi_recipe_woodpulp",
 		icon = "__Bio_Industries__/graphics/icons/Woodpulp_raw-wood.png",
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-woodpulp]",
 		enabled = false,
 		energy_required = 5,
@@ -359,14 +373,16 @@ data:extend({
 		result = "bi-woodpulp",
 		result_count = 6,
 	}, 
+
+
 	-- ASH --
 	{
 		type = "recipe",
-		name = "bi-ash",
+		name = "bi_recipe_ash_1",
 		icon = "__Bio_Industries__/graphics/icons/ash_raw-wood.png",
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-ash]",
 		enabled = false,
 		energy_required = 10,
@@ -374,14 +390,16 @@ data:extend({
 		result = "bi-ash",
 		result_count = 10,		
 	},   
+
+
 	-- ASH 2--
 	{
 		type = "recipe",
-		name = "bi-ash-2",
+		name = "bi_recipe_ash_2",
 		icon = "__Bio_Industries__/graphics/icons/ash_woodpulp.png",
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-ash2]",
 		enabled = false,
 		energy_required = 5,
@@ -390,13 +408,14 @@ data:extend({
 		result_count = 10,
 	}, 
 
+	
 	-- CHARCOAL 1
 	{
 		type = "recipe",
-		name = "bi-charcoal",
+		name = "bi_recipe_charcoal",
 		icon = "__Bio_Industries__/graphics/icons/charcoal_woodpulp.png",
 		icon_size = 32,
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-c[charcoal1]",
 		category = "biofarm-mod-smelting",
 		energy_required = 12.5,
@@ -405,13 +424,15 @@ data:extend({
 		result_count = 18,
 		enabled = false,
 	},
+
+
 	-- CHARCOAL 2
 	{
 		type = "recipe",
-		name = "bi-charcoal-2",
+		name = "bi_recipe_charcoal_2",
 		icon = "__Bio_Industries__/graphics/icons/charcoal_raw-wood.png",
 		icon_size = 32,
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-c[charcoal2]",
 		category = "biofarm-mod-smelting",
 		energy_required = 20,
@@ -420,14 +441,16 @@ data:extend({
 		result_count = 18,
 		enabled = false,
 	},	
+
+
 	-- COAL 1 --
 	{
 		type = "recipe",
-		name = "bi-coal",
+		name = "bi_recipe_coal",
 		icon = "__Bio_Industries__/graphics/icons/coal_mk1.png",
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-d[bi-coal]",
 		energy_required = 12,
 		ingredients = {{"bi-charcoal",12}},
@@ -435,14 +458,16 @@ data:extend({
 		result_count = 8,
 		enabled = false,
 	},
+
+
 	-- COAL 2 --
 	{
 		type = "recipe",
-		name = "bi-coal-2",
+		name = "bi_recipe_coal_2",
 		icon = "__Bio_Industries__/graphics/icons/coal_mk2.png",
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-d[bi-coal2]",
 		energy_required = 18,
 		ingredients = {{"bi-charcoal",12}},
@@ -450,12 +475,14 @@ data:extend({
 		result_count = 10,
 		enabled = false,
 	},
+
+
 	-- COKE-COAL --
 	{
 		type = "recipe",
-		name = "bi-coke-coal",
+		name = "bi_recipe_coke_coal",
 		category = "biofarm-mod-smelting",
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "d-a[bi-coke-coal]",
 		order = "a[bi]-a-e[bi-coke-coal]",
 		energy_required = 25,
@@ -465,14 +492,15 @@ data:extend({
 		enabled = false,
 	},
  
-	-- CRUSHED STONE --
+
+ -- CRUSHED STONE --
 	{
 		type = "recipe",
-		name = "bi-crushed-stone",
+		name = "bi_recipe_crushed_stone",
 		icon = "__Bio_Industries__/graphics/icons/crushed-stone.png",
 		icon_size = 32,
 		category = "biofarm-mod-crushing",
-		subgroup = "raw-material",
+		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-z[stone-crushed]",
 		energy_required = 2,
 		ingredients = {{"stone",1}},
@@ -480,12 +508,14 @@ data:extend({
 		result_count = 2,
 		enabled = false,
 	},
+
+
 	-- LIQUID-AIR --
 	{
 		type = "recipe",
-		name = "bi-liquid-air",
+		name = "bi_recipe_liquid_air",
 		category = "chemistry",
-		subgroup = "intermediate-product",
+		subgroup = "bio-bio-farm-intermediate-product",
 		energy_required = 1,
 		ingredients = {},
 		results=
@@ -494,12 +524,14 @@ data:extend({
 		},
 		enabled = false,
 	},
+
+
 	-- -NITROGEN --
 	{
 		type = "recipe",
-		name = "bi-nitrogen",
+		name = "bi_recipe_nitrogen",
 		category = "chemistry",
-		subgroup = "intermediate-product",
+		subgroup = "bio-bio-farm-intermediate-product",
 		energy_required = 10,
 		ingredients =
 		{
@@ -516,7 +548,7 @@ data:extend({
 	-- fertiliser- Sulfur-
 	{
 		type = "recipe",
-		name = "bi-fertiliser",
+		name = "bi_recipe_fertiliser_1",
 		icon = "__Bio_Industries__/graphics/icons/fertiliser_sulfur.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -535,10 +567,11 @@ data:extend({
 		enabled = false,
 	},
 
-		-- fertiliser from sodium-hydroxide--
+
+	-- fertiliser from sodium-hydroxide--
 	{
 		type = "recipe",
-		name = "bi-fertiliser-2",
+		name = "bi_recipe_fertiliser_2",
 		icon = "__Bio_Industries__/graphics/icons/fertiliser_sodium-hydroxide.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -559,10 +592,10 @@ data:extend({
 	},
 
 		
-		-- Advanced fertiliser --
+	-- Advanced fertiliser 1 --
 	{
 		type = "recipe",
-		name = "bi-adv-fertiliser-1",
+		name = "bi_recipe_adv_fertiliser_1",
 		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -580,10 +613,12 @@ data:extend({
 		},
 		enabled = false,
 	},
-	
+
+
+	-- Advanced fertiliser 2--
 	{
 		type = "recipe",
-		name = "bi-adv-fertiliser-2",
+		name = "bi_recipe_adv_fertiliser_2",
 		icon = "__Bio_Industries__/graphics/icons/advanced_fertiliser_32.png",
 		icon_size = 32,
 		category = "chemistry",
@@ -633,6 +668,8 @@ data:extend({
 		},
 
 	},
+
+
 	-- STONE CRUSHER --
 	{
 		type = "recipe",
@@ -666,11 +703,11 @@ data:extend({
 
 	},
 
- --- Seed Bomb - Basic
- 
+
+	--- Seed Bomb - Basic
 	   {
 		type = "recipe",
-		name = "bi_seed_bomb_basic",
+		name = "bi_recipe_seed_bomb_basic",
 		normal =
 		{
 		  enabled = false,
@@ -694,12 +731,12 @@ data:extend({
 		  result = "seed-bomb-basic",
 		}
 	  },
+
 	  
 	   --- Seed Bomb - Standard
- 
 	   {
 		type = "recipe",
-		name = "bi_seed_bomb_standard",
+		name = "bi_recipe_seed_bomb_standard",
 		normal =
 		{
 		  enabled = false,
@@ -725,11 +762,12 @@ data:extend({
 		  result = "seed-bomb-standard",
 		}
 	  },
-	  	   --- Seed Bomb - Advanced
- 
+
+
+	  --- Seed Bomb - Advanced 
 	   {
 		type = "recipe",
-		name = "bi_seed_bomb_advanced",
+		name = "bi_recipe_seed_bomb_advanced",
 		normal =
 		{
 		  enabled = false,
@@ -757,10 +795,10 @@ data:extend({
 	  },
 	  
 	  
-	  	--- 	Arboretum
+	 --- 	Arboretum
 	{
 		type = "recipe",
-		name = "bi_Arboretum",
+		name = "bi_recipe_arboretum",
 		icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
 		icon_size = 32,
 		normal =
@@ -796,7 +834,7 @@ data:extend({
 	---   	--- 	Arboretum -  Plant Trees
 	{
 		type = "recipe",
-		name = "bi_Arboretum_r1",
+		name = "bi_recipe_arboretum_r1",
 		icon = "__Bio_Industries__/graphics/icons/Seedling_b.png",
 		icon_size = 32,
 		category = "bi-arboretum",	
@@ -808,17 +846,17 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_Arboretum_r1", amount=1, probability=0},
+			{type="item", name="bi_recipe_arboretum_r1", amount=1, probability=0},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r1]",		
+		subgroup = "bio-arboretum-fluid",
+		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r1]",		
 	},
 	
-			---   	--- 	Arboretum - Change Terrain
+	---   	--- 	Arboretum - Change Terrain
 	{
 		type = "recipe",
-		name = "bi_Arboretum_r2",
+		name = "bi_recipe_arboretum_r2",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_1.png",
 		icon_size = 32,
 		category = "bi-arboretum",	
@@ -830,17 +868,17 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_Arboretum_r2", amount=1, probability=0},
+			{type="item", name="bi_recipe_arboretum_r2", amount=1, probability=0},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r2]",		
+		subgroup = "bio-arboretum-fluid",
+		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r2]",		
 	},
 	  
-			---   	--- 	Arboretum -  Change Terrain - Advanced
+	---   	--- 	Arboretum -  Change Terrain - Advanced
 	{
 		type = "recipe",
-		name = "bi_Arboretum_r3",
+		name = "bi_recipe_arboretum_r3",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_2.png",
 		icon_size = 32,
 		category = "bi-arboretum",	
@@ -852,17 +890,17 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_Arboretum_r3", amount=1, probability=0},
+			{type="item", name="bi_recipe_arboretum_r3", amount=1, probability=0},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r3]",		
+		subgroup = "bio-arboretum-fluid",
+		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r3]",		
 	},
 	    
-		---   	--- 	Arboretum -  Plant Trees & Change Terrain
+	---   	--- 	Arboretum -  Plant Trees & Change Terrain
 	{
 		type = "recipe",
-		name = "bi_Arboretum_r4",
+		name = "bi_recipe_arboretum_r4",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_1.png",
 		icon_size = 32,
 		category = "bi-arboretum",	
@@ -875,17 +913,17 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_Arboretum_r4", amount=1, probability=0},
+			{type="item", name="bi_recipe_arboretum_r4", amount=1, probability=0},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r4]",		
+		subgroup = "bio-arboretum-fluid",
+		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r4]",		
 	},
 	  
-		---   	--- 	Arboretum -  Plant Trees & Change Terrain Advanced
+	---   	--- 	Arboretum -  Plant Trees & Change Terrain Advanced
 	{
 		type = "recipe",
-		name = "bi_Arboretum_r5",
+		name = "bi_recipe_arboretum_r5",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_2.png",
 		icon_size = 32,
 		category = "bi-arboretum",	
@@ -898,11 +936,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_Arboretum_r5", amount=1, probability=0},
+			{type="item", name="bi_recipe_arboretum_r5", amount=1, probability=0},
 		},
 		enabled = false,
-		subgroup = "fluid-recipes",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r5]",		
+		subgroup = "bio-arboretum-fluid",
+		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r5]",		
 	},
 	  	  	  
 

@@ -4,38 +4,38 @@ data:extend({
   
 	{
 		type = "technology",
-		name = "bi_bio_farming",
+		name = "bi_tech_bio_farming",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Bio_Farm_Tech_128.png",
 		effects =
 		{
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Seedling_Mk1"
+				recipe = "bi_recipe_seedling_mk1"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Logs_Mk1"
+				recipe = "bi_recipe_logs_mk1"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_1"
+				recipe = "bi_recipe_seed_1"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_bio_farm"
+				recipe = "bi_recipe_bio_farm"
 			},		
 			{
 				type = "unlock-recipe",
-				recipe = "bio_greenhouse"
+				recipe = "bi_recipe_greenhouse"
 			},	
 			{
 				type = "unlock-recipe",
-				recipe = "bi_Arboretum"
+				recipe = "bi_recipe_arboretum"
 			},	
 			{
 				type = "unlock-recipe",
-				recipe = "bi_Arboretum_r1"
+				recipe = "bi_recipe_arboretum_r1"
 			},	
 			
 		},
@@ -53,42 +53,42 @@ data:extend({
 
 	{
 		type = "technology",
-		name = "bi-coal-processing",
+		name = "bi_tech_coal_processing_1",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Coal_128.png",
 		effects = {
 			{
 				type = "unlock-recipe",
-				recipe = "bi-charcoal"
+				recipe = "bi_recipe_charcoal"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-charcoal-2"
+				recipe = "bi_recipe_charcoal_2"
 			},
 
 			{
 				type = "unlock-recipe",
-				recipe = "bi-ash"
+				recipe = "bi_recipe_ash_1"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-ash-2"
+				recipe = "bi_recipe_ash_2"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-woodpulp"
+				recipe = "bi_recipe_woodpulp"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_2"
+				recipe = "bi_recipe_seed_2"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Seedling_Mk2"
+				recipe = "bi_recipe_seedling_mk2"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Logs_Mk2"
+				recipe = "bi_recipe_logs_mk2"
 			},
 			{
 				type = "unlock-recipe",
@@ -109,20 +109,20 @@ data:extend({
 
 	{
 		type = "technology",
-		name = "bi-coal-processing-2",
+		name = "bi_tech_coal_processing_2",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Coal_128.png",
 		effects = {
 			{
 				type = "unlock-recipe",
-				recipe = "bi-coal"
+				recipe = "bi_recipe_coal"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-coke-coal"
+				recipe = "bi_recipe_coke_coal"
 			},
 		},
-		prerequisites =	{"bi-coal-processing"},
+		prerequisites =	{"bi_tech_coal_processing_1"},
 		unit = 
 		{
 			count = 150,
@@ -138,16 +138,16 @@ data:extend({
 
 	{
 		type = "technology",
-		name = "bi-coal-processing-3",
+		name = "bi_tech_coal_processing_3",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Coal_128.png",
 		effects = {
 			{
 				type = "unlock-recipe",
-				recipe = "bi-coal-2"
+				recipe = "bi_recipe_coal_2"
 			},
 		},
-		prerequisites = {"bi-coal-processing-2"},
+		prerequisites = {"bi_tech_coal_processing_2"},
 		unit = 
 		{
 			count = 250,
@@ -164,64 +164,64 @@ data:extend({
 
 	{
 		type = "technology",
-		name = "bi-fertiliser",
+		name = "bi_tech_fertiliser",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Fertiliser_128.png",
 		effects = {
 			{
 				type = "unlock-recipe",
-				recipe = "bi-liquid-air"
+				recipe = "bi_recipe_liquid_air"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-nitrogen"
+				recipe = "bi_recipe_nitrogen"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-fertiliser"
+				recipe = "bi_recipe_fertiliser_1"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Seedling_Mk3"
+				recipe = "bi_recipe_seedling_mk3"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_3"
+				recipe = "bi_recipe_seed_3"
 			},	
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Logs_Mk3"
+				recipe = "bi_recipe_logs_mk3"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Bio_Garden"
+				recipe = "bi_recipe_bio_garden"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-Clean_Air"
+				recipe = "bi_recipe_clean_air_1"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_bomb_basic"
+				recipe = "bi_recipe_seed_bomb_basic"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_seed_bomb_standard"
+				recipe = "bi_recipe_seed_bomb_standard"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_Arboretum_r2"
+				recipe = "bi_recipe_arboretum_r2"
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_Arboretum_r4"
+				recipe = "bi_recipe_arboretum_r4"
 			},
 
 		},
 		prerequisites = 
 		{
 			"fluid-handling",
-			"bi_bio_farming"
+			"bi_tech_bio_farming"
 		},
 		unit = {
 			count = 250,

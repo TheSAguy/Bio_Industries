@@ -1,4 +1,4 @@
---Bio_Industries Version   2.2.8
+--Bio_Industries Version   2.5.0
 
 
 local QC_Mod = true
@@ -106,7 +106,7 @@ script.on_event(defines.events.on_player_joined_game, function(event)
    
 	if settings.startup["angels-use-angels-barreling"] and settings.startup["angels-use-angels-barreling"].value then
       techs['fluid-handling'].researched = false
-      techs['bi-fertiliser'].reload()
+      techs['bi_tech_fertiliser'].reload()
       local _t = techs['angels-fluid-barreling'].researched
       techs['angels-fluid-barreling'].researched = false
       techs['angels-fluid-barreling'].researched = _t
@@ -181,7 +181,7 @@ local function On_Built(event)
 
 	
     --- Bio Farm has been built
-	if entity.valid and entity.name == "bi_bio_farm" then
+	if entity.valid and entity.name == "bi_recipe_bio_farm" then
 	writeDebug("Bio Farm has been built")
 		   
 		local b_farm = entity
@@ -354,7 +354,7 @@ local function On_Remove(event)
 	local entity = event.entity	
 	
 	--- Bio Farm has been removed
-   	if entity.valid and entity.name == "bi_bio_farm" then
+   	if entity.valid and entity.name == "bi_recipe_bio_farm" then
 	writeDebug("Bio Farm has been removed")
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
@@ -373,7 +373,7 @@ local function On_Remove(event)
 		
 			
 	--- Bio Solar Farm has been removed
-   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
+   	if entity.valid and entity.name == "bi_recipe_bio_solar_farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -473,7 +473,7 @@ local function On_Death(event)
 	local entity = event.entity
 	
 	--- Bio Farm has been destroyed
-   	if entity.valid and entity.name == "bi_bio_farm" then
+   	if entity.valid and entity.name == "bi_recipe_bio_farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -491,7 +491,7 @@ local function On_Death(event)
 
 	
 		--- Bio Solar Farm has been destroyed
-   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
+   	if entity.valid and entity.name == "bi_recipe_bio_solar_farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -746,6 +746,7 @@ script.on_event(remove_events, Robot_Tile_Remove)
 
 
 -------------------- For Testing --------------
+--[[
 if QC_Mod == true then  
 
 	script.on_event(defines.events.on_player_created, function(event)
@@ -757,6 +758,7 @@ if QC_Mod == true then
 	end)
 
 end
+]]
 
 --------------------------------------------------------------------
 --- DeBug Messages 

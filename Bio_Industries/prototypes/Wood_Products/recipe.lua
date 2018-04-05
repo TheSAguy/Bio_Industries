@@ -29,7 +29,7 @@ data:extend({
 	--- Huge Wooden Pole	
 	{
 		type = "recipe",
-		name = "bi_huge_wooden_pole",
+		name = "bi_recipe_huge_wooden_pole",
 		normal =
 		{
 			enabled = false,
@@ -57,7 +57,7 @@ data:extend({
 	--- Wooden Fence
 	{
 		type = "recipe",
-		name = "bi_wooden_fence",
+		name = "bi_recipe_wooden_fence",
 		normal =
 		{
 			enabled = true,
@@ -186,7 +186,7 @@ data:extend({
 	--- Wood Pipe
     {
 		type = "recipe",
-		name = "bi_wood_pipe",
+		name = "bi_recipe_wood_pipe",
 		normal =
 		{
 			energy_required = 1,
@@ -218,7 +218,7 @@ data:extend({
 	--- Rail to Power Pole
 	{
 		type = "recipe",
-		name = "bi_power_to_rail_pole",
+		name = "bi_recipe_power_to_rail_pole",
 		normal =
 		{
 			enabled = false,
@@ -245,7 +245,7 @@ data:extend({
   -- Wood Pipe to Ground
   {
 		type = "recipe",
-		name = "bi_pipe_to_ground_wood",
+		name = "bi_recipe_pipe_to_ground_wood",
 		normal =
 		{
 			energy_required = 2,
@@ -275,7 +275,7 @@ data:extend({
 	--- Large Wooden Chest
   {
     type = "recipe",
-    name = "bi_large_wooden_chest",
+    name = "bi_recipe_large_wooden_chest",
 	normal =
 		{
 			energy_required = 2,

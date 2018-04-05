@@ -3,7 +3,7 @@ data:extend({
 -- Hive Buster Turret
  {
     type = "recipe",
-    name = "Bio_Cannon",
+    name = "bi_recipe_bio_cannon",
 
 	normal =
 		{

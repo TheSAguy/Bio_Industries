@@ -20,17 +20,6 @@ data:extend(
     per_user = false,
   },
   
-  --[[
- 	-- C
-  {
-    type = "bool-setting",
-    name = "BI_Accumulator",
-    setting_type = "startup",
-    default_value = true,
-	order = "c[modifier]-c[BI_Accumulator]",
-    per_user = false,
-  },
-  ]]
   	-- B
   {
     type = "bool-setting",
