@@ -373,7 +373,7 @@ local function On_Remove(event)
 		
 			
 	--- Bio Solar Farm has been removed
-   	if entity.valid and entity.name == "bi_recipe_bio_solar_farm" then
+   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -491,7 +491,7 @@ local function On_Death(event)
 
 	
 		--- Bio Solar Farm has been destroyed
-   	if entity.valid and entity.name == "bi_recipe_bio_solar_farm" then
+   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then

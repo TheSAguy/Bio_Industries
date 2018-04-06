@@ -36,13 +36,13 @@ data:extend({
   ----Bio Farm
 	{
 		type= "item",
-		name= "bi_recipe_bio_farm",
+		name= "bi_bio_farm",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 		icon_size = 32,
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
-		order = "x[bi]-ab[bi_recipe_bio_farm]",
-		place_result = "bi_recipe_bio_farm",
+		order = "x[bi]-ab[bi_bio_farm]",
+		place_result = "bi_bio_farm",
 		stack_size= 10,
 	},
    
@@ -260,57 +260,57 @@ data:extend({
   
     {
 		type = "item",
-		name = "bi_recipe_arboretum_r1",
+		name = "bi_arboretum_r1",
 		icon = "__Bio_Industries__/graphics/icons/Seedling_b.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_recipe_arboretum_r1",
+		order = "bi_arboretum_r1",
 		stack_size = 1
 	},
   
    
     {
 		type = "item",
-		name = "bi_recipe_arboretum_r2",
+		name = "bi_arboretum_r2",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_1.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_recipe_arboretum_r2",
+		order = "bi_arboretum_r2",
 		stack_size = 1
 	},
    
       {
 		type = "item",
-		name = "bi_recipe_arboretum_r3",
+		name = "bi_arboretum_r3",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_2.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_recipe_arboretum_r3",
+		order = "bi_arboretum_r3",
 		stack_size = 1
 	},
 	
      {
 		type = "item",
-		name = "bi_recipe_arboretum_r4",
+		name = "bi_arboretum_r4",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_1.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_recipe_arboretum_r4",
+		order = "bi_arboretum_r4",
 		stack_size = 1
 	},
   	
      {
 		type = "item",
-		name = "bi_recipe_arboretum_r5",
+		name = "bi_arboretum_r5",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_2.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_recipe_arboretum_r5",
+		order = "bi_arboretum_r5",
 		stack_size = 1
 	},
   

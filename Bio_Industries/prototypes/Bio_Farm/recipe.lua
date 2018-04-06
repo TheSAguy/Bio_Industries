@@ -192,7 +192,7 @@ data:extend({
 	},
 		
 
-	--- Bio Greenhouse
+	--- Bio Greenhouse (ENTITY)
 	{
 		type = "recipe",
 		name = "bi_recipe_greenhouse",
@@ -228,7 +228,7 @@ data:extend({
 	},
 
 	
-	--- Bio Farm
+	--- Bio Farm (ENTITY)
 	{
 		type = "recipe",
 		name = "bi_recipe_bio_farm",
@@ -244,7 +244,7 @@ data:extend({
 			  {"copper-cable",10},
 			  {"stone-brick",10},
 			},
-		  result = "bi_recipe_bio_farm",
+		  result = "bi_bio_farm",
 		  result_count = 1,
 		},
 		expensive =
@@ -257,7 +257,7 @@ data:extend({
 			  {"copper-cable",20},
 			  {"stone-brick",20},
 			},
-		  result = "bi_recipe_bio_farm",
+		  result = "bi_bio_farm",
 		  result_count = 1,
 		},
 
@@ -846,11 +846,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_recipe_arboretum_r1", amount=1, probability=0},
+			{type="item", name="bi_arboretum_r1", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r1]",		
+		order = "a[bi]-ssw-a1[bi_Arboretum_r1]",		
 	},
 	
 	---   	--- 	Arboretum - Change Terrain
@@ -868,11 +868,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_recipe_arboretum_r2", amount=1, probability=0},
+			{type="item", name="bi_arboretum_r2", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r2]",		
+		order = "a[bi]-ssw-a1[bi_Arboretum_r2]",		
 	},
 	  
 	---   	--- 	Arboretum -  Change Terrain - Advanced
@@ -890,11 +890,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_recipe_arboretum_r3", amount=1, probability=0},
+			{type="item", name="bi_arboretum_r3", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r3]",		
+		order = "a[bi]-ssw-a1[bi_Arboretum_r3]",		
 	},
 	    
 	---   	--- 	Arboretum -  Plant Trees & Change Terrain
@@ -913,11 +913,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_recipe_arboretum_r4", amount=1, probability=0},
+			{type="item", name="bi_arboretum_r4", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r4]",		
+		order = "a[bi]-ssw-a1[bi_Arboretum_r4]",		
 	},
 	  
 	---   	--- 	Arboretum -  Plant Trees & Change Terrain Advanced
@@ -936,11 +936,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_recipe_arboretum_r5", amount=1, probability=0},
+			{type="item", name="bi_arboretum_r5", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_recipe_arboretum_r5]",		
+		order = "a[bi]-ssw-a1[bi_Arboretum_r5]",		
 	},
 	  	  	  
 

@@ -46,9 +46,7 @@ require ("prototypes.Wood_Products.tint_rails_remnants_function")
 	{r = 150/255, g = 150/255, b = 150/255, a = 1}) -- mix
 	
 -- vanilla rail recipe update
---thxbob.lib.recipe.remove_ingredient ("rail", "iron-stick")
 thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
-
 
 -- vanilla rail icon & images update
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
@@ -58,18 +56,19 @@ data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-
 
 --- Wood Rail added to Tech 
 thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")
-thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood-bridge")	
 	
-
+	
 --- If Bob, move Vanilla Rail to Rail 2 also add Power Rail.
 if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.remove_recipe_unlock ("railway", "rail")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi-rail-wood-bridge")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_rail_power")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_recipe_power_to_rail_pole")
 else
-	thxbob.lib.tech.add_recipe_unlock("railway", "bi_rail_power")
-	thxbob.lib.tech.add_recipe_unlock("railway", "bi_recipe_power_to_rail_pole")
+	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi-rail-wood-bridge")
+	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_rail_power")
+	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_recipe_power_to_rail_pole")
 end
 	
 -- Damage Bonus to Ammo
@@ -105,8 +104,7 @@ if BI.Settings.BI_Recipe_Tweaks then
 	--- Stone Wall
 	thxbob.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
 
-
-	--- Rail
+	--- Rail (Remove Stone and Add Crushed Stone)
 	if data.raw.item["stone-crushed"] then
 		thxbob.lib.recipe.remove_ingredient ("rail", "stone")
 		thxbob.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
@@ -453,8 +451,8 @@ end
 ------------ Changing order/sorting/groups
 if BI.Settings.BI_Solar_Additions and data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
 	
-	data.raw["item"]["bi_recipe_bio_solar_farm"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi_recipe_bio_solar_farm"].order="d[solar-panel]-x[bi_recipe_bio_solar_farm]"	
+	data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
+	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
 	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
 
 end
@@ -463,8 +461,8 @@ end
 ------------ Changing order/sorting/groups
 if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Solar_Additions then 
 	
-	data.raw["item"]["bi_recipe_accumulator"].subgroup = "bob-energy-accumulator"
-	data.raw["item"]["bi_recipe_accumulator"].order="e[accumulator]-a[accumulator]-x"	
+	data.raw["item"]["bi_accumulator"].subgroup = "bob-energy-accumulator"
+	data.raw["item"]["bi_accumulator"].order="e[accumulator]-a[accumulator]-x"	
 	data.raw["item"]["bi-large-substation"].subgroup = "bob-energy-accumulator"
 	
 end
@@ -538,38 +536,15 @@ end
 if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
 
-	data.raw["lamp"]["bi_recipe_bio_solar_farm_Image"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-	data.raw["solar-panel"]["bi_recipe_bio_solar_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-	data.raw["item"]["bi_recipe_bio_solar_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	
+	data.raw["solar-panel"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["item"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
 
 
-	data.raw["lamp"]["bi_recipe_bio_solar_farm_Image"].picture_off =
-		{
-		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
-		  priority = "low",
-		  width = 208,
-		  height = 192,
-		  frame_count = 1,
-		  direction_count = 1,
-		  scale = 3/2,
-		}
+	
 
 
-
-	data.raw["lamp"]["bi_recipe_bio_solar_farm_Image"].picture_on =
-		{
-		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
-		  priority = "low",
-		  width = 208,
-		  height = 192,
-		  frame_count = 1,
-		  direction_count = 1,
-		  scale = 3/2,
-		}
-
-
-
-	data.raw["solar-panel"]["bi_recipe_bio_solar_farm"].picture =
+	data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
 		  priority = "low",
