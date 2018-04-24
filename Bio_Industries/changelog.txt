@@ -1,3 +1,12 @@
+Version: 2.5.0
+Date: 4. x. 2018
+  Features:
+    - Tweaked Bio Cannon Recipe
+    - Changed names of some Recipes
+    - Tweaked Solar Farm Build Time
+    - Added more Darts and tweaked recipes
+
+---------------------------------------------------------------------------------------------------
 Version: 2.2.8
 Date: 4. 4. 2018
   Bugfixes:

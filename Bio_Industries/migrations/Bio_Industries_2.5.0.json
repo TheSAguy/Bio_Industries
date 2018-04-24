@@ -65,7 +65,16 @@
 	["bi-organic-plastic",  "bi_tech_organic_plastic"],
 	["bi-advanced-biotechnology",  "bi_tech_advanced_biotechnology"],
 	["Bio_Cannon",  "bi_tech_bio_cannon"]
-  ]
-  
+  ],
+  "item":
+  [
+    ["basic-dart-magazine", "bi-basic-dart-magazine"],
+	["enhanced-dart-magazine", "bi-enhanced-dart-magazine"]
+  ],
+  "entity":
+  [
+    ["basic-dart-magazine", "bi-basic-dart-magazine"],
+	["enhanced-dart-magazine", "bi-enhanced-dart-magazine"]
+  ]  
 }
 

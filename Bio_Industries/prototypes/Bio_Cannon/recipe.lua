@@ -11,7 +11,7 @@ data:extend({
 			energy_required = 50,
 			ingredients = 
 			{
-			  {"advanced-circuit", 25},    
+			  {"concrete", 100},        
 			  {"radar", 1},
 			  {"steel-plate", 80},
 			  {"electric-engine-unit", 5},
@@ -25,7 +25,7 @@ data:extend({
 			energy_required = 100,
 			ingredients = 
 			{
-			  {"advanced-circuit", 25},    
+			  {"concrete", 100},      
 			  {"radar", 1},
 			  {"steel-plate", 120},
 			  {"electric-engine-unit", 15},

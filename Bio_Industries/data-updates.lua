@@ -75,7 +75,12 @@ end
 -- Don't duplicate what NE does
 
 if not mods["Natural_Evolution_Buildings"] then
+	
+	thxbob.lib.tech.add_recipe_unlock ("military", "bi_recipe_standard_dart_magazine")
+	thxbob.lib.tech.add_recipe_unlock ("military-2", "bi_recipe_enhanced_dart_magazine")
+	thxbob.lib.tech.add_recipe_unlock ("military-3", "bi_recipe_poison_dart_magazine")
 	require("prototypes.Bio_Turret.technology-updates")
+
 end
 
 if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
@@ -350,7 +355,6 @@ if BI.Settings.BI_Solar_Additions then
 		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_recipe_accumulator")
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_recipe_huge_substation")
 		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_bio_solar_farm")
-		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_solar_mat")
 		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_solar_boiler_panel")
 		
 	else
@@ -358,10 +362,20 @@ if BI.Settings.BI_Solar_Additions then
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_recipe_accumulator")
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_recipe_huge_substation")
 		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_bio_solar_farm")
-		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_solar_mat")
 		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_solar_boiler_panel")
 		
 	end	
+	
+	if data.raw.technology["bob-solar-energy-3"] then
+		
+		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-3", "bi_recipe_solar_mat")
+		
+	else
+
+		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_solar_mat")
+	
+	end	
+	
 end
 
 
@@ -437,16 +451,6 @@ if mods["Natural_Evolution_Buildings"] then
 
 end
 	
-
-if BI.Settings.Bio_Cannon and mods["Natural_Evolution_Buildings"]then
-
-	------- Changes Bio Cannon Recipe
-	thxbob.lib.recipe.remove_ingredient ("Bio_Cannon", "advanced-circuit")
-	thxbob.lib.recipe.remove_ingredient ("Bio_Cannon", "steel-plate")
-	thxbob.lib.recipe.add_new_ingredient ("Bio_Cannon", {type="item", name="Building_Materials", amount=30})
-
-end
-
 
 ------------ Changing order/sorting/groups
 if BI.Settings.BI_Solar_Additions and data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 

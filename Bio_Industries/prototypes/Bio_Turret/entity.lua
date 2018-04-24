@@ -6,7 +6,7 @@ data:extend({
 	--- Basic Dart
 	{
 		type = "ammo",
-		name = "basic-dart-magazine",
+		name = "bi-basic-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/basic_dart_icon.png",
 		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
@@ -31,10 +31,8 @@ data:extend({
 				  entity_name = "explosion-hit"
 				},
 				{
-				  type = "damage",
-				  
-				  damage = { amount = 1 , type = "poison"}
-				 
+				  type = "damage",			  
+				  damage = { amount = 1 , type = "poison"}				 
 				},
 				{
 				  type = "damage",
@@ -50,11 +48,56 @@ data:extend({
 		stack_size = 400
   },
   
+ 	--- Standard Dart
+	{
+		type = "ammo",
+		name = "bi-standard-dart-magazine",
+		icon = "__Bio_Industries__/graphics/icons/standard_dart_icon.png",
+		icon_size = 32,
+		flags = {"goes-to-main-inventory"},
+		ammo_type =
+		{
+		  category = "Bio_Turret_Ammo",
+		  action =
+		  {
+			type = "direct",
+			action_delivery =
+			{
+			  type = "instant",
+			  source_effects =
+			  {
+				  type = "create-explosion",
+				  entity_name = "explosion-gunshot",
+			  },
+			  target_effects =
+			  {
+				{
+				  type = "create-entity",
+				  entity_name = "explosion-hit"
+				},
+				{
+				  type = "damage",				  
+				  damage = { amount = 1 , type = "poison"}				 
+				},
+				{
+				  type = "damage",
+				  damage = { amount = 2.5 , type = "bob-pierce"}
+				}
+			  }
+			}
+		  }
+		},
+		magazine_size = 10,
+		subgroup = "ammo",
+		order = "[aab]-a[basic-clips]-ab[firearm-magazine]",
+		stack_size = 400
+  },
   
+ 
 	--- Enhanced Dart
 	{
 		type = "ammo",
-		name = "enhanced-dart-magazine",
+		name = "bi-enhanced-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/enhanced_dart_icon.png",
 		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
@@ -79,10 +122,12 @@ data:extend({
 				  entity_name = "explosion-hit"
 				},
 				{
+				  type = "damage",				  
+				  damage = { amount = 1 , type = "poison"}			 
+				},
+				{
 				  type = "damage",
-				  
-				  damage = { amount = 1 , type = "poison"}
-				 
+				  damage = { amount = 2 , type = "physical"}
 				},
 				{
 				  type = "damage",
@@ -94,11 +139,59 @@ data:extend({
 		},
 		magazine_size = 10,
 		subgroup = "ammo",
-		order = "[aab]-a[basic-clips]-ab[firearm-magazine]",
+		order = "[aac]-a[basic-clips]-ac[firearm-magazine]",
 		stack_size = 400
   },
   
-
+ 
+	--- Poison Dart
+	{
+		type = "ammo",
+		name = "bi-poison-dart-magazine",
+		icon = "__Bio_Industries__/graphics/icons/poison_dart_icon.png",
+		icon_size = 32,
+		flags = {"goes-to-main-inventory"},
+		ammo_type =
+		{
+		  category = "Bio_Turret_Ammo",
+		  action =
+		  {
+			type = "direct",
+			action_delivery =
+			{
+			  type = "instant",
+			  source_effects =
+			  {
+				  type = "create-explosion",
+				  entity_name = "explosion-gunshot",
+			  },
+			  target_effects =
+			  {
+				{
+				  type = "create-entity",
+				  entity_name = "explosion-hit"
+				},
+				{
+				  type = "damage",				  
+				  damage = { amount = 4 , type = "poison"}			 
+				},
+				{
+				  type = "damage",
+				  damage = { amount = 2 , type = "physical"}
+				},
+				{
+				  type = "damage",
+				  damage = { amount = 2.5 , type = "bob-pierce"}
+				}
+			  }
+			}
+		  }
+		},
+		magazine_size = 10,
+		subgroup = "ammo",
+		order = "[aad]-a[basic-clips]-ad[firearm-magazine]",
+		stack_size = 400
+  },
 
 })
 

@@ -1,7 +1,7 @@
 data:extend({
   
 
-	--- Basic Dart
+	--- Basic Dart Ammo
 	{
 		type = "recipe",
 		name = "bi_recipe_basic_dart_magazine",
@@ -14,7 +14,7 @@ data:extend({
 			{
 				{"raw-wood", 5},
 			},
-		  result = "basic-dart-magazine",
+		  result = "bi-basic-dart-magazine",
 		  result_count = 10,
 		},
 		expensive =
@@ -25,39 +25,98 @@ data:extend({
 			{
 				{"raw-wood", 5},
 			},
-		  result = "basic-dart-magazine",
+		  result = "bi-basic-dart-magazine",
 		  result_count = 8,
 		},
 	}, 	
-	
-		--- Enhanced Dart
+
+	--- Standard Dart Ammo
 	{
 		type = "recipe",
-		name = "bi_recipe_enhanced_dart_magazine",
-		--category = "crafting-with-fluid",
-		
+		name = "bi_recipe_standard_dart_magazine",
 		normal =
 		{
-			enabled = true,
+			enabled = false,
 			energy_required = 5,
 			ingredients = 
 			{
-				{"raw-wood", 5},
+				{"bi-basic-dart-magazine", 10},
 				{"copper-plate", 5},
 			},
-		  result = "enhanced-dart-magazine",
+		  result = "bi-standard-dart-magazine",
 		  result_count = 10,
 		},
 		expensive =
 		{
-			enabled = true,
+			enabled = false,
 			energy_required = 8,
 			ingredients = 
 			{
-				{"raw-wood", 5},
+				{"bi-basic-dart-magazine", 8},
 				{"copper-plate", 5},
 			},
-		  result = "enhanced-dart-magazine",
+		  result = "bi-standard-dart-magazine",
+		  result_count = 8,
+		},
+	}, 	
+
+	
+	--- Enhanced Dart Ammo
+	{
+		type = "recipe",
+		name = "bi_recipe_enhanced_dart_magazine",
+		normal =
+		{
+			enabled = false,
+			energy_required = 5,
+			ingredients = 
+			{
+				{"bi-standard-dart-magazine", 10},
+				{"plastic-bar", 5},
+			},
+		  result = "bi-enhanced-dart-magazine",
+		  result_count = 10,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 8,
+			ingredients = 
+			{
+				{"bi-standard-dart-magazine", 8},
+				{"plastic-bar", 5},
+			},
+		  result = "bi-enhanced-dart-magazine",
+		  result_count = 8,
+		},
+	}, 	
+
+	--- Poison Dart Ammo
+	{
+		type = "recipe",
+		name = "bi_recipe_poison_dart_magazine",
+		normal =
+		{
+			enabled = false,
+			energy_required = 5,
+			ingredients = 
+			{
+				{"bi-enhanced-dart-magazine", 10},
+				{"poison-capsule", 5},
+			},
+		  result = "bi-poison-dart-magazine",
+		  result_count = 10,
+		},
+		expensive =
+		{
+			enabled = false,
+			energy_required = 8,
+			ingredients = 
+			{
+				{"bi-enhanced-dart-magazine", 8},
+				{"poison-capsule", 5},
+			},
+		  result = "bi-poison-dart-magazine",
 		  result_count = 8,
 		},
 	}, 	

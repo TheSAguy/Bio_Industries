@@ -7,7 +7,7 @@ if BI.Settings.BI_Solar_Additions then
 			type = "recipe",
 			name = "bi_recipe_bio_solar_farm",
 			enabled = false,
-			energy_required = 200,
+			energy_required = 80,
 			ingredients = 
 			{
 				{"solar-panel",50},
