@@ -208,7 +208,7 @@ data:extend({
 			  {"stone-crushed",10},
 			  {"small-lamp",5},
 			},
-		  result = "bio-greenhouse",
+		  result = "bi-bio-greenhouse",
 		  result_count = 1,
 		},
 		expensive =
@@ -221,7 +221,7 @@ data:extend({
 			  {"stone-crushed",15},
 			  {"small-lamp",5},
 			},
-		  result = "bio-greenhouse",
+		  result = "bi-bio-greenhouse",
 		  result_count = 1,
 		},
 
@@ -240,11 +240,11 @@ data:extend({
 			energy_required = 10,
 			ingredients = 
 			{
-			  {"bio-greenhouse",4},
+			  {"bi-bio-greenhouse",4},
 			  {"copper-cable",10},
 			  {"stone-brick",10},
 			},
-		  result = "bi_bio_farm",
+		  result = "bi-bio-farm",
 		  result_count = 1,
 		},
 		expensive =
@@ -253,11 +253,11 @@ data:extend({
 			energy_required = 15,
 			ingredients = 
 			{
-			  {"bio-greenhouse",8},
+			  {"bi-bio-greenhouse",8},
 			  {"copper-cable",20},
 			  {"stone-brick",20},
 			},
-		  result = "bi_bio_farm",
+		  result = "bi-bio-farm",
 		  result_count = 1,
 		},
 
@@ -717,7 +717,7 @@ data:extend({
 			{"bi-seed", 400},
 			{"rocket", 1},
 		  },
-		  result = "seed-bomb-basic",
+		  result = "bi-seed-bomb-basic",
 		},
 		expensive =
 		{
@@ -728,7 +728,7 @@ data:extend({
 			{"bi-seed", 400},
 			{"rocket", 2},
 		  },
-		  result = "seed-bomb-basic",
+		  result = "bi-seed-bomb-basic",
 		}
 	  },
 
@@ -747,7 +747,7 @@ data:extend({
 			{"fertiliser", 200},
 			{"rocket", 1},
 		  },
-		  result = "seed-bomb-standard",
+		  result = "bi-seed-bomb-standard",
 		},
 		expensive =
 		{
@@ -759,7 +759,7 @@ data:extend({
 			{"fertiliser", 200},
 			{"rocket", 2},
 		  },
-		  result = "seed-bomb-standard",
+		  result = "bi-seed-bomb-standard",
 		}
 	  },
 
@@ -778,7 +778,7 @@ data:extend({
 			{"bi-adv-fertiliser", 200},
 			{"rocket", 1},
 		  },
-		  result = "seed-bomb-advanced",
+		  result = "bi-seed-bomb-advanced",
 		},
 		expensive =
 		{
@@ -790,7 +790,7 @@ data:extend({
 			{"bi-adv-fertiliser", 200},
 			{"rocket", 2},
 		  },
-		  result = "seed-bomb-advanced",
+		  result = "bi-seed-bomb-advanced",
 		}
 	  },
 	  
@@ -807,11 +807,11 @@ data:extend({
 			energy_required = 10,
 			ingredients = 
 			{
-			  {"bio-greenhouse",4},
+			  {"bi-bio-greenhouse",4},
 			  {"assembling-machine-2",2},
 			  {"stone-brick",10},
 			},
-		  result = "bi-Arboretum-Area",
+		  result = "bi-arboretum-area",
 		  result_count = 1,
 		},
 		expensive =
@@ -820,11 +820,11 @@ data:extend({
 			energy_required = 15,
 			ingredients = 
 			{
-			  {"bio-greenhouse",4},
+			  {"bi-bio-greenhouse",4},
 			  {"assembling-machine-2",4},
 			  {"stone-brick",20},
 			},
-		  result = "bi-Arboretum-Area",
+		  result = "bi-arboretum-area",
 		  result_count = 1,
 		},
 
@@ -846,11 +846,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_arboretum_r1", amount=1, probability=0},
+			{type="item", name="bi-arboretum-r1", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r1]",		
+		order = "a[bi]-ssw-a1[bi-arboretum-r1]",		
 	},
 	
 	---   	--- 	Arboretum - Change Terrain
@@ -868,11 +868,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_arboretum_r2", amount=1, probability=0},
+			{type="item", name="bi-arboretum-r2", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r2]",		
+		order = "a[bi]-ssw-a1[bi-arboretum-r2]",		
 	},
 	  
 	---   	--- 	Arboretum -  Change Terrain - Advanced
@@ -890,11 +890,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_arboretum_r3", amount=1, probability=0},
+			{type="item", name="bi-arboretum-r3", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r3]",		
+		order = "a[bi]-ssw-a1[bi-arboretum-r3]",		
 	},
 	    
 	---   	--- 	Arboretum -  Plant Trees & Change Terrain
@@ -913,11 +913,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_arboretum_r4", amount=1, probability=0},
+			{type="item", name="bi-arboretum-r4", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r4]",		
+		order = "a[bi]-ssw-a1[bi-arboretum-r4]",		
 	},
 	  
 	---   	--- 	Arboretum -  Plant Trees & Change Terrain Advanced
@@ -936,11 +936,11 @@ data:extend({
 		},
 		results=
 		{
-			{type="item", name="bi_arboretum_r5", amount=1, probability=0},
+			{type="item", name="bi-arboretum-r5", amount=1, probability=0},
 		},
 		enabled = false,
 		subgroup = "bio-arboretum-fluid",
-		order = "a[bi]-ssw-a1[bi_Arboretum_r5]",		
+		order = "a[bi]-ssw-a1[bi-arboretum-r5]",		
 	},
 	  	  	  
 

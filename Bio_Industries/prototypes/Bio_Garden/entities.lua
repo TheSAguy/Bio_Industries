@@ -8,12 +8,12 @@ data:extend({
 --- Bio Garden 
   {
     type = "assembling-machine",
-	name = "bi-Bio_Garden",
+	name = "bi-bio-garden",
 	icon = "__Bio_Industries__/graphics/icons/bio_garden_icon.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-Bio_Garden"},
-    fast_replaceable_group = "bi-Bio_Garden",
+    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-bio-garden"},
+    fast_replaceable_group = "bi-bio-garden",
     max_health = 150,
     corpse = "medium-remnants",	
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},

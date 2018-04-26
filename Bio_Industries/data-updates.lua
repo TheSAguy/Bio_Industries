@@ -161,7 +161,12 @@ end
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
-	
+
+	--- Loot Picup	
+	if data.raw.player.player.loot_pickup_distance < 4 then
+		data.raw.player.player.loot_pickup_distance = 4 -- default 2
+	end	
+
 end
 
 
@@ -455,8 +460,8 @@ end
 ------------ Changing order/sorting/groups
 if BI.Settings.BI_Solar_Additions and data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
 	
-	data.raw["item"]["bi_bio_Solar_Farm"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi_bio_Solar_Farm"].order="d[solar-panel]-x[bi_bio_Solar_Farm]"	
+	data.raw["item"]["bi-bio-solar-farm"].subgroup = "bob-energy-solar-panel"
+	data.raw["item"]["bi-bio-solar-farm"].order="d[solar-panel]-x[bi-bio-solar-farm]"	
 	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
 
 end
@@ -465,8 +470,8 @@ end
 ------------ Changing order/sorting/groups
 if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Solar_Additions then 
 	
-	data.raw["item"]["bi_accumulator"].subgroup = "bob-energy-accumulator"
-	data.raw["item"]["bi_accumulator"].order="e[accumulator]-a[accumulator]-x"	
+	data.raw["item"]["bi-bio-accumulator"].subgroup = "bob-energy-accumulator"
+	data.raw["item"]["bi-bio-accumulator"].order="e[accumulator]-a[accumulator]-x"	
 	data.raw["item"]["bi-large-substation"].subgroup = "bob-energy-accumulator"
 	
 end
@@ -541,14 +546,14 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 
 
 	
-	data.raw["solar-panel"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-	data.raw["item"]["bi_bio_Solar_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["solar-panel"]["bi-bio-solar-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
+	data.raw["item"]["bi-bio-solar-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
 
 
 	
 
 
-	data.raw["solar-panel"]["bi_bio_Solar_Farm"].picture =
+	data.raw["solar-panel"]["bi-bio-solar-farm"].picture =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
 		  priority = "low",
@@ -569,7 +574,7 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 
 
 	data.raw["assembling-machine"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["lamp"]["bi_light_for_Bio_Farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["lamp"]["bi-bio-farm-light"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["item"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["recipe"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	
@@ -600,7 +605,7 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 		}
 
 
-	data.raw["lamp"]["bi_light_for_Bio_Farm"].picture_off =
+	data.raw["lamp"]["bi-bio-farm-light"].picture_off =
 		{
 			  filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
 			  priority = "low",
@@ -614,7 +619,7 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 
 
 
-	data.raw["lamp"]["bi_light_for_Bio_Farm"].picture_on =
+	data.raw["lamp"]["bi-bio-farm-light"].picture_on =
 			{
 			  filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
 			  priority = "low",

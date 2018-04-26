@@ -1,7 +1,7 @@
 --Bio_Industries Version   2.5.0
 
 
-local QC_Mod = true
+local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
@@ -185,9 +185,9 @@ local function On_Built(event)
 	writeDebug("Bio Farm has been built")
 		   
 		local b_farm = entity
-		local pole_name = "bi_medium-electric-pole_for_Bio_Farm"  
-		local panel_name = "bi_solar-panel_for_Bio_Farm"  
-		local lamp_name = "bi_light_for_Bio_Farm"      
+		local pole_name = "bi-bio-farm-electric-pole"  
+		local panel_name = "bi-bio-farm-solar-panel"  
+		local lamp_name = "bi-bio-farm-light"      
 		  
 		local create_pole = surface.create_entity({name = pole_name, position = position, force = force})
 		local create_panel = surface.create_entity({name = panel_name, position = position, force = force})
@@ -206,12 +206,12 @@ local function On_Built(event)
 
 	
 	--- Bio Solar Boiler / Solar Plant has been built
-	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
+	if entity.valid and entity.name == "bi-solar-boiler-panel" then
 	writeDebug("Bio Solar Boiler has been built")
 		   
 		local solar_plant = entity
 		local boiler_solar = "bi-solar-boiler"   		
-		local sm_pole_name = "bi_solar_pole"  
+		local sm_pole_name = "bi-musk-mat-pole"  
 		
 		local create_solar_boiler = surface.create_entity({name = boiler_solar, position = position, force = force})
 		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
@@ -227,7 +227,7 @@ local function On_Built(event)
 	
 		
 	--- Bio Cannon has been built
-	if entity.valid and entity.name == "Bio_Cannon_Area" then
+	if entity.valid and entity.name == "bi-bio-cannon-area" then
 	
 	
 	local New_Bio_Cannon
@@ -235,7 +235,7 @@ local function On_Built(event)
 	
 	writeDebug("Bio Cannon has been built")				
 
-		New_Bio_Cannon  = surface.create_entity({name = "Bio_Cannon", position = position, direction = event.created_entity.direction, force = force})
+		New_Bio_Cannon  = surface.create_entity({name = "bi-bio-cannon", position = position, direction = event.created_entity.direction, force = force})
 		New_Bio_CannonR = surface.create_entity({name = "Bio_Cannon_r", position = position, direction = event.created_entity.direction, force = force})
 
 		New_Bio_Cannon.health = event.created_entity.health
@@ -258,12 +258,12 @@ local function On_Built(event)
 
 	
     --- Arboretum has been built
-	if entity.valid and entity.name == "bi-Arboretum-Area" then
+	if entity.valid and entity.name == "bi-arboretum-area" then
 	writeDebug("Arboretum has been built")
 		   
 
-		local arboretum_new = "bi-Arboretum"
-		local radar_name = "bi-Arboretum-Radar"  
+		local arboretum_new = "bi-arboretum"
+		local radar_name = "bi-arboretum-radar"  
 		local pole_name = "bi-hidden-power-pole"
 		
 		local create_arboretum = surface.create_entity({name = arboretum_new, position = position, direction = entity.direction, force = force})
@@ -345,6 +345,28 @@ local function On_Built(event)
 		
 	end
 	
+	if entity.valid and entity.name == "bi-power-to-rail-pole" then
+    
+		local surface = entity.surface
+		local force = entity.force
+		local position = entity.position
+		local radius = 2		
+		local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
+		local power_rail_poles = {}
+		power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = game.forces.player}
+
+		if power_rail_poles ~= nil and  #power_rail_poles >= 1 then 	
+			
+			for i=1, #power_rail_poles do
+				writeDebug(i.. " Hidden Power Rail Pole found")
+				entity.connect_neighbour(power_rail_poles[i])
+			end
+		
+		end
+
+		
+    end	
+
 end
 
 
@@ -373,7 +395,7 @@ local function On_Remove(event)
 		
 			
 	--- Bio Solar Farm has been removed
-   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
+   	if entity.valid and entity.name == "bi-bio-solar-farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -390,7 +412,7 @@ local function On_Remove(event)
 
 
 		--- Bio Solar Boiler has been removed
-   	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
+   	if entity.valid and entity.name == "bi-solar-boiler-panel" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -455,7 +477,7 @@ local function On_Remove(event)
 
 	
 		--- Arboretum has been removed
-   	if entity.valid and entity.name == "bi-Arboretum" then
+   	if entity.valid and entity.name == "bi-arboretum" then
 		writeDebug("Arboretum has been removed")
 
 		global.Arboretum_Table[entity.unit_number].radar.destroy()
@@ -491,7 +513,7 @@ local function On_Death(event)
 
 	
 		--- Bio Solar Farm has been destroyed
-   	if entity.valid and entity.name == "bi_bio_Solar_Farm" then
+   	if entity.valid and entity.name == "bi-bio-solar-farm" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -508,7 +530,7 @@ local function On_Death(event)
 
 
 	--- Bio Solar Boiler has been removed
-   	if entity.valid and entity.name == "bi-Solar-Boiler-panel" then
+   	if entity.valid and entity.name == "bi-solar-boiler-panel" then
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -555,7 +577,7 @@ local function On_Death(event)
 	
 	
 	--- Arboretum has been destroyed
-   	if entity.valid and entity.name == "bi-Arboretum" then
+   	if entity.valid and entity.name == "bi-arboretum" then
 	writeDebug("Arboretum has been destroyed")
 	
 
@@ -573,7 +595,7 @@ end
 script.on_event(defines.events.on_sector_scanned, function(event)
 	
 	---- Each time a Arboretum-Radar scans a sector  ----	
-	if event.radar.name == "bi-Arboretum-Radar" then
+	if event.radar.name == "bi-arboretum-radar" then
 		
 		
 		
@@ -605,8 +627,8 @@ local function Solar_Mat (event, surface)
 			
 			local force = event.force
 			local solar_mat = surface.get_tile(position.x,position.y)
-			local sm_pole_name = "bi_solar_pole"  
-			local sm_panel_name = "bi_solar-panel_for_Solar-Mat"  
+			local sm_pole_name = "bi-musk-mat-pole"  
+			local sm_panel_name = "bi-musk-mat-solar-panel"  
 			  
 			local create_sm_pole = surface.create_entity({name = sm_pole_name, position = {position.x + 0.5, position.y + 0.5}, force = force})
 			local create_sm_panel = surface.create_entity({name = sm_panel_name, position = {position.x + 0.5, position.y + 0.5}, force = force})
@@ -623,30 +645,30 @@ local function Solar_Mat (event, surface)
 			writeDebug("NOT Solar Mat")
 			local entities = surface.find_entities(area)
 			local entity1 = entities[1]
-			entity1 = surface.find_entities_filtered{area=area, name="bi_solar_pole", limit=1}
+			entity1 = surface.find_entities_filtered{area=area, name="bi-musk-mat-pole", limit=1}
 			
 						
 			if entity1 ~= nil then 		
-			writeDebug(entity1.name)	
-				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar_pole"})) do o.destroy() end	
+				writeDebug(entity1.name)	
+				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi-musk-mat-pole"})) do o.destroy() end	
 
-				--writeDebug("bi_solar_pole Removed")
+				--writeDebug("bi-musk-mat-pole Removed")
 			else
-				--writeDebug("bi_solar_pole not found")				
+				--writeDebug("bi-musk-mat-pole not found")				
 			end
 				
 			--- Remove the Hidden Solar Panel		
 				
 			local entity2 = entities[1]
-			entity2 = surface.find_entities_filtered{area=area, name="bi_solar-panel_for_Solar-Mat", limit=1}	
+			entity2 = surface.find_entities_filtered{area=area, name="bi-musk-mat-solar-panel", limit=1}	
 			
 			if entity2 ~= nil then 
-			writeDebug(entity2.name)		
-				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi_solar-panel_for_Solar-Mat"})) do o.destroy() end	
+				writeDebug(entity2.name)		
+				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi-musk-mat-solar-panel"})) do o.destroy() end	
 
-				--writeDebug("bi_solar-panel_for_Solar-Mat Removed")
+				--writeDebug("bi-musk-mat-solar-panel Removed")
 			else
-				--writeDebug("bi_solar-panel_for_Solar-Mat not found")				
+				--writeDebug("bi-musk-mat-solar-panel not found")				
 			end
 
 
@@ -690,12 +712,12 @@ local function solar_mat_removed_at(surface, position)
    local radius = 0.5
    local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
    local n = 0
-   for _,o in next,surface.find_entities_filtered{name='bi_solar_pole',area=area} or {}
+   for _,o in next,surface.find_entities_filtered{name='bi-musk-mat-pole',area=area} or {}
       do o.destroy() n = n+1 end
-   --writedebug(string.format('%g bi_solar_poles removed',n))
-   for _,o in next,surface.find_entities_filtered{name='bi_solar-panel_for_Solar-Mat',area=area} or {}
+   --writedebug(string.format('%g bi-musk-mat-poles removed',n))
+   for _,o in next,surface.find_entities_filtered{name='bi-musk-mat-solar-panel',area=area} or {}
       do o.destroy() n = n+1 end
-   --writedebug(string.format('bi_solar-panel_for_Solar-Mat',n))
+   --writedebug(string.format('bi-musk-mat-solar-panel',n))
    end
 
 local function Player_Tile_Remove(event)

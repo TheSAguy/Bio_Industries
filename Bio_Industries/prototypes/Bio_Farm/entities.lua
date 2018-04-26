@@ -145,11 +145,11 @@ data:extend({
   ------- Bio Farm
   {
     type = "assembling-machine",
-    name = "bi_bio_farm",
+    name = "bi-bio-farm",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "bi_bio_farm"},
+    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-bio-farm"},
     max_health = 250,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -232,7 +232,7 @@ data:extend({
 ------- Bio Farm Lamp
   {
     type = "lamp",
-    name = "bi_light_for_Bio_Farm",
+    name = "bi-bio-farm-light",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Lamp.png",
 	icon_size = 32,
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
@@ -277,7 +277,7 @@ data:extend({
 ------- Bio Farm Hidden Electric Pole
   {
     type = "electric-pole",
-    name = "bi_medium-electric-pole_for_Bio_Farm",
+    name = "bi-bio-farm-electric-pole",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Cabeling.png",
 	icon_size = 32,
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
@@ -355,7 +355,7 @@ data:extend({
 ------- Bio Farm Solar Panel
   {
     type = "solar-panel",
-    name = "bi_solar-panel_for_Bio_Farm",
+    name = "bi-bio-farm-solar-panel",
     icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Solar.png",
 	icon_size = 32,
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
@@ -382,11 +382,11 @@ data:extend({
 ------ Greenhouse
    {
     type = "assembling-machine",
-    name = "bio-greenhouse",
+    name = "bi-bio-greenhouse",
     icon = "__Bio_Industries__/graphics/icons/bio_greenhouse.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.25, result = "bio-greenhouse"},
+    minable = {hardness = 0.2, mining_time = 0.25, result = "bi-bio-greenhouse"},
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     max_health = 250,
@@ -897,7 +897,7 @@ data:extend({
   --- Radar Arboretum
   {
     type = "radar",
-    name = "bi-Arboretum-Radar",
+    name = "bi-arboretum-radar",
     icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
 	icon_size = 32,	
 	flags = {"placeable-player", "player-creation", "not-deconstructable"},
@@ -965,7 +965,7 @@ data:extend({
 	---- Arboretum Area Overlay
 	{
 		type = "ammo-turret",
-		name = "bi-Arboretum-Area",
+		name = "bi-arboretum-area",
 		icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
 		icon_size = 32,
 		flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable"},
@@ -977,7 +977,7 @@ data:extend({
 		collision_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		--collision_mask = { "not-colliding-with-itself" },
-		order = "x[bi]-a[bi-Arboretum]",
+		order = "x[bi]-a[bi-arboretum]",
 		automated_ammo_count = 1,
 		resistances = {},	
 		inventory_size = 1,
@@ -1014,11 +1014,11 @@ data:extend({
 	--- Assembling-Machine Arboretum
  {
     type = "assembling-machine",
-    name = "bi-Arboretum",
+    name = "bi-arboretum",
     icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-Arboretum-Area"},
+    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-arboretum-area"},
     max_health = 250,
     corpse = "big-remnants",
     dying_explosion = "medium-explosion",
@@ -1047,7 +1047,7 @@ data:extend({
 
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
     selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
-	order = "x[bi]-a[bi-Arboretum]",
+	order = "x[bi]-a[bi-arboretum]",
 
 	animation =
 	{
@@ -1094,7 +1094,7 @@ data:extend({
 	
 })
 
-local my_pole_1 = util.table.deepcopy(data.raw["electric-pole"]["bi_medium-electric-pole_for_Bio_Farm"])
+local my_pole_1 = util.table.deepcopy(data.raw["electric-pole"]["bi-bio-farm-electric-pole"])
 my_pole_1.name = "bi-hidden-power-pole"
 my_pole_1.draw_copper_wires = false
 data:extend({my_pole_1})

@@ -15,7 +15,7 @@ if BI.Settings.BI_Solar_Additions then
 				{"concrete",400},
 						
 			},
-			result = "bi_bio_Solar_Farm"
+			result = "bi-bio-solar-farm"
 		},
 
 
@@ -47,7 +47,7 @@ if BI.Settings.BI_Solar_Additions then
 			  {"copper-cable", 50},
 			  {"concrete",200},
 			},
-			result = "bi_accumulator"
+			result = "bi-bio-accumulator"
 		},
 		
 		-- Large Substation	
@@ -70,14 +70,14 @@ if BI.Settings.BI_Solar_Additions then
 		type = "recipe",
 		name = "bi_recipe_solar_boiler_panel",
 		enabled = false,
-		energy_required = 5,
+		energy_required = 15,
 		ingredients = 
 		{
-		  {"solar-panel", 20},
-		  {"storage-tank", 2},
-		  {"boiler", 1}						
+		  {"solar-panel", 30},
+		  {"storage-tank", 4},
+		  {"boiler", 1},
 		},
-		result = "bi-Solar-Boiler-panel"
+		result = "bi-solar-boiler-panel"
 	},
 	
 	

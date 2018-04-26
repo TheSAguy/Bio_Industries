@@ -3,7 +3,7 @@ data:extend({
 	-- Hive Buster Basic Ammo
 	{
 		type = "ammo",
-		name = "Bio_Cannon_Basic_Ammo",
+		name = "bi-bio-cannon-basic-ammo",
 		icon = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Basic_Ammo_Icon.png",
 		icon_size = 32,
 		flags = { "goes-to-main-inventory" },
@@ -18,7 +18,7 @@ data:extend({
 					action_delivery =
 					{				
 						type = "projectile",
-						projectile = "Bio_Cannon_Basic_Ammo",
+						projectile = "bi-bio-cannon-basic-ammo",
 						starting_speed = 1,
 						direction_deviation = 0.8,
 						range_deviation = 0.8,
@@ -35,7 +35,7 @@ data:extend({
 		-- Poison Ammo
 	{
 		type = "ammo",
-		name = "Bio_Cannon_Poison_Ammo",
+		name = "bi-bio-cannon-poison-ammo",
 		icon = "__Bio_Industries__/graphics/entities/bio_cannon/projectiles/Bio_Cannon_Poison_Ammo_Icon.png",
 		icon_size = 32,
 		flags = { "goes-to-main-inventory" },
@@ -50,7 +50,7 @@ data:extend({
 					action_delivery =
 					{				
 						type = "projectile",
-						projectile = "Bio_Cannon_Poison_Ammo",
+						projectile = "bi-bio-cannon-poison-ammo",
 						starting_speed = 1,
 						direction_deviation = 0.8,
 						range_deviation = 0.8,

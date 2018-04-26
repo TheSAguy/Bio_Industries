@@ -15,7 +15,7 @@ data:extend({
  -- Basic
    {
     type = "projectile",
-    name = "Bio_Cannon_Basic_Ammo",
+    name = "bi-bio-cannon-basic-ammo",
     flags = {"not-on-map"},
     acceleration = 0.0005,
 	action =
@@ -123,7 +123,7 @@ data:extend({
   --- Poison
    {
     type = "projectile",
-    name = "Bio_Cannon_Poison_Ammo",
+    name = "bi-bio-cannon-poison-ammo",
     flags = {"not-on-map"},
     acceleration = 0.0006,
 	action =

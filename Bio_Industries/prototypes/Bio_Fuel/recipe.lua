@@ -16,7 +16,7 @@ data:extend({
 			  {"steel-plate",5},
 			  {"concrete",5},
 			},
-			result = "bio_boiler",
+			result = "bi-bio-boiler",
 			result_count = 1,
 		},
 		expensive =
@@ -29,7 +29,7 @@ data:extend({
 			  {"steel-plate",5},
 			  {"concrete",5},
 			},
-			result = "bio_boiler",
+			result = "bi-bio-boiler",
 			result_count = 1,
 		},
 		

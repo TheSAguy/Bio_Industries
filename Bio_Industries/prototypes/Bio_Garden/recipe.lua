@@ -17,7 +17,7 @@ data:extend({
 		  {"stone-crushed", 50},
 		  {"seedling", 50}
 		},
-		result = "bi-Bio_Garden",
+		result = "bi-bio-garden",
 	},
  
  
@@ -39,7 +39,7 @@ data:extend({
 		},
 		results=
 		{
-		  {type="item", name="bi-Purified_Air", amount=1, probability=0},
+		  {type="item", name="bi-purified-air", amount=1, probability=0},
 		},
 	},
 
@@ -61,7 +61,7 @@ data:extend({
 		},
 		results=
 		{
-		  {type="item", name="bi-Purified_Air", amount=1, probability=0},
+		  {type="item", name="bi-purified-air", amount=1, probability=0},
 		},     
 	},
 	

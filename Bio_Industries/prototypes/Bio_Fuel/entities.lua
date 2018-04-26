@@ -94,11 +94,11 @@ data:extend(
 
 	  {
 		type = "boiler",
-		name = "bio_boiler",
+		name = "bi-bio-boiler",
 		icon = "__Bio_Industries__/graphics/icons/bio_boiler.png",
 		icon_size = 32,
 		flags = {"placeable-neutral", "player-creation"},
-		minable = {hardness = 0.2, mining_time = 0.5, result = "bio_boiler"},
+		minable = {hardness = 0.2, mining_time = 0.5, result = "bi-bio-boiler"},
 		max_health = 300,
 		corpse = "small-remnants",
 		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },

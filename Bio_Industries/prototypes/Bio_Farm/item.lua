@@ -36,26 +36,26 @@ data:extend({
   ----Bio Farm
 	{
 		type= "item",
-		name= "bi_bio_farm",
+		name= "bi-bio-farm",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon.png",
 		icon_size = 32,
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
-		order = "x[bi]-ab[bi_bio_farm]",
-		place_result = "bi_bio_farm",
+		order = "x[bi]-ab[bi-bio-farm]",
+		place_result = "bi-bio-farm",
 		stack_size= 10,
 	},
    
   ----Bio Greenhouse (Nursery)
 	{
 		type= "item",
-		name= "bio-greenhouse",
+		name= "bi-bio-greenhouse",
 		icon = "__Bio_Industries__/graphics/icons/bio_greenhouse.png",
 		icon_size = 32,
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
 		order = "x[bi]-aa[bi_bio_greenhouse]",
-		place_result = "bio-greenhouse",
+		place_result = "bi-bio-greenhouse",
 		stack_size= 10,
 	},
   
@@ -159,7 +159,7 @@ data:extend({
 	
   {
     type = "ammo",
-    name = "seed-bomb-basic",
+    name = "bi-seed-bomb-basic",
     icon = "__Bio_Industries__/graphics/icons/Seed_bomb_icon_b.png",
     icon_size = 32,
     flags = {"goes-to-main-inventory"},
@@ -189,7 +189,7 @@ data:extend({
 	
   {
     type = "ammo",
-    name = "seed-bomb-standard",
+    name = "bi-seed-bomb-standard",
     icon = "__Bio_Industries__/graphics/icons/Seed_bomb_icon_s.png",
     icon_size = 32,
     flags = {"goes-to-main-inventory"},
@@ -219,7 +219,7 @@ data:extend({
 	
   {
     type = "ammo",
-    name = "seed-bomb-advanced",
+    name = "bi-seed-bomb-advanced",
     icon = "__Bio_Industries__/graphics/icons/Seed_bomb_icon_a.png",
     icon_size = 32,
     flags = {"goes-to-main-inventory"},
@@ -248,69 +248,69 @@ data:extend({
 	  	--- 	Arboretum
 	{
 		type= "item",
-		name= "bi-Arboretum-Area",
+		name= "bi-arboretum-area",
 		icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
 		icon_size = 32,
 		flags= { "goes-to-quickbar" },
 		subgroup = "production-machine",
-		order = "x[bi]-a[bi-Arboretum]",
-		place_result = "bi-Arboretum-Area",
+		order = "x[bi]-a[bi-arboretum]",
+		place_result = "bi-arboretum-area",
 		stack_size= 10,
 	},
   
     {
 		type = "item",
-		name = "bi_arboretum_r1",
+		name = "bi-arboretum-r1",
 		icon = "__Bio_Industries__/graphics/icons/Seedling_b.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_arboretum_r1",
+		order = "bi-arboretum-r1",
 		stack_size = 1
 	},
   
    
     {
 		type = "item",
-		name = "bi_arboretum_r2",
+		name = "bi-arboretum-r2",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_1.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_arboretum_r2",
+		order = "bi-arboretum-r2",
 		stack_size = 1
 	},
    
       {
 		type = "item",
-		name = "bi_arboretum_r3",
+		name = "bi-arboretum-r3",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_2.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_arboretum_r3",
+		order = "bi-arboretum-r3",
 		stack_size = 1
 	},
 	
      {
 		type = "item",
-		name = "bi_arboretum_r4",
+		name = "bi-arboretum-r4",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_1.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_arboretum_r4",
+		order = "bi-arboretum-r4",
 		stack_size = 1
 	},
   	
      {
 		type = "item",
-		name = "bi_arboretum_r5",
+		name = "bi-arboretum-r5",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_plant_2.png",
 		icon_size = 32,
 		flags = {"hidden"},
 		subgroup = "terrain",
-		order = "bi_arboretum_r5",
+		order = "bi-arboretum-r5",
 		stack_size = 1
 	},
   

@@ -4,62 +4,15 @@ require ("util")
 if BI.Settings.BI_Solar_Additions then
 	
 	data:extend({
-	--[[
-	------- Bio Solar Farm - Image Only, to make as if it switches on and off.
-	  {
-		type = "lamp",
-		name = "bi_bio_Solar_Farm_Image",
-		icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon.png",
-		icon_size = 32,
-		flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
-		selectable_in_game = false,
-		max_health = 600,
-		--collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
-		collision_box = {{-0, -0}, {0, 0}},
-		--selection_box = {{-0.2, -0.2}, {0.2, 0.2}},
-		selection_box = {{-0, -0}, {0, 0}},
-		energy_source =
-		{
-		  type = "electric",
-		  render_no_network_icon = false,
-		  render_no_power_icon = false,
-		  usage_priority = "lamp"
-		},
-		energy_usage_per_tick = "0.1kW",
-		light = {intensity = 0.1, size = 1},
-		picture_off =
-		{
-		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On.png",
-		  priority = "extra-high",
-		  width = 312,
-		  height = 289,
-		  frame_count = 1,
-		  direction_count = 1,
-		  --scale = 3/2,
-		  shift = {0.30, 0}
-		},
-		picture_on =
-		{
-		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_Off.png",
-		  priority = "extra-high",
-		  width = 312,
-		  height = 289,
-		  frame_count = 1,
-		  direction_count = 1,
-		  --scale = 3/2,
-		  shift = {0.30, 0}
-		},
-		
-	},
-		]]
+
 	  ------- Bio Farm Solar Panel
 	  {
 		type = "solar-panel",
-		name = "bi_bio_Solar_Farm",
+		name = "bi-bio-solar-farm",
 		icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon.png",
 		icon_size = 32,
 		flags = {"placeable-neutral", "player-creation"},
-		minable = {hardness = 0.25, mining_time = 0.5, result = "bi_bio_Solar_Farm"},
+		minable = {hardness = 0.25, mining_time = 0.5, result = "bi-bio-solar-farm"},
 		max_health = 600,
 		corpse = "big-remnants",
 		dying_explosion = "medium-explosion",
@@ -89,11 +42,11 @@ if BI.Settings.BI_Solar_Additions then
 	  ---- BI Accumulator
 		{
 		type = "accumulator",
-		name = "bi_accumulator",
+		name = "bi-bio-accumulator",
 		icon = "__Bio_Industries__/graphics/icons/bi_LargeAccumulator.png",
 		icon_size = 32,
 		flags = {"placeable-neutral", "player-creation"},
-		minable = {hardness = 0.2, mining_time = 0.5, result = "bi_accumulator"},
+		minable = {hardness = 0.2, mining_time = 0.5, result = "bi-bio-accumulator"},
 		max_health = 500,
 		corpse = "big-remnants",
 		collision_box = {{-2, -2}, {2, 2}},
@@ -334,7 +287,7 @@ if BI.Settings.BI_Solar_Additions then
    ------- Hidden Electric pole for Solar Mat
   {
     type = "electric-pole",
-    name = "bi_solar_pole",
+    name = "bi-musk-mat-pole",
     icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 	icon_size = 32,
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
@@ -420,7 +373,7 @@ if BI.Settings.BI_Solar_Additions then
  ------- ------- Hidden Solar Panel for Solar Mat 
   {
     type = "solar-panel",
-    name = "bi_solar-panel_for_Solar-Mat",
+    name = "bi-musk-mat-solar-panel",
     icon = "__Bio_Industries__/graphics/icons/solar-mat.png",
 	icon_size = 32,
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
@@ -451,11 +404,11 @@ if BI.Settings.BI_Solar_Additions then
   ------- ------- Solar Panel for Solar Plant / Boiler 
   {
     type = "solar-panel",
-    name = "bi-Solar-Boiler-panel",
+    name = "bi-solar-boiler-panel",
     icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Icon.png",
 	icon_size = 32,
 	flags = {"placeable-neutral", "player-creation"},
-	minable = {hardness = 0.2, mining_time = 1, result = "bi-Solar-Boiler-panel"},
+	minable = {hardness = 0.2, mining_time = 1, result = "bi-solar-boiler-panel"},
     max_health = 400,
 	render_no_power_icon = true,
     resistances = {{type = "fire", percent = 100}},
@@ -503,7 +456,7 @@ if BI.Settings.BI_Solar_Additions then
     },
 	
 	
-    production = "1.35MW"
+    production = "1.8MW"
   },
 
  
@@ -565,7 +518,7 @@ if BI.Settings.BI_Solar_Additions then
       production_type = "output",
       filter = "steam"
     },
-    energy_consumption = "1.35MW",
+    energy_consumption = "1.799MW",
     
 	energy_source =
 	  {

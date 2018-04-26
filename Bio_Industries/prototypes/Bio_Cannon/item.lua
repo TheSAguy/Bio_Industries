@@ -5,13 +5,13 @@ data:extend({
 	
 		{
 	type = "item",
-	name = "Bio_Cannon_Area",
+	name = "bi-bio-cannon-area",
 	icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
 	icon_size = 32,
 	flags = { "goes-to-quickbar" },
 	subgroup = "defensive-structure",
 	order = "x[turret]-x[gun-turret]",
-	place_result = "Bio_Cannon_Area",
+	place_result = "bi-bio-cannon-area",
 	stack_size = 1,
 	},
 	

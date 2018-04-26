@@ -7,7 +7,7 @@ for index, force in pairs(game.forces) do
   local recipes = force.recipes;
 
 
-  	if game.entity_prototypes["bi-Arboretum-Area"] then	
+  	if game.entity_prototypes["bi-arboretum-area"] then	
 		if  game.technology_prototypes["bi_tech_bio_farming"] and technologies["bi_tech_bio_farming"].researched then
 		
 			recipes["bi_recipe_arboretum"].enabled = true

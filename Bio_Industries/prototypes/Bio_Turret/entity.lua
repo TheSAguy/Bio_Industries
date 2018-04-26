@@ -225,11 +225,11 @@ end
 data:extend({ 
   {
     type = "ammo-turret",
-    name = "bio-turret",
+    name = "bi-dart-turret",
     icon = "__Bio_Industries__/graphics/icons/bio_turret_icon.png",
 	icon_size = 32,
     flags = {"placeable-player", "player-creation"},
-    minable = {mining_time = 0.25, result = "bio-turret"},
+    minable = {mining_time = 0.25, result = "bi-dart-turret"},
     max_health = 250,
     corpse = "medium-remnants",
 	 

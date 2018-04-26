@@ -9,10 +9,10 @@ data:extend({
 		normal =
 		{
 			enabled = true,
-			energy_required = 5,
+			energy_required = 4,
 			ingredients = 
 			{
-				{"raw-wood", 5},
+				{"raw-wood", 10},
 			},
 		  result = "bi-basic-dart-magazine",
 		  result_count = 10,
@@ -20,10 +20,10 @@ data:extend({
 		expensive =
 		{
 			enabled = true,
-			energy_required = 8,
+			energy_required = 6,
 			ingredients = 
 			{
-				{"raw-wood", 5},
+				{"raw-wood", 10},
 			},
 		  result = "bi-basic-dart-magazine",
 		  result_count = 8,
@@ -68,7 +68,7 @@ data:extend({
 		normal =
 		{
 			enabled = false,
-			energy_required = 5,
+			energy_required = 6,
 			ingredients = 
 			{
 				{"bi-standard-dart-magazine", 10},
@@ -80,7 +80,7 @@ data:extend({
 		expensive =
 		{
 			enabled = false,
-			energy_required = 8,
+			energy_required = 9,
 			ingredients = 
 			{
 				{"bi-standard-dart-magazine", 8},
@@ -98,7 +98,7 @@ data:extend({
 		normal =
 		{
 			enabled = false,
-			energy_required = 5,
+			energy_required = 8,
 			ingredients = 
 			{
 				{"bi-enhanced-dart-magazine", 10},
@@ -110,7 +110,7 @@ data:extend({
 		expensive =
 		{
 			enabled = false,
-			energy_required = 8,
+			energy_required = 12,
 			ingredients = 
 			{
 				{"bi-enhanced-dart-magazine", 8},
@@ -136,7 +136,7 @@ data:extend({
 			  {"iron-gear-wheel", 5},
 			  {"raw-wood", 20},
 			},
-		  result = "bio-turret",
+		  result = "bi-dart-turret",
 		  result_count = 1,
 		},
 	
@@ -149,7 +149,7 @@ data:extend({
 			  {"iron-gear-wheel", 10},
 			  {"raw-wood", 25},
 			},
-		  result = "bio-turret",
+		  result = "bi-dart-turret",
 		  result_count = 1,
 		},
 	

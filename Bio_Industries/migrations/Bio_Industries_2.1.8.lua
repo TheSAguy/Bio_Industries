@@ -18,7 +18,7 @@ for index, force in pairs(game.forces) do
 	end
   
 
-  	if game.technology_prototypes ["bob-solar-energy-2"] and game.entity_prototypes["bi-Solar-Boiler-panel"] then	
+  	if game.technology_prototypes ["bob-solar-energy-2"] and game.entity_prototypes["bi-solar-boiler-panel"] then	
 		if technologies["bob-solar-energy-2"].researched then
 		
 			recipes["bi_recipe_solar_boiler_panel"].enabled = true
@@ -27,7 +27,7 @@ for index, force in pairs(game.forces) do
 
 		end
 	
-	elseif  technologies["solar-energy"].researched and game.entity_prototypes["bi-Solar-Boiler-panel"] then
+	elseif  technologies["solar-energy"].researched and game.entity_prototypes["bi-solar-boiler-panel"] then
 		
 			recipes["bi_recipe_solar_boiler_panel"].enabled = true
 			recipes["bi_recipe_solar_boiler_panel"].reload()

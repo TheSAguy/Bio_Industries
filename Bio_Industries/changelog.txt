@@ -1,10 +1,14 @@
 Version: 2.5.0
 Date: 4. x. 2018
+  Bugfixes:
+    - Powered rail does not lose it's power when placing a tile over the rail
   Features:
-    - Tweaked Bio Cannon Recipe
-    - Changed names of some Recipes
+    - Tweaked Bio Cannon Recipe, can now be build earlier
+    - Tweaked Solar Boiler Recipe and stats
+    - Changed names of some Recipes, Technologies, Entities and Items
     - Tweaked Solar Farm Build Time
     - Added more Darts and tweaked recipes
+    - Added Russian locale thanks to IgorLutiy
 
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.8

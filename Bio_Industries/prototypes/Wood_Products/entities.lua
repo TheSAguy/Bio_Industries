@@ -1055,7 +1055,7 @@ data:extend({
 	draw_copper_wires=false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
-	collision_mask = {"ground-tile"},
+	collision_mask = {"ghost-layer"},
     collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
     selection_box = {{0, 0}, {0, 0}},
     maximum_wire_distance = 8,

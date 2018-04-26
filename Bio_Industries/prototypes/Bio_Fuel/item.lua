@@ -30,13 +30,13 @@
 	--- Bio Boiler
 	{
 		type = "item",
-		name = "bio_boiler",
+		name = "bi-bio-boiler",
 		icon = "__Bio_Industries__/graphics/icons/bio_boiler.png",
 		icon_size = 32,
 		flags = {"goes-to-quickbar"},
 		subgroup = "energy",
 		order = "b[steam-power]-b[boiler]",
-		place_result = "bio_boiler",
+		place_result = "bi-bio-boiler",
 		stack_size = 50
 	},
 	

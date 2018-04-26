@@ -16,7 +16,7 @@ data:extend({
 			  {"steel-plate", 80},
 			  {"electric-engine-unit", 5},
 			},
-		  result = "Bio_Cannon_Area",
+		  result = "bi-bio-cannon-area",
 		  result_count = 1,
 		},
 		expensive =
@@ -30,7 +30,7 @@ data:extend({
 			  {"steel-plate", 120},
 			  {"electric-engine-unit", 15},
 			},
-		  result = "Bio_Cannon_Area",
+		  result = "bi-bio-cannon-area",
 		  result_count = 1,
 		},
 	
