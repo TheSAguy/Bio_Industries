@@ -350,7 +350,7 @@ local function On_Built(event)
 		local surface = entity.surface
 		local force = entity.force
 		local position = entity.position
-		local radius = 2		
+		local radius = 10		
 		local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
 		local power_rail_poles = {}
 		power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = game.forces.player}
@@ -360,6 +360,7 @@ local function On_Built(event)
 			for i=1, #power_rail_poles do
 				writeDebug(i.. " Hidden Power Rail Pole found")
 				entity.connect_neighbour(power_rail_poles[i])
+				--entity.connect_neighbour({wire = defines.wire_type.red, target_entity = power_rail_poles[i]});
 			end
 		
 		end
