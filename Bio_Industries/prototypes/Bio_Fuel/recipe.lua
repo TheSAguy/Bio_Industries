@@ -2,7 +2,7 @@
 
 data:extend({
 
-	--- Bio Boiler ---
+	--- Bio Boiler (ENTITY) ---
 	{
 		type = "recipe",
 		name = "bi_recipe_boiler",
@@ -35,7 +35,7 @@ data:extend({
 		
 	},
   
-	-- BIO Reactor --
+	-- BIO Reactor (ENTITY)--
 	{
 		type = "recipe",
 		name = "bi-bioreactor",
@@ -65,7 +65,8 @@ data:extend({
 			result = "bi-bioreactor",
 			result_count = 1,
 		},
-		
+		subgroup = "bio-bio-fuel-fluid",
+		order = "a"		
 	},
 		
 	-- CELLULOSE 1 --
@@ -75,8 +76,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/cellulose.png",
 		icon_size = 32,
 		category = "chemistry",
-		subgroup = "bio-bio-fuel-fluid",
-		order = "[bi-cellulose-1]",
 		energy_required = 20,
 		ingredients =
 		{
@@ -88,6 +87,8 @@ data:extend({
 			{type="item", name="bi-cellulose", amount=10 }
 		},
 		enabled = false,
+		subgroup = "bio-bio-fuel-other",
+		order = "[bi-cellulose-1]",
 	},
 	
 	-- CELLULOSE 2 --
@@ -97,8 +98,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/cellulose_2.png",
 		icon_size = 32,
 		category = "chemistry",
-		subgroup = "bio-bio-fuel-fluid",
-		order = "[bi-cellulose-2]",
 		energy_required = 5,
 		ingredients =
 		{
@@ -111,6 +110,8 @@ data:extend({
 			{type="item", name="bi-cellulose", amount=10 }
 		},
 		enabled = false,
+		subgroup = "bio-bio-fuel-other",
+		order = "[bi-cellulose-2]",
 	},
 	
 	
@@ -121,8 +122,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/plastic_bar_1.png",
 		icon_size = 32,
 		category = "chemistry",
-		subgroup = "raw-material",
-		order = "g[plastic-bar-1]",
+		--subgroup = "raw-material",
 		energy_required = 1,
 		ingredients =
 		{
@@ -135,6 +135,8 @@ data:extend({
 			{type="item", name="plastic-bar", amount=2}
 		},
 		enabled = false,
+		subgroup = "bio-bio-fuel-solid",
+		order = "g[plastic-bar-1]",
 	},
 
 	
@@ -145,8 +147,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/plastic_bar_2.png",
 		icon_size = 32,
 		category = "chemistry",
-		subgroup = "raw-material",
-		order = "g[plastic-bar-2]",
+		--subgroup = "raw-material",
 		energy_required = 1,
 		ingredients =
 		{
@@ -158,6 +159,8 @@ data:extend({
 			{type="item", name="plastic-bar", amount=2}
 		},
 		enabled = false,
+		subgroup = "bio-bio-fuel-solid",
+		order = "g[plastic-bar-2]",
 	},
 	
 
@@ -250,7 +253,7 @@ data:extend({
 		{type="fluid", name="light-oil", amount=80},
     },
     
-    subgroup = "bio-bio-fuel-fluid",
+    subgroup = "bio-bio-fuel-other",
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-1]",
   },
 
@@ -271,9 +274,8 @@ data:extend({
     results=
     {
 	    {type="fluid", name="petroleum-gas", amount=20}
-    },
-    
-    subgroup = "bio-bio-fuel-fluid",
+    },   
+    subgroup = "bio-bio-fuel-other",
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-2]",
   },
 
@@ -294,16 +296,17 @@ data:extend({
     results=
     {
 		{type="fluid", name="lubricant", amount=10}
-    },
-    
-    subgroup = "bio-bio-fuel-fluid",
-	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-3]",
+    },   
+    --subgroup = "bio-bio-fuel-fluid",
+	--order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-3]",
 	crafting_machine_tint =
     {
       primary = {r = 0.000, g = 0.260, b = 0.010, a = 0.000}, -- #00420200
       secondary = {r = 0.071, g = 0.640, b = 0.000, a = 0.000}, -- #12a30000
       tertiary = {r = 0.026, g = 0.520, b = 0.000, a = 0.000}, -- #06840000
-    }
+    },
+	subgroup = "bio-bio-fuel-other",
+	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-3]",
   },
 
 
@@ -331,7 +334,9 @@ data:extend({
 			primary = {r = 0.970, g = 0.611, b = 0.000, a = 0.000}, -- #f79b0000
 			secondary = {r = 0.000, g = 0.680, b = 0.894, a = 0.357}, -- #00ade45b
 			tertiary = {r = 0.430, g = 0.805, b = 0.726, a = 0.000}, -- #6dcdb900
-		}
+		},
+		subgroup = "bio-bio-fuel-solid",
+		order = "h",
 	},	
 	
 	  --- Bio Acid
@@ -359,8 +364,9 @@ data:extend({
 			primary = {r = 0.875, g = 0.735, b = 0.000, a = 0.000}, -- #dfbb0000
 			secondary = {r = 0.103, g = 0.940, b = 0.000, a = 0.000}, -- #1aef0000
 			tertiary = {r = 0.564, g = 0.795, b = 0.000, a = 0.000}, -- #8fca0000
-		}
-
+		},
+		subgroup = "bio-bio-fuel-other",
+		order = "a",
 	},	
 	
 	-- Sulfuric acid to Sulfur --
@@ -381,9 +387,11 @@ data:extend({
 			{type="item", name="sulfur", amount=10}
 		},
 		enabled = false,
+		subgroup = "bio-bio-fuel-solid",
+		order = "i1",
 	},
 	
-		-- Sulfuric acid to Sulfur --IF ANGELS INSTALLED (More Expensice)
+	-- Sulfuric acid to Sulfur --IF ANGELS INSTALLED (More Expensice)
 	{
 		type = "recipe",
 		name = "bi_recipe_sulfur_angels",
@@ -401,6 +409,8 @@ data:extend({
 			{type="item", name="sulfur", amount=10}
 		},
 		enabled = false,
+		subgroup = "bio-bio-fuel-solid",
+		order = "i2",
 	},
 	
 	

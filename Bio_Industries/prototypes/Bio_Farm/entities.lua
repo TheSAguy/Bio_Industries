@@ -901,7 +901,7 @@ data:extend({
     icon = "__Bio_Industries__/graphics/icons/Arboretum_Icon.png",
 	icon_size = 32,	
 	flags = {"placeable-player", "player-creation", "not-deconstructable"},
-	order = "b[TerraformingStation]-a[TerraformingStation]",
+	order = "y[bi]-a[bi-arboretum]",
 
 	minable = nil, 
 	max_health = 250,

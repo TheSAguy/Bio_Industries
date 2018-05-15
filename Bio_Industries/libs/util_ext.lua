@@ -23,30 +23,6 @@ function ungroup_entities(entity_groupid)
 end
 
 
-
--------------------------------------------------------------------
--- A-sync Action Queue
---
-function aaq_init()
-	if not global.aaq then
-		global.aaq = {}
-		
-		script.on_event(defines.events.on_tick, aaq_tick)
-	end
-end
-
-function aaq_queue(action)
-	table.insert(global.aaq, action)
-end
-
-function aaq_tick()
-	while #global.aaq > 0 do
-		local aaq_action = table.remove(global.aaq,1)
-		aaq_action()
-	end
-end
--------------------------------------------------------------------
-
 -------------------------------------------------------------------
 -- Grouping
 --

@@ -16,13 +16,72 @@ data:extend(
     group = "bio-industries",
     order = "a-a",
   },
-  
+
+--- Bio Drill
   {
     type = "item-subgroup",
-    name = "bio-bio-farm-fluid",
+    name = "bio-bio-drill-drill",
+    group = "bio-industries",
+    order = "1a-aa",
+  }, 
+
+  {
+    type = "item-subgroup",
+    name = "bio-bio-drill-mk1",
+    group = "bio-industries",
+    order = "1a-ab",
+  },
+  
+   {
+    type = "item-subgroup",
+    name = "bio-bio-drill-mk2",
+    group = "bio-industries",
+    order = "1a-ac",
+  }, 
+  
+   {
+    type = "item-subgroup",
+    name = "bio-bio-drill-mk3",
+    group = "bio-industries",
+    order = "1a-ad",
+  }, 
+   
+--- Bio Farm and Nursary 
+  {
+    type = "item-subgroup",
+    name = "bio-bio-farm-fluid-1",
     group = "bio-industries",
     order = "a-a",
+  }, 
+  {
+    type = "item-subgroup",
+    name = "bio-bio-farm-fluid-2",
+    group = "bio-industries",
+    order = "a-b",
   },
+  {
+    type = "item-subgroup",
+    name = "bio-bio-farm-fluid-3",
+    group = "bio-industries",
+    order = "a-c",
+  }, 
+  {
+    type = "item-subgroup",
+    name = "bio-bio-farm-fluid-entity",
+    group = "bio-industries",
+    order = "a-d",
+  }, 
+  
+  ---- Solar Entities
+    {
+    type = "item-subgroup",
+    name = "bio-bio-solar-entity",
+    group = "bio-industries",
+    order = "a-solar",
+  }, 
+  
+  
+--- Coals and Cokery and Crushed Stone and Crusher
   {
     type = "item-subgroup",
     name = "bio-bio-farm-raw",
@@ -31,10 +90,20 @@ data:extend(
   },
   {
     type = "item-subgroup",
+    name = "bio-bio-farm-raw-entity",
+    group = "bio-industries",
+    order = "b-b",
+  },
+
+  ----- Other Int Products
+  {
+    type = "item-subgroup",
     name = "bio-bio-farm-intermediate-product",
     group = "bio-industries",
     order = "c-a",
   },
+
+  ---- Arboretum
   {
     type = "item-subgroup",
     name = "bio-arboretum-fluid",
@@ -43,16 +112,53 @@ data:extend(
   },
   {
     type = "item-subgroup",
+    name = "bio-arboretum-fluid-entity",
+    group = "bio-industries",
+    order = "c-d",
+  },
+  
+  --- Bio Reactor and Bio-Mass
+  {
+    type = "item-subgroup",
     name = "bio-bio-fuel-fluid",
     group = "bio-industries",
     order = "d-a-1"
   },
   {
     type = "item-subgroup",
-    name = "bio-bio-gardens-fluid",
+    name = "bio-bio-fuel-fluid-entity",
     group = "bio-industries",
     order = "d-a-2"
   },
+  ---- Bio Fuel Solids
+   {
+    type = "item-subgroup",
+    name = "bio-bio-fuel-solid",
+    group = "bio-industries",
+    order = "e"
+  },
+  ---- Bio Fuel OTHER 
+   {
+    type = "item-subgroup",
+    name = "bio-bio-fuel-other",
+    group = "bio-industries",
+    order = "f"
+  },  
+  
+  ---- Garden
+  {
+    type = "item-subgroup",
+    name = "bio-bio-gardens-fluid",
+    group = "bio-industries",
+    order = "x-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "bio-bio-gardens-fluid-entity",
+    group = "bio-industries",
+    order = "x-b"
+  },
+  
   {
     type = "item-subgroup",
     name = "bio-transport",

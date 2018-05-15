@@ -50,7 +50,7 @@ data:extend(
     per_user = false,
   },
     --- E
-    {
+  {
     type = "bool-setting",
     name = "BI_Alt_Farm_Image",
     setting_type = "startup",
@@ -58,8 +58,18 @@ data:extend(
 	order = "e[modifier]-e[BI_Alt_Farm_Image]",
     per_user = false,
   },
+  --[[
+  --- F
+    {
+    type = "bool-setting",
+    name = "BI_Bio_Infinite_Fluids",
+    setting_type = "startup",
+    default_value = true,
+	order = "f0[modifier]-e[BI_Bio_Infinite_Fluids]",
+    per_user = false,
+  },
+  ]]
   
-
   --[[
 
 ]]

@@ -1,14 +1,14 @@
---Bio_Industries Version   2.5.0
+--Bio_Industries Version   2.5.3
 
 
-local QC_Mod = false
+local QC_Mod = true
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
 require ("control_tree")
 require ("control_bio_cannon")
 require ("control_arboretum")
-
+require ("control_bio_drill")
 
 
 --------------------------------------------------------------------
@@ -30,11 +30,32 @@ local function On_Init()
 	global.bi.seed_bomb["seedling"] = "seedling"
 	global.bi.seed_bomb["seedling-2"] = "seedling-2"
 	global.bi.seed_bomb["seedling-3"] = "seedling-3"
-
 	
+	-- Global table for bio farm
+	if global.bi_bio_farm_table == nil then
+		global.bi_bio_farm_table = {}
+	end
+
+	-- Global table for solar boiler
+	if global.bi_solar_boiler_table == nil then
+		global.bi_solar_boiler_table = {}
+	end
+
+	-- Global table for power rail
+	if global.bi_power_rail_table == nil then
+		global.bi_power_rail_table = {}
+	end
+	
+	-- Global table for arboretum
 	if global.Arboretum_Table == nil then
 		global.Arboretum_Table = {}
 	end
+
+	-- Global table for drill
+	if global.bi_drill_table == nil then
+		global.bi_drill_table = {}
+	end
+
 	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -70,17 +91,40 @@ local function On_Config_Change()
 		global.bi.terrains = {}
 	end
 
-	if global.Arboretum_Table == nil then
-		global.Arboretum_Table = {}
-	end
-	
-	
+		
 	global.bi.seed_bomb={}
 	global.bi.seed_bomb["seedling"] = "seedling"
 	global.bi.seed_bomb["seedling-2"] = "seedling-2"
 	global.bi.seed_bomb["seedling-3"] = "seedling-3"
 
 
+	-- Global table for bio farm
+	if global.bi_bio_farm_table == nil then
+		global.bi_bio_farm_table = {}
+	end
+
+	-- Global table for solar boiler
+	if global.bi_solar_boiler_table == nil then
+		global.bi_solar_boiler_table = {}
+	end
+
+	-- Global table for power rail
+	if global.bi_power_rail_table == nil then
+		global.bi_power_rail_table = {}
+	end
+	
+	-- Global table for arboretum
+	if global.Arboretum_Table == nil then
+		global.Arboretum_Table = {}
+	end
+
+	-- Global table for drill
+	if global.bi_drill_table == nil then
+		global.bi_drill_table = {}
+	end
+	
+
+	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
 		for _, tech in pairs(force.technologies) do
@@ -161,6 +205,8 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 		seed_planted_trigger (event)
 
     end
+
+
 	
 end)
 
@@ -181,7 +227,7 @@ local function On_Built(event)
 
 	
     --- Bio Farm has been built
-	if entity.valid and entity.name == "bi_recipe_bio_farm" then
+	if entity.valid and entity.name == "bi-bio-farm" then
 	writeDebug("Bio Farm has been built")
 		   
 		local b_farm = entity
@@ -200,7 +246,9 @@ local function On_Built(event)
 		create_lamp.minable = false
 		create_lamp.destructible = false
 		
-		group_entities(cantor(position.x,position.y), { b_farm, create_pole, create_panel, create_lamp })	  
+		--- Group Entities together
+		global.bi_bio_farm_table[b_farm.unit_number] = {base=b_farm, pole=create_pole, panel=create_panel, lamp=create_lamp}
+		--group_entities(cantor(position.x,position.y), { b_farm, create_pole, create_panel, create_lamp })	  
 
 	end
 
@@ -220,8 +268,10 @@ local function On_Built(event)
 		create_solar_boiler.destructible = false	
  		create_sm_pole.minable = false
 		create_sm_pole.destructible = false
-			
-		group_entities(cantor(position.x,position.y), { solar_plant, create_solar_boiler, create_sm_pole })	  
+		
+		--- Group Entities together
+		global.bi_solar_boiler_table[solar_plant.unit_number] = {base=solar_plant, boiler=create_solar_boiler, pole=create_sm_pole}		
+		--group_entities(cantor(position.x,position.y), { solar_plant, create_solar_boiler, create_sm_pole })	  
 
 	end
 	
@@ -267,14 +317,11 @@ local function On_Built(event)
 		local pole_name = "bi-hidden-power-pole"
 		
 		local create_arboretum = surface.create_entity({name = arboretum_new, position = position, direction = entity.direction, force = force})
-		--local create_pole = surface.create_entity({name = pole_name, position = position, direction = entity.direction, force = force})
 		
 		local position_c = {position.x - 3.5, position.y + 3.5}
 		local create_radar = surface.create_entity({name = radar_name, position = position_c, direction = entity.direction, force = force})
 
 
-		--create_pole.minable = false
-		--create_pole.destructible = false		
 		create_radar.minable = false
 		create_radar.destructible = false
 
@@ -282,21 +329,89 @@ local function On_Built(event)
 		--writeDebug("The inventory unit# is: "..create_arboretum.unit_number)
 		--writeDebug("The radar unit# is: "..create_radar.unit_number)
 		
+		-- Remove the "Overlay" Entity
 		event.created_entity.destroy()
 		
 		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar}
-		--global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar, pole=create_pole}
   
 
 	end
 
 
+	
+--[[	
+	--- Attempt to make sure Poles connect correctly
+	if entity.valid and entity.name == "bi-power-to-rail-pole" then
+    
+		local radius = 2		
+		local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
+		local power_rail_poles = {}
+		power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = force}
+
+		if power_rail_poles ~= nil and  #power_rail_poles >= 1 then 	
+			
+			for i=1, #power_rail_poles do
+				writeDebug(i.. " Hidden Power Rail Pole found")
+				entity.connect_neighbour(power_rail_poles[i])
+			end
+		
+		end
+
+		
+    end	
+
+	if entity.valid and entity.name == "bi-rail-hidden-power-pole" then
+    
+		local radius = 4.5		
+		local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
+		local power_rail_poles = {}
+		power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = force}
+
+		if power_rail_poles ~= nil and  #power_rail_poles >= 1 then 	
+			
+			for i=1, #power_rail_poles do
+				writeDebug(i.. " Hidden Power Rail Pole found")
+				entity.connect_neighbour(power_rail_poles[i])
+			end
+		
+		end
+
+		
+    end	
+]]
+	
+    --- Drill has been built
+	if entity.valid and entity.name == "bi-drill-base" then
+	writeDebug("Drill has been built")
+		   
+
+		local drill_bit_name = "bi-drill-radar"  
+		local drill_base = entity 
+
+		
+		--local position_c = {position.x - 3.5, position.y + 3.5}
+		local position_c = {position.x + 0.45, position.y + 0.13}
+		local create_drill_bit = surface.create_entity({name = drill_bit_name, position = position_c, direction = entity.direction, force = force})
+	
+		create_drill_bit.minable = false
+		create_drill_bit.destructible = false
+
+		--writeDebug("The entity unit# is: "..entity.unit_number)
+		--writeDebug("The inventory unit# is: "..create_arboretum.unit_number)
+		--writeDebug("The radar unit# is: "..create_radar.unit_number)
+
+		
+		global.bi_drill_table[drill_base.unit_number] = {inventory=drill_base, drill_bit=create_drill_bit}
+	
+
+
+	end
+
+	
 	-- Power Rail
 	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
 	writeDebug("Power Rail has been built")
-		local surface = entity.surface
-		local force = entity.force
-		local position = entity.position		   
+			   
 		local rail_track = entity
 		local pole_name = "bi-rail-hidden-power-pole"  		
 		
@@ -304,31 +419,47 @@ local function On_Built(event)
 				
 		create_rail_pole.minable = false
 		create_rail_pole.destructible = false 
-		
-		group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
 
-	end
-
-	
-	--- Only connect "rail-hidden-power" to each other and "power-to-rail" poles.
-	if entity.valid and entity.name == "bi-rail-hidden-power-pole" then
-	
-		for _,neighbour in pairs(entity.neighbours.copper) do
+		--- Group Entities together
+		global.bi_power_rail_table[rail_track.unit_number] = {base=rail_track, pole=create_rail_pole}		
+		--group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
+		writeDebug(global.bi_power_rail_table[rail_track.unit_number].pole.name)
 		
-			if neighbour.name ~= "bi-rail-hidden-power-pole" and neighbour.name ~= "bi-power-to-rail-pole" then
-				entity.disconnect_neighbour(neighbour)
-			end
+		
+		if global.bi_power_rail_table[rail_track.unit_number].pole.valid then
 			
-			if neighbour.name == "bi-rail-hidden-power-pole" or neighbour.name == "bi-power-to-rail-pole" then
-				entity.connect_neighbour(neighbour)
+			local radius = 4		
+			local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
+			local power_rail_poles = {}
+			power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = force}
+
+			if power_rail_poles ~= nil and  #power_rail_poles >= 1 then 				
+				
+				for i=1, #power_rail_poles do
+				
+					for _,neighbour in pairs(power_rail_poles[i].neighbours.copper) do					
+						if neighbour.name == "bi-rail-hidden-power-pole" or neighbour.name == "bi-power-to-rail-pole" then						
+							writeDebug(i.. " Hidden Power Rail Pole found")
+							power_rail_poles[i].connect_neighbour(neighbour)						
+						else					
+							writeDebug(i.. " Hidden Power Rail Pole found")
+							power_rail_poles[i].disconnect_neighbour(neighbour)
+						end
+									
+					end
+					
+				end
+			
 			end
-		
+
+
 		end
 	
+
 	end
 
 
-	--- Disconnect any othr power lines from the rail-hidden-power pole
+	--- Disconnect any other power lines from the rail-hidden-power pole
 	if entity.valid and entity.type == "electric-pole" then
 		
 		if entity.name ~= "bi-rail-hidden-power-pole" and entity.name ~= "bi-power-to-rail-pole" then
@@ -345,29 +476,7 @@ local function On_Built(event)
 		
 	end
 	
-	if entity.valid and entity.name == "bi-power-to-rail-pole" then
-    
-		local surface = entity.surface
-		local force = entity.force
-		local position = entity.position
-		local radius = 10		
-		local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
-		local power_rail_poles = {}
-		power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = game.forces.player}
-
-		if power_rail_poles ~= nil and  #power_rail_poles >= 1 then 	
-			
-			for i=1, #power_rail_poles do
-				writeDebug(i.. " Hidden Power Rail Pole found")
-				entity.connect_neighbour(power_rail_poles[i])
-				--entity.connect_neighbour({wire = defines.wire_type.red, target_entity = power_rail_poles[i]});
-			end
-		
-		end
-
-		
-    end	
-
+	
 end
 
 
@@ -376,9 +485,17 @@ local function On_Remove(event)
 	
 	local entity = event.entity	
 	
-	--- Bio Farm has been removed
-   	if entity.valid and entity.name == "bi_recipe_bio_farm" then
-	writeDebug("Bio Farm has been removed")
+	--- Bio Farm has been removed	
+ 	if entity.valid and entity.name == "bi-bio-farm" then
+	writeDebug("Bio Farm has been removed")	
+
+		if global.bi_bio_farm_table[entity.unit_number] then
+			global.bi_bio_farm_table[entity.unit_number].pole.destroy()	
+			global.bi_bio_farm_table[entity.unit_number].panel.destroy()
+			global.bi_bio_farm_table[entity.unit_number].lamp.destroy()
+			global.bi_bio_farm_table[entity.unit_number] = nil
+		end	
+
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -392,11 +509,12 @@ local function On_Remove(event)
         end
         ungroup_entities(pos_hash)
 	end
-
 		
 			
 	--- Bio Solar Farm has been removed
    	if entity.valid and entity.name == "bi-bio-solar-farm" then
+	writeDebug("Solar Farm has been removed")
+		
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -408,29 +526,45 @@ local function On_Remove(event)
                 end
             end
         end
-        ungroup_entities(pos_hash)
+		
+		ungroup_entities(pos_hash)
+		
 	end
 
 
-		--- Bio Solar Boiler has been removed
+	--- Bio Solar Boiler has been removed
    	if entity.valid and entity.name == "bi-solar-boiler-panel" then
+	writeDebug("Solar Boiler has been removed")
+	
+		if global.bi_solar_boiler_table[entity.unit_number] then
+			global.bi_solar_boiler_table[entity.unit_number].boiler.destroy()	
+			global.bi_solar_boiler_table[entity.unit_number].pole.destroy()
+			global.bi_solar_boiler_table[entity.unit_number] = nil
+		end
+		
 		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
+		local entity_group = getGroup_entities(pos_hash)
+
+		if entity_group then
+			for ix, vx in ipairs(entity_group) do
+				if vx == entity then
+					--vx.destroy()
+				else
+					vx.destroy()
+				end
+			end
+		end
+		
+		ungroup_entities(pos_hash)
+			
 	end
 	
 	
+	--[[
 	--- Solar Mat has been removed
    	if entity.valid and entity.name == "bi-solar-mat" then
+	writeDebug("Solar Mat has been removed")
+	
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -442,13 +576,66 @@ local function On_Remove(event)
                 end
             end
         end
+		
         ungroup_entities(pos_hash)
+		
+	end
+	]]
+			
+
+	--- Power Rail has been removed
+   	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
+	writeDebug("Power-Rail has been removed")
+	
+		if global.bi_power_rail_table[entity.unit_number] then	
+			global.bi_power_rail_table[entity.unit_number].pole.destroy()	
+			global.bi_power_rail_table[entity.unit_number] = nil
+		end
+			
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+        local entity_group = getGroup_entities(pos_hash)
+        if entity_group then
+            for ix, vx in ipairs(entity_group) do
+                if vx == entity then
+                    --vx.destroy()
+                else
+                    vx.destroy()
+                end
+            end
+        end
+		
+        ungroup_entities(pos_hash)
+		
 	end
 
+	
+	--- Arboretum has been removed
+   	if entity.valid and entity.name == "bi-arboretum" then
+	writeDebug("Arboretum has been removed")	
 		
+		if global.Arboretum_Table[entity.unit_number] then
+			global.Arboretum_Table[entity.unit_number].radar.destroy()
+			global.Arboretum_Table[entity.unit_number] = nil
+		end
+		
+	end
+
+	
+	--- Bio Drill has been removed
+   	if entity.valid and entity.name == "bi-drill-base" then
+	writeDebug("Drill has been removed")
+
+		if global.bi_drill_table[entity.unit_number] then
+			global.bi_drill_table[entity.unit_number].drill_bit.destroy()
+			global.bi_drill_table[entity.unit_number] = nil
+		end	
+		
+	end
+
 	
 	--- Seedling Removed
 	if entity.valid and entity.name == "seedling" then
+	writeDebug("Seedling has been removed")
 	
 		for k, v in pairs(global.bi.tree_growing) do
 			if v.position.x == entity.position.x and v.position.y == entity.position.y then
@@ -457,36 +644,9 @@ local function On_Remove(event)
 			end
 		end
 
-	end
+	end	
 	
-
-	--- Power Rail has been removed
-   	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
-
 	
-		--- Arboretum has been removed
-   	if entity.valid and entity.name == "bi-arboretum" then
-		writeDebug("Arboretum has been removed")
-
-		global.Arboretum_Table[entity.unit_number].radar.destroy()
-		global.Arboretum_Table[entity.unit_number] = nil
-		
-	end
-
-		
 end
 
 
@@ -495,8 +655,17 @@ local function On_Death(event)
 
 	local entity = event.entity
 	
-	--- Bio Farm has been destroyed
-   	if entity.valid and entity.name == "bi_recipe_bio_farm" then
+	--- Bio Farm has been destroyed	
+ 	if entity.valid and entity.name == "bi-bio-farm" then
+	writeDebug("Bio Farm has been destroyed")	
+
+		if global.bi_bio_farm_table[entity.unit_number] then
+			global.bi_bio_farm_table[entity.unit_number].pole.destroy()	
+			global.bi_bio_farm_table[entity.unit_number].panel.destroy()
+			global.bi_bio_farm_table[entity.unit_number].lamp.destroy()
+			global.bi_bio_farm_table[entity.unit_number] = nil
+		end	
+
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -504,17 +673,20 @@ local function On_Death(event)
                 if vx == entity then
                     --vx.destroy()
                 else
-                    --vx.die()
-					vx.destroy()
+                    vx.destroy()
                 end
             end
         end
+		
         ungroup_entities(pos_hash)
+		
 	end
 
 	
-		--- Bio Solar Farm has been destroyed
+	--- Bio Solar Farm has been destroyed
    	if entity.valid and entity.name == "bi-bio-solar-farm" then
+	writeDebug("Solar Farm has been destroyed")
+		
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -526,12 +698,49 @@ local function On_Death(event)
                 end
             end
         end
+		
         ungroup_entities(pos_hash)
+		
 	end
 
 
-	--- Bio Solar Boiler has been removed
+	--- Bio Solar Boiler has been destroyed
    	if entity.valid and entity.name == "bi-solar-boiler-panel" then
+	writeDebug("Solar Boiler has been destroyed")
+	
+		if global.bi_solar_boiler_table[entity.unit_number] then
+			global.bi_solar_boiler_table[entity.unit_number].boiler.destroy()	
+			global.bi_solar_boiler_table[entity.unit_number].pole.destroy()
+			global.bi_solar_boiler_table[entity.unit_number] = nil
+		end
+		
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+		local entity_group = getGroup_entities(pos_hash)
+
+		if entity_group then
+			for ix, vx in ipairs(entity_group) do
+				if vx == entity then
+					--vx.destroy()
+				else
+					vx.destroy()
+				end
+			end
+		end
+		
+		ungroup_entities(pos_hash)
+			
+	end
+	
+	
+	--- Power Rail has been destroyed
+   	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
+	writeDebug("Power-Rail has been destroyed")
+	
+		if global.bi_power_rail_table[entity.unit_number] then	
+			global.bi_power_rail_table[entity.unit_number].pole.destroy()	
+			global.bi_power_rail_table[entity.unit_number] = nil
+		end
+			
 		local pos_hash = cantor(entity.position.x,entity.position.y)
         local entity_group = getGroup_entities(pos_hash)
         if entity_group then
@@ -543,12 +752,39 @@ local function On_Death(event)
                 end
             end
         end
+		
         ungroup_entities(pos_hash)
+		
+	end
+	
+	
+	--- Arboretum has been removed
+   	if entity.valid and entity.name == "bi-arboretum" then
+	writeDebug("Arboretum has been removed")	
+		
+		if global.Arboretum_Table[entity.unit_number] then
+			global.Arboretum_Table[entity.unit_number].radar.destroy()
+			global.Arboretum_Table[entity.unit_number] = nil
+		end
+		
 	end
 
 	
-	--- Seedling Removed	
+	--- Bio Drill has been removed
+   	if entity.valid and entity.name == "bi-drill-base" then
+	writeDebug("Drill has been removed")
+
+		if global.bi_drill_table[entity.unit_number] then
+			global.bi_drill_table[entity.unit_number].drill_bit.destroy()
+			global.bi_drill_table[entity.unit_number] = nil
+		end	
+		
+	end
+
+	
+	--- Seedling destroyed
 	if entity.valid and entity.name == "seedling" then
+	writeDebug("Seedling has been destroyed")
 	
 		for k, v in pairs(global.bi.tree_growing) do
 			if v.position.x == entity.position.x and v.position.y == entity.position.y then
@@ -557,60 +793,41 @@ local function On_Death(event)
 			end
 		end
 
-	end
-	
-	
-	--- Power Rail has been removed
-   	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
-	end
-	
-	
-	--- Arboretum has been destroyed
-   	if entity.valid and entity.name == "bi-arboretum" then
-	writeDebug("Arboretum has been destroyed")
-	
+	end	
 
-		global.Arboretum_Table[entity.unit_number].radar.destroy()
-		global.Arboretum_Table[entity.unit_number] = nil
-		
-	end
-
-	
 	
 end
 
 
-----------------Radars Scanning Function, used by Terraformer  -----------------------------
+----------------Radars Scanning Function, used by Terraformer (Arboretum) and Drill  -----------------------------
 script.on_event(defines.events.on_sector_scanned, function(event)
 	
 	---- Each time a Arboretum-Radar scans a sector  ----	
 	if event.radar.name == "bi-arboretum-radar" then
 		
-		
-		
-		local num = (event.radar.unit_number-1) --< Unit numberof assembler
+		local num = (event.radar.unit_number-1) --< Unit number of arboretum assembler
 		
 		--writeDebug("The Radar Unit # is: "..event.radar.unit_number)
 		--writeDebug("The num (Asembler) Unit # is: "..num)
 
 		Get_Arboretum_Recipe(global.Arboretum_Table[num], event) 
 		
-
 		
 	end
 
+		---- Each time a Drill-bit scans a sector  ----	
+	if event.radar.name == "bi-drill-radar" then
+		entity = event.radar
+		local num = (event.radar.unit_number-1) --< Unit number of bio drill assembler
+		
+		--writeDebug("The Radar Unit # is: "..event.radar.unit_number)
+		--writeDebug("The num (Asembler) Unit # is: "..num)
+		
+		
+		Process_Bio_Drill(global.bi_drill_table[num], event) 
+		
+		
+	end
 	
 end)
 
@@ -728,7 +945,6 @@ local function Player_Tile_Remove(event)
       return solar_mat_removed_at(player.surface, player.mining_state.position)
       end
    end
-
 
 local function Robot_Tile_Remove(event)
    local robot = event.robot 

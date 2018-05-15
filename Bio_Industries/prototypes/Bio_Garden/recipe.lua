@@ -3,7 +3,7 @@
 data:extend({
 
 
-
+  --- Garden (ENTITY)
 	{
 		type = "recipe",
 		name = "bi_recipe_bio_garden",
@@ -18,10 +18,12 @@ data:extend({
 		  {"seedling", 50}
 		},
 		result = "bi-bio-garden",
+		subgroup = "bio-bio-gardens-fluid",
+		order = "a[bi]",	
 	},
  
  
-
+ --- Clean Air 1
 	{
 		type = "recipe",
 		name = "bi_recipe_clean_air_1",
@@ -43,7 +45,8 @@ data:extend({
 		},
 	},
 
-
+	
+ --- Clean Air 2
 	{
 		type = "recipe",
 		name = "bi_recipe_clean_air_2",

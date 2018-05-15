@@ -3,7 +3,7 @@
 require("prototypes.Wood_Products.demo-remnants-wood")
 
 
-
+  -- Used for Wooden Pipe Pictures
 pipepictures_w = function()
   return {
     straight_vertical_single =
@@ -370,10 +370,9 @@ end
 
 
 
-
 data:extend({
 
----- Wood Floor
+	---- Wood Floor
 	{
 	  type = "tile",
 	  name = "bi-wood-floor",
@@ -450,8 +449,7 @@ data:extend({
 	  vehicle_friction_modifier = dirt_vehicle_speed_modifer
 	},
 	
-	---- Big Wooden Pole
-	
+	---- Big Wooden Pole	
 	  {
     type = "electric-pole",
     name = "bi-big-wooden-pole",
@@ -543,7 +541,6 @@ data:extend({
   },
 
   	---- Huge Wooden Pole
-
 	  {
     type = "electric-pole",
     name = "bi-huge-wooden-pole",
@@ -649,7 +646,6 @@ data:extend({
   },
 
   ---- Wood Fence
-
  {
     type = "wall",
     name = "bi-wooden-fence",
@@ -941,8 +937,7 @@ data:extend({
     }
   },
 
-  --------------- Rail
-
+   ---- Rail (Wood)
     {
     type = "straight-rail",
     name = "bi-straight-rail-wood",   
@@ -958,6 +953,7 @@ data:extend({
 	pictures = rail_pictures(),
   },
   
+    ---- Rail (Wood)
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood",   
@@ -991,7 +987,8 @@ data:extend({
     rail_category = "regular",
 	pictures = rail_pictures(),
   },
-  
+
+  --Wooden rail for Bridge  
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood-bridge",   
@@ -1010,8 +1007,7 @@ data:extend({
 	placeable_by = { item="bi-rail-wood-bridge", count = 4}
   },
 
-  --------------- Rail
-
+  --- Power Rail
     {
     type = "straight-rail",
     name = "bi-straight-rail-power",   
@@ -1026,7 +1022,8 @@ data:extend({
     rail_category = "regular",
 	pictures = rail_pictures(),
   },
-  
+
+  --- Power Rail  
   {
     type = "curved-rail",
     name = "bi-curved-rail-power",   
@@ -1044,7 +1041,7 @@ data:extend({
 	placeable_by = { item="bi-rail-power", count = 4}
   },
 
-  ------- Rail Pole - Hidden
+  ------- Power Rail Pole - Hidden
   {
     type = "electric-pole",
     name = "bi-rail-hidden-power-pole",
@@ -1069,11 +1066,189 @@ data:extend({
       height = 0,
 	  frame_count = 1,
       axially_symmetrical = false,
-      direction_count = 16,
+      direction_count = 32,
     },
 	 connection_points =
     {
+ 
       {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+	  {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+	  {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+      {
+        shadow =
+        {
+
+        },
+        wire =
+        {
+          copper_wire_tweak = {-0, -0},
+
+        }
+      },
+ 
+	  {
         shadow =
         {
 
@@ -1315,7 +1490,7 @@ data:extend({
     vertical_window_bounding_box = {{-0.28125, -0.5}, {0.03125, 0.125}}
   },
 
-
+	---- Wood Pipe to Ground
 {
     type = "pipe-to-ground",
     name = "bi-pipe-to-ground-wood",
@@ -1474,10 +1649,13 @@ data:extend({
   
 })
 
+------ Power to Rail Pole 
 local my_pole_2 = util.table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
 my_pole_2.name = "bi-power-to-rail-pole"
 my_pole_2.icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png"
 my_pole_2.minable = {mining_time = 1, result = "bi-power-to-rail-pole"}
+my_pole_2.maximum_wire_distance = 4
+my_pole_2.supply_area_distance = 3
 my_pole_2.pictures.tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
 data:extend({my_pole_2})
 

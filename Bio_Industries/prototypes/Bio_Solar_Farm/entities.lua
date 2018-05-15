@@ -523,8 +523,10 @@ if BI.Settings.BI_Solar_Additions then
 	energy_source =
 	  {
 		  type = "electric",
-		  input_priority = "secondary",
-		  usage_priority = "secondary-input",
+		  --input_priority = "secondary",
+		  input_priority = "primary",
+		  usage_priority = "primary-input",
+		  --usage_priority = "secondary-input",
 		  --usage_priority = "solar",
 		  --emissions = 0.1 / 9.5 -- NO Emmisions
 	  },

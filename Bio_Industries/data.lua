@@ -39,7 +39,6 @@ require("prototypes.Bio_Farm.technology")
 
 
 -- Bio Garden
-
 require("prototypes.Bio_Garden.entities")
 require("prototypes.Bio_Garden.item")
 require("prototypes.Bio_Garden.recipe")
@@ -48,28 +47,36 @@ require("prototypes.Bio_Garden.recipe-categories")
 
 
 --- Bio Solar Farm
-
 require("prototypes.Bio_Solar_Farm.entities")
 require("prototypes.Bio_Solar_Farm.item")
 require("prototypes.Bio_Solar_Farm.recipe")
 
 
 --- Wood Products
-
 require("prototypes.Wood_Products.entities")
 require("prototypes.Wood_Products.item")
 require("prototypes.Wood_Products.recipe")
 
 
 --- Dart Turret (Bio turret)
-
 require("prototypes.Bio_Turret.item-group")
 require("prototypes.Bio_Turret.damage-type")
 require("prototypes.Bio_Turret.item")
 require("prototypes.Bio_Turret.recipe")
 require("prototypes.Bio_Turret.entity")
 
+--[[
+if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value then
 
+	-- Bio Drill
+	require("prototypes.Bio_Drill.entities")
+	require("prototypes.Bio_Drill.item")
+	require("prototypes.Bio_Drill.recipe")
+	require("prototypes.Bio_Drill.recipe-categories")
+	
+	
+end
+]]
 
 
 
