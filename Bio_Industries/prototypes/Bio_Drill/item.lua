@@ -67,6 +67,20 @@ data:extend({
   },
   
  
+ 	--- Burner Pump (Entity)
+    {
+    type = "item",
+    name = "bi-burner-pump",
+    icon = "__Bio_Industries__/graphics/icons/bi_basic_pumpjack.png",
+	icon_size = 32,
+    flags = { "goes-to-quickbar" },
+    subgroup = "bio-bio-drill-drill",
+    order = "0aaa",
+    place_result = "bi-burner-pump",
+    stack_size = 10
+  },
+
+  
 
  --FLUIDS
  -- "water-saline"

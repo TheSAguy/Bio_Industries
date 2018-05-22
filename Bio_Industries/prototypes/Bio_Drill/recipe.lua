@@ -9,7 +9,7 @@ data:extend({
 		name = "bi_recipe_bio_drill",
 		icon = "__Bio_Industries__/graphics/icons/bi_drill_icon.png",
 		icon_size = 32,
-		enabled = true,
+		enabled = false,
 		energy_required = 5,
 		ingredients =
 		{
@@ -30,7 +30,7 @@ data:extend({
 		icon_size = 32,
 		order = "bi-drill_fix",
 		subgroup = "bio-bio-drill-drill",
-		enabled = true,
+		enabled = false,
 		energy_required = 2,
 		ingredients =
 		{
@@ -52,7 +52,7 @@ data:extend({
 		icon_size = 32,
 		order = "bi-drill_mk1",
 		subgroup = "bio-bio-drill-drill",
-		enabled = true,
+		enabled = false,
 		energy_required = 4,
 		ingredients =
 		{
@@ -73,7 +73,7 @@ data:extend({
 		icon_size = 32,
 		order = "bi-drill_mk2",
 		subgroup = "bio-bio-drill-drill",
-		enabled = true,
+		enabled = false,
 		energy_required = 6,
 		ingredients =
 		{
@@ -95,7 +95,7 @@ data:extend({
 		order = "bi-drill_mk3",
 		subgroup = "bio-bio-drill-drill",
 		category = "advanced-crafting",
-		enabled = true,
+		enabled = false,
 		energy_required = 8,
 		ingredients =
 		{
@@ -129,8 +129,9 @@ data:extend({
 	  {type="item", name="stone-crushed", amount=5},
     },
 
-    subgroup = "bio-bio-drill-drill",
-    order = "xx[tbd]",
+    --subgroup = "bio-bio-drill-drill",
+	subgroup = "bio-bio-farm-intermediate-product",
+    order = "0aa",
     crafting_machine_tint =
     {
       primary = {r = 0.290, g = 0.027, b = 0.000, a = 0.000}, -- #49060000
@@ -139,71 +140,28 @@ data:extend({
     }
   },
 
---[[  
-	--- Prospecting Mk1
+  
+  	 --- Burner Pumpjack
 	{
 		type = "recipe",
-		name = "bi_recipe_prospecting_mk1",
-		icon = "__Bio_Industries__/graphics/icons/prospect_mk1_icon.png",
+		name = "bi_recipe_burner_pump",
+		icon = "__Bio_Industries__/graphics/icons/bi_basic_pumpjack.png",
 		icon_size = 32,
-		order = "bi-prospecting-mk1",
-		category = "bi-drill",
-		subgroup = "bio-bio-drill",
+		order = "0aaa",
+		subgroup = "bio-bio-drill-drill",
 		enabled = true,
-		energy_required = 20,
+		energy_required = 4,
 		ingredients =
 		{
-		  {type="item", name="bi-drill-bit-mk1", amount=1},
+		  {type="item", name="pipe", amount=4}, 
+		  {type="item", name="iron-gear-wheel", amount=4}, 
 		},
 		results=
 		{
-		  {type="item", name="bi-worn-drill-bit", amount=1},
-		},
-	},
-		
-	--- Prospecting Mk2
-	{
-		type = "recipe",
-		name = "bi_recipe_prospecting_mk2",
-		icon = "__Bio_Industries__/graphics/icons/prospect_mk2_icon.png",
-		icon_size = 32,
-		order = "bi-prospecting-mk2",
-		category = "bi-drill",
-		subgroup = "bio-bio-drill",
-		enabled = true,
-		energy_required = 30,
-		ingredients =
-		{
-		  {type="item", name="bi-drill-bit-mk2", amount=1},
-		},
-		results=
-		{
-		  {type="item", name="bi-worn-drill-bit", amount=1},
+		  {type="item", name="bi-burner-pump", amount=1},
 		},
 	},
 
-	--- Prospecting Mk3
-	{
-		type = "recipe",
-		name = "bi_recipe_prospecting_mk3",
-		icon = "__Bio_Industries__/graphics/icons/prospect_mk3_icon.png",
-		icon_size = 32,
-		order = "bi-prospecting-mk3",
-		category = "bi-drill",
-		subgroup = "bio-bio-drill",
-		enabled = true,
-		energy_required = 40,
-		ingredients =
-		{
-		  {type="item", name="bi-drill-bit-mk3", amount=1},
-		},
-		results=
-		{
-		  {type="item", name="bi-worn-drill-bit", amount=1},
-		},
-	},
-
-]]
  }
 )
 
@@ -234,7 +192,8 @@ for _, resource in pairs(infinite_fluids) do
   end
 
   if mods[resource.dependency] and default_value then
-    table.insert(mk1, 
+
+	table.insert(mk1, 
     {
 		type = "recipe",
 		name = "bi_recipe_mk1_" .. resource.fluid,
@@ -243,7 +202,7 @@ for _, resource in pairs(infinite_fluids) do
 		order = resource.fluid .. order,
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk1",
-		enabled = true,
+		enabled = false,
 		energy_required = 20,
 		ingredients =
 		{
@@ -278,7 +237,8 @@ for _, resource in pairs(infinite_fluids) do
   end
 
   if mods[resource.dependency] and default_value then
-    table.insert(mk2, 
+
+	table.insert(mk2, 
     {
 		type = "recipe",
 		name = "bi_recipe_mk2_" .. resource.fluid,
@@ -287,7 +247,7 @@ for _, resource in pairs(infinite_fluids) do
 		order = resource.fluid .. order,
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk2",
-		enabled = true,
+		enabled = false,
 		energy_required = 30,
 		ingredients =
 		{
@@ -322,7 +282,8 @@ for _, resource in pairs(infinite_fluids) do
   end
 
   if mods[resource.dependency] and default_value then
-    table.insert(mk3, 
+
+	table.insert(mk3, 
     {
 		type = "recipe",
 		name = "bi_recipe_mk3_" .. resource.fluid,
@@ -331,7 +292,7 @@ for _, resource in pairs(infinite_fluids) do
 		order = resource.fluid .. order,
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk3",
-		enabled = true,
+		enabled = false,
 		energy_required = 40,
 		ingredients =
 		{

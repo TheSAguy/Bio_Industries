@@ -53,7 +53,7 @@ data:extend({
 
 	{
 		type = "technology",
-		name = "bi_tech_coal_processing_1",
+		name = "bi-tech-coal-processing-1",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Coal_128.png",
 		effects = {
@@ -109,7 +109,7 @@ data:extend({
 
 	{
 		type = "technology",
-		name = "bi_tech_coal_processing_2",
+		name = "bi-tech-coal-processing-2",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Coal_128.png",
 		effects = {
@@ -122,7 +122,7 @@ data:extend({
 				recipe = "bi_recipe_coke_coal"
 			},
 		},
-		prerequisites =	{"bi_tech_coal_processing_1"},
+		prerequisites =	{"bi-tech-coal-processing-1"},
 		unit = 
 		{
 			count = 150,
@@ -138,7 +138,7 @@ data:extend({
 
 	{
 		type = "technology",
-		name = "bi_tech_coal_processing_3",
+		name = "bi-tech-coal-processing-3",
 		icon_size = 128,
 		icon = "__Bio_Industries__/graphics/technology/Coal_128.png",
 		effects = {
@@ -147,7 +147,7 @@ data:extend({
 				recipe = "bi_recipe_coal_2"
 			},
 		},
-		prerequisites = {"bi_tech_coal_processing_2"},
+		prerequisites = {"bi-tech-coal-processing-2"},
 		unit = 
 		{
 			count = 250,

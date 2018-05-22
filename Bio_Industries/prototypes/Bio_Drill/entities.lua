@@ -30,8 +30,8 @@ data:extend({
     },
 
 	
-    collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
-    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    collision_box = {{-0.35, -0.35}, {0.35, 1.35}},
+    selection_box = {{-0.5, -0.5}, {0.5, 1.5}},
 	
     energy_per_sector = "4MJ",
     max_distance_of_nearby_sector_revealed = 2,
@@ -44,6 +44,7 @@ data:extend({
 	  --emissions = 0.15, 
     },
     energy_usage = "150kW",
+--[[
 	pictures =
     {
 
@@ -75,39 +76,43 @@ data:extend({
               scale = 0.25,
             },
           },
-		  --[[
-          {
-            priority = "extra-high",
-            width = 109,
-            height = 76,
-            line_length = 4,
-            shift = util.by_pixel(23.5, -1),
-            filename = "__base__/graphics/entity/burner-mining-drill/burner-mining-drill-N-shadow.png",
-            frame_count = 32,
+        },
+    },
+	]]
+	
+	pictures =
+    {
+      layers =
+        {
+   
+       {
+            priority = "high",
+            width = 32,
+            height = 32,
+            line_length = 1,
+            --shift = util.by_pixel(2.5, 0.5),
+            filename = "__Bio_Industries__/graphics/entities/bio_drill/empty.png",
+            frame_count = 1,
 			direction_count = 1,
             animation_speed = 0.5,
             run_mode = "forward-then-backward",
-            draw_as_shadow = true,
-			scale = 0.5,
+			--scale = 0.5,
             hr_version = {
-              priority = "extra-high",
-              width = 217,
-              height = 150,
-              line_length = 4,
-              shift = util.by_pixel(23.75, -1),
-              filename = "__base__/graphics/entity/burner-mining-drill/hr-burner-mining-drill-N-shadow.png",
-              frame_count = 32,
+              priority = "high",
+              width = 32,
+              height = 32,
+              line_length = 1,
+              --shift = util.by_pixel(2.75, 0.5),
+              filename = "__Bio_Industries__/graphics/entities/bio_drill/empty.png",
+              frame_count = 1,
 			  direction_count = 1,
               animation_speed = 0.5,
               run_mode = "forward-then-backward",
-              draw_as_shadow = true,
-              scale = 0.25
+              --scale = 0.25,
             },
           },
-		  ]]
-        },
+		},
     },
-	
 	
   },
 
@@ -118,12 +123,11 @@ data:extend({
     name = "bi-drill-base",
     icon = "__Bio_Industries__/graphics/icons/bi_drill_icon.png",
 	icon_size = 32,
-    --flags = {"placeable-neutral", "placeable-player", "player-creation"},
 	flags = {"placeable-neutral", "player-creation"},
     order = "x[bi]-a[bi-drill]",
 	minable = {hardness = 0.2, mining_time = 0.5, result = "bi-drill-base"},
     max_health = 250,
-      corpse = "big-remnants",
+    corpse = "big-remnants",
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(-3, -12),
     resistances =
@@ -159,7 +163,8 @@ data:extend({
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
 	collision_mask = { "water-tile","resource-layer" },
     fast_replaceable_group = "assembling-machine",
-    animation =
+--[[
+	animation =
     {
       layers =
       {
@@ -207,6 +212,40 @@ data:extend({
         },
       },
     },
+	]]
+	
+	animation =
+    {
+      layers =
+        {
+		{
+				width = 150,
+				height = 144,
+				line_length = 4,
+				filename = "__Bio_Industries__/graphics/entities/bio_drill/bio_drill_entity.png",
+				frame_count = 16,
+				direction_count = 1,
+				animation_speed = 0.5,
+				run_mode = "forward-then-backward",
+				shift =  {x=28/32, y=-21/32},
+				scale = 1,
+          hr_version =
+          {
+				width = 150,
+				height = 144,
+				line_length = 4,
+				filename = "__Bio_Industries__/graphics/entities/bio_drill/bio_drill_entity.png",
+				frame_count = 16,
+				direction_count = 1,
+				animation_speed = 0.5,
+				run_mode = "forward-then-backward",
+				shift =  {x=28/32, y=-21/32},
+				scale = 1,
+	
+          }
+        },
+		},
+    },
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -246,4 +285,173 @@ data:extend({
   },	
 
 
+  {
+    type = "mining-drill",
+    name = "bi-burner-pump",
+    icon = "__Bio_Industries__/graphics/icons/bi_basic_pumpjack.png",
+    icon_size = 32,
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 1, result = "bi-burner-pump"},
+    resource_categories = {"basic-fluid"},
+    max_health = 200,
+    corpse = "big-remnants",
+    dying_explosion = "medium-explosion",
+    collision_box = {{ -1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{ -1.5, -1.5}, {1.5, 1.5}},
+    drawing_box = {{-1.6, -2.5}, {1.5, 1.6}},
+    energy_source =
+    {
+      type = "burner",
+      fuel_category = "chemical",
+      effectivity = 1,
+      fuel_inventory_size = 1,
+      emissions = 0.1 / 3,
+      smoke =
+      {
+        {
+          name = "smoke",
+          deviation = {0.1, 0.1},
+          frequency = 3
+        }
+      }
+    },
+    output_fluid_box =
+    {
+      base_area = 1,
+      base_level = 1,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        {
+          positions = { {1, -2}, {2, -1}, {-1, 2}, {-2, 1} }
+        }
+      },
+    },
+    energy_usage = "150kW",
+    mining_speed = 1,
+    mining_power = 2,
+    resource_searching_radius = 0.49,
+    vector_to_place_result = {0, 0},
+    radius_visualisation_picture =
+    {
+      filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",
+      width = 12,
+      height = 12
+    },
+    monitor_visualization_tint = {r=78, g=173, b=255},
+    base_render_layer = "lower-object-above-shadow",
+    base_picture =
+    {
+      sheets =
+      {
+        {
+          filename = "__base__/graphics/entity/pumpjack/pumpjack-base.png",
+          priority = "extra-high",
+		  tint = {r = 0.5, g = 0.5, b = 0.5},
+          width = 131,
+          height = 137,
+          shift = util.by_pixel(-2.5, -4.5),
+          hr_version = 
+          {
+            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base.png",
+            priority = "extra-high",
+			tint = {r = 0.5, g = 0.5, b = 0.5},
+            width = 261,
+            height = 273,
+            shift = util.by_pixel(-2.25, -4.75),
+            scale = 0.5
+          }
+        },
+        {
+          filename = "__base__/graphics/entity/pumpjack/pumpjack-base-shadow.png",
+          priority = "extra-high",
+          width = 110,
+          height = 111,
+          draw_as_shadow = true,
+          shift = util.by_pixel(6, 0.5),
+          hr_version =
+          {
+            filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-base-shadow.png",
+            width = 220,
+            height = 220,
+            scale = 0.5,
+            draw_as_shadow = true,
+            shift = util.by_pixel(6, 0.5)
+          }
+        }
+      }
+    },
+    animations =
+    {
+      north =
+      {
+        layers = 
+        {
+          {
+            priority = "high",
+            filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead.png",
+			tint = {r = 0.5, g = 0.5, b = 0.5},
+            line_length = 8,
+            width = 104,
+            height = 102,
+            frame_count = 40,
+            shift = util.by_pixel(-4, -24),
+            animation_speed = 0.5,
+            hr_version = 
+            {
+              priority = "high",
+              filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead.png",
+			  tint = {r = 0.5, g = 0.5, b = 0.5},
+              animation_speed = 0.5,
+              scale = 0.5,
+              line_length = 8,
+              width = 206,
+              height = 202,
+              frame_count = 40,
+              shift = util.by_pixel(-4, -24)
+            }
+          },
+          {
+            priority = "high",
+            filename = "__base__/graphics/entity/pumpjack/pumpjack-horsehead-shadow.png",
+			tint = {r = 0.5, g = 0.5, b = 0.5},
+            animation_speed = 0.5,
+            draw_as_shadow = true,
+            line_length = 8,
+            width = 155,
+            height = 41,
+            frame_count = 40,
+            shift = util.by_pixel(17.5, 14.5),
+            hr_version = 
+            {
+              priority = "high",
+              filename = "__base__/graphics/entity/pumpjack/hr-pumpjack-horsehead-shadow.png",
+			  tint = {r = 0.5, g = 0.5, b = 0.5},
+              animation_speed = 0.5,
+              draw_as_shadow = true,
+              line_length = 8,
+              width = 309,
+              height = 82,
+              frame_count = 40,
+              scale = 0.5,
+              shift = util.by_pixel(17.75, 14.5)
+            }
+          }
+        }
+      }
+    },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    working_sound =
+    {
+      sound = { filename = "__base__/sound/pumpjack.ogg" },
+      apparent_volume = 1.5,
+    },
+    fast_replaceable_group = "pumpjack",
+    
+    circuit_wire_connection_points = circuit_connector_definitions["pumpjack"].points,
+    circuit_connector_sprites = circuit_connector_definitions["pumpjack"].sprites,
+    circuit_wire_max_distance = default_circuit_wire_max_distance
+  },
+  
+ 
   })

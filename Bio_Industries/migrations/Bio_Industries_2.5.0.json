@@ -63,9 +63,9 @@
   [
 	["bi_bio_farming",  "bi_tech_bio_farming"],
 	["bi-fertiliser",  "bi_tech_fertiliser"],
-	["bi-coal-processing",  "bi_tech_coal_processing_1"],
-	["bi-coal-processing-2",  "bi_tech_coal_processing_2"],
-	["bi-coal-processing-3",  "bi_tech_coal_processing_3"],
+	["bi-coal-processing",  "bi-tech-coal-processing-1"],
+	["bi-coal-processing-2",  "bi-tech-coal-processing-2"],
+	["bi-coal-processing-3",  "bi-tech-coal-processing-3"],
 	["bi-organic-plastic",  "bi_tech_organic_plastic"],
 	["bi-advanced-biotechnology",  "bi_tech_advanced_biotechnology"],
 	["Bio_Cannon",  "bi_tech_bio_cannon"]

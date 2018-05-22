@@ -3,25 +3,7 @@
 require ("stdlib/event/event")
 require ("prototypes.Bio_Drill.resources_odds")
 
-Prospect_recipes = {
 
-["bi_recipe_mk1_crude-oil"] = 1,
-["bi_recipe_mk1_water"] = 1,
-["bi_recipe_mk1_lithia-water"] = 1,
-["bi_recipe_mk1_thermal-water"] = 1,
-["bi_recipe_mk1_gas-natural-1"] = 1,
-["bi_recipe_mk2_crude-oil"] = 2,
-["bi_recipe_mk2_water"] = 2,
-["bi_recipe_mk2_lithia-water"] = 2,
-["bi_recipe_mk2_thermal-water"] = 2,
-["bi_recipe_mk2_gas-natural-1"] = 2,
-["bi_recipe_mk3_crude-oil"] = 3,
-["bi_recipe_mk3_water"] = 3,
-["bi_recipe_mk3_lithia-water"] = 3,
-["bi_recipe_mk3_thermal-water"] = 3,
-["bi_recipe_mk3_gas-natural-1"] = 3,
-
-}
 -- Box up the drill after finding a resource
 local function box_it_up(bi_drill_table, pos, force, surface)
 
@@ -53,14 +35,32 @@ local function box_it_up(bi_drill_table, pos, force, surface)
 		bi_drill_table.drill_bit.destroy()
 		bi_drill_table = nil					
 	
-	
-							
-
-	
 end
 
+--- Select the Resource to Spawn												
+function get_resource_to_spawn(input)
+	local resource_options = 
+		{
+		  {spawn=input , weight=479},
+		  {spawn="ground-water" , weight=10},
+		  {spawn="crude-oil", weight=5},
+		  {spawn="bi-ground-steam" , weight=5},
+		  {spawn="bi-ground-sulfuric-acid" , weight=1}
+		}
+					  
+	local calculate_odds = {}
+	for k,spawn in ipairs(resource_options) do
+		for i=1, spawn.weight do
+			calculate_odds[#calculate_odds+1] = k
+		end
+	end
 
+	local random_num = #calculate_odds
+	return resource_options[calculate_odds[math.random(random_num)]]
 
+	end
+
+	
 function Process_Bio_Drill(bi_drill_table, event)
 				
 		--- Check to make sure the table is not nil
@@ -71,7 +71,7 @@ function Process_Bio_Drill(bi_drill_table, event)
 		
 		--- Check if a recipe is selected
 		local recipe = bi_drill_table.inventory.get_recipe()
-		
+		--writeDebug("The Recipe is: "..recipe.name)
 		if recipe ~= nil then
 			
 			--- Make sure there are ingriedents loaded
@@ -85,56 +85,58 @@ function Process_Bio_Drill(bi_drill_table, event)
 			end		
 	
 			if pass_qc then
-			
+				--writeDebug("Passed QC Check")
 				local recipe_name = bi_drill_table.inventory.get_recipe().name
 				local pos = bi_drill_table.inventory.position
 				local force = bi_drill_table.inventory.force
 				local surface = bi_drill_table.inventory.surface			
-					
-				---- Prospecting #1
-
+				local find_chance = math.random(100) 
 				
-				if resource_odds.hello[recipe_name].group == "mk1"  then
-								
-						
-					local find_chance = math.random(100) 
-					writeDebug("The Random Number is: "..find_chance)
+				---- Prospecting Mk1		
+				if resource_odds.bi_resource_table[recipe_name].group == "mk1"  then										
+					
+					--writeDebug("The Random Number is: "..find_chance)
 					writeDebug("Recipe Group Mk1")
 		
-					if find_chance > 10 then
-													
-						local new_fluid_patch = surface.create_entity{name = resource_odds.hello[recipe_name].output_name, amount = resource_odds.hello[recipe_name].amount, position = pos, force = force}
-						new_fluid_patch.destructible = false						
+					if find_chance > (94 - global.prospect_chance) then
+
+				input = resource_odds.bi_resource_table[recipe_name].output_name
+				local r_to_s = get_resource_to_spawn(input)
+				local a_to_s = (resource_odds.bi_resource_table[recipe_name].amount + global.prospect_richness)
 						
+						local new_fluid_patch = surface.create_entity{name = r_to_s.spawn, amount = a_to_s, position = pos, force = force}
+						new_fluid_patch.destructible = false						
+
 						box_it_up(bi_drill_table, pos, force, surface)		
 								
 					end
-
-					
-				elseif resource_odds.hello[recipe_name].group == "mk2"  then
+			
+				---- Prospecting Mk2
+				elseif resource_odds.bi_resource_table[recipe_name].group == "mk2"  then
 				
-					local find_chance = math.random(100) 
+		 
 					writeDebug("The Random Number is: "..find_chance)
 					writeDebug("Recipe Group Mk2")
 		
-					if find_chance > 20 then
+					if find_chance > (89 - global.prospect_chance) then
 													
-						local new_fluid_patch = surface.create_entity{name = resource_odds.hello[recipe_name].output_name, amount = resource_odds.hello[recipe_name].amount, position = pos, force = force}
+						local new_fluid_patch = surface.create_entity{name = resource_odds.bi_resource_table[recipe_name].output_name, amount = resource_odds.bi_resource_table[recipe_name].amount, position = pos, force = force}
 						new_fluid_patch.destructible = false						
 						
 						box_it_up(bi_drill_table, pos, force, surface)		
 								
 					end
-					
-				elseif resource_odds.hello[recipe_name].group == "mk3"  then
 				
-					local find_chance = math.random(100) 
+				---- Prospecting Mk3
+				elseif resource_odds.bi_resource_table[recipe_name].group == "mk3"  then
+				
+			
 					writeDebug("The Random Number is: "..find_chance)
 					writeDebug("Recipe Group Mk3")
 		
-					if find_chance > 30 then
+					if find_chance > (84 - global.prospect_chance) then
 													
-						local new_fluid_patch = surface.create_entity{name = resource_odds.hello[recipe_name].output_name, amount = resource_odds.hello[recipe_name].amount, position = pos, force = force}
+						local new_fluid_patch = surface.create_entity{name = resource_odds.bi_resource_table[recipe_name].output_name, amount = resource_odds.bi_resource_table[recipe_name].amount, position = pos, force = force}
 						new_fluid_patch.destructible = false						
 						
 						box_it_up(bi_drill_table, pos, force, surface)		
@@ -146,7 +148,7 @@ function Process_Bio_Drill(bi_drill_table, event)
 					writeDebug("no recipe")
 					
 				end
-			
+		
 			end		
 
 		end

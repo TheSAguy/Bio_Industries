@@ -1,3 +1,39 @@
+Version: 2.5.7
+Date: 5. 19. 2018
+  Bugfixes:
+    - Fixed Sailine Water color
+
+---------------------------------------------------------------------------------------------------
+Version: 2.5.6
+Date: 5. 19. 2018
+  Bugfixes:
+    - Added Lithia Water if only Angels
+  Features:
+    - Changed color of Sailine Water
+
+---------------------------------------------------------------------------------------------------
+Version: 2.5.5
+Date: 5. 18. 2018
+  Features:
+    - New Drill Artwork - Thx YuokiTani - Thx to Darkfrei for helping with positioning
+    - Option to change the color of the water - Thx Fishycat
+
+---------------------------------------------------------------------------------------------------
+Version: 2.5.4
+Date: 5. 14. 2018
+  Features:
+    - EXPERIMENTAL You have an option to make fluids not be infinite
+    - Need help testing and balancing
+    - You can now also prospect for these fluids
+
+---------------------------------------------------------------------------------------------------
+Version: 2.5.3
+Date: 5. 14. 2018
+  Bugfixes:
+    - Power Rail Fix Should work much better on NEW placed rail
+  Features:
+    - Moved Solar Entities to the Bio Industries Tab
+
 ---------------------------------------------------------------------------------------------------
 Version: 2.5.2
 Date: 5. 3. 2018

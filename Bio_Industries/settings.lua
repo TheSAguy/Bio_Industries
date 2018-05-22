@@ -58,17 +58,27 @@ data:extend(
 	order = "e[modifier]-e[BI_Alt_Farm_Image]",
     per_user = false,
   },
-  --[[
+
   --- F
     {
     type = "bool-setting",
     name = "BI_Bio_Infinite_Fluids",
     setting_type = "startup",
-    default_value = true,
+    default_value = false,
 	order = "f0[modifier]-e[BI_Bio_Infinite_Fluids]",
     per_user = false,
   },
-  ]]
+
+    --- G
+    {
+    type = "bool-setting",
+    name = "BI_Bio_Alter_Water_Appearance",
+    setting_type = "startup",
+    default_value = true,
+	order = "g[modifier]-e[BI_Bio_Alter_Water_Appearance]",
+    per_user = false,
+  },
+
   
   --[[
 

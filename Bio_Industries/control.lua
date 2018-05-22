@@ -1,7 +1,7 @@
---Bio_Industries Version   2.5.3
+--Bio_Industries Version   2.5.7
 
 
-local QC_Mod = true
+local QC_Mod = false
 require ("util")
 require ("libs/util_ext")
 require ("stdlib/event/event")
@@ -56,6 +56,16 @@ local function On_Init()
 		global.bi_drill_table = {}
 	end
 
+	-- Global Prospect Chance
+	if global.prospect_chance == nil  then
+		global.prospect_chance = 0
+	end
+	
+	-- Global Prospect Richness
+	if global.prospect_richness == nil or global.prospect_richness == 0 then
+		global.prospect_richness = 1
+	end
+	
 	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -66,7 +76,27 @@ local function On_Init()
 	
 	
 end
+--------------------------------------------------------------------
 
+local function regenerate_entity(ore)
+  if game.entity_prototypes[ore] and game.entity_prototypes[ore].autoplace_specification then
+    game.regenerate_entity(ore)
+  end
+end
+
+remote.add_interface("Bio_Industries",
+{
+  Regenerate = function()
+  
+    regenerate_entity("bi-ground-water")
+	regenerate_entity("ground-water")
+	
+    for i, player in ipairs(game.players) do
+      player.print("All ores successfully regenerated!")
+    end
+  end
+}
+)
 --------------------------------------------------------------------			 
 local function On_Load()
 
@@ -124,6 +154,15 @@ local function On_Config_Change()
 	end
 	
 
+	-- Global Prospect Chance
+	if global.prospect_chance == nil then
+		global.prospect_chance = 0
+	end
+	
+	-- Global Prospect Richness
+	if global.prospect_richness == nil or global.prospect_richness == 0 then
+		global.prospect_richness = 1
+	end
 	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -390,17 +429,13 @@ local function On_Built(event)
 
 		
 		--local position_c = {position.x - 3.5, position.y + 3.5}
-		local position_c = {position.x + 0.45, position.y + 0.13}
+		local position_c = {position.x, position.y - .5}
+		--local position_c = {position.x + 0.45, position.y + 0.13}
 		local create_drill_bit = surface.create_entity({name = drill_bit_name, position = position_c, direction = entity.direction, force = force})
 	
 		create_drill_bit.minable = false
 		create_drill_bit.destructible = false
 
-		--writeDebug("The entity unit# is: "..entity.unit_number)
-		--writeDebug("The inventory unit# is: "..create_arboretum.unit_number)
-		--writeDebug("The radar unit# is: "..create_radar.unit_number)
-
-		
 		global.bi_drill_table[drill_base.unit_number] = {inventory=drill_base, drill_bit=create_drill_bit}
 	
 
@@ -955,6 +990,41 @@ local function Robot_Tile_Remove(event)
    end
 --------------------------------------------------------------------
 
+--------------------------------------------
+--[[
+Event.register(defines.events.on_tick, function(event)	
+
+
+	if game.tick % 60 == 0  then
+
+		writeDebug("prospect_chance: " .. global.prospect_chance)
+		global.prospect_chance = global.prospect_chance + 1
+		writeDebug("prospect_richness: " .. global.prospect_richness)
+
+	end
+	
+
+end)
+]]
+
+
+---------------------------------------------
+script.on_event(defines.events.on_research_finished, function(event)
+
+	local research = event.research.name
+
+	if research == "bi-tech-bio-inf-prospecting-1" then
+
+	global.prospect_chance = global.prospect_chance + 1
+	global.prospect_richness = global.prospect_richness * 1.05
+	
+		
+		writeDebug("prospect_chance: " .. global.prospect_chance)
+		writeDebug("prospect_richness: " .. global.prospect_richness)
+	end
+	
+  
+end)
 
 
 script.on_load(On_Load)
@@ -985,19 +1055,30 @@ script.on_event(remove_events, Robot_Tile_Remove)
 
 
 -------------------- For Testing --------------
---[[
+
 if QC_Mod == true then  
 
 	script.on_event(defines.events.on_player_created, function(event)
 	local iteminsert = game.players[event.player_index].insert
-	--iteminsert{name="my-hidden-power-pole", count=50}
-	iteminsert{name="bi-power-to-rail-pole", count=50}
-	iteminsert{name="medium-electric-pole", count=50}
-	iteminsert{name="steel-axe", count=5}
+	iteminsert{name="bi-bio-solar-farm", count=5}
+	iteminsert{name="bi-burner-pump", count=5}
+	iteminsert{name="pumpjack", count=5}
+	iteminsert{name="medium-electric-pole", count=5}
+	iteminsert{name="lab", count=5}
+	iteminsert{name="science-pack-1", count=500}
+	iteminsert{name="science-pack-2", count=500}
+	iteminsert{name="science-pack-3", count=500}
+	iteminsert{name="high-tech-science-pack", count=500}
+	iteminsert{name="pipe", count=50}
+	iteminsert{name="iron-gear-wheel", count=50}
+	iteminsert{name="pellet-coke", count=50}	
+	iteminsert{name="iron-plate", count=50}	
+	iteminsert{name="copper-plate", count=50}		
+	
 	end)
 
 end
-]]
+
 
 --------------------------------------------------------------------
 --- DeBug Messages 

@@ -65,18 +65,18 @@ require("prototypes.Bio_Turret.item")
 require("prototypes.Bio_Turret.recipe")
 require("prototypes.Bio_Turret.entity")
 
---[[
-if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value then
+
+if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value == true then
 
 	-- Bio Drill
 	require("prototypes.Bio_Drill.entities")
 	require("prototypes.Bio_Drill.item")
 	require("prototypes.Bio_Drill.recipe")
 	require("prototypes.Bio_Drill.recipe-categories")
-	
-	
+	require("prototypes.Bio_Drill.technology")
+
 end
-]]
+
 
 
 
