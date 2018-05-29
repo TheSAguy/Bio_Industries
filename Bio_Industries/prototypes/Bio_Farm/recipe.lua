@@ -9,7 +9,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/bio_seed1.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",	
-		energy_required = 100,
+		energy_required = 200,
 		ingredients =
 		{
 			{type="fluid", name="water", amount=100},
@@ -33,7 +33,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",	
 		enabled = false,
-		energy_required = 90,
+		energy_required = 150,
 		ingredients =
 		{
 			{type="fluid", name="water", amount=40},
@@ -56,7 +56,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",	
 		enabled = false,
-		energy_required = 75,
+		energy_required = 100,
 		ingredients =
 		{
 			{type="fluid", name="water", amount=40},
@@ -102,7 +102,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
 		enabled = false,
-		energy_required = 200,
+		energy_required = 400,
 		ingredients =
 		{
 			{type="item", name="bi-seed", amount=20},     
@@ -124,7 +124,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
 		enabled = false,
-		energy_required = 180,
+		energy_required = 300,
 		ingredients =
 		{
 		  {type="item", name="bi-seed", amount=25},     
@@ -147,7 +147,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
 		enabled = false,
-		energy_required = 150,
+		energy_required = 200,
 		ingredients =
 		{
 		  {type="item", name="bi-seed", amount=30},     
@@ -198,9 +198,11 @@ data:extend({
 			{type="item", name="seedling", amount=20},     
 			{type="fluid", name="water", amount=100},
 		},
-
-		result_count = 40,
-		result = "raw-wood",
+		results =
+		{
+			{type = "item", name = "raw-wood", amount = 40},
+			{type = "item", name = "bi-woodpulp", amount = 80},
+		},
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood1]",
 	},
@@ -221,9 +223,11 @@ data:extend({
 		  {type="item", name="bi-ash", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
-	
-		result_count = 75,
-		result = "raw-wood",
+		results =
+		{
+			{type = "item", name = "raw-wood", amount = 75},
+			{type = "item", name = "bi-woodpulp", amount = 150},
+		},
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood2]",
 	},
@@ -244,9 +248,11 @@ data:extend({
 		  {type="item", name="fertiliser", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
-	
-		result_count = 135,
-		result = "raw-wood",
+		results =
+		{
+			{type = "item", name = "raw-wood", amount = 135},
+			{type = "item", name = "bi-woodpulp", amount = 270},
+		},
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood3]",
 	},
@@ -260,15 +266,18 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-farm",
 		enabled = false,
-		energy_required = 200,
+		energy_required = 100,
 		ingredients =
 		{
-		  {type="item", name="seedling", amount=80},     
+		  {type="item", name="seedling", amount=40},     
 		  {type="fluid", name="water", amount=100},
-		  {type="item", name="bi-adv-fertiliser", amount=10},    
+		  {type="item", name="bi-adv-fertiliser", amount=5},    
 		},
-		result_count = 320,
-		result = "raw-wood",
+		results =
+		{
+			{type = "item", name = "raw-wood", amount = 160},
+			{type = "item", name = "bi-woodpulp", amount = 320},
+		},
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood4]",
 	},
@@ -393,7 +402,7 @@ data:extend({
 		order = "a[bi]-a-b[bi-ash2]",
 		enabled = false,
 		energy_required = 5,
-		ingredients = {{"bi-woodpulp",10}},
+		ingredients = {{"bi-woodpulp",12}},
 		result = "bi-ash",
 		result_count = 10,
 	}, 
@@ -409,7 +418,7 @@ data:extend({
 		order = "a[bi]-a-c[charcoal1]",
 		category = "biofarm-mod-smelting",
 		energy_required = 12.5,
-		ingredients = {{"bi-woodpulp",40}},
+		ingredients = {{"bi-woodpulp",48}},
 		result = "bi-charcoal",
 		result_count = 18,
 		enabled = false,
@@ -467,21 +476,23 @@ data:extend({
 	},
 
 
-	-- Pellet-Coke -- Use to be Coke-Coal
-	{
+	-- Pellet-Coke from Coal -- Use to be Coke-Coal
+		{
 		type = "recipe",
 		name = "bi_recipe_coke_coal",
+		icon = "__Bio_Industries__/graphics/icons/pellet_coke_1.png",
+		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-e[bi-coke-coal]",
+		order = "a[bi]-a-e[bi-coke-coal]-1",
 		energy_required = 15,
 		ingredients = {{"coal",15}},
 		result = "pellet-coke",
 		result_count = 6,
 		enabled = false,
 	},
- 
 
+ 
  -- CRUSHED STONE --
 	{
 		type = "recipe",
@@ -627,30 +638,6 @@ data:extend({
 		order = "b[fertiliser]",
 	},
 
-
-	-- fertiliser from sodium-hydroxide--
-	{
-		type = "recipe",
-		name = "bi_recipe_fertiliser_2",
-		icon = "__Bio_Industries__/graphics/icons/fertiliser_sodium-hydroxide.png",
-		icon_size = 32,
-		category = "chemistry",
-		energy_required = 5,	
-		ingredients =
-		{
-			--{type = "item", name = "sodium-hydroxide", amount = 10}, -- will be added in data updates
-			--{type="item", name="stone-crushed", amount=5},
-			{type="fluid", name="nitrogen", amount=10},
-			{type="item", name="bi-ash", amount=10}
-		},
-		results=
-		{
-			{type="item", name="fertiliser", amount=5}
-		},
-		enabled = false,
-		subgroup = "bio-bio-farm-intermediate-product",
-		order = "b[fertiliser]",
-	},
 
 		
 	-- Advanced fertiliser 1 --

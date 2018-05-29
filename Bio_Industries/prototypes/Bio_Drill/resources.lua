@@ -145,7 +145,7 @@
 	  disable_map_grid = true,
 	  map_grid = false,
 	  enabled = false,
-	  autoplace = {},
+	  --autoplace = {},
   },
 
 
@@ -202,7 +202,7 @@
 	  disable_map_grid = true,
 	  map_grid = false,
 	  enabled = false,
-	  autoplace = {},
+	  --autoplace = {},
   },
   
   

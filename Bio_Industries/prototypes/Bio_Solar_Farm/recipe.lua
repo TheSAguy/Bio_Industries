@@ -56,7 +56,7 @@ if BI.Settings.BI_Solar_Additions then
 	},
 	
 
-		--- BI Accumulator
+	--- BI Accumulator
 		{
 			type = "recipe",
 			name = "bi_recipe_accumulator",
@@ -73,7 +73,7 @@ if BI.Settings.BI_Solar_Additions then
 			order = "d[bi]",
 		},
 		
-		-- Large Substation	
+	-- Large Substation	
 	  {
 		type = "recipe",
 		name = "bi_recipe_huge_substation",

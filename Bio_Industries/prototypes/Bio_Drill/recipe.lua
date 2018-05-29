@@ -203,7 +203,7 @@ for _, resource in pairs(infinite_fluids) do
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk1",
 		enabled = false,
-		energy_required = 20,
+		energy_required = 10,
 		ingredients =
 		{
 		  {type="item", name="bi-drill-bit-mk1", amount=1},
@@ -248,7 +248,7 @@ for _, resource in pairs(infinite_fluids) do
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk2",
 		enabled = false,
-		energy_required = 30,
+		energy_required = 25,
 		ingredients =
 		{
 		  {type="item", name="bi-drill-bit-mk2", amount=1},

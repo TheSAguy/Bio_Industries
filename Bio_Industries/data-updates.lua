@@ -55,18 +55,18 @@ data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-
 
 
 --- Wood Rail added to Tech 
-thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")
+thxbob.lib.tech.add_recipe_unlock("railway", "bi_recipe_rail_wood")
 	
 	
 --- If Bob, move Vanilla Rail to Rail 2 also add Power Rail.
 if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.remove_recipe_unlock ("railway", "rail")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
-	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi-rail-wood-bridge")
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_recipe_rail_wood_bridge")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_rail_power")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_recipe_power_to_rail_pole")
 else
-	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi-rail-wood-bridge")
+	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_recipe_rail_wood_bridge")
 	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_rail_power")
 	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_recipe_power_to_rail_pole")
 end
@@ -96,9 +96,21 @@ end
 thxbob.lib.tech.add_recipe_unlock("automation", "bi-stone-crusher")
 thxbob.lib.tech.add_recipe_unlock("automation", "bi_recipe_crushed_stone")
 
-
 -- Add Large Wooden Chest
 thxbob.lib.tech.add_recipe_unlock("logistics-2", "bi_recipe_large_wooden_chest")
+
+	-- Add Big and Huge electric poles to tech tree
+thxbob.lib.tech.add_recipe_unlock ("logistics", "bi_recipe_big_wooden_pole")
+thxbob.lib.tech.add_recipe_unlock ("electric-energy-distribution-2", "bi_recipe_huge_wooden_pole")
+	
+--- Wood Floors
+data.raw.item["wood"].place_as_tile =
+	{
+		result = "bi-wood-floor",
+		condition_size = 4,
+		condition = { "water-tile" }
+	}
+	
 
 
 ---- Game Tweaks ----
@@ -113,8 +125,8 @@ if BI.Settings.BI_Recipe_Tweaks then
 	if data.raw.item["stone-crushed"] then
 		thxbob.lib.recipe.remove_ingredient ("rail", "stone")
 		thxbob.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
-		thxbob.lib.recipe.remove_ingredient ("bi-rail-wood", "stone")
-		thxbob.lib.recipe.add_new_ingredient ("bi-rail-wood", {type="item", name="stone-crushed", amount=6})
+		thxbob.lib.recipe.remove_ingredient ("bbi_recipe_rail_wood", "stone")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
 	end
 
 		--- Trees Give Random 1 - 6 Raw Wood.
@@ -171,25 +183,13 @@ end
 
 
 
---- Wood Floors
-data.raw.item["wood"].place_as_tile =
-	{
-		result = "bi-wood-floor",
-		condition_size = 4,
-		condition = { "water-tile" }
-	}
-	
-	-- Add Big and Huge electric poles to tech tree
-thxbob.lib.tech.add_recipe_unlock ("logistics", "bi-big-wooden-pole")
-thxbob.lib.tech.add_recipe_unlock ("electric-energy-distribution-2", "bi_recipe_huge_wooden_pole")
-	
-
 --- Make it so that the Base game tile "grass" can't be placed in blueprints
 --- New as of 0.16
 data.raw["tile"]["grass-1"].can_be_part_of_blueprint = false
 data.raw["tile"]["grass-2"].can_be_part_of_blueprint = false
 data.raw["tile"]["grass-3"].can_be_part_of_blueprint = false
 data.raw["tile"]["grass-4"].can_be_part_of_blueprint = false
+
 
 if mods["alien-biomes"] then
 
@@ -355,6 +355,7 @@ end
 
 --- Adds Solar Farm, Solar Plant, Musk Floor, Bio Accumulator and Substation to Tech tree
 if BI.Settings.BI_Solar_Additions then
+
 	if data.raw.technology["bob-solar-energy-2"] then
 		
 		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_recipe_accumulator")
@@ -381,16 +382,81 @@ if BI.Settings.BI_Solar_Additions then
 	
 	end	
 	
+	
+	--- Electric redo if Bob' Electric
+	-- Huge Electric Pole
+	if data.raw.item["tinned-copper-cable"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_huge_wooden_pole", "wood")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_huge_wooden_pole", {type = "item", name = "tinned-copper-cable", amount = 15})
+		
+	end
+
+	-- Solar Farm
+	if data.raw.item["solar-panel-large-2"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_bio_solar_farm", "solar-panel")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_bio_solar_farm", {type = "item", name = "solar-panel-large-2", amount = 20})
+		
+	end
+
+	-- Huge Sub Station
+	if data.raw.item["substation-3"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_huge_substation", "substation")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_huge_substation", {type = "item", name = "substation-3", amount = 6})
+		
+	end
+	if data.raw.item["electrum-alloy"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_huge_substation", "steel-plate")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_huge_substation", {type = "item", name = "electrum-alloy", amount = 10})
+		
+	end
+
+	-- Huge Accumulator
+	if data.raw.item["large-accumulator-2"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_accumulator", "accumulator")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_accumulator", {type = "item", name = "large-accumulator-2", amount = 20})
+		
+	end
+	if data.raw.item["aluminium-plate"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_accumulator", "copper-cable")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_accumulator", {type = "item", name = "aluminium-plate", amount = 50})
+		
+	end
+	
+	-- Solar Mat
+	if data.raw.item["aluminium-plate"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_solar_mat", "steel-plate")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_solar_mat", {type = "item", name = "aluminium-plate", amount = 1})
+		
+	end
+	if data.raw.item["silicon-wafer"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_solar_mat", "copper-cable")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_solar_mat", {type = "item", name = "silicon-wafer", amount = 4})
+		
+	end
+
+	-- Solar Boiler / Plant
+	if data.raw.item["angels-electric-boiler"] then
+	
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_solar_boiler_panel", "boiler")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_solar_boiler_panel", {type = "item", name = "angels-electric-boiler", amount = 1})
+		
+	end
 end
 
 
---- Changes fertiliser recipes if bob's
-if data.raw.item["sodium-hydroxide"] then
 
-	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="sodium-hydroxide", amount=10})
-	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
-	
-end	
+require("prototypes.Bio_Farm.compatible_recipes") -- Bob and Angels mesh
+
+
+
 	
 if BI.Settings.BI_Bio_Fuel or mods["Natural_Evolution_Buildings"] then
 
@@ -427,17 +493,6 @@ if BI.Settings.BI_Bio_Fuel then
 end
 
 
-
---update crushed stone icon
-data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
-	
-	
---- Make Bio Farm use glass if Bob's
-if data.raw.item.glass  then
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_bio_farm", "copper-cable", "glass")
-end
-	
-
 	
 --- if the Alien Artifact is in the game, use if for some recipes
 if data.raw.item["alien-artifact"] then
@@ -455,8 +510,9 @@ if mods["Natural_Evolution_Buildings"] then
 	thxbob.lib.recipe.add_new_ingredient ("bi-adv-fertiliser-1", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
 
 end
-	
 
+--- Bio Industries not has it's own Group!
+--[[
 ------------ Changing order/sorting/groups
 if BI.Settings.BI_Solar_Additions and data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
 	
@@ -505,6 +561,9 @@ if data.raw["item-subgroup"]["bob-material"] then
 	data.raw["recipe"]["bi_recipe_coal"].subgroup = "bob-material"
 	data.raw["recipe"]["bi_recipe_coal_2"].subgroup = "bob-material"
 	data.raw["recipe"]["bi_recipe_coke_coal"].subgroup = "bob-material"
+	if data.raw["recipe"]["bi_recipe_pellete_coal_2"] then
+		data.raw["recipe"]["bi_recipe_pellete_coal_2"].subgroup = "bob-material"
+	end
 	data.raw["recipe"]["bi_recipe_ash_1"].subgroup = "bob-material"
 	data.raw["recipe"]["bi_recipe_ash_2"].subgroup = "bob-material"
 	data.raw["recipe"]["bi_recipe_woodpulp"].subgroup = "bob-material"
@@ -522,12 +581,12 @@ if data.raw["item-subgroup"]["pipe"] then
 	
 end
 
-
+]]
 
 ------------ Support for Bob's Greenhouse
 if data.raw["item"]["bob-greenhouse"] then 
 
-	data.raw["item"]["seedling"].place_result="seedling"
+	data.raw["item"]["seedling"].place_result = "seedling"
 	data.raw["item"]["seedling"].icon = "__Bio_Industries__/graphics/icons/Seedling.png"
 	data.raw["item"]["fertiliser"].icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png"
 	

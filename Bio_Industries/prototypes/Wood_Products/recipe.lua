@@ -3,7 +3,7 @@ data:extend({
 	--- Big Electric Pole
 	{
 		type = "recipe",
-		name = "bi-big-wooden-pole",
+		name = "bi_recipe_big_wooden_pole",
 		normal =
 		{
 			enabled = false,
@@ -37,7 +37,7 @@ data:extend({
 			{
 			  {"wood", 10}, 
 			  {"concrete", 100},   			  
-			  {"bi-big-wooden-pole", 4},  
+			  {"bi-big-wooden-pole", 6},  
 			},
 		  result = "bi-huge-wooden-pole"
 		},
@@ -48,7 +48,7 @@ data:extend({
 			{
 			  {"wood", 20},  
 			  {"concrete", 150},   				  
-			  {"bi-big-wooden-pole", 6},  
+			  {"bi-big-wooden-pole", 10},  
 			},
 		  result = "bi-huge-wooden-pole"
 		},	
@@ -83,7 +83,7 @@ data:extend({
 	--- Wooden Rail
     {
 		type = "recipe",
-		name = "bi-rail-wood",	
+		name = "bi_recipe_rail_wood",	
 		normal =
 		{
 			enabled = false,
@@ -118,7 +118,7 @@ data:extend({
 --- Wooden Bridge Rail
     {
 		type = "recipe",
-		name = "bi-rail-wood-bridge",	
+		name = "bi_recipe_rail_wood_bridge",	
 		normal =
 		{
 			enabled = false,

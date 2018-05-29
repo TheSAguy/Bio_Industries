@@ -1,59 +1,65 @@
-Version: 2.5.7
-Date: 5. 19. 2018
+---------------------------------------------------------------------------------------------------
+Version: 2.5.9
+Date: 29. 05. 2018
+  Features:
+    - Rebalanced Basic Seed, Seedling & Wood recipes
+    - Raw-Wood recipes now also produce wood-pulp
+    - Renames some recipe's I missed before
+    - Updated Huge Electric pole recipe
+---------------------------------------------------------------------------------------------------
+Version: 2.5.8
+Date: 24. 05. 2018
+  Features:
+    - Rebalanced Electric items if Bob's is present
+    - Added a secont Pellet-Coke recipe if Bob's/Angels
+---------------------------------------------------------------------------------------------------
+Version: 2.5.7.
+Date: 19. 05. 2018
   Bugfixes:
     - Fixed Sailine Water color
-
 ---------------------------------------------------------------------------------------------------
-Version: 2.5.6
-Date: 5. 19. 2018
-  Bugfixes:
-    - Added Lithia Water if only Angels
+Version: 2.5.6.
+Date: 19. 05. 2018
   Features:
     - Changed color of Sailine Water
-
+  Bugfixes:
+    - Added Lithia Water if only Angels
 ---------------------------------------------------------------------------------------------------
-Version: 2.5.5
-Date: 5. 18. 2018
+Version: 2.5.5.
+Date: 18. 05. 2018
   Features:
     - New Drill Artwork - Thx YuokiTani - Thx to Darkfrei for helping with positioning
     - Option to change the color of the water - Thx Fishycat
-
 ---------------------------------------------------------------------------------------------------
-Version: 2.5.4
-Date: 5. 14. 2018
+Version: 2.5.4.
+Date: 14. 05. 2018
   Features:
     - EXPERIMENTAL You have an option to make fluids not be infinite
     - Need help testing and balancing
     - You can now also prospect for these fluids
-
 ---------------------------------------------------------------------------------------------------
-Version: 2.5.3
-Date: 5. 14. 2018
-  Bugfixes:
-    - Power Rail Fix Should work much better on NEW placed rail
+Version: 2.5.3.
+Date: 14. 05. 2018
   Features:
     - Moved Solar Entities to the Bio Industries Tab
-
----------------------------------------------------------------------------------------------------
-Version: 2.5.2
-Date: 5. 3. 2018
   Bugfixes:
-    - Power Rail Fix. 0.16.40 Seemed to cause an issue
+    - Power Rail Fix Should work much better on NEW placed rail
+---------------------------------------------------------------------------------------------------
+Version: 2.5.2.
+Date: 3. 05. 2018
   Features:
     - Coke-Coal renamed to Pellet-Coke and now compatible with Angels Mods
     - Re-ordered some Bio Industrie stuff
-
+  Bugfixes:
+    - Power Rail Fix. 0.16.40 Seemed to cause an issue
 ---------------------------------------------------------------------------------------------------
-Version: 2.5.1
-Date: 4. 27. 2018
+Version: 2.5.1.
+Date: 27. 4. 2018
   Bugfixes:
     - Place and removal of Bio Farm Power Pole
-
 ---------------------------------------------------------------------------------------------------
-Version: 2.5.0
-Date: 4. 26. 2018
-  Bugfixes:
-    - Powered rail does not lose it's power when placing a tile over the rail
+Version: 2.5.0.
+Date: 27. 4. 2018
   Features:
     - Tweaked Bio Cannon Recipe, can now be build earlier
     - Tweaked Solar Boiler Recipe and stats
@@ -61,7 +67,8 @@ Date: 4. 26. 2018
     - Tweaked Solar Farm Build Time
     - Added more Darts and tweaked recipes
     - Added Russian locale thanks to IgorLutiy
-
+  Bugfixes:
+    - Powered rail does not lose it's power when placing a tile over the rail
 ---------------------------------------------------------------------------------------------------
 Version: 2.2.9
 Date: 4. 4. 2018
@@ -263,4 +270,3 @@ Version: 2.0.0
 Date: ???
   Changes:
     - Initial release of 0.16 compatible version. Rail tint not currently working. Not tested...
-
