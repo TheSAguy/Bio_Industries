@@ -293,14 +293,14 @@ if BI.Settings.BI_Solar_Additions then
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
 	selectable_in_game = false,
 	draw_copper_wires = false,
-    max_health = 1,
+    max_health = 10,
     resistances = {{type = "fire", percent = 100}},
 	collision_mask = {"ground-tile"},
     collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
     selection_box = {{0, 0}, {0, 0}},
 	
     maximum_wire_distance = 1,
-    supply_area_distance = 2,
+    supply_area_distance = 3,
     pictures =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",

@@ -1,5 +1,4 @@
---Bio_Industries Version   2.5.9
-
+--Bio_Industries Version   2.6.1
 
 local QC_Mod = false
 require ("util")
@@ -66,6 +65,11 @@ local function On_Init()
 		global.prospect_richness = 1
 	end
 	
+	--- FARL Power rail compatibility
+	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
+		remote.call("farl", "add_entity_to_trigger", "bi-straight-rail-power")
+		remote.call("farl", "add_entity_to_trigger", "bi-curved-rail-power")
+	end
 	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -92,11 +96,11 @@ remote.add_interface("Bio_Industries",
 	regenerate_entity("ground-water")
 	
     for i, player in ipairs(game.players) do
-      player.print("All ores successfully regenerated!")
+      player.print("Bio Industries: All ores successfully regenerated!")
     end
   end
-}
-)
+})
+
 --------------------------------------------------------------------			 
 local function On_Load()
 
@@ -104,6 +108,12 @@ local function On_Load()
 		Event.register(defines.events.on_tick, function(event) end)
 	end
 	
+	--- FARL Power rail compatibility
+	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
+		remote.call("farl", "add_entity_to_trigger", "bi-straight-rail-power")
+		remote.call("farl", "add_entity_to_trigger", "bi-curved-rail-power")
+	end
+
 end
 
 
@@ -162,6 +172,12 @@ local function On_Config_Change()
 	-- Global Prospect Richness
 	if global.prospect_richness == nil or global.prospect_richness == 0 then
 		global.prospect_richness = 1
+	end
+
+	--- FARL Power rail compatibility
+	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
+		remote.call("farl", "add_entity_to_trigger", "bi-straight-rail-power")
+		remote.call("farl", "add_entity_to_trigger", "bi-curved-rail-power")
 	end
 	
 	-- enable researched recipes
@@ -896,8 +912,9 @@ local function Solar_Mat (event, surface)
 			local radius = 0.5
 			local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
 			writeDebug("NOT Solar Mat")
-			local entities = surface.find_entities(area)
-			local entity1 = entities[1]
+			--local entities = surface.find_entities(area)
+			--local entity1 = entities[1]
+			local entity1 = {}
 			entity1 = surface.find_entities_filtered{area=area, name="bi-musk-mat-pole", limit=1}
 			
 						
@@ -910,9 +927,9 @@ local function Solar_Mat (event, surface)
 				--writeDebug("bi-musk-mat-pole not found")				
 			end
 				
-			--- Remove the Hidden Solar Panel		
-				
-			local entity2 = entities[1]
+			--- Remove the Hidden Solar Panel						
+			--local entity2 = entities[1]
+			local entity2 = {}
 			entity2 = surface.find_entities_filtered{area=area, name="bi-musk-mat-solar-panel", limit=1}	
 			
 			if entity2 ~= nil then 
@@ -1056,6 +1073,7 @@ script.on_event(remove_events, Robot_Tile_Remove)
 
 -------------------- For Testing --------------
 
+--[[
 if QC_Mod == true then  
 
 	script.on_event(defines.events.on_player_created, function(event)
@@ -1078,7 +1096,7 @@ if QC_Mod == true then
 	end)
 
 end
-
+]]
 
 --------------------------------------------------------------------
 --- DeBug Messages 

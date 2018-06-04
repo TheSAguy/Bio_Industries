@@ -38,7 +38,7 @@ data:extend({
 	-- BIO Reactor (ENTITY)--
 	{
 		type = "recipe",
-		name = "bi-bioreactor",
+		name = "bi_recipe_bioreactor",
 		normal =
 		{
 			enabled = false,
@@ -113,8 +113,7 @@ data:extend({
 		subgroup = "bio-bio-fuel-other",
 		order = "[bi-cellulose-2]",
 	},
-	
-	
+		
 	-- PLASTIC 1 --
 	{
 		type = "recipe",
@@ -138,7 +137,6 @@ data:extend({
 		subgroup = "bio-bio-fuel-solid",
 		order = "g[plastic-bar-1]",
 	},
-
 	
 	-- PLASTIC 2 --
 		{
@@ -163,7 +161,6 @@ data:extend({
 		order = "g[plastic-bar-2]",
 	},
 	
-
 	-- BIOMASS 1 --
 	{
 		type = "recipe",

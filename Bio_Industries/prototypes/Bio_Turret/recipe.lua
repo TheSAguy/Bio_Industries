@@ -59,7 +59,6 @@ data:extend({
 		  result_count = 8,
 		},
 	}, 	
-
 	
 	--- Enhanced Dart Ammo
 	{
@@ -120,7 +119,6 @@ data:extend({
 		  result_count = 8,
 		},
 	}, 	
-
 
 	--- Dart Turret
   {

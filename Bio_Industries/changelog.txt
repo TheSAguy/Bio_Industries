@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.6.1
+Date: 04. 06. 2018
+  Features:
+    - FARL Power-rail support
+    - Added some recipes if you're playing with Angels
+---------------------------------------------------------------------------------------------------
+Version: 2.6.0
+Date: 31. 05. 2018
+  Bugfixes:
+    - Wooden Rail Recipe fix
+---------------------------------------------------------------------------------------------------
 Version: 2.5.9
 Date: 29. 05. 2018
   Features:
@@ -11,7 +22,7 @@ Version: 2.5.8
 Date: 24. 05. 2018
   Features:
     - Rebalanced Electric items if Bob's is present
-    - Added a secont Pellet-Coke recipe if Bob's/Angels
+    - Added a second Pellet-Coke recipe if Bob's/Angels
 ---------------------------------------------------------------------------------------------------
 Version: 2.5.7.
 Date: 19. 05. 2018

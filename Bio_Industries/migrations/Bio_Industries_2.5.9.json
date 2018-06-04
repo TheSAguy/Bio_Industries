@@ -3,7 +3,8 @@
   [
 	["bi-big-wooden-pole",  "bi_recipe_big_wooden_pole"],
 	["bi-rail-wood",  "bi_recipe_rail_wood"],
-	["bi-rail-wood-bridge",  "bi_recipe_rail_wood_bridge"]
+	["bi-rail-wood-bridge",  "bi_recipe_rail_wood_bridge"],
+	["bi-bioreactor",  "bi_recipe_bioreactor"]
   ]
 }
 

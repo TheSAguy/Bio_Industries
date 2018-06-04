@@ -125,7 +125,7 @@ if BI.Settings.BI_Recipe_Tweaks then
 	if data.raw.item["stone-crushed"] then
 		thxbob.lib.recipe.remove_ingredient ("rail", "stone")
 		thxbob.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
-		thxbob.lib.recipe.remove_ingredient ("bbi_recipe_rail_wood", "stone")
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_rail_wood", "stone")
 		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
 	end
 
@@ -173,7 +173,11 @@ end
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
-
+	
+	if data.raw.item["bi-burner-pump"] then
+		thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_basic_pumpjack_disassemble")
+	end
+	
 	--- Loot Picup	
 	if data.raw.player.player.loot_pickup_distance < 4 then
 		data.raw.player.player.loot_pickup_distance = 4 -- default 2
@@ -468,7 +472,7 @@ end
 -- Adds Bio recipes
 if BI.Settings.BI_Bio_Fuel then 
 
-	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi-bioreactor")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_bioreactor")
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_cellulose_1")
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_cellulose_2")
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_1")
