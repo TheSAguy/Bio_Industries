@@ -1,5 +1,6 @@
 data:extend({
 
+	--- Big Wooden Electric Pole
 	{
 		type = "item",
 		name = "bi-big-wooden-pole",
@@ -31,6 +32,7 @@ data:extend({
 
 	},
 	
+	-- Wooden Fence
 	{
 		type = "item",
 		name = "bi-wooden-fence",
@@ -60,8 +62,7 @@ data:extend({
 		curved_rail = "bi-curved-rail-wood"
 	},
 
-	  --- Wooden Bridge Rail
-  
+	  --- Wooden Bridge Rail  
   	{
 		type = "rail-planner",
 		name = "bi-rail-wood-bridge",
@@ -106,7 +107,8 @@ data:extend({
 		fuel_category = "chemical",
 		stack_size = 100
 	},
-  
+	
+  --- Wood Pipe to Ground
 	{
 		type = "item",
 		name = "bi-pipe-to-ground-wood",
@@ -121,7 +123,7 @@ data:extend({
 		stack_size = 50
 	},
 	
-	--- Large wooden chest
+	--- Large wooden chest 2 x 2
 	  {
 		type = "item",
 		name = "bi-large-wooden-chest",
@@ -133,10 +135,38 @@ data:extend({
 		subgroup = "storage",
 		order = "a[items]-aa[wooden-chest]",
 		place_result = "bi-large-wooden-chest",
-		stack_size = 50
+		stack_size = 40
 	  },
 
-	  
+	  	--- Huge wooden chest 3 x 3
+	  {
+		type = "item",
+		name = "bi-huge-wooden-chest",
+		icon = "__Bio_Industries__/graphics/icons/huge_wooden_chest_icon.png",
+		icon_size = 32,
+		flags = {"goes-to-quickbar"},
+		fuel_category = "chemical",
+		fuel_value = "40MJ",
+		subgroup = "storage",
+		order = "a[items]-ab[wooden-chest]",
+		place_result = "bi-huge-wooden-chest",
+		stack_size = 30
+	  },
+
+	  	--- Giga wooden chest 6 x 6
+	  {
+		type = "item",
+		name = "bi-giga-wooden-chest",
+		icon = "__Bio_Industries__/graphics/icons/giga_wooden_chest_icon.png",
+		icon_size = 32,
+		flags = {"goes-to-quickbar"},
+		fuel_category = "chemical",
+		fuel_value = "160MJ",
+		subgroup = "storage",
+		order = "a[items]-ac[wooden-chest]",
+		place_result = "bi-giga-wooden-chest",
+		stack_size = 20
+	  },	  
 	  ---- Power pole to connect Rail to Power Grid
 	    {
 		type = "item",

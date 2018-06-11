@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.6.2
+Date: 11. 06. 2018
+  Features:
+    - Split "Game Tweaks" Settings into multiple options
+    - Gave Solar Farm a hidden power pole
+    - Added some new recipes
+    - Make Prospecting for resources a lot more expensive
+    - Added Large and Huge Wooden Chests
+    - Tweaked Solar Boiler
+    - Renames some recipe's I missed before
+---------------------------------------------------------------------------------------------------
 Version: 2.6.1
 Date: 04. 06. 2018
   Features:
@@ -22,7 +33,7 @@ Version: 2.5.8
 Date: 24. 05. 2018
   Features:
     - Rebalanced Electric items if Bob's is present
-    - Added a second Pellet-Coke recipe if Bob's/Angels
+    - Added a secont Pellet-Coke recipe if Bob's/Angels
 ---------------------------------------------------------------------------------------------------
 Version: 2.5.7.
 Date: 19. 05. 2018

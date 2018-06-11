@@ -12,7 +12,6 @@ data:extend({
     name = "bi-drill-radar",
     icon = "__Bio_Industries__/graphics/icons/bi_drill_icon.png",
 	icon_size = 32,	
-	--flags = {"placeable-player", "player-creation", "not-deconstructable"},
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
     corpse = "small-remnants",
 	dying_explosion = "medium-explosion",
@@ -28,11 +27,8 @@ data:extend({
         percent = 70
       }
     },
-
-	
     collision_box = {{-0.35, -0.35}, {0.35, 1.35}},
     selection_box = {{-0.5, -0.5}, {0.5, 1.5}},
-	
     energy_per_sector = "4MJ",
     max_distance_of_nearby_sector_revealed = 2,
     max_distance_of_sector_revealed = 5,

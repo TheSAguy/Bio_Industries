@@ -97,8 +97,9 @@ function Process_Bio_Drill(bi_drill_table, event)
 					
 					--writeDebug("The Random Number is: "..find_chance)
 					writeDebug("Recipe Group Mk1")
-		
-					if find_chance > (94 - global.prospect_chance) then
+					
+					------- Recipe Mk1 starts with a 2% chance to find a resource -------
+					if find_chance > (98 - global.prospect_chance) then
 
 				input = resource_odds.bi_resource_table[recipe_name].output_name
 				local r_to_s = get_resource_to_spawn(input)
@@ -117,8 +118,9 @@ function Process_Bio_Drill(bi_drill_table, event)
 		 
 					writeDebug("The Random Number is: "..find_chance)
 					writeDebug("Recipe Group Mk2")
-		
-					if find_chance > (89 - global.prospect_chance) then
+					
+					------- Recipe Mk2 starts with a 6% chance to find a resource -------
+					if find_chance > (94 - global.prospect_chance) then
 													
 						local new_fluid_patch = surface.create_entity{name = resource_odds.bi_resource_table[recipe_name].output_name, amount = resource_odds.bi_resource_table[recipe_name].amount, position = pos, force = force}
 						new_fluid_patch.destructible = false						
@@ -134,7 +136,8 @@ function Process_Bio_Drill(bi_drill_table, event)
 					writeDebug("The Random Number is: "..find_chance)
 					writeDebug("Recipe Group Mk3")
 		
-					if find_chance > (84 - global.prospect_chance) then
+					------- Recipe Mk3 starts with a 10% chance to find a resource -------
+					if find_chance > (90 - global.prospect_chance) then
 													
 						local new_fluid_patch = surface.create_entity{name = resource_odds.bi_resource_table[recipe_name].output_name, amount = resource_odds.bi_resource_table[recipe_name].amount, position = pos, force = force}
 						new_fluid_patch.destructible = false						

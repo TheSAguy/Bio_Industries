@@ -30,16 +30,65 @@ data:extend(
     per_user = false,
   },
 
-	-- C
+	-- C1
   {
     type = "bool-setting",
-    name = "BI_Recipe_Tweaks",
+    name = "BI_Game_Tweaks_Stack_Size",
     setting_type = "startup",
     default_value = true,
-	order = "c[modifier]-c[Recipe_Tweaks]",
+	order = "c[modifier]-c1[Game_Tweaks]",
+    per_user = false,
+  },
+
+	-- C2
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Recipe",
+    setting_type = "startup",
+    default_value = true,
+	order = "c[modifier]-c2[Game_Tweaks]",
     per_user = false,
   },
   
+ 	-- C3
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Tree",
+    setting_type = "startup",
+    default_value = true,
+	order = "c[modifier]-c3[Game_Tweaks]",
+    per_user = false,
+  },
+  
+  	-- C4
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Player",
+    setting_type = "startup",
+    default_value = false,
+	order = "c[modifier]-c4[Game_Tweaks]",
+    per_user = false,
+  },
+  
+  	-- C5
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Disassemble",
+    setting_type = "startup",
+    default_value = true,
+	order = "c[modifier]-c5[Game_Tweaks]",
+    per_user = false,
+  },
+  
+   	-- C5
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Bot",
+    setting_type = "startup",
+    default_value = true,
+	order = "c[modifier]-c6[Game_Tweaks]",
+    per_user = false,
+  }, 
 	-- D
   {
     type = "bool-setting",

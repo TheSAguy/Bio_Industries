@@ -13,7 +13,12 @@ if not thxbob.lib then thxbob.lib = {} end
 
 BI.Settings.Bio_Cannon = settings.startup["BI_Bio_Cannon"].value
 BI.Settings.BI_Bio_Fuel = settings.startup["BI_Bio_Fuel"].value
-BI.Settings.BI_Recipe_Tweaks = settings.startup["BI_Recipe_Tweaks"].value
+BI.Settings.BI_Game_Tweaks_Stack_Size = settings.startup["BI_Game_Tweaks_Stack_Size"].value
+BI.Settings.BI_Game_Tweaks_Recipe = settings.startup["BI_Game_Tweaks_Recipe"].value
+BI.Settings.BI_Game_Tweaks_Tree = settings.startup["BI_Game_Tweaks_Tree"].value
+BI.Settings.BI_Game_Tweaks_Player = settings.startup["BI_Game_Tweaks_Player"].value
+BI.Settings.BI_Game_Tweaks_Disassemble = settings.startup["BI_Game_Tweaks_Disassemble"].value
+BI.Settings.BI_Game_Tweaks_Bot = settings.startup["BI_Game_Tweaks_Bot"].value
 BI.Settings.BI_Solar_Additions = settings.startup["BI_Solar_Additions"].value
 
 
@@ -23,7 +28,7 @@ require ("libs.item-functions") -- From Bob's Libary
 require ("libs.recipe-functions") -- From Bob's Libary 
 require ("libs.technology-functions") -- From Bob's Libary 
 require ("libs.functions") -- From Bob's Libary 
-
+require ("libs.category-functions") -- From Bob's Libary 
 
 require("prototypes.category")
 

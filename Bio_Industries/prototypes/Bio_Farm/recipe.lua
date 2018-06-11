@@ -203,6 +203,7 @@ data:extend({
 			{type = "item", name = "raw-wood", amount = 40},
 			{type = "item", name = "bi-woodpulp", amount = 80},
 		},
+		main_product = "raw-wood",
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood1]",
 	},
@@ -228,6 +229,7 @@ data:extend({
 			{type = "item", name = "raw-wood", amount = 75},
 			{type = "item", name = "bi-woodpulp", amount = 150},
 		},
+		main_product = "raw-wood",
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood2]",
 	},
@@ -253,6 +255,7 @@ data:extend({
 			{type = "item", name = "raw-wood", amount = 135},
 			{type = "item", name = "bi-woodpulp", amount = 270},
 		},
+		main_product = "raw-wood",		
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood3]",
 	},
@@ -278,6 +281,7 @@ data:extend({
 			{type = "item", name = "raw-wood", amount = 160},
 			{type = "item", name = "bi-woodpulp", amount = 320},
 		},
+		main_product = "raw-wood",
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood4]",
 	},
@@ -373,6 +377,47 @@ data:extend({
 		result_count = 6,
 	}, 
 
+ 	--- Resin recipe  Pulp
+	{
+		type = "recipe",
+		name = "bi_recipe_resin_pulp",
+		icon = "__Bio_Industries__/graphics/icons/bi_resin_pulp.png",
+		icon_size = 32,
+		category = "crafting-machine",
+		subgroup = "bio-bio-farm-raw",
+		order = "a[bi]-a-b[bi-resin]",
+		energy_required = 1,
+		ingredients = 
+		{
+			 {type="item", name="bi-woodpulp", amount=3},
+		},
+		result = "resin",
+		result_count = 1,
+		enabled = false,
+	},
+	
+	-- Wood - Press Wood
+	{
+		type = "recipe",
+		name = "bi_recipe_press_wood",
+		icon = "__Bio_Industries__/graphics/icons/bi_wood_resin_pulp.png",
+		icon_size = 32,
+		category = "crafting-machine",
+		subgroup = "bio-bio-farm-raw",
+		order = "a[bi]-a-c[bi-press_wood]",
+		energy_required = 2,	
+		ingredients =
+		{
+			{type="item", name="bi-woodpulp", amount=3},
+			{type="item", name="resin", amount=1},
+		},
+		results=
+		{
+			{type="item", name="wood", amount=4}
+		},
+		enabled = false,
+
+	},
 
 	-- ASH --
 	{
@@ -509,15 +554,36 @@ data:extend({
 		enabled = false,
 	},
 
+ -- STONE Brick--
+	{
+		type = "recipe",
+		name = "bi_recipe_stone_brick",
+		icon = "__Bio_Industries__/graphics/icons/bi_stone_brick.png",
+		icon_size = 32,
+		category = "smelting",
+		subgroup = "bio-bio-farm-raw",
+		order = "a[bi]-a-z2[stone-brick]",
+		ingredients =
+		{
+		  {type="item", name="stone-crushed", amount=6},     
+		  {type="item", name="bi-ash", amount=2},     
+		},
+		results =
+		{
+			{type = "item", name = "stone-brick", amount = 2},
+		},
+		enabled = false,
+	},
+	
 	
 	-- COKERY (ENTITY)--
 	{
 		type = "recipe",
-		name = "bi-cokery",	
+		name = "bi_recipe_cokery",	
 		normal =
 		{
 			enabled = false,
-			energy_required = 10,
+			energy_required = 8,
 			ingredients = 
 			{
 			  {"stone-furnace",3},
@@ -529,11 +595,11 @@ data:extend({
 		expensive =
 		{
 			enabled = false,
-			energy_required = 15,
+			energy_required = 10,
 			ingredients = 
 			{
 			  {"stone-furnace",3},
-			  {"steel-plate",10},
+			  {"steel-plate",12},
 			},
 		  result = "bi-cokery",
 		  result_count = 1,
@@ -546,11 +612,11 @@ data:extend({
 	-- STONE CRUSHER (ENTITY) --
 	{
 		type = "recipe",
-		name = "bi-stone-crusher",
+		name = "bi_recipe_stone_crusher",
 		normal =
 		{
 			enabled = false,
-			energy_required = 15,
+			energy_required = 8,
 			ingredients = 
 			{
 			  {"iron-plate",10},
@@ -566,9 +632,9 @@ data:extend({
 			energy_required = 10,
 			ingredients = 
 			{
-			  {"iron-plate",10},
-			  {"steel-plate",10},
-			  {"iron-gear-wheel",5},
+			  {"iron-plate",12},
+			  {"steel-plate",12},
+			  {"iron-gear-wheel",8},
 			},
 		  result = "bi-stone-crusher",
 		  result_count = 1,

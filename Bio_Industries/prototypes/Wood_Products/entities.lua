@@ -937,7 +937,7 @@ data:extend({
     }
   },
 
-   ---- Rail (Wood)
+   ---- Rail straight (Wood)
     {
     type = "straight-rail",
     name = "bi-straight-rail-wood",   
@@ -953,7 +953,7 @@ data:extend({
 	pictures = rail_pictures(),
   },
   
-    ---- Rail (Wood)
+    ---- Rail curved (Wood)
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood",   
@@ -971,7 +971,7 @@ data:extend({
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
 
-  --Wooden rail for Bridge
+  --Wooden straight rail for Bridge
   {
     type = "straight-rail",
     name = "bi-straight-rail-wood-bridge",   
@@ -988,7 +988,7 @@ data:extend({
 	pictures = rail_pictures(),
   },
 
-  --Wooden rail for Bridge  
+  --Wooden curved rail for Bridge  
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood-bridge",   
@@ -1007,7 +1007,7 @@ data:extend({
 	placeable_by = { item="bi-rail-wood-bridge", count = 4}
   },
 
-  --- Power Rail
+  --- Power straight Rail
     {
     type = "straight-rail",
     name = "bi-straight-rail-power",   
@@ -1023,7 +1023,7 @@ data:extend({
 	pictures = rail_pictures(),
   },
 
-  --- Power Rail  
+  --- Power curved Rail  
   {
     type = "curved-rail",
     name = "bi-curved-rail-power",   
@@ -1491,7 +1491,7 @@ data:extend({
   },
 
 	---- Wood Pipe to Ground
-{
+  {
     type = "pipe-to-ground",
     name = "bi-pipe-to-ground-wood",
     icon = "__Bio_Industries__/graphics/icons/pipe-to-ground-wood.png",
@@ -1615,7 +1615,7 @@ data:extend({
     collision_box = {{-0.7, -0.7}, {0.7, 0.7}},
     selection_box = {{-1.0, -1.0}, {1.0, 1.0}},
     fast_replaceable_group = "container",
-    inventory_size = 64,
+    inventory_size = 128, -- 64
     open_sound = { filename = "__base__/sound/wooden-chest-open.ogg" },
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
     vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
@@ -1628,23 +1628,77 @@ data:extend({
       shift = {0.5, 0},
 	  scale = 0.5,
     },
-    circuit_wire_connection_point =
-    {
-      shadow =
-      {
-        red = {0.734375, 0.453125},
-        green = {0.609375, 0.515625},
-      },
-      wire =
-      {
-        red = {0.40625, 0.21875},
-        green = {0.40625, 0.375},
-      }
-    },
-    --circuit_connector_sprites = get_circuit_connector_sprites({0.1875, 0.15625}, nil, 18),
-    circuit_wire_max_distance = 9
+
+    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    circuit_wire_max_distance = default_circuit_wire_max_distance
   },
 
+  ------- Huge Wooden Chest
+    {
+    type = "container",
+    name = "bi-huge-wooden-chest",
+	icon = "__Bio_Industries__/graphics/icons/huge_wooden_chest_icon.png",
+	icon_size = 32,
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 1.5, result = "bi-huge-wooden-chest"},
+    max_health = 350,
+    corpse = "small-remnants",
+    collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    fast_replaceable_group = "container",
+    inventory_size = 432, --144
+    open_sound = { filename = "__base__/sound/wooden-chest-open.ogg" },
+    close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
+    picture =
+    {
+      filename = "__Bio_Industries__/graphics/entities/wood_products/huge_wooden_chest.png",
+      priority = "extra-high",
+      width = 184,
+      height = 132,
+      shift = {0.5, 0},
+	  scale = 0.75,
+    },
+
+    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    circuit_wire_max_distance = default_circuit_wire_max_distance
+  },
+  
+------- Giga Wooden Chest
+    {
+    type = "container",
+    name = "bi-giga-wooden-chest",
+	icon = "__Bio_Industries__/graphics/icons/giga_wooden_chest_icon.png",
+	icon_size = 32,
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 3.5, result = "bi-giga-wooden-chest"},
+    max_health = 350,
+    corpse = "big-remnants",
+    collision_box = {{-2.8, -2.8}, {2.8, 2.8}},
+    selection_box = {{-3, -3}, {3, 3}},
+    fast_replaceable_group = "container",
+    inventory_size = 1728, --576
+    open_sound = { filename = "__base__/sound/wooden-chest-open.ogg" },
+    close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
+    vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
+    picture =
+    {
+      filename = "__Bio_Industries__/graphics/entities/wood_products/giga_wooden_chest.png",
+      priority = "extra-high",
+      width = 501,
+      height = 366,
+      shift = {0.875, -0.175},
+	  scale = 0.5,
+    },
+
+    circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
+    circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
+    circuit_wire_max_distance = default_circuit_wire_max_distance
+  },
+
+  
   
   
 })

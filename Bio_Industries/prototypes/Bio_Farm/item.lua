@@ -8,7 +8,6 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
 		flags = {"goes-to-main-inventory"},
-		--subgroup = "intermediate-product",
 		subgroup = "bio-bio-farm",
 		order = "x[bi]-a[bi-seed]",
 		fuel_value = "0.5MJ",
@@ -24,7 +23,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
-		--subgroup = "intermediate-product",
 		subgroup = "bio-bio-farm",
 		order = "x[bi]-b[bi-seedling]",
 		place_result="seedling",
@@ -94,6 +92,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "2MJ",
 		fuel_category = "chemical",
+		fuel_emissions_multiplier = 1.15,
 		subgroup = "raw-material",	
 		order = "b[woodpulp]",			
 		order = "a-b[bi-woodpulp]",
@@ -109,6 +108,7 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "2MJ",
 		fuel_category = "chemical",
+		fuel_emissions_multiplier = 1.1,
 		subgroup = "raw-material",
 		order = "a[bi]-a-b[bi-ash]",
 		stack_size = 400
@@ -124,6 +124,7 @@ data:extend({
 		fuel_value = "6MJ",
 		fuel_category = "chemical",
 		subgroup = "raw-material",
+		fuel_emissions_multiplier = 1.05,
 		order = "a[bi]-a-c[charcoal]",
 		stack_size = 400
 	},  
@@ -137,11 +138,11 @@ data:extend({
 		flags = {"goes-to-main-inventory"},
 		fuel_value = "30MJ",
 		fuel_category = "chemical",
+		fuel_emissions_multiplier = 0.85,
 		fuel_acceleration_multiplier = 1.1,
 		fuel_top_speed_multiplier = 1.025,
 		subgroup = "raw-material",
-		order = "a[bi]-a-e[bi-coke-coal]",
-		fuel_emissions_multiplier = 0.85,
+		order = "a[bi]-a-e[bi-coke-coal]",	
 		stack_size = 400
 	},
 
@@ -158,8 +159,8 @@ data:extend({
 		stack_size = 800
 	},
 	
-	--- Seeb Bomb - Basic
 	
+	--- Seeb Bomb - Basic	
   {
     type = "ammo",
     name = "bi-seed-bomb-basic",
@@ -188,8 +189,8 @@ data:extend({
     stack_size = 10
   },
 
+  
   	--- Seeb Bomb - Standard
-	
   {
     type = "ammo",
     name = "bi-seed-bomb-standard",
@@ -217,9 +218,9 @@ data:extend({
     order = "a[rocket-launcher]-x[seed-bomb]-b",
     stack_size = 10
   },
+
   
-  	--- Seeb Bomb - Advanced
-	
+  	--- Seeb Bomb - Advanced	
   {
     type = "ammo",
     name = "bi-seed-bomb-advanced",
@@ -248,7 +249,7 @@ data:extend({
     stack_size = 10
   },
   
-	  	--- 	Arboretum
+	 --- Arboretum (Entity)
 	{
 		type= "item",
 		name= "bi-arboretum-area",
@@ -261,6 +262,7 @@ data:extend({
 		stack_size= 10,
 	},
   
+	 --- Arboretum Hidden Recipe
     {
 		type = "item",
 		name = "bi-arboretum-r1",
@@ -272,7 +274,7 @@ data:extend({
 		stack_size = 1
 	},
   
-   
+   	 --- Arboretum Hidden Recipe
     {
 		type = "item",
 		name = "bi-arboretum-r2",
@@ -284,7 +286,8 @@ data:extend({
 		stack_size = 1
 	},
    
-      {
+   	 --- Arboretum Hidden Recipe
+   {
 		type = "item",
 		name = "bi-arboretum-r3",
 		icon = "__Bio_Industries__/graphics/icons/bi_change_2.png",
@@ -295,6 +298,7 @@ data:extend({
 		stack_size = 1
 	},
 	
+	 --- Arboretum Hidden Recipe	
      {
 		type = "item",
 		name = "bi-arboretum-r4",
@@ -305,7 +309,8 @@ data:extend({
 		order = "bi-arboretum-r4",
 		stack_size = 1
 	},
-  	
+  
+	 --- Arboretum Hidden Recipe  
      {
 		type = "item",
 		name = "bi-arboretum-r5",
@@ -320,7 +325,7 @@ data:extend({
 })
 
 
---- Intermediate items
+--- Fertilizer can change terrain to better terrain
 if mods["alien-biomes"] then
 
 	data:extend({

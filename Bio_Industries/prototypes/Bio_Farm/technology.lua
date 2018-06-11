@@ -37,7 +37,14 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi_recipe_arboretum_r1"
 			},	
-			
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_resin_pulp"
+			},	
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_press_wood"
+			},				
 		},
 		prerequisites = {"optics"},
 		unit =
@@ -92,8 +99,13 @@ data:extend({
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi-cokery"
-			}
+				recipe = "bi_recipe_stone_brick"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_cokery"
+			},
+			
 		},
 		prerequisites = {"advanced-material-processing"},
 		unit = 

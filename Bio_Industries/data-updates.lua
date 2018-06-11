@@ -1,10 +1,14 @@
 
+BI.Settings.Bio_Cannon = settings.startup["BI_Bio_Cannon"].value
+BI.Settings.BI_Bio_Fuel = settings.startup["BI_Bio_Fuel"].value
+BI.Settings.BI_Game_Tweaks_Stack_Size = settings.startup["BI_Game_Tweaks_Stack_Size"].value
+BI.Settings.BI_Game_Tweaks_Recipe = settings.startup["BI_Game_Tweaks_Recipe"].value
+BI.Settings.BI_Game_Tweaks_Tree = settings.startup["BI_Game_Tweaks_Tree"].value
+BI.Settings.BI_Game_Tweaks_Player = settings.startup["BI_Game_Tweaks_Player"].value
+BI.Settings.BI_Game_Tweaks_Disassemble = settings.startup["BI_Game_Tweaks_Disassemble"].value
+BI.Settings.BI_Game_Tweaks_Bot = settings.startup["BI_Game_Tweaks_Bot"].value
+BI.Settings.BI_Solar_Additions = settings.startup["BI_Solar_Additions"].value
 
-
---- Help Files
-require ("libs.item-functions") -- From Bob's Libary 
-require ("libs.recipe-functions") -- From Bob's Libary 
-require ("libs.technology-functions") -- From Bob's Libary 
 
 ----Update the Wood Pipe Images
 require ("prototypes.Wood_Products.pipes")
@@ -15,6 +19,9 @@ require ("prototypes.Wood_Products.wooden_rail_bridge_update")
 --- Bridge Rail Remnants
 require ("prototypes.Wood_Products.update_bridge_rails_remnants")
 require ("prototypes.Wood_Products.tint_rails_remnants_function")
+
+-- add Assembling Machine catagory.
+thxbob.lib.machine.type_if_add_category("assembling-machine", "crafting", "crafting-machine")
 
 	-- Concrete Rail
 	---- Update Standard Rails to use and look like concrete
@@ -93,11 +100,13 @@ if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
 end
 
 --- Move Stone Crusher up in tech tree
-thxbob.lib.tech.add_recipe_unlock("automation", "bi-stone-crusher")
+thxbob.lib.tech.add_recipe_unlock("automation", "bi_recipe_stone_crusher")
 thxbob.lib.tech.add_recipe_unlock("automation", "bi_recipe_crushed_stone")
 
--- Add Large Wooden Chest
-thxbob.lib.tech.add_recipe_unlock("logistics-2", "bi_recipe_large_wooden_chest")
+-- Add Wooden Chests
+thxbob.lib.tech.add_recipe_unlock("logistics", "bi_recipe_large_wooden_chest")
+thxbob.lib.tech.add_recipe_unlock("logistics-2", "bi_recipe_huge_wooden_chest")
+thxbob.lib.tech.add_recipe_unlock("logistics-3", "bi_recipe_giga_wooden_chest")
 
 	-- Add Big and Huge electric poles to tech tree
 thxbob.lib.tech.add_recipe_unlock ("logistics", "bi_recipe_big_wooden_pole")
@@ -111,80 +120,6 @@ data.raw.item["wood"].place_as_tile =
 		condition = { "water-tile" }
 	}
 	
-
-
----- Game Tweaks ----
-if BI.Settings.BI_Recipe_Tweaks then
-	--- Concrete Recipe Tweak
-	thxbob.lib.recipe.remove_ingredient ("concrete", "iron-ore")
-	thxbob.lib.recipe.add_new_ingredient ("concrete", {type="item", name="iron-stick", amount=2})
-	--- Stone Wall
-	thxbob.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
-
-	--- Rail (Remove Stone and Add Crushed Stone)
-	if data.raw.item["stone-crushed"] then
-		thxbob.lib.recipe.remove_ingredient ("rail", "stone")
-		thxbob.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
-		thxbob.lib.recipe.remove_ingredient ("bi_recipe_rail_wood", "stone")
-		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
-	end
-
-		--- Trees Give Random 1 - 6 Raw Wood.
-	for _, tree in pairs(data.raw["tree"]) do
-   --CHECK FOR SINGLE RESULTS
-   if tree.minable and tree.minable.result then
-      --CHECK FOR VANILLA TREES RAW WOOD x 4
-      if tree.minable.result == "raw-wood" and tree.minable.count == 4 then
-         tree.minable = {mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6}}}
-      end
-   else
-      --CHECK FOR RESULTS TABLE
-      if tree.minable and tree.minable.results then
-         for k, results in pairs(tree.minable.results) do
-            --CHECK FOR RESULT RAW-WOOD x 4
-            if results.name == "raw-wood" and results.amount == 4 then
-               results.amount = nil
-               results.amount_min = 1
-               results.amount_max = 6
-            end
-         end      
-      end
-   end
-end
-	
-	-- Make Steel Axe use Iron Axe as an upgrade
-	thxbob.lib.recipe.remove_ingredient ("steel-axe", "iron-stick")
-	thxbob.lib.recipe.add_new_ingredient ("steel-axe", {type="item", name="iron-axe", amount=1})
-	
-	--- Loot Picup	
-	if data.raw.player.player.loot_pickup_distance < 4 then
-		data.raw.player.player.loot_pickup_distance = 4 -- default 2
-	end	
-
-	--- Run Speed
-	if data.raw.player.player.running_speed < 0.15 then
-		data.raw.player.player.running_speed = 0.25 -- default 0.15
-	end		
-	
-	--- Disassemble of Burner Miner Drill and Steel Furnace
-	require("prototypes.Bio_Tweaks.recipe")
-	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
-	
-	if data.raw.item["bi-burner-pump"] then
-		thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_basic_pumpjack_disassemble")
-	end
-	
-	--- Loot Picup	
-	if data.raw.player.player.loot_pickup_distance < 4 then
-		data.raw.player.player.loot_pickup_distance = 4 -- default 2
-	end	
-
-end
-
 
 
 --- Make it so that the Base game tile "grass" can't be placed in blueprints
@@ -458,9 +393,6 @@ end
 
 
 require("prototypes.Bio_Farm.compatible_recipes") -- Bob and Angels mesh
-
-
-
 	
 if BI.Settings.BI_Bio_Fuel or mods["Natural_Evolution_Buildings"] then
 
@@ -697,4 +629,5 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 
 	
 end
+
 

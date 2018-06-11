@@ -13,7 +13,8 @@ data:extend({
 		energy_required = 5,
 		ingredients =
 		{
-		  {"wooden-chest", 1},
+		  {"pipe", 20},
+		  {"electronic-circuit", 10},
 		  {"assembling-machine-1", 4},
 		},
 		result = "bi-drill-base",
@@ -35,7 +36,7 @@ data:extend({
 		ingredients =
 		{
 		  {type="item", name="bi-worn-drill-bit", amount=1},
-		  {type="item", name="iron-gear-wheel", amount=5}, 
+		  {type="item", name="iron-gear-wheel", amount=15}, 
 		},
 		results=
 		{
@@ -56,8 +57,8 @@ data:extend({
 		energy_required = 4,
 		ingredients =
 		{
-		  {type="item", name="pipe", amount=20},
-		  {type="item", name="iron-gear-wheel", amount=5}, 
+		  {type="item", name="pipe", amount=40},
+		  {type="item", name="iron-gear-wheel", amount=25}, 
 		},
 		results=
 		{
@@ -78,7 +79,7 @@ data:extend({
 		ingredients =
 		{
 		  {type="item", name="bi-drill-bit-mk1", amount=1},
-		  {type="item", name="steel-plate", amount=10}, 
+		  {type="item", name="steel-plate", amount=40}, 
 		},
 		results=
 		{
@@ -100,7 +101,7 @@ data:extend({
 		ingredients =
 		{
 		  {type="item", name="bi-drill-bit-mk2", amount=1},
-		  {type="item", name="advanced-circuit", amount=5}, 
+		  {type="item", name="advanced-circuit", amount=50}, 
 		  {type="fluid", name="lubricant", amount=50}, 
 		},
 		results=
@@ -203,7 +204,7 @@ for _, resource in pairs(infinite_fluids) do
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk1",
 		enabled = false,
-		energy_required = 10,
+		energy_required = 7,
 		ingredients =
 		{
 		  {type="item", name="bi-drill-bit-mk1", amount=1},
@@ -248,7 +249,7 @@ for _, resource in pairs(infinite_fluids) do
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk2",
 		enabled = false,
-		energy_required = 25,
+		energy_required = 20,
 		ingredients =
 		{
 		  {type="item", name="bi-drill-bit-mk2", amount=1},
@@ -293,7 +294,7 @@ for _, resource in pairs(infinite_fluids) do
 		category = "bi-drill",
 		subgroup = "bio-bio-drill-mk3",
 		enabled = false,
-		energy_required = 40,
+		energy_required = 35,
 		ingredients =
 		{
 		  {type="item", name="bi-drill-bit-mk3", amount=1},

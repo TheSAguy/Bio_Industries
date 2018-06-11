@@ -1,4 +1,13 @@
 
+BI.Settings.Bio_Cannon = settings.startup["BI_Bio_Cannon"].value
+BI.Settings.BI_Bio_Fuel = settings.startup["BI_Bio_Fuel"].value
+BI.Settings.BI_Game_Tweaks_Stack_Size = settings.startup["BI_Game_Tweaks_Stack_Size"].value
+BI.Settings.BI_Game_Tweaks_Recipe = settings.startup["BI_Game_Tweaks_Recipe"].value
+BI.Settings.BI_Game_Tweaks_Tree = settings.startup["BI_Game_Tweaks_Tree"].value
+BI.Settings.BI_Game_Tweaks_Player = settings.startup["BI_Game_Tweaks_Player"].value
+BI.Settings.BI_Game_Tweaks_Disassemble = settings.startup["BI_Game_Tweaks_Disassemble"].value
+BI.Settings.BI_Game_Tweaks_Bot = settings.startup["BI_Game_Tweaks_Bot"].value
+BI.Settings.BI_Solar_Additions = settings.startup["BI_Solar_Additions"].value
 
 
 -- 5dim Stack changes
@@ -233,8 +242,159 @@ if mods["angelspetrochem"] then
 
 end
 
+
+
+
+---- Game Tweaks ---- Recipes
+if BI.Settings.BI_Game_Tweaks_Recipe then
+	--- Concrete Recipe Tweak
+	thxbob.lib.recipe.remove_ingredient ("concrete", "iron-ore")
+	thxbob.lib.recipe.add_new_ingredient ("concrete", {type="item", name="iron-stick", amount=2})
+	--- Stone Wall
+	thxbob.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
+
+	-- Make Steel Axe use Iron Axe as an upgrade
+	thxbob.lib.recipe.remove_ingredient ("steel-axe", "iron-stick")
+	thxbob.lib.recipe.add_new_ingredient ("steel-axe", {type="item", name="iron-axe", amount=1})
+	
+	--- Rail (Remove Stone and Add Crushed Stone)
+	if data.raw.item["stone-crushed"] then
+		thxbob.lib.recipe.remove_ingredient ("rail", "stone")
+		thxbob.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_rail_wood", "stone")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
+	end
+	
+end
+
+---- Game Tweaks ---- Tree
+if BI.Settings.BI_Game_Tweaks_Tree then
+	
+		--- Trees Give Random 1 - 6 Raw Wood.
+	for _, tree in pairs(data.raw["tree"]) do
+   --CHECK FOR SINGLE RESULTS
+		if tree.minable and tree.minable.result then
+		  --CHECK FOR VANILLA TREES RAW WOOD x 4
+		  if tree.minable.result == "raw-wood" and tree.minable.count == 4 then
+			 tree.minable = {mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6}}}
+		  end
+		else
+		  --CHECK FOR RESULTS TABLE
+		  if tree.minable and tree.minable.results then
+			 for k, results in pairs(tree.minable.results) do
+				--CHECK FOR RESULT RAW-WOOD x 4
+				if results.name == "raw-wood" and results.amount == 4 then
+				   results.amount = nil
+				   results.amount_min = 1
+				   results.amount_max = 6
+				end
+			 end      
+		  end
+		end
+	end
+end	
+
+---- Game Tweaks ---- Player
+if BI.Settings.BI_Game_Tweaks_Player then	
+	
+	--- Loot Picup	
+	if data.raw.player.player.loot_pickup_distance < 5 then
+		data.raw.player.player.loot_pickup_distance = 5 -- default 2
+	end	
+
+	--- Run Speed
+	if data.raw.player.player.running_speed < 0.15 then
+		data.raw.player.player.running_speed = 0.25 -- default 0.15
+	end	
+
+	if data.raw.player.player.build_distance < 20 then -- Vanilla 6
+		data.raw.player.player.build_distance = 20
+	end
+	if data.raw.player.player.drop_item_distance < 20 then -- Vanilla 6
+		data.raw.player.player.drop_item_distance = 20
+	end
+	if data.raw.player.player.reach_distance < 20 then -- Vanilla 6
+		data.raw.player.player.reach_distance = 20
+	end
+	if data.raw.player.player.item_pickup_distance < 4 then -- Vanilla 1
+		data.raw.player.player.item_pickup_distance = 4
+	end
+	if data.raw.player.player.reach_resource_distance <  4 then -- Vanilla 2.7
+		data.raw.player.player.reach_resource_distance = 4
+	end
+
+
+end	
+	
+---- Game Tweaks ---- Disassemble Recipes
+if BI.Settings.BI_Game_Tweaks_Disassemble then		
+
+	require("prototypes.Bio_Tweaks.recipe")
+	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
+	
+	if data.raw.item["bi-burner-pump"] then
+		thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_basic_pumpjack_disassemble")
+	end
+
+end
+
+---- Game Tweaks ---- Bots
+if BI.Settings.BI_Game_Tweaks_Bot then	
+
+--[[
+	--Logistic bots can't catch fire and not Minable
+	local types = {"logistic-robot"}
+
+	for _, entity in pairs(types) do
+		for _, x in pairs(data.raw[entity]) do
+			if entity == "logistic-robot"  then
+				table.insert(x.flags, "not-flammable")
+				table.insert(x.resistances, { type = "fire", percent = 100 })
+				x.minable = nil
+			end
+		end
+	end
+
+	--Construction bots can't catch fire and not Minable
+	local types = {"construction-robot"}
+	
+	for _, entity in pairs(types) do
+		for _, x in pairs(data.raw[entity]) do
+			if entity == "construction-robot"  then
+				table.insert(x.flags, "not-flammable")
+				table.insert(x.resistances, { type = "fire", percent = 100 })
+				x.minable = nil
+			end
+		end
+	end
+
+]]
+
+-- Logistic & Construction bots can't catch fire or be Mined
+	local function immunify(bot)
+	  table.insert(bot.flags,"not-flammable")
+	  table.insert(bot.resistances, {type = "fire", percent = 100})
+	  bot.minable = nil
+	  end
+
+	--catches modded bots too
+	for _,bot in pairs(data.raw['construction-robot']) do
+		immunify(bot)
+	end
+
+	for _,bot in pairs(data.raw['logistic-robot']) do
+		immunify(bot)
+	end
+	
+	
+end
+
 ---- Game Tweaks ----
-if BI.Settings.BI_Recipe_Tweaks then
+if BI.Settings.BI_Game_Tweaks_Stack_Size then
 
 	---- Inrease Wood Stack Size
 	if data.raw.item["raw-wood"] and data.raw.item["raw-wood"].stack_size < 400 then
@@ -262,3 +422,4 @@ if BI.Settings.BI_Recipe_Tweaks then
 	end		
 		
 end
+

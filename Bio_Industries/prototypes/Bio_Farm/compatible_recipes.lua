@@ -40,6 +40,54 @@ data:extend({
 
 })
 
+---- Resin
+if not data.raw.item["resin"] then
+
+	data:extend({
+	
+			--- Resin Item
+		 {
+			type = "item",
+			name = "resin",
+			icon = "__Bio_Industries__/graphics/icons/bi_resin.png",
+			icon_size = 32,
+			flags = {"goes-to-main-inventory"},
+			subgroup = "bio-bio-farm-raw",
+			order = "a[bi]-a-b[bi-resin]",
+			stack_size = 200
+		  },
+
+
+		--- Resin recipe - Wood
+		{
+			type = "recipe",
+			name = "bi_recipe_resin_wood",
+			icon = "__Bio_Industries__/graphics/icons/bi_resin_wood.png",
+			icon_size = 32,
+			--category = "crafting-machine",
+			subgroup = "bio-bio-farm-raw",
+			order = "a[bi]-a-b[bi-resin2]",
+			energy_required = 1,
+			ingredients = 
+			{
+				 {type="item", name="raw-wood", amount=1}
+			},
+			result = "resin",
+			result_count = 1,
+			enabled = false,
+		},	
+	
+	})
+	
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_bio_farming", "bi_recipe_resin_wood")
+	
+ elseif data.raw.recipe["bob-resin-wood"] then
+ 
+	data.raw.recipe["bob-resin-wood"].icon = "__Bio_Industries__/graphics/icons/bi_resin_wood.png"
+	data.raw.recipe["bob-resin-wood"].icon_size = 32
+ 
+end
+
 
 --update crushed stone icon
 data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"

@@ -200,7 +200,7 @@ if BI.Settings.BI_Solar_Additions then
 	  },
 
 
----- Solar Floor
+	---- Solar Floor
 	{
 	  type = "tile",
 	  name = "bi-solar-mat",
@@ -405,7 +405,7 @@ if BI.Settings.BI_Solar_Additions then
   {
     type = "solar-panel",
     name = "bi-solar-boiler-panel",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Icon.png",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Panel_Icon.png",
 	icon_size = 32,
 	flags = {"placeable-neutral", "player-creation"},
 	minable = {hardness = 0.2, mining_time = 1, result = "bi-solar-boiler-panel"},
@@ -464,7 +464,7 @@ if BI.Settings.BI_Solar_Additions then
   {
     type = "boiler",
     name = "bi-solar-boiler",
-    icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Icon.png",
+    icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Boiler_Icon.png",
     icon_size = 32,
 	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
     max_health = 400,
@@ -489,7 +489,7 @@ if BI.Settings.BI_Solar_Additions then
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
 	selection_box = {{-1.2, -1.2}, {1.2, 1.2}},
 	
-    target_temperature = 165,
+    target_temperature = 235,
     fluid_box =
     {
       base_area = 1,
@@ -523,11 +523,8 @@ if BI.Settings.BI_Solar_Additions then
 	energy_source =
 	  {
 		  type = "electric",
-		  --input_priority = "secondary",
 		  input_priority = "primary",
 		  usage_priority = "primary-input",
-		  --usage_priority = "secondary-input",
-		  --usage_priority = "solar",
 		  --emissions = 0.1 / 9.5 -- NO Emmisions
 	  },
     working_sound =

@@ -214,34 +214,7 @@ data:extend({
 		  requester_paste_multiplier = 15
 		},
   },
- 
-	--- Rail to Power Pole
-	{
-		type = "recipe",
-		name = "bi_recipe_power_to_rail_pole",
-		normal =
-		{
-			enabled = false,
-			ingredients = 
-			{
-			  {"copper-cable", 2},    
-			  {"medium-electric-pole", 1},  
-			},
-		  result = "bi-power-to-rail-pole"
-		},
-		expensive =
-		{
-			enabled = false,
-			ingredients = 
-			{
-			  {"copper-cable", 4},
-			  {"medium-electric-pole", 1},  
-			},
-		  result = "bi-power-to-rail-pole"
-		},	
-	},
-	
-	
+ 	
   -- Wood Pipe to Ground
   {
 		type = "recipe",
@@ -272,6 +245,32 @@ data:extend({
 		},
   },
 
+  	--- Rail to Power Pole
+	{
+		type = "recipe",
+		name = "bi_recipe_power_to_rail_pole",
+		normal =
+		{
+			enabled = false,
+			ingredients = 
+			{
+			  {"copper-cable", 2},    
+			  {"medium-electric-pole", 1},  
+			},
+		  result = "bi-power-to-rail-pole"
+		},
+		expensive =
+		{
+			enabled = false,
+			ingredients = 
+			{
+			  {"copper-cable", 4},
+			  {"medium-electric-pole", 1},  
+			},
+		  result = "bi-power-to-rail-pole"
+		},	
+	},
+	
 	--- Large Wooden Chest
   {
     type = "recipe",
@@ -282,7 +281,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"copper-plate", 2},
+			  {"copper-plate", 8},
 			  {"wooden-chest", 8}
 			},
 		  result = "bi-large-wooden-chest",
@@ -295,7 +294,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"copper-plate", 4},
+			  {"copper-plate", 16},
 			  {"wooden-chest", 8}
 			},
 		  result = "bi-large-wooden-chest",
@@ -304,7 +303,75 @@ data:extend({
 		},
 
   },
-  
+ 
+	--- Huge Wooden Chest
+  {
+    type = "recipe",
+    name = "bi_recipe_huge_wooden_chest",
+	normal =
+		{
+			energy_required = 2,
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"iron-stick", 20},
+			  {"resin", 12},
+			  {"bi-large-wooden-chest", 16}
+			},
+		  result = "bi-huge-wooden-chest",
+		  result_count = 1,
+		  requester_paste_multiplier = 4
+		},
+	expensive =
+		{
+			energy_required = 4,
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"iron-stick", 32},
+			  {"resin", 18},
+			  {"bi-large-wooden-chest", 16}
+			},
+		  result = "bi-huge-wooden-chest",
+		  result_count = 1,
+		  requester_paste_multiplier = 4,
+		},
 
+  }, 
+
+  	--- Giga Wooden Chest
+  {
+    type = "recipe",
+    name = "bi_recipe_giga_wooden_chest",
+	normal =
+		{
+			energy_required = 4,
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"steel-plate", 40},
+			  {"resin", 48},
+			  {"bi-huge-wooden-chest", 16}
+			},
+		  result = "bi-giga-wooden-chest",
+		  result_count = 1,
+		  requester_paste_multiplier = 4
+		},
+	expensive =
+		{
+			energy_required = 6,
+			enabled = false,
+			ingredients = 
+			{	  
+			  {"steel-plate", 60},
+			  {"resin", 60},
+			  {"bi-huge-wooden-chest", 16}
+			},
+		  result = "bi-giga-wooden-chest",
+		  result_count = 1,
+		  requester_paste_multiplier = 4,
+		},
+
+  }, 
  })
 

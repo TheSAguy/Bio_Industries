@@ -1,4 +1,4 @@
---Bio_Industries Version   2.6.1
+--Bio_Industries Version   2.6.2
 
 local QC_Mod = false
 require ("util")
@@ -11,7 +11,6 @@ require ("control_bio_drill")
 
 
 --------------------------------------------------------------------
-
 local function On_Init()
 	
 	if global.Bio_Cannon_Table ~= nil then
@@ -40,6 +39,11 @@ local function On_Init()
 		global.bi_solar_boiler_table = {}
 	end
 
+	-- Global table for solar farm
+	if global.bi_solar_farm_table == nil then
+		global.bi_solar_farm_table = {}
+	end
+	
 	-- Global table for power rail
 	if global.bi_power_rail_table == nil then
 		global.bi_power_rail_table = {}
@@ -80,8 +84,9 @@ local function On_Init()
 	
 	
 end
---------------------------------------------------------------------
 
+
+--------------------------------------------------------------------
 local function regenerate_entity(ore)
   if game.entity_prototypes[ore] and game.entity_prototypes[ore].autoplace_specification then
     game.regenerate_entity(ore)
@@ -100,6 +105,7 @@ remote.add_interface("Bio_Industries",
     end
   end
 })
+
 
 --------------------------------------------------------------------			 
 local function On_Load()
@@ -148,6 +154,11 @@ local function On_Config_Change()
 		global.bi_solar_boiler_table = {}
 	end
 
+	-- Global table for solar farm
+	if global.bi_solar_farm_table == nil then
+		global.bi_solar_farm_table = {}
+	end
+	
 	-- Global table for power rail
 	if global.bi_power_rail_table == nil then
 		global.bi_power_rail_table = {}
@@ -195,8 +206,8 @@ local function On_Config_Change()
 	
 end
 
---------------------------------------------------------------------
 
+--------------------------------------------------------------------
 --- Used for some compatibility with Angels Mods
 script.on_event(defines.events.on_player_joined_game, function(event)
    local player = game.players[event.player_index]
@@ -212,7 +223,6 @@ script.on_event(defines.events.on_player_joined_game, function(event)
    end
    
 end)
-
 
 
 ---------------------------------------------
@@ -266,8 +276,6 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 end)
 
 
-
-
 --------------------------------------------------------------------
 local function On_Built(event)
     local entity = event.created_entity
@@ -303,7 +311,6 @@ local function On_Built(event)
 		
 		--- Group Entities together
 		global.bi_bio_farm_table[b_farm.unit_number] = {base=b_farm, pole=create_pole, panel=create_panel, lamp=create_lamp}
-		--group_entities(cantor(position.x,position.y), { b_farm, create_pole, create_panel, create_lamp })	  
 
 	end
 
@@ -314,7 +321,7 @@ local function On_Built(event)
 		   
 		local solar_plant = entity
 		local boiler_solar = "bi-solar-boiler"   		
-		local sm_pole_name = "bi-musk-mat-pole"  
+		local sm_pole_name = "bi-hidden-power-pole"  
 		
 		local create_solar_boiler = surface.create_entity({name = boiler_solar, position = position, force = force})
 		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
@@ -326,11 +333,28 @@ local function On_Built(event)
 		
 		--- Group Entities together
 		global.bi_solar_boiler_table[solar_plant.unit_number] = {base=solar_plant, boiler=create_solar_boiler, pole=create_sm_pole}		
-		--group_entities(cantor(position.x,position.y), { solar_plant, create_solar_boiler, create_sm_pole })	  
-
+		
 	end
 	
+	
+    --- Solar Farm has been built
+	if entity.valid and entity.name == "bi-bio-solar-farm" then
+	writeDebug("Bio Solar Farm has been built")
+		   
+		local solar_farm = entity	
+		local sm_pole_name = "bi-hidden-power-pole"  
+	
+		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
+			
+ 		create_sm_pole.minable = false
+		create_sm_pole.destructible = false
 		
+		--- Group Entities together
+		global.bi_solar_farm_table[solar_farm.unit_number] = {base=solar_farm, pole=create_sm_pole}		
+		
+	end
+
+	
 	--- Bio Cannon has been built
 	if entity.valid and entity.name == "bi-bio-cannon-area" then
 	
@@ -366,7 +390,6 @@ local function On_Built(event)
 	if entity.valid and entity.name == "bi-arboretum-area" then
 	writeDebug("Arboretum has been built")
 		   
-
 		local arboretum_new = "bi-arboretum"
 		local radar_name = "bi-arboretum-radar"  
 		local pole_name = "bi-hidden-power-pole"
@@ -388,52 +411,9 @@ local function On_Built(event)
 		event.created_entity.destroy()
 		
 		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar}
-  
 
 	end
 
-
-	
---[[	
-	--- Attempt to make sure Poles connect correctly
-	if entity.valid and entity.name == "bi-power-to-rail-pole" then
-    
-		local radius = 2		
-		local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
-		local power_rail_poles = {}
-		power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = force}
-
-		if power_rail_poles ~= nil and  #power_rail_poles >= 1 then 	
-			
-			for i=1, #power_rail_poles do
-				writeDebug(i.. " Hidden Power Rail Pole found")
-				entity.connect_neighbour(power_rail_poles[i])
-			end
-		
-		end
-
-		
-    end	
-
-	if entity.valid and entity.name == "bi-rail-hidden-power-pole" then
-    
-		local radius = 4.5		
-		local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
-		local power_rail_poles = {}
-		power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = force}
-
-		if power_rail_poles ~= nil and  #power_rail_poles >= 1 then 	
-			
-			for i=1, #power_rail_poles do
-				writeDebug(i.. " Hidden Power Rail Pole found")
-				entity.connect_neighbour(power_rail_poles[i])
-			end
-		
-		end
-
-		
-    end	
-]]
 	
     --- Drill has been built
 	if entity.valid and entity.name == "bi-drill-base" then
@@ -442,19 +422,13 @@ local function On_Built(event)
 
 		local drill_bit_name = "bi-drill-radar"  
 		local drill_base = entity 
-
-		
-		--local position_c = {position.x - 3.5, position.y + 3.5}
 		local position_c = {position.x, position.y - .5}
-		--local position_c = {position.x + 0.45, position.y + 0.13}
 		local create_drill_bit = surface.create_entity({name = drill_bit_name, position = position_c, direction = entity.direction, force = force})
 	
 		create_drill_bit.minable = false
 		create_drill_bit.destructible = false
 
 		global.bi_drill_table[drill_base.unit_number] = {inventory=drill_base, drill_bit=create_drill_bit}
-	
-
 
 	end
 
@@ -464,8 +438,7 @@ local function On_Built(event)
 	writeDebug("Power Rail has been built")
 			   
 		local rail_track = entity
-		local pole_name = "bi-rail-hidden-power-pole"  		
-		
+		local pole_name = "bi-rail-hidden-power-pole"  			
 		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
 				
 		create_rail_pole.minable = false
@@ -473,8 +446,7 @@ local function On_Built(event)
 
 		--- Group Entities together
 		global.bi_power_rail_table[rail_track.unit_number] = {base=rail_track, pole=create_rail_pole}		
-		--group_entities(cantor(position.x,position.y), { rail_track, create_rail_pole })	  
-		writeDebug(global.bi_power_rail_table[rail_track.unit_number].pole.name)
+		--writeDebug(global.bi_power_rail_table[rail_track.unit_number].pole.name)
 		
 		
 		if global.bi_power_rail_table[rail_track.unit_number].pole.valid then
@@ -566,20 +538,26 @@ local function On_Remove(event)
    	if entity.valid and entity.name == "bi-bio-solar-farm" then
 	writeDebug("Solar Farm has been removed")
 		
+		if global.bi_solar_farm_table[entity.unit_number] then
+			global.bi_solar_farm_table[entity.unit_number].pole.destroy()
+			global.bi_solar_farm_table[entity.unit_number] = nil
+		end
+		
 		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
+		local entity_group = getGroup_entities(pos_hash)
+
+		if entity_group then
+			for ix, vx in ipairs(entity_group) do
+				if vx == entity then
+					--vx.destroy()
+				else
+					vx.destroy()
+				end
+			end
+		end
 		
 		ungroup_entities(pos_hash)
-		
+					
 	end
 
 
@@ -609,29 +587,6 @@ local function On_Remove(event)
 		ungroup_entities(pos_hash)
 			
 	end
-	
-	
-	--[[
-	--- Solar Mat has been removed
-   	if entity.valid and entity.name == "bi-solar-mat" then
-	writeDebug("Solar Mat has been removed")
-	
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-		
-        ungroup_entities(pos_hash)
-		
-	end
-	]]
 			
 
 	--- Power Rail has been removed
@@ -738,19 +693,25 @@ local function On_Death(event)
    	if entity.valid and entity.name == "bi-bio-solar-farm" then
 	writeDebug("Solar Farm has been destroyed")
 		
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
+		if global.bi_solar_farm_table[entity.unit_number] then
+			global.bi_solar_farm_table[entity.unit_number].pole.destroy()
+			global.bi_solar_farm_table[entity.unit_number] = nil
+		end
 		
-        ungroup_entities(pos_hash)
+		local pos_hash = cantor(entity.position.x,entity.position.y)
+		local entity_group = getGroup_entities(pos_hash)
+
+		if entity_group then
+			for ix, vx in ipairs(entity_group) do
+				if vx == entity then
+					--vx.destroy()
+				else
+					vx.destroy()
+				end
+			end
+		end
+		
+		ungroup_entities(pos_hash)
 		
 	end
 

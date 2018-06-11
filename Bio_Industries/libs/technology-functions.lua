@@ -41,7 +41,7 @@ function thxbob.lib.tech.add_new_science_pack(technology, pack, amount)
       log("Technology " .. technology .. " does not exist.")
     end
     if not data.raw.tool[pack] then
-      log("Science pack " .. new .. " does not exist.")
+      log("Science pack " .. pack .. " does not exist.")
     end
   end
 end
@@ -65,7 +65,7 @@ function thxbob.lib.tech.add_science_pack(technology, pack, amount)
       log("Technology " .. technology .. " does not exist.")
     end
     if not data.raw.tool[pack] then
-      log("Science pack " .. new .. " does not exist.")
+      log("Science pack " .. pack .. " does not exist.")
     end
   end
 end

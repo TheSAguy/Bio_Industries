@@ -59,7 +59,7 @@ if BI.Settings.BI_Solar_Additions then
 			subgroup = "energy-pipe-distribution",
 			order = "a[energy]-d[substation]-[large-substation]",
 			place_result = "bi-large-substation",
-			stack_size = 50
+			stack_size = 10
 		},
 
 
@@ -73,7 +73,7 @@ if BI.Settings.BI_Solar_Additions then
 		subgroup = "energy",
 		order = "b[steam-power]-c[steam-engine]",
 		place_result = "bi-solar-boiler-panel",
-		stack_size = 50,
+		stack_size = 20,
 	--	enable = false,
 	},	
 	
