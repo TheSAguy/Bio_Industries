@@ -563,6 +563,7 @@ data:extend({
 		category = "smelting",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-z2[stone-brick]",
+		energy_required = 5,
 		ingredients =
 		{
 		  {type="item", name="stone-crushed", amount=6},     
