@@ -345,37 +345,10 @@ end
 ---- Game Tweaks ---- Bots
 if BI.Settings.BI_Game_Tweaks_Bot then	
 
---[[
-	--Logistic bots can't catch fire and not Minable
-	local types = {"logistic-robot"}
-
-	for _, entity in pairs(types) do
-		for _, x in pairs(data.raw[entity]) do
-			if entity == "logistic-robot"  then
-				table.insert(x.flags, "not-flammable")
-				table.insert(x.resistances, { type = "fire", percent = 100 })
-				x.minable = nil
-			end
-		end
-	end
-
-	--Construction bots can't catch fire and not Minable
-	local types = {"construction-robot"}
-	
-	for _, entity in pairs(types) do
-		for _, x in pairs(data.raw[entity]) do
-			if entity == "construction-robot"  then
-				table.insert(x.flags, "not-flammable")
-				table.insert(x.resistances, { type = "fire", percent = 100 })
-				x.minable = nil
-			end
-		end
-	end
-
-]]
-
 -- Logistic & Construction bots can't catch fire or be Mined
 	local function immunify(bot)
+	  if not bot.flags then bot.flags = {} end
+	  if not bot.resistances then bot.resistances = {} end
 	  table.insert(bot.flags,"not-flammable")
 	  table.insert(bot.resistances, {type = "fire", percent = 100})
 	  bot.minable = nil

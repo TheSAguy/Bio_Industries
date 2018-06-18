@@ -67,6 +67,8 @@ if not data.raw.item["resin"] then
 			--category = "crafting-machine",
 			subgroup = "bio-bio-farm-raw",
 			order = "a[bi]-a-b[bi-resin2]",
+			enabled = false,
+			allow_as_intermediate = false,
 			energy_required = 1,
 			ingredients = 
 			{
@@ -74,7 +76,6 @@ if not data.raw.item["resin"] then
 			},
 			result = "resin",
 			result_count = 1,
-			enabled = false,
 		},	
 	
 	})
@@ -120,6 +121,19 @@ elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] then
 
 	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="sodium-hydroxide", amount=10})
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
+	
+end	
+
+
+--- Add Water purification recipes if bob's or Angels
+if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] and data.raw.recipe["bi_recipe_fresh_water_2"] then
+
+	thxbob.lib.recipe.replace_ingredient("bi_recipe_fresh_water_2", "liquid-air", "gas-compressed-air")
+	thxbob.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="solid-sodium-hydroxide", amount=5})
+
+elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] and data.raw.recipe["bi_recipe_fresh_water_2"] then
+
+	thxbob.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="sodium-hydroxide", amount=5})
 	
 end	
 

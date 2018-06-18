@@ -258,10 +258,11 @@ data:extend(
     order = "e-e",
   },
 
+  --[[
    {
     type = "recipe-category",
     name = "crafting-machine"
   },
-  
+  ]]
 }
 )

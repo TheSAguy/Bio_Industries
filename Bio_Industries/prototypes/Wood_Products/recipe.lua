@@ -281,7 +281,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"copper-plate", 8},
+			  {"copper-plate", 16},
+			  {"resin", 24},
 			  {"wooden-chest", 8}
 			},
 		  result = "bi-large-wooden-chest",
@@ -294,7 +295,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"copper-plate", 16},
+			  {"copper-plate", 24},
+			  {"resin", 32},
 			  {"wooden-chest", 8}
 			},
 		  result = "bi-large-wooden-chest",
@@ -314,8 +316,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"iron-stick", 20},
-			  {"resin", 12},
+			  {"iron-stick", 32},
+			  {"stone-brick", 32},
 			  {"bi-large-wooden-chest", 16}
 			},
 		  result = "bi-huge-wooden-chest",
@@ -328,8 +330,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"iron-stick", 32},
-			  {"resin", 18},
+			  {"iron-stick", 48},
+			  {"stone-brick", 48},
 			  {"bi-large-wooden-chest", 16}
 			},
 		  result = "bi-huge-wooden-chest",
@@ -349,8 +351,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"steel-plate", 40},
-			  {"resin", 48},
+			  {"steel-plate", 32},
+			  {"concrete", 32},
 			  {"bi-huge-wooden-chest", 16}
 			},
 		  result = "bi-giga-wooden-chest",
@@ -363,8 +365,8 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{	  
-			  {"steel-plate", 60},
-			  {"resin", 60},
+			  {"steel-plate", 48},
+			  {"concrete", 48},
 			  {"bi-huge-wooden-chest", 16}
 			},
 		  result = "bi-giga-wooden-chest",

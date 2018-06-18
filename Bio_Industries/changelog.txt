@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.6.4
+Date: 18. 06. 2018
+  Features:
+    - Changed Wooden Chest recipes
+    - Added Water purification recipe if you're using the Finite Fluid Option
+---------------------------------------------------------------------------------------------------
+Version: 2.6.3
+Date: 12. 06. 2018
+  Bugfixes:
+    - Fixed Crafting Categories
+    - Fixed Crash adding flags to Bots that don't have a flag
+---------------------------------------------------------------------------------------------------
 Version: 2.6.2
 Date: 11. 06. 2018
   Features:

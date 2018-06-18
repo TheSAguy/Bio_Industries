@@ -25,9 +25,9 @@
 	  category = "basic-fluid",
 	  infinite = false,
 	  highlight = true,
-	  starting = {richness=1000, size=4, probability=1},
+	  starting = {richness=1000, size=8, probability=1},
 	  minimum = 1000,
-	  normal = 1000,
+	  normal = 1500,
 	  resource_patch_search_radius = 12,
 	  tree_removal_probability = 0.7,
       tree_removal_max_distance = 32 * 32,
@@ -88,7 +88,7 @@
 			},
 		  
 			starting_area_size = 100,
-			starting_area_amount = 4,
+			starting_area_amount = 8,
 		},
   },
   

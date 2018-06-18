@@ -367,10 +367,11 @@ data:extend({
 		name = "bi_recipe_woodpulp",
 		icon = "__Bio_Industries__/graphics/icons/Woodpulp_raw-wood.png",
 		icon_size = 32,
-		category = "biofarm-mod-smelting",
+		--category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-woodpulp]",
 		enabled = false,
+		allow_as_intermediate = false,
 		energy_required = 2.5,
 		ingredients = {{"raw-wood",2}},
 		result = "bi-woodpulp",
@@ -383,9 +384,11 @@ data:extend({
 		name = "bi_recipe_resin_pulp",
 		icon = "__Bio_Industries__/graphics/icons/bi_resin_pulp.png",
 		icon_size = 32,
-		category = "crafting-machine",
+		--category = "crafting-machine",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-resin]",
+		enabled = false,
+		allow_as_intermediate = false,
 		energy_required = 1,
 		ingredients = 
 		{
@@ -393,7 +396,7 @@ data:extend({
 		},
 		result = "resin",
 		result_count = 1,
-		enabled = false,
+
 	},
 	
 	-- Wood - Press Wood
@@ -402,10 +405,11 @@ data:extend({
 		name = "bi_recipe_press_wood",
 		icon = "__Bio_Industries__/graphics/icons/bi_wood_resin_pulp.png",
 		icon_size = 32,
-		category = "crafting-machine",
+		--category = "crafting-machine",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-c[bi-press_wood]",
 		energy_required = 2,	
+		allow_as_intermediate = false,
 		ingredients =
 		{
 			{type="item", name="bi-woodpulp", amount=3},

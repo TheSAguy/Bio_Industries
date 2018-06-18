@@ -114,23 +114,22 @@ data:extend({
   {
     type = "recipe",
     name = "bi_recipe_fresh_water",
-    icon = "__base__/graphics/icons/fluid/water.png",
+    icon = "__Bio_Industries__/graphics/icons/bi_water_1_icon.png",
     icon_size = 32,
     category = "chemistry",
     enabled = false,
-    energy_required = 5,
+    energy_required = 4,
     ingredients =
     {
-      {type="fluid", name="water-saline", amount=100},
-	  {type="item", name="pellet-coke", amount=10},
+      {type="fluid", name = "water-saline", amount = 100},
+	  {type="item", name = "pellet-coke", amount = 8},
     },
     results=
     {
-      {type="fluid", name="water", amount=100},
-	  {type="item", name="stone-crushed", amount=5},
+      {type="fluid", name = "water", amount = 100},
+	  {type="item", name = "stone-crushed", amount = 5},
     },
-
-    --subgroup = "bio-bio-drill-drill",
+	main_product = "water",
 	subgroup = "bio-bio-farm-intermediate-product",
     order = "0aa",
     crafting_machine_tint =
@@ -141,6 +140,39 @@ data:extend({
     }
   },
 
+ 	 --- Turn the lakes into usable water... Very expensive 
+  {
+    type = "recipe",
+    name = "bi_recipe_fresh_water_2",
+    icon = "__Bio_Industries__/graphics/icons/bi_water_2_icon.png",
+    icon_size = 32,
+    category = "chemistry",
+    enabled = false,
+    energy_required = 10,
+    ingredients =
+    {
+      {type="fluid", name = "water-saline", amount = 90},
+	  {type="fluid", name = "liquid-air", amount = 10},
+	  {type="item", name = "bi-charcoal", amount = 10},
+	  {type="item", name = "stone-crushed", amount = 10},
+    },
+    results=
+    {
+      {type="fluid", name ="water", amount = 100},
+	  --{type="item", name ="sodium-hydroxide", amount = 5}, will add if Bob or Angels
+    },
+	main_product = "water",
+	subgroup = "bio-bio-farm-intermediate-product",
+    order = "0ab",
+    crafting_machine_tint =
+    {
+      primary = {r = 0.290, g = 0.027, b = 0.000, a = 0.000}, -- #49060000
+      secondary = {r = 0.722, g = 0.465, b = 0.190, a = 0.000}, -- #b8763000
+      tertiary = {r = 0.870, g = 0.365, b = 0.000, a = 0.000}, -- #dd5d0000
+    }
+  },
+
+  
   
   	 --- Burner Pumpjack
 	{

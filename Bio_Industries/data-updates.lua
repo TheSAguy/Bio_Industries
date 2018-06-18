@@ -21,7 +21,7 @@ require ("prototypes.Wood_Products.update_bridge_rails_remnants")
 require ("prototypes.Wood_Products.tint_rails_remnants_function")
 
 -- add Assembling Machine catagory.
-thxbob.lib.machine.type_if_add_category("assembling-machine", "crafting", "crafting-machine")
+--thxbob.lib.machine.type_if_add_category("assembling-machine", "crafting-machine")
 
 	-- Concrete Rail
 	---- Update Standard Rails to use and look like concrete

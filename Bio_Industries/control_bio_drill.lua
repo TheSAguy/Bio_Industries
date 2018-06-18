@@ -96,15 +96,21 @@ function Process_Bio_Drill(bi_drill_table, event)
 				if resource_odds.bi_resource_table[recipe_name].group == "mk1"  then										
 					
 					--writeDebug("The Random Number is: "..find_chance)
-					writeDebug("Recipe Group Mk1")
+					--writeDebug("Recipe Group Mk1")
 					
 					------- Recipe Mk1 starts with a 2% chance to find a resource -------
 					if find_chance > (98 - global.prospect_chance) then
 
-				input = resource_odds.bi_resource_table[recipe_name].output_name
-				local r_to_s = get_resource_to_spawn(input)
-				local a_to_s = (resource_odds.bi_resource_table[recipe_name].amount + global.prospect_richness)
+						input = resource_odds.bi_resource_table[recipe_name].output_name
+						local r_to_s = get_resource_to_spawn(input)
 						
+						if recipe_name == "bi_recipe_mk1_water" then
+							a_to_s = ((resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness) * 2)
+						else
+							a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
+						end
+						
+						writeDebug(a_to_s)
 						local new_fluid_patch = surface.create_entity{name = r_to_s.spawn, amount = a_to_s, position = pos, force = force}
 						new_fluid_patch.destructible = false						
 
@@ -116,15 +122,25 @@ function Process_Bio_Drill(bi_drill_table, event)
 				elseif resource_odds.bi_resource_table[recipe_name].group == "mk2"  then
 				
 		 
-					writeDebug("The Random Number is: "..find_chance)
-					writeDebug("Recipe Group Mk2")
+					--writeDebug("The Random Number is: "..find_chance)
+					--writeDebug("Recipe Group Mk2")
 					
 					------- Recipe Mk2 starts with a 6% chance to find a resource -------
 					if find_chance > (94 - global.prospect_chance) then
 													
-						local new_fluid_patch = surface.create_entity{name = resource_odds.bi_resource_table[recipe_name].output_name, amount = resource_odds.bi_resource_table[recipe_name].amount, position = pos, force = force}
-						new_fluid_patch.destructible = false						
+						input = resource_odds.bi_resource_table[recipe_name].output_name
+						local r_to_s = get_resource_to_spawn(input)
+					
+						if recipe_name == "bi_recipe_mk2_water" then
+							a_to_s = ((resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness) * 2)
+						else
+							a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
+						end
 						
+						writeDebug(a_to_s)
+						local new_fluid_patch = surface.create_entity{name = r_to_s.spawn, amount = a_to_s, position = pos, force = force}
+						new_fluid_patch.destructible = false						
+
 						box_it_up(bi_drill_table, pos, force, surface)		
 								
 					end
@@ -133,15 +149,25 @@ function Process_Bio_Drill(bi_drill_table, event)
 				elseif resource_odds.bi_resource_table[recipe_name].group == "mk3"  then
 				
 			
-					writeDebug("The Random Number is: "..find_chance)
-					writeDebug("Recipe Group Mk3")
+					--writeDebug("The Random Number is: "..find_chance)
+					--writeDebug("Recipe Group Mk3")
 		
 					------- Recipe Mk3 starts with a 10% chance to find a resource -------
 					if find_chance > (90 - global.prospect_chance) then
 													
-						local new_fluid_patch = surface.create_entity{name = resource_odds.bi_resource_table[recipe_name].output_name, amount = resource_odds.bi_resource_table[recipe_name].amount, position = pos, force = force}
-						new_fluid_patch.destructible = false						
+						input = resource_odds.bi_resource_table[recipe_name].output_name
+						local r_to_s = get_resource_to_spawn(input)
 						
+						if recipe_name == "bi_recipe_mk3_water" then
+							a_to_s = ((resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness) * 2)
+						else
+							a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
+						end
+						
+						writeDebug(a_to_s)
+						local new_fluid_patch = surface.create_entity{name = r_to_s.spawn, amount = a_to_s, position = pos, force = force}
+						new_fluid_patch.destructible = false						
+
 						box_it_up(bi_drill_table, pos, force, surface)		
 								
 					end

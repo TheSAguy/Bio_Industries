@@ -19,17 +19,19 @@ data:extend(
 		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
 		order = "a[Disassemble]-a[bi_recipe_burner_mining_drill_disassemble]",
+		enabled = false,
+		allow_as_intermediate = false,
 		energy_required = 2,
 		ingredients =
 			{
 			  {type="item", name="burner-mining-drill", amount=1},   	  
 			},
-		results=
+		results =
 			{
 				{"stone", 4},
 				{"iron-plate", 4}
 			},
-		enabled = false
+
 	},
 
   
@@ -41,17 +43,18 @@ data:extend(
 		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
 		order = "a[Disassemble]-b[bi_recipe_stone_furnace_disassemble]",
+		enabled = false,
+		allow_as_intermediate = false,
 		energy_required = 2,
 		ingredients =
 			{
 			  {type="item", name="stone-furnace", amount=1},   	  
 			},
-		results=		
+		results =		
 			{
 			  {"stone", 3},
 			},
 			
-		enabled = false
   },
   
    
@@ -64,17 +67,18 @@ data:extend(
 		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
 		order = "a[Disassemble]-c[bi_recipe_burner_inserter_disassemble]",
+		enabled = false,
+		allow_as_intermediate = false,
 		energy_required = 2,
 		ingredients =
 			{
 			  {type="item", name="burner-inserter", amount=1},   	  
 			},
-		results=		
+		results =		
 			{
 			  {"iron-plate", 2},
 			},
 			
-		enabled = false
   },
 
 
@@ -87,19 +91,20 @@ data:extend(
 		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
 		order = "a[Disassemble]-e[bi_recipe_long_handed_inserter_disassemble]",
+		enabled = false,
+		allow_as_intermediate = false,
 		energy_required = 2,
 		ingredients =
 			{
 			  {type="item", name="long-handed-inserter", amount=1},   	  
 			},
-		results=		
+		results =		
 			{
 			  {"iron-gear-wheel", 1},
 			  {"iron-plate", 1},
 			  {"electronic-circuit", 1},
 			},
 			
-		enabled = false
   },
 
 
@@ -112,18 +117,19 @@ data:extend(
 		subgroup = "bio-disassemble",
 		category = "advanced-crafting",
 		order = "a[Disassemble]-f[bi_recipe_steel_furnace_disassemble]",
+		enabled = false,
+		allow_as_intermediate = false,
 		energy_required = 2,
 		ingredients =
 			{
 			  {type="item", name="steel-furnace", amount=1},   	  
 			},
-		results=		
+		results =		
 			{
 			  {"steel-plate", 4},
 			  {"stone-brick", 4}
 			},
 			
-		enabled = false
   },
 
   
@@ -142,18 +148,19 @@ if data.raw.item["bi-burner-pump"] then
 				subgroup = "bio-disassemble",
 				category = "advanced-crafting",
 				order = "a[Disassemble]-d[bi_basic_pumpjack_disassemble]",
+				enabled = false,
+				allow_as_intermediate = false,
 				energy_required = 2,
 				ingredients =
 					{
 					  {type="item", name="bi-burner-pump", amount=1},   	  
 					},
-				results=		
+				results =		
 					{
 					  {"pipe", 3},
 					  {"iron-gear-wheel", 3}
 					},
 					
-				enabled = false
 			}
 			
 		})

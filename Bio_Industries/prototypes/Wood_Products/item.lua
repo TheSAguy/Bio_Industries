@@ -92,7 +92,6 @@ data:extend({
 		curved_rail = "bi-curved-rail-power"
 	},
 
-
   --- Wood Pipe
 	{
 		type = "item",
@@ -135,7 +134,7 @@ data:extend({
 		subgroup = "storage",
 		order = "a[items]-aa[wooden-chest]",
 		place_result = "bi-large-wooden-chest",
-		stack_size = 40
+		stack_size = 48
 	  },
 
 	  	--- Huge wooden chest 3 x 3
@@ -150,7 +149,7 @@ data:extend({
 		subgroup = "storage",
 		order = "a[items]-ab[wooden-chest]",
 		place_result = "bi-huge-wooden-chest",
-		stack_size = 30
+		stack_size = 32
 	  },
 
 	  	--- Giga wooden chest 6 x 6
@@ -165,7 +164,7 @@ data:extend({
 		subgroup = "storage",
 		order = "a[items]-ac[wooden-chest]",
 		place_result = "bi-giga-wooden-chest",
-		stack_size = 20
+		stack_size = 16
 	  },	  
 	  ---- Power pole to connect Rail to Power Grid
 	    {

@@ -78,7 +78,10 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi_recipe_drill_mk2"
 			},
-			
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_fresh_water_2"
+			},			
 		},
 		prerequisites = {"bi-tech-bio-prospecting-1"},
 		unit =

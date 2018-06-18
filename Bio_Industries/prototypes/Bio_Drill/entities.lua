@@ -307,7 +307,7 @@ data:extend({
         {
           name = "smoke",
           deviation = {0.1, 0.1},
-          frequency = 3
+          frequency = 5
         }
       }
     },
@@ -323,7 +323,7 @@ data:extend({
         }
       },
     },
-    energy_usage = "150kW",
+    energy_usage = "180kW",
     mining_speed = 1,
     mining_power = 2,
     resource_searching_radius = 0.49,
