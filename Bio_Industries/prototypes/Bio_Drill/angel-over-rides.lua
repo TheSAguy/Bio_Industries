@@ -7,17 +7,17 @@
  
   {
     type = "autoplace-control",
-    name = "ground-water",
+    name = "bi-ground-water",
     richness = true,
     order = "a",
     category = "resource",
   },
 
-  
+  --[[
 	--- Ground Water
   {
 	  type = "resource",
-	  name = "ground-water",
+	  name = "bi-ground-water",
 	  icon = "__base__/graphics/icons/fluid/water.png",
 	  icon_size = 32,
 	  flags = {"placeable-neutral"},
@@ -71,7 +71,7 @@
 	  autoplace =
 	  {
 			order = "b",
-			control = "ground-water",
+			control = "bi-ground-water",
 			sharpness = 0.99,
 			max_probability = 0.02,
 			richness_base = 1000,
@@ -81,7 +81,7 @@
 			peaks =
 			{
 			  {
-				noise_layer = "ground-water",
+				noise_layer = "bi-ground-water",
 				noise_octaves_difference = -0.5,
 				noise_persistence = 0.4,
 			  }
@@ -91,7 +91,7 @@
 			starting_area_amount = 4,
 		},
   },
-  
+  ]]
   
 ---- lithia-water
 
@@ -109,8 +109,6 @@
     flow_to_energy_ratio = 0.59,
     order = "a[fluid]-a[water-lithia]",
   },
-
-
 
   {
 	  type = "resource",

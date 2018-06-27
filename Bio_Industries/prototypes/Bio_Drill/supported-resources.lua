@@ -3,7 +3,7 @@
 	
 	table.insert(infinite_fluids, {dependency = "base", name = "crude-oil", fluid = "crude-oil", default = true})							-- Vanilla crude oil
 	
-	table.insert(infinite_fluids, {dependency = "Bio_Industries", name = "ground-water", fluid = "water",  default = true})					-- Bio Industries (& Bob's ground water)
+	table.insert(infinite_fluids, {dependency = "Bio_Industries", name = "bi-ground-water", fluid = "water",  default = true})					-- Bio Industries (& Bob's ground water)
 	
 	table.insert(infinite_fluids, {dependency = "bobores", name = "lithia-water", fluid = "lithia-water",  default = true})					-- Bob's lithia water
 	

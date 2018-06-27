@@ -1,9 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.6.6
+Date: 27. 06. 2018
+  Features:
+    - Added Icon Scaling to wooden chest
+---------------------------------------------------------------------------------------------------
+Version: 2.6.5
+Date: 23. 06. 2018
+  Features:
+    - Moved Game Tweaks to "data-final-fixes"
+---------------------------------------------------------------------------------------------------
 Version: 2.6.4
-Date: 18. 06. 2018
+Date: 23. 06. 2018
   Features:
     - Changed Wooden Chest recipes
     - Added Water purification recipe if you're using the Finite Fluid Option
+    - Increased the volume of fluid found from prospecting
+    - Oceanel51 updated some of the Russian translations
+    - Renamed Ground-Water to Bi-Ground-Water to make it compatible if you're playing with Angels
 ---------------------------------------------------------------------------------------------------
 Version: 2.6.3
 Date: 12. 06. 2018

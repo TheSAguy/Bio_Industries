@@ -1,4 +1,4 @@
---Bio_Industries Version   2.6.4
+--Bio_Industries Version   2.6.6
 
 local QC_Mod = false
 require ("util")
@@ -98,7 +98,7 @@ remote.add_interface("Bio_Industries",
   Regenerate = function()
   
     regenerate_entity("bi-ground-water")
-	regenerate_entity("ground-water")
+	--regenerate_entity("ground-water")
 	
     for i, player in ipairs(game.players) do
       player.print("Bio Industries: All ores successfully regenerated!")

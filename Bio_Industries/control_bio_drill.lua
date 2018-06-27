@@ -42,7 +42,7 @@ function get_resource_to_spawn(input)
 	local resource_options = 
 		{
 		  {spawn=input , weight=479},
-		  {spawn="ground-water" , weight=10},
+		  {spawn="bi-ground-water" , weight=10},
 		  {spawn="crude-oil", weight=5},
 		  {spawn="bi-ground-steam" , weight=5},
 		  {spawn="bi-ground-sulfuric-acid" , weight=1}
@@ -102,13 +102,8 @@ function Process_Bio_Drill(bi_drill_table, event)
 					if find_chance > (98 - global.prospect_chance) then
 
 						input = resource_odds.bi_resource_table[recipe_name].output_name
-						local r_to_s = get_resource_to_spawn(input)
-						
-						if recipe_name == "bi_recipe_mk1_water" then
-							a_to_s = ((resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness) * 2)
-						else
-							a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
-						end
+						local r_to_s = get_resource_to_spawn(input)					
+						local a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
 						
 						writeDebug(a_to_s)
 						local new_fluid_patch = surface.create_entity{name = r_to_s.spawn, amount = a_to_s, position = pos, force = force}
@@ -130,12 +125,7 @@ function Process_Bio_Drill(bi_drill_table, event)
 													
 						input = resource_odds.bi_resource_table[recipe_name].output_name
 						local r_to_s = get_resource_to_spawn(input)
-					
-						if recipe_name == "bi_recipe_mk2_water" then
-							a_to_s = ((resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness) * 2)
-						else
-							a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
-						end
+						local a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
 						
 						writeDebug(a_to_s)
 						local new_fluid_patch = surface.create_entity{name = r_to_s.spawn, amount = a_to_s, position = pos, force = force}
@@ -157,12 +147,7 @@ function Process_Bio_Drill(bi_drill_table, event)
 													
 						input = resource_odds.bi_resource_table[recipe_name].output_name
 						local r_to_s = get_resource_to_spawn(input)
-						
-						if recipe_name == "bi_recipe_mk3_water" then
-							a_to_s = ((resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness) * 2)
-						else
-							a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
-						end
+						local a_to_s = (resource_odds.bi_resource_table[recipe_name].amount * global.prospect_richness)
 						
 						writeDebug(a_to_s)
 						local new_fluid_patch = surface.create_entity{name = r_to_s.spawn, amount = a_to_s, position = pos, force = force}

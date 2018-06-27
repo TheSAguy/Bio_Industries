@@ -447,77 +447,6 @@ if mods["Natural_Evolution_Buildings"] then
 
 end
 
---- Bio Industries not has it's own Group!
---[[
------------- Changing order/sorting/groups
-if BI.Settings.BI_Solar_Additions and data.raw["item"]["solar-panel-large-3"] and data.raw["item-subgroup"]["bob-energy-solar-panel"] then 
-	
-	data.raw["item"]["bi-bio-solar-farm"].subgroup = "bob-energy-solar-panel"
-	data.raw["item"]["bi-bio-solar-farm"].order="d[solar-panel]-x[bi-bio-solar-farm]"	
-	data.raw["item"]["bi-solar-mat"].subgroup = "bob-energy-solar-panel"
-
-end
-
-
------------- Changing order/sorting/groups
-if data.raw["item-subgroup"]["bob-energy-accumulator"] and BI.Settings.BI_Solar_Additions then 
-	
-	data.raw["item"]["bi-bio-accumulator"].subgroup = "bob-energy-accumulator"
-	data.raw["item"]["bi-bio-accumulator"].order="e[accumulator]-a[accumulator]-x"	
-	data.raw["item"]["bi-large-substation"].subgroup = "bob-energy-accumulator"
-	
-end
-
-
-if data.raw["item-subgroup"]["bob-fluid"] then 
-	
-	if BI.Settings.BI_Bio_Fuel and mods["Natural_Evolution_Buildings"] then
-		data.raw["recipe"]["bi_recipe_biomass_conversion_1"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi_recipe_biomass_conversion_1"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-1]"	
-		data.raw["recipe"]["bi_recipe_biomass_conversion_2"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi_recipe_biomass_conversion_2"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-2]"	
-		data.raw["recipe"]["bi_recipe_biomass_conversion_3"].subgroup = "bob-fluid"
-		data.raw["recipe"]["bi_recipe_biomass_conversion_3"].order = "b[fluid-chemistry]-a[coal-cracking]-z[bi-Fuel_Conversion-3]"		
-		data.raw["recipe"]["bi_recipe_plastic_1"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi_recipe_plastic_1"].order = "g[plastic-bar-1]"
-		data.raw["recipe"]["bi_recipe_plastic_2"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi_recipe_plastic_2"].order = "g[plastic-bar-2]"
-		data.raw["recipe"]["bi_recipe_cellulose_1"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi_recipe_cellulose_1"].order = "g[cellulose-1]"
-		data.raw["recipe"]["bi_recipe_cellulose_2"].subgroup = "bob-resource-chemical"
-		data.raw["recipe"]["bi_recipe_cellulose_2"].order = "g[cellulose-2]"
-	end
-	
-end
-
-if data.raw["item-subgroup"]["bob-material"] then 
-
-	data.raw["recipe"]["bi_recipe_charcoal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi_recipe_charcoal_2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi_recipe_coal"].subgroup = "bob-material"
-	data.raw["recipe"]["bi_recipe_coal_2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi_recipe_coke_coal"].subgroup = "bob-material"
-	if data.raw["recipe"]["bi_recipe_pellete_coal_2"] then
-		data.raw["recipe"]["bi_recipe_pellete_coal_2"].subgroup = "bob-material"
-	end
-	data.raw["recipe"]["bi_recipe_ash_1"].subgroup = "bob-material"
-	data.raw["recipe"]["bi_recipe_ash_2"].subgroup = "bob-material"
-	data.raw["recipe"]["bi_recipe_woodpulp"].subgroup = "bob-material"
-	data.raw["recipe"]["bi_recipe_crushed_stone"].subgroup = "bob-material"
-
-end
-
-
-if data.raw["item-subgroup"]["pipe"] then 
-
-	data.raw["item"]["bi-wood-pipe"].subgroup = "pipe"
-	data.raw["item"]["bi-wood-pipe"].order = "a[pipe]-a[pipe]-1-0"	
-	data.raw["item"]["bi-pipe-to-ground-wood"].subgroup = "pipe-to-ground"
-	data.raw["item"]["bi-pipe-to-ground-wood"].order = "a[pipe]-b[pipe-to-ground]-1-0"	
-	
-end
-
-]]
 
 ------------ Support for Bob's Greenhouse
 if data.raw["item"]["bob-greenhouse"] then 
@@ -539,15 +468,8 @@ end
 -------- Use Alternative Solar Farm Image
 if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
 
-
-	
 	data.raw["solar-panel"]["bi-bio-solar-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
 	data.raw["item"]["bi-bio-solar-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-
-
-	
-
-
 	data.raw["solar-panel"]["bi-bio-solar-farm"].picture =
 		{
 		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
@@ -559,8 +481,6 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 		  scale = 3/2,
 		}
 
-
-	
 end
 
 
@@ -572,7 +492,6 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 	data.raw["lamp"]["bi-bio-farm-light"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["item"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["recipe"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	
 	data.raw["assembling-machine"]["bi_recipe_bio_farm"].animation =
 		{
 			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
@@ -582,8 +501,6 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 			frame_count = 1,
 			shift = {0.75, 0},
 		}
-
-
 
 	data.raw["assembling-machine"]["bi_recipe_bio_farm"].working_visualisations =
 		{
@@ -599,7 +516,6 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 			},
 		}
 
-
 	data.raw["lamp"]["bi-bio-farm-light"].picture_off =
 		{
 			  filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
@@ -611,8 +527,6 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 			  direction_count = 1,
 			  shift = {0.75, 0},
 		}
-
-
 
 	data.raw["lamp"]["bi-bio-farm-light"].picture_on =
 			{
@@ -626,8 +540,234 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 			  shift = {0.75, 0},
 			}
 
-
-	
 end
 
+
+	---- Bio Drill Enable!
+if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value == true then
+	
+	if data.raw.resource["ground-water"] then
+		data.raw.resource["ground-water"] = nil
+		data.raw["autoplace-control"]["ground-water"] = nil
+	end
+	
+	-- New Fluid Ores
+	require("prototypes.Bio_Drill.resources")
+	
+	
+	infinite_fluids = require("prototypes.Bio_Drill.supported-resources")
+	for _, resource in pairs(infinite_fluids) do
+
+		if settings.startup["bi_" .. resource.name] ~= nil and settings.startup["bi_" .. resource.name].value == true and data.raw["resource"][resource.name] ~= nil then
+			data.raw["resource"][resource.name]["infinite"] = false
+			data.raw["resource"][resource.name]["minimum"]	= 0
+		end
+	end	
+	
+	--- Override the vanilla offshore-pump output from "water" to "water-saline"
+	data.raw["offshore-pump"]["offshore-pump"].fluid = "water-saline"
+	--- Make it so that the normal off-shore pump needs a battery
+	thxbob.lib.recipe.add_new_ingredient("offshore-pump", {type="item", name="battery", amount=4})
+
+		
+	infinite_fluids = require("prototypes.Bio_Drill.supported-resources")	
+	--- Mk1 Recipies
+	for _, resource in pairs(infinite_fluids) do
+		local r1_name = "bi_recipe_mk1_" .. resource.fluid
+		if mods[resource.dependency] then
+			thxbob.lib.tech.add_recipe_unlock("bi-tech-bio-prospecting-1", r1_name)
+		end
+	end
+	--- Mk2 Recipies
+	for _, resource in pairs(infinite_fluids) do
+		local r2_name = "bi_recipe_mk2_" .. resource.fluid
+		if mods[resource.dependency] then
+			thxbob.lib.tech.add_recipe_unlock("bi-tech-bio-prospecting-2", r2_name)
+		end
+	end
+	--- Mk3 Recipies
+	for _, resource in pairs(infinite_fluids) do
+		local r3_name = "bi_recipe_mk3_" .. resource.fluid
+		if mods[resource.dependency] then
+			thxbob.lib.tech.add_recipe_unlock("bi-tech-bio-prospecting-3", r3_name)
+		end 
+	end
+
+	--[[
+	-- Support for Bob's Pure Water
+	if settings.startup["bobmods-plates-purewater"] and settings.startup["bobmods-plates-purewater"].value == true and data.raw.fluid["pure-water"] then
+
+		require("prototypes.Bio_Drill.bob-over-rides")	
+			
+	end
+	]]
+	
+	if mods["angelsrefining"] then
+		require("prototypes.Bio_Drill.angel-over-rides")
+	end
+	
+	if settings.startup["BI_Bio_Alter_Water_Appearance"] and settings.startup["BI_Bio_Alter_Water_Appearance"].value == true then
+	
+	-- update the look of Saline Water
+	data.raw.fluid["water-saline"].base_color = {r = 0.3, g = 0.4, b = 0.9}
+	data.raw.fluid["water-saline"].flow_color = {r = 0.3, g = 0.4, b = 0.9}
+
+
+		--- Update water tiles
+		data.raw.tile["deepwater"].variants =
+		{
+		  main =
+		  {
+			{
+			  picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater1.png",
+			  count = 8,
+			  size = 1,
+			  hr_version = {
+				picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater1.png",
+				count = 8,
+				scale = 0.5,
+				size = 1
+			  }
+			},
+			{
+			  picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater2.png",
+			  count = 8,
+			  size = 2,
+			  hr_version = {
+				picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater2.png",
+				count = 8,
+				scale = 0.5,
+				size = 2
+			  }
+			},
+			{
+			  picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater4.png",
+			  count = 6,
+			  size = 4,
+			  hr_version = {
+				picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater4.png",
+				count = 8,
+				scale = 0.5,
+				size = 4
+			  }
+			}
+		  },
+		  inner_corner =
+		  {
+			picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater-inner-corner.png",
+			count = 6,
+			hr_version = {
+			  picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater-inner-corner.png",
+			  count = 6,
+			  scale = 0.5
+			}
+		  },
+		  outer_corner =
+		  {
+			picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater-outer-corner.png",
+			count = 6,
+			hr_version = {
+			  picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater-outer-corner.png",
+			  count = 6,
+			  scale = 0.5
+			}
+		  },
+		  side =
+		  {
+			picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater-side.png",
+			count = 8,
+			hr_version = {
+			  picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater-side.png",
+			  count = 8,
+			  scale = 0.5
+			}
+		  }
+		}
+		
+		
+		data.raw.tile["water"].variants =
+		{
+		  main =
+		  {
+			{
+			  picture = "__Bio_Industries__/graphics/terrain/water/water1.png",
+			  count = 8,
+			  size = 1,
+			  hr_version =
+			  {
+				picture = "__Bio_Industries__/graphics/terrain/water/hr-water1.png",
+				count = 8,
+				scale = 0.5,
+				size = 1
+			  },
+			},
+			{
+			  picture = "__Bio_Industries__/graphics/terrain/water/water2.png",
+			  count = 8,
+			  size = 2,
+			  hr_version =
+			  {
+				picture = "__Bio_Industries__/graphics/terrain/water/hr-water2.png",
+				count = 8,
+				scale = 0.5,
+				size = 2
+			  },
+			},
+			{
+			  picture = "__Bio_Industries__/graphics/terrain/water/water4.png",
+			  count = 6,
+			  size = 4,
+			  hr_version =
+			  {
+				picture = "__Bio_Industries__/graphics/terrain/water/hr-water4.png",
+				count = 8,
+				scale = 0.5,
+				size = 4
+			  },
+			}
+		  },
+		  inner_corner =
+		  {
+			picture = "__Bio_Industries__/graphics/terrain/water/water-inner-corner.png",
+			count = 0
+		  },
+		  outer_corner =
+		  {
+			picture = "__Bio_Industries__/graphics/terrain/water/water-outer-corner.png",
+			count = 0
+		  },
+		  side =
+		  {
+			picture = "__Bio_Industries__/graphics/terrain/water/water-side.png",
+			count = 0
+		  }
+		}
+	end
+end
+
+
+if settings.startup["angels-use-angels-barreling"] and settings.startup["angels-use-angels-barreling"].value then
+   data.raw.technology["bi_tech_fertiliser"].prerequisites = 
+      {
+         "bi_tech_bio_farming",
+         -- AND (
+         "water-treatment", -- sulfur
+         -- OR
+         "angels-fluid-barreling", -- barreling (needed 'water-treatment' as prerequisites)
+         -- )
+      }
+end
+
+----- Angels Merge ----
+if mods["angelspetrochem"] then
+
+    data.raw.item["pellet-coke"].icon = "__angelspetrochem__/graphics/icons/pellet-coke.png"
+	data.raw.item["pellet-coke"].fuel_acceleration_multiplier = 1.1
+	data.raw.item["pellet-coke"].fuel_top_speed_multiplier = 1.025
+	
+	data.raw.recipe["pellet-coke"].category = "biofarm-mod-smelting"	
+	thxbob.lib.tech.remove_recipe_unlock ("angels-coal-processing-2", "pellet-coke")
+	thxbob.lib.tech.add_recipe_unlock("angels-coal-cracking", "pellet-coke")
+
+end
 
