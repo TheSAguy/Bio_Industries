@@ -85,7 +85,7 @@ data:extend(
     type = "bool-setting",
     name = "BI_Game_Tweaks_Bot",
     setting_type = "startup",
-    default_value = true,
+    default_value = false,
 	order = "c[modifier]-c6[Game_Tweaks]",
     per_user = false,
   }, 
@@ -99,6 +99,7 @@ data:extend(
     per_user = false,
   },
     --- E
+	--[[
   {
     type = "bool-setting",
     name = "BI_Alt_Farm_Image",
@@ -107,7 +108,7 @@ data:extend(
 	order = "e[modifier]-e[BI_Alt_Farm_Image]",
     per_user = false,
   },
-
+]]
   --- F
     {
     type = "bool-setting",

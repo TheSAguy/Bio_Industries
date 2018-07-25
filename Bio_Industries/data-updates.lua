@@ -483,16 +483,16 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 
 end
 
-
+--[[
 -------- Use Alternative Solar Farm Image
 if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image"].value then
 
 
-	data.raw["assembling-machine"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["assembling-machine"]["bi-bio-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["lamp"]["bi-bio-farm-light"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["item"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
+	data.raw["item"]["bi-bio-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
 	data.raw["recipe"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["assembling-machine"]["bi_recipe_bio_farm"].animation =
+	data.raw["assembling-machine"]["bi-bio-farm"].animation =
 		{
 			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
 			priority = "high",
@@ -502,7 +502,7 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 			shift = {0.75, 0},
 		}
 
-	data.raw["assembling-machine"]["bi_recipe_bio_farm"].working_visualisations =
+	data.raw["assembling-machine"]["bi-bio-farm"].working_visualisations =
 		{
 
 			animation =
@@ -541,7 +541,7 @@ if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image
 			}
 
 end
-
+]]
 
 	---- Bio Drill Enable!
 if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value == true then
