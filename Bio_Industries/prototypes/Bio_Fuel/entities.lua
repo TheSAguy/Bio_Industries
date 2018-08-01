@@ -87,7 +87,12 @@ data:extend(
 		crafting_categories = {"biofarm-mod-bioreactor"},
 		ingredient_count = 3,
 		crafting_speed = 1,
-		energy_usage = "10kW"
+		energy_usage = "10kW",
+		module_specification =
+		{
+		  module_slots = 3
+		},
+		allowed_effects = {"consumption", "speed", "productivity", "pollution"},
 	},
 	
 	--- Bio Boiler

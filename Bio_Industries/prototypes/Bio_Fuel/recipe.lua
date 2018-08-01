@@ -87,6 +87,8 @@ data:extend({
 			{type="item", name="bi-cellulose", amount=10 }
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-other",
 		order = "[bi-cellulose-1]",
 	},
@@ -110,6 +112,8 @@ data:extend({
 			{type="item", name="bi-cellulose", amount=10 }
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-other",
 		order = "[bi-cellulose-2]",
 	},
@@ -134,8 +138,11 @@ data:extend({
 			{type="item", name="plastic-bar", amount=2}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-solid",
 		order = "g[plastic-bar-1]",
+
 	},
 	
 	-- PLASTIC 2 --
@@ -145,7 +152,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/plastic_bar_2.png",
 		icon_size = 32,
 		category = "chemistry",
-		--subgroup = "raw-material",
 		energy_required = 1,
 		ingredients =
 		{
@@ -157,6 +163,8 @@ data:extend({
 			{type="item", name="plastic-bar", amount=2}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-solid",
 		order = "g[plastic-bar-2]",
 	},
@@ -179,6 +187,8 @@ data:extend({
 			{type="fluid", name="bi-biomass", amount=50},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-fluid",
 		order = "x[oil-processing]-z1[bi-biomass]"
 	},	
@@ -203,6 +213,8 @@ data:extend({
 			{type="fluid", name="bi-biomass", amount=100},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-fluid",
 		order = "x[oil-processing]-z2[bi-biomass]"
 	},	
@@ -226,6 +238,8 @@ data:extend({
 			{type="fluid", name="bi-biomass", amount=35},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-fluid",
 		order = "x[oil-processing]-z3[bi-biomass]"
 	},	
@@ -237,7 +251,9 @@ data:extend({
 	icon = "__Bio_Industries__/graphics/icons/bio_conversion_1.png", 
 	icon_size = 32,
     category = "oil-processing",
-    enabled = false,
+	enabled = false,
+	always_show_made_in = true,
+	allow_decomposition = false,
     energy_required = 5,
     ingredients =
     {
@@ -248,8 +264,7 @@ data:extend({
     {
 	    {type="item", name="bi-cellulose", amount=2},
 		{type="fluid", name="light-oil", amount=80},
-    },
-    
+    },  
     subgroup = "bio-bio-fuel-other",
 	order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-1]",
   },
@@ -261,7 +276,9 @@ data:extend({
 	icon = "__Bio_Industries__/graphics/icons/bio_conversion_2.png",
 	icon_size = 32,	
     category = "oil-processing",
-    enabled = false,
+	enabled = false,
+	always_show_made_in = true,
+	allow_decomposition = false,
     energy_required = 5,
     ingredients =
     {
@@ -283,7 +300,9 @@ data:extend({
 	icon = "__Bio_Industries__/graphics/icons/bio_conversion_3.png",
 	icon_size = 32,	
     category = "oil-processing",
-    enabled = false,
+	enabled = false,
+	always_show_made_in = true,
+	allow_decomposition = false,
     energy_required = 2.5,
     ingredients =
     {
@@ -294,8 +313,6 @@ data:extend({
     {
 		{type="fluid", name="lubricant", amount=10}
     },   
-    --subgroup = "bio-bio-fuel-fluid",
-	--order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-3]",
 	crafting_machine_tint =
     {
       primary = {r = 0.000, g = 0.260, b = 0.010, a = 0.000}, -- #00420200
@@ -326,6 +343,8 @@ data:extend({
 			{type="item", name="battery", amount=1},	
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		crafting_machine_tint =
 		{
 			primary = {r = 0.970, g = 0.611, b = 0.000, a = 0.000}, -- #f79b0000
@@ -355,6 +374,8 @@ data:extend({
 			{type="fluid", name="sulfuric-acid", amount=50}, 
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "fluid-recipes",
 		crafting_machine_tint =
 		{
@@ -384,6 +405,8 @@ data:extend({
 			{type="item", name="sulfur", amount=10}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-solid",
 		order = "i1",
 	},
@@ -406,6 +429,8 @@ data:extend({
 			{type="item", name="sulfur", amount=10}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-fuel-solid",
 		order = "i2",
 	},

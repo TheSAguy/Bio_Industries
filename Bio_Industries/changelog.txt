@@ -1,8 +1,15 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.6.8
-Date: 25. 07. 2018
+Version: 2.6.9
+Date: 01. 08. 2018
   Features:
-    - Made "Game Tweaks - Bots" False by default
+    - Gave some Recipes Productivity Module Support: https://i.imgur.com/5tKGdBN.png
+---------------------------------------------------------------------------------------------------
+Version: 2.6.8
+Date: 28. 07. 2018
+  Bugfixes:
+    - Added BI's Stone-Brick recipe to be produced in Chemical Plant
+  Features:
+    - Made "Game Tweaks - Bots" to be 'False' by default
 ---------------------------------------------------------------------------------------------------
 Version: 2.6.7
 Date: 20. 07. 2018

@@ -33,6 +33,8 @@ data:extend({
 		category = "clean-air",
 		subgroup = "bio-bio-gardens-fluid",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		energy_required = 40,
 		ingredients =
 		{
@@ -55,7 +57,9 @@ data:extend({
 		order = "zzz-clean-air2",
 		category = "clean-air",
 		subgroup = "bio-bio-gardens-fluid",
-		enabled = false,   
+		enabled = false, 
+		always_show_made_in = true,	
+		allow_decomposition = false,
 		energy_required = 100,
 		ingredients =
 		{

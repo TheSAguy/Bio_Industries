@@ -142,7 +142,7 @@ data:extend({
 	trigger_radius = 0,
   },
 
-  ------- Bio Farm
+  ------- Bio Farm 
   {
     type = "assembling-machine",
     name = "bi-bio-farm",
@@ -226,7 +226,7 @@ data:extend({
     {
       module_slots = 3
     },
-    allowed_effects = {"consumption", "speed"}
+	allowed_effects = {"consumption", "speed", "productivity", "pollution"},
   },
 
 ------- Bio Farm Lamp
@@ -427,7 +427,7 @@ data:extend({
     {
       module_slots = 2
     },
-    allowed_effects = {"consumption", "speed"},
+	allowed_effects = {"consumption", "speed", "productivity", "pollution"},
 	animation =
     {
       filename = "__Bio_Industries__/graphics/entities/biofarm/bio_greenhouse_off.png",

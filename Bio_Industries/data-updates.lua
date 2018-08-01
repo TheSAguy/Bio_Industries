@@ -20,37 +20,35 @@ require ("prototypes.Wood_Products.wooden_rail_bridge_update")
 require ("prototypes.Wood_Products.update_bridge_rails_remnants")
 require ("prototypes.Wood_Products.tint_rails_remnants_function")
 
--- add Assembling Machine catagory.
---thxbob.lib.machine.type_if_add_category("assembling-machine", "crafting-machine")
 
-	-- Concrete Rail
-	---- Update Standard Rails to use and look like concrete
-	set_tint_to_rails ({
-	data.raw["straight-rail"]["straight-rail"],
-	data.raw["curved-rail"]["curved-rail"]}, 
-	{r = 183/255, g = 183/255, b = 183/255, a = 1}) -- concrete
+-- Concrete Rail
+---- Update Standard Rails to use and look like concrete
+set_tint_to_rails ({
+data.raw["straight-rail"]["straight-rail"],
+data.raw["curved-rail"]["curved-rail"]}, 
+{r = 183/255, g = 183/255, b = 183/255, a = 1}) -- concrete
 	
-	set_tint_to_remnants ({
-	data.raw["rail-remnants"]["straight-rail-remnants"],
-	data.raw["rail-remnants"]["curved-rail-remnants"]}, 
-	{r = 183/255, g = 183/255, b = 183/255, a = 1}) -- concrete
+set_tint_to_remnants ({
+data.raw["rail-remnants"]["straight-rail-remnants"],
+data.raw["rail-remnants"]["curved-rail-remnants"]}, 
+{r = 183/255, g = 183/255, b = 183/255, a = 1}) -- concrete
 
-	-- Wood Rail
-	set_tint_to_rails ({
-	data.raw["straight-rail"]["bi-straight-rail-wood"],
-	data.raw["curved-rail"]["bi-curved-rail-wood"]}, 
-	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
+-- Wood Rail
+set_tint_to_rails ({
+data.raw["straight-rail"]["bi-straight-rail-wood"],
+data.raw["curved-rail"]["bi-curved-rail-wood"]}, 
+{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
 	
-	set_tint_to_remnants ({
-	data.raw["rail-remnants"]["straight-rail-remnants-wood"],
-	data.raw["rail-remnants"]["curved-rail-remnants-wood"]}, 
-	{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
+set_tint_to_remnants ({
+data.raw["rail-remnants"]["straight-rail-remnants-wood"],
+data.raw["rail-remnants"]["curved-rail-remnants-wood"]}, 
+{r = 183/255, g = 125/255, b = 62/255, a = 1}) -- wood
 
 	--- Power Rail
-	set_tint_to_rails ({
-	data.raw["straight-rail"]["straight-rail"],
-	data.raw["curved-rail"]["curved-rail"]}, 
-	{r = 150/255, g = 150/255, b = 150/255, a = 1}) -- mix
+set_tint_to_rails ({
+data.raw["straight-rail"]["straight-rail"],
+data.raw["curved-rail"]["curved-rail"]}, 
+{r = 150/255, g = 150/255, b = 150/255, a = 1}) -- mix
 	
 -- vanilla rail recipe update
 thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
@@ -440,7 +438,6 @@ end
 
 ------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
 if mods["Natural_Evolution_Buildings"] then
-
 		
 	thxbob.lib.recipe.remove_ingredient ("bi-adv-fertiliser-1", "alien-artifact")
 	thxbob.lib.recipe.add_new_ingredient ("bi-adv-fertiliser-1", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
@@ -483,65 +480,6 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 
 end
 
---[[
--------- Use Alternative Solar Farm Image
-if settings.startup["BI_Alt_Farm_Image"] and settings.startup["BI_Alt_Farm_Image"].value then
-
-
-	data.raw["assembling-machine"]["bi-bio-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["lamp"]["bi-bio-farm-light"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["item"]["bi-bio-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["recipe"]["bi_recipe_bio_farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Farm_Icon_alt.png"
-	data.raw["assembling-machine"]["bi-bio-farm"].animation =
-		{
-			filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle_alt.png",
-			priority = "high",
-			width = 320,
-			height = 320,
-			frame_count = 1,
-			shift = {0.75, 0},
-		}
-
-	data.raw["assembling-machine"]["bi-bio-farm"].working_visualisations =
-		{
-
-			animation =
-			{
-				filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working_alt.png",
-				priority = "high",
-				width = 320,
-				height = 320,
-				frame_count = 1,
-				shift = {0.75, 0},
-			},
-		}
-
-	data.raw["lamp"]["bi-bio-farm-light"].picture_off =
-		{
-			  filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
-			  priority = "low",
-			  width = 0,
-			  height = 0,
-			  frame_count = 1,
-			  axially_symmetrical = false,
-			  direction_count = 1,
-			  shift = {0.75, 0},
-		}
-
-	data.raw["lamp"]["bi-bio-farm-light"].picture_on =
-			{
-			  filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
-			  priority = "low",
-			  width = 0,
-			  height = 0,
-			  frame_count = 1,
-			  axially_symmetrical = false,
-			  direction_count = 1,
-			  shift = {0.75, 0},
-			}
-
-end
-]]
 
 	---- Bio Drill Enable!
 if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value == true then
@@ -771,3 +709,43 @@ if mods["angelspetrochem"] then
 
 end
 
+--- Enanble Productivity in Recipies
+BI_Functions.lib.allow_productivity("bi_recipe_seed_1")
+BI_Functions.lib.allow_productivity("bi_recipe_seed_2")
+BI_Functions.lib.allow_productivity("bi_recipe_seed_3")
+BI_Functions.lib.allow_productivity("bi_recipe_seed_4")
+
+BI_Functions.lib.allow_productivity("bi_recipe_seedling_mk1")
+BI_Functions.lib.allow_productivity("bi_recipe_seedling_mk2")
+BI_Functions.lib.allow_productivity("bi_recipe_seedling_mk3")
+BI_Functions.lib.allow_productivity("bi_recipe_seedling_mk4")
+
+BI_Functions.lib.allow_productivity("bi_recipe_logs_mk1")
+BI_Functions.lib.allow_productivity("bi_recipe_logs_mk2")
+BI_Functions.lib.allow_productivity("bi_recipe_logs_mk3")
+BI_Functions.lib.allow_productivity("bi_recipe_logs_mk4")
+
+BI_Functions.lib.allow_productivity("bi_recipe_resin_pulp")
+BI_Functions.lib.allow_productivity("bi_recipe_press_wood")
+BI_Functions.lib.allow_productivity("bi_recipe_resin_wood")
+BI_Functions.lib.allow_productivity("bi_recipe_woodpulp")
+
+BI_Functions.lib.allow_productivity("bi_recipe_liquid_air")
+BI_Functions.lib.allow_productivity("bi_recipe_nitrogen")
+
+BI_Functions.lib.allow_productivity("bi_recipe_biomass_1")
+BI_Functions.lib.allow_productivity("bi_recipe_biomass_2")
+BI_Functions.lib.allow_productivity("bi_recipe_biomass_3")
+
+BI_Functions.lib.allow_productivity("bi_recipe_biomass_conversion_1")
+BI_Functions.lib.allow_productivity("bi_recipe_biomass_conversion_2")
+BI_Functions.lib.allow_productivity("bi_recipe_biomass_conversion_3")
+
+BI_Functions.lib.allow_productivity("bi_recipe_battery")
+BI_Functions.lib.allow_productivity("bi_recipe_acid")
+BI_Functions.lib.allow_productivity("bi_recipe_sulfur")
+BI_Functions.lib.allow_productivity("bi_recipe_sulfur_angels")
+BI_Functions.lib.allow_productivity("bi_recipe_plastic_1")
+BI_Functions.lib.allow_productivity("bi_recipe_plastic_2")
+BI_Functions.lib.allow_productivity("bi_recipe_cellulose_1")
+BI_Functions.lib.allow_productivity("bi_recipe_cellulose_2")

@@ -5,6 +5,7 @@ if not BI.Settings then BI.Settings = {} end
 if not BI_Config then BI_Config = {} end
 if not BI_Config.mod then BI_Config.mod = {} end
 if not BI_Functions then BI_Functions = {} end
+if not BI_Functions.lib then BI_Functions.lib = {} end
 
 if not thxbob then thxbob = {} end
 if not thxbob.lib then thxbob.lib = {} end
@@ -29,6 +30,7 @@ require ("libs.recipe-functions") -- From Bob's Libary
 require ("libs.technology-functions") -- From Bob's Libary 
 require ("libs.functions") -- From Bob's Libary 
 require ("libs.category-functions") -- From Bob's Libary 
+require ("libs.bi_functions") -- Functions
 
 require("prototypes.category")
 

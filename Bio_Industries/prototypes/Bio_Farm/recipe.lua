@@ -20,6 +20,8 @@ data:extend({
 			{type="item", name="bi-seed", amount=40},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-1",
 		order = "a[bi]-ssw-a1[bi_recipe_seed_1]",		
 	},
@@ -32,7 +34,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/bio_seed2.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",	
-		enabled = false,
 		energy_required = 150,
 		ingredients =
 		{
@@ -40,9 +41,13 @@ data:extend({
 			{type="item", name="raw-wood", amount=20},     
 			{type="item", name="bi-ash", amount=10},   
 		},
-
-		result_count = 50,
-		result = "bi-seed",
+		results=
+		{
+			{type="item", name="bi-seed", amount=50},
+		},
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-1",
 		order = "a[bi]-ssw-a1[bi_recipe_seed_2]",	
 	},
@@ -55,7 +60,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/bio_seed3.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",	
-		enabled = false,
 		energy_required = 100,
 		ingredients =
 		{
@@ -63,9 +67,13 @@ data:extend({
 			{type="item", name="raw-wood", amount=20},     
 			{type="item", name="fertiliser", amount=10},   
 		},
-
-		result_count = 60,
-		result = "bi-seed",
+		results=
+		{
+			{type="item", name="bi-seed", amount=60},
+		},
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-1",
 		order = "a[bi]-ssw-a1[bi_recipe_seed_3]",	
 	},
@@ -78,7 +86,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/bio_seed4.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",	
-		enabled = false,
 		energy_required = 50,
 		ingredients =
 		{
@@ -86,9 +93,13 @@ data:extend({
 			{type="item", name="bi-adv-fertiliser", amount=10},   
 			{type="fluid", name="water", amount=40},
 		},
-
-		result_count = 80,
-		result = "bi-seed",
+		results=
+		{
+			{type="item", name="bi-seed", amount=80},
+		},
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-1",
 		order = "a[bi]-ssw-a1[bi_recipe_seed_4]",	
 	},
@@ -101,16 +112,19 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling1.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
-		enabled = false,
 		energy_required = 400,
 		ingredients =
 		{
 			{type="item", name="bi-seed", amount=20},     
 			{type="fluid", name="water", amount=100},
 		},
-
-		result_count = 40,
-		result = "seedling",
+		results=
+		{
+			{type="item", name="seedling", amount=40},
+		},
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-2",
 		order = "b[bi]-ssw-b1[bi-Seedling_Mk1]",
 	},
@@ -123,7 +137,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling2.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
-		enabled = false,
 		energy_required = 300,
 		ingredients =
 		{
@@ -131,9 +144,13 @@ data:extend({
 		  {type="item", name="bi-ash", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
-	
-		result_count = 60,
-		result = "seedling",
+		results=
+		{
+			{type="item", name="seedling", amount=60},
+		},
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-2",
 		order = "b[bi]-ssw-b1[bi-Seedling_Mk2]",
 	},
@@ -146,7 +163,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling3.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
-		enabled = false,
 		energy_required = 200,
 		ingredients =
 		{
@@ -154,9 +170,12 @@ data:extend({
 		  {type="item", name="fertiliser", amount=10},     
 		  {type="fluid", name="water", amount=100},
 		},
-	
-		result_count = 90,
-		result = "seedling",
+		results=
+		{
+			{type="item", name="seedling", amount=90},
+		},
+		enabled = false,
+		always_show_made_in = true,
 		subgroup = "bio-bio-farm-fluid-2",
 		order = "b[bi]-ssw-b1[bi-Seedling_Mk3]",
 	},
@@ -169,7 +188,6 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/Seedling4.png",
 		icon_size = 32,
 		category = "biofarm-mod-greenhouse",
-		enabled = false,
 		energy_required = 100,
 		ingredients =
 		{
@@ -177,8 +195,13 @@ data:extend({
 		  {type="fluid", name="water", amount=100},
 		  {type="item", name="bi-adv-fertiliser", amount=10},    
 		},
-		result_count = 160,
-		result = "seedling",
+		results=
+		{
+			{type="item", name="seedling", amount=160},
+		},
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-2",
 		order = "b[bi]-ssw-b1[bi-Seedling_Mk4]",
 	},
@@ -192,6 +215,8 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-farm",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		energy_required = 400,
 		ingredients =
 		{
@@ -217,6 +242,8 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-farm",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		energy_required = 360,
 		ingredients =
 		{
@@ -243,6 +270,8 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-farm",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		energy_required = 300,
 		ingredients =
 		{
@@ -269,6 +298,8 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-farm",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		energy_required = 100,
 		ingredients =
 		{
@@ -367,10 +398,11 @@ data:extend({
 		name = "bi_recipe_woodpulp",
 		icon = "__Bio_Industries__/graphics/icons/Woodpulp_raw-wood.png",
 		icon_size = 32,
-		--category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-woodpulp]",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		allow_as_intermediate = false,
 		energy_required = 2.5,
 		ingredients = {{"raw-wood",2}},
@@ -384,10 +416,11 @@ data:extend({
 		name = "bi_recipe_resin_pulp",
 		icon = "__Bio_Industries__/graphics/icons/bi_resin_pulp.png",
 		icon_size = 32,
-		--category = "crafting-machine",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-resin]",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		allow_as_intermediate = false,
 		energy_required = 1,
 		ingredients = 
@@ -409,6 +442,9 @@ data:extend({
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-c[bi-press_wood]",
 		energy_required = 2,	
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
 		allow_as_intermediate = false,
 		ingredients =
 		{
@@ -419,7 +455,6 @@ data:extend({
 		{
 			{type="item", name="wood", amount=4}
 		},
-		enabled = false,
 
 	},
 
@@ -433,6 +468,9 @@ data:extend({
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-ash]",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		energy_required = 10,
 		ingredients = {{"raw-wood",5}},
 		result = "bi-ash",
@@ -450,6 +488,9 @@ data:extend({
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-b[bi-ash2]",
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		energy_required = 5,
 		ingredients = {{"bi-woodpulp",12}},
 		result = "bi-ash",
@@ -471,6 +512,9 @@ data:extend({
 		result = "bi-charcoal",
 		result_count = 18,
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 	},
 
 
@@ -488,6 +532,9 @@ data:extend({
 		result = "bi-charcoal",
 		result_count = 18,
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 	},	
 
 
@@ -505,6 +552,9 @@ data:extend({
 		result = "coal",
 		result_count = 8,
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 	},
 
 
@@ -522,6 +572,9 @@ data:extend({
 		result = "coal",
 		result_count = 10,
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 	},
 
 
@@ -539,6 +592,8 @@ data:extend({
 		result = "pellet-coke",
 		result_count = 6,
 		enabled = false,
+		always_show_made_in = true,
+		allow_as_intermediate = false,
 	},
 
  
@@ -556,15 +611,20 @@ data:extend({
 		result = "stone-crushed",
 		result_count = 2,
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 	},
 
+	
  -- STONE Brick--
 	{
 		type = "recipe",
 		name = "bi_recipe_stone_brick",
 		icon = "__Bio_Industries__/graphics/icons/bi_stone_brick.png",
 		icon_size = 32,
-		category = "smelting",
+		--category = "smelting",
+		category = "chemistry",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-z2[stone-brick]",
 		energy_required = 5,
@@ -578,6 +638,9 @@ data:extend({
 			{type = "item", name = "stone-brick", amount = 2},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 	},
 	
 	
@@ -661,6 +724,9 @@ data:extend({
 			{type = "fluid", name = "liquid-air", amount = 10}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-bio-farm-intermediate-product",
 		order = "aa",
 	},
@@ -681,11 +747,15 @@ data:extend({
 		  {type="fluid", name="nitrogen", amount=20},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		main_product= "nitrogen",
 		subgroup = "bio-bio-farm-intermediate-product",
 		order = "ab",
 	},
 
+	
 	-- fertiliser- Sulfur-
 	{
 		type = "recipe",
@@ -705,10 +775,12 @@ data:extend({
 			{type="item", name="fertiliser", amount=5}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-bio-farm-intermediate-product",
 		order = "b[fertiliser]",
 	},
-
 
 		
 	-- Advanced fertiliser 1 --
@@ -730,6 +802,9 @@ data:extend({
 			{type="item", name="bi-adv-fertiliser", amount=50}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-bio-farm-intermediate-product",
 		order = "b[fertiliser]-b[bi-adv-fertiliser-1]",
 	},
@@ -754,6 +829,9 @@ data:extend({
 			{type="item", name="bi-adv-fertiliser", amount=20}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-bio-farm-intermediate-product",
 		order = "b[fertiliser]-b[bi-adv-fertiliser-2]",
 	},
@@ -905,6 +983,9 @@ data:extend({
 			{type="item", name="bi-arboretum-r1", amount=1, probability=0},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r1]",		
 	},
@@ -927,6 +1008,9 @@ data:extend({
 			{type="item", name="bi-arboretum-r2", amount=1, probability=0},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r2]",		
 	},
@@ -949,6 +1033,9 @@ data:extend({
 			{type="item", name="bi-arboretum-r3", amount=1, probability=0},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r3]",		
 	},
@@ -972,6 +1059,9 @@ data:extend({
 			{type="item", name="bi-arboretum-r4", amount=1, probability=0},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r4]",		
 	},
@@ -995,6 +1085,9 @@ data:extend({
 			{type="item", name="bi-arboretum-r5", amount=1, probability=0},
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r5]",		
 	},
