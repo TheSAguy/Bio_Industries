@@ -295,7 +295,7 @@ if BI.Settings.BI_Solar_Additions then
 
 	if data.raw.technology["bob-solar-energy-2"] then
 		
-		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-2", "bi_recipe_accumulator")
+		thxbob.lib.tech.add_recipe_unlock("bob-electric-energy-accumulators-3", "bi_recipe_accumulator")
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_recipe_huge_substation")
 		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_bio_solar_farm")
 		thxbob.lib.tech.add_recipe_unlock("bob-solar-energy-2", "bi_recipe_solar_boiler_panel")
@@ -355,7 +355,7 @@ if BI.Settings.BI_Solar_Additions then
 	if data.raw.item["large-accumulator-2"] then
 	
 		thxbob.lib.recipe.remove_ingredient ("bi_recipe_accumulator", "accumulator")
-		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_accumulator", {type = "item", name = "large-accumulator-2", amount = 20})
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_accumulator", {type = "item", name = "large-accumulator", amount = 30})
 		
 	end
 	if data.raw.item["aluminium-plate"] then

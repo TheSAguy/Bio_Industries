@@ -1,4 +1,4 @@
---Bio_Industries Version   2.6.9
+--Bio_Industries Version   2.6.11
 
 local QC_Mod = false
 require ("util")
@@ -298,9 +298,9 @@ local function On_Built(event)
 		local panel_name = "bi-bio-farm-solar-panel"  
 		local lamp_name = "bi-bio-farm-light"      
 		  
-		local create_pole = surface.create_entity({name = pole_name, position = position, force = force})
-		local create_panel = surface.create_entity({name = panel_name, position = position, force = force})
-		local create_lamp = surface.create_entity({name = lamp_name, position = position, force = force})
+		local create_pole = surface.create_entity({name = pole_name, position = position, force = force}) -- Hidden Power Pole
+		local create_panel = surface.create_entity({name = panel_name, position = position, force = force}) -- Hidden Solar Paner
+		local create_lamp = surface.create_entity({name = lamp_name, position = position, force = force}) -- Hidden Lamp
 		  
 		create_pole.minable = false
 		create_pole.destructible = false
@@ -309,7 +309,7 @@ local function On_Built(event)
 		create_lamp.minable = false
 		create_lamp.destructible = false
 		
-		--- Group Entities together
+		-- Group Multiple Entities Together
 		global.bi_bio_farm_table[b_farm.unit_number] = {base=b_farm, pole=create_pole, panel=create_panel, lamp=create_lamp}
 
 	end
@@ -323,15 +323,15 @@ local function On_Built(event)
 		local boiler_solar = "bi-solar-boiler"   		
 		local sm_pole_name = "bi-hidden-power-pole"  
 		
-		local create_solar_boiler = surface.create_entity({name = boiler_solar, position = position, force = force})
-		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
+		local create_solar_boiler = surface.create_entity({name = boiler_solar, position = position, force = force}) -- Hidden Solar Paner
+		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force}) -- Hidden Power Pole
 		
 		create_solar_boiler.minable = false
 		create_solar_boiler.destructible = false	
  		create_sm_pole.minable = false
 		create_sm_pole.destructible = false
 		
-		--- Group Entities together
+		-- Group Multiple Entities Together
 		global.bi_solar_boiler_table[solar_plant.unit_number] = {base=solar_plant, boiler=create_solar_boiler, pole=create_sm_pole}		
 		
 	end
@@ -344,12 +344,12 @@ local function On_Built(event)
 		local solar_farm = entity	
 		local sm_pole_name = "bi-hidden-power-pole"  
 	
-		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force})
+		local create_sm_pole = surface.create_entity({name = sm_pole_name, position = position, force = force}) -- Hidden Power Pole
 			
  		create_sm_pole.minable = false
 		create_sm_pole.destructible = false
 		
-		--- Group Entities together
+		-- Group Multiple Entities Together
 		global.bi_solar_farm_table[solar_farm.unit_number] = {base=solar_farm, pole=create_sm_pole}		
 		
 	end
@@ -364,11 +364,12 @@ local function On_Built(event)
 	
 	writeDebug("Bio Cannon has been built")				
 
-		New_Bio_Cannon  = surface.create_entity({name = "bi-bio-cannon", position = position, direction = event.created_entity.direction, force = force})
-		New_Bio_CannonR = surface.create_entity({name = "Bio_Cannon_r", position = position, direction = event.created_entity.direction, force = force})
+		New_Bio_Cannon  = surface.create_entity({name = "bi-bio-cannon", position = position, direction = event.created_entity.direction, force = force}) -- New Cannon, the first was just used for Radius overlay
+		New_Bio_CannonR = surface.create_entity({name = "Bio_Cannon_r", position = position, direction = event.created_entity.direction, force = force}) -- Hidden Radar
 
 		New_Bio_Cannon.health = event.created_entity.health
 		
+		-- Remove the "Overlay" Entity
 		event.created_entity.destroy()
 	
 		
@@ -381,6 +382,7 @@ local function On_Built(event)
 			Event.register(defines.events.on_tick, function(event) end)
 		end
 
+		-- Group Multiple Entities Together
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonR,0})
 		
 	end
@@ -394,22 +396,20 @@ local function On_Built(event)
 		local radar_name = "bi-arboretum-radar"  
 		local pole_name = "bi-hidden-power-pole"
 		
-		local create_arboretum = surface.create_entity({name = arboretum_new, position = position, direction = entity.direction, force = force})
+		local create_arboretum = surface.create_entity({name = arboretum_new, position = position, direction = entity.direction, force = force})  -- New Arboretum, the first was just used for Radius overlay
 		
 		local position_c = {position.x - 3.5, position.y + 3.5}
-		local create_radar = surface.create_entity({name = radar_name, position = position_c, direction = entity.direction, force = force})
+		local create_radar = surface.create_entity({name = radar_name, position = position_c, direction = entity.direction, force = force}) -- Hidden Radar
 
 
 		create_radar.minable = false
 		create_radar.destructible = false
 
-		--writeDebug("The entity unit# is: "..entity.unit_number)
-		--writeDebug("The inventory unit# is: "..create_arboretum.unit_number)
-		--writeDebug("The radar unit# is: "..create_radar.unit_number)
 		
 		-- Remove the "Overlay" Entity
 		event.created_entity.destroy()
 		
+		-- Group Multiple Entities Together
 		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar}
 
 	end
@@ -423,35 +423,35 @@ local function On_Built(event)
 		local drill_bit_name = "bi-drill-radar"  
 		local drill_base = entity 
 		local position_c = {position.x, position.y - .5}
-		local create_drill_bit = surface.create_entity({name = drill_bit_name, position = position_c, direction = entity.direction, force = force})
+		local create_drill_bit = surface.create_entity({name = drill_bit_name, position = position_c, direction = entity.direction, force = force}) -- Create Drill Bit
 	
 		create_drill_bit.minable = false
 		create_drill_bit.destructible = false
 
+		-- Group Multiple Entities Together
 		global.bi_drill_table[drill_base.unit_number] = {inventory=drill_base, drill_bit=create_drill_bit}
 
 	end
 
-	
+
 	-- Power Rail
 	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
 	writeDebug("Power Rail has been built")
 			   
 		local rail_track = entity
 		local pole_name = "bi-rail-hidden-power-pole"  			
-		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force})
+		local create_rail_pole = surface.create_entity({name = pole_name, position = position, force = force}) -- Create Hidden Power Pole
 				
 		create_rail_pole.minable = false
 		create_rail_pole.destructible = false 
 
-		--- Group Entities together
+		-- Group Multiple Entities Together Together
 		global.bi_power_rail_table[rail_track.unit_number] = {base=rail_track, pole=create_rail_pole}		
-		--writeDebug(global.bi_power_rail_table[rail_track.unit_number].pole.name)
 		
 		
 		if global.bi_power_rail_table[rail_track.unit_number].pole.valid then
 			
-			local radius = 4		
+			local radius = 5		
 			local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
 			local power_rail_poles = {}
 			power_rail_poles = surface.find_entities_filtered{area = area, name="bi-rail-hidden-power-pole", force = force}
@@ -477,7 +477,6 @@ local function On_Built(event)
 
 
 		end
-	
 
 	end
 
@@ -822,7 +821,12 @@ script.on_event(defines.events.on_sector_scanned, function(event)
 		--writeDebug("The Radar Unit # is: "..event.radar.unit_number)
 		--writeDebug("The num (Asembler) Unit # is: "..num)
 
-		Get_Arboretum_Recipe(global.Arboretum_Table[num], event) 
+		if game.active_mods["omnimatter_fluid"] then 
+			Get_Arboretum_Recipe_omnimatter_fluid(global.Arboretum_Table[num], event) 
+		else
+			Get_Arboretum_Recipe(global.Arboretum_Table[num], event) 
+		end	
+		
 		
 		
 	end

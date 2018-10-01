@@ -541,7 +541,7 @@ data:extend({
   },
 
   	---- Huge Wooden Pole
-	  {
+	{
     type = "electric-pole",
     name = "bi-huge-wooden-pole",
     icon = "__Bio_Industries__/graphics/icons/big-wooden-pole.png",
@@ -1049,11 +1049,11 @@ data:extend({
 	icon_size = 32,
 	flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
 	selectable_in_game = false,
-	draw_copper_wires=false,
+	draw_copper_wires = false,
     max_health = 1,
     resistances = {{type = "fire", percent = 100}},
-	collision_mask = {"ghost-layer"},
-    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
+	collision_mask = {},
+    collision_box = {{-0, -0}, {0, 0}},
     selection_box = {{0, 0}, {0, 0}},
     maximum_wire_distance = 8,
     supply_area_distance = 2,

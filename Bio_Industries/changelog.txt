@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.6.11
+Date: 06. 08. 2018
+  Bugfixes:
+    - Made Arboretum compatible with Omnimatter's Fluid mod
+  Features:
+    - Tweaked Huge Accumulator if playing with Bobs Power
+---------------------------------------------------------------------------------------------------
+Version: 2.6.10
+Date: 02. 08. 2018
+  Bugfixes:
+    - Tweaked Power-Rail, so blue-prints can be placed on-top of existing rail. 
+---------------------------------------------------------------------------------------------------
 Version: 2.6.9
 Date: 01. 08. 2018
   Features:

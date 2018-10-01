@@ -976,7 +976,6 @@ data:extend({
 		dying_explosion = "medium-explosion",
 		collision_box = {{-4.5, -4.5}, {4.5, 4.5}},
 		selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
-		--collision_mask = { "not-colliding-with-itself" },
 		order = "x[bi]-a[bi-arboretum]",
 		automated_ammo_count = 1,
 		resistances = {},	
