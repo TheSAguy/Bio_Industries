@@ -88,6 +88,7 @@ end
 
 
 if BI.Settings.Bio_Cannon then
+
 	-- Items Groups
 	require("prototypes.Bio_Cannon.item-group")
 
@@ -106,6 +107,7 @@ end
 
 ---- Add Bio Fuel & Plastic, etc.
 if BI.Settings.BI_Bio_Fuel then 
+
 	require("prototypes.Bio_Fuel.item")
 	require("prototypes.Bio_Fuel.recipe")
 	require("prototypes.Bio_Fuel.entities")

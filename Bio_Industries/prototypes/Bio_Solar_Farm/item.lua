@@ -13,7 +13,6 @@ if BI.Settings.BI_Solar_Additions then
 		order = "d[solar-panel]-a[solar-panel]-a[bi-bio-solar-farm]",
 		place_result = "bi-bio-solar-farm",
 		stack_size = 10,
-		--enable = false,
 	  },
 
 	--- Solar Mat
@@ -57,7 +56,7 @@ if BI.Settings.BI_Solar_Additions then
 			icon_size = 32,
 			flags = {"goes-to-quickbar"},
 			subgroup = "energy-pipe-distribution",
-			order = "a[energy]-d[substation]-[large-substation]",
+			order = "a[energy]-d[substation]-b[large-substation]",
 			place_result = "bi-large-substation",
 			stack_size = 10
 		},

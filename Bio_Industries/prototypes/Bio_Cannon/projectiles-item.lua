@@ -22,7 +22,7 @@ data:extend({
 						starting_speed = 1,
 						direction_deviation = 0.8,
 						range_deviation = 0.8,
-						max_range = 85
+						max_range = 90
 					}
 				}
 			}
@@ -54,7 +54,7 @@ data:extend({
 						starting_speed = 1,
 						direction_deviation = 0.8,
 						range_deviation = 0.8,
-						max_range = 85
+						max_range = 90
 					}
 				}
 			}
