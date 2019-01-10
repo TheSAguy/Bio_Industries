@@ -90,9 +90,9 @@ if BI.Settings.BI_Game_Tweaks_Player then
 end	
 	
 ---- Game Tweaks ---- Disassemble Recipes
+require("prototypes.Bio_Tweaks.recipe")
 if BI.Settings.BI_Game_Tweaks_Disassemble then		
 
-	require("prototypes.Bio_Tweaks.recipe")
 	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
 	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")

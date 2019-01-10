@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.6.15
+Date: 1. 10. 2019
+  Features:
+    - Gave Bio Bricks Recipe Productivity Module Support
+  Bugfix:
+    - Made "require" not conditional
+---------------------------------------------------------------------------------------------------
 Version: 2.6.14
 Date: 10. 12. 2018
   Features:

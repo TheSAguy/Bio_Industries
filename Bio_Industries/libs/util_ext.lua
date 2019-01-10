@@ -1,5 +1,3 @@
---require("defines")
-
 
 --- Utils for grouping
 function group_entities(entity_list)

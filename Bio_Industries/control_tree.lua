@@ -2,7 +2,6 @@
 -- All tree Growing stuff
 
 require ("stdlib/event/event")
---terrains = require("libs/trees-and-terrains_alien_boimes")
 terrains = require("libs/trees-and-terrains")
 
 

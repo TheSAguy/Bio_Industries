@@ -32,88 +32,76 @@ require ("libs.functions") -- From Bob's Libary
 require ("libs.category-functions") -- From Bob's Libary 
 require ("libs.bi_functions") -- Functions
 
-require("prototypes.category")
+require ("prototypes.category")
 
 
 --- Bio Farm
-require("prototypes.Bio_Farm.entities")
-require("prototypes.Bio_Farm.item")
-require("prototypes.Bio_Farm.recipe")
-require("prototypes.Bio_Farm.liquids")
-require("prototypes.Bio_Farm.recipe-categories")
-require("prototypes.Bio_Farm.pipeConnectors")
-require("prototypes.Bio_Farm.technology")
+require ("prototypes.Bio_Farm.entities")
+require ("prototypes.Bio_Farm.item")
+require ("prototypes.Bio_Farm.recipe")
+require ("prototypes.Bio_Farm.liquids")
+require ("prototypes.Bio_Farm.recipe-categories")
+require ("prototypes.Bio_Farm.pipeConnectors")
+require ("prototypes.Bio_Farm.technology")
 
 
 -- Bio Garden
-require("prototypes.Bio_Garden.entities")
-require("prototypes.Bio_Garden.item")
-require("prototypes.Bio_Garden.recipe")
-require("prototypes.Bio_Garden.recipe-categories")
+require ("prototypes.Bio_Garden.entities")
+require ("prototypes.Bio_Garden.item")
+require ("prototypes.Bio_Garden.recipe")
+require ("prototypes.Bio_Garden.recipe-categories")
 	
 
-
 --- Bio Solar Farm
-require("prototypes.Bio_Solar_Farm.entities")
-require("prototypes.Bio_Solar_Farm.item")
-require("prototypes.Bio_Solar_Farm.recipe")
+require ("prototypes.Bio_Solar_Farm.entities")
+require ("prototypes.Bio_Solar_Farm.item")
+require ("prototypes.Bio_Solar_Farm.recipe")
 
 
 --- Wood Products
-require("prototypes.Wood_Products.entities")
-require("prototypes.Wood_Products.item")
-require("prototypes.Wood_Products.recipe")
+require ("prototypes.Wood_Products.entities")
+require ("prototypes.Wood_Products.item")
+require ("prototypes.Wood_Products.recipe")
 
 
 --- Dart Turret (Bio turret)
-require("prototypes.Bio_Turret.item-group")
-require("prototypes.Bio_Turret.damage-type")
-require("prototypes.Bio_Turret.item")
-require("prototypes.Bio_Turret.recipe")
-require("prototypes.Bio_Turret.entity")
+require ("prototypes.Bio_Turret.item-group")
+require ("prototypes.Bio_Turret.damage-type")
+require ("prototypes.Bio_Turret.item")
+require ("prototypes.Bio_Turret.recipe")
+require ("prototypes.Bio_Turret.entity")
 
 
-if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value == true then
-
-	-- Bio Drill
-	require("prototypes.Bio_Drill.entities")
-	require("prototypes.Bio_Drill.item")
-	require("prototypes.Bio_Drill.recipe")
-	require("prototypes.Bio_Drill.recipe-categories")
-	require("prototypes.Bio_Drill.technology")
-
-end
+-- Bio Drill
+require ("prototypes.Bio_Drill.entities")
+require ("prototypes.Bio_Drill.item")
+require ("prototypes.Bio_Drill.recipe")
+require ("prototypes.Bio_Drill.recipe-categories")
+require ("prototypes.Bio_Drill.technology")
 
 
+--- Bio Cannon
+-- Items Groups
+require ("prototypes.Bio_Cannon.item-group")
 
+-- Cannon
+require ("prototypes.Bio_Cannon.item")
+require ("prototypes.Bio_Cannon.recipe")
+require ("prototypes.Bio_Cannon.entity")
+require ("prototypes.Bio_Cannon.technology")
 
-if BI.Settings.Bio_Cannon then
+-- Projectiles
+require ("prototypes.Bio_Cannon.projectiles-item")
+require ("prototypes.Bio_Cannon.projectiles-recipe")
+require ("prototypes.Bio_Cannon.projectiles-entity")
 
-	-- Items Groups
-	require("prototypes.Bio_Cannon.item-group")
-
-	-- Cannon
-	require("prototypes.Bio_Cannon.item")
-	require("prototypes.Bio_Cannon.recipe")
-	require("prototypes.Bio_Cannon.entity")
-	require("prototypes.Bio_Cannon.technology")
-
-	-- Projectiles
-	require("prototypes.Bio_Cannon.projectiles-item")
-	require("prototypes.Bio_Cannon.projectiles-recipe")
-	require("prototypes.Bio_Cannon.projectiles-entity")
-
-end
 
 ---- Add Bio Fuel & Plastic, etc.
-if BI.Settings.BI_Bio_Fuel then 
-
-	require("prototypes.Bio_Fuel.item")
-	require("prototypes.Bio_Fuel.recipe")
-	require("prototypes.Bio_Fuel.entities")
-	require("prototypes.Bio_Fuel.technology")
+require("prototypes.Bio_Fuel.item")
+require("prototypes.Bio_Fuel.recipe")
+require("prototypes.Bio_Fuel.entities")
+require("prototypes.Bio_Fuel.technology")
 		
-end
 
 	
 

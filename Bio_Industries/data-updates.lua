@@ -78,21 +78,18 @@ end
 	
 -- Damage Bonus to Ammo
 -- Don't duplicate what NE does
-
 if not mods["Natural_Evolution_Buildings"] then
 	
 	thxbob.lib.tech.add_recipe_unlock ("military", "bi_recipe_standard_dart_magazine")
 	thxbob.lib.tech.add_recipe_unlock ("military-2", "bi_recipe_enhanced_dart_magazine")
 	thxbob.lib.tech.add_recipe_unlock ("military-3", "bi_recipe_poison_dart_magazine")
-	require("prototypes.Bio_Turret.technology-updates")
-
+	
 end
+require("prototypes.Bio_Turret.technology-updates")
 
+
+require("prototypes.Bio_Cannon.technology-updates")
 if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
-	-- Don't duplicate what NE does
-	if not mods["Natural_Evolution_Buildings"] then
-		require("prototypes.Bio_Cannon.technology-updates")
-	end
 	-- add Prototype Artillery as pre req for artillery
 	thxbob.lib.tech.add_prerequisite("artillery", "bi_tech_bio_cannon")
 end
@@ -391,10 +388,9 @@ end
 
 
 require("prototypes.Bio_Farm.compatible_recipes") -- Bob and Angels mesh
-	
+require("prototypes.Bio_Farm.technology2")
 if BI.Settings.BI_Bio_Fuel or mods["Natural_Evolution_Buildings"] then
 
-	require("prototypes.Bio_Farm.technology2")
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_clean_air_2")
 	
 end
@@ -481,16 +477,16 @@ if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"
 end
 
 
-	---- Bio Drill Enable!
+---- Bio Drill Enable!
+-- New Fluid Ores
+require("prototypes.Bio_Drill.resources")
+require("prototypes.Bio_Drill.angel-over-rides")	
 if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value == true then
 	
 	if data.raw.resource["ground-water"] then
 		data.raw.resource["ground-water"] = nil
 		data.raw["autoplace-control"]["ground-water"] = nil
 	end
-	
-	-- New Fluid Ores
-	require("prototypes.Bio_Drill.resources")
 	
 	
 	infinite_fluids = require("prototypes.Bio_Drill.supported-resources")
@@ -531,18 +527,6 @@ if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infin
 		end 
 	end
 
-	--[[
-	-- Support for Bob's Pure Water
-	if settings.startup["bobmods-plates-purewater"] and settings.startup["bobmods-plates-purewater"].value == true and data.raw.fluid["pure-water"] then
-
-		require("prototypes.Bio_Drill.bob-over-rides")	
-			
-	end
-	]]
-	
-	if mods["angelsrefining"] then
-		require("prototypes.Bio_Drill.angel-over-rides")
-	end
 	
 	if settings.startup["BI_Bio_Alter_Water_Appearance"] and settings.startup["BI_Bio_Alter_Water_Appearance"].value == true then
 	
@@ -725,6 +709,8 @@ BI_Functions.lib.allow_productivity("bi_recipe_logs_mk2")
 BI_Functions.lib.allow_productivity("bi_recipe_logs_mk3")
 BI_Functions.lib.allow_productivity("bi_recipe_logs_mk4")
 
+BI_Functions.lib.allow_productivity("bi_recipe_stone_brick")
+
 BI_Functions.lib.allow_productivity("bi_recipe_resin_pulp")
 BI_Functions.lib.allow_productivity("bi_recipe_press_wood")
 BI_Functions.lib.allow_productivity("bi_recipe_resin_wood")
@@ -749,3 +735,4 @@ BI_Functions.lib.allow_productivity("bi_recipe_plastic_1")
 BI_Functions.lib.allow_productivity("bi_recipe_plastic_2")
 BI_Functions.lib.allow_productivity("bi_recipe_cellulose_1")
 BI_Functions.lib.allow_productivity("bi_recipe_cellulose_2")
+
