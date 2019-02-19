@@ -136,7 +136,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/coke-coal.png",
 		icon_size = 32,
 		flags = {"goes-to-main-inventory"},
-		fuel_value = "30MJ",
+		fuel_value = "28MJ",
 		fuel_category = "chemical",
 		fuel_emissions_multiplier = 0.85,
 		fuel_acceleration_multiplier = 1.1,

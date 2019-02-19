@@ -72,14 +72,6 @@ require ("prototypes.Bio_Turret.recipe")
 require ("prototypes.Bio_Turret.entity")
 
 
--- Bio Drill
-require ("prototypes.Bio_Drill.entities")
-require ("prototypes.Bio_Drill.item")
-require ("prototypes.Bio_Drill.recipe")
-require ("prototypes.Bio_Drill.recipe-categories")
-require ("prototypes.Bio_Drill.technology")
-
-
 --- Bio Cannon
 -- Items Groups
 require ("prototypes.Bio_Cannon.item-group")

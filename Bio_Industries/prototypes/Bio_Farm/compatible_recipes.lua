@@ -158,17 +158,6 @@ if data.raw.item.glass  then
 end
 
 
---- Bio Drill Updates
-if data.raw.item["steel-gear-wheel"]  and data.raw.recipe["bi_recipe_drill_mk2"] then
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_drill_mk2", "steel-plate", "steel-gear-wheel")
-end
-
-if data.raw.item["titanium-plate"]  and data.raw.recipe["bi_recipe_drill_mk3"] then
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_drill_mk3", "advanced-circuit", "titanium-plate")
-end
-
-
-
 --- Adding in some recipe's to use up Wood Pulp (Ash and Charcoal) and Crushed Stone
 if mods["angelsrefining"] then 
 

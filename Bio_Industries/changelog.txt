@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.7.0
+Date: 2. 19. 2019
+  Features:
+    - Must have "Enable game tweaks - recipe" to change Vanilla Rail Recipe.
+    - Tweaked Rail recipe.
+    - Added Wooden Rail to Rail Upgrage recipe
+    - Removed Alt Solar farm image option 
+    - Removed Bio infinite fluids, will make it's own Mod
+  Bugfix:
+    - Adv fertiliser Recipe fix
+---------------------------------------------------------------------------------------------------
+Version: 2.6.17
+Date: 2. 14. 2019
+  Features:
+    - Tweaked Wooden Fence Fuel value from 24MJ to 12MJ
+    - Pellet-Coak (Coke-Coal) Fuel Value from 30MJ to 28MJ
+  Bugfix:
+    - Crash if "Bio-Cannon" Prototype-Artillery was disabled
+---------------------------------------------------------------------------------------------------
 Version: 2.6.16
 Date: 1. 11. 2019
   Bugfix:

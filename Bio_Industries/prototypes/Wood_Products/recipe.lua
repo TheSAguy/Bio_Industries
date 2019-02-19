@@ -115,6 +115,40 @@ data:extend({
 
   },
 
+ 	--- Wooden Rail to Concrete Rail
+    {
+		type = "recipe",
+		icon = "__Bio_Industries__/graphics/icons/rail-wood-to-concrete.png",
+		icon_size = 32,
+		name = "bi_recipe_rail_wood_to_concrete",	
+		normal =
+		{
+			enabled = false,
+			ingredients = 
+			{		
+				{"bi-rail-wood", 3},
+				{"stone-brick", 10},
+			},
+			result = "rail",
+			result_count = 2,
+			requester_paste_multiplier = 4
+		},
+		expensive =
+		{
+			enabled = false,
+			ingredients = 
+			{			
+				{"bi-rail-wood", 2},
+				{"stone-brick", 10},
+			},
+			result = "rail",
+			result_count = 1,
+			requester_paste_multiplier = 4
+		},
+		subgroup = "transport",
+		order = "a[train-system]-aa1[rail-upgrade]",		
+
+	}, 
 --- Wooden Bridge Rail
     {
 		type = "recipe",

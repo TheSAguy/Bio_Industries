@@ -10,16 +10,6 @@ data:extend(
 	order = "a[modifier]-a[Solar_Farm]",
     per_user = false,
   },
-  --- A2
-    {
-    type = "bool-setting",
-    name = "BI_Alt_Solar_Farm_Image",
-    setting_type = "startup",
-    default_value = false,
-	order = "a[modifier]-ax[Alt_Solar_Farm_Image]",
-    per_user = false,
-  },
-  
   	-- B
   {
     type = "bool-setting",
@@ -30,104 +20,78 @@ data:extend(
     per_user = false,
   },
 
-	-- C1
-  {
-    type = "bool-setting",
-    name = "BI_Game_Tweaks_Stack_Size",
-    setting_type = "startup",
-    default_value = true,
-	order = "c[modifier]-c1[Game_Tweaks]",
-    per_user = false,
-  },
-
-	-- C2
-  {
-    type = "bool-setting",
-    name = "BI_Game_Tweaks_Recipe",
-    setting_type = "startup",
-    default_value = true,
-	order = "c[modifier]-c2[Game_Tweaks]",
-    per_user = false,
-  },
-  
- 	-- C3
-  {
-    type = "bool-setting",
-    name = "BI_Game_Tweaks_Tree",
-    setting_type = "startup",
-    default_value = true,
-	order = "c[modifier]-c3[Game_Tweaks]",
-    per_user = false,
-  },
-  
-  	-- C4
-  {
-    type = "bool-setting",
-    name = "BI_Game_Tweaks_Player",
-    setting_type = "startup",
-    default_value = false,
-	order = "c[modifier]-c4[Game_Tweaks]",
-    per_user = false,
-  },
-  
-  	-- C5
-  {
-    type = "bool-setting",
-    name = "BI_Game_Tweaks_Disassemble",
-    setting_type = "startup",
-    default_value = true,
-	order = "c[modifier]-c5[Game_Tweaks]",
-    per_user = false,
-  },
-  
-   	-- C5
-  {
-    type = "bool-setting",
-    name = "BI_Game_Tweaks_Bot",
-    setting_type = "startup",
-    default_value = false,
-	order = "c[modifier]-c6[Game_Tweaks]",
-    per_user = false,
-  }, 
-	-- D
+  	-- C
   {
     type = "bool-setting",
     name = "BI_Bio_Cannon",
     setting_type = "startup",
     default_value = true,
-	order = "d[modifier]-d[Bio_Cannon]",
+	order = "c[modifier]-c[Bio_Cannon]",
     per_user = false,
   },
-    --- E
-	--[[
+  
+	-- D1
   {
     type = "bool-setting",
-    name = "BI_Alt_Farm_Image",
+    name = "BI_Game_Tweaks_Stack_Size",
     setting_type = "startup",
-    default_value = false,
-	order = "e[modifier]-e[BI_Alt_Farm_Image]",
-    per_user = false,
-  },
-]]
-  --- F
-    {
-    type = "bool-setting",
-    name = "BI_Bio_Infinite_Fluids",
-    setting_type = "startup",
-    default_value = false,
-	order = "f0[modifier]-e[BI_Bio_Infinite_Fluids]",
+    default_value = true,
+	order = "d[modifier]-d1[Game_Tweaks]",
     per_user = false,
   },
 
-    --- G
-    {
+	-- D2
+  {
     type = "bool-setting",
-    name = "BI_Bio_Alter_Water_Appearance",
+    name = "BI_Game_Tweaks_Recipe",
     setting_type = "startup",
     default_value = true,
-	order = "g[modifier]-e[BI_Bio_Alter_Water_Appearance]",
+	order = "d[modifier]-d2[Game_Tweaks]",
     per_user = false,
   },
+  
+ 	-- D3
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Tree",
+    setting_type = "startup",
+    default_value = true,
+	order = "d[modifier]-d3[Game_Tweaks]",
+    per_user = false,
+  },
+  
+  	-- D4
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Disassemble",
+    setting_type = "startup",
+    default_value = true,
+	order = "d[modifier]-d4[Game_Tweaks]",
+    per_user = false,
+  },
+  
+  -- D5
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Player",
+    setting_type = "startup",
+    default_value = false,
+	order = "d[modifier]-d5[Game_Tweaks]",
+    per_user = false,
+  },
+  
+
+  
+   	-- D5
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Bot",
+    setting_type = "startup",
+    default_value = false,
+	order = "d[modifier]-d6[Game_Tweaks]",
+    per_user = false,
+  }, 
+
 
   
   --[[

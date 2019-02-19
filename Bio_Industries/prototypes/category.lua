@@ -17,34 +17,6 @@ data:extend(
     order = "a-a",
   },
 
---- Bio Drill
-  {
-    type = "item-subgroup",
-    name = "bio-bio-drill-drill",
-    group = "bio-industries",
-    order = "1a-aa",
-  }, 
-
-  {
-    type = "item-subgroup",
-    name = "bio-bio-drill-mk1",
-    group = "bio-industries",
-    order = "1a-ab",
-  },
-  
-   {
-    type = "item-subgroup",
-    name = "bio-bio-drill-mk2",
-    group = "bio-industries",
-    order = "1a-ac",
-  }, 
-  
-   {
-    type = "item-subgroup",
-    name = "bio-bio-drill-mk3",
-    group = "bio-industries",
-    order = "1a-ad",
-  }, 
    
 --- Bio Farm and Nursary 
   {

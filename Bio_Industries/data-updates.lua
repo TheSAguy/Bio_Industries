@@ -50,8 +50,7 @@ data.raw["straight-rail"]["straight-rail"],
 data.raw["curved-rail"]["curved-rail"]}, 
 {r = 150/255, g = 150/255, b = 150/255, a = 1}) -- mix
 	
--- vanilla rail recipe update
-thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=8})
+
 
 -- vanilla rail icon & images update
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
@@ -61,16 +60,19 @@ data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-
 
 --- Wood Rail added to Tech 
 thxbob.lib.tech.add_recipe_unlock("railway", "bi_recipe_rail_wood")
+
 	
 	
 --- If Bob, move Vanilla Rail to Rail 2 also add Power Rail.
 if data.raw.technology["bob-railway-2"] then
 	thxbob.lib.tech.remove_recipe_unlock ("railway", "rail")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "rail")
+	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_recipe_rail_wood_to_concrete")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_recipe_rail_wood_bridge")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_rail_power")
 	thxbob.lib.tech.add_recipe_unlock("bob-railway-2", "bi_recipe_power_to_rail_pole")
 else
+	thxbob.lib.tech.add_recipe_unlock("railway", "bi_recipe_rail_wood_to_concrete")
 	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_recipe_rail_wood_bridge")
 	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_rail_power")
 	thxbob.lib.tech.add_recipe_unlock("rail-signals", "bi_recipe_power_to_rail_pole")
@@ -419,6 +421,12 @@ if BI.Settings.BI_Bio_Fuel then
 	
 	thxbob.lib.recipe.add_new_ingredient("bi_recipe_adv_fertiliser_1", {type="fluid", name="bi-biomass", amount=10})
 	thxbob.lib.recipe.add_new_ingredient("bi_recipe_adv_fertiliser_2", {type="fluid", name="bi-biomass", amount=10})
+
+else
+	
+	thxbob.lib.recipe.add_new_ingredient("bi_recipe_adv_fertiliser_1", {type="item", name="fertiliser", amount=50})
+	thxbob.lib.recipe.remove_ingredient ("bi_recipe_adv_fertiliser_2", "fertiliser")
+	thxbob.lib.recipe.add_new_ingredient("bi_recipe_adv_fertiliser_2", {type="item", name="fertiliser", amount=30})
 	
 end
 
@@ -426,17 +434,21 @@ end
 	
 --- if the Alien Artifact is in the game, use if for some recipes
 if data.raw.item["alien-artifact"] then
+
 	--- Advanced Fertiliser will use Alien Artifact
-	thxbob.lib.recipe.add_new_ingredient("bi-adv-fertiliser-1", {type="item", name="alien-artifact", amount=5})
+	thxbob.lib.recipe.remove_ingredient ("bi_recipe_adv_fertiliser_1", "bi-biomass")
+	thxbob.lib.recipe.add_new_ingredient("bi_recipe_adv_fertiliser_1", {type="item", name="alien-artifact", amount=5})
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_adv_fertiliser_1")	
+	
 end	
 
 
 ------- Adds a Mk3 recipe for wood if you're playing with Natural Evolution Buildings
 if mods["Natural_Evolution_Buildings"] then
 		
-	thxbob.lib.recipe.remove_ingredient ("bi-adv-fertiliser-1", "alien-artifact")
-	thxbob.lib.recipe.add_new_ingredient ("bi-adv-fertiliser-1", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
+	thxbob.lib.recipe.remove_ingredient ("bi_recipe_adv_fertiliser_1", "bi-biomass")	
+	thxbob.lib.recipe.remove_ingredient ("bi_recipe_adv_fertiliser_1", "alien-artifact")
+	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_adv_fertiliser_1", {type="fluid", name="NE_enhanced-nutrient-solution", amount=50})
 
 end
 
@@ -456,216 +468,6 @@ if data.raw["item"]["bob-greenhouse"] then
 		
 end
 
-	
-
--------- Use Alternative Solar Farm Image
-if BI.Settings.BI_Solar_Additions and settings.startup["BI_Alt_Solar_Farm_Image"] and settings.startup["BI_Alt_Solar_Farm_Image"].value then
-
-	data.raw["solar-panel"]["bi-bio-solar-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-	data.raw["item"]["bi-bio-solar-farm"].icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Farm_Icon_alt.png"
-	data.raw["solar-panel"]["bi-bio-solar-farm"].picture =
-		{
-		  filename = "__Bio_Industries__/graphics/entities/bio_solar_farm/Bio_Solar_Farm_On_alt.png",
-		  priority = "low",
-		  width = 208,
-		  height = 192,
-		  frame_count = 1,
-		  direction_count = 1,
-		  scale = 3/2,
-		}
-
-end
-
-
----- Bio Drill Enable!
--- New Fluid Ores
-require("prototypes.Bio_Drill.resources")
-require("prototypes.Bio_Drill.angel-over-rides")	
-if settings.startup["BI_Bio_Infinite_Fluids"] and settings.startup["BI_Bio_Infinite_Fluids"].value == true then
-	
-	if data.raw.resource["ground-water"] then
-		data.raw.resource["ground-water"] = nil
-		data.raw["autoplace-control"]["ground-water"] = nil
-	end
-	
-	
-	infinite_fluids = require("prototypes.Bio_Drill.supported-resources")
-	for _, resource in pairs(infinite_fluids) do
-
-		if settings.startup["bi_" .. resource.name] ~= nil and settings.startup["bi_" .. resource.name].value == true and data.raw["resource"][resource.name] ~= nil then
-			data.raw["resource"][resource.name]["infinite"] = false
-			data.raw["resource"][resource.name]["minimum"]	= 0
-		end
-	end	
-	
-	--- Override the vanilla offshore-pump output from "water" to "water-saline"
-	data.raw["offshore-pump"]["offshore-pump"].fluid = "water-saline"
-	--- Make it so that the normal off-shore pump needs a battery
-	thxbob.lib.recipe.add_new_ingredient("offshore-pump", {type="item", name="battery", amount=4})
-
-		
-	infinite_fluids = require("prototypes.Bio_Drill.supported-resources")	
-	--- Mk1 Recipies
-	for _, resource in pairs(infinite_fluids) do
-		local r1_name = "bi_recipe_mk1_" .. resource.fluid
-		if mods[resource.dependency] then
-			thxbob.lib.tech.add_recipe_unlock("bi-tech-bio-prospecting-1", r1_name)
-		end
-	end
-	--- Mk2 Recipies
-	for _, resource in pairs(infinite_fluids) do
-		local r2_name = "bi_recipe_mk2_" .. resource.fluid
-		if mods[resource.dependency] then
-			thxbob.lib.tech.add_recipe_unlock("bi-tech-bio-prospecting-2", r2_name)
-		end
-	end
-	--- Mk3 Recipies
-	for _, resource in pairs(infinite_fluids) do
-		local r3_name = "bi_recipe_mk3_" .. resource.fluid
-		if mods[resource.dependency] then
-			thxbob.lib.tech.add_recipe_unlock("bi-tech-bio-prospecting-3", r3_name)
-		end 
-	end
-
-	
-	if settings.startup["BI_Bio_Alter_Water_Appearance"] and settings.startup["BI_Bio_Alter_Water_Appearance"].value == true then
-	
-	-- update the look of Saline Water
-	data.raw.fluid["water-saline"].base_color = {r = 0.3, g = 0.4, b = 0.9}
-	data.raw.fluid["water-saline"].flow_color = {r = 0.3, g = 0.4, b = 0.9}
-
-
-		--- Update water tiles
-		data.raw.tile["deepwater"].variants =
-		{
-		  main =
-		  {
-			{
-			  picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater1.png",
-			  count = 8,
-			  size = 1,
-			  hr_version = {
-				picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater1.png",
-				count = 8,
-				scale = 0.5,
-				size = 1
-			  }
-			},
-			{
-			  picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater2.png",
-			  count = 8,
-			  size = 2,
-			  hr_version = {
-				picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater2.png",
-				count = 8,
-				scale = 0.5,
-				size = 2
-			  }
-			},
-			{
-			  picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater4.png",
-			  count = 6,
-			  size = 4,
-			  hr_version = {
-				picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater4.png",
-				count = 8,
-				scale = 0.5,
-				size = 4
-			  }
-			}
-		  },
-		  inner_corner =
-		  {
-			picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater-inner-corner.png",
-			count = 6,
-			hr_version = {
-			  picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater-inner-corner.png",
-			  count = 6,
-			  scale = 0.5
-			}
-		  },
-		  outer_corner =
-		  {
-			picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater-outer-corner.png",
-			count = 6,
-			hr_version = {
-			  picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater-outer-corner.png",
-			  count = 6,
-			  scale = 0.5
-			}
-		  },
-		  side =
-		  {
-			picture = "__Bio_Industries__/graphics/terrain/deepwater/deepwater-side.png",
-			count = 8,
-			hr_version = {
-			  picture = "__Bio_Industries__/graphics/terrain/deepwater/hr-deepwater-side.png",
-			  count = 8,
-			  scale = 0.5
-			}
-		  }
-		}
-		
-		
-		data.raw.tile["water"].variants =
-		{
-		  main =
-		  {
-			{
-			  picture = "__Bio_Industries__/graphics/terrain/water/water1.png",
-			  count = 8,
-			  size = 1,
-			  hr_version =
-			  {
-				picture = "__Bio_Industries__/graphics/terrain/water/hr-water1.png",
-				count = 8,
-				scale = 0.5,
-				size = 1
-			  },
-			},
-			{
-			  picture = "__Bio_Industries__/graphics/terrain/water/water2.png",
-			  count = 8,
-			  size = 2,
-			  hr_version =
-			  {
-				picture = "__Bio_Industries__/graphics/terrain/water/hr-water2.png",
-				count = 8,
-				scale = 0.5,
-				size = 2
-			  },
-			},
-			{
-			  picture = "__Bio_Industries__/graphics/terrain/water/water4.png",
-			  count = 6,
-			  size = 4,
-			  hr_version =
-			  {
-				picture = "__Bio_Industries__/graphics/terrain/water/hr-water4.png",
-				count = 8,
-				scale = 0.5,
-				size = 4
-			  },
-			}
-		  },
-		  inner_corner =
-		  {
-			picture = "__Bio_Industries__/graphics/terrain/water/water-inner-corner.png",
-			count = 0
-		  },
-		  outer_corner =
-		  {
-			picture = "__Bio_Industries__/graphics/terrain/water/water-outer-corner.png",
-			count = 0
-		  },
-		  side =
-		  {
-			picture = "__Bio_Industries__/graphics/terrain/water/water-side.png",
-			count = 0
-		  }
-		}
-	end
-end
 
 
 if settings.startup["angels-use-angels-barreling"] and settings.startup["angels-use-angels-barreling"].value then

@@ -1,4 +1,4 @@
---Bio_Industries Version   2.6.16
+--Bio_Industries Version   2.7.0
 
 local QC_Mod = false
 require ("util")
@@ -7,7 +7,6 @@ require ("stdlib/event/event")
 require ("control_tree")
 require ("control_bio_cannon")
 require ("control_arboretum")
-require ("control_bio_drill")
 
 
 --------------------------------------------------------------------
@@ -52,11 +51,6 @@ local function On_Init()
 	-- Global table for arboretum
 	if global.Arboretum_Table == nil then
 		global.Arboretum_Table = {}
-	end
-
-	-- Global table for drill
-	if global.bi_drill_table == nil then
-		global.bi_drill_table = {}
 	end
 
 	-- Global Prospect Chance
@@ -169,12 +163,7 @@ local function On_Config_Change()
 		global.Arboretum_Table = {}
 	end
 
-	-- Global table for drill
-	if global.bi_drill_table == nil then
-		global.bi_drill_table = {}
-	end
 	
-
 	-- Global Prospect Chance
 	if global.prospect_chance == nil then
 		global.prospect_chance = 0
@@ -414,25 +403,6 @@ local function On_Built(event)
 
 	end
 
-	
-    --- Drill has been built
-	if entity.valid and entity.name == "bi-drill-base" then
-	writeDebug("Drill has been built")
-		   
-
-		local drill_bit_name = "bi-drill-radar"  
-		local drill_base = entity 
-		local position_c = {position.x, position.y - .5}
-		local create_drill_bit = surface.create_entity({name = drill_bit_name, position = position_c, direction = entity.direction, force = force}) -- Create Drill Bit
-	
-		create_drill_bit.minable = false
-		create_drill_bit.destructible = false
-
-		-- Group Multiple Entities Together
-		global.bi_drill_table[drill_base.unit_number] = {inventory=drill_base, drill_bit=create_drill_bit}
-
-	end
-
 
 	-- Power Rail
 	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
@@ -625,17 +595,6 @@ local function On_Remove(event)
 		
 	end
 
-	
-	--- Bio Drill has been removed
-   	if entity.valid and entity.name == "bi-drill-base" then
-	writeDebug("Drill has been removed")
-
-		if global.bi_drill_table[entity.unit_number] then
-			global.bi_drill_table[entity.unit_number].drill_bit.destroy()
-			global.bi_drill_table[entity.unit_number] = nil
-		end	
-		
-	end
 
 	
 	--- Seedling Removed
@@ -781,18 +740,6 @@ local function On_Death(event)
 	end
 
 	
-	--- Bio Drill has been removed
-   	if entity.valid and entity.name == "bi-drill-base" then
-	writeDebug("Drill has been removed")
-
-		if global.bi_drill_table[entity.unit_number] then
-			global.bi_drill_table[entity.unit_number].drill_bit.destroy()
-			global.bi_drill_table[entity.unit_number] = nil
-		end	
-		
-	end
-
-	
 	--- Seedling destroyed
 	if entity.valid and entity.name == "seedling" then
 	writeDebug("Seedling has been destroyed")
@@ -810,7 +757,7 @@ local function On_Death(event)
 end
 
 
-----------------Radars Scanning Function, used by Terraformer (Arboretum) and Drill  -----------------------------
+----------------Radars Scanning Function, used by Terraformer (Arboretum)  -----------------------------
 script.on_event(defines.events.on_sector_scanned, function(event)
 	
 	---- Each time a Arboretum-Radar scans a sector  ----	
@@ -831,19 +778,6 @@ script.on_event(defines.events.on_sector_scanned, function(event)
 		
 	end
 
-		---- Each time a Drill-bit scans a sector  ----	
-	if event.radar.name == "bi-drill-radar" then
-		entity = event.radar
-		local num = (event.radar.unit_number-1) --< Unit number of bio drill assembler
-		
-		--writeDebug("The Radar Unit # is: "..event.radar.unit_number)
-		--writeDebug("The num (Asembler) Unit # is: "..num)
-		
-		
-		Process_Bio_Drill(global.bi_drill_table[num], event) 
-		
-		
-	end
 	
 end)
 
@@ -858,15 +792,22 @@ local function Solar_Mat (event, surface)
 		
 		if currentTilename == "bi-solar-mat" then
 			writeDebug("Solar Mat has been built")
-			
-			local force = event.force
+				
+			if event.force ~= nil then
+				local force = event.force
+				writeDebug(force)
+			else
+				local force = "player"
+				writeDebug(force)
+			end	
+		
 			local solar_mat = surface.get_tile(position.x,position.y)
 			local sm_pole_name = "bi-musk-mat-pole"  
 			local sm_panel_name = "bi-musk-mat-solar-panel"  
 			  
 			local create_sm_pole = surface.create_entity({name = sm_pole_name, position = {position.x + 0.5, position.y + 0.5}, force = force})
 			local create_sm_panel = surface.create_entity({name = sm_panel_name, position = {position.x + 0.5, position.y + 0.5}, force = force})
-			  
+
 			create_sm_pole.minable = false
 			create_sm_pole.destructible = false
 			create_sm_panel.minable = false

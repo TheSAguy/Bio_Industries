@@ -28,6 +28,9 @@ if BI.Settings.BI_Game_Tweaks_Recipe then
 		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
 	end
 	
+	-- vanilla rail recipe update
+	thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=6})
+	
 end
 
 ---- Game Tweaks ---- Tree

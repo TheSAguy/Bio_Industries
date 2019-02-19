@@ -42,7 +42,7 @@ data:extend({
 		subgroup = "defensive-structure",
 		order = "a-a[stone-wall]-a[wooden-fence]",
 		place_result = "bi-wooden-fence",
-		fuel_value = "24MJ",
+		fuel_value = "12MJ",
 		fuel_category = "chemical",
 		stack_size = 50
 	},
