@@ -51,7 +51,6 @@ if not data.raw.item["resin"] then
 			name = "resin",
 			icon = "__Bio_Industries__/graphics/icons/bi_resin.png",
 			icon_size = 32,
-			flags = {"goes-to-main-inventory"},
 			subgroup = "bio-bio-farm-raw",
 			order = "a[bi]-a-b[bi-resin]",
 			stack_size = 200
@@ -64,7 +63,6 @@ if not data.raw.item["resin"] then
 			name = "bi_recipe_resin_wood",
 			icon = "__Bio_Industries__/graphics/icons/bi_resin_wood.png",
 			icon_size = 32,
-			--category = "crafting-machine",
 			subgroup = "bio-bio-farm-raw",
 			order = "a[bi]-a-b[bi-resin2]",
 			enabled = false,
@@ -72,7 +70,7 @@ if not data.raw.item["resin"] then
 			energy_required = 1,
 			ingredients = 
 			{
-				 {type="item", name="raw-wood", amount=1}
+				 {type="item", name="wood", amount=1}
 			},
 			result = "resin",
 			result_count = 1,
@@ -80,7 +78,7 @@ if not data.raw.item["resin"] then
 	
 	})
 	
-	thxbob.lib.tech.add_recipe_unlock("bi_tech_bio_farming", "bi_recipe_resin_wood")
+	bobmods.lib.tech.add_recipe_unlock("bi_tech_bio_farming", "bi_recipe_resin_wood")
 	
  elseif data.raw.recipe["bob-resin-wood"] then
  
@@ -98,29 +96,29 @@ data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed
  -- Pellet-Coke from Carbon - Bobs & Angels
 if data.raw.item["solid-carbon"] and mods["angelspetrochem"] then
 	
-	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="solid-carbon", amount=8})
+	bobmods.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="solid-carbon", amount=8})
 	data.raw.recipe["bi_recipe_pellete_coal_2"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_a.png"
-	thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
+	bobmods.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
 	
 elseif data.raw.item["carbon"] and mods["bobplates"] then
 
-	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="carbon", amount=8})
+	bobmods.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="carbon", amount=8})
 	data.raw.recipe["bi_recipe_pellete_coal_2"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_b.png"
-	thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
+	bobmods.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
 		
 end
 
 --- Add fertiliser recipes if bob's or Angels
 if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] then
 
-	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="solid-sodium-hydroxide", amount=10})
+	bobmods.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="solid-sodium-hydroxide", amount=10})
 	data.raw.recipe["bi_recipe_fertiliser_2"].icon = "__Bio_Industries__/graphics/icons/fertiliser_solid_sodium_hydroxide.png"
-	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
+	bobmods.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
 
 elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] then
 
-	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="sodium-hydroxide", amount=10})
-	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
+	bobmods.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="sodium-hydroxide", amount=10})
+	bobmods.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
 	
 end	
 
@@ -128,33 +126,33 @@ end
 --- Add Water purification recipes if bob's or Angels
 if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] and data.raw.recipe["bi_recipe_fresh_water_2"] then
 
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_fresh_water_2", "liquid-air", "gas-compressed-air")
-	thxbob.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="solid-sodium-hydroxide", amount=5})
+	bobmods.lib.recipe.replace_ingredient("bi_recipe_fresh_water_2", "liquid-air", "gas-compressed-air")
+	bobmods.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="solid-sodium-hydroxide", amount=5})
 
 elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] and data.raw.recipe["bi_recipe_fresh_water_2"] then
 
-	thxbob.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="sodium-hydroxide", amount=5})
+	bobmods.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="sodium-hydroxide", amount=5})
 	
 end	
 
 -- If Angels, replace nitrogen with gas-nitrogen
 if data.raw.item["gas-nitrogen"] and mods["angelspetrochem"] then
 
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_nitrogen", "nitrogen", "gas-nitrogen")
+	bobmods.lib.recipe.replace_ingredient("bi_recipe_nitrogen", "nitrogen", "gas-nitrogen")
 
 end
 
 -- If Angels, replace liquid-air with gas-compressed-air
 if data.raw.item["gas-nitrogen"] and mods["angelspetrochem"] then
 
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_liquid_air", "liquid-air", "gas-compressed-air")
+	bobmods.lib.recipe.replace_ingredient("bi_recipe_liquid_air", "liquid-air", "gas-compressed-air")
 
 end
 
 
 --- Make Bio Farm use glass if Bob's
 if data.raw.item.glass  then
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_bio_farm", "copper-cable", "glass")
+	bobmods.lib.recipe.replace_ingredient("bi_recipe_bio_farm", "copper-cable", "glass")
 end
 
 
@@ -211,7 +209,7 @@ data:extend({
 		},
 	})
 
-	thxbob.lib.tech.add_recipe_unlock("water-treatment", "bi_recipe_mineralized_sulfuric_waste")
-	thxbob.lib.tech.add_recipe_unlock("slag-processing-1", "bi_recipe_slag_slurry")
+	bobmods.lib.tech.add_recipe_unlock("water-treatment", "bi_recipe_mineralized_sulfuric_waste")
+	bobmods.lib.tech.add_recipe_unlock("slag-processing-1", "bi_recipe_slag_slurry")
 	
 end

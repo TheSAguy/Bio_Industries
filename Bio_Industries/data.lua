@@ -7,8 +7,8 @@ if not BI_Config.mod then BI_Config.mod = {} end
 if not BI_Functions then BI_Functions = {} end
 if not BI_Functions.lib then BI_Functions.lib = {} end
 
-if not thxbob then thxbob = {} end
-if not thxbob.lib then thxbob.lib = {} end
+if not bobmods then bobmods = {} end
+if not bobmods.lib then bobmods.lib = {} end
 
 
 
@@ -25,11 +25,11 @@ BI.Settings.BI_Solar_Additions = settings.startup["BI_Solar_Additions"].value
 
 
 --- Help Files
-require ("libs.item-functions") -- From Bob's Libary 
-require ("libs.recipe-functions") -- From Bob's Libary 
-require ("libs.technology-functions") -- From Bob's Libary 
-require ("libs.functions") -- From Bob's Libary 
-require ("libs.category-functions") -- From Bob's Libary 
+--require ("libs.item-functions") -- From Bob's Libary 
+--require ("libs.recipe-functions") -- From Bob's Libary 
+--require ("libs.technology-functions") -- From Bob's Libary 
+--require ("libs.functions") -- From Bob's Libary 
+--require ("libs.category-functions") -- From Bob's Libary 
 require ("libs.bi_functions") -- Functions
 
 require ("prototypes.category")

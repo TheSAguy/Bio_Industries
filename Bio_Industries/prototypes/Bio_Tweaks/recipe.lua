@@ -137,35 +137,5 @@ if BI.Settings.BI_Game_Tweaks_Disassemble then
 	  
 	})
 
-	if data.raw.item["bi-burner-pump"] then
-
-		data:extend({
-		  
-				{
-					type = "recipe",
-					name = "bi_recipe_basic_pumpjack_disassemble",
-					icon = "__Bio_Industries__/graphics/icons/bi_basic_pumpjack_disassemble.png",
-					icon_size = 32,
-					subgroup = "bio-disassemble",
-					category = "advanced-crafting",
-					order = "a[Disassemble]-d[bi_basic_pumpjack_disassemble]",
-					enabled = false,
-					allow_as_intermediate = false,
-					energy_required = 2,
-					ingredients =
-						{
-						  {type="item", name="bi-burner-pump", amount=1},   	  
-						},
-					results =		
-						{
-						  {"pipe", 3},
-						  {"iron-gear-wheel", 3}
-						},
-						
-				}
-				
-			})
-		
-	end
 
 end

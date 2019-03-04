@@ -10,7 +10,7 @@ if BI.Settings.Bio_Cannon then
 		name = "bi-bio-cannon-area",
 		icon = "__Bio_Industries__/graphics/icons/biocannon_icon.png",
 		icon_size = 32,
-		flags = { "goes-to-quickbar" },
+		--flags = { "goes-to-quickbar" },
 		subgroup = "defensive-structure",
 		order = "x[turret]-x[gun-turret]",
 		place_result = "bi-bio-cannon-area",

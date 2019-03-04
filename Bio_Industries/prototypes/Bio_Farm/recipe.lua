@@ -13,7 +13,7 @@ data:extend({
 		ingredients =
 		{
 			{type="fluid", name="water", amount=100},
-			{type="item", name="raw-wood", amount=20},    	
+			{type="item", name="wood", amount=20},    	
 		},
 		results=
 		{
@@ -38,7 +38,7 @@ data:extend({
 		ingredients =
 		{
 			{type="fluid", name="water", amount=40},
-			{type="item", name="raw-wood", amount=20},     
+			{type="item", name="wood", amount=20},     
 			{type="item", name="bi-ash", amount=10},   
 		},
 		results=
@@ -64,7 +64,7 @@ data:extend({
 		ingredients =
 		{
 			{type="fluid", name="water", amount=40},
-			{type="item", name="raw-wood", amount=20},     
+			{type="item", name="wood", amount=20},     
 			{type="item", name="fertiliser", amount=10},   
 		},
 		results=
@@ -89,7 +89,7 @@ data:extend({
 		energy_required = 50,
 		ingredients =
 		{
-			{type="item", name="raw-wood", amount=20},     
+			{type="item", name="wood", amount=20},     
 			{type="item", name="bi-adv-fertiliser", amount=10},   
 			{type="fluid", name="water", amount=40},
 		},
@@ -225,10 +225,10 @@ data:extend({
 		},
 		results =
 		{
-			{type = "item", name = "raw-wood", amount = 40},
+			{type = "item", name = "wood", amount = 40},
 			{type = "item", name = "bi-woodpulp", amount = 80},
 		},
-		main_product = "raw-wood",
+		main_product = "wood",
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood1]",
 	},
@@ -253,10 +253,10 @@ data:extend({
 		},
 		results =
 		{
-			{type = "item", name = "raw-wood", amount = 75},
+			{type = "item", name = "wood", amount = 75},
 			{type = "item", name = "bi-woodpulp", amount = 150},
 		},
-		main_product = "raw-wood",
+		main_product = "wood",
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood2]",
 	},
@@ -281,10 +281,10 @@ data:extend({
 		},
 		results =
 		{
-			{type = "item", name = "raw-wood", amount = 135},
+			{type = "item", name = "wood", amount = 135},
 			{type = "item", name = "bi-woodpulp", amount = 270},
 		},
-		main_product = "raw-wood",		
+		main_product = "wood",		
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood3]",
 	},
@@ -309,10 +309,10 @@ data:extend({
 		},
 		results =
 		{
-			{type = "item", name = "raw-wood", amount = 160},
+			{type = "item", name = "wood", amount = 160},
 			{type = "item", name = "bi-woodpulp", amount = 320},
 		},
-		main_product = "raw-wood",
+		main_product = "wood",
 		subgroup = "bio-bio-farm-fluid-3",
 		order = "c[bi]-ssw-c1[raw-wood4]",
 	},
@@ -405,7 +405,7 @@ data:extend({
 		allow_decomposition = false,
 		allow_as_intermediate = false,
 		energy_required = 2.5,
-		ingredients = {{"raw-wood",2}},
+		ingredients = {{"wood",2}},
 		result = "bi-woodpulp",
 		result_count = 6,
 	}, 
@@ -432,31 +432,6 @@ data:extend({
 
 	},
 	
-	-- Wood - Press Wood
-	{
-		type = "recipe",
-		name = "bi_recipe_press_wood",
-		icon = "__Bio_Industries__/graphics/icons/bi_wood_resin_pulp.png",
-		icon_size = 32,
-		--category = "crafting-machine",
-		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-c[bi-press_wood]",
-		energy_required = 2,	
-		enabled = false,
-		always_show_made_in = true,
-		allow_decomposition = false,
-		allow_as_intermediate = false,
-		ingredients =
-		{
-			{type="item", name="bi-woodpulp", amount=3},
-			{type="item", name="resin", amount=1},
-		},
-		results=
-		{
-			{type="item", name="wood", amount=4}
-		},
-
-	},
 
 	-- ASH --
 	{
@@ -472,7 +447,7 @@ data:extend({
 		allow_decomposition = false,
 		allow_as_intermediate = false,
 		energy_required = 10,
-		ingredients = {{"raw-wood",5}},
+		ingredients = {{"wood",5}},
 		result = "bi-ash",
 		result_count = 10,		
 	},   
@@ -528,7 +503,7 @@ data:extend({
 		order = "a[bi]-a-c[charcoal2]",
 		category = "biofarm-mod-smelting",
 		energy_required = 20,
-		ingredients = {{"raw-wood",20}},
+		ingredients = {{"wood",20}},
 		result = "bi-charcoal",
 		result_count = 18,
 		enabled = false,
@@ -684,7 +659,7 @@ data:extend({
 		normal =
 		{
 			enabled = false,
-			energy_required = 8,
+			energy_required = 3,
 			ingredients = 
 			{
 			  {"iron-plate",10},
@@ -697,7 +672,7 @@ data:extend({
 		expensive =
 		{
 			enabled = false,
-			energy_required = 10,
+			energy_required = 5,
 			ingredients = 
 			{
 			  {"iron-plate",12},
@@ -1096,3 +1071,5 @@ data:extend({
 	  
 	  
 })
+
+

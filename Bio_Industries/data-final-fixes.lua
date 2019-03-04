@@ -3,33 +3,30 @@
 
 -- 5dim Stack changes
 if settings.startup["5d-change-stack"] and settings.startup["5d-change-stack"].value then
-   if data.raw.item["raw-wood"] then
-      data.raw.item["raw-wood"].stack_size = math.max(210, data.raw.item['raw-wood'].stack_size)
+   if data.raw.item["wood"] then
+      data.raw.item["wood"].stack_size = math.max(210, data.raw.item['raw-wood'].stack_size)
    end
 end
 
 ---- Game Tweaks ---- Recipes
 if BI.Settings.BI_Game_Tweaks_Recipe then
 	--- Concrete Recipe Tweak
-	thxbob.lib.recipe.remove_ingredient ("concrete", "iron-ore")
-	thxbob.lib.recipe.add_new_ingredient ("concrete", {type="item", name="iron-stick", amount=2})
+	bobmods.lib.recipe.remove_ingredient ("concrete", "iron-ore")
+	bobmods.lib.recipe.add_new_ingredient ("concrete", {type="item", name="iron-stick", amount=2})
 	--- Stone Wall
-	thxbob.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
+	bobmods.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
 
-	-- Make Steel Axe use Iron Axe as an upgrade
-	thxbob.lib.recipe.remove_ingredient ("steel-axe", "iron-stick")
-	thxbob.lib.recipe.add_new_ingredient ("steel-axe", {type="item", name="iron-axe", amount=1})
-	
+
 	--- Rail (Remove Stone and Add Crushed Stone)
 	if data.raw.item["stone-crushed"] then
-		thxbob.lib.recipe.remove_ingredient ("rail", "stone")
-		thxbob.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
-		thxbob.lib.recipe.remove_ingredient ("bi_recipe_rail_wood", "stone")
-		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
+		bobmods.lib.recipe.remove_ingredient ("rail", "stone")
+		bobmods.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
+		bobmods.lib.recipe.remove_ingredient ("bi_recipe_rail_wood", "stone")
+		bobmods.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
 	end
 	
 	-- vanilla rail recipe update
-	thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=6})
+	bobmods.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=6})
 	
 end
 
@@ -41,15 +38,15 @@ if BI.Settings.BI_Game_Tweaks_Tree then
    --CHECK FOR SINGLE RESULTS
 		if tree.minable and tree.minable.result then
 		  --CHECK FOR VANILLA TREES RAW WOOD x 4
-		  if tree.minable.result == "raw-wood" and tree.minable.count == 4 then
-			 tree.minable = {mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "raw-wood", amount_min = 1, amount_max = 6}}}
+		  if tree.minable.result == "wood" and tree.minable.count == 4 then
+			 tree.minable = {mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "wood", amount_min = 1, amount_max = 6}}}
 		  end
 		else
 		  --CHECK FOR RESULTS TABLE
 		  if tree.minable and tree.minable.results then
 			 for k, results in pairs(tree.minable.results) do
 				--CHECK FOR RESULT RAW-WOOD x 4
-				if results.name == "raw-wood" and results.amount == 4 then
+				if results.name == "wood" and results.amount == 4 then
 				   results.amount = nil
 				   results.amount_min = 1
 				   results.amount_max = 6
@@ -68,27 +65,29 @@ if BI.Settings.BI_Game_Tweaks_Player then
 		data.raw.player.player.loot_pickup_distance = 5 -- default 2
 	end	
 
-	--- Run Speed
-	if data.raw.player.player.running_speed < 0.15 then
-		data.raw.player.player.running_speed = 0.25 -- default 0.15
-	end	
-
 	if data.raw.player.player.build_distance < 20 then -- Vanilla 6
 		data.raw.player.player.build_distance = 20
 	end
+	
 	if data.raw.player.player.drop_item_distance < 20 then -- Vanilla 6
 		data.raw.player.player.drop_item_distance = 20
 	end
+	
 	if data.raw.player.player.reach_distance < 20 then -- Vanilla 6
 		data.raw.player.player.reach_distance = 20
 	end
-	if data.raw.player.player.item_pickup_distance < 4 then -- Vanilla 1
-		data.raw.player.player.item_pickup_distance = 4
-	end
-	if data.raw.player.player.reach_resource_distance <  4 then -- Vanilla 2.7
-		data.raw.player.player.reach_resource_distance = 4
-	end
 
+	if data.raw.player.player.item_pickup_distance < 6 then -- Vanilla 1
+		data.raw.player.player.item_pickup_distance = 6
+	end
+	
+	if data.raw.player.player.reach_resource_distance <  6 then -- Vanilla 2.7
+		data.raw.player.player.reach_resource_distance = 6
+	end
+		
+	if data.raw.player.player.resource_reach_distance and data.raw.player.player.resource_reach_distance <  6 then -- Vanilla 2.7
+		data.raw.player.player.resource_reach_distance = 6
+	end
 
 end	
 	
@@ -96,14 +95,14 @@ end
 require("prototypes.Bio_Tweaks.recipe")
 if BI.Settings.BI_Game_Tweaks_Disassemble then		
 
-	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
-	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
+	bobmods.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
+	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
+	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
+	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
+	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
 	
 	if data.raw.item["bi-burner-pump"] then
-		thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_basic_pumpjack_disassemble")
+		bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_basic_pumpjack_disassemble")
 	end
 
 end
@@ -136,8 +135,8 @@ end
 if BI.Settings.BI_Game_Tweaks_Stack_Size then
 
 	---- Inrease Wood Stack Size
-	if data.raw.item["raw-wood"] and data.raw.item["raw-wood"].stack_size < 400 then
-		data.raw.item["raw-wood"].stack_size = 400
+	if data.raw.item["wood"] and data.raw.item["wood"].stack_size < 400 then
+		data.raw.item["wood"].stack_size = 400
 	end
 
 	--- Stone Stack Size	

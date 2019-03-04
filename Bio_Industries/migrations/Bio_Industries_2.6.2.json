@@ -1,8 +1,0 @@
-{
-  "recipe":
-  [
-	["bi-cokery",  "bi_recipe_cokery"],
-	["bi-stone-crusher",  "bi_recipe_stone_crusher"]
-  ]
-}
-

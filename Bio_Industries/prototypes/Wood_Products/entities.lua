@@ -1062,8 +1062,8 @@ data:extend({
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
       priority = "low",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
 	  frame_count = 1,
       axially_symmetrical = false,
       direction_count = 32,
@@ -1430,8 +1430,8 @@ data:extend({
     radius_visualisation_picture =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
       priority = "low"
     },
   },

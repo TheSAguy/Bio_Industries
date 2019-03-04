@@ -9,7 +9,7 @@ data:extend({
 		name = "bi-basic-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/basic_dart_icon.png",
 		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
+		----flags = {"goes-to-main-inventory"},
 		ammo_type =
 		{
 		  category = "Bio_Turret_Ammo",
@@ -54,7 +54,7 @@ data:extend({
 		name = "bi-standard-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/standard_dart_icon.png",
 		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
+		----flags = {"goes-to-main-inventory"},
 		ammo_type =
 		{
 		  category = "Bio_Turret_Ammo",
@@ -100,7 +100,7 @@ data:extend({
 		name = "bi-enhanced-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/enhanced_dart_icon.png",
 		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
+		----flags = {"goes-to-main-inventory"},
 		ammo_type =
 		{
 		  category = "Bio_Turret_Ammo",
@@ -150,7 +150,7 @@ data:extend({
 		name = "bi-poison-dart-magazine",
 		icon = "__Bio_Industries__/graphics/icons/poison_dart_icon.png",
 		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
+		----flags = {"goes-to-main-inventory"},
 		ammo_type =
 		{
 		  category = "Bio_Turret_Ammo",

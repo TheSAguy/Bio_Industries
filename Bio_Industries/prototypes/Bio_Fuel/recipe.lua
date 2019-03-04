@@ -130,7 +130,7 @@ if BI.Settings.BI_Bio_Fuel then
 			ingredients =
 			{
 				{type="fluid", name="steam", amount=10},
-				{type="item", name="raw-wood", amount=10},
+				{type="item", name="wood", amount=10},
 				{type="fluid", name="light-oil", amount=20},
 			},
 			results=

@@ -55,7 +55,7 @@ if BI.Settings.BI_Solar_Additions then
 		{
 		  type = "electric",
 		  buffer_capacity = "300MJ",
-		  usage_priority = "terciary",
+		  usage_priority = "tertiary", 
 		  input_flow_limit = "20MW",
 		  output_flow_limit = "20MW"
 		},
@@ -305,8 +305,8 @@ if BI.Settings.BI_Solar_Additions then
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
       priority = "low",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
 	  frame_count = 1,
       axially_symmetrical = false,
       direction_count = 4,
@@ -363,8 +363,8 @@ if BI.Settings.BI_Solar_Additions then
     radius_visualisation_picture =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
       priority = "low"
     },
   },
@@ -394,8 +394,8 @@ if BI.Settings.BI_Solar_Additions then
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
       priority = "low",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
     },
     production = "10kW"
   },

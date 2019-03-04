@@ -253,8 +253,8 @@ data:extend({
     {
       filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Idle.png",
       priority = "low",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
       frame_count = 1,
       axially_symmetrical = false,
       direction_count = 1,
@@ -264,8 +264,8 @@ data:extend({
     {
       filename = "__Bio_Industries__/graphics/entities/biofarm/Bio_Farm_Working.png",
       priority = "low",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
       frame_count = 1,
       axially_symmetrical = false,
       direction_count = 1,
@@ -292,8 +292,8 @@ data:extend({
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
       priority = "low",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
 	  frame_count = 1,
       axially_symmetrical = false,
       direction_count = 4,
@@ -346,8 +346,8 @@ data:extend({
     radius_visualisation_picture =
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
       priority = "low"
     },
   },
@@ -373,8 +373,8 @@ data:extend({
     {
       filename = "__Bio_Industries__/graphics/icons/empty.png",
       priority = "low",
-      width = 0,
-      height = 0,
+      width = 1,
+      height = 1,
     },
     production = "100kW"
   },

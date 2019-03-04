@@ -9,7 +9,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{
-			  {"wood", 10},    
+			  {"wood", 5},    
 			  {"small-electric-pole", 2},  
 			},
 		  result = "bi-big-wooden-pole"
@@ -19,7 +19,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{
-			  {"wood", 20},    
+			  {"wood", 10},    
 			  {"small-electric-pole", 4},  
 			},
 		  result = "bi-big-wooden-pole"
@@ -35,7 +35,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{
-			  {"wood", 10}, 
+			  {"wood", 5}, 
 			  {"concrete", 100},   			  
 			  {"bi-big-wooden-pole", 6},  
 			},
@@ -46,7 +46,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{
-			  {"wood", 20},  
+			  {"wood", 10},  
 			  {"concrete", 150},   				  
 			  {"bi-big-wooden-pole", 10},  
 			},
@@ -64,7 +64,6 @@ data:extend({
 			ingredients = 
 			{
 			  {"wood", 2},
-			  {"raw-wood", 2}, 
 			},
 			result = "bi-wooden-fence",
 		},
@@ -74,7 +73,6 @@ data:extend({
 			ingredients = 
 			{
 			  {"wood", 4},
-			  {"raw-wood", 4}, 
 			},
 			result = "bi-wooden-fence",
 		},	
@@ -89,7 +87,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{		
-				{"raw-wood", 6},
+				{"wood", 6},
 				{"stone", 1},
 				{"steel-plate", 1},
 				{"iron-stick", 1},	  
@@ -103,7 +101,7 @@ data:extend({
 			enabled = false,
 			ingredients = 
 			{			
-				{"raw-wood", 6},
+				{"wood", 6},
 				{"stone", 1},
 				{"steel-plate", 1},			 
 				{"iron-stick", 1},
@@ -149,7 +147,8 @@ data:extend({
 		order = "a[train-system]-aa1[rail-upgrade]",		
 
 	}, 
---- Wooden Bridge Rail
+	
+	--- Wooden Bridge Rail
     {
 		type = "recipe",
 		name = "bi_recipe_rail_wood_bridge",	
@@ -161,7 +160,7 @@ data:extend({
 			{	  
 			  {"bi-rail-wood", 1},
 			  {"steel-plate", 1},
-			  {"raw-wood", 32}
+			  {"wood", 32}
 			},
 			result = "bi-rail-wood-bridge",
 			result_count = 2,
@@ -175,7 +174,7 @@ data:extend({
 			{	  
 			  {"bi-rail-wood", 1},
 			  {"steel-plate", 1},
-			  {"raw-wood", 32}
+			  {"wood", 32}
 			},
 			result = "bi-rail-wood-bridge",
 			result_count = 1,
@@ -228,7 +227,7 @@ data:extend({
 			ingredients = 
 			{	  
 			  {"copper-plate", 1},
-			  {"raw-wood", 12}
+			  {"wood", 8}
 			},
 		  result = "bi-wood-pipe",
 		  result_count = 4,
@@ -241,7 +240,7 @@ data:extend({
 			ingredients = 
 			{	  
 			  {"copper-plate", 1},
-			  {"raw-wood", 16}
+			  {"wood", 12}
 			},
 		  result = "bi-wood-pipe",
 		  result_count = 4,

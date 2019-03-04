@@ -1,4 +1,4 @@
---Bio_Industries Version   2.7.0
+--Bio_Industries Version   0.17.2
 
 local QC_Mod = false
 require ("util")
@@ -989,9 +989,9 @@ if QC_Mod == true then
 	iteminsert{name="pumpjack", count=5}
 	iteminsert{name="medium-electric-pole", count=5}
 	iteminsert{name="lab", count=5}
-	iteminsert{name="science-pack-1", count=500}
-	iteminsert{name="science-pack-2", count=500}
-	iteminsert{name="science-pack-3", count=500}
+	iteminsert{name="automation-science-pack", count=500}
+	iteminsert{name="logistic-science-pack", count=500}
+	iteminsert{name="chemical-science-pack", count=500}
 	iteminsert{name="high-tech-science-pack", count=500}
 	iteminsert{name="pipe", count=50}
 	iteminsert{name="iron-gear-wheel", count=50}

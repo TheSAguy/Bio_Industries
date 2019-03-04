@@ -6,14 +6,14 @@
 		{
 		  filename = "__Bio_Industries__/graphics/icons/empty.png",
 		  priority = "extra-high",
-		  width = 35,
-		  height = 18,
+		  width = 1,
+		  height = 1,
 		  shift = util.by_pixel(2.5, 14),
 		  hr_version = {
 			filename = "__Bio_Industries__/graphics/icons/empty.png",
 			priority = "extra-high",
-			width = 71,
-			height = 38,
+			width = 1,
+			height = 1,
 			shift = util.by_pixel(2.25, 13.5),
 			scale = 0.5,
 		  }
@@ -76,14 +76,14 @@
 		{
 		  filename = "__Bio_Industries__/graphics/icons/empty.png",
 		  priority = "extra-high",
-		  width = 64,
-		  height = 64,
+		  width = 1,
+		  height = 1,
 		  hr_version =
 		  {
 			filename = "__Bio_Industries__/graphics/icons/empty.png",
 			priority = "extra-high",
-			width = 128,
-			height = 128,
+			width = 1,
+			height = 1,
 			scale = 0.5
 		  }
 		},
