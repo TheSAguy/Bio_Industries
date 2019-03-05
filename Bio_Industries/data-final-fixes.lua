@@ -4,7 +4,7 @@
 -- 5dim Stack changes
 if settings.startup["5d-change-stack"] and settings.startup["5d-change-stack"].value then
    if data.raw.item["wood"] then
-      data.raw.item["wood"].stack_size = math.max(210, data.raw.item['raw-wood'].stack_size)
+      data.raw.item["wood"].stack_size = math.max(210, data.raw.item["wood"].stack_size)
    end
 end
 
@@ -33,11 +33,11 @@ end
 ---- Game Tweaks ---- Tree
 if BI.Settings.BI_Game_Tweaks_Tree then
 	
-		--- Trees Give Random 1 - 6 Raw Wood.
+		--- Trees Give Random 1 - 6 Wood.
 	for _, tree in pairs(data.raw["tree"]) do
    --CHECK FOR SINGLE RESULTS
 		if tree.minable and tree.minable.result then
-		  --CHECK FOR VANILLA TREES RAW WOOD x 4
+		  --CHECK FOR VANILLA TREES WOOD x 4
 		  if tree.minable.result == "wood" and tree.minable.count == 4 then
 			 tree.minable = {mining_particle = "wooden-particle", mining_time = 1.5, results = {{type = "item", name = "wood", amount_min = 1, amount_max = 6}}}
 		  end
@@ -45,7 +45,7 @@ if BI.Settings.BI_Game_Tweaks_Tree then
 		  --CHECK FOR RESULTS TABLE
 		  if tree.minable and tree.minable.results then
 			 for k, results in pairs(tree.minable.results) do
-				--CHECK FOR RESULT RAW-WOOD x 4
+				--CHECK FOR RESULT WOOD x 4
 				if results.name == "wood" and results.amount == 4 then
 				   results.amount = nil
 				   results.amount_min = 1
