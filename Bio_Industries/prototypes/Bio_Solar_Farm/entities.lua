@@ -404,16 +404,15 @@ if BI.Settings.BI_Solar_Additions then
   ------- ------- Solar Panel for Solar Plant / Boiler 
   {
     type = "solar-panel",
-    name = "bi-solar-boiler-panel",
+    name = "bi-solar-boiler-panel-2",
     icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Panel_Icon.png",
 	icon_size = 32,
-	flags = {"placeable-neutral", "player-creation"},
-	minable = {hardness = 0.2, mining_time = 1, result = "bi-solar-boiler-panel"},
+	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
     max_health = 400,
 	render_no_power_icon = true,
     resistances = {{type = "fire", percent = 100}},
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
-	selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+	selection_box = {{-1.2, -1.2}, {1.2, 1.2}},
 	
     energy_source =
     {
@@ -463,10 +462,12 @@ if BI.Settings.BI_Solar_Additions then
   ------- Bioler for Solar Plant / Boiler 
   {
     type = "boiler",
-    name = "bi-solar-boiler",
+    name = "bi-solar-boiler-2",
     icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Boiler_Icon.png",
     icon_size = 32,
-	flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+	--flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+	flags = {"placeable-neutral", "player-creation"},
+	minable = {hardness = 0.2, mining_time = 1, result = "bi-solar-boiler-2"},
     max_health = 400,
     corpse = "small-remnants",
     vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -486,8 +487,10 @@ if BI.Settings.BI_Solar_Additions then
         percent = 30
       }
     },
+
+	
 	collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
-	selection_box = {{-1.2, -1.2}, {1.2, 1.2}},
+	selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
 	
     target_temperature = 235,
     fluid_box =

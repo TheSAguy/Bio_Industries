@@ -98,7 +98,7 @@ end
 
 --- Move Stone Crusher up in tech tree
 bobmods.lib.tech.add_recipe_unlock("steel-processing", "bi_recipe_stone_crusher")
-bobmods.lib.tech.add_recipe_unlock("automation", "bi_recipe_crushed_stone")
+bobmods.lib.tech.add_recipe_unlock("steel-processing", "bi_recipe_crushed_stone")
 
 -- Add Wooden Chests
 bobmods.lib.tech.add_recipe_unlock("logistics", "bi_recipe_large_wooden_chest")

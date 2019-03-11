@@ -20,7 +20,7 @@ if BI.Settings.BI_Solar_Additions then
 			order = "a[bi]",
 		},
 
-		
+
 	-- solar boiler
 	{
 		type = "recipe",
@@ -33,11 +33,12 @@ if BI.Settings.BI_Solar_Additions then
 		  {"storage-tank", 4},
 		  {"boiler", 1},
 		},
-		result = "bi-solar-boiler-panel",
+		result = "bi-solar-boiler-2",
 		subgroup = "bio-bio-solar-entity",
 		order = "b[bi]",
 	},
-
+	
+	
 	-- solar mat
 	{
 		type = "recipe",

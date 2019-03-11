@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.6
+Date: 3. 11. 2019
+  Bugfix:
+    - Removed Ammo Descriptions, now it shows damage values
+    - Moved Crushed Stone Recipe to Steel Processing also
+---------------------------------------------------------------------------------------------------
+Version: 0.17.5
+Date: 3. 6. 2019
+  Bugfix:
+    - Solar Boiler Fixed, won't cash if built next to pipes with differernt fluids
+    - YOU WILL LOSE ALL OLD Solar Boilers!
+---------------------------------------------------------------------------------------------------
 Version: 0.17.4
 Date: 3. 5. 2019
   Features:
@@ -26,4 +38,3 @@ Version: 0.17.0
 Date: 2. 27. 2019
   Features:
     - Initial Release of 0.17
----------------------------------------------------------------------------------------------------

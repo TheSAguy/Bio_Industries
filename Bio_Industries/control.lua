@@ -1,4 +1,4 @@
---Bio_Industries Version   0.17.2
+--Bio_Industries Version   0.17.5
 
 local QC_Mod = false
 require ("util")
@@ -305,11 +305,12 @@ local function On_Built(event)
 
 	
 	--- Bio Solar Boiler / Solar Plant has been built
-	if entity.valid and entity.name == "bi-solar-boiler-panel" then
+	if entity.valid and entity.name == "bi-solar-boiler-2" then
 	writeDebug("Bio Solar Boiler has been built")
 		   
 		local solar_plant = entity
-		local boiler_solar = "bi-solar-boiler"   		
+		--local boiler_solar = "bi-solar-boiler-2"
+		local boiler_solar = "bi-solar-boiler-panel-2"   		
 		local sm_pole_name = "bi-hidden-power-pole"  
 		
 		local create_solar_boiler = surface.create_entity({name = boiler_solar, position = position, force = force}) -- Hidden Solar Paner
@@ -531,7 +532,7 @@ local function On_Remove(event)
 
 
 	--- Bio Solar Boiler has been removed
-   	if entity.valid and entity.name == "bi-solar-boiler-panel" then
+	if entity.valid and entity.name == "bi-solar-boiler-2" then
 	writeDebug("Solar Boiler has been removed")
 	
 		if global.bi_solar_boiler_table[entity.unit_number] then
@@ -675,7 +676,7 @@ local function On_Death(event)
 
 
 	--- Bio Solar Boiler has been destroyed
-   	if entity.valid and entity.name == "bi-solar-boiler-panel" then
+	if entity.valid and entity.name == "bi-solar-boiler-2" then
 	writeDebug("Solar Boiler has been destroyed")
 	
 		if global.bi_solar_boiler_table[entity.unit_number] then
