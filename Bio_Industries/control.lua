@@ -1,4 +1,4 @@
---Bio_Industries Version   0.17.5
+--Bio_Industries Version   0.17.7
 
 local QC_Mod = false
 require ("util")

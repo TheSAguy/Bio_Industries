@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.7
+Date: 3. 14. 2019
+  Features:
+    - Renamed all instances of Bio Cannon to Prototype Artillery
+    - Tweak to Prototype Artillery damage upgrades
+    - Removed Bob's Lib dependancy - too confusing for peeps
+---------------------------------------------------------------------------------------------------
 Version: 0.17.6
 Date: 3. 11. 2019
   Bugfix:

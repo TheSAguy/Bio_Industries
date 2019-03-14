@@ -11,22 +11,22 @@ end
 ---- Game Tweaks ---- Recipes
 if BI.Settings.BI_Game_Tweaks_Recipe then
 	--- Concrete Recipe Tweak
-	bobmods.lib.recipe.remove_ingredient ("concrete", "iron-ore")
-	bobmods.lib.recipe.add_new_ingredient ("concrete", {type="item", name="iron-stick", amount=2})
+	thxbob.lib.recipe.remove_ingredient ("concrete", "iron-ore")
+	thxbob.lib.recipe.add_new_ingredient ("concrete", {type="item", name="iron-stick", amount=2})
 	--- Stone Wall
-	bobmods.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
+	thxbob.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
 
 
 	--- Rail (Remove Stone and Add Crushed Stone)
 	if data.raw.item["stone-crushed"] then
-		bobmods.lib.recipe.remove_ingredient ("rail", "stone")
-		bobmods.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
-		bobmods.lib.recipe.remove_ingredient ("bi_recipe_rail_wood", "stone")
-		bobmods.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
+		thxbob.lib.recipe.remove_ingredient ("rail", "stone")
+		thxbob.lib.recipe.add_new_ingredient ("rail", {type="item", name="stone-crushed", amount=6})
+		thxbob.lib.recipe.remove_ingredient ("bi_recipe_rail_wood", "stone")
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_rail_wood", {type="item", name="stone-crushed", amount=6})
 	end
 	
 	-- vanilla rail recipe update
-	bobmods.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=6})
+	thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=6})
 	
 end
 
@@ -95,14 +95,14 @@ end
 require("prototypes.Bio_Tweaks.recipe")
 if BI.Settings.BI_Game_Tweaks_Disassemble then		
 
-	bobmods.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
-	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
-	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
-	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
-	bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("advanced-material-processing", "bi_recipe_steel_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_mining_drill_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_stone_furnace_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_burner_inserter_disassemble")
+	thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_long_handed_inserter_disassemble")
 	
 	if data.raw.item["bi-burner-pump"] then
-		bobmods.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_basic_pumpjack_disassemble")
+		thxbob.lib.tech.add_recipe_unlock("automation-2", "bi_recipe_basic_pumpjack_disassemble")
 	end
 
 end
