@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.8
+Date: 3. 18. 2019
+  Features:
+    - Renamed "emissions_per_tick" to "emissions_per_second"
+    - Renamed "emissions" to "emissions_per_second_per_watt"
+    - "Wooden-Boards" can now be made in Bob's Electronics Assembling machine
+    - Russian Local Update - Thx IgorLutiy
+---------------------------------------------------------------------------------------------------
 Version: 0.17.7
 Date: 3. 14. 2019
   Features:

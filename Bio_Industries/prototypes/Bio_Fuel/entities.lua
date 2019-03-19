@@ -164,7 +164,8 @@ if BI.Settings.BI_Bio_Fuel then
 			  fuel_category = "chemical",
 			  effectivity = 0.75,
 			  fuel_inventory_size = 2,
-			  emissions = 0.05 / 6.5,
+			  --emissions = 0.05 / 6.5,
+			  emissions_per_second_per_watt = 15 / 3600000,
 			  smoke =
 			  {
 				{

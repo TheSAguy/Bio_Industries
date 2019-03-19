@@ -37,7 +37,7 @@ data:extend({
       result = "seedling",
       count = 1
     },
-    emissions_per_tick = -0.0006,
+    emissions_per_second = -0.0006,
     max_health = 5,
 
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
@@ -77,7 +77,7 @@ data:extend({
       result = "seedling",
       count = 1
     },
-    emissions_per_tick = -0.0006,
+    emissions_per_second = -0.0006,
     max_health = 5,
 
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
@@ -117,7 +117,7 @@ data:extend({
       result = "seedling",
       count = 1
     },
-    emissions_per_tick = -0.0006,
+    emissions_per_second = -0.0006,
     max_health = 5,
 
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
@@ -214,7 +214,8 @@ data:extend({
       type = "electric",
       usage_priority = "primary-input",
 	  drain = "50kW",
-	  emissions = -0.2, -- the "-" means it eats pollution. Absorbs about 20 PU
+	  --emissions = -0.2, -- the "-" means it eats pollution. Absorbs about 20 PU
+	  emissions_per_second_per_watt = -20 / 100000 -- the "-" means it eats pollution. 
     },	
 
     energy_usage = "100kW",
@@ -400,7 +401,8 @@ data:extend({
       type = "electric",
       usage_priority = "primary-input",
 	  drain = "15kW",
-	  emissions = -0.1, -- the "-" means it eats pollution. Absorbs about 10 PU
+	  --emissions = -0.1, -- the "-" means it eats pollution. Absorbs about 10 PU
+	  emissions_per_second_per_watt = -10 / 50000 -- the "-" means it eats pollution. 
     },	
 
     energy_usage = "50kW",
@@ -493,7 +495,8 @@ data:extend({
 			type = "electric",
 			input_priority = "secondary",
 			usage_priority = "secondary-input",
-			emissions = 0.05     
+			--emissions = 0.05    
+			emissions_per_second_per_watt = 8 / 180000
 		},
 		energy_usage = "180kW",
 		crafting_speed = 2,
@@ -547,7 +550,8 @@ data:extend({
 		energy_source = {
 							type = "electric",
 							usage_priority = "secondary-input",
-							emissions = 0.05 / 1.5
+							--emissions = 0.05 / 1.5
+							emissions_per_second_per_watt = 2 / 50000
 						},
 		energy_usage = "50kW"
 	},
@@ -926,7 +930,8 @@ data:extend({
     {
       type = "electric",
       usage_priority = "secondary-input",
-	  emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
+	  --emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
+	  emissions_per_second_per_watt = -10 / 150000
     },
     energy_usage = "150kW",
     pictures =
@@ -1079,7 +1084,8 @@ data:extend({
       type = "electric",
       usage_priority = "primary-input",
 	  --drain = "5W",
-	  emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
+	  --emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
+	  emissions_per_second_per_watt = -10 / 150000
     },	
     energy_usage = "150kW",
     ingredient_count = 3,

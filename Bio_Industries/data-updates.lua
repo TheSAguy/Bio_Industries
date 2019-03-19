@@ -506,10 +506,9 @@ if data.raw.item["wooden-board"] and mods["bobelectronics"] then
 			name = "bi_recipe_press_wood",
 			icon = "__Bio_Industries__/graphics/icons/bi_wooden_board.png",
 			icon_size = 32,
-			--subgroup = "bio-bio-farm-raw",
-			--order = "a[bi]-a-c[bi-press_wood]",
 			subgroup = "bob-boards",
 			order = "c-a1[wooden-board]",
+			category = "electronics",
 			energy_required = 1,	
 			enabled = false,
 			always_show_made_in = true,
@@ -522,7 +521,7 @@ if data.raw.item["wooden-board"] and mods["bobelectronics"] then
 			},
 			results=
 			{
-				{type="item", name="wooden-board", amount=4}
+				{type="item", name="wooden-board", amount=6}
 			},
 
 		},

@@ -465,7 +465,6 @@ if BI.Settings.BI_Solar_Additions then
     name = "bi-solar-boiler-2",
     icon = "__Bio_Industries__/graphics/icons/Bio_Solar_Boiler_Boiler_Icon.png",
     icon_size = 32,
-	--flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
 	flags = {"placeable-neutral", "player-creation"},
 	minable = {hardness = 0.2, mining_time = 1, result = "bi-solar-boiler-2"},
     max_health = 400,
@@ -528,7 +527,7 @@ if BI.Settings.BI_Solar_Additions then
 		  type = "electric",
 		  input_priority = "primary",
 		  usage_priority = "primary-input",
-		  --emissions = 0.1 / 9.5 -- NO Emmisions
+		  --emissions_per_second_per_watt = 0 / 1800000 -- NO Emmisions
 	  },
     working_sound =
     {
