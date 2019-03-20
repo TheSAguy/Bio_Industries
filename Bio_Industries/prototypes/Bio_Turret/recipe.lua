@@ -154,5 +154,41 @@ data:extend({
 
   },
 	
+--- Dart Rifle
+
+	--- Dart Turret
+  {
+    type = "recipe",
+    name = "bi_recipe_bi_dart_rifle",
+    	
+	normal =
+		{
+			enabled = true,
+			energy_required = 8,
+			ingredients = 
+			{
+			  {"copper-plate", 5},
+			  {"wood", 15},
+			},
+		  result = "bi-dart-rifle",
+		  result_count = 1,
+		},
+	
+		expensive =
+		{
+			enabled = true,
+			energy_required = 16,
+			ingredients = 
+			{
+			  {"copper-plate", 10},
+			  {"wood", 25},
+			},
+		  result = "bi-dart-rifle",
+		  result_count = 1,
+		},
+	
+
+  },
+	
 	
 })

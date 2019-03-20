@@ -943,13 +943,26 @@ data:extend({
     name = "bi-straight-rail-wood",   
 	icon = "__Bio_Industries__/graphics/icons/straight-rail-wood.png",
 	icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
-    minable = {mining_time = 0.5, result = "bi-rail-wood"},
+    flags = {"placeable-neutral", "player-creation", "building-direction-8-way", "fast-replaceable-no-cross-type-while-moving"},
+    minable = {mining_time = 0.25, result = "bi-rail-wood"},
     max_health = 60,
     corpse = "straight-rail-remnants-wood",
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 80
+      },
+      {
+        type = "acid",
+        percent = 60
+      }
+    },
     collision_box = {{-0.7, -0.8}, {0.7, 0.8}},
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
+	--fast_replaceable_group = "rail",
+	next_upgrade = "straight-rail",
 	pictures = rail_pictures(),
   },
   
@@ -959,14 +972,27 @@ data:extend({
     name = "bi-curved-rail-wood",   
 	icon = "__Bio_Industries__/graphics/icons/curved-rail-wood.png",
 	icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
-    minable = {mining_time = 0.5, result = "bi-rail-wood", count = 4},
+    flags = {"placeable-neutral", "player-creation", "building-direction-8-way", "fast-replaceable-no-cross-type-while-moving"},
+    minable = {mining_time = 0.25, result = "bi-rail-wood", count = 4},
     max_health = 120,
     corpse = "curved-rail-remnants-wood",
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 80
+      },
+      {
+        type = "acid",
+        percent = 60
+      }
+    },
     collision_box = {{-0.75, -0.55}, {0.75, 1.6}},
     secondary_collision_box = {{-0.65, -2.43}, {0.65, 2.43}},
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
+	--fast_replaceable_group = "rail",
+	next_upgrade = "curved-rail",
 	pictures = rail_pictures(),
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
@@ -1716,3 +1742,25 @@ my_pole_2.pictures.tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
 data:extend({my_pole_2})
 
 
+---- Rail Replacement Group settings
+if data.raw["straight-rail"]["straight-rail"].fast_replaceable_group then
+
+	data.raw["straight-rail"]["bi-straight-rail-wood"].fast_replaceable_group = data.raw["straight-rail"]["straight-rail"].fast_replaceable_group
+	
+else
+		
+	data.raw["straight-rail"]["straight-rail"].fast_replaceable_group = "rail"
+	data.raw["straight-rail"]["bi-straight-rail-wood"].fast_replaceable_group = "rail"
+		
+end
+
+if data.raw["curved-rail"]["curved-rail"].fast_replaceable_group then
+
+	data.raw["curved-rail"]["bi-curved-rail-wood"].fast_replaceable_group = data.raw["curved-rail"]["curved-rail"].fast_replaceable_group
+	
+else
+		
+	data.raw["curved-rail"]["curved-rail"].fast_replaceable_group = "rail"
+	data.raw["curved-rail"]["bi-curved-rail-wood"].fast_replaceable_group = "rail"
+		
+end

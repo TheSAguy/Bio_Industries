@@ -287,3 +287,33 @@ data:extend({
  
 
 })
+
+--- Dart Rifle
+data:extend(
+{
+  {
+    type = "gun",
+    name = "bi-dart-rifle",
+    icon = "__Bio_Industries__/graphics/icons/bi_dart_rifle_icon.png",
+    icon_size = 32,
+    subgroup = "gun",
+    order = "a[basic-clips]-ab[submachine-gun]",
+    attack_parameters =
+    {
+      type = "projectile",
+      ammo_category = "Bio_Turret_Ammo",
+      cooldown = 5,
+      movement_slow_down_factor = 0.5,
+      --shell_particle = {},
+      projectile_creation_distance = 1.125,
+      range = 17,
+	  sound =
+	  {
+        filename = "__Bio_Industries__/sound/dart-turret.ogg",
+        volume = 0.65
+      },
+    },
+    stack_size = 5
+  },
+}
+)
