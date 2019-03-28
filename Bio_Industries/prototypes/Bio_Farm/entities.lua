@@ -158,8 +158,6 @@ data:extend({
     {
 		{
         production_type = "input",
-        --pipe_picture = bio_farm_pipe_pictures(),	
-        --pipe_covers = bio_farm_pipe_covers_pictures(),
         pipe_picture = assembler3pipepictures(),
         pipe_covers = pipecoverspictures(),
         base_area = 10,
@@ -170,7 +168,6 @@ data:extend({
         production_type = "input",
         pipe_picture = assembler3pipepictures(),
         pipe_covers = pipecoverspictures(),
-		--pipe_covers = bio_farm_pipe_covers_pictures(),
         base_area = 10,
         base_level = -1,
         pipe_connections = {{ type="input", position = {1, -5} }}
@@ -215,7 +212,7 @@ data:extend({
       usage_priority = "primary-input",
 	  drain = "50kW",
 	  --emissions = -0.2, -- the "-" means it eats pollution. Absorbs about 20 PU
-	  emissions_per_second_per_watt = -20 / 100000 -- the "-" means it eats pollution. 
+	  emissions_per_second_per_watt = -15 / 100000 -- the "-" means it eats pollution. 
     },	
 
     energy_usage = "100kW",
@@ -402,7 +399,7 @@ data:extend({
       usage_priority = "primary-input",
 	  drain = "15kW",
 	  --emissions = -0.1, -- the "-" means it eats pollution. Absorbs about 10 PU
-	  emissions_per_second_per_watt = -10 / 50000 -- the "-" means it eats pollution. 
+	  emissions_per_second_per_watt = -8 / 50000 -- the "-" means it eats pollution. 
     },	
 
     energy_usage = "50kW",

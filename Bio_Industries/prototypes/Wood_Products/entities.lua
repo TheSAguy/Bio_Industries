@@ -962,7 +962,7 @@ data:extend({
     selection_box = {{-0.7, -0.8}, {0.7, 0.8}},
     rail_category = "regular",
 	--fast_replaceable_group = "rail",
-	next_upgrade = "straight-rail",
+	--next_upgrade = "straight-rail",
 	pictures = rail_pictures(),
   },
   
@@ -992,7 +992,7 @@ data:extend({
     selection_box = {{-1.7, -0.8}, {1.7, 0.8}},
     rail_category = "regular",
 	--fast_replaceable_group = "rail",
-	next_upgrade = "curved-rail",
+	--next_upgrade = "curved-rail",
 	pictures = rail_pictures(),
 	placeable_by = { item="bi-rail-wood", count = 4}
   },
@@ -1741,7 +1741,7 @@ my_pole_2.supply_area_distance = 3
 my_pole_2.pictures.tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
 data:extend({my_pole_2})
 
-
+--[[
 ---- Rail Replacement Group settings
 if data.raw["straight-rail"]["straight-rail"].fast_replaceable_group then
 
@@ -1764,3 +1764,4 @@ else
 	data.raw["curved-rail"]["bi-curved-rail-wood"].fast_replaceable_group = "rail"
 		
 end
+]]

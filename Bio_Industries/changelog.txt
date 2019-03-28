@@ -1,9 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.11
+Date: 3. 28. 2019
+  Features:
+    - Tweaked Pollution Absorption values for Bio Farm and Garden
+    - New Prototype ammo for Prototype Artillery
+    - Tweaked Prototype Artillery ammo tech requirements
+---------------------------------------------------------------------------------------------------
+Version: 0.17.10
+Date: 3. 26. 2019
+  Bugfix:
+    - Removed the ability to upgrade wooden rail to concrete rail. Was causing issues: https://forums.factorio.com/viewtopic.php?f=25&t=68568&p=417382#p417382
+---------------------------------------------------------------------------------------------------
 Version: 0.17.9
 Date: 3. 20. 2019
   Features:
     - New Huge Substation Graphic - Thx RoyalDraco
-    - New Gun Dart Rifle - Thx thereaverofdarkness
+    - New Gun Dart Rifle
   Bugfix:
     - Wooden Rail can now upgrade to Regular (Concrete) Rail with the Upgrade Planner
 ---------------------------------------------------------------------------------------------------

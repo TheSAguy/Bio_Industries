@@ -14,6 +14,10 @@ if BI.Settings.Bio_Cannon then
 				},
 				{
 					type = "unlock-recipe",
+					recipe = "bi_recipe_bio_cannon_proto_ammo"
+				},
+				{
+					type = "unlock-recipe",
 					recipe = "bi_recipe_bio_cannon_basic_ammo"
 				},
 				{

@@ -85,8 +85,9 @@ if not mods["Natural_Evolution_Buildings"] then
 	thxbob.lib.tech.add_recipe_unlock ("military", "bi_recipe_standard_dart_magazine")
 	thxbob.lib.tech.add_recipe_unlock ("military-2", "bi_recipe_enhanced_dart_magazine")
 	thxbob.lib.tech.add_recipe_unlock ("military-3", "bi_recipe_poison_dart_magazine")
-	
+
 end
+
 require("prototypes.Bio_Turret.technology-updates")
 
 

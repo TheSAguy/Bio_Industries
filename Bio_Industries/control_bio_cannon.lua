@@ -81,7 +81,9 @@ local function Bio_Cannon_Check(Bio_Cannon_List)
 			end
 			
 			--Delay between shots
-			if AmmoType == "bi-bio-cannon-basic-ammo" then 
+			if AmmoType == "bi-bio-cannon-proto-ammo" then 
+				delay = 9
+			elseif AmmoType == "bi-bio-cannon-basic-ammo" then 
 				delay = 10
 			elseif AmmoType == "bi-bio-cannon-poison-ammo" then 
 				delay = 15

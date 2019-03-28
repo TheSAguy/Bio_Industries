@@ -59,7 +59,7 @@ data:extend({
       type = "electric",
       usage_priority = "secondary-input",
       --emissions = -0.35 -- the "-" means it eats pollution. Absorbs about 35 PU
-	  emissions_per_second_per_watt = -40 / 200000
+	  emissions_per_second_per_watt = -30 / 200000
     },
     energy_usage = "200kW",
     ingredient_count = 1,
