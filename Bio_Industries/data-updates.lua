@@ -302,7 +302,7 @@ if BI.Settings.BI_Solar_Additions then
 		
 	else
 
-		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators-1", "bi_recipe_accumulator")
+		thxbob.lib.tech.add_recipe_unlock("electric-energy-accumulators", "bi_recipe_accumulator")
 		thxbob.lib.tech.add_recipe_unlock("electric-energy-distribution-2", "bi_recipe_huge_substation")
 		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_bio_solar_farm")
 		thxbob.lib.tech.add_recipe_unlock("solar-energy", "bi_recipe_solar_boiler_panel")
