@@ -9,3 +9,10 @@ function BI_Functions.lib.allow_productivity(recipe_name)
 		end
 	end
 end
+
+
+function BI_Functions.lib.remove_from_blueprint(check_tile)
+	if data.raw.tile[check_tile] then
+		data.raw.tile[check_tile].can_be_part_of_blueprint = false
+	end
+end

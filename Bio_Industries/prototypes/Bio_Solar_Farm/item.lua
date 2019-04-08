@@ -45,7 +45,7 @@ if BI.Settings.BI_Solar_Additions then
 		},
 		
 		
-			--- Large Substation
+		--- Large Substation
 		{
 			type = "item",
 			name = "bi-large-substation",

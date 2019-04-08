@@ -122,170 +122,170 @@ data.raw.item["wood"].place_as_tile =
 
 --- Make it so that the Base game tile "grass" can't be placed in blueprints
 --- New as of 0.16
-data.raw["tile"]["grass-1"].can_be_part_of_blueprint = false
-data.raw["tile"]["grass-2"].can_be_part_of_blueprint = false
-data.raw["tile"]["grass-3"].can_be_part_of_blueprint = false
-data.raw["tile"]["grass-4"].can_be_part_of_blueprint = false
+BI_Functions.lib.remove_from_blueprint("grass-1")
+BI_Functions.lib.remove_from_blueprint("grass-2")
+BI_Functions.lib.remove_from_blueprint("grass-3")
+BI_Functions.lib.remove_from_blueprint("grass-4")
 
 
 if mods["alien-biomes"] then
 
-	data.raw["tile"]["frozen-snow-0"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-7"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-8"].can_be_part_of_blueprint = false
-	data.raw["tile"]["frozen-snow-9"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-aubergine-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-beige-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-black-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-brown-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-cream-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-dustyrose-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-grey-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-purple-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-red-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-tan-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-violet-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-dirt-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-dirt-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-dirt-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-dirt-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-dirt-5"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-dirt-6"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-sand-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-sand-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["mineral-white-sand-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-blue-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-blue-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-green-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-green-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-green-grass-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-green-grass-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-mauve-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-mauve-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-olive-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-olive-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-orange-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-orange-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-purple-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-purple-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-red-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-red-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-turquoise-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-turquoise-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-violet-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-violet-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-yellow-grass-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["vegetation-yellow-grass-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-blue-heat-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-blue-heat-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-blue-heat-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-blue-heat-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-green-heat-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-green-heat-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-green-heat-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-green-heat-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-orange-heat-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-orange-heat-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-orange-heat-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-orange-heat-4"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-purple-heat-1"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-purple-heat-2"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-purple-heat-3"].can_be_part_of_blueprint = false
-	data.raw["tile"]["volcanic-purple-heat-4"].can_be_part_of_blueprint = false
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-0")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-1")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-2")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-3")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-4")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-5")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-6")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-7")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-8")
+	BI_Functions.lib.remove_from_blueprint("frozen-snow-9")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-aubergine-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-beige-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-black-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-brown-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-cream-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-dustyrose-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-grey-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-purple-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-red-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-tan-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-violet-sand-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-dirt-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-dirt-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-dirt-3")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-dirt-4")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-dirt-5")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-dirt-6")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-sand-1")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-sand-2")
+	BI_Functions.lib.remove_from_blueprint("mineral-white-sand-3")
+	BI_Functions.lib.remove_from_blueprint("vegetation-blue-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-blue-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-green-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-green-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-green-grass-3")
+	BI_Functions.lib.remove_from_blueprint("vegetation-green-grass-4")
+	BI_Functions.lib.remove_from_blueprint("vegetation-mauve-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-mauve-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-olive-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-olive-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-orange-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-orange-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-purple-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-purple-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-red-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-red-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-turquoise-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-turquoise-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-violet-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-violet-grass-2")
+	BI_Functions.lib.remove_from_blueprint("vegetation-yellow-grass-1")
+	BI_Functions.lib.remove_from_blueprint("vegetation-yellow-grass-2")
+	BI_Functions.lib.remove_from_blueprint("volcanic-blue-heat-1")
+	BI_Functions.lib.remove_from_blueprint("volcanic-blue-heat-2")
+	BI_Functions.lib.remove_from_blueprint("volcanic-blue-heat-3")
+	BI_Functions.lib.remove_from_blueprint("volcanic-blue-heat-4")
+	BI_Functions.lib.remove_from_blueprint("volcanic-green-heat-1")
+	BI_Functions.lib.remove_from_blueprint("volcanic-green-heat-2")
+	BI_Functions.lib.remove_from_blueprint("volcanic-green-heat-3")
+	BI_Functions.lib.remove_from_blueprint("volcanic-green-heat-4")
+	BI_Functions.lib.remove_from_blueprint("volcanic-orange-heat-1")
+	BI_Functions.lib.remove_from_blueprint("volcanic-orange-heat-2")
+	BI_Functions.lib.remove_from_blueprint("volcanic-orange-heat-3")
+	BI_Functions.lib.remove_from_blueprint("volcanic-orange-heat-4")
+	BI_Functions.lib.remove_from_blueprint("volcanic-purple-heat-1")
+	BI_Functions.lib.remove_from_blueprint("volcanic-purple-heat-2")
+	BI_Functions.lib.remove_from_blueprint("volcanic-purple-heat-3")
+	BI_Functions.lib.remove_from_blueprint("volcanic-purple-heat-4")
 
 end
 
@@ -533,6 +533,7 @@ if data.raw.item["wooden-board"] and mods["bobelectronics"] then
 	thxbob.lib.tech.add_recipe_unlock("electronics", "bi_recipe_press_wood")
 	
 end
+
 
 if data.raw.item["ash"] and mods["pycoalprocessing"] then
 	-- # grep -E "(name|result)\s*=\s*.bi-ash" -rn *

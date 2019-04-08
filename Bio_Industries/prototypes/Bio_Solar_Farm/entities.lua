@@ -370,7 +370,7 @@ if BI.Settings.BI_Solar_Additions then
   },
   
  
- ------- ------- Hidden Solar Panel for Solar Mat 
+	------- Hidden Solar Panel for Solar Mat 
   {
     type = "solar-panel",
     name = "bi-musk-mat-solar-panel",
@@ -401,7 +401,7 @@ if BI.Settings.BI_Solar_Additions then
   },
   
 
-  ------- ------- Solar Panel for Solar Plant / Boiler 
+ ------- Solar Panel for Solar Plant / Boiler 
   {
     type = "solar-panel",
     name = "bi-solar-boiler-panel-2",

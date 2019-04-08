@@ -240,7 +240,7 @@ data:extend({
 	collision_mask = {},
 	energy_source =
     {
-		type = "electric",
+		type = "void",
 		render_no_network_icon = false,
 		render_no_power_icon = false,
 		usage_priority = "lamp"

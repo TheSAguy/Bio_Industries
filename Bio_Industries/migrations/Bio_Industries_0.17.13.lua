@@ -8,13 +8,14 @@ for index, force in pairs(game.forces) do
 
 
  
-  	if game.technology_prototypes["electric-energy-accumulators"] and technologies["electric-energy-accumulators"].researched then
-	
-	
-		recipes["bi_recipe_accumulator"].enabled = true
-		recipes["bi_recipe_accumulator"].reload()
+  	if game.technology_prototypes["electric-energy-accumulators"] and technologies["electric-energy-accumulators"].researched then	
+		if game.item_prototypes["bi-bio-accumulator"] then
+			
+			
+			recipes["bi_recipe_accumulator"].enabled = true
+			recipes["bi_recipe_accumulator"].reload()
 
-	
+		end
 	end
 	
 

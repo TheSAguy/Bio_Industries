@@ -1469,7 +1469,7 @@ data:extend({
     icon = "__Bio_Industries__/graphics/icons/wood_pipe.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-wood-pipe"},
+    minable = {mining_time = 0.075, result = "bi-wood-pipe"},
     max_health = 100,
     corpse = "small-remnants",
     resistances =
@@ -1523,7 +1523,7 @@ data:extend({
     icon = "__Bio_Industries__/graphics/icons/pipe-to-ground-wood.png",
 	icon_size = 32,
     flags = {"placeable-neutral", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.5, result = "bi-pipe-to-ground-wood"},
+    minable = {mining_time = 0.075, result = "bi-pipe-to-ground-wood"},
     max_health = 150,
     corpse = "small-remnants",
     resistances =

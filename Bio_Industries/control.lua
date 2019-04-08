@@ -53,15 +53,6 @@ local function On_Init()
 		global.Arboretum_Table = {}
 	end
 
-	-- Global Prospect Chance
-	if global.prospect_chance == nil  then
-		global.prospect_chance = 0
-	end
-	
-	-- Global Prospect Richness
-	if global.prospect_richness == nil or global.prospect_richness == 0 then
-		global.prospect_richness = 1
-	end
 	
 	--- FARL Power rail compatibility
 	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
@@ -79,26 +70,6 @@ local function On_Init()
 	
 end
 
-
---------------------------------------------------------------------
-local function regenerate_entity(ore)
-  if game.entity_prototypes[ore] and game.entity_prototypes[ore].autoplace_specification then
-    game.regenerate_entity(ore)
-  end
-end
-
-remote.add_interface("Bio_Industries",
-{
-  Regenerate = function()
-  
-    regenerate_entity("bi-ground-water")
-	--regenerate_entity("ground-water")
-	
-    for i, player in ipairs(game.players) do
-      player.print("Bio Industries: All ores successfully regenerated!")
-    end
-  end
-})
 
 
 --------------------------------------------------------------------			 
@@ -164,16 +135,6 @@ local function On_Config_Change()
 	end
 
 	
-	-- Global Prospect Chance
-	if global.prospect_chance == nil then
-		global.prospect_chance = 0
-	end
-	
-	-- Global Prospect Richness
-	if global.prospect_richness == nil or global.prospect_richness == 0 then
-		global.prospect_richness = 1
-	end
-
 	--- FARL Power rail compatibility
 	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
 		remote.call("farl", "add_entity_to_trigger", "bi-straight-rail-power")
@@ -914,41 +875,6 @@ local function Robot_Tile_Remove(event)
    end
 --------------------------------------------------------------------
 
---------------------------------------------
---[[
-Event.register(defines.events.on_tick, function(event)	
-
-
-	if game.tick % 60 == 0  then
-
-		writeDebug("prospect_chance: " .. global.prospect_chance)
-		global.prospect_chance = global.prospect_chance + 1
-		writeDebug("prospect_richness: " .. global.prospect_richness)
-
-	end
-	
-
-end)
-]]
-
-
----------------------------------------------
-script.on_event(defines.events.on_research_finished, function(event)
-
-	local research = event.research.name
-
-	if research == "bi-tech-bio-inf-prospecting-1" then
-
-	global.prospect_chance = global.prospect_chance + 1
-	global.prospect_richness = global.prospect_richness * 1.05
-	
-		
-		writeDebug("prospect_chance: " .. global.prospect_chance)
-		writeDebug("prospect_richness: " .. global.prospect_richness)
-	end
-	
-  
-end)
 
 
 script.on_load(On_Load)

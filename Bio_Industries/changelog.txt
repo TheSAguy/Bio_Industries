@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.14
+Date: 4. 8. 2019
+  Features:
+    - Tweaked Dart Turret collision mask
+    - Tweaked Wooden Pipe mining speeds
+    - Tweaked Fuel Values - Please QC
+    - Ash compatible with Pymods - Thx Mithaldu
+  Bugfix:
+    - Fixed potential Migration Script crash
+---------------------------------------------------------------------------------------------------
 Version: 0.17.13
 Date: 4. 1. 2019
   Bugfix:
