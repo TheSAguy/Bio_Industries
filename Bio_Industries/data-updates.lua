@@ -534,6 +534,47 @@ if data.raw.item["wooden-board"] and mods["bobelectronics"] then
 	
 end
 
+if data.raw.item["ash"] and mods["pycoalprocessing"] then
+	-- # grep -E "(name|result)\s*=\s*.bi-ash" -rn *
+
+	-- Bio_Farm/compatible_recipes.lua:30:                  {type="item", name="bi-ash", amount=10}
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_2", "bi-ash", "ash")
+
+	-- Bio_Farm/compatible_recipes.lua:201:                         {type="item", name="bi-ash", amount=40},
+	if mods["angelsrefining"] then
+		thxbob.lib.recipe.replace_ingredient ("bi_recipe_slag_slurry", "bi-ash", "ash")
+	end
+
+	-- Bio_Farm/item.lua:105:               name = "bi-ash",
+	data.raw.item["bi-ash"] = nil
+
+	-- Bio_Farm/recipe.lua:42:                      {type="item", name="bi-ash", amount=10},
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_seed_2", "bi-ash", "ash")
+	-- Bio_Farm/recipe.lua:144:               {type="item", name="bi-ash", amount=10},
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_seedling_mk2", "bi-ash", "ash")
+	-- Bio_Farm/recipe.lua:251:               {type="item", name="bi-ash", amount=10},
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_logs_mk2", "bi-ash", "ash")
+
+	-- Bio_Farm/recipe.lua:451:             result = "bi-ash",
+	data.raw.recipe["bi_recipe_ash_1"].result = "ash"
+	-- Bio_Farm/recipe.lua:471:             result = "bi-ash",
+	data.raw.recipe["bi_recipe_ash_2"].result = "ash"
+
+	-- Bio_Farm/recipe.lua:609:               {type="item", name="bi-ash", amount=2},
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_stone_brick", "bi-ash", "ash")
+	-- Bio_Farm/recipe.lua:746:                     {type="item", name="bi-ash", amount=10}
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_1", "bi-ash", "ash")
+
+	if BI.Settings.BI_Bio_Fuel then
+		-- Bio_Fuel/recipe.lua:209:                             {type="item", name="bi-ash", amount=10},
+		thxbob.lib.recipe.replace_ingredient ("bi_recipe_biomass_2", "bi-ash", "ash")
+		-- Bio_Fuel/recipe.lua:401:                             {type="item", name="bi-ash", amount=10},
+		thxbob.lib.recipe.replace_ingredient ("bi_recipe_sulfur", "bi-ash", "ash")
+		-- Bio_Fuel/recipe.lua:425:                             {type="item", name="bi-ash", amount=10},
+		thxbob.lib.recipe.replace_ingredient ("bi_recipe_sulfur_angels", "bi-ash", "ash")
+	end
+
+end
 
 
 --- Enanble Productivity in Recipies
