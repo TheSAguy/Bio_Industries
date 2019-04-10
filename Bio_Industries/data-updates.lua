@@ -531,6 +531,11 @@ if data.raw.item["wooden-board"] and mods["bobelectronics"] then
 	})
 	
 	thxbob.lib.tech.add_recipe_unlock("electronics", "bi_recipe_press_wood")
+
+	if mods["ShinyBobGFX"] then
+		data.raw["recipe"]["bi_recipe_press_wood"].icon = "__Bio_Industries__/graphics/icons/bi_wooden_board_shiny.png"
+	end
+	
 	
 end
 
@@ -545,9 +550,6 @@ if data.raw.item["ash"] and mods["pycoalprocessing"] then
 	if mods["angelsrefining"] then
 		thxbob.lib.recipe.replace_ingredient ("bi_recipe_slag_slurry", "bi-ash", "ash")
 	end
-
-	-- Bio_Farm/item.lua:105:               name = "bi-ash",
-	data.raw.item["bi-ash"] = nil
 
 	-- Bio_Farm/recipe.lua:42:                      {type="item", name="bi-ash", amount=10},
 	thxbob.lib.recipe.replace_ingredient ("bi_recipe_seed_2", "bi-ash", "ash")
@@ -575,6 +577,11 @@ if data.raw.item["ash"] and mods["pycoalprocessing"] then
 		thxbob.lib.recipe.replace_ingredient ("bi_recipe_sulfur_angels", "bi-ash", "ash")
 	end
 
+	-- Bio_Farm/item.lua:105:               name = "bi-ash",
+	data.raw.item["bi-ash"] = nil
+	data.raw.recipe["bi_recipe_ash_1"].icon = "__pycoalprocessing__/graphics/icons/ash.png"
+	data.raw.recipe["bi_recipe_ash_2"].icon = "__pycoalprocessing__/graphics/icons/ash.png"
+	
 end
 
 

@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.15
+Date: 4. 10. 2019
+  Features:
+    - Tweaked Recipes slightly to be more in alignment with fuel values
+    - Ash icon update if you're using Pymods
+    - Wooden board icon update if you're using ShinyBob
+    - Added a fuel chart in mod folder and here: https://imgur.com/WXTpLAw
+---------------------------------------------------------------------------------------------------
 Version: 0.17.14
 Date: 4. 8. 2019
   Features:
@@ -6,6 +14,7 @@ Date: 4. 8. 2019
     - Tweaked Wooden Pipe mining speeds
     - Tweaked Fuel Values - Please QC
     - Ash compatible with Pymods - Thx Mithaldu
+    - Dependancy changed to Factorio 0.17.23
   Bugfix:
     - Fixed potential Migration Script crash
 ---------------------------------------------------------------------------------------------------

@@ -96,13 +96,13 @@ data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed
  -- Pellet-Coke from Carbon - Bobs & Angels
 if data.raw.item["solid-carbon"] and mods["angelspetrochem"] then
 	
-	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="solid-carbon", amount=8})
+	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="solid-carbon", amount=10})
 	data.raw.recipe["bi_recipe_pellete_coal_2"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_a.png"
 	thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
 	
 elseif data.raw.item["carbon"] and mods["bobplates"] then
 
-	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="carbon", amount=8})
+	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="carbon", amount=10})
 	data.raw.recipe["bi_recipe_pellete_coal_2"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_b.png"
 	thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
 		

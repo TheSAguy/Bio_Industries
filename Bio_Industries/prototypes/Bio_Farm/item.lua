@@ -11,6 +11,7 @@ data:extend(
 		order = "x[bi]-a[bi-seed]",
 		fuel_value = "0.5MJ",
 		fuel_category = "chemical",
+		fuel_emissions_multiplier = 1.25,
 		stack_size= 800
 	},
 
@@ -24,8 +25,9 @@ data:extend(
 		subgroup = "bio-bio-farm",
 		order = "x[bi]-b[bi-seedling]",
 		place_result="seedling",
-		fuel_value = "1MJ",
+		fuel_value = "0.5MJ",
 		fuel_category = "chemical",
+		fuel_emissions_multiplier = 1.25,
 		stack_size= 400
 	},
 
