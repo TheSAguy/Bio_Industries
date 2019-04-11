@@ -13,9 +13,9 @@ if BI.Settings.BI_Game_Tweaks_Recipe then
 	--- Concrete Recipe Tweak
 	thxbob.lib.recipe.remove_ingredient ("concrete", "iron-ore")
 	thxbob.lib.recipe.add_new_ingredient ("concrete", {type="item", name="iron-stick", amount=2})
+	
 	--- Stone Wall
 	thxbob.lib.recipe.add_new_ingredient ("stone-wall", {type="item", name="iron-stick", amount=1})
-
 
 	--- Rail (Remove Stone and Add Crushed Stone)
 	if data.raw.item["stone-crushed"] then

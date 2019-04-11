@@ -64,7 +64,7 @@ if not data.raw.item["resin"] then
 			icon = "__Bio_Industries__/graphics/icons/bi_resin_wood.png",
 			icon_size = 32,
 			subgroup = "bio-bio-farm-raw",
-			order = "a[bi]-a-b[bi-resin2]",
+			order = "a[bi]-a-ab[bi-resin2]",
 			enabled = false,
 			allow_as_intermediate = false,
 			energy_required = 1,
@@ -123,91 +123,92 @@ elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] then
 end	
 
 
---- Add Water purification recipes if bob's or Angels
-if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] and data.raw.recipe["bi_recipe_fresh_water_2"] then
-
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_fresh_water_2", "liquid-air", "gas-compressed-air")
-	thxbob.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="solid-sodium-hydroxide", amount=5})
-
-elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] and data.raw.recipe["bi_recipe_fresh_water_2"] then
-
-	thxbob.lib.recipe.add_result ("bi_recipe_fresh_water_2", {type="item", name="sodium-hydroxide", amount=5})
-	
-end	
-
 -- If Angels, replace nitrogen with gas-nitrogen
-if data.raw.item["gas-nitrogen"] and mods["angelspetrochem"] then
+if data.raw.fluid["gas-nitrogen"] and mods["angelspetrochem"] then
 
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_nitrogen", "nitrogen", "gas-nitrogen")
+	thxbob.lib.recipe.remove_result("bi_recipe_nitrogen", "nitrogen")
+	thxbob.lib.recipe.add_result("bi_recipe_nitrogen", {type = "fluid", name = "gas-nitrogen", amount = 20})
 
 end
 
 -- If Angels, replace liquid-air with gas-compressed-air
-if data.raw.item["gas-nitrogen"] and mods["angelspetrochem"] then
+if data.raw.fluid["gas-compressed-air"] and mods["angelspetrochem"] then
 
-	thxbob.lib.recipe.replace_ingredient("bi_recipe_liquid_air", "liquid-air", "gas-compressed-air")
+	thxbob.lib.recipe.remove_result("bi_recipe_liquid_air", "liquid-air")
+	thxbob.lib.recipe.add_result("bi_recipe_liquid_air", {type = "fluid", name = "gas-compressed-air", amount = 10})
 
+end
+
+-- If Angels, replace water with water-yellow-waste
+if data.raw.fluid["water-yellow-waste"] and mods["angelspetrochem"] then
+
+	thxbob.lib.recipe.remove_result("bi_recipe_biomass_conversion_4", "water")
+	thxbob.lib.recipe.add_result("bi_recipe_biomass_conversion_4", {type = "fluid", name = "water-yellow-waste", amount = 40})
+	
+	
 end
 
 
 --- Make Bio Farm use glass if Bob's
 if data.raw.item.glass  then
+
 	thxbob.lib.recipe.replace_ingredient("bi_recipe_bio_farm", "copper-cable", "glass")
+	
 end
 
 
 --- Adding in some recipe's to use up Wood Pulp (Ash and Charcoal) and Crushed Stone
 if mods["angelsrefining"] then 
 
-data:extend({
-	
-		-- Charcoal and Crushed Stone Sink
-		{
-			type = "recipe",
-			name = "bi_recipe_mineralized_sulfuric_waste",
-			icon = "__Bio_Industries__/graphics/icons/bi_mineralized_sulfuric.png",
-			icon_size = 32,
-			category = "liquifying",
-			subgroup = "water-treatment",
-			energy_required = 2,	
-			ingredients =
+	data:extend({
+		
+			-- Charcoal and Crushed Stone Sink
 			{
-				{type="fluid", name="water-purified", amount=100},
-				{type="item", name="stone-crushed", amount=90},
-				{type="item", name="bi-charcoal", amount=30},
+				type = "recipe",
+				name = "bi_recipe_mineralized_sulfuric_waste",
+				icon = "__Bio_Industries__/graphics/icons/bi_mineralized_sulfuric.png",
+				icon_size = 32,
+				category = "liquifying",
+				subgroup = "water-treatment",
+				energy_required = 2,	
+				ingredients =
+				{
+					{type="fluid", name="water-purified", amount=100},
+					{type="item", name="stone-crushed", amount=90},
+					{type="item", name="bi-charcoal", amount=30},
+				},
+				results=
+				{
+					{type="fluid", name="water-yellow-waste", amount=40},
+					{type="fluid", name="water-mineralized", amount=60},
+				},
+				enabled = false,
+				order = "a[water-water-mineralized]-2",
 			},
-			results=
-			{
-				{type="fluid", name="water-yellow-waste", amount=40},
-				{type="fluid", name="water-mineralized", amount=60},
-			},
-			enabled = false,
-			order = "a[water-water-mineralized]-2",
-		},
 
-		-- Ash and Crushed Stone Sink
-		{
-			type = "recipe",
-			name = "bi_recipe_slag_slurry",
-			icon = "__Bio_Industries__/graphics/icons/bi_slurry.png",
-			icon_size = 32,
-			category = "liquifying",
-			subgroup = "liquifying",
-			energy_required = 4,	
-			ingredients =
+			-- Ash and Crushed Stone Sink
 			{
-				{type="fluid", name="water-saline", amount=50},
-				{type="item", name="stone-crushed", amount=90},
-				{type="item", name="bi-ash", amount=40},
+				type = "recipe",
+				name = "bi_recipe_slag_slurry",
+				icon = "__Bio_Industries__/graphics/icons/bi_slurry.png",
+				icon_size = 32,
+				category = "liquifying",
+				subgroup = "liquifying",
+				energy_required = 4,	
+				ingredients =
+				{
+					{type="fluid", name="water-saline", amount=50},
+					{type="item", name="stone-crushed", amount=90},
+					{type="item", name="bi-ash", amount=40},
+				},
+				results=
+				{
+					{type="fluid", name="slag-slurry", amount=100},
+				},
+				enabled = false,
+				order = "i [slag-processing-dissolution]-2",
 			},
-			results=
-			{
-				{type="fluid", name="slag-slurry", amount=100},
-			},
-			enabled = false,
-			order = "i [slag-processing-dissolution]-2",
-		},
-	})
+		})
 
 	thxbob.lib.tech.add_recipe_unlock("water-treatment", "bi_recipe_mineralized_sulfuric_waste")
 	thxbob.lib.tech.add_recipe_unlock("slag-processing-1", "bi_recipe_slag_slurry")

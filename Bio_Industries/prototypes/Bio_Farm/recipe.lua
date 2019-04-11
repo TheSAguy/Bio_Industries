@@ -410,14 +410,14 @@ data:extend({
 		result_count = 4,
 	}, 
 
- 	--- Resin recipe  Pulp
+ 	--- Resin recipe Pulp
 	{
 		type = "recipe",
 		name = "bi_recipe_resin_pulp",
 		icon = "__Bio_Industries__/graphics/icons/bi_resin_pulp.png",
 		icon_size = 32,
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-b[bi-resin]",
+		order = "a[bi]-a-aa[bi-resin]",
 		enabled = false,
 		always_show_made_in = true,
 		allow_decomposition = false,
@@ -441,7 +441,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-b[bi-ash]",
+		order = "a[bi]-a-cb[bi-ash]",
 		enabled = false,
 		always_show_made_in = true,
 		allow_decomposition = false,
@@ -461,7 +461,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-b[bi-ash2]",
+		order = "a[bi]-a-ca[bi-ash2]",
 		enabled = false,
 		always_show_made_in = true,
 		allow_decomposition = false,
@@ -480,7 +480,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/charcoal_woodpulp.png",
 		icon_size = 32,
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-c[charcoal1]",
+		order = "a[bi]-a-d[charcoal1]",
 		category = "biofarm-mod-smelting",
 		energy_required = 15,
 		ingredients = {{"bi-woodpulp",24}},
@@ -500,7 +500,7 @@ data:extend({
 		icon = "__Bio_Industries__/graphics/icons/charcoal_raw-wood.png",
 		icon_size = 32,
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-c[charcoal2]",
+		order = "a[bi]-a-d[charcoal2]",
 		category = "biofarm-mod-smelting",
 		energy_required = 20,
 		ingredients = {{"wood",20}},
@@ -521,7 +521,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-d[bi-coal]",
+		order = "a[bi]-a-ea[bi-coal]",
 		energy_required = 20,
 		ingredients = {{"bi-charcoal",10}},
 		result = "coal",
@@ -541,7 +541,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-e[bi-coal2]",
+		order = "a[bi]-a-eb[bi-coal2]",
 		energy_required = 20,
 		ingredients = {{"bi-charcoal",10}},
 		result = "coal",
@@ -561,7 +561,7 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-e[bi-coke-coal]-1",
+		order = "a[bi]-a-f[bi-coke-coal]-1",
 		energy_required = 20,
 		ingredients = {{"coal",10}},
 		result = "pellet-coke",
@@ -707,7 +707,7 @@ data:extend({
 	},
 
 
-	-- -NITROGEN --
+	---NITROGEN --
 	{
 		type = "recipe",
 		name = "bi_recipe_nitrogen",

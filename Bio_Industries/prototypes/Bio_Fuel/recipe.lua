@@ -323,7 +323,39 @@ if BI.Settings.BI_Bio_Fuel then
 		order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-3]",
 	  },
 
+		---- Biomass to Crude
+	  {
+		type = "recipe",
+		name = "bi_recipe_biomass_conversion_4",
+		icon = "__Bio_Industries__/graphics/icons/bio_conversion_4.png",
+		icon_size = 32,	
+		category = "oil-processing",
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		energy_required = 10,
+		ingredients =
+		{
+			{type="item", name="coal", amount=20},
+			{type="fluid", name="bi-biomass", amount=10},
+			{type="fluid", name="steam", amount=50}
+		},
+		results=
+		{
+			{type="fluid", name="crude-oil", amount=50},
+			{type="fluid", name="water", amount=50},
+		},   
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.000, g = 0.260, b = 0.010, a = 0.000}, -- #00420200
+		  secondary = {r = 0.071, g = 0.640, b = 0.000, a = 0.000}, -- #12a30000
+		  tertiary = {r = 0.026, g = 0.520, b = 0.000, a = 0.000}, -- #06840000
+		},
+		subgroup = "bio-bio-fuel-other",
+		order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-4]",
+	  },
 
+	  
 	  --- Bio Battery 	
 		{
 			type = "recipe",

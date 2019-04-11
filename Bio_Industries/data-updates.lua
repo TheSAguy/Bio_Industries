@@ -89,12 +89,13 @@ if not mods["Natural_Evolution_Buildings"] then
 end
 
 require("prototypes.Bio_Turret.technology-updates")
-
-
 require("prototypes.Bio_Cannon.technology-updates")
+
 if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
+
 	-- add Prototype Artillery as pre req for artillery
 	thxbob.lib.tech.add_prerequisite("artillery", "bi_tech_bio_cannon")
+	
 end
 
 --- Move Stone Crusher up in tech tree
@@ -344,6 +345,7 @@ if BI.Settings.BI_Solar_Additions then
 		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_huge_substation", {type = "item", name = "substation-3", amount = 6})
 		
 	end
+	
 	if data.raw.item["electrum-alloy"] then
 	
 		thxbob.lib.recipe.remove_ingredient ("bi_recipe_huge_substation", "steel-plate")
@@ -358,6 +360,7 @@ if BI.Settings.BI_Solar_Additions then
 		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_accumulator", {type = "item", name = "large-accumulator", amount = 30})
 		
 	end
+	
 	if data.raw.item["aluminium-plate"] then
 	
 		thxbob.lib.recipe.remove_ingredient ("bi_recipe_accumulator", "copper-cable")
@@ -372,6 +375,7 @@ if BI.Settings.BI_Solar_Additions then
 		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_solar_mat", {type = "item", name = "aluminium-plate", amount = 1})
 		
 	end
+	
 	if data.raw.item["silicon-wafer"] then
 	
 		thxbob.lib.recipe.remove_ingredient ("bi_recipe_solar_mat", "copper-cable")
@@ -386,12 +390,15 @@ if BI.Settings.BI_Solar_Additions then
 		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_solar_boiler_panel", {type = "item", name = "angels-electric-boiler", amount = 1})
 		
 	end
+	
 end
 
 
 
 require("prototypes.Bio_Farm.compatible_recipes") -- Bob and Angels mesh
 require("prototypes.Bio_Farm.technology2")
+
+
 if BI.Settings.BI_Bio_Fuel or mods["Natural_Evolution_Buildings"] then
 
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_clean_air_2")
@@ -411,6 +418,7 @@ if BI.Settings.BI_Bio_Fuel then
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_conversion_1")	
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_conversion_2")
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_conversion_3")
+	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_biomass_conversion_4")
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_acid")	
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_advanced_biotechnology", "bi_recipe_boiler")
 
@@ -618,6 +626,7 @@ BI_Functions.lib.allow_productivity("bi_recipe_biomass_3")
 BI_Functions.lib.allow_productivity("bi_recipe_biomass_conversion_1")
 BI_Functions.lib.allow_productivity("bi_recipe_biomass_conversion_2")
 BI_Functions.lib.allow_productivity("bi_recipe_biomass_conversion_3")
+BI_Functions.lib.allow_productivity("bi_recipe_biomass_conversion_4")
 
 BI_Functions.lib.allow_productivity("bi_recipe_battery")
 BI_Functions.lib.allow_productivity("bi_recipe_acid")
