@@ -100,7 +100,7 @@ data:extend(
 		name = "bi-ash",
 		icon = "__Bio_Industries__/graphics/icons/ash.png",
 		icon_size = 32,
-		fuel_value = "2MJ",
+		fuel_value = "1MJ",
 		fuel_category = "chemical",
 		fuel_emissions_multiplier = 1.1,
 		subgroup = "raw-material",

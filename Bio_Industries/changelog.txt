@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.17
+Date: 4. 15. 2019
+  Features:
+    - Reduced Ash fuel value 2MJ -> 1MJ
+    - Moved Crushed Stone from Bio Nursery to Bio Farm
+    - Moved Stone Brick from Bio Farm to Bio Nursery
+    - Updated Solar Farm Recipe if Bob's Power is used
+    - Deleted some Recipe descriptions that were not needed
+---------------------------------------------------------------------------------------------------
 Version: 0.17.16
 Date: 4. 11. 2019
   Features:

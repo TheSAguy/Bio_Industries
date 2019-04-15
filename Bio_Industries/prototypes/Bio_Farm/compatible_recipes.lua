@@ -124,12 +124,16 @@ end
 
 
 -- If Angels, replace nitrogen with gas-nitrogen
-if data.raw.fluid["gas-nitrogen"] and mods["angelspetrochem"] then
+if data.raw.fluid["gas-nitrogen"] and data.raw.fluid["gas-compressed-air"] and mods["angelspetrochem"] then
 
+	thxbob.lib.recipe.remove_ingredient ("bi_recipe_nitrogen", "liquid-air")
+	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_nitrogen", {type = "fluid", name = "gas-compressed-air", amount = 20})
+		
 	thxbob.lib.recipe.remove_result("bi_recipe_nitrogen", "nitrogen")
 	thxbob.lib.recipe.add_result("bi_recipe_nitrogen", {type = "fluid", name = "gas-nitrogen", amount = 20})
 
 end
+
 
 -- If Angels, replace liquid-air with gas-compressed-air
 if data.raw.fluid["gas-compressed-air"] and mods["angelspetrochem"] then

@@ -331,10 +331,10 @@ if BI.Settings.BI_Solar_Additions then
 	end
 
 	-- Solar Farm
-	if data.raw.item["solar-panel-large-2"] then
+	if data.raw.item["solar-panel-large"] then
 	
 		thxbob.lib.recipe.remove_ingredient ("bi_recipe_bio_solar_farm", "solar-panel")
-		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_bio_solar_farm", {type = "item", name = "solar-panel-large-2", amount = 20})
+		thxbob.lib.recipe.add_new_ingredient ("bi_recipe_bio_solar_farm", {type = "item", name = "solar-panel-large", amount = 30})
 		
 	end
 

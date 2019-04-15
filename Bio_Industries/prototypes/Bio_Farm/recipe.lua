@@ -331,7 +331,7 @@ data:extend({
 			ingredients = 
 			{
 			  {"iron-stick",10},
-			  {"stone-crushed",10},
+			  {"stone-brick",10},
 			  {"small-lamp",5},
 			},
 		  result = "bi-bio-greenhouse",
@@ -344,7 +344,7 @@ data:extend({
 			ingredients = 
 			{
 			  {"iron-stick",15},
-			  {"stone-crushed",15},
+			  {"stone-brick",15},
 			  {"small-lamp",5},
 			},
 		  result = "bi-bio-greenhouse",
@@ -368,8 +368,8 @@ data:extend({
 			ingredients = 
 			{
 			  {"bi-bio-greenhouse",4},
+			  {"stone-crushed",10},
 			  {"copper-cable",10},
-			  {"stone-brick",10},
 			},
 		  result = "bi-bio-farm",
 		  result_count = 1,
@@ -381,8 +381,8 @@ data:extend({
 			ingredients = 
 			{
 			  {"bi-bio-greenhouse",8},
-			  {"copper-cable",20},
-			  {"stone-brick",20},
+			  {"stone-crushed",20},
+			  {"copper-cable",20},			  
 			},
 		  result = "bi-bio-farm",
 		  result_count = 1,
