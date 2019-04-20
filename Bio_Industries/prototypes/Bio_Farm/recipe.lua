@@ -725,7 +725,7 @@ data:extend({
 		always_show_made_in = true,
 		allow_decomposition = false,
 		allow_as_intermediate = false,
-		main_product= "nitrogen",
+		--main_product= "nitrogen",
 		subgroup = "bio-bio-farm-intermediate-product",
 		order = "ab",
 	},

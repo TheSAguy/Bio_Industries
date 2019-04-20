@@ -7,6 +7,8 @@ Date: 4. 15. 2019
     - Moved Stone Brick from Bio Farm to Bio Nursery
     - Updated Solar Farm Recipe if Bob's Power is used
     - Deleted some Recipe descriptions that were not needed
+  Bugfix:
+    - Fixed potential crash is you're using Angels and not Bob - nitrogen
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.16
 Date: 4. 11. 2019

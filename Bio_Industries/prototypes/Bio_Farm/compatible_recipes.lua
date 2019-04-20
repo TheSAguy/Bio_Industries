@@ -112,7 +112,9 @@ end
 if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] then
 
 	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="solid-sodium-hydroxide", amount=10})
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_2", "cnitrogen", "gas-nitrogen")	
 	data.raw.recipe["bi_recipe_fertiliser_2"].icon = "__Bio_Industries__/graphics/icons/fertiliser_solid_sodium_hydroxide.png"
+	
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
 
 elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] then
