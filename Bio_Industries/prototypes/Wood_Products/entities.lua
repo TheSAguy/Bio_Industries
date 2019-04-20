@@ -445,7 +445,7 @@ data:extend({
 		}
 	  },
 	  map_color={r=139, g=115, b=85},
-	  ageing=0,
+	  pollution_absorption_per_second = 0,
 	  vehicle_friction_modifier = dirt_vehicle_speed_modifer
 	},
 	

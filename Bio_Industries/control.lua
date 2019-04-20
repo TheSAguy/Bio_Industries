@@ -450,18 +450,7 @@ local function On_Remove(event)
 			global.bi_bio_farm_table[entity.unit_number] = nil
 		end	
 
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-        ungroup_entities(pos_hash)
+
 	end
 		
 			
@@ -474,20 +463,7 @@ local function On_Remove(event)
 			global.bi_solar_farm_table[entity.unit_number] = nil
 		end
 		
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-		local entity_group = getGroup_entities(pos_hash)
 
-		if entity_group then
-			for ix, vx in ipairs(entity_group) do
-				if vx == entity then
-					--vx.destroy()
-				else
-					vx.destroy()
-				end
-			end
-		end
-		
-		ungroup_entities(pos_hash)
 					
 	end
 
@@ -502,20 +478,7 @@ local function On_Remove(event)
 			global.bi_solar_boiler_table[entity.unit_number] = nil
 		end
 		
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-		local entity_group = getGroup_entities(pos_hash)
 
-		if entity_group then
-			for ix, vx in ipairs(entity_group) do
-				if vx == entity then
-					--vx.destroy()
-				else
-					vx.destroy()
-				end
-			end
-		end
-		
-		ungroup_entities(pos_hash)
 			
 	end
 			
@@ -529,19 +492,7 @@ local function On_Remove(event)
 			global.bi_power_rail_table[entity.unit_number] = nil
 		end
 			
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-		
-        ungroup_entities(pos_hash)
+
 		
 	end
 
@@ -592,19 +543,7 @@ local function On_Death(event)
 			global.bi_bio_farm_table[entity.unit_number] = nil
 		end	
 
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-		
-        ungroup_entities(pos_hash)
+
 		
 	end
 
@@ -618,20 +557,7 @@ local function On_Death(event)
 			global.bi_solar_farm_table[entity.unit_number] = nil
 		end
 		
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-		local entity_group = getGroup_entities(pos_hash)
 
-		if entity_group then
-			for ix, vx in ipairs(entity_group) do
-				if vx == entity then
-					--vx.destroy()
-				else
-					vx.destroy()
-				end
-			end
-		end
-		
-		ungroup_entities(pos_hash)
 		
 	end
 
@@ -646,20 +572,7 @@ local function On_Death(event)
 			global.bi_solar_boiler_table[entity.unit_number] = nil
 		end
 		
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-		local entity_group = getGroup_entities(pos_hash)
 
-		if entity_group then
-			for ix, vx in ipairs(entity_group) do
-				if vx == entity then
-					--vx.destroy()
-				else
-					vx.destroy()
-				end
-			end
-		end
-		
-		ungroup_entities(pos_hash)
 			
 	end
 	
@@ -673,19 +586,7 @@ local function On_Death(event)
 			global.bi_power_rail_table[entity.unit_number] = nil
 		end
 			
-		local pos_hash = cantor(entity.position.x,entity.position.y)
-        local entity_group = getGroup_entities(pos_hash)
-        if entity_group then
-            for ix, vx in ipairs(entity_group) do
-                if vx == entity then
-                    --vx.destroy()
-                else
-                    vx.destroy()
-                end
-            end
-        end
-		
-        ungroup_entities(pos_hash)
+
 		
 	end
 	

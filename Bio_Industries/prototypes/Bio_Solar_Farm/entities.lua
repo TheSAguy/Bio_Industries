@@ -279,7 +279,7 @@ if BI.Settings.BI_Solar_Additions then
 		}
 	  },
 	  map_color={r=93, g=138, b=168},
-	  ageing=0,
+	  pollution_absorption_per_second = 0,
 	  vehicle_friction_modifier = dirt_vehicle_speed_modifer
 	},
 	
