@@ -60,33 +60,35 @@ end
 ---- Game Tweaks ---- Player
 if BI.Settings.BI_Game_Tweaks_Player then	
 	
+	local chr = data.raw.character.character
+	
 	--- Loot Picup	
-	if data.raw.player.player.loot_pickup_distance < 5 then
-		data.raw.player.player.loot_pickup_distance = 5 -- default 2
+	if chr.loot_pickup_distance < 5 then
+		chr.loot_pickup_distance = 5 -- default 2
 	end	
 
-	if data.raw.player.player.build_distance < 20 then -- Vanilla 6
-		data.raw.player.player.build_distance = 20
+	if chr.build_distance < 20 then -- Vanilla 6
+		chr.build_distance = 20
 	end
 	
-	if data.raw.player.player.drop_item_distance < 20 then -- Vanilla 6
-		data.raw.player.player.drop_item_distance = 20
+	if chr.drop_item_distance < 20 then -- Vanilla 6
+		chr.drop_item_distance = 20
 	end
 	
-	if data.raw.player.player.reach_distance < 20 then -- Vanilla 6
-		data.raw.player.player.reach_distance = 20
+	if chr.reach_distance < 20 then -- Vanilla 6
+		chr.reach_distance = 20
 	end
 
-	if data.raw.player.player.item_pickup_distance < 6 then -- Vanilla 1
-		data.raw.player.player.item_pickup_distance = 6
+	if chr.item_pickup_distance < 6 then -- Vanilla 1
+		chr.item_pickup_distance = 6
 	end
 	
-	if data.raw.player.player.reach_resource_distance <  6 then -- Vanilla 2.7
-		data.raw.player.player.reach_resource_distance = 6
+	if chr.reach_resource_distance <  6 then -- Vanilla 2.7
+		chr.reach_resource_distance = 6
 	end
 		
-	if data.raw.player.player.resource_reach_distance and data.raw.player.player.resource_reach_distance <  6 then -- Vanilla 2.7
-		data.raw.player.player.resource_reach_distance = 6
+	if chr.resource_reach_distance and chr.resource_reach_distance <  6 then -- Vanilla 2.7
+		chr.resource_reach_distance = 6
 	end
 
 end	
