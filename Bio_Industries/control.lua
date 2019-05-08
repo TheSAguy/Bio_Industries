@@ -1,4 +1,4 @@
---Bio_Industries Version   0.17.17
+--Bio_Industries Version   0.17.19
 
 local QC_Mod = false
 require ("util")
@@ -320,8 +320,7 @@ local function On_Built(event)
 
 		New_Bio_Cannon.health = event.created_entity.health
 		
-		-- Remove the "Overlay" Entity
-		event.created_entity.destroy()
+
 	
 		
 		New_Bio_CannonR.operable = false
@@ -335,7 +334,10 @@ local function On_Built(event)
 
 		-- Group Multiple Entities Together
 		table.insert(global.Bio_Cannon_Table, {New_Bio_Cannon,New_Bio_CannonR,0})
-		
+
+		-- Remove the "Overlay" Entity
+		event.created_entity.destroy()
+	
 	end
 
 	
@@ -346,23 +348,32 @@ local function On_Built(event)
 		local arboretum_new = "bi-arboretum"
 		local radar_name = "bi-arboretum-radar"  
 		local pole_name = "bi-hidden-power-pole"
+		local lamp_name = "bi-bio-farm-light"      	
 		
 		local create_arboretum = surface.create_entity({name = arboretum_new, position = position, direction = entity.direction, force = force})  -- New Arboretum, the first was just used for Radius overlay
-		
 		local position_c = {position.x - 3.5, position.y + 3.5}
-		local create_radar = surface.create_entity({name = radar_name, position = position_c, direction = entity.direction, force = force}) -- Hidden Radar
-
-
+		local create_radar = surface.create_entity({name = radar_name, position = position_c, direction = entity.direction, force = force}) -- Radar
+		local create_pole = surface.create_entity({name = pole_name, position = position, direction = entity.direction, force = force})  -- Hidden pole
+		local create_lamp = surface.create_entity({name = lamp_name, position = position, force = force}) -- Hidden Lamp
+		
 		create_radar.minable = false
 		create_radar.destructible = false
+		create_pole.minable = false
+		create_pole.destructible = false
+		create_lamp.minable = false
+		create_lamp.destructible = false
+		
 
 		
+		-- Group Multiple Entities Together
+		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar, pole=create_pole, lamp=create_lamp}
+		
+		--log("built: entity unit_number: " .. create_arboretum.unit_number)
+		--log("built: global.Arboretum_Table: " .. serpent.block(global.Arboretum_Table[create_arboretum.unit_number]))
+
 		-- Remove the "Overlay" Entity
 		event.created_entity.destroy()
 		
-		-- Group Multiple Entities Together
-		global.Arboretum_Table[create_arboretum.unit_number] = {inventory=create_arboretum, radar=create_radar}
-
 	end
 
 
@@ -450,7 +461,6 @@ local function On_Remove(event)
 			global.bi_bio_farm_table[entity.unit_number] = nil
 		end	
 
-
 	end
 		
 			
@@ -462,9 +472,7 @@ local function On_Remove(event)
 			global.bi_solar_farm_table[entity.unit_number].pole.destroy()
 			global.bi_solar_farm_table[entity.unit_number] = nil
 		end
-		
-
-					
+						
 	end
 
 
@@ -476,9 +484,7 @@ local function On_Remove(event)
 			global.bi_solar_boiler_table[entity.unit_number].boiler.destroy()	
 			global.bi_solar_boiler_table[entity.unit_number].pole.destroy()
 			global.bi_solar_boiler_table[entity.unit_number] = nil
-		end
-		
-
+		end		
 			
 	end
 			
@@ -491,18 +497,27 @@ local function On_Remove(event)
 			global.bi_power_rail_table[entity.unit_number].pole.destroy()	
 			global.bi_power_rail_table[entity.unit_number] = nil
 		end
-			
-
 		
 	end
 
 	
 	--- Arboretum has been removed
    	if entity.valid and entity.name == "bi-arboretum" then
-	writeDebug("Arboretum has been removed")	
 		
-		if global.Arboretum_Table[entity.unit_number] then
+		--writeDebug("Arboretum has been removed")	
+		--log("entity unit_number: " .. entity.unit_number)
+		--log("global.Arboretum_Table: " .. serpent.block(global.Arboretum_Table[entity.unit_number]))
+		
+		if global.Arboretum_Table[entity.unit_number] then 
+		--game.print("passed if statement: global.Arboretum_Table[entity.unit_number]")  -- it does not get here now!
+		
 			global.Arboretum_Table[entity.unit_number].radar.destroy()
+			if global.Arboretum_Table[entity.unit_number].pole then
+				global.Arboretum_Table[entity.unit_number].pole.destroy()
+			end
+			if global.Arboretum_Table[entity.unit_number].lamp then
+				global.Arboretum_Table[entity.unit_number].lamp.destroy()
+			end				
 			global.Arboretum_Table[entity.unit_number] = nil
 		end
 		
@@ -557,8 +572,6 @@ local function On_Death(event)
 			global.bi_solar_farm_table[entity.unit_number] = nil
 		end
 		
-
-		
 	end
 
 
@@ -571,8 +584,6 @@ local function On_Death(event)
 			global.bi_solar_boiler_table[entity.unit_number].pole.destroy()
 			global.bi_solar_boiler_table[entity.unit_number] = nil
 		end
-		
-
 			
 	end
 	
@@ -586,17 +597,26 @@ local function On_Death(event)
 			global.bi_power_rail_table[entity.unit_number] = nil
 		end
 			
-
-		
 	end
 	
 	
 	--- Arboretum has been removed
    	if entity.valid and entity.name == "bi-arboretum" then
-	writeDebug("Arboretum has been removed")	
 		
-		if global.Arboretum_Table[entity.unit_number] then
+		--writeDebug("Arboretum has been removed")	
+		--log("entity unit_number: " .. entity.unit_number)
+		--log("global.Arboretum_Table: " .. serpent.block(global.Arboretum_Table[entity.unit_number]))
+		
+		if global.Arboretum_Table[entity.unit_number] then 
+		--game.print("passed if statement: global.Arboretum_Table[entity.unit_number]")  -- it does not get here now!
+		
 			global.Arboretum_Table[entity.unit_number].radar.destroy()
+			if global.Arboretum_Table[entity.unit_number].pole then
+				global.Arboretum_Table[entity.unit_number].pole.destroy()
+			end
+			if global.Arboretum_Table[entity.unit_number].lamp then
+				global.Arboretum_Table[entity.unit_number].lamp.destroy()
+			end				
 			global.Arboretum_Table[entity.unit_number] = nil
 		end
 		

@@ -210,9 +210,8 @@ data:extend({
 	{
       type = "electric",
       usage_priority = "primary-input",
-	  drain = "50kW",
-	  --emissions = -0.2, -- the "-" means it eats pollution. Absorbs about 20 PU
-	  emissions_per_second_per_watt = -15 / 100000 -- the "-" means it eats pollution. 
+	  drain = "50kW", 
+	  emissions_per_minute = -9, -- the "-" means it Absorbs pollution. 
     },	
 
     energy_usage = "100kW",
@@ -398,8 +397,7 @@ data:extend({
       type = "electric",
       usage_priority = "primary-input",
 	  drain = "15kW",
-	  --emissions = -0.1, -- the "-" means it eats pollution. Absorbs about 10 PU
-	  emissions_per_second_per_watt = -8 / 50000 -- the "-" means it eats pollution. 
+	  emissions_per_minute = -6, -- the "-" means it Absorbs pollution. 
     },	
 
     energy_usage = "50kW",
@@ -492,8 +490,7 @@ data:extend({
 			type = "electric",
 			input_priority = "secondary",
 			usage_priority = "secondary-input",
-			--emissions = 0.05    
-			emissions_per_second_per_watt = 8 / 180000
+			emissions_per_minute = 2.5,
 		},
 		energy_usage = "180kW",
 		crafting_speed = 2,
@@ -547,8 +544,7 @@ data:extend({
 		energy_source = {
 							type = "electric",
 							usage_priority = "secondary-input",
-							--emissions = 0.05 / 1.5
-							emissions_per_second_per_watt = 2 / 50000
+							emissions_per_minute = 0.25,
 						},
 		energy_usage = "50kW"
 	},
@@ -927,8 +923,7 @@ data:extend({
     {
       type = "electric",
       usage_priority = "secondary-input",
-	  --emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
-	  emissions_per_second_per_watt = -10 / 150000
+	  emissions_per_minute = -1, -- the "-" means it Absorbs pollution. 
     },
     energy_usage = "150kW",
     pictures =
@@ -1080,9 +1075,7 @@ data:extend({
 	{
       type = "electric",
       usage_priority = "primary-input",
-	  --drain = "5W",
-	  --emissions = -0.15, -- the "-" means it eats pollution. Absorbs about 15 PU
-	  emissions_per_second_per_watt = -10 / 150000
+	  emissions_per_minute = -6, -- the "-" means it Absorbs pollution. 
     },	
     energy_usage = "150kW",
     ingredient_count = 3,

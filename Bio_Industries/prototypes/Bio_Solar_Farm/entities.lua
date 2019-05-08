@@ -527,7 +527,7 @@ if BI.Settings.BI_Solar_Additions then
 		  type = "electric",
 		  input_priority = "primary",
 		  usage_priority = "primary-input",
-		  --emissions_per_second_per_watt = 0 / 1800000 -- NO Emmisions
+		  --emissions_per_minute = 0 -- NO Emmisions
 	  },
     working_sound =
     {

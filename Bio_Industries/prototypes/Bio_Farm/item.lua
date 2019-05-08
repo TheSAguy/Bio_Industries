@@ -111,7 +111,7 @@ data:extend(
 	--- Charcoal
 	{
 		type = "item",
-		name = "bi-charcoal",
+		name = "wood-charcoal",
 		icon = "__Bio_Industries__/graphics/icons/charcoal.png",
 		icon_size = 32,
 		fuel_value = "6MJ",

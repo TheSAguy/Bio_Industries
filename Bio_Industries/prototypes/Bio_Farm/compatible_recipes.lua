@@ -91,8 +91,7 @@ end
 --update crushed stone icon
 data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
 	
-	
-	
+		
  -- Pellet-Coke from Carbon - Bobs & Angels
 if data.raw.item["solid-carbon"] and mods["angelspetrochem"] then
 	
@@ -145,6 +144,7 @@ if data.raw.fluid["gas-compressed-air"] and mods["angelspetrochem"] then
 
 end
 
+
 -- If Angels, replace water with water-yellow-waste
 if data.raw.fluid["water-yellow-waste"] and mods["angelspetrochem"] then
 
@@ -181,7 +181,7 @@ if mods["angelsrefining"] then
 				{
 					{type="fluid", name="water-purified", amount=100},
 					{type="item", name="stone-crushed", amount=90},
-					{type="item", name="bi-charcoal", amount=30},
+					{type="item", name="wood-charcoal", amount=30},
 				},
 				results=
 				{
@@ -220,3 +220,107 @@ if mods["angelsrefining"] then
 	thxbob.lib.tech.add_recipe_unlock("slag-processing-1", "bi_recipe_slag_slurry")
 	
 end
+
+
+--- Alternative Wooden-Board Recipe for Bob's Electronics
+if data.raw.item["wooden-board"] and mods["bobelectronics"] then
+
+	data:extend({
+
+		-- Wood - Press Wood
+		{
+			type = "recipe",
+			name = "bi_recipe_press_wood",
+			icon = "__Bio_Industries__/graphics/icons/bi_wooden_board.png",
+			icon_size = 32,
+			subgroup = "bob-boards",
+			order = "c-a1[wooden-board]",
+			category = "electronics",
+			energy_required = 1,	
+			enabled = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
+			allow_as_intermediate = false,
+			ingredients =
+			{
+				{type="item", name="bi-woodpulp", amount=3},
+				{type="item", name="resin", amount=1},
+			},
+			results=
+			{
+				{type="item", name="wooden-board", amount=6}
+			},
+
+		},
+
+
+	})
+	
+	thxbob.lib.tech.add_recipe_unlock("electronics", "bi_recipe_press_wood")
+
+	if mods["ShinyBobGFX"] then
+		data.raw["recipe"]["bi_recipe_press_wood"].icon = "__Bio_Industries__/graphics/icons/bi_wooden_board_shiny.png"
+	end
+	
+	
+end
+
+
+-- Replace Angels Charcoal Icon
+if data.raw.recipe["wood-charcoal"] then
+ 
+	data.raw.recipe["wood-charcoal"].icon = "__Bio_Industries__/graphics/icons/charcoal_pellets.png"
+	data.raw.recipe["wood-charcoal"].icon_size = 32
+	--data.raw.recipe["wood-charcoal"].category = "biofarm-mod-smelting"
+	data.raw.item["wood-charcoal"].icon = "__Bio_Industries__/graphics/icons/charcoal.png"
+	data.raw.item["wood-charcoal"].fuel_emissions_multiplier = 1.05
+	
+	
+end
+
+--[[
+--- Alternative Wooden-Board Recipe for Bob's Electronics
+if data.raw.item["wooden-board"] and mods["bobelectronics"] then
+
+	data:extend({
+
+		-- Wood - Press Wood
+		{
+			type = "recipe",
+			name = "bi_recipe_press_wood",
+			icon = "__Bio_Industries__/graphics/icons/bi_wooden_board.png",
+			icon_size = 32,
+			subgroup = "bob-boards",
+			order = "c-a1[wooden-board]",
+			category = "electronics",
+			energy_required = 1,	
+			enabled = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
+			allow_as_intermediate = false,
+			ingredients =
+			{
+				{type="item", name="bi-woodpulp", amount=3},
+				{type="item", name="resin", amount=1},
+			},
+			results=
+			{
+				{type="item", name="wooden-board", amount=6}
+			},
+
+		},
+
+
+	})
+	
+	thxbob.lib.tech.add_recipe_unlock("electronics", "bi_recipe_press_wood")
+
+	if mods["ShinyBobGFX"] then
+		data.raw["recipe"]["bi_recipe_press_wood"].icon = "__Bio_Industries__/graphics/icons/bi_wooden_board_shiny.png"
+	end
+	
+	
+end
+
+
+]]

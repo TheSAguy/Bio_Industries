@@ -504,49 +504,6 @@ if mods["angelspetrochem"] then
 
 end
 
---- Alternative Wooden-Board Recipe for Bob's Electronics
-if data.raw.item["wooden-board"] and mods["bobelectronics"] then
-
-	data:extend({
-
-		-- Wood - Press Wood
-		{
-			type = "recipe",
-			name = "bi_recipe_press_wood",
-			icon = "__Bio_Industries__/graphics/icons/bi_wooden_board.png",
-			icon_size = 32,
-			subgroup = "bob-boards",
-			order = "c-a1[wooden-board]",
-			category = "electronics",
-			energy_required = 1,	
-			enabled = false,
-			always_show_made_in = true,
-			allow_decomposition = false,
-			allow_as_intermediate = false,
-			ingredients =
-			{
-				{type="item", name="bi-woodpulp", amount=3},
-				{type="item", name="resin", amount=1},
-			},
-			results=
-			{
-				{type="item", name="wooden-board", amount=6}
-			},
-
-		},
-
-
-	})
-	
-	thxbob.lib.tech.add_recipe_unlock("electronics", "bi_recipe_press_wood")
-
-	if mods["ShinyBobGFX"] then
-		data.raw["recipe"]["bi_recipe_press_wood"].icon = "__Bio_Industries__/graphics/icons/bi_wooden_board_shiny.png"
-	end
-	
-	
-end
-
 
 if data.raw.item["ash"] and mods["pycoalprocessing"] then
 	-- # grep -E "(name|result)\s*=\s*.bi-ash" -rn *

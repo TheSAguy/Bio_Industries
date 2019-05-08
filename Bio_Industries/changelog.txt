@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.19
+Date: 5. 8. 2019
+  Features:
+    - Renamed "bi-Charcoal" to "Wood-Charcoal" to match Angels
+    - Update to new "emissions_per_minute"
+    - Added a hidden lamp and power pole to the Terraformer
+---------------------------------------------------------------------------------------------------
 Version: 0.17.18
 Date: 5. 3. 2019
   Features:
