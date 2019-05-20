@@ -1,4 +1,4 @@
---Bio_Industries Version   0.17.19
+--Bio_Industries Version   0.17.20
 
 local QC_Mod = false
 require ("util")
@@ -228,7 +228,7 @@ end)
 
 --------------------------------------------------------------------
 local function On_Built(event)
-    local entity = event.created_entity
+	local entity = event.created_entity or event.entity
    	local surface = entity.surface
 	local force = entity.force
 	local position = entity.position
@@ -448,7 +448,7 @@ end
 --------------------------------------------------------------------
 local function On_Remove(event)
 	
-	local entity = event.entity	
+	local entity = event.created_entity or event.entity
 	
 	--- Bio Farm has been removed	
  	if entity.valid and entity.name == "bi-bio-farm" then
@@ -545,7 +545,7 @@ end
 --------------------------------------------------------------------
 local function On_Death(event)
 
-	local entity = event.entity
+	local entity = event.created_entity or event.entity
 	
 	--- Bio Farm has been destroyed	
  	if entity.valid and entity.name == "bi-bio-farm" then
@@ -803,13 +803,13 @@ script.on_configuration_changed(On_Config_Change)
 script.on_init(On_Init)
 
 
-local build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity}
+local build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity, defines.events.script_raised_built}
 script.on_event(build_events, On_Built)
 
-local pre_remove_events = {defines.events.on_pre_player_mined_item, defines.events.on_robot_pre_mined}
+local pre_remove_events = {defines.events.on_pre_player_mined_item, defines.events.on_robot_pre_mined, defines.events.script_raised_destroy}
 script.on_event(pre_remove_events, On_Remove)
 
-local death_events = {defines.events.on_entity_died}
+local death_events = {defines.events.on_entity_died, defines.events.script_raised_destroy}
 script.on_event(death_events, On_Death)
 
 local player_build_event = {defines.events.on_player_built_tile}
@@ -825,34 +825,7 @@ local remove_events = {defines.events.on_robot_mined}
 script.on_event(remove_events, Robot_Tile_Remove)
 
 
--------------------- For Testing --------------
 
---[[
-if QC_Mod == true then  
-
-	script.on_event(defines.events.on_player_created, function(event)
-	local iteminsert = game.players[event.player_index].insert
-	iteminsert{name="bi-bio-solar-farm", count=5}
-	iteminsert{name="bi-burner-pump", count=5}
-	iteminsert{name="pumpjack", count=5}
-	iteminsert{name="medium-electric-pole", count=5}
-	iteminsert{name="lab", count=5}
-	iteminsert{name="automation-science-pack", count=500}
-	iteminsert{name="logistic-science-pack", count=500}
-	iteminsert{name="chemical-science-pack", count=500}
-	iteminsert{name="high-tech-science-pack", count=500}
-	iteminsert{name="pipe", count=50}
-	iteminsert{name="iron-gear-wheel", count=50}
-	iteminsert{name="pellet-coke", count=50}	
-	iteminsert{name="iron-plate", count=50}	
-	iteminsert{name="copper-plate", count=50}		
-	
-	end)
-
-end
-]]
-
---------------------------------------------------------------------
 --- DeBug Messages 
 --------------------------------------------------------------------
 function writeDebug(message)

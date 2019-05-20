@@ -271,12 +271,34 @@ if data.raw.recipe["wood-charcoal"] then
  
 	data.raw.recipe["wood-charcoal"].icon = "__Bio_Industries__/graphics/icons/charcoal_pellets.png"
 	data.raw.recipe["wood-charcoal"].icon_size = 32
-	--data.raw.recipe["wood-charcoal"].category = "biofarm-mod-smelting"
+	data.raw.recipe["wood-charcoal"].category = "biofarm-mod-smelting"
 	data.raw.item["wood-charcoal"].icon = "__Bio_Industries__/graphics/icons/charcoal.png"
 	data.raw.item["wood-charcoal"].fuel_emissions_multiplier = 1.05
 	
 	
 end
+
+--- Update fuel_emissions_multiplier values
+BI_Functions.lib.fuel_emissions_multiplier_update("pellet-coke", 0.80)
+BI_Functions.lib.fuel_emissions_multiplier_update("enriched-fuel", 0.80)
+BI_Functions.lib.fuel_emissions_multiplier_update("solid-fuel", 0.85)
+BI_Functions.lib.fuel_emissions_multiplier_update("solid-carbon", 0.95)
+BI_Functions.lib.fuel_emissions_multiplier_update("carbon", 0.95)
+BI_Functions.lib.fuel_emissions_multiplier_update("wood-charcoal", 1.05)
+BI_Functions.lib.fuel_emissions_multiplier_update("bi-ash", 1.10)
+BI_Functions.lib.fuel_emissions_multiplier_update("ash", 1.10)
+BI_Functions.lib.fuel_emissions_multiplier_update("rocket-fuel", 1.20)
+BI_Functions.lib.fuel_emissions_multiplier_update("cellulose-fiber", 1.20)
+BI_Functions.lib.fuel_emissions_multiplier_update("wood-pellets", 1.20)
+BI_Functions.lib.fuel_emissions_multiplier_update("wood-bricks", 1.20)
+BI_Functions.lib.fuel_emissions_multiplier_update("bi-woodpulp", 1.20)
+BI_Functions.lib.fuel_emissions_multiplier_update("wood", 1.25)
+BI_Functions.lib.fuel_emissions_multiplier_update("solid-coke", 1.40)
+BI_Functions.lib.fuel_emissions_multiplier_update("coal-crushed", 1.50)
+BI_Functions.lib.fuel_emissions_multiplier_update("coal", 2.00)
+BI_Functions.lib.fuel_emissions_multiplier_update("thorium-fuel-cell", 5.00)
+
+
 
 --[[
 --- Alternative Wooden-Board Recipe for Bob's Electronics

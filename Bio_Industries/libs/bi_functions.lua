@@ -16,3 +16,13 @@ function BI_Functions.lib.remove_from_blueprint(check_tile)
 		data.raw.tile[check_tile].can_be_part_of_blueprint = false
 	end
 end
+
+
+function BI_Functions.lib.fuel_emissions_multiplier_update(item2update, value)
+
+	if data.raw.item[item2update] then	
+		data.raw.item[item2update].fuel_emissions_multiplier = value
+	end
+	
+end
+

@@ -130,7 +130,7 @@ data:extend(
 		icon_size = 32,
 		fuel_value = "28MJ",
 		fuel_category = "chemical",
-		fuel_emissions_multiplier = 0.85,
+		fuel_emissions_multiplier = 0.80,
 		fuel_acceleration_multiplier = 1.1,
 		fuel_top_speed_multiplier = 1.025,
 		subgroup = "raw-material",

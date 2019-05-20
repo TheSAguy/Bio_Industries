@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.20
+Date: 5. 20. 2019
+  Features:
+    - Updated "fuel_emissions_multiplier" of common items with a fuel value
+    - Angels Charcoal must be made in a Cokery
+  Bugfix:
+    - Compatibility with FARL updated. added "defines.events.script_raised_built" & "defines.events.script_raised_destroy"
+---------------------------------------------------------------------------------------------------
 Version: 0.17.19
 Date: 5. 8. 2019
   Features:
