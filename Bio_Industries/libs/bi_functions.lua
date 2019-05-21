@@ -19,10 +19,9 @@ end
 
 
 function BI_Functions.lib.fuel_emissions_multiplier_update(item2update, value)
-
-	if data.raw.item[item2update] then	
-		data.raw.item[item2update].fuel_emissions_multiplier = value
+	local target = data.raw.item[item2update]
+	if target and target.fuel_value then
+		target.fuel_emissions_multiplier = value
 	end
-	
 end
 
