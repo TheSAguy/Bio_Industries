@@ -166,7 +166,7 @@ data:extend({
 		place_result = "bi-power-to-rail-pole",
 		stack_size = 50
 		},
-	
-	
+
+
 })
 

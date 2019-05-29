@@ -29,74 +29,83 @@ data:extend(
 	order = "c[modifier]-c[Bio_Cannon]",
     per_user = false,
   },
+ 
+   	-- D1
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Emissions_Multiplier",
+    setting_type = "startup",
+    default_value = true,
+	order = "d[modifier]-d1[Game_Tweaks]",
+    per_user = true,
+  }, 
+
   
-	-- D1
+	-- D2
   {
     type = "bool-setting",
     name = "BI_Game_Tweaks_Stack_Size",
     setting_type = "startup",
     default_value = true,
-	order = "d[modifier]-d1[Game_Tweaks]",
-    per_user = false,
-  },
-
-	-- D2
-  {
-    type = "bool-setting",
-    name = "BI_Game_Tweaks_Recipe",
-    setting_type = "startup",
-    default_value = true,
 	order = "d[modifier]-d2[Game_Tweaks]",
     per_user = false,
   },
-  
- 	-- D3
+
+	-- D3
   {
     type = "bool-setting",
-    name = "BI_Game_Tweaks_Tree",
+    name = "BI_Game_Tweaks_Recipe",
     setting_type = "startup",
     default_value = true,
 	order = "d[modifier]-d3[Game_Tweaks]",
     per_user = false,
   },
   
-  	-- D4
+ 	-- D4
   {
     type = "bool-setting",
-    name = "BI_Game_Tweaks_Disassemble",
+    name = "BI_Game_Tweaks_Tree",
     setting_type = "startup",
     default_value = true,
 	order = "d[modifier]-d4[Game_Tweaks]",
     per_user = false,
   },
   
-  -- D5
+  	-- D5
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Disassemble",
+    setting_type = "startup",
+    default_value = true,
+	order = "d[modifier]-d5[Game_Tweaks]",
+    per_user = false,
+  },
+  
+  -- D6
   {
     type = "bool-setting",
     name = "BI_Game_Tweaks_Player",
     setting_type = "startup",
     default_value = false,
-	order = "d[modifier]-d5[Game_Tweaks]",
+	order = "d[modifier]-d6[Game_Tweaks]",
     per_user = false,
   },
   
 
   
-   	-- D5
+   	-- D7
   {
     type = "bool-setting",
     name = "BI_Game_Tweaks_Bot",
     setting_type = "startup",
     default_value = false,
-	order = "d[modifier]-d6[Game_Tweaks]",
+	order = "d[modifier]-d7[Game_Tweaks]",
     per_user = false,
   }, 
 
+  
 
   
-  --[[
-
-]]
 
 
 --[[

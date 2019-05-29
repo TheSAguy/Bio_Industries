@@ -32,7 +32,8 @@ if BI.Settings.BI_Bio_Fuel then
 				result = "bi-bio-boiler",
 				result_count = 1,
 			},
-			
+			always_show_made_in = true,
+			allow_decomposition = false,			
 		},
 	  
 		-- BIO Reactor (ENTITY)--
@@ -66,7 +67,9 @@ if BI.Settings.BI_Bio_Fuel then
 				result_count = 1,
 			},
 			subgroup = "bio-bio-fuel-fluid",
-			order = "a"		
+			order = "a",
+			always_show_made_in = true,
+			allow_decomposition = false,				
 		},
 			
 		-- CELLULOSE 1 --

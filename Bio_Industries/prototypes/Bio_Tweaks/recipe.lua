@@ -22,6 +22,8 @@ if BI.Settings.BI_Game_Tweaks_Disassemble then
 			order = "a[Disassemble]-a[bi_recipe_burner_mining_drill_disassemble]",
 			enabled = false,
 			allow_as_intermediate = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
 			energy_required = 2,
 			ingredients =
 				{
@@ -46,6 +48,8 @@ if BI.Settings.BI_Game_Tweaks_Disassemble then
 			order = "a[Disassemble]-b[bi_recipe_stone_furnace_disassemble]",
 			enabled = false,
 			allow_as_intermediate = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
 			energy_required = 2,
 			ingredients =
 				{
@@ -70,6 +74,8 @@ if BI.Settings.BI_Game_Tweaks_Disassemble then
 			order = "a[Disassemble]-c[bi_recipe_burner_inserter_disassemble]",
 			enabled = false,
 			allow_as_intermediate = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
 			energy_required = 2,
 			ingredients =
 				{
@@ -94,6 +100,8 @@ if BI.Settings.BI_Game_Tweaks_Disassemble then
 			order = "a[Disassemble]-e[bi_recipe_long_handed_inserter_disassemble]",
 			enabled = false,
 			allow_as_intermediate = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
 			energy_required = 2,
 			ingredients =
 				{
@@ -120,6 +128,8 @@ if BI.Settings.BI_Game_Tweaks_Disassemble then
 			order = "a[Disassemble]-f[bi_recipe_steel_furnace_disassemble]",
 			enabled = false,
 			allow_as_intermediate = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
 			energy_required = 2,
 			ingredients =
 				{

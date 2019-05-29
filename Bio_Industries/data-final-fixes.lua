@@ -164,3 +164,38 @@ if BI.Settings.BI_Game_Tweaks_Stack_Size then
 end
 
 
+
+--- Update fuel_emissions_multiplier values
+if BI.Settings.BI_Game_Tweaks_Emissions_Multiplier then
+
+	BI_Functions.lib.fuel_emissions_multiplier_update("pellet-coke", 0.80)
+	BI_Functions.lib.fuel_emissions_multiplier_update("enriched-fuel", 0.90)
+	BI_Functions.lib.fuel_emissions_multiplier_update("solid-fuel", 1.00)
+	BI_Functions.lib.fuel_emissions_multiplier_update("solid-carbon", 1.05)
+	BI_Functions.lib.fuel_emissions_multiplier_update("carbon", 1.05)
+	BI_Functions.lib.fuel_emissions_multiplier_update("wood-bricks", 1.20)
+	BI_Functions.lib.fuel_emissions_multiplier_update("rocket-fuel", 1.20)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-seed", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("seedling", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-big-wooden-pole", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-huge-wooden-pole", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-wooden-fence", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-wood-pipe", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-pipe-to-ground-wood", 1.30)	
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-large-wooden-chest", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-huge-wooden-chest", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-giga-wooden-chest", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-ash", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("ash", 1.30)
+	BI_Functions.lib.fuel_emissions_multiplier_update("wood-charcoal", 1.25)
+	BI_Functions.lib.fuel_emissions_multiplier_update("cellulose-fiber", 1.40)
+	BI_Functions.lib.fuel_emissions_multiplier_update("bi-woodpulp", 1.40)	
+	BI_Functions.lib.fuel_emissions_multiplier_update("solid-coke", 1.40)
+	BI_Functions.lib.fuel_emissions_multiplier_update("wood-pellets", 1.40)
+	BI_Functions.lib.fuel_emissions_multiplier_update("coal-crushed", 1.50)
+	BI_Functions.lib.fuel_emissions_multiplier_update("wood", 1.60)	
+	BI_Functions.lib.fuel_emissions_multiplier_update("coal", 2.00)
+	BI_Functions.lib.fuel_emissions_multiplier_update("thorium-fuel-cell", 5.00)
+
+end
+

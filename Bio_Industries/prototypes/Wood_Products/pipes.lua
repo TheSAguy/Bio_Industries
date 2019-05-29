@@ -38,17 +38,17 @@ function change_graphics (was_picture, sheet_element, quality)
 	local picture = {}
 	local k = 1
 	if not sheet_element.shift then sheet_element.shift = {x= 0, y= 0} end
-	--log(serpent.block(was_picture, {comment = false}))
+	----log(serpent.block(was_picture, {comment = false}))
 	if (quality == "hq") and (was_picture.hr_version) then
-		log ("hq")
+		--log ("hq")
 		picture = was_picture.hr_version
 		k = 2
 	else
-		log ("lq")
+		--log ("lq")
 		picture = was_picture
 		k = 1
 	end
-	log (sheet_element.number .. " Quality = " .. quality)
+	--log (sheet_element.number .. " Quality = " .. quality)
 	
 	if not (picture) then return end
 	picture.filename = sheet_path .. quality .. "_" .. sheet_name
@@ -62,7 +62,7 @@ function change_graphics (was_picture, sheet_element, quality)
 	--picture.shift.y = -8/32 * k * sheet_element.shift.y	
 	picture.shift.x = -8/32  * sheet_element.shift.x
 	picture.shift.y = -8/32  * sheet_element.shift.y
-	log (sheet_element.number .. " Quality = " .. quality .. " - Success")
+	--log (sheet_element.number .. " Quality = " .. quality .. " - Success")
 
 end
 
@@ -73,7 +73,7 @@ local pipe_pictures = data.raw.pipe["bi-wood-pipe"].pictures
 for i, was_picture in pairs (pipe_pictures) do
 	for j, sheet_element in pairs (pipes_sheet) do
 		if i == j then
-			log (i)
+			--log (i)
 			change_graphics (was_picture, sheet_element, "hq")
 			change_graphics (was_picture, sheet_element, "lq")
 		end
@@ -86,7 +86,7 @@ local pipe_to_ground_pictures = data.raw["pipe-to-ground"]["bi-pipe-to-ground-wo
 for i, was_picture in pairs (pipe_to_ground_pictures) do
 	for j, sheet_element in pairs (pipes_sheet) do
 		if i == j then
-			log (i)
+			--log (i)
 			change_graphics (was_picture, sheet_element, "hq")
 			change_graphics (was_picture, sheet_element, "lq")
 		end

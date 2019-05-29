@@ -8,7 +8,7 @@ BI.Settings.BI_Game_Tweaks_Player = settings.startup["BI_Game_Tweaks_Player"].va
 BI.Settings.BI_Game_Tweaks_Disassemble = settings.startup["BI_Game_Tweaks_Disassemble"].value
 BI.Settings.BI_Game_Tweaks_Bot = settings.startup["BI_Game_Tweaks_Bot"].value
 BI.Settings.BI_Solar_Additions = settings.startup["BI_Solar_Additions"].value
-
+BI.Settings.BI_Game_Tweaks_Emissions_Multiplier = settings.startup["BI_Game_Tweaks_Emissions_Multiplier"].value
 
 ----Update the Wood Pipe Images
 require ("prototypes.Wood_Products.pipes")
@@ -54,8 +54,11 @@ data.raw["curved-rail"]["curved-rail"]},
 
 -- vanilla rail icon & images update
 data.raw["straight-rail"]["straight-rail"].icon = "__Bio_Industries__/graphics/icons/straight-rail-concrete.png"
+data.raw["straight-rail"]["straight-rail"].icon_size = 32
 data.raw["curved-rail"]["curved-rail"].icon = "__Bio_Industries__/graphics/icons/curved-rail-concrete.png"
+data.raw["curved-rail"]["curved-rail"].icon_size = 32
 data.raw["rail-planner"]["rail"].icon = "__Bio_Industries__/graphics/icons/rail-concrete.png"
+data.raw["rail-planner"]["rail"].icon_size = 32
 
 
 --- Wood Rail added to Tech 
@@ -394,7 +397,6 @@ if BI.Settings.BI_Solar_Additions then
 end
 
 
-
 require("prototypes.Bio_Farm.compatible_recipes") -- Bob and Angels mesh
 require("prototypes.Bio_Farm.technology2")
 
@@ -439,7 +441,6 @@ else
 	
 end
 
-
 	
 --- if the Alien Artifact is in the game, use if for some recipes
 if data.raw.item["alien-artifact"] then
@@ -467,7 +468,9 @@ if data.raw["item"]["bob-greenhouse"] then
 
 	data.raw["item"]["seedling"].place_result = "seedling"
 	data.raw["item"]["seedling"].icon = "__Bio_Industries__/graphics/icons/Seedling.png"
+	data.raw["item"]["seedling"].icon_size = 32
 	data.raw["item"]["fertiliser"].icon = "__Bio_Industries__/graphics/icons/fertiliser_32.png"
+	data.raw["item"]["fertiliser"].icon_size = 32
 	
 	if mods["alien-biomes"] then
 		data.raw["item"]["fertiliser"].place_as_tile = {result = "vegetation-green-grass-3",	condition_size = 1,	condition = { "water-tile" }}
@@ -491,12 +494,14 @@ if settings.startup["angels-use-angels-barreling"] and settings.startup["angels-
       }
 end
 
+
 ----- Angels Merge ----
 if mods["angelspetrochem"] then
 
     data.raw.item["pellet-coke"].icon = "__angelspetrochem__/graphics/icons/pellet-coke.png"
+	data.raw.item["pellet-coke"].icon_size = 32
 	data.raw.item["pellet-coke"].fuel_acceleration_multiplier = 1.1
-	data.raw.item["pellet-coke"].fuel_top_speed_multiplier = 1.025
+	data.raw.item["pellet-coke"].fuel_top_speed_multiplier = 1.2
 	
 	data.raw.recipe["pellet-coke"].category = "biofarm-mod-smelting"	
 	thxbob.lib.tech.remove_recipe_unlock ("angels-coal-processing-2", "pellet-coke")
@@ -545,12 +550,22 @@ if data.raw.item["ash"] and mods["pycoalprocessing"] then
 	-- Bio_Farm/item.lua:105:               name = "bi-ash",
 	data.raw.item["bi-ash"] = nil
 	data.raw.recipe["bi_recipe_ash_1"].icon = "__pycoalprocessing__/graphics/icons/ash.png"
+	data.raw.recipe["bi_recipe_ash_1"].icon_size = 32
 	data.raw.recipe["bi_recipe_ash_2"].icon = "__pycoalprocessing__/graphics/icons/ash.png"
+	data.raw.recipe["bi_recipe_ash_2"].icon_size = 32
 	
 end
 
+----- If Bob's bobrevamp, then ----
+if mods["bobrevamp"] then
+	
+	thxbob.lib.tech.remove_recipe_unlock ("bi-tech-coal-processing-1", "bi_recipe_solid_fuel")
+	thxbob.lib.tech.add_recipe_unlock("solid-fuel", "bi_recipe_solid_fuel")
 
---- Enanble Productivity in Recipies
+end
+
+
+--- Enable Productivity in Recipies
 BI_Functions.lib.allow_productivity("bi_recipe_seed_1")
 BI_Functions.lib.allow_productivity("bi_recipe_seed_2")
 BI_Functions.lib.allow_productivity("bi_recipe_seed_3")

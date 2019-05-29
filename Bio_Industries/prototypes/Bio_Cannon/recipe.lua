@@ -35,7 +35,9 @@ if BI.Settings.Bio_Cannon then
 			  result = "bi-bio-cannon-area",
 			  result_count = 1,
 			},
-		
+			allow_as_intermediate = false,
+			always_show_made_in = true,
+			allow_decomposition = false,		
 	 },
 	 
 	})

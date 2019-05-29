@@ -923,7 +923,7 @@ data:extend({
     {
       type = "electric",
       usage_priority = "secondary-input",
-	  emissions_per_minute = -1, -- the "-" means it Absorbs pollution. 
+	  emissions_per_minute = 0, -- the "-" means it Absorbs pollution. 
     },
     energy_usage = "150kW",
     pictures =
@@ -1075,7 +1075,7 @@ data:extend({
 	{
       type = "electric",
       usage_priority = "primary-input",
-	  emissions_per_minute = -6, -- the "-" means it Absorbs pollution. 
+	  emissions_per_minute = -8, -- the "-" means it Absorbs pollution. 
     },	
     energy_usage = "150kW",
     ingredient_count = 3,

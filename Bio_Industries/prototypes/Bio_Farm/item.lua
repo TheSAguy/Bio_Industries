@@ -11,7 +11,6 @@ data:extend(
 		order = "x[bi]-a[bi-seed]",
 		fuel_value = "0.5MJ",
 		fuel_category = "chemical",
-		fuel_emissions_multiplier = 1.25,
 		stack_size= 800
 	},
 
@@ -27,7 +26,6 @@ data:extend(
 		place_result="seedling",
 		fuel_value = "0.5MJ",
 		fuel_category = "chemical",
-		fuel_emissions_multiplier = 1.25,
 		stack_size= 400
 	},
 
@@ -87,13 +85,25 @@ data:extend(
 		icon_size = 32,
 		fuel_value = "1MJ",
 		fuel_category = "chemical",
-		fuel_emissions_multiplier = 1.15,
-		subgroup = "raw-material",	
-		order = "b[woodpulp]",			
+		subgroup = "raw-material",			
 		order = "a-b[bi-woodpulp]",
 		stack_size = 800
 	},  
 
+		--- Wood Bricks
+	  {
+		type = "item",
+		name = "wood-bricks",
+		icon = "__Bio_Industries__/graphics/icons/Fuel_Brick.png",
+		icon_size = 64,
+		subgroup = "bio-bio-farm-raw",
+		order = "a[bi]-a-bx[bi-woodbrick]",
+		fuel_category = "chemical",
+		fuel_value = "20MJ",
+		stack_size = 200
+	  },		
+	
+	
 		--- Ash 
 	{
 		type = "item",
@@ -102,7 +112,6 @@ data:extend(
 		icon_size = 32,
 		fuel_value = "1MJ",
 		fuel_category = "chemical",
-		fuel_emissions_multiplier = 1.1,
 		subgroup = "raw-material",
 		order = "a[bi]-a-b[bi-ash]",
 		stack_size = 400
@@ -117,7 +126,6 @@ data:extend(
 		fuel_value = "6MJ",
 		fuel_category = "chemical",
 		subgroup = "raw-material",
-		fuel_emissions_multiplier = 1.05,
 		order = "a[bi]-a-c[charcoal]",
 		stack_size = 400
 	},  
@@ -130,11 +138,10 @@ data:extend(
 		icon_size = 32,
 		fuel_value = "28MJ",
 		fuel_category = "chemical",
-		fuel_emissions_multiplier = 0.80,
-		fuel_acceleration_multiplier = 1.1,
-		fuel_top_speed_multiplier = 1.025,
+		fuel_acceleration_multiplier = 1.2,
+		fuel_top_speed_multiplier = 1.1,
 		subgroup = "raw-material",
-		order = "a[bi]-a-e[bi-coke-coal]",	
+		order = "a[bi]-a-g[bi-coke-coal]",	
 		stack_size = 400
 	},
 

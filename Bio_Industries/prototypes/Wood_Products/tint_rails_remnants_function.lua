@@ -40,21 +40,21 @@ local rails_entities = rails_entities or  -- or vanilla
 	}
 global = global or {}
 global["rails"] = {}
-log("Start rails") 	---------------------
+--log("Start rails") 	---------------------
 for i, v in pairs (rails_entities) do
 	local r_table = serpent.block(find_ties(i, v, "rails"))
 end
-log ("global table of rails is complete :" .. #global.rails)
+--log ("global table of rails is complete :" .. #global.rails)
 for i, handler in pairs (global.rails) do
 	--handler.name = "straight_rail_horizontal"
 	local was_filename = handler.table.filename
 	handler.table.filename = sheet_path_ties .. handler.name .. "-ties.png"
 	handler.table.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties.png"
-	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.filename)
+	--log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.filename)
 	handler.table.tint = tint
 	handler.table.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
 end
-log("End rails") 		---------------------
+--log("End rails") 		---------------------
 end
 
 
@@ -72,19 +72,19 @@ local remnants_entities = remnants_entities or -- or vanilla
 	}
 global = global or {}
 global["remnants"] = {}
-log("Start remnants") 	---------------------
+--log("Start remnants") 	---------------------
 for i, v in pairs (remnants_entities) do
 	local r_table = serpent.block(find_ties(i, v, "remnants"))
 end
-log ("global table of remnants is complete :" .. #global.remnants)
+--log ("global table of remnants is complete :" .. #global.remnants)
 for i, handler in pairs (global.remnants) do
 	--remnants.name = "straight_rail_horizontal"
 	local was_filename = handler.table.filename
 	handler.table.filename = sheet_path_ties .. handler.name .. "-ties-remnants.png"
 	handler.table.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties-remnants.png"
-	log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.filename)
+	--log ('Replaced: ' .. was_filename .. ' ===>>> ' .. handler.table.filename)
 	handler.table.tint = tint
 	handler.table.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
 end
-log("End remnants") 		---------------------
+--log("End remnants") 		---------------------
 end

@@ -39,6 +39,10 @@ data:extend({
 			},	
 			{
 				type = "unlock-recipe",
+				recipe = "bi_recipe_woodpulp"
+			},
+			{
+				type = "unlock-recipe",
 				recipe = "bi_recipe_resin_pulp"
 			},				
 		},
@@ -68,7 +72,6 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi_recipe_charcoal_2"
 			},
-
 			{
 				type = "unlock-recipe",
 				recipe = "bi_recipe_ash_1"
@@ -79,8 +82,12 @@ data:extend({
 			},
 			{
 				type = "unlock-recipe",
-				recipe = "bi_recipe_woodpulp"
-			},
+				recipe = "bi_recipe_wood_fuel_brick"
+			},	
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_solid_fuel"
+			},							
 			{
 				type = "unlock-recipe",
 				recipe = "bi_recipe_seed_2"
@@ -101,7 +108,7 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi_recipe_cokery"
 			},
-			
+		
 		},
 		prerequisites = {"advanced-material-processing"},
 		unit = 
@@ -124,6 +131,10 @@ data:extend({
 			{
 				type = "unlock-recipe",
 				recipe = "bi_recipe_coal"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_pellet_coke"
 			},
 			{
 				type = "unlock-recipe",

@@ -23,7 +23,8 @@ data:extend({
 		always_show_made_in = true,
 		allow_decomposition = false,
 		subgroup = "bio-bio-farm-fluid-1",
-		order = "a[bi]-ssw-a1[bi_recipe_seed_1]",		
+		order = "a[bi]-ssw-a1[bi_recipe_seed_1]",	
+		
 	},
 	
 	
@@ -352,6 +353,8 @@ data:extend({
 		},
 		subgroup = "bio-bio-farm-fluid-entity",
 		order = "a[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
 
 	
@@ -389,6 +392,8 @@ data:extend({
 		},
 		subgroup = "bio-bio-farm-fluid-entity",
 		order = "b[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
 	
 	
@@ -432,7 +437,26 @@ data:extend({
 
 	},
 	
+  	
+	-- Wood Fuel Brick
+	{
+		type = "recipe",
+		name = "bi_recipe_wood_fuel_brick",
+		icon = "__Bio_Industries__/graphics/icons/Fuel_Brick.png",
+		icon_size = 64,
+		subgroup = "bio-bio-farm-raw",
+		order = "a[bi]-a-bx[bi-woodbrick]",
+		energy_required = 2,
+		ingredients = {{"bi-woodpulp",24}},
+		result = "wood-bricks",
+		result_count = 1,
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
+	},
 
+  
 	-- ASH --
 	{
 		type = "recipe",
@@ -552,20 +576,58 @@ data:extend({
 		allow_as_intermediate = false,
 	},
 
+	-- Solid Fuel
+	{
+		type = "recipe",
+		name = "bi_recipe_solid_fuel",
+		icon = "__Bio_Industries__/graphics/icons/bi_solid_fuel_wood_brick.png",
+		icon_size = 64,
+		subgroup = "bio-bio-farm-raw",
+		category = "chemistry",
+		order = "a[bi]-a-fa[bi-solid_fuel]",
+		energy_required = 2,
+		ingredients = {{"wood-bricks",3}},
+		result = "solid-fuel",
+		result_count = 2,
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
+	},
 
+	
 	-- Pellet-Coke from Coal -- Use to be Coke-Coal
 		{
 		type = "recipe",
 		name = "bi_recipe_coke_coal",
-		icon = "__Bio_Industries__/graphics/icons/pellet_coke_1.png",
+		icon = "__Bio_Industries__/graphics/icons/pellet_coke_coal.png",
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-f[bi-coke-coal]-1",
+		order = "a[bi]-a-g[bi-coke-coal]-1",
 		energy_required = 20,
-		ingredients = {{"coal",10}},
+		ingredients = {{"coal",12}},
 		result = "pellet-coke",
 		result_count = 2,
+		enabled = false,
+		always_show_made_in = true,
+		allow_as_intermediate = false,
+	},
+
+		-- Pellet-Coke from Solid Fuel -- Use to be Coke-Coal
+		{
+		type = "recipe",
+		name = "bi_recipe_pellet_coke",
+		icon = "__Bio_Industries__/graphics/icons/pellet_coke_solid.png",
+		--icon = "__Bio_Industries__/graphics/icons/pellet_coke_c.png",
+		icon_size = 32,
+		category = "biofarm-mod-smelting",
+		subgroup = "bio-bio-farm-raw",
+		order = "a[bi]-a-g[bi-coke-coal]-3",
+		energy_required = 6,
+		ingredients = {{"solid-fuel",5}},
+		result = "pellet-coke",
+		result_count = 3,
 		enabled = false,
 		always_show_made_in = true,
 		allow_as_intermediate = false,
@@ -649,6 +711,8 @@ data:extend({
 		},
 		subgroup = "bio-bio-farm-raw-entity",
 		order = "a[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
 
 
@@ -684,6 +748,8 @@ data:extend({
 		},
 		subgroup = "bio-bio-farm-raw-entity",
 		order = "b[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
 
 
@@ -837,7 +903,9 @@ data:extend({
 			{"rocket", 2},
 		  },
 		  result = "bi-seed-bomb-basic",
-		}
+		},
+		always_show_made_in = true,
+		allow_decomposition = false,
 	  },
 
 	  
@@ -868,7 +936,9 @@ data:extend({
 			{"rocket", 2},
 		  },
 		  result = "bi-seed-bomb-standard",
-		}
+		},
+		always_show_made_in = true,
+		allow_decomposition = false,
 	  },
 
 
@@ -899,7 +969,9 @@ data:extend({
 			{"rocket", 2},
 		  },
 		  result = "bi-seed-bomb-advanced",
-		}
+		},
+		always_show_made_in = true,
+		allow_decomposition = false,
 	  },
 	  
 	  
@@ -937,6 +1009,8 @@ data:extend({
 		},
 		subgroup = "bio-arboretum-fluid",
 		order = "1-a[bi]",	
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
 	
 

@@ -30,13 +30,9 @@ data:extend({
 				  entity_name = "explosion-hit"
 				},
 				{
-				  type = "damage",			  
-				  damage = { amount = 1 , type = "poison"}				 
-				},
-				{
 				  type = "damage",
-				  damage = { amount = 2 , type = "physical"}
-				}
+				  damage = { amount = 3 , type = "physical"}
+				},
 			  }
 			}
 		  }
@@ -74,13 +70,13 @@ data:extend({
 				  entity_name = "explosion-hit"
 				},
 				{
-				  type = "damage",				  
-				  damage = { amount = 1 , type = "poison"}				 
-				},
+				  type = "damage",
+				  damage = { amount = 3 , type = "physical"}
+	     		},
 				{
 				  type = "damage",
-				  damage = { amount = 2.5 , type = "bob-pierce"}
-				}
+				  damage = { amount = 2 , type = "bob-pierce"}
+				},
 			  }
 			}
 		  }
@@ -119,17 +115,17 @@ data:extend({
 				  entity_name = "explosion-hit"
 				},
 				{
-				  type = "damage",				  
-				  damage = { amount = 1 , type = "poison"}			 
+				  type = "damage",
+				  damage = { amount = 3 , type = "physical"}
+	     		},
+				{
+				  type = "damage",
+				  damage = { amount = 2 , type = "bob-pierce"}
 				},
 				{
 				  type = "damage",
-				  damage = { amount = 2 , type = "physical"}
+				  damage = { amount = 2 , type = "acid"}
 				},
-				{
-				  type = "damage",
-				  damage = { amount = 2.5 , type = "bob-pierce"}
-				}
 			  }
 			}
 		  }
@@ -168,17 +164,21 @@ data:extend({
 				  entity_name = "explosion-hit"
 				},
 				{
+				  type = "damage",
+				  damage = { amount = 3 , type = "physical"}
+	     		},
+				{
+				  type = "damage",
+				  damage = { amount = 2 , type = "bob-pierce"}
+				},
+				{
+				  type = "damage",
+				  damage = { amount = 2 , type = "acid"}
+				},
+				{
 				  type = "damage",				  
-				  damage = { amount = 4 , type = "poison"}			 
+				  damage = { amount = 2 , type = "poison"}			 
 				},
-				{
-				  type = "damage",
-				  damage = { amount = 2 , type = "physical"}
-				},
-				{
-				  type = "damage",
-				  damage = { amount = 2.5 , type = "bob-pierce"}
-				}
 			  }
 			}
 		  }
@@ -226,7 +226,7 @@ data:extend({
 	icon_size = 32,
     flags = {"placeable-player", "player-creation"},
     minable = {mining_time = 0.25, result = "bi-dart-turret"},
-    max_health = 250,
+    max_health = 300,
     corpse = "medium-remnants",
     collision_box = {{-0.2, -0.2 }, {0.2, 0.2}},
     selection_box = {{-0.4, -0.4 }, {0.4, 0.4}},

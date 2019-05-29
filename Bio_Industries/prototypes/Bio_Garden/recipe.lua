@@ -19,7 +19,9 @@ data:extend({
 		},
 		result = "bi-bio-garden",
 		subgroup = "bio-bio-gardens-fluid",
-		order = "a[bi]",	
+		order = "a[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,			
 	},
  
  

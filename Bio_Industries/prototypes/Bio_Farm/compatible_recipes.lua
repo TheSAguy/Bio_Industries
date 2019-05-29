@@ -8,11 +8,14 @@ data:extend({
 		icon_size = 32,
 		category = "biofarm-mod-smelting",
 		subgroup = "bio-bio-farm-raw",
-		order = "a[bi]-a-e[bi-coke-coal]-2",
+		order = "a[bi]-a-g[bi-coke-coal]-2",
 		energy_required = 4,
 		ingredients = {},
 		result = "pellet-coke",
 		result_count = 1,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		enabled = false,
 	},
 	
@@ -34,6 +37,9 @@ data:extend({
 			{type="item", name="fertiliser", amount=5}
 		},
 		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
 		subgroup = "bio-bio-farm-intermediate-product",
 		order = "b[fertiliser]",
 	},
@@ -67,6 +73,8 @@ if not data.raw.item["resin"] then
 			order = "a[bi]-a-ab[bi-resin2]",
 			enabled = false,
 			allow_as_intermediate = false,
+			always_show_made_in = true,
+			allow_decomposition = false,
 			energy_required = 1,
 			ingredients = 
 			{
@@ -90,22 +98,44 @@ end
 
 --update crushed stone icon
 data.raw.item["stone-crushed"].icon = "__Bio_Industries__/graphics/icons/crushed-stone.png"
-	
+data.raw.item["stone-crushed"].icon_size = 32	
 		
  -- Pellet-Coke from Carbon - Bobs & Angels
 if data.raw.item["solid-carbon"] and mods["angelspetrochem"] then
 	
 	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="solid-carbon", amount=10})
+	data.raw.recipe["bi_recipe_coke_coal"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_1.png"
+	data.raw.recipe["bi_recipe_coke_coal"].icon_size = 32
 	data.raw.recipe["bi_recipe_pellete_coal_2"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_a.png"
+	data.raw.recipe["bi_recipe_pellete_coal_2"].icon_size = 32
+	data.raw.recipe["bi_recipe_pellet_coke"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_c.png"
+	data.raw.recipe["bi_recipe_pellet_coke"].icon_size = 64
 	thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
 	
 elseif data.raw.item["carbon"] and mods["bobplates"] then
 
 	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_pellete_coal_2", {type="item", name="carbon", amount=10})
+	data.raw.recipe["bi_recipe_coke_coal"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_1.png"
+	data.raw.recipe["bi_recipe_coke_coal"].icon_size = 32
 	data.raw.recipe["bi_recipe_pellete_coal_2"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_b.png"
+	data.raw.recipe["bi_recipe_pellete_coal_2"].icon_size = 32
+	data.raw.recipe["bi_recipe_pellet_coke"].icon = "__Bio_Industries__/graphics/icons/pellet_coke_c.png"
+	data.raw.recipe["bi_recipe_pellet_coke"].icon_size = 64
 	thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-2", "bi_recipe_pellete_coal_2")
 		
 end
+
+
+ -- Update Wood Bricks icon to Angels
+if data.raw.item["wood-bricks"] and mods["angelsbioprocessing"] then
+	
+	data.raw.recipe["bi_recipe_wood_fuel_brick"].icon = "__angelsbioprocessing__/graphics/icons/wood-bricks.png"
+	data.raw.recipe["bi_recipe_wood_fuel_brick"].icon_size = 32
+	data.raw.item["wood-bricks"].icon = "__angelsbioprocessing__/graphics/icons/wood-bricks.png"
+	data.raw.item["wood-bricks"].icon_size = 32
+	
+end
+
 
 --- Add fertiliser recipes if bob's or Angels
 if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] then
@@ -113,7 +143,7 @@ if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] then
 	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="solid-sodium-hydroxide", amount=10})
 	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_2", "cnitrogen", "gas-nitrogen")	
 	data.raw.recipe["bi_recipe_fertiliser_2"].icon = "__Bio_Industries__/graphics/icons/fertiliser_solid_sodium_hydroxide.png"
-	
+	data.raw.recipe["bi_recipe_fertiliser_2"].icon_size = 32
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
 
 elseif data.raw.item["sodium-hydroxide"] and mods["bobplates"] then
@@ -149,8 +179,7 @@ end
 if data.raw.fluid["water-yellow-waste"] and mods["angelspetrochem"] then
 
 	thxbob.lib.recipe.remove_result("bi_recipe_biomass_conversion_4", "water")
-	thxbob.lib.recipe.add_result("bi_recipe_biomass_conversion_4", {type = "fluid", name = "water-yellow-waste", amount = 40})
-	
+	thxbob.lib.recipe.add_result("bi_recipe_biomass_conversion_4", {type = "fluid", name = "water-yellow-waste", amount = 40})	
 	
 end
 
@@ -189,6 +218,9 @@ if mods["angelsrefining"] then
 					{type="fluid", name="water-mineralized", amount=60},
 				},
 				enabled = false,
+				allow_as_intermediate = false,
+				always_show_made_in = true,
+				allow_decomposition = false,
 				order = "a[water-water-mineralized]-2",
 			},
 
@@ -212,6 +244,9 @@ if mods["angelsrefining"] then
 					{type="fluid", name="slag-slurry", amount=100},
 				},
 				enabled = false,
+				allow_as_intermediate = false,
+				always_show_made_in = true,
+				allow_decomposition = false,
 				order = "i [slag-processing-dissolution]-2",
 			},
 		})
@@ -260,6 +295,7 @@ if data.raw.item["wooden-board"] and mods["bobelectronics"] then
 
 	if mods["ShinyBobGFX"] then
 		data.raw["recipe"]["bi_recipe_press_wood"].icon = "__Bio_Industries__/graphics/icons/bi_wooden_board_shiny.png"
+		data.raw["recipe"]["bi_recipe_press_wood"].icon_size = 32
 	end
 	
 	
@@ -278,71 +314,5 @@ if data.raw.recipe["wood-charcoal"] then
 	
 end
 
---- Update fuel_emissions_multiplier values
-BI_Functions.lib.fuel_emissions_multiplier_update("pellet-coke", 0.80)
-BI_Functions.lib.fuel_emissions_multiplier_update("enriched-fuel", 0.80)
-BI_Functions.lib.fuel_emissions_multiplier_update("solid-fuel", 0.85)
-BI_Functions.lib.fuel_emissions_multiplier_update("solid-carbon", 0.95)
-BI_Functions.lib.fuel_emissions_multiplier_update("carbon", 0.95)
-BI_Functions.lib.fuel_emissions_multiplier_update("wood-charcoal", 1.05)
-BI_Functions.lib.fuel_emissions_multiplier_update("bi-ash", 1.10)
-BI_Functions.lib.fuel_emissions_multiplier_update("ash", 1.10)
-BI_Functions.lib.fuel_emissions_multiplier_update("rocket-fuel", 1.20)
-BI_Functions.lib.fuel_emissions_multiplier_update("cellulose-fiber", 1.20)
-BI_Functions.lib.fuel_emissions_multiplier_update("wood-pellets", 1.20)
-BI_Functions.lib.fuel_emissions_multiplier_update("wood-bricks", 1.20)
-BI_Functions.lib.fuel_emissions_multiplier_update("bi-woodpulp", 1.20)
-BI_Functions.lib.fuel_emissions_multiplier_update("wood", 1.25)
-BI_Functions.lib.fuel_emissions_multiplier_update("solid-coke", 1.40)
-BI_Functions.lib.fuel_emissions_multiplier_update("coal-crushed", 1.50)
-BI_Functions.lib.fuel_emissions_multiplier_update("coal", 2.00)
-BI_Functions.lib.fuel_emissions_multiplier_update("thorium-fuel-cell", 5.00)
 
 
-
---[[
---- Alternative Wooden-Board Recipe for Bob's Electronics
-if data.raw.item["wooden-board"] and mods["bobelectronics"] then
-
-	data:extend({
-
-		-- Wood - Press Wood
-		{
-			type = "recipe",
-			name = "bi_recipe_press_wood",
-			icon = "__Bio_Industries__/graphics/icons/bi_wooden_board.png",
-			icon_size = 32,
-			subgroup = "bob-boards",
-			order = "c-a1[wooden-board]",
-			category = "electronics",
-			energy_required = 1,	
-			enabled = false,
-			always_show_made_in = true,
-			allow_decomposition = false,
-			allow_as_intermediate = false,
-			ingredients =
-			{
-				{type="item", name="bi-woodpulp", amount=3},
-				{type="item", name="resin", amount=1},
-			},
-			results=
-			{
-				{type="item", name="wooden-board", amount=6}
-			},
-
-		},
-
-
-	})
-	
-	thxbob.lib.tech.add_recipe_unlock("electronics", "bi_recipe_press_wood")
-
-	if mods["ShinyBobGFX"] then
-		data.raw["recipe"]["bi_recipe_press_wood"].icon = "__Bio_Industries__/graphics/icons/bi_wooden_board_shiny.png"
-	end
-	
-	
-end
-
-
-]]

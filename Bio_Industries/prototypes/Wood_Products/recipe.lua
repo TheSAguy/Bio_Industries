@@ -24,6 +24,8 @@ data:extend({
 			},
 		  result = "bi-big-wooden-pole"
 		},	
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
 	
 	--- Huge Wooden Pole	
@@ -52,6 +54,8 @@ data:extend({
 			},
 		  result = "bi-huge-wooden-pole"
 		},	
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
 	
 	--- Wooden Fence
@@ -76,6 +80,8 @@ data:extend({
 			},
 			result = "bi-wooden-fence",
 		},	
+		always_show_made_in = true,
+		allow_decomposition = false,
 	},
   
 	--- Wooden Rail
@@ -110,7 +116,8 @@ data:extend({
 			result_count = 1,
 			requester_paste_multiplier = 4
 		},	
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
 
  	--- Wooden Rail to Concrete Rail
@@ -145,7 +152,8 @@ data:extend({
 		},
 		subgroup = "transport",
 		order = "a[train-system]-aa1[rail-upgrade]",		
-
+		always_show_made_in = true,
+		allow_decomposition = false,
 	}, 
 	
 	--- Wooden Bridge Rail
@@ -180,7 +188,8 @@ data:extend({
 			result_count = 1,
 			requester_paste_multiplier = 4
 		},
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
 
   	--- Power Rail
@@ -213,7 +222,8 @@ data:extend({
 			result_count = 1,
 			requester_paste_multiplier = 4
 		},	
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
 
 	--- Wood Pipe
@@ -246,6 +256,8 @@ data:extend({
 		  result_count = 4,
 		  requester_paste_multiplier = 15
 		},
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
  	
   -- Wood Pipe to Ground
@@ -276,6 +288,8 @@ data:extend({
 		  result = "bi-pipe-to-ground-wood",
 		  result_count = 2,
 		},
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
 
   	--- Rail to Power Pole
@@ -301,7 +315,9 @@ data:extend({
 			  {"medium-electric-pole", 1},  
 			},
 		  result = "bi-power-to-rail-pole"
-		},	
+		},
+		always_show_made_in = true,	
+		allow_decomposition = false,		
 	},
 	
 	--- Large Wooden Chest
@@ -336,7 +352,8 @@ data:extend({
 		  result_count = 1,
 		  requester_paste_multiplier = 4,
 		},
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
  
 	--- Huge Wooden Chest
@@ -371,7 +388,8 @@ data:extend({
 		  result_count = 1,
 		  requester_paste_multiplier = 4,
 		},
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   }, 
 
   	--- Giga Wooden Chest
@@ -406,7 +424,11 @@ data:extend({
 		  result_count = 1,
 		  requester_paste_multiplier = 4,
 		},
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   }, 
+  
+  
+
  })
 

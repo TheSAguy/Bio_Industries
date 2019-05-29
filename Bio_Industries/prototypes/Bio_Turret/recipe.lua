@@ -28,6 +28,8 @@ data:extend({
 		  result = "bi-basic-dart-magazine",
 		  result_count = 8,
 		},
+		always_show_made_in = true,
+		allow_decomposition = false,	
 	}, 	
 
 	--- Standard Dart Ammo
@@ -58,6 +60,8 @@ data:extend({
 		  result = "bi-standard-dart-magazine",
 		  result_count = 8,
 		},
+		always_show_made_in = true,
+		allow_decomposition = false,
 	}, 	
 	
 	--- Enhanced Dart Ammo
@@ -88,6 +92,8 @@ data:extend({
 		  result = "bi-enhanced-dart-magazine",
 		  result_count = 8,
 		},
+		always_show_made_in = true,
+		allow_decomposition = false,
 	}, 	
 
 	--- Poison Dart Ammo
@@ -118,6 +124,8 @@ data:extend({
 		  result = "bi-poison-dart-magazine",
 		  result_count = 8,
 		},
+		always_show_made_in = true,
+		allow_decomposition = false,
 	}, 	
 
 	--- Dart Turret
@@ -150,8 +158,8 @@ data:extend({
 		  result = "bi-dart-turret",
 		  result_count = 1,
 		},
-	
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
 	
 --- Dart Rifle
@@ -159,8 +167,7 @@ data:extend({
 	--- Dart Turret
   {
     type = "recipe",
-    name = "bi_recipe_bi_dart_rifle",
-    	
+    name = "bi_recipe_bi_dart_rifle",	
 	normal =
 		{
 			enabled = true,
@@ -186,8 +193,8 @@ data:extend({
 		  result = "bi-dart-rifle",
 		  result_count = 1,
 		},
-	
-
+		always_show_made_in = true,
+		allow_decomposition = false,
   },
 	
 	

@@ -18,6 +18,8 @@ if BI.Settings.BI_Solar_Additions then
 			result = "bi-bio-solar-farm",
 			subgroup = "bio-bio-solar-entity",
 			order = "a[bi]",
+			always_show_made_in = true,
+			allow_decomposition = false,	
 		},
 
 
@@ -36,6 +38,8 @@ if BI.Settings.BI_Solar_Additions then
 		result = "bi-solar-boiler-2",
 		subgroup = "bio-bio-solar-entity",
 		order = "b[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,	
 	},
 	
 	
@@ -54,6 +58,8 @@ if BI.Settings.BI_Solar_Additions then
 		result = "bi-solar-mat",
 		subgroup = "bio-bio-solar-entity",
 		order = "c[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,	
 	},
 	
 
@@ -72,6 +78,8 @@ if BI.Settings.BI_Solar_Additions then
 			result = "bi-bio-accumulator",
 			subgroup = "bio-bio-solar-entity",
 			order = "d[bi]",
+			always_show_made_in = true,
+			allow_decomposition = false,	
 		},
 		
 	-- Large Substation	
@@ -88,6 +96,8 @@ if BI.Settings.BI_Solar_Additions then
 		result = "bi-large-substation",
 		subgroup = "bio-bio-solar-entity",
 		order = "e[bi]",
+		always_show_made_in = true,
+		allow_decomposition = false,	
 	  },
 	  
 

@@ -52,13 +52,6 @@ local function On_Init()
 	if global.Arboretum_Table == nil then
 		global.Arboretum_Table = {}
 	end
-
-	
-	--- FARL Power rail compatibility
-	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
-		remote.call("farl", "add_entity_to_trigger", "bi-straight-rail-power")
-		remote.call("farl", "add_entity_to_trigger", "bi-curved-rail-power")
-	end
 	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -79,11 +72,6 @@ local function On_Load()
 		Event.register(defines.events.on_tick, function(event) end)
 	end
 	
-	--- FARL Power rail compatibility
-	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
-		remote.call("farl", "add_entity_to_trigger", "bi-straight-rail-power")
-		remote.call("farl", "add_entity_to_trigger", "bi-curved-rail-power")
-	end
 
 end
 
@@ -134,12 +122,6 @@ local function On_Config_Change()
 		global.Arboretum_Table = {}
 	end
 
-	
-	--- FARL Power rail compatibility
-	if remote.interfaces.farl and remote.interfaces.farl.add_entity_to_trigger then
-		remote.call("farl", "add_entity_to_trigger", "bi-straight-rail-power")
-		remote.call("farl", "add_entity_to_trigger", "bi-curved-rail-power")
-	end
 	
 	-- enable researched recipes
 	for i, force in pairs(game.forces) do
@@ -764,7 +746,6 @@ local function Robot_Tile_Built(event)
 	if event.tiles then Solar_Mat (event, surface) end
 
 end
-
 
 --------------------------------------------------------------------
 local function solar_mat_removed_at(surface, position)

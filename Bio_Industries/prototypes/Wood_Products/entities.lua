@@ -1735,6 +1735,7 @@ data:extend({
 local my_pole_2 = util.table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
 my_pole_2.name = "bi-power-to-rail-pole"
 my_pole_2.icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png"
+my_pole_2.icon_size = 32
 my_pole_2.minable = {mining_time = 1, result = "bi-power-to-rail-pole"}
 my_pole_2.maximum_wire_distance = 4
 my_pole_2.supply_area_distance = 3
