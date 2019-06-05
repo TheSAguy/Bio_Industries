@@ -49,8 +49,10 @@ if BI.Settings.BI_Solar_Additions then
 		minable = {hardness = 0.2, mining_time = 0.5, result = "bi-bio-accumulator"},
 		max_health = 500,
 		corpse = "big-remnants",
-		collision_box = {{-2, -2}, {2, 2}},
-		selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+		collision_box = {{-1.75, -1.75}, {1.75, 1.75}},
+		selection_box = {{-2, -2}, {2, 2}},
+		--collision_box = {{-2, -2}, {2, 2}},
+		--selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
 		energy_source =
 		{
 		  type = "electric",
@@ -65,8 +67,8 @@ if BI.Settings.BI_Solar_Additions then
 		  priority = "extra-high",
 		  width = 245,
 		  height = 245,
-		  shift = {1, -0.5},
-		  scale = 0.9,
+		  shift = {0.75, -0.5},
+		  scale = 0.75,
 		},
 		charge_animation =
 		{
@@ -75,8 +77,8 @@ if BI.Settings.BI_Solar_Additions then
 		  height = 250,
 		  line_length = 8,
 		  frame_count = 24,
-		  shift = {1, -0.5},
-		  scale = 0.9,
+		  shift = {0.75, -0.5},
+		  scale = 0.75,
 		  animation_speed = 0.5
 		},
 		charge_cooldown = 30,
@@ -88,8 +90,8 @@ if BI.Settings.BI_Solar_Additions then
 		  height = 250,
 		  line_length = 8,
 		  frame_count = 24,
-		  shift = {1, -0.5},
-		  scale = 0.9,
+		  shift = {0.75, -0.5},
+		  scale = 0.75,
 		  animation_speed = 0.5
 		},
 		discharge_cooldown = 60,

@@ -8,7 +8,7 @@ BI.Settings.BI_Game_Tweaks_Player = settings.startup["BI_Game_Tweaks_Player"].va
 BI.Settings.BI_Game_Tweaks_Disassemble = settings.startup["BI_Game_Tweaks_Disassemble"].value
 BI.Settings.BI_Game_Tweaks_Bot = settings.startup["BI_Game_Tweaks_Bot"].value
 BI.Settings.BI_Solar_Additions = settings.startup["BI_Solar_Additions"].value
-BI.Settings.BI_Game_Tweaks_Emissions_Multiplier = settings.startup["BI_Game_Tweaks_Emissions_Multiplier"].value
+
 
 ----Update the Wood Pipe Images
 require ("prototypes.Wood_Products.pipes")

@@ -1,4 +1,4 @@
-
+BI.Settings.BI_Game_Tweaks_Emissions_Multiplier = settings.startup["BI_Game_Tweaks_Emissions_Multiplier"].value
 
 
 -- 5dim Stack changes

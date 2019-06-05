@@ -13,23 +13,20 @@ require ("util")
 		frame_count = 1,
 		direction_count = 1,
 		shift = {0.75, 0},
-		--axially_symmetrical = false,
-		
 
 }
 
 
 data:extend({
 
- 
-------- Seedling
+ ------- Seedling
   {
-    type = "land-mine",
+    type = "simple-entity-with-force",
     name = "seedling",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 	icon_size = 32,
 	order = "x[bi]-a[bi-seedling]",
-	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air",},
+	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air"},
     minable =
     {
       mining_particle = "wooden-particle",
@@ -37,39 +34,36 @@ data:extend({
       result = "seedling",
       count = 1
     },
+	corpse = nil,
+    remains_when_mined = nil,
     emissions_per_second = -0.0006,
     max_health = 5,
 
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	subgroup = "intermediate-product",
+	subgroup = "trees",
 
-    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-	picture_safe =
+    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 0.8 },
+	picture =
 	{
-		filename = "__Bio_Industries__/graphics/icons/Seedling_a.png",
-		priority = "extra-high",
-		width = 32,
-		height = 32,
-    },
-	picture_set =
-    {
 		filename = "__Bio_Industries__/graphics/icons/Seedling_b.png",
 		priority = "extra-high",
 		width = 32,
 		height = 32,
+		scale = 0.75
     },
-	trigger_radius = 0,
   },
   
-  ------- Seedling - Dummy for Seed Bomb
-  {
-    type = "land-mine",
+  
+   ------- Seedling - Dummy for Seed Bomb
+   
+    {
+    type = "simple-entity-with-force",
     name = "seedling-2",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 	icon_size = 32,
 	order = "x[bi]-a[bi-seedling]",
-	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air",},
+	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air"},
     minable =
     {
       mining_particle = "wooden-particle",
@@ -77,39 +71,35 @@ data:extend({
       result = "seedling",
       count = 1
     },
+	corpse = nil,
+    remains_when_mined = nil,
     emissions_per_second = -0.0006,
     max_health = 5,
 
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	subgroup = "intermediate-product",
+	subgroup = "trees",
 
-    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-	picture_safe =
+    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 0.8 },
+	picture =
 	{
-		filename = "__Bio_Industries__/graphics/icons/Seedling_a.png",
-		priority = "extra-high",
-		width = 32,
-		height = 32,
-    },
-	picture_set =
-    {
 		filename = "__Bio_Industries__/graphics/icons/Seedling_b.png",
 		priority = "extra-high",
 		width = 32,
 		height = 32,
+		scale = 0.75
     },
-	trigger_radius = 0,
   },
   
-    ------- Seedling - Dummy for Seed Bomb
-  {
-    type = "land-mine",
+  
+     
+    {
+    type = "simple-entity-with-force",
     name = "seedling-3",
     icon = "__Bio_Industries__/graphics/icons/Seedling.png",
 	icon_size = 32,
 	order = "x[bi]-a[bi-seedling]",
-	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air",},
+	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air"},
     minable =
     {
       mining_particle = "wooden-particle",
@@ -117,30 +107,26 @@ data:extend({
       result = "seedling",
       count = 1
     },
+	corpse = nil,
+    remains_when_mined = nil,
     emissions_per_second = -0.0006,
     max_health = 5,
 
     collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-	subgroup = "intermediate-product",
+	subgroup = "trees",
 
-    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-	picture_safe =
+    vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 0.8 },
+	picture =
 	{
-		filename = "__Bio_Industries__/graphics/icons/Seedling_a.png",
-		priority = "extra-high",
-		width = 32,
-		height = 32,
-    },
-	picture_set =
-    {
 		filename = "__Bio_Industries__/graphics/icons/Seedling_b.png",
 		priority = "extra-high",
 		width = 32,
 		height = 32,
+		scale = 0.75
     },
-	trigger_radius = 0,
   },
+  
 
   ------- Bio Farm 
   {
@@ -1094,5 +1080,19 @@ my_pole_1.name = "bi-hidden-power-pole"
 my_pole_1.draw_copper_wires = false
 data:extend({my_pole_1})
 
+--[[
+local my_seedling = util.table.deepcopy(data.raw.tree["tree-01"])
+my_seedling.name = "seedling"
+my_seedling.vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 0.8 }
+my_seedling.flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air"}
+my_seedling.minable = {mining_particle = "wooden-particle", mining_time = 0.25, result = "seedling", count = 1}
+my_seedling.corpse = nil
+my_seedling.remains_when_mined = nil
+my_seedling.max_health = 5
+my_seedling.collision_box = {{-0.1, -0.1}, {0.1, 0.1}}
+my_seedling.selection_box = {{-0.5, -0.5}, {0.5, 0.5}}
+my_seedling.emissions_per_second = -0.0006
 
-
+data:extend({my_seedling})
+]]
+ 

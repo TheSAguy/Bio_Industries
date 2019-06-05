@@ -49,11 +49,6 @@ terrains["vegetation-green-grass-2"] = {
     tree_name = "tree-dryland-m",
     weight = 7
   },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-green-grass-2",
-    tree_name = "tree-grassland-0",
-    weight = 67
-  },
   ["tree-grassland-b"] = {
     tile_name = "vegetation-green-grass-2",
     tree_name = "tree-grassland-b",
@@ -241,11 +236,6 @@ terrains["vegetation-green-grass-4"] = {
     tile_name = "vegetation-green-grass-4",
     tree_name = "tree-dryland-m",
     weight = 7
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-green-grass-4",
-    tree_name = "tree-grassland-0",
-    weight = 8
   },
   ["tree-grassland-b"] = {
     tile_name = "vegetation-green-grass-4",
@@ -567,11 +557,6 @@ terrains["vegetation-green-grass-1"] = {
     tile_name = "vegetation-green-grass-1",
     tree_name = "tree-dryland-m",
     weight = 15
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-green-grass-1",
-    tree_name = "tree-grassland-0",
-    weight = 52
   },
   ["tree-grassland-b"] = {
     tile_name = "vegetation-green-grass-1",
@@ -1031,11 +1016,6 @@ terrains["vegetation-green-grass-3"] = {
     tile_name = "vegetation-green-grass-3",
     tree_name = "tree-dryland-m",
     weight = 3
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-green-grass-3",
-    tree_name = "tree-grassland-0",
-    weight = 9
   },
   ["tree-grassland-b"] = {
     tile_name = "vegetation-green-grass-3",
@@ -2414,11 +2394,6 @@ terrains["mineral-grey-dirt-6"] = {
     tree_name = "tree-dryland-o",
     weight = 2
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-grey-dirt-6",
-    tree_name = "tree-grassland-0",
-    weight = 38
-  },
   ["tree-grassland-c"] = {
     tile_name = "mineral-grey-dirt-6",
     tree_name = "tree-grassland-c",
@@ -2577,11 +2552,6 @@ terrains["mineral-black-dirt-4"] = {
     tree_name = "tree-dryland-o",
     weight = 5149
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-black-dirt-4",
-    tree_name = "tree-grassland-0",
-    weight = 164
-  },
   ["tree-grassland-d"] = {
     tile_name = "mineral-black-dirt-4",
     tree_name = "tree-grassland-d",
@@ -2719,11 +2689,6 @@ terrains["mineral-black-dirt-6"] = {
     tile_name = "mineral-black-dirt-6",
     tree_name = "tree-dryland-o",
     weight = 1057
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-black-dirt-6",
-    tree_name = "tree-grassland-0",
-    weight = 41
   },
   ["tree-grassland-d"] = {
     tile_name = "mineral-black-dirt-6",
@@ -2872,11 +2837,6 @@ terrains["mineral-black-dirt-5"] = {
     tile_name = "mineral-black-dirt-5",
     tree_name = "tree-dryland-o",
     weight = 1626
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-black-dirt-5",
-    tree_name = "tree-grassland-0",
-    weight = 74
   },
   ["tree-grassland-d"] = {
     tile_name = "mineral-black-dirt-5",
@@ -3035,11 +2995,6 @@ terrains["mineral-grey-dirt-3"] = {
     tile_name = "mineral-grey-dirt-3",
     tree_name = "tree-dryland-o",
     weight = 70
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-grey-dirt-3",
-    tree_name = "tree-grassland-0",
-    weight = 114
   },
   ["tree-grassland-c"] = {
     tile_name = "mineral-grey-dirt-3",
@@ -3214,11 +3169,6 @@ terrains["mineral-grey-dirt-2"] = {
     tree_name = "tree-dryland-o",
     weight = 157
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-grey-dirt-2",
-    tree_name = "tree-grassland-0",
-    weight = 172
-  },
   ["tree-grassland-c"] = {
     tile_name = "mineral-grey-dirt-2",
     tree_name = "tree-grassland-c",
@@ -3391,11 +3341,6 @@ terrains["mineral-grey-dirt-1"] = {
     tile_name = "mineral-grey-dirt-1",
     tree_name = "tree-dryland-o",
     weight = 224
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-grey-dirt-1",
-    tree_name = "tree-grassland-0",
-    weight = 199
   },
   ["tree-grassland-c"] = {
     tile_name = "mineral-grey-dirt-1",
@@ -3748,11 +3693,6 @@ terrains["mineral-black-dirt-1"] = {
     tree_name = "tree-dryland-o",
     weight = 32970
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-black-dirt-1",
-    tree_name = "tree-grassland-0",
-    weight = 296
-  },
   ["tree-grassland-d"] = {
     tile_name = "mineral-black-dirt-1",
     tree_name = "tree-grassland-d",
@@ -3915,11 +3855,6 @@ terrains["mineral-black-dirt-2"] = {
     tile_name = "mineral-black-dirt-2",
     tree_name = "tree-dryland-o",
     weight = 16493
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-black-dirt-2",
-    tree_name = "tree-grassland-0",
-    weight = 322
   },
   ["tree-grassland-d"] = {
     tile_name = "mineral-black-dirt-2",
@@ -4094,11 +4029,6 @@ terrains["mineral-beige-dirt-3"] = {
     tree_name = "tree-dryland-n",
     weight = 107
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-beige-dirt-3",
-    tree_name = "tree-grassland-0",
-    weight = 3
-  },
   ["tree-grassland-a"] = {
     tile_name = "mineral-beige-dirt-3",
     tree_name = "tree-grassland-a",
@@ -4257,11 +4187,6 @@ terrains["mineral-black-dirt-3"] = {
     tree_name = "tree-dryland-o",
     weight = 7996
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-black-dirt-3",
-    tree_name = "tree-grassland-0",
-    weight = 78
-  },
   ["tree-grassland-d"] = {
     tile_name = "mineral-black-dirt-3",
     tree_name = "tree-grassland-d",
@@ -4404,11 +4329,6 @@ terrains["mineral-grey-dirt-4"] = {
     tile_name = "mineral-grey-dirt-4",
     tree_name = "tree-dryland-o",
     weight = 43
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-grey-dirt-4",
-    tree_name = "tree-grassland-0",
-    weight = 62
   },
   ["tree-grassland-c"] = {
     tile_name = "mineral-grey-dirt-4",
@@ -4592,11 +4512,6 @@ terrains["mineral-beige-dirt-5"] = {
     tile_name = "mineral-beige-dirt-5",
     tree_name = "tree-dryland-n",
     weight = 24
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-beige-dirt-5",
-    tree_name = "tree-grassland-0",
-    weight = 3
   },
   ["tree-grassland-a"] = {
     tile_name = "mineral-beige-dirt-5",
@@ -5106,11 +5021,6 @@ terrains["mineral-grey-dirt-5"] = {
     tile_name = "mineral-grey-dirt-5",
     tree_name = "tree-dryland-o",
     weight = 20
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-grey-dirt-5",
-    tree_name = "tree-grassland-0",
-    weight = 28
   },
   ["tree-grassland-c"] = {
     tile_name = "mineral-grey-dirt-5",
@@ -5729,11 +5639,6 @@ terrains["mineral-cream-dirt-1"] = {
     tree_name = "tree-dryland-n",
     weight = 27
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-cream-dirt-1",
-    tree_name = "tree-grassland-0",
-    weight = 24
-  },
   ["tree-grassland-a"] = {
     tile_name = "mineral-cream-dirt-1",
     tree_name = "tree-grassland-a",
@@ -5866,11 +5771,6 @@ terrains["mineral-cream-dirt-4"] = {
     tile_name = "mineral-cream-dirt-4",
     tree_name = "tree-dryland-n",
     weight = 3
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-cream-dirt-4",
-    tree_name = "tree-grassland-0",
-    weight = 27
   },
   ["tree-grassland-a"] = {
     tile_name = "mineral-cream-dirt-4",
@@ -6148,11 +6048,6 @@ terrains["mineral-cream-dirt-2"] = {
     tree_name = "tree-dryland-n",
     weight = 16
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-cream-dirt-2",
-    tree_name = "tree-grassland-0",
-    weight = 12
-  },
   ["tree-grassland-a"] = {
     tile_name = "mineral-cream-dirt-2",
     tree_name = "tree-grassland-a",
@@ -6404,11 +6299,6 @@ terrains["mineral-cream-dirt-3"] = {
     tree_name = "tree-dryland-n",
     weight = 17
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-cream-dirt-3",
-    tree_name = "tree-grassland-0",
-    weight = 10
-  },
   ["tree-grassland-a"] = {
     tile_name = "mineral-cream-dirt-3",
     tree_name = "tree-grassland-a",
@@ -6634,11 +6524,6 @@ terrains["mineral-cream-dirt-5"] = {
     tile_name = "mineral-cream-dirt-5",
     tree_name = "tree-dryland-n",
     weight = 6
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-cream-dirt-5",
-    tree_name = "tree-grassland-0",
-    weight = 3
   },
   ["tree-grassland-a"] = {
     tile_name = "mineral-cream-dirt-5",
@@ -7005,11 +6890,6 @@ terrains["mineral-tan-dirt-1"] = {
     tree_name = "tree-dryland-n",
     weight = 2
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-tan-dirt-1",
-    tree_name = "tree-grassland-0",
-    weight = 3
-  },
   ["tree-grassland-a"] = {
     tile_name = "mineral-tan-dirt-1",
     tree_name = "tree-grassland-a",
@@ -7111,11 +6991,6 @@ terrains["mineral-tan-dirt-5"] = {
   ["tree-dryland-n"] = {
     tile_name = "mineral-tan-dirt-5",
     tree_name = "tree-dryland-n",
-    weight = 3
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-tan-dirt-5",
-    tree_name = "tree-grassland-0",
     weight = 3
   },
   ["tree-grassland-a"] = {
@@ -7314,11 +7189,6 @@ terrains["mineral-tan-dirt-3"] = {
     tree_name = "tree-dryland-n",
     weight = 3
   },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-tan-dirt-3",
-    tree_name = "tree-grassland-0",
-    weight = 4
-  },
   ["tree-grassland-a"] = {
     tile_name = "mineral-tan-dirt-3",
     tree_name = "tree-grassland-a",
@@ -7396,11 +7266,6 @@ terrains["mineral-tan-dirt-4"] = {
     tile_name = "mineral-tan-dirt-4",
     tree_name = "tree-dryland-g",
     weight = 17
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "mineral-tan-dirt-4",
-    tree_name = "tree-grassland-0",
-    weight = 3
   },
   ["tree-grassland-a"] = {
     tile_name = "mineral-tan-dirt-4",
@@ -8035,11 +7900,6 @@ terrains["vegetation-olive-grass-1"] = {
     tree_name = "tree-dryland-h",
     weight = 442
   },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-olive-grass-1",
-    tree_name = "tree-grassland-0",
-    weight = 144
-  },
   ["tree-grassland-a"] = {
     tile_name = "vegetation-olive-grass-1",
     tree_name = "tree-grassland-a",
@@ -8187,11 +8047,6 @@ terrains["vegetation-olive-grass-2"] = {
     tile_name = "vegetation-olive-grass-2",
     tree_name = "tree-dryland-h",
     weight = 109
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-olive-grass-2",
-    tree_name = "tree-grassland-0",
-    weight = 68
   },
   ["tree-grassland-a"] = {
     tile_name = "vegetation-olive-grass-2",
@@ -9996,11 +9851,6 @@ terrains["vegetation-turquoise-grass-1"] = {
     tree_name = "tree-dryland-n",
     weight = 7
   },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-turquoise-grass-1",
-    tree_name = "tree-grassland-0",
-    weight = 886
-  },
   ["tree-grassland-c"] = {
     tile_name = "vegetation-turquoise-grass-1",
     tree_name = "tree-grassland-c",
@@ -10139,11 +9989,6 @@ terrains["vegetation-turquoise-grass-2"] = {
     tree_name = "tree-dryland-n",
     weight = 15
   },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-turquoise-grass-2",
-    tree_name = "tree-grassland-0",
-    weight = 503
-  },
   ["tree-grassland-c"] = {
     tile_name = "vegetation-turquoise-grass-2",
     tree_name = "tree-grassland-c",
@@ -10277,11 +10122,6 @@ terrains["vegetation-blue-grass-2"] = {
     tree_name = "tree-dryland-o",
     weight = 153
   },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-blue-grass-2",
-    tree_name = "tree-grassland-0",
-    weight = 435
-  },
   ["tree-grassland-c"] = {
     tile_name = "vegetation-blue-grass-2",
     tree_name = "tree-grassland-c",
@@ -10409,11 +10249,6 @@ terrains["vegetation-blue-grass-1"] = {
     tile_name = "vegetation-blue-grass-1",
     tree_name = "tree-dryland-o",
     weight = 359
-  },
-  ["tree-grassland-0"] = {
-    tile_name = "vegetation-blue-grass-1",
-    tree_name = "tree-grassland-0",
-    weight = 990
   },
   ["tree-grassland-c"] = {
     tile_name = "vegetation-blue-grass-1",

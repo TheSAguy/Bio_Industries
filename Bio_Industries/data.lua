@@ -43,7 +43,7 @@ require ("prototypes.Bio_Farm.liquids")
 require ("prototypes.Bio_Farm.recipe-categories")
 require ("prototypes.Bio_Farm.pipeConnectors")
 require ("prototypes.Bio_Farm.technology")
-
+require ("prototypes.Bio_Farm.tree_entities")
 
 -- Bio Garden
 require ("prototypes.Bio_Garden.entities")

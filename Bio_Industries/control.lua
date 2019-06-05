@@ -1,4 +1,4 @@
---Bio_Industries Version   0.17.20
+--Bio_Industries Version   0.17.23
 
 local QC_Mod = false
 require ("util")
@@ -7,6 +7,11 @@ require ("stdlib/event/event")
 require ("control_tree")
 require ("control_bio_cannon")
 require ("control_arboretum")
+
+
+---************** Used for Testing -----
+--require ("Test_Spawn")
+---*************
 
 
 --------------------------------------------------------------------
@@ -19,7 +24,12 @@ local function On_Init()
 	if global.bi == nil then
 		global.bi = {}
 		global.bi.tree_growing = {}
+		global.bi.tree_growing_stage_1 = {}
+		global.bi.tree_growing_stage_2 = {}
+		global.bi.tree_growing_stage_3 = {}
+		global.bi.tree_growing_stage_4 = {}
 		global.bi.terrains = {}
+		global.bi.trees = {}
 	end
 	
 	
@@ -59,8 +69,14 @@ local function On_Init()
 		force.reset_recipes()
 	end
 
-	
-	
+	--[[
+	if QC_Mod then
+		---*************
+		--local surface = game.surfaces['nauvis']
+		Test_Spawn()
+		---*************
+	end
+	]]
 end
 
 
@@ -87,7 +103,12 @@ local function On_Config_Change()
 	if global.bi == nil then
 		global.bi = {}
 		global.bi.tree_growing = {}
+		global.bi.tree_growing_stage_1 = {}
+		global.bi.tree_growing_stage_2 = {}
+		global.bi.tree_growing_stage_3 = {}
+		global.bi.tree_growing_stage_4 = {}
 		global.bi.terrains = {}
+		global.bi.trees = {}
 	end
 
 		
@@ -166,13 +187,13 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 	
 	-- Basic
     if global.bi.seed_bomb[ent.name] == "seedling" then
-		writeDebug("Seed Bomb Activated - Basic")
+		--writeDebug("Seed Bomb Activated - Basic")
 		seed_planted_trigger (event)
 
 	
 	-- Standard
     elseif global.bi.seed_bomb[ent.name] == "seedling-2" then
-		writeDebug("Seed Bomb Activated - Standard")
+		--writeDebug("Seed Bomb Activated - Standard")
 		local terrain_name_s
 		if game.active_mods["alien-biomes"] then 
 			terrain_name_s = "vegetation-green-grass-3"
@@ -180,7 +201,7 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 			terrain_name_s = "grass-3"
 		end
 
-		writeDebug(terrain_name_s)
+		--writeDebug(terrain_name_s)
 		
 		surface.set_tiles{{name=terrain_name_s, position=position}}
 		seed_planted_trigger (event)
@@ -189,14 +210,14 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 		
 	-- Advanced
     elseif global.bi.seed_bomb[ent.name] == "seedling-3" then
-		writeDebug("Seed Bomb Activated - Advanced")
+		--writeDebug("Seed Bomb Activated - Advanced")
 		local terrain_name_a
 		if game.active_mods["alien-biomes"] then 
 			terrain_name_a = "vegetation-green-grass-1"
 		else
 			terrain_name_a = "grass-1"
 		end	
-		writeDebug(terrain_name_a)	
+		--writeDebug(terrain_name_a)	
 		
 		surface.set_tiles{{name=terrain_name_a, position=position}}
 		seed_planted_trigger (event)
@@ -290,8 +311,7 @@ local function On_Built(event)
 	
 	--- Bio Cannon has been built
 	if entity.valid and entity.name == "bi-bio-cannon-area" then
-	
-	
+		
 	local New_Bio_Cannon
 	local New_Bio_CannonR
 	
@@ -520,7 +540,63 @@ local function On_Remove(event)
 
 	end	
 	
-	
+
+	--- Tree Stage 1 Removed
+	if entity.valid and entity.type == "tree" then --and global.bi.trees[entity.name] then 
+	--writeDebug("Tree Removed removed name: "..entity.name)
+	local tree_name = (string.find(entity.name, "bio%-tree%-"))
+	--writeDebug("Tree Removed removed name: "..tree_name)
+		if tree_name then
+
+			local tree_stage_1 = (string.find(entity.name, '1.-$'))
+			if tree_stage_1 then
+				--writeDebug("1: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_1)
+				for k, v in pairs(global.bi.tree_growing_stage_1) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_1, k)
+						return
+					end
+				end
+			end
+			
+			
+			local tree_stage_2 = (string.find(entity.name, '2.-$'))
+			if tree_stage_2 then
+				--writeDebug("2: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_2)
+				for k, v in pairs(global.bi.tree_growing_stage_2) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_2, k)
+						return
+					end
+				end
+			end
+
+			
+			local tree_stage_3 = (string.find(entity.name, '3.-$'))
+			if tree_stage_3 then
+				--writeDebug("3: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_3)
+				for k, v in pairs(global.bi.tree_growing_stage_3) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_3, k)
+						return
+					end
+				end
+			end
+
+			
+			local tree_stage_4 = (string.find(entity.name, '4.-$'))
+			if tree_stage_4 then
+				--writeDebug("4: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_4)
+				for k, v in pairs(global.bi.tree_growing_stage_4) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_4, k)
+						return
+					end
+				end
+			end
+		end
+	end
+
 end
 
 
