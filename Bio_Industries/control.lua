@@ -1,4 +1,4 @@
---Bio_Industries Version   0.17.23
+--Bio_Industries Version   0.17.26
 
 local QC_Mod = false
 require ("util")
@@ -187,13 +187,13 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 	
 	-- Basic
     if global.bi.seed_bomb[ent.name] == "seedling" then
-		--writeDebug("Seed Bomb Activated - Basic")
+		----writeDebug("Seed Bomb Activated - Basic")
 		seed_planted_trigger (event)
 
 	
 	-- Standard
     elseif global.bi.seed_bomb[ent.name] == "seedling-2" then
-		--writeDebug("Seed Bomb Activated - Standard")
+		----writeDebug("Seed Bomb Activated - Standard")
 		local terrain_name_s
 		if game.active_mods["alien-biomes"] then 
 			terrain_name_s = "vegetation-green-grass-3"
@@ -201,7 +201,7 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 			terrain_name_s = "grass-3"
 		end
 
-		--writeDebug(terrain_name_s)
+		----writeDebug(terrain_name_s)
 		
 		surface.set_tiles{{name=terrain_name_s, position=position}}
 		seed_planted_trigger (event)
@@ -210,14 +210,14 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 		
 	-- Advanced
     elseif global.bi.seed_bomb[ent.name] == "seedling-3" then
-		--writeDebug("Seed Bomb Activated - Advanced")
+		----writeDebug("Seed Bomb Activated - Advanced")
 		local terrain_name_a
 		if game.active_mods["alien-biomes"] then 
 			terrain_name_a = "vegetation-green-grass-1"
 		else
 			terrain_name_a = "grass-1"
 		end	
-		--writeDebug(terrain_name_a)	
+		----writeDebug(terrain_name_a)	
 		
 		surface.set_tiles{{name=terrain_name_a, position=position}}
 		seed_planted_trigger (event)
@@ -244,7 +244,7 @@ local function On_Built(event)
 	
     --- Bio Farm has been built
 	if entity.valid and entity.name == "bi-bio-farm" then
-	writeDebug("Bio Farm has been built")
+	--writeDebug("Bio Farm has been built")
 		   
 		local b_farm = entity
 		local pole_name = "bi-bio-farm-electric-pole"  
@@ -270,7 +270,7 @@ local function On_Built(event)
 	
 	--- Bio Solar Boiler / Solar Plant has been built
 	if entity.valid and entity.name == "bi-solar-boiler-2" then
-	writeDebug("Bio Solar Boiler has been built")
+	--writeDebug("Bio Solar Boiler has been built")
 		   
 		local solar_plant = entity
 		--local boiler_solar = "bi-solar-boiler-2"
@@ -293,7 +293,7 @@ local function On_Built(event)
 	
     --- Solar Farm has been built
 	if entity.valid and entity.name == "bi-bio-solar-farm" then
-	writeDebug("Bio Solar Farm has been built")
+	--writeDebug("Bio Solar Farm has been built")
 		   
 		local solar_farm = entity	
 		local sm_pole_name = "bi-hidden-power-pole"  
@@ -315,7 +315,7 @@ local function On_Built(event)
 	local New_Bio_Cannon
 	local New_Bio_CannonR
 	
-	writeDebug("Bio Cannon has been built")				
+	--writeDebug("Bio Cannon has been built")				
 
 		New_Bio_Cannon  = surface.create_entity({name = "bi-bio-cannon", position = position, direction = event.created_entity.direction, force = force}) -- New Cannon, the first was just used for Radius overlay
 		New_Bio_CannonR = surface.create_entity({name = "Bio_Cannon_r", position = position, direction = event.created_entity.direction, force = force}) -- Hidden Radar
@@ -345,7 +345,7 @@ local function On_Built(event)
 	
     --- Arboretum has been built
 	if entity.valid and entity.name == "bi-arboretum-area" then
-	writeDebug("Arboretum has been built")
+	--writeDebug("Arboretum has been built")
 		   
 		local arboretum_new = "bi-arboretum"
 		local radar_name = "bi-arboretum-radar"  
@@ -381,7 +381,7 @@ local function On_Built(event)
 
 	-- Power Rail
 	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
-	writeDebug("Power Rail has been built")
+	--writeDebug("Power Rail has been built")
 			   
 		local rail_track = entity
 		local pole_name = "bi-rail-hidden-power-pole"  			
@@ -407,10 +407,10 @@ local function On_Built(event)
 				
 					for _,neighbour in pairs(power_rail_poles[i].neighbours.copper) do					
 						if neighbour.name == "bi-rail-hidden-power-pole" or neighbour.name == "bi-power-to-rail-pole" then						
-							writeDebug(i.. " Hidden Power Rail Pole found")
+							----writeDebug(i.. " Hidden Power Rail Pole found")
 							power_rail_poles[i].connect_neighbour(neighbour)						
 						else					
-							writeDebug(i.. " Hidden Power Rail Pole found")
+							----writeDebug(i.. " Hidden Power Rail Pole found")
 							power_rail_poles[i].disconnect_neighbour(neighbour)
 						end
 									
@@ -454,7 +454,7 @@ local function On_Remove(event)
 	
 	--- Bio Farm has been removed	
  	if entity.valid and entity.name == "bi-bio-farm" then
-	writeDebug("Bio Farm has been removed")	
+	--writeDebug("Bio Farm has been removed")	
 
 		if global.bi_bio_farm_table[entity.unit_number] then
 			global.bi_bio_farm_table[entity.unit_number].pole.destroy()	
@@ -468,7 +468,7 @@ local function On_Remove(event)
 			
 	--- Bio Solar Farm has been removed
    	if entity.valid and entity.name == "bi-bio-solar-farm" then
-	writeDebug("Solar Farm has been removed")
+	--writeDebug("Solar Farm has been removed")
 		
 		if global.bi_solar_farm_table[entity.unit_number] then
 			global.bi_solar_farm_table[entity.unit_number].pole.destroy()
@@ -480,7 +480,7 @@ local function On_Remove(event)
 
 	--- Bio Solar Boiler has been removed
 	if entity.valid and entity.name == "bi-solar-boiler-2" then
-	writeDebug("Solar Boiler has been removed")
+	--writeDebug("Solar Boiler has been removed")
 	
 		if global.bi_solar_boiler_table[entity.unit_number] then
 			global.bi_solar_boiler_table[entity.unit_number].boiler.destroy()	
@@ -493,7 +493,7 @@ local function On_Remove(event)
 
 	--- Power Rail has been removed
    	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
-	writeDebug("Power-Rail has been removed")
+	--writeDebug("Power-Rail has been removed")
 	
 		if global.bi_power_rail_table[entity.unit_number] then	
 			global.bi_power_rail_table[entity.unit_number].pole.destroy()	
@@ -505,10 +505,6 @@ local function On_Remove(event)
 	
 	--- Arboretum has been removed
    	if entity.valid and entity.name == "bi-arboretum" then
-		
-		--writeDebug("Arboretum has been removed")	
-		--log("entity unit_number: " .. entity.unit_number)
-		--log("global.Arboretum_Table: " .. serpent.block(global.Arboretum_Table[entity.unit_number]))
 		
 		if global.Arboretum_Table[entity.unit_number] then 
 		--game.print("passed if statement: global.Arboretum_Table[entity.unit_number]")  -- it does not get here now!
@@ -529,7 +525,7 @@ local function On_Remove(event)
 	
 	--- Seedling Removed
 	if entity.valid and entity.name == "seedling" then
-	writeDebug("Seedling has been removed")
+	--writeDebug("Seedling has been removed")
 	
 		for k, v in pairs(global.bi.tree_growing) do
 			if v.position.x == entity.position.x and v.position.y == entity.position.y then
@@ -543,14 +539,14 @@ local function On_Remove(event)
 
 	--- Tree Stage 1 Removed
 	if entity.valid and entity.type == "tree" then --and global.bi.trees[entity.name] then 
-	--writeDebug("Tree Removed removed name: "..entity.name)
+	----writeDebug("Tree Removed removed name: "..entity.name)
 	local tree_name = (string.find(entity.name, "bio%-tree%-"))
-	--writeDebug("Tree Removed removed name: "..tree_name)
+	----writeDebug("Tree Removed removed name: "..tree_name)
 		if tree_name then
 
 			local tree_stage_1 = (string.find(entity.name, '1.-$'))
 			if tree_stage_1 then
-				--writeDebug("1: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_1)
+				----writeDebug("1: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_1)
 				for k, v in pairs(global.bi.tree_growing_stage_1) do
 					if v.position.x == entity.position.x and v.position.y == entity.position.y then
 						table.remove(global.bi.tree_growing_stage_1, k)
@@ -562,7 +558,7 @@ local function On_Remove(event)
 			
 			local tree_stage_2 = (string.find(entity.name, '2.-$'))
 			if tree_stage_2 then
-				--writeDebug("2: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_2)
+				----writeDebug("2: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_2)
 				for k, v in pairs(global.bi.tree_growing_stage_2) do
 					if v.position.x == entity.position.x and v.position.y == entity.position.y then
 						table.remove(global.bi.tree_growing_stage_2, k)
@@ -574,7 +570,7 @@ local function On_Remove(event)
 			
 			local tree_stage_3 = (string.find(entity.name, '3.-$'))
 			if tree_stage_3 then
-				--writeDebug("3: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_3)
+				----writeDebug("3: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_3)
 				for k, v in pairs(global.bi.tree_growing_stage_3) do
 					if v.position.x == entity.position.x and v.position.y == entity.position.y then
 						table.remove(global.bi.tree_growing_stage_3, k)
@@ -586,7 +582,7 @@ local function On_Remove(event)
 			
 			local tree_stage_4 = (string.find(entity.name, '4.-$'))
 			if tree_stage_4 then
-				--writeDebug("4: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_4)
+				----writeDebug("4: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_4)
 				for k, v in pairs(global.bi.tree_growing_stage_4) do
 					if v.position.x == entity.position.x and v.position.y == entity.position.y then
 						table.remove(global.bi.tree_growing_stage_4, k)
@@ -607,7 +603,7 @@ local function On_Death(event)
 	
 	--- Bio Farm has been destroyed	
  	if entity.valid and entity.name == "bi-bio-farm" then
-	writeDebug("Bio Farm has been destroyed")	
+	--writeDebug("Bio Farm has been destroyed")	
 
 		if global.bi_bio_farm_table[entity.unit_number] then
 			global.bi_bio_farm_table[entity.unit_number].pole.destroy()	
@@ -623,7 +619,7 @@ local function On_Death(event)
 	
 	--- Bio Solar Farm has been destroyed
    	if entity.valid and entity.name == "bi-bio-solar-farm" then
-	writeDebug("Solar Farm has been destroyed")
+	--writeDebug("Solar Farm has been destroyed")
 		
 		if global.bi_solar_farm_table[entity.unit_number] then
 			global.bi_solar_farm_table[entity.unit_number].pole.destroy()
@@ -635,7 +631,7 @@ local function On_Death(event)
 
 	--- Bio Solar Boiler has been destroyed
 	if entity.valid and entity.name == "bi-solar-boiler-2" then
-	writeDebug("Solar Boiler has been destroyed")
+	--writeDebug("Solar Boiler has been destroyed")
 	
 		if global.bi_solar_boiler_table[entity.unit_number] then
 			global.bi_solar_boiler_table[entity.unit_number].boiler.destroy()	
@@ -648,7 +644,7 @@ local function On_Death(event)
 	
 	--- Power Rail has been destroyed
    	if (entity.valid and entity.name == "bi-straight-rail-power") or (entity.valid and entity.name == "bi-curved-rail-power") then
-	writeDebug("Power-Rail has been destroyed")
+	--writeDebug("Power-Rail has been destroyed")
 	
 		if global.bi_power_rail_table[entity.unit_number] then	
 			global.bi_power_rail_table[entity.unit_number].pole.destroy()	
@@ -661,7 +657,7 @@ local function On_Death(event)
 	--- Arboretum has been removed
    	if entity.valid and entity.name == "bi-arboretum" then
 		
-		--writeDebug("Arboretum has been removed")	
+		----writeDebug("Arboretum has been removed")	
 		--log("entity unit_number: " .. entity.unit_number)
 		--log("global.Arboretum_Table: " .. serpent.block(global.Arboretum_Table[entity.unit_number]))
 		
@@ -683,7 +679,7 @@ local function On_Death(event)
 	
 	--- Seedling destroyed
 	if entity.valid and entity.name == "seedling" then
-	writeDebug("Seedling has been destroyed")
+	--writeDebug("Seedling has been destroyed")
 	
 		for k, v in pairs(global.bi.tree_growing) do
 			if v.position.x == entity.position.x and v.position.y == entity.position.y then
@@ -693,6 +689,62 @@ local function On_Death(event)
 		end
 
 	end	
+
+	--- Tree Stage 1 Removed
+	if entity.valid and entity.type == "tree" then --and global.bi.trees[entity.name] then 
+	----writeDebug("Tree Removed removed name: "..entity.name)
+	local tree_name = (string.find(entity.name, "bio%-tree%-"))
+	----writeDebug("Tree Removed removed name: "..tree_name)
+		if tree_name then
+
+			local tree_stage_1 = (string.find(entity.name, '1.-$'))
+			if tree_stage_1 then
+				----writeDebug("1: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_1)
+				for k, v in pairs(global.bi.tree_growing_stage_1) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_1, k)
+						return
+					end
+				end
+			end
+			
+			
+			local tree_stage_2 = (string.find(entity.name, '2.-$'))
+			if tree_stage_2 then
+				----writeDebug("2: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_2)
+				for k, v in pairs(global.bi.tree_growing_stage_2) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_2, k)
+						return
+					end
+				end
+			end
+
+			
+			local tree_stage_3 = (string.find(entity.name, '3.-$'))
+			if tree_stage_3 then
+				----writeDebug("3: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_3)
+				for k, v in pairs(global.bi.tree_growing_stage_3) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_3, k)
+						return
+					end
+				end
+			end
+
+			
+			local tree_stage_4 = (string.find(entity.name, '4.-$'))
+			if tree_stage_4 then
+				----writeDebug("4: Entity Name: "..entity.name.." Tree last two digits: "..tree_stage_4)
+				for k, v in pairs(global.bi.tree_growing_stage_4) do
+					if v.position.x == entity.position.x and v.position.y == entity.position.y then
+						table.remove(global.bi.tree_growing_stage_4, k)
+						return
+					end
+				end
+			end
+		end
+	end
 
 	
 end
@@ -706,8 +758,8 @@ script.on_event(defines.events.on_sector_scanned, function(event)
 		
 		local num = (event.radar.unit_number-1) --< Unit number of arboretum assembler
 		
-		--writeDebug("The Radar Unit # is: "..event.radar.unit_number)
-		--writeDebug("The num (Asembler) Unit # is: "..num)
+		----writeDebug("The Radar Unit # is: "..event.radar.unit_number)
+		----writeDebug("The num (Asembler) Unit # is: "..num)
 
 		if game.active_mods["omnimatter_fluid"] then 
 			Get_Arboretum_Recipe_omnimatter_fluid(global.Arboretum_Table[num], event) 
@@ -732,14 +784,14 @@ local function Solar_Mat (event, surface)
 		local currentTilename = surface.get_tile(position.x,position.y).name
 		
 		if currentTilename == "bi-solar-mat" then
-			writeDebug("Solar Mat has been built")
+			--writeDebug("Solar Mat has been built")
 				
 			if event.force ~= nil then
 				local force = event.force
-				writeDebug(force)
+				----writeDebug(force)
 			else
 				local force = "player"
-				writeDebug(force)
+				----writeDebug(force)
 			end	
 		
 			local solar_mat = surface.get_tile(position.x,position.y)
@@ -758,7 +810,7 @@ local function Solar_Mat (event, surface)
 		
 			local radius = 0.5
 			local area = {{position.x - radius, position.y - radius}, {position.x + radius, position.y + radius}}
-			writeDebug("NOT Solar Mat")
+			----writeDebug("NOT Solar Mat")
 			--local entities = surface.find_entities(area)
 			--local entity1 = entities[1]
 			local entity1 = {}
@@ -766,12 +818,12 @@ local function Solar_Mat (event, surface)
 			
 						
 			if entity1 ~= nil then 		
-				writeDebug(entity1.name)	
+				----writeDebug(entity1.name)	
 				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi-musk-mat-pole"})) do o.destroy() end	
 
-				--writeDebug("bi-musk-mat-pole Removed")
+				----writeDebug("bi-musk-mat-pole Removed")
 			else
-				--writeDebug("bi-musk-mat-pole not found")				
+				----writeDebug("bi-musk-mat-pole not found")				
 			end
 				
 			--- Remove the Hidden Solar Panel						
@@ -780,12 +832,12 @@ local function Solar_Mat (event, surface)
 			entity2 = surface.find_entities_filtered{area=area, name="bi-musk-mat-solar-panel", limit=1}	
 			
 			if entity2 ~= nil then 
-				writeDebug(entity2.name)		
+				----writeDebug(entity2.name)		
 				for _, o in pairs(surface.find_entities_filtered({area = area, name = "bi-musk-mat-solar-panel"})) do o.destroy() end	
 
-				--writeDebug("bi-musk-mat-solar-panel Removed")
+				----writeDebug("bi-musk-mat-solar-panel Removed")
 			else
-				--writeDebug("bi-musk-mat-solar-panel not found")				
+				----writeDebug("bi-musk-mat-solar-panel not found")				
 			end
 
 
@@ -830,16 +882,16 @@ local function solar_mat_removed_at(surface, position)
    local n = 0
    for _,o in next,surface.find_entities_filtered{name='bi-musk-mat-pole',area=area} or {}
       do o.destroy() n = n+1 end
-   --writedebug(string.format('%g bi-musk-mat-poles removed',n))
+   ----writeDebug(string.format('%g bi-musk-mat-poles removed',n))
    for _,o in next,surface.find_entities_filtered{name='bi-musk-mat-solar-panel',area=area} or {}
       do o.destroy() n = n+1 end
-   --writedebug(string.format('bi-musk-mat-solar-panel',n))
+   ----writeDebug(string.format('bi-musk-mat-solar-panel',n))
    end
 
 local function Player_Tile_Remove(event)
    local player = game.players[event.player_index]
    if event.item_stack.name == 'bi-solar-mat' and player.mining_state.mining then
-     -- writedebug(string.format('%g solar mats removed',event.item_stack.count))
+     -- --writeDebug(string.format('%g solar mats removed',event.item_stack.count))
       return solar_mat_removed_at(player.surface, player.mining_state.position)
       end
    end
@@ -847,7 +899,7 @@ local function Player_Tile_Remove(event)
 local function Robot_Tile_Remove(event)
    local robot = event.robot 
    if event.item_stack.name == 'bi-solar-mat' then
-     -- writedebug(string.format('%g solar mats removed',event.item_stack.count))
+     -- --writeDebug(string.format('%g solar mats removed',event.item_stack.count))
       return solar_mat_removed_at(robot.surface,robot.position)
       end
    end

@@ -59,7 +59,7 @@ for id, prototype in pairs(data.raw.tree) do
 			else
 				tree.localised_name = "Young Tree"
 			end
-			tree.max_health = 50*i/TREE_LEVELS
+			tree.max_health = math.floor(50*i/TREE_LEVELS)
 			tree.flags = {"placeable-neutral", "breaths-air"}
 			tree.collision_mask = {"item-layer", "object-layer", "player-layer", "water-tile", "layer-13"}
 			tree.autoplace = nil
@@ -69,22 +69,8 @@ for id, prototype in pairs(data.raw.tree) do
 			tree.minable.mining_time = 0.25
 			tree.minable.count = nil
 			tree.minable.results = {}
-			--[[
-			if i < 4 then
-				table.insert(tree.minable.results,{
-					name = "seedling",
-					probability = i/4,
-					amount = 1,					
-				})
-			end
-			if i >= 4 then
-				table.insert(tree.minable.results,{
-					name = "wood",
-					amount = 1,
-					probability = 1
-				})
-				]]
-			if i < (TREE_LEVELS-1) then
+
+			if i < (TREE_LEVELS) then
 				table.insert(tree.minable.results,{
 					name = "seedling",
 					probability = i/4,
@@ -97,8 +83,7 @@ for id, prototype in pairs(data.raw.tree) do
 					probability = 1
 				})
 			end
-			--- Populate a table with the trees created. 
-			--global.bi.trees[#global.bi.trees+1] = name
+
 			
 			for var_id, variation in pairs(tree.variations) do
 
@@ -172,21 +157,29 @@ for id, prototype in pairs(data.raw.tree) do
 			
 			
 			local stump = table.deepcopy(data.raw.corpse[tree.remains_when_mined])
-			stump.name = "bio-tree-"..stump.name.."-"..i
-			stump.time_before_removed = 60*5
 			
-			tree.remains_when_mined = stump.name
-			tree.corpse = stump.name
-			table.insert(extend, tree)
+			if stump then
 			
-			for _, variation in pairs(stump.animation) do
-				variation.scale = (variation.scale or 1) * i / TREE_LEVELS
-				variation.hr_version = nil
-				variation.shift[1]=variation.shift[1]/TREE_LEVELS*i
-				variation.shift[2]=variation.shift[2]/TREE_LEVELS*i
+				stump.name = "bio-tree-"..stump.name.."-"..i
+				stump.time_before_removed = 60*5
+				
+				tree.remains_when_mined = stump.name
+				tree.corpse = stump.name
+				table.insert(extend, tree)
+				
+				for _, variation in pairs(stump.animation) do
+					variation.scale = (variation.scale or 1) * i / TREE_LEVELS
+					variation.hr_version = nil
+					variation.shift[1]=variation.shift[1]/TREE_LEVELS*i
+					variation.shift[2]=variation.shift[2]/TREE_LEVELS*i
 
+				end
+
+				table.insert(extend, stump)
+			
 			end
-			table.insert(extend, stump)
+			
+			
 		end
 	end
 end

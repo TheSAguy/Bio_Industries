@@ -415,6 +415,7 @@ data:extend({
 		result_count = 4,
 	}, 
 
+	
  	--- Resin recipe Pulp
 	{
 		type = "recipe",
@@ -576,6 +577,7 @@ data:extend({
 		allow_as_intermediate = false,
 	},
 
+	
 	-- Solid Fuel
 	{
 		type = "recipe",

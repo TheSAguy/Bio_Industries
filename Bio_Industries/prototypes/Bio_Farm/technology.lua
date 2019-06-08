@@ -136,10 +136,6 @@ data:extend({
 				type = "unlock-recipe",
 				recipe = "bi_recipe_pellet_coke"
 			},
-			{
-				type = "unlock-recipe",
-				recipe = "bi_recipe_coke_coal"
-			},
 		},
 		prerequisites =	{"bi-tech-coal-processing-1"},
 		unit = 
@@ -164,6 +160,10 @@ data:extend({
 			{
 				type = "unlock-recipe",
 				recipe = "bi_recipe_coal_2"
+			},
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_coke_coal"
 			},
 		},
 		prerequisites = {"bi-tech-coal-processing-2"},

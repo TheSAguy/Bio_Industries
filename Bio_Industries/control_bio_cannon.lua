@@ -35,13 +35,13 @@ local function Bio_Cannon_Check(Bio_Cannon_List)
 			spawner = Bio_Cannon.surface.find_entities_filtered({area = area, type = "unit-spawner", force= "enemy"})
 			worms = Bio_Cannon.surface.find_entities_filtered({area = area, type = "turret", force= "enemy"})
 				
-			writeDebug("The Number of Spawners are: " .. #spawner)
-			writeDebug("The Number of Worms are: " .. #worms)
+			--writeDebug("The Number of Spawners are: " .. #spawner)
+			--writeDebug("The Number of Worms are: " .. #worms)
 			--Find Spawner Target
 			if #spawner > 0 and target == nil then
 				for _,enemy in pairs(spawner) do
 					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
-					writeDebug("The Distance is: " .. distance)
+					--writeDebug("The Distance is: " .. distance)
 					if (distance > 20) and (distance < (radius+1)) then
 					
 						if target == nil then
@@ -53,7 +53,7 @@ local function Bio_Cannon_Check(Bio_Cannon_List)
 			elseif #worms > 0 and target == nil then
 				for _,enemy in pairs(worms) do
 					local distance = math.sqrt(((Bio_Cannon.position.x - enemy.position.x)^2) +((Bio_Cannon.position.y - enemy.position.y)^2) )
-					writeDebug("The Distance is: " .. distance)
+					--writeDebug("The Distance is: " .. distance)
 					if (distance > 20) and (distance < (radius+1)) then
 					
 						if target == nil then

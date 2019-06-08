@@ -27,6 +27,7 @@ data:extend({
 	icon_size = 32,
 	order = "x[bi]-a[bi-seedling]",
 	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air"},
+	create_ghost_on_death = false,
     minable =
     {
       mining_particle = "wooden-particle",
@@ -64,6 +65,7 @@ data:extend({
 	icon_size = 32,
 	order = "x[bi]-a[bi-seedling]",
 	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air"},
+	create_ghost_on_death = false,
     minable =
     {
       mining_particle = "wooden-particle",
@@ -100,6 +102,7 @@ data:extend({
 	icon_size = 32,
 	order = "x[bi]-a[bi-seedling]",
 	flags = {"placeable-neutral", "placeable-player", "player-creation", "breaths-air"},
+	create_ghost_on_death = false,
     minable =
     {
       mining_particle = "wooden-particle",

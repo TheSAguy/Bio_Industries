@@ -49,7 +49,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					
 				if recipe_name == "bi_recipe_arboretum_r1" then
 				
-					--writeDebug(recipe_name..": Just plant a tree")
+					----writeDebug(recipe_name..": Just plant a tree")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 
@@ -82,8 +82,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							
 						else
 						
-							writeDebug("can't plant here")
-							writeDebug(k)
+							--writeDebug("can't plant here")
+							--writeDebug(k)
 							
 						end
 					end
@@ -91,7 +91,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					
 				elseif recipe_name == "bi_recipe_arboretum_r2" then
 				
-					--writeDebug(recipe_name..": Just change terrain to grass - 3 (basic)")
+					----writeDebug(recipe_name..": Just change terrain to grass - 3 (basic)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface
 					
@@ -134,8 +134,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							
 						else	
 						
-							writeDebug("can't change here")
-							writeDebug(k)
+							--writeDebug("can't change here")
+							--writeDebug(k)
 							
 						end
 					
@@ -144,7 +144,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 				elseif recipe_name == "bi_recipe_arboretum_r3" then
 				
 
-					--writeDebug(recipe_name..": Just change terrain to grass - 1 (advanced)")
+					----writeDebug(recipe_name..": Just change terrain to grass - 1 (advanced)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 					
@@ -185,8 +185,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							
 						else	
 						
-							writeDebug("can't change here")	
-							writeDebug(k)
+							--writeDebug("can't change here")	
+							--writeDebug(k)
 							
 						end
 					
@@ -194,7 +194,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					
 				elseif recipe_name == "bi_recipe_arboretum_r4" then
 				
-					--writeDebug(recipe_name..": Plant Tree AND change the terrain to grass - 3 (basic)")
+					----writeDebug(recipe_name..": Plant Tree AND change the terrain to grass - 3 (basic)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 
@@ -227,11 +227,11 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
 							for i = 1, #Inventory do
 								local stack = Inventory[i]
-								--writeDebug(i.." contains: "..stack.name)
+								----writeDebug(i.." contains: "..stack.name)
 								if stack.count > 0 then
 							
 									if stack.name == 'fertiliser' and Terrain_Check_1[currentTilename] then
-										writeDebug("Don't deduct Fertilizer")
+										--writeDebug("Don't deduct Fertilizer")
 									else
 										stack.count  = stack.count - 1
 									end
@@ -250,8 +250,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 								
 						else	
 						
-							writeDebug("can't plant or change terrain here")
-							writeDebug(k)
+							--writeDebug("can't plant or change terrain here")
+							--writeDebug(k)
 							
 						end
 						
@@ -260,7 +260,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					
 				elseif recipe_name == "bi_recipe_arboretum_r5" then
 				
-					--writeDebug(recipe_name..": Plant Tree and change the terrain to grass - 1 (advanced)")
+					----writeDebug(recipe_name..": Plant Tree and change the terrain to grass - 1 (advanced)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 					
@@ -295,7 +295,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 								if stack.count > 0 then
 									
 									if stack.name == 'bi-adv-fertiliser' and Terrain_Check_2[currentTilename] then
-										writeDebug("Don't deduct Adv Fertilizer")
+										--writeDebug("Don't deduct Adv Fertilizer")
 									else
 										stack.count  = stack.count - 1
 									end
@@ -312,8 +312,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 								
 						else	
 						
-							writeDebug("can't plant or change terrain here")
-							writeDebug(k)
+							--writeDebug("can't plant or change terrain here")
+							--writeDebug(k)
 							
 						end
 						
@@ -321,7 +321,7 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 					
 				else
 				
-					writeDebug("no recipe")
+					--writeDebug("no recipe")
 					
 				end
 			
@@ -370,7 +370,7 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 					
 				if recipe_name == "bi_recipe_arboretum_r1" then
 				
-					--writeDebug(recipe_name..": Just plant a tree")
+					----writeDebug(recipe_name..": Just plant a tree")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 
@@ -403,8 +403,8 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 							
 						else
 						
-							writeDebug("can't plant here")
-							writeDebug(k)
+							--writeDebug("can't plant here")
+							--writeDebug(k)
 							
 						end
 					end
@@ -412,7 +412,7 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 					
 				elseif recipe_name == "bi_recipe_arboretum_r2" then
 				
-					--writeDebug(recipe_name..": Just change terrain to grass - 3 (basic)")
+					----writeDebug(recipe_name..": Just change terrain to grass - 3 (basic)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface
 					
@@ -455,8 +455,8 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 							
 						else	
 						
-							writeDebug("can't change here")
-							writeDebug(k)
+							--writeDebug("can't change here")
+							--writeDebug(k)
 							
 						end
 					
@@ -465,7 +465,7 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 				elseif recipe_name == "bi_recipe_arboretum_r3" then
 				
 
-					--writeDebug(recipe_name..": Just change terrain to grass - 1 (advanced)")
+					----writeDebug(recipe_name..": Just change terrain to grass - 1 (advanced)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 					
@@ -506,8 +506,8 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 							
 						else	
 						
-							writeDebug("can't change here")	
-							writeDebug(k)
+							--writeDebug("can't change here")	
+							--writeDebug(k)
 							
 						end
 					
@@ -515,7 +515,7 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 					
 				elseif recipe_name == "bi_recipe_arboretum_r4" then
 				
-					--writeDebug(recipe_name..": Plant Tree AND change the terrain to grass - 3 (basic)")
+					----writeDebug(recipe_name..": Plant Tree AND change the terrain to grass - 3 (basic)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 
@@ -548,11 +548,11 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 							local Inventory = ArboretumTable.inventory.get_inventory(defines.inventory.assembling_machine_input)
 							for i = 1, #Inventory do
 								local stack = Inventory[i]
-								--writeDebug(i.." contains: "..stack.name)
+								----writeDebug(i.." contains: "..stack.name)
 								if stack.count > 0 then
 							
 									if stack.name == 'fertiliser' and Terrain_Check_1[currentTilename] then
-										writeDebug("Don't deduct Fertilizer")
+										--writeDebug("Don't deduct Fertilizer")
 									else
 										stack.count  = stack.count - 1
 									end
@@ -571,8 +571,8 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 								
 						else	
 						
-							writeDebug("can't plant or change terrain here")
-							writeDebug(k)
+							--writeDebug("can't plant or change terrain here")
+							--writeDebug(k)
 							
 						end
 						
@@ -581,7 +581,7 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 					
 				elseif recipe_name == "bi_recipe_arboretum_r5" then
 				
-					--writeDebug(recipe_name..": Plant Tree and change the terrain to grass - 1 (advanced)")
+					----writeDebug(recipe_name..": Plant Tree and change the terrain to grass - 1 (advanced)")
 					local pos = ArboretumTable.inventory.position
 					local surface = ArboretumTable.inventory.surface					
 					
@@ -616,7 +616,7 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 								if stack.count > 0 then
 									
 									if stack.name == 'bi-adv-fertiliser' and Terrain_Check_2[currentTilename] then
-										writeDebug("Don't deduct Adv Fertilizer")
+										--writeDebug("Don't deduct Adv Fertilizer")
 									else
 										stack.count  = stack.count - 1
 									end
@@ -633,8 +633,8 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 								
 						else	
 						
-							writeDebug("can't plant or change terrain here")
-							writeDebug(k)
+							--writeDebug("can't plant or change terrain here")
+							--writeDebug(k)
 							
 						end
 						
@@ -642,7 +642,7 @@ function Get_Arboretum_Recipe_omnimatter_fluid(ArboretumTable, event)
 					
 				else
 				
-					writeDebug("no recipe")
+					--writeDebug("no recipe")
 					
 				end
 			

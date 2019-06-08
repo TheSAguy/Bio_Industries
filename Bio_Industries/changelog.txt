@@ -1,4 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.26
+Date: 6. 8. 2019
+  Features:
+    - Moved recipe Coal to Pellet Coke from Coal Tech 2 to Coal Tech 3.
+    - Russian translation update. Thx IgorLutiy & Va7ya 
+  Bugfix:
+    - Compatibility wiht Choumiko's "The Fat Controller". Had a weird crash
+---------------------------------------------------------------------------------------------------
+Version: 0.17.25
+Date: 6. 6. 2019
+  Bugfix:
+    - Removed debug flag
+---------------------------------------------------------------------------------------------------
+Version: 0.17.24
+Date: 6. 6. 2019
+  Features:
+    - Reworked a little of the new tree code. Added a couple more checks.
+  Bugfix:
+    - Possible bug fix if tree does not have a stump.
+---------------------------------------------------------------------------------------------------
 Version: 0.17.23
 Date: 6. 5. 2019
   Features:
