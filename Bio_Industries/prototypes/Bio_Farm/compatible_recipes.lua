@@ -141,7 +141,7 @@ end
 if data.raw.item["solid-sodium-hydroxide"] and mods["angelspetrochem"] then
 
 	thxbob.lib.recipe.add_new_ingredient ("bi_recipe_fertiliser_2", {type="item", name="solid-sodium-hydroxide", amount=10})
-	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_2", "cnitrogen", "gas-nitrogen")	
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_2", "nitrogen", "gas-nitrogen")	
 	data.raw.recipe["bi_recipe_fertiliser_2"].icon = "__Bio_Industries__/graphics/icons/fertiliser_solid_sodium_hydroxide.png"
 	data.raw.recipe["bi_recipe_fertiliser_2"].icon_size = 32
 	thxbob.lib.tech.add_recipe_unlock("bi_tech_fertiliser", "bi_recipe_fertiliser_2")
@@ -162,7 +162,10 @@ if data.raw.fluid["gas-nitrogen"] and data.raw.fluid["gas-compressed-air"] and m
 		
 	thxbob.lib.recipe.remove_result("bi_recipe_nitrogen", "nitrogen")
 	thxbob.lib.recipe.add_result("bi_recipe_nitrogen", {type = "fluid", name = "gas-nitrogen", amount = 20})
-
+	--- Replace fertilizer recipe also
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_1", "nitrogen", "gas-nitrogen")	
+	thxbob.lib.recipe.replace_ingredient ("bi_recipe_fertiliser_2", "nitrogen", "gas-nitrogen")	
+	
 end
 
 
