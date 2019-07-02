@@ -1,9 +1,10 @@
---Bio_Industries Version   0.17.26
+--Bio_Industries Version   0.17.28
 
 local QC_Mod = false
+
+local Event = require('__stdlib__/stdlib/event/event').set_protected_mode(true)
 require ("util")
 require ("libs/util_ext")
-require ("stdlib/event/event")
 require ("control_tree")
 require ("control_bio_cannon")
 require ("control_arboretum")
@@ -78,7 +79,6 @@ local function On_Init()
 	end
 	]]
 end
-
 
 
 --------------------------------------------------------------------			 
@@ -162,7 +162,8 @@ end
 
 --------------------------------------------------------------------
 --- Used for some compatibility with Angels Mods
-script.on_event(defines.events.on_player_joined_game, function(event)
+Event.register(defines.events.on_player_joined_game, function(event)
+
    local player = game.players[event.player_index]
    local force = player.force
    local techs = force.technologies
@@ -179,16 +180,17 @@ end)
 
 
 ---------------------------------------------
-script.on_event(defines.events.on_trigger_created_entity, function(event)
+Event.register(defines.events.on_trigger_created_entity, function(event)
+
 	--- Used for Seed-bomb 
-	local ent=event.entity
+	local ent = event.entity
 	local surface = ent.surface
 	local position = ent.position
 	
 	-- Basic
     if global.bi.seed_bomb[ent.name] == "seedling" then
 		----writeDebug("Seed Bomb Activated - Basic")
-		seed_planted_trigger (event)
+		seed_planted_trigger(event)
 
 	
 	-- Standard
@@ -200,12 +202,9 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 		else
 			terrain_name_s = "grass-3"
 		end
-
-		----writeDebug(terrain_name_s)
 		
 		surface.set_tiles{{name=terrain_name_s, position=position}}
-		seed_planted_trigger (event)
-
+		seed_planted_trigger(event)
 
 		
 	-- Advanced
@@ -217,14 +216,11 @@ script.on_event(defines.events.on_trigger_created_entity, function(event)
 		else
 			terrain_name_a = "grass-1"
 		end	
-		----writeDebug(terrain_name_a)	
 		
 		surface.set_tiles{{name=terrain_name_a, position=position}}
-		seed_planted_trigger (event)
+		seed_planted_trigger(event)
 
     end
-
-
 	
 end)
 
@@ -751,26 +747,20 @@ end
 
 
 ----------------Radars Scanning Function, used by Terraformer (Arboretum)  -----------------------------
-script.on_event(defines.events.on_sector_scanned, function(event)
-	
+Event.register(defines.events.on_sector_scanned, function(event)
+
 	---- Each time a Arboretum-Radar scans a sector  ----	
 	if event.radar.name == "bi-arboretum-radar" then
 		
 		local num = (event.radar.unit_number-1) --< Unit number of arboretum assembler
-		
-		----writeDebug("The Radar Unit # is: "..event.radar.unit_number)
-		----writeDebug("The num (Asembler) Unit # is: "..num)
 
 		if game.active_mods["omnimatter_fluid"] then 
 			Get_Arboretum_Recipe_omnimatter_fluid(global.Arboretum_Table[num], event) 
 		else
 			Get_Arboretum_Recipe(global.Arboretum_Table[num], event) 
-		end	
-		
-		
+		end				
 		
 	end
-
 	
 end)
 
@@ -888,6 +878,7 @@ local function solar_mat_removed_at(surface, position)
    ----writeDebug(string.format('bi-musk-mat-solar-panel',n))
    end
 
+   
 local function Player_Tile_Remove(event)
    local player = game.players[event.player_index]
    if event.item_stack.name == 'bi-solar-mat' and player.mining_state.mining then
@@ -896,6 +887,7 @@ local function Player_Tile_Remove(event)
       end
    end
 
+   
 local function Robot_Tile_Remove(event)
    local robot = event.robot 
    if event.item_stack.name == 'bi-solar-mat' then
@@ -906,32 +898,27 @@ local function Robot_Tile_Remove(event)
 --------------------------------------------------------------------
 
 
+Event.register(Event.core_events.configuration_changed, On_Config_Change)
+Event.register(Event.core_events.init, On_Init)
+Event.register(Event.core_events.load, On_Load)
 
-script.on_load(On_Load)
-script.on_configuration_changed(On_Config_Change)
-script.on_init(On_Init)
+
+Event.build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity, defines.events.script_raised_built}
+Event.pre_remove_events = {defines.events.on_pre_player_mined_item, defines.events.on_robot_pre_mined, defines.events.script_raised_destroy}
+Event.death_events = {defines.events.on_entity_died, defines.events.script_raised_destroy}
+Event.player_build_event = {defines.events.on_player_built_tile}
+Event.robot_build_event = {defines.events.on_robot_built_tile}
+Event.player_remove_events = {defines.events.on_player_mined_item}
+Event.robo_remove_events = {defines.events.on_robot_mined}
 
 
-local build_events = {defines.events.on_built_entity, defines.events.on_robot_built_entity, defines.events.script_raised_built}
-script.on_event(build_events, On_Built)
-
-local pre_remove_events = {defines.events.on_pre_player_mined_item, defines.events.on_robot_pre_mined, defines.events.script_raised_destroy}
-script.on_event(pre_remove_events, On_Remove)
-
-local death_events = {defines.events.on_entity_died, defines.events.script_raised_destroy}
-script.on_event(death_events, On_Death)
-
-local player_build_event = {defines.events.on_player_built_tile}
-script.on_event(player_build_event, Player_Tile_Built)
-
-local robot_build_event = {defines.events.on_robot_built_tile}
-script.on_event(robot_build_event, Robot_Tile_Built)
-
-local remove_events = {defines.events.on_player_mined_item}
-script.on_event(remove_events, Player_Tile_Remove)
-
-local remove_events = {defines.events.on_robot_mined}
-script.on_event(remove_events, Robot_Tile_Remove)
+Event.register(Event.build_events, On_Built)
+Event.register(Event.pre_remove_events, On_Remove)
+Event.register(Event.death_events, On_Death)
+Event.register(Event.player_build_event, Player_Tile_Built)
+Event.register(Event.robot_build_event, Robot_Tile_Built)
+Event.register(Event.player_remove_events, Player_Tile_Remove)
+Event.register(Event.robo_remove_events, Robot_Tile_Remove)
 
 
 

@@ -1,16 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.28
+Date: 7. 2. 2019
+  Features:
+    - Converted fully to "Factorio Standard Library" https://mods.factorio.com/mod/stdlib Now also a dependancy
+---------------------------------------------------------------------------------------------------
 Version: 0.17.27
 Date: 6. 26. 2019
   Bugfix:
-    - Compatibility wiht Angels Petrochem - Chenged Nitrogen to Nitrogen-gas
+    - Compatibility wiht Angels Petrochem - Changed Nitrogen to Nitrogen-gas
 ---------------------------------------------------------------------------------------------------
+
 Version: 0.17.26
 Date: 6. 8. 2019
   Features:
     - Moved recipe Coal to Pellet Coke from Coal Tech 2 to Coal Tech 3.
     - Russian translation update. Thx IgorLutiy & Va7ya 
   Bugfix:
-    - Compatibility wiht Choumiko's "The Fat Controller". Had a weird crash
+    - Compatibility with Sapling Mod
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.25
 Date: 6. 6. 2019

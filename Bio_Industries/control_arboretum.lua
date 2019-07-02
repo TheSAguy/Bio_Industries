@@ -1,6 +1,6 @@
 ---Arboretum Stuff
 
-require ("stdlib/event/event")
+local Event = require('__stdlib__/stdlib/event/event').set_protected_mode(true)
 
 local Terrain_Check_1 = {
    ["grass-1"] = true,

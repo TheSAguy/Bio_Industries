@@ -1,7 +1,7 @@
 
 -- All tree Growing stuff
+local Event = require('__stdlib__/stdlib/event/event').set_protected_mode(true)
 
-require ("stdlib/event/event")
 terrains = require("libs/trees-and-terrains")
 
 
