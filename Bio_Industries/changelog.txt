@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.31
+Date: 8. 8. 2019
+  Features:
+    - Alternative Production Science Pack Recipe. Uses Wood Rail
+    - Added new Recipe Wood from Woop pulp and Resin
+	Bugfix:
+    - Arboretum recipe - water crash fix
+---------------------------------------------------------------------------------------------------
 Version: 0.17.30
 Date: 7. 15. 2019
   Bugfix:

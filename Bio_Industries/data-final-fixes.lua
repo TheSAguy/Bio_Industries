@@ -28,6 +28,31 @@ if BI.Settings.BI_Game_Tweaks_Recipe then
 	-- vanilla rail recipe update
 	thxbob.lib.recipe.add_new_ingredient("rail", {type="item", name="concrete", amount=6})
 	
+	
+	-- Update Production Science Pack to use Wood Rail vs. Regular rail.
+	--thxbob.lib.recipe.replace_ingredient ("production-science-pack", "rail", "bi-rail-wood")
+	--thxbob.lib.recipe.remove_ingredient ("production-science-pack", "rail")
+	--thxbob.lib.recipe.add_new_ingredient ("production-science-pack", {type="item", name="bi-rail-wood", amount=30})
+
+	data:extend({
+		 {
+		type = "recipe",
+		name = "bi_recipe_production_science_pack",
+		enabled = false,
+		energy_required = 21,
+		ingredients =
+		{
+		 {"electric-furnace", 1},
+		 {"productivity-module", 1},
+		 {"bi-rail-wood", 40}
+		},
+		result_count = 3,
+		result = "production-science-pack"
+	  },
+	  })
+	
+	thxbob.lib.tech.add_recipe_unlock("production-science-pack", "bi_recipe_production_science_pack")
+	
 end
 
 ---- Game Tweaks ---- Tree

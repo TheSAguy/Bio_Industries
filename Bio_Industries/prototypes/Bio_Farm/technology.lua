@@ -44,7 +44,11 @@ data:extend({
 			{
 				type = "unlock-recipe",
 				recipe = "bi_recipe_resin_pulp"
-			},				
+			},	
+			{
+				type = "unlock-recipe",
+				recipe = "bi_recipe_wood_from_pulp"
+			},			
 		},
 		prerequisites = {"optics"},
 		unit =

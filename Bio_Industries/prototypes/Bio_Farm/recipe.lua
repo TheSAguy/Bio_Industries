@@ -438,7 +438,32 @@ data:extend({
 
 	},
 	
-  	
+ 
+	
+	-- Wood from pulp--
+	{
+		type = "recipe",
+		name = "bi_recipe_wood_from_pulp",
+		icon = "__Bio_Industries__/graphics/icons/wood_from_pulp.png",
+		icon_size = 64,
+		subgroup = "bio-bio-farm-raw",
+		order = "a[bi]-a-bc[bi-wood_from_pulp]",
+		enabled = false,
+		always_show_made_in = true,
+		allow_decomposition = false,
+		allow_as_intermediate = false,
+		energy_required = 2.5,
+		ingredients = 
+		{
+			 {type="item", name="bi-woodpulp", amount=8},
+			 {type="item", name="resin", amount=2},
+		},
+		result = "wood",
+		result_count = 4,
+	}, 
+
+	
+	
 	-- Wood Fuel Brick
 	{
 		type = "recipe",
@@ -616,6 +641,7 @@ data:extend({
 		allow_as_intermediate = false,
 	},
 
+	
 		-- Pellet-Coke from Solid Fuel -- Use to be Coke-Coal
 		{
 		type = "recipe",
@@ -1040,6 +1066,7 @@ data:extend({
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r1]",		
 	},
+
 	
  	--- 	Arboretum - Change Terrain
 	{
@@ -1065,7 +1092,8 @@ data:extend({
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r2]",		
 	},
-	  
+
+	
  	--- 	Arboretum -  Change Terrain - Advanced
 	{
 		type = "recipe",
@@ -1090,7 +1118,8 @@ data:extend({
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r3]",		
 	},
-	    
+
+	
   	--- 	Arboretum -  Plant Trees & Change Terrain
 	{
 		type = "recipe",
@@ -1116,7 +1145,8 @@ data:extend({
 		subgroup = "bio-arboretum-fluid",
 		order = "a[bi]-ssw-a1[bi-arboretum-r4]",		
 	},
-	  
+
+	
  	--- 	Arboretum -  Plant Trees & Change Terrain Advanced
 	{
 		type = "recipe",
@@ -1143,9 +1173,7 @@ data:extend({
 		order = "a[bi]-ssw-a1[bi-arboretum-r5]",		
 	},
 	  	  	  
-
-	  
-	  
+	  	  
 })
 
 

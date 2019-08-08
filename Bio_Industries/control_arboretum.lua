@@ -64,6 +64,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
+							if Water_Level <= 0 then Water_Level = 1 end
+					
 							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}							
 
 							--- remove 1 inventory item
@@ -117,6 +119,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
+							if Water_Level <= 0 then Water_Level = 1 end
+							
 							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
 							
 							--- remove 1 inventory item
@@ -168,6 +172,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 							
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
+							if Water_Level <= 0 then Water_Level = 1 end
+							
 							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
 							
 							--- remove 1 inventory item
@@ -221,6 +227,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 																			
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
+							if Water_Level <= 0 then Water_Level = 1 end
+							
 							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
 							
 							--- remove 1 inventory item
@@ -285,6 +293,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
 
 							--- Remove 100 Water
 							Water_Level = Water_Level - 100
+							if Water_Level <= 0 then Water_Level = 1 end
+							
 							ArboretumTable.inventory.fluidbox[1] = {name='water',amount=Water_Level}
 
 							

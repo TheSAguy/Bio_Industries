@@ -587,6 +587,7 @@ BI_Functions.lib.allow_productivity("bi_recipe_resin_pulp")
 BI_Functions.lib.allow_productivity("bi_recipe_press_wood")
 BI_Functions.lib.allow_productivity("bi_recipe_resin_wood")
 BI_Functions.lib.allow_productivity("bi_recipe_woodpulp")
+BI_Functions.lib.allow_productivity("bi_recipe_wood_from_pulp")
 
 BI_Functions.lib.allow_productivity("bi_recipe_liquid_air")
 BI_Functions.lib.allow_productivity("bi_recipe_nitrogen")
