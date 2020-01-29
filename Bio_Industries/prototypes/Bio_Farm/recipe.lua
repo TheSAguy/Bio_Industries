@@ -671,7 +671,7 @@ data:extend({
 		category = "biofarm-mod-crushing",
 		subgroup = "bio-bio-farm-raw",
 		order = "a[bi]-a-z[stone-crushed]",
-		energy_required = 2,
+		energy_required = 1.5,
 		ingredients = {{"stone",1}},
 		result = "stone-crushed",
 		result_count = 2,

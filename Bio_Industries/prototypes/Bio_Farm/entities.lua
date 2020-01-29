@@ -535,7 +535,12 @@ data:extend({
 							usage_priority = "secondary-input",
 							emissions_per_minute = 0.25,
 						},
-		energy_usage = "50kW"
+		energy_usage = "50kW",
+		module_specification =
+		{
+		  module_slots = 2
+		},
+		allowed_effects = {"consumption", "speed", "pollution"},
 	},
 	
 	--- Seed Bomb Projectile - 1 

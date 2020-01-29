@@ -582,6 +582,7 @@ BI_Functions.lib.allow_productivity("bi_recipe_logs_mk3")
 BI_Functions.lib.allow_productivity("bi_recipe_logs_mk4")
 
 BI_Functions.lib.allow_productivity("bi_recipe_stone_brick")
+BI_Functions.lib.allow_productivity("bi_recipe_crushed_stone")
 
 BI_Functions.lib.allow_productivity("bi_recipe_resin_pulp")
 BI_Functions.lib.allow_productivity("bi_recipe_press_wood")

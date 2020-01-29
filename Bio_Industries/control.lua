@@ -1,4 +1,4 @@
---Bio_Industries Version   0.17.28
+--Bio_Industries Version   0.17.32
 
 local QC_Mod = false
 

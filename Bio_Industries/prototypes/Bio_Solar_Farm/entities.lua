@@ -211,7 +211,8 @@ if BI.Settings.BI_Solar_Additions then
 	  needs_correction = false,
 	  minable = {hardness = 0.1, mining_time = 0.25, result = "bi-solar-mat"},
 	  mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
-	  collision_mask = {"ground-tile", "not-colliding-with-itself"},
+	  --collision_mask = {"ground-tile", "not-colliding-with-itself"},
+	  collision_mask = {"ground-tile"},
 	  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
 	  walking_speed_modifier = 1.45,
 	  layer = 62,
@@ -629,7 +630,7 @@ if BI.Settings.BI_Solar_Additions then
     {
       north =
       {
-        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
         priority = "extra-high",
         frame_count = 1,
         width = 62,
@@ -638,7 +639,7 @@ if BI.Settings.BI_Solar_Additions then
 		scale = 1.5,
         blend_mode = "additive",
         hr_version = {
-          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
           priority = "extra-high",
           frame_count = 1,
           width = 62,
@@ -650,7 +651,7 @@ if BI.Settings.BI_Solar_Additions then
       },
       east =
       {
-        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
         priority = "extra-high",
         frame_count = 1,
         width = 62,
@@ -658,7 +659,7 @@ if BI.Settings.BI_Solar_Additions then
         shift = {0, -3},
         blend_mode = "additive",
         hr_version = {
-          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
           priority = "extra-high",
           frame_count = 1,
           width = 62,
@@ -669,7 +670,7 @@ if BI.Settings.BI_Solar_Additions then
       },
       south =
       {
-        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
         priority = "extra-high",
         frame_count = 1,
         width = 62,
@@ -677,7 +678,7 @@ if BI.Settings.BI_Solar_Additions then
         shift = {0, -3},
         blend_mode = "additive",
         hr_version = {
-          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
           priority = "extra-high",
           frame_count = 1,
           width = 62,
@@ -688,7 +689,7 @@ if BI.Settings.BI_Solar_Additions then
       },
       west =
       {
-        filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+        filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
         priority = "extra-high",
         frame_count = 1,
         width = 62,
@@ -696,7 +697,7 @@ if BI.Settings.BI_Solar_Additions then
         shift = {0, -3},
         blend_mode = "additive",
         hr_version = {
-          filename = "__base__/graphics/entity/small-lamp/light-on-patch.png",
+          filename = "__Bio_Industries__/graphics/entities/small-lamp/light-on-patch.png",
           priority = "extra-high",
           frame_count = 1,
           width = 62,
