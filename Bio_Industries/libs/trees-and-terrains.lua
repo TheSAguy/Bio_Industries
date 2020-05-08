@@ -1,3 +1,4 @@
+--~ local BioInd = require('common')('Bio_Industries')
 
 local terrains = {}
 
@@ -194,7 +195,7 @@ terrains["vegetation-green-grass-2"] = {
     tree_name = "tree-wetland-o",
     weight = 943
   }
-} 
+}
 terrains["vegetation-green-grass-4"] = {
   name = "vegetation-green-grass-4",
   ["tree-desert-f"] = {
@@ -1541,7 +1542,7 @@ terrains["mineral-dustyrose-dirt-1"] = {
     tree_name = "tree-wetland-k",
     weight = 852
   }
-} 
+}
 terrains["mineral-dustyrose-dirt-4"] = {
   name = "mineral-dustyrose-dirt-4",
   ["tree-desert-g"] = {
@@ -2138,7 +2139,7 @@ terrains["mineral-dustyrose-dirt-2"] = {
     tree_name = "tree-wetland-k",
     weight = 702
   }
-} 
+}
 terrains["mineral-beige-dirt-1"] = {
   name = "mineral-beige-dirt-1",
   ["tree-desert-c"] = {
@@ -2913,7 +2914,7 @@ terrains["mineral-black-dirt-5"] = {
     tree_name = "tree-wetland-o",
     weight = 1186
   }
-} 
+}
 terrains["mineral-grey-dirt-3"] = {
   name = "mineral-grey-dirt-3",
   ["tree-desert-b"] = {
@@ -3259,7 +3260,7 @@ terrains["mineral-grey-dirt-2"] = {
     tree_name = "tree-wetland-o",
     weight = 2527
   }
-} 
+}
 terrains["mineral-grey-dirt-1"] = {
   name = "mineral-grey-dirt-1",
   ["tree-desert-i"] = {
@@ -3615,7 +3616,7 @@ terrains["mineral-beige-dirt-2"] = {
     tree_name = "tree-wetland-k",
     weight = 1655
   }
-} 
+}
 terrains["mineral-black-dirt-1"] = {
   name = "mineral-black-dirt-1",
   ["tree-desert-j"] = {
@@ -3773,7 +3774,7 @@ terrains["mineral-black-dirt-1"] = {
     tree_name = "tree-wetland-o",
     weight = 11300
   }
-} 
+}
 terrains["mineral-black-dirt-2"] = {
   name = "mineral-black-dirt-2",
   ["tree-desert-i"] = {
@@ -3931,7 +3932,7 @@ terrains["mineral-black-dirt-2"] = {
     tree_name = "tree-wetland-o",
     weight = 7060
   }
-} 
+}
 terrains["mineral-beige-dirt-3"] = {
   name = "mineral-beige-dirt-3",
   ["tree-desert-c"] = {
@@ -4262,7 +4263,7 @@ terrains["mineral-black-dirt-3"] = {
     tree_name = "tree-wetland-o",
     weight = 2852
   }
-} 
+}
 terrains["mineral-grey-dirt-4"] = {
   name = "mineral-grey-dirt-4",
   ["tree-desert-i"] = {
@@ -4415,7 +4416,7 @@ terrains["mineral-grey-dirt-4"] = {
     tree_name = "tree-wetland-o",
     weight = 861
   }
-} 
+}
 terrains["mineral-beige-dirt-5"] = {
   name = "mineral-beige-dirt-5",
   ["tree-desert-c"] = {
@@ -6731,7 +6732,7 @@ terrains["mineral-tan-sand-3"] = {
     tree_name = "tree-wetland-d",
     weight = 264
   }
-} 
+}
 terrains["mineral-tan-sand-2"] = {
   name = "mineral-tan-sand-2",
   ["tree-desert-b"] = {
@@ -7317,7 +7318,7 @@ terrains["mineral-tan-dirt-4"] = {
     tree_name = "tree-wetland-g",
     weight = 30
   }
-} 
+}
 terrains["mineral-tan-dirt-6"] = {
   name = "mineral-tan-dirt-6",
   ["tree-desert-b"] = {
@@ -7511,7 +7512,7 @@ terrains["mineral-white-dirt-2"] = {
     tree_name = "tree-wetland-m",
     weight = 7
   }
-} 
+}
 terrains["mineral-white-dirt-1"] = {
   name = "mineral-white-dirt-1",
   ["tree-desert-a"] = {
@@ -7594,7 +7595,7 @@ terrains["mineral-white-dirt-1"] = {
     tree_name = "tree-wetland-m",
     weight = 298
   }
-} 
+}
 terrains["mineral-white-dirt-5"] = {
   name = "mineral-white-dirt-5",
   ["tree-desert-i"] = {
@@ -7675,7 +7676,7 @@ terrains["mineral-white-sand-3"] = {
     tree_name = "tree-wetland-m",
     weight = 206
   }
-} 
+}
 terrains["mineral-white-sand-2"] = {
   name = "mineral-white-sand-2",
   ["tree-desert-a"] = {
@@ -7728,7 +7729,7 @@ terrains["mineral-white-sand-2"] = {
     tree_name = "tree-wetland-m",
     weight = 399
   }
-} 
+}
 terrains["mineral-white-dirt-3"] = {
   name = "mineral-white-dirt-3",
   ["tree-desert-i"] = {
@@ -11281,7 +11282,7 @@ terrains["mineral-grey-sand-2"] = {
     tree_name = "tree-wetland-o",
     weight = 405
   }
-} 
+}
 terrains["mineral-grey-sand-1"] = {
   name = "mineral-grey-sand-1",
   ["tree-desert-c"] = {
@@ -11836,7 +11837,7 @@ terrains["mineral-grey-sand-3"] = {
     tree_name = "tree-wetland-o",
     weight = 295
   }
-} 
+}
 terrains["frozen-snow-0"] = {
   name = "frozen-snow-0",
   ["tree-desert-c"] = {
@@ -12948,7 +12949,7 @@ terrains["frozen-snow-4"] = {
     tree_name = "tree-wetland-o",
     weight = 1027
   }
-} 
+}
 terrains["mineral-dustyrose-sand-2"] = {
   name = "mineral-dustyrose-sand-2",
   ["tree-desert-c"] = {
@@ -13164,7 +13165,7 @@ terrains["frozen-snow-9"] = {
     tree_name = "tree-wetland-o",
     weight = 266
   }
-} 
+}
 terrains["frozen-snow-7"] = {
   name = "frozen-snow-7",
   ["tree-desert-d"] = {
@@ -13799,7 +13800,7 @@ terrains["mineral-brown-sand-2"] = {
     tree_name = "tree-wetland-e",
     weight = 50743
   }
-} 
+}
 terrains["mineral-brown-sand-3"] = {
   name = "mineral-brown-sand-3",
   ["tree-desert-a"] = {
@@ -14045,7 +14046,7 @@ terrains["mineral-red-sand-1"] = {
     tree_name = "tree-wetland-h",
     weight = 226
   }
-} 
+}
 terrains["volcanic-orange-heat-1"] = {
   name = "volcanic-orange-heat-1",
   ["tree-volcanic-a"] = {
@@ -14171,7 +14172,7 @@ terrains["mineral-red-sand-2"] = {
     tree_name = "tree-wetland-h",
     weight = 173
   }
-} 
+}
 terrains["mineral-red-sand-3"] = {
   name = "mineral-red-sand-3",
   ["tree-desert-a"] = {
@@ -14289,7 +14290,7 @@ terrains["mineral-red-sand-3"] = {
     tree_name = "tree-wetland-h",
     weight = 97
   }
-} 
+}
 terrains["mineral-red-dirt-4"] = {
   name = "mineral-red-dirt-4",
   ["tree-desert-c"] = {
@@ -16644,7 +16645,7 @@ terrains["mineral-purple-dirt-4"] = {
     tree_name = "tree-wetland-h",
     weight = 4
   }
-} 
+}
 terrains["mineral-purple-dirt-1"] = {
   name = "mineral-purple-dirt-1",
   ["tree-desert-d"] = {
@@ -16810,7 +16811,7 @@ terrains["mineral-purple-dirt-3"] = {
     tree_name = "tree-wetland-h",
     weight = 69
   }
-} 
+}
 terrains["mineral-purple-dirt-6"] = {
   name = "mineral-purple-dirt-6",
   ["tree-desert-e"] = {
@@ -17156,7 +17157,7 @@ terrains["sand-3"] = {
     tree_name = "tree-09-red",
     weight = 71641
   }
-} 
+}
 terrains["sand-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "sand-2",
@@ -17234,7 +17235,7 @@ terrains["sand-2"] = {
     tree_name = "tree-09-red",
     weight = 74298
   }
-} 
+}
 terrains["dirt-3"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-3",
@@ -17317,7 +17318,7 @@ terrains["dirt-3"] = {
     tree_name = "tree-09-red",
     weight = 3159
   }
-} 
+}
 terrains["dirt-5"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-5",
@@ -17400,7 +17401,7 @@ terrains["dirt-5"] = {
     tree_name = "tree-09-red",
     weight = 1342
   }
-} 
+}
 terrains["dirt-7"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-7",
@@ -17483,7 +17484,7 @@ terrains["dirt-7"] = {
     tree_name = "tree-09-red",
     weight = 494
   }
-} 
+}
 terrains["dirt-6"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-6",
@@ -17566,7 +17567,7 @@ terrains["dirt-6"] = {
     tree_name = "tree-09-red",
     weight = 831
   }
-} 
+}
 terrains["grass-3"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-3",
@@ -17649,7 +17650,7 @@ terrains["grass-3"] = {
     tree_name = "tree-09-red",
     weight = 888
   }
-} 
+}
 terrains["grass-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-1",
@@ -17732,7 +17733,7 @@ terrains["grass-1"] = {
     tree_name = "tree-09-red",
     weight = 684
   }
-} 
+}
 terrains["dirt-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-1",
@@ -17810,7 +17811,7 @@ terrains["dirt-1"] = {
     tree_name = "tree-09-red",
     weight = 50885
   }
-} 
+}
 terrains["grass-4"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-4",
@@ -17893,7 +17894,7 @@ terrains["grass-4"] = {
     tree_name = "tree-09-red",
     weight = 876
   }
-} 
+}
 terrains["dry-dirt"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dry-dirt",
@@ -17966,7 +17967,7 @@ terrains["dry-dirt"] = {
     tree_name = "tree-09-red",
     weight = 9941
   }
-} 
+}
 terrains["sand-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "sand-1",
@@ -18049,7 +18050,7 @@ terrains["sand-1"] = {
     tree_name = "tree-09-red",
     weight = 75344
   }
-} 
+}
 terrains["dirt-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-2",
@@ -18132,7 +18133,7 @@ terrains["dirt-2"] = {
     tree_name = "tree-09-red",
     weight = 14093
   }
-} 
+}
 terrains["red-desert-3"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-3",
@@ -18210,7 +18211,7 @@ terrains["red-desert-3"] = {
     tree_name = "tree-09-red",
     weight = 505
   }
-} 
+}
 terrains["grass-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-2",
@@ -18288,7 +18289,7 @@ terrains["grass-2"] = {
     tree_name = "tree-09-red",
     weight = 200
   }
-} 
+}
 terrains["red-desert-0"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-0",
@@ -18366,7 +18367,7 @@ terrains["red-desert-0"] = {
     tree_name = "tree-09-red",
     weight = 103
   }
-} 
+}
 terrains["red-desert-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-2",
@@ -18434,7 +18435,7 @@ terrains["red-desert-2"] = {
     tree_name = "tree-09-red",
     weight = 5207
   }
-} 
+}
 terrains["dirt-4"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-4",
@@ -18507,7 +18508,7 @@ terrains["dirt-4"] = {
     tree_name = "tree-09-red",
     weight = 11191
   }
-} 
+}
 terrains["red-desert-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-1",
@@ -18653,7 +18654,7 @@ terrains["sand-3"] = {
     tree_name = "tree-09-red",
     weight = 71641
   }
-} 
+}
 terrains["sand-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "sand-2",
@@ -18731,7 +18732,7 @@ terrains["sand-2"] = {
     tree_name = "tree-09-red",
     weight = 74298
   }
-} 
+}
 terrains["dirt-3"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-3",
@@ -18814,7 +18815,7 @@ terrains["dirt-3"] = {
     tree_name = "tree-09-red",
     weight = 3159
   }
-} 
+}
 terrains["dirt-5"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-5",
@@ -18897,7 +18898,7 @@ terrains["dirt-5"] = {
     tree_name = "tree-09-red",
     weight = 1342
   }
-} 
+}
 terrains["dirt-7"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-7",
@@ -18980,7 +18981,7 @@ terrains["dirt-7"] = {
     tree_name = "tree-09-red",
     weight = 494
   }
-} 
+}
 terrains["dirt-6"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-6",
@@ -19063,7 +19064,7 @@ terrains["dirt-6"] = {
     tree_name = "tree-09-red",
     weight = 831
   }
-} 
+}
 terrains["grass-3"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-3",
@@ -19146,7 +19147,7 @@ terrains["grass-3"] = {
     tree_name = "tree-09-red",
     weight = 888
   }
-} 
+}
 terrains["grass-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-1",
@@ -19229,7 +19230,7 @@ terrains["grass-1"] = {
     tree_name = "tree-09-red",
     weight = 684
   }
-} 
+}
 terrains["dirt-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-1",
@@ -19307,7 +19308,7 @@ terrains["dirt-1"] = {
     tree_name = "tree-09-red",
     weight = 50885
   }
-} 
+}
 terrains["grass-4"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-4",
@@ -19390,7 +19391,7 @@ terrains["grass-4"] = {
     tree_name = "tree-09-red",
     weight = 876
   }
-} 
+}
 terrains["dry-dirt"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dry-dirt",
@@ -19463,7 +19464,7 @@ terrains["dry-dirt"] = {
     tree_name = "tree-09-red",
     weight = 9941
   }
-} 
+}
 terrains["sand-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "sand-1",
@@ -19546,7 +19547,7 @@ terrains["sand-1"] = {
     tree_name = "tree-09-red",
     weight = 75344
   }
-} 
+}
 terrains["dirt-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-2",
@@ -19629,7 +19630,7 @@ terrains["dirt-2"] = {
     tree_name = "tree-09-red",
     weight = 14093
   }
-} 
+}
 terrains["red-desert-3"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-3",
@@ -19707,7 +19708,7 @@ terrains["red-desert-3"] = {
     tree_name = "tree-09-red",
     weight = 505
   }
-} 
+}
 terrains["grass-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "grass-2",
@@ -19785,7 +19786,7 @@ terrains["grass-2"] = {
     tree_name = "tree-09-red",
     weight = 200
   }
-} 
+}
 terrains["red-desert-0"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-0",
@@ -19863,7 +19864,7 @@ terrains["red-desert-0"] = {
     tree_name = "tree-09-red",
     weight = 103
   }
-} 
+}
 terrains["red-desert-2"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-2",
@@ -19931,7 +19932,7 @@ terrains["red-desert-2"] = {
     tree_name = "tree-09-red",
     weight = 5207
   }
-} 
+}
 terrains["dirt-4"] = {
   ["dry-hairy-tree"] = {
     tile_name = "dirt-4",
@@ -20004,7 +20005,7 @@ terrains["dirt-4"] = {
     tree_name = "tree-09-red",
     weight = 11191
   }
-} 
+}
 terrains["red-desert-1"] = {
   ["dry-hairy-tree"] = {
     tile_name = "red-desert-1",
@@ -20073,6 +20074,5 @@ terrains["red-desert-1"] = {
     weight = 8269
   }
 }
-
 
 return terrains

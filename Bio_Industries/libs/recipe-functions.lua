@@ -1,3 +1,5 @@
+local BioInd = require('common')('Bio_Industries')
+
 if not thxbob.lib.recipe then thxbob.lib.recipe = {} end
 
 
@@ -73,10 +75,10 @@ function thxbob.lib.recipe.replace_ingredient(recipe, old, new)
     return retval
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_type(new) then
-      log("Ingredient " .. new .. " does not exist.")
+      BioInd.writeDebug("Ingredient " .. tostring(new) .. " does not exist.")
     end
     return false
   end
@@ -89,7 +91,7 @@ function thxbob.lib.recipe.replace_ingredient_in_all(old, new)
       thxbob.lib.recipe.replace_ingredient(recipe.name, old, new)
     end
   else
-    log("Ingredient " .. new .. " does not exist.")
+    BioInd.writeDebug("Ingredient " .. tostring(new) .. " does not exist.")
   end
 end
 
@@ -108,7 +110,7 @@ function thxbob.lib.recipe.remove_ingredient(recipe, item)
     end
 
   else
-    log("Recipe " .. recipe .. " does not exist.")
+    BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
   end
 end
 
@@ -128,10 +130,10 @@ function thxbob.lib.recipe.add_new_ingredient(recipe, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_type(item) then
-      log("Ingredient " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Ingredient " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
   end
 end
@@ -151,10 +153,10 @@ function thxbob.lib.recipe.add_ingredient(recipe, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
-      log("Ingredient " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Ingredient " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
   end
 end
@@ -174,10 +176,10 @@ function thxbob.lib.recipe.set_ingredient(recipe, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
-      log("Ingredient " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Ingredient " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
   end
 end
@@ -201,10 +203,10 @@ function thxbob.lib.recipe.add_result(recipe, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
-      log("Item " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Item " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
   end
 end
@@ -227,10 +229,10 @@ function thxbob.lib.recipe.set_result(recipe, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
-      log("Item " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Item " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
   end
 end
@@ -252,7 +254,7 @@ function thxbob.lib.recipe.remove_result(recipe, item)
     end
 
   else
-    log("Recipe " .. recipe .. " does not exist.")
+    BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
   end
 end
 
@@ -272,11 +274,11 @@ end
 
 function thxbob.lib.recipe.difficulty_split(recipe)
   if data.raw.recipe[recipe] then
-    if not data.raw.recipe[recipe].normal then 
-      data.raw.recipe[recipe].normal = {} 
+    if not data.raw.recipe[recipe].normal then
+      data.raw.recipe[recipe].normal = {}
     end
-    if not data.raw.recipe[recipe].expensive then 
-      data.raw.recipe[recipe].expensive = {} 
+    if not data.raw.recipe[recipe].expensive then
+      data.raw.recipe[recipe].expensive = {}
     end
     split_line(recipe, "energy_required")
     if data.raw.recipe[recipe].enabled == false then
@@ -293,7 +295,7 @@ function thxbob.lib.recipe.difficulty_split(recipe)
     split_line(recipe, "result_count")
     split_line(recipe, "requester_paste_multiplier")
   else
-    log("Recipe " .. recipe .. " does not exist.")
+    BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
   end
 end
 
@@ -308,7 +310,7 @@ function thxbob.lib.recipe.remove_difficulty_ingredient(recipe, difficulty, item
     thxbob.lib.item.remove(data.raw.recipe[recipe][difficulty].ingredients, item)
 
   else
-    log("Recipe " .. recipe .. " does not exist.")
+    BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
   end
 end
 
@@ -323,13 +325,13 @@ function thxbob.lib.recipe.add_new_difficulty_ingredient(recipe, difficulty, ite
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_type(item) then
-      log("Ingredient " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Ingredient " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
     if not (difficulty == "normal" or difficulty == "expensive") then
-      log("Difficulty " .. difficulty .. " is invalid.")
+      BioInd.writeDebug("Difficulty " .. tostring(difficulty) .. " is invalid.")
     end
   end
 end
@@ -344,13 +346,13 @@ function thxbob.lib.recipe.add_difficulty_ingredient(recipe, difficulty, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
-      log("Ingredient " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Ingredient " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
     if not (difficulty == "normal" or difficulty == "expensive") then
-      log("Difficulty " .. difficulty .. " is invalid.")
+      BioInd.writeDebug("Difficulty " .. tostring(difficulty) .. " is invalid.")
     end
   end
 end
@@ -367,13 +369,13 @@ function thxbob.lib.recipe.add_difficulty_result(recipe, difficulty, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not thxbob.lib.item.get_basic_type(thxbob.lib.item.basic_item(item).name) then
-      log("Item " .. thxbob.lib.item.basic_item(item).name .. " does not exist.")
+      BioInd.writeDebug("Item " .. tostring(thxbob.lib.item.basic_item(item).name) .. " does not exist.")
     end
     if not (difficulty == "normal" or difficulty == "expensive") then
-      log("Difficulty " .. difficulty .. " is invalid.")
+      BioInd.writeDebug("Difficulty " .. tostring(difficulty) .. " is invalid.")
     end
   end
 end
@@ -389,12 +391,10 @@ function thxbob.lib.recipe.remove_difficulty_result(recipe, difficulty, item)
 
   else
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
     if not (difficulty == "normal" or difficulty == "expensive") then
-      log("Difficulty " .. difficulty .. " is invalid.")
+      BioInd.writeDebug("Difficulty " .. tostring(difficulty) .. " is invalid.")
     end
   end
 end
-
-

@@ -16,7 +16,7 @@ end
 
 function thxbob.lib.result_check(object)
   if object then
-    if object.results == nil then 
+    if object.results == nil then
       object.results = {}
     end
 
@@ -32,14 +32,20 @@ function thxbob.lib.result_check(object)
         if not object.main_product then
           if object.icon or object.subgroup or object.order or item.type ~= "item" then -- if we already have one, add the rest
             if not object.icon and data.raw[item.type][object.result].icon then
-              object.icon = data.raw[item.type][object.result].icon 
+              object.icon = data.raw[item.type][object.result].icon
               object.icon_size = data.raw[item.type][object.result].icon_size
+            --~ end
+            -- Make sure objects also have an icons definition
+            elseif not object.icons and data.raw[item.type][object.result].icons then
+              object.icons = {
+                {icon = data.raw[item.type][object.result].icon, icon_size = 32}
+              }
             end
             if not object.subgroup and data.raw[item.type][object.result].subgroup then
               object.subgroup = data.raw[item.type][object.result].subgroup
             end
             if not object.order and data.raw[item.type][object.result].order then
-              object.order = data.raw[item.type][object.result].order 
+              object.order = data.raw[item.type][object.result].order
             end
           else -- otherwise just use main_product as a cheap way to set them all.
             object.main_product = object.result
@@ -50,7 +56,7 @@ function thxbob.lib.result_check(object)
     end
 
   else
-    log(object .. " does not exist.")
+    BioInd.writeDebug(tostring(object) .. " does not exist.")
   end
 end
 

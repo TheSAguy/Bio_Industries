@@ -1,3 +1,5 @@
+--~ local BioInd = require('common')('Bio_Industries')
+
 data:extend({
 
 --- Bio Damage for new Ammo
@@ -5,5 +7,5 @@ data:extend({
     type = "damage-type",
     name = "Biological"
   },
-  
+
 })

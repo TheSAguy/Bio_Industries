@@ -1,46 +1,68 @@
-if BI.Settings.BI_Bio_Fuel then 
+local BioInd = require('common')('Bio_Industries')
 
-	data:extend(
-	{
-		
+local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 
-		---- Celluluse
-		{
-			type = "item",
-			name = "bi-cellulose",
-			icon = "__Bio_Industries__/graphics/icons/cellulose.png",
-			icon_size = 32,
-			--flags = {"goes-to-main-inventory"},
-			subgroup = "intermediate-product",
-			order = "b[cellulose]",
-			stack_size = 200
-		},
+if BI.Settings.BI_Bio_Fuel then
 
-		--- BioReactor
-		{
-			type = "item",
-			name = "bi-bioreactor",
-			icon = "__Bio_Industries__/graphics/icons/bioreactor.png",
-			icon_size = 32,
-			--flags = {"goes-to-quickbar"},
-			subgroup = "production-machine",
-			order = "z[bi]-a[bi-bioreactor]",
-			place_result = "bi-bioreactor",
-			stack_size = 10
-		},
-		--- Bio Boiler
-		{
-			type = "item",
-			name = "bi-bio-boiler",
-			icon = "__Bio_Industries__/graphics/icons/bio_boiler.png",
-			icon_size = 32,
-			--flags = {"goes-to-quickbar"},
-			subgroup = "energy",
-			order = "b[steam-power]-b[boiler]",
-			place_result = "bi-bio-boiler",
-			stack_size = 50
-		},
-		
-	})
+        data:extend(
+        {
+
+
+                ---- Celluluse
+                {
+                        type = "item",
+                        name = "bi-cellulose",
+                        icon = ICONPATH .. "cellulose.png",
+                        icon_size = 32,
+                        icons = {
+                          {
+                            icon = ICONPATH .. "cellulose.png",
+                            icon_size = 32,
+                          }
+                        },
+                        --flags = {"goes-to-main-inventory"},
+                        subgroup = "intermediate-product",
+                        order = "b[cellulose]",
+                        stack_size = 200
+                },
+
+                --- BioReactor
+                {
+                        type = "item",
+                        name = "bi-bio-reactor",
+                        icon = ICONPATH .. "bioreactor.png",
+                        icon_size = 32,
+                        icons = {
+                          {
+                            icon = ICONPATH .. "bioreactor.png",
+                            icon_size = 32,
+                          }
+                        },
+                        --flags = {"goes-to-quickbar"},
+                        subgroup = "production-machine",
+                        order = "z[bi]-a[bi-bio-reactor]",
+                        place_result = "bi-bio-reactor",
+                        stack_size = 10
+                },
+                --- Bio Boiler
+                {
+                        type = "item",
+                        name = "bi-bio-boiler",
+                        icon = ICONPATH .. "bio_boiler.png",
+                        icon_size = 32,
+                        icons = {
+                          {
+                            icon = ICONPATH .. "bio_boiler.png",
+                            icon_size = 32,
+                          }
+                        },
+                        --flags = {"goes-to-quickbar"},
+                        subgroup = "energy",
+                        order = "b[steam-power]-b[boiler]",
+                        place_result = "bi-bio-boiler",
+                        stack_size = 50
+                },
+
+        })
 
 end

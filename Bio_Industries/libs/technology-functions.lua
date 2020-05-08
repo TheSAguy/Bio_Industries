@@ -1,3 +1,5 @@
+local BioInd = require('common')('Bio_Industries')
+
 if not thxbob.lib.tech then thxbob.lib.tech = {} end
 
 
@@ -21,10 +23,10 @@ function thxbob.lib.tech.replace_science_pack(technology, old, new)
     end
   else
     if not data.raw.technology[technology] then
-      log("Technology " .. technology .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
     if not data.raw.tool[new] then
-      log("Science pack " .. new .. " does not exist.")
+      BioInd.writeDebug("Science pack " .. tostring(new) .. " does not exist.")
     end
   end
 end
@@ -35,13 +37,13 @@ function thxbob.lib.tech.add_new_science_pack(technology, pack, amount)
     for i, ingredient in pairs(data.raw.technology[technology].unit.ingredients) do
       if ingredient[1] == pack or ingredient.name == pack then addit = false end
     end
-    if addit then table.insert(data.raw.technology[technology].unit.ingredients,{pack, amount}) end
+    if addit then table.insert(data.raw.technology[technology].unit.ingredients, {pack, amount}) end
   else
     if not data.raw.technology[technology] then
-      log("Technology " .. technology .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
     if not data.raw.tool[pack] then
-      log("Science pack " .. pack .. " does not exist.")
+      BioInd.writeDebug("Science pack " .. tostring(pack) .. " does not exist.")
     end
   end
 end
@@ -59,13 +61,15 @@ function thxbob.lib.tech.add_science_pack(technology, pack, amount)
         ingredient.amount = ingredient.amount + amount
       end
     end
-    if addit then table.insert(data.raw.technology[technology].unit.ingredients,{pack, amount}) end
+    if addit then
+      table.insert(data.raw.technology[technology].unit.ingredients, {pack, amount})
+    end
   else
     if not data.raw.technology[technology] then
-      log("Technology " .. technology .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
     if not data.raw.tool[pack] then
-      log("Science pack " .. pack .. " does not exist.")
+      BioInd.writeDebug("Science pack " .. tostring(pack) .. " does not exist.")
     end
   end
 end
@@ -78,7 +82,7 @@ function thxbob.lib.tech.remove_science_pack(technology, pack)
       end
     end
   else
-    log("Technology " .. technology .. " does not exist.")
+    BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
   end
 end
 
@@ -92,13 +96,13 @@ function thxbob.lib.tech.add_recipe_unlock(technology, recipe)
     for i, effect in pairs(data.raw.technology[technology].effects) do
       if effect.type == "unlock-recipe" and effect.recipe == recipe then addit = false end
     end
-    if addit then table.insert(data.raw.technology[technology].effects,{type = "unlock-recipe", recipe = recipe}) end
+    if addit then table.insert(data.raw.technology[technology].effects, {type = "unlock-recipe", recipe = recipe}) end
   else
     if not data.raw.technology[technology] then
-      log("Technology " .. technology .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
     if not data.raw.recipe[recipe] then
-      log("Recipe " .. recipe .. " does not exist.")
+      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
     end
   end
 end
@@ -107,31 +111,30 @@ function thxbob.lib.tech.remove_recipe_unlock(technology, recipe)
   if data.raw.technology[technology] and data.raw.technology[technology].effects then
     for i, effect in pairs(data.raw.technology[technology].effects) do
       if effect.type == "unlock-recipe" and effect.recipe == recipe then
-        table.remove(data.raw.technology[technology].effects,i)
+        table.remove(data.raw.technology[technology].effects, i)
       end
     end
   else
     if not data.raw.technology[technology] then
-      log("Technology " .. technology .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
   end
 end
 
-
 function thxbob.lib.tech.replace_prerequisite(technology, old, new)
   if data.raw.technology[technology] and data.raw.technology[new] then
     for i, prerequisite in ipairs(data.raw.technology[technology].prerequisites) do
-      if prerequisite == old then 
+      if prerequisite == old then
         thxbob.lib.tech.remove_prerequisite(technology, old)
         thxbob.lib.tech.add_prerequisite(technology, new)
       end
     end
   else
     if not data.raw.technology[technology] then
-      log("Technology " .. technology .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
     if not data.raw.technology[new] then
-      log("Technology " .. new .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(new) .. " does not exist.")
     end
   end
 end
@@ -149,10 +152,10 @@ function thxbob.lib.tech.add_prerequisite(technology, prerequisite)
     if addit then table.insert(data.raw.technology[technology].prerequisites, prerequisite) end
   else
     if not data.raw.technology[technology] then
-      log("Technology " .. technology .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
     if not data.raw.technology[prerequisite] then
-      log("Technology " .. prerequisite .. " does not exist.")
+      BioInd.writeDebug("Technology " .. tostring(prerequisite) .. " does not exist.")
     end
   end
 end
@@ -165,8 +168,6 @@ function thxbob.lib.tech.remove_prerequisite(technology, prerequisite)
       end
     end
   else
-    log("Technology " .. technology .. " does not exist.")
+    BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
   end
 end
-
-

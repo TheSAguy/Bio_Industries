@@ -1,3 +1,5 @@
+local BioInd = require('common')('Bio_Industries')
+
 if not thxbob.lib.item then thxbob.lib.item = {} end
 
 
@@ -162,5 +164,3 @@ function thxbob.lib.item.set(list, item_in)
     end
   end
 end
-
-

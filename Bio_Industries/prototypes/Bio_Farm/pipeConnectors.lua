@@ -1,3 +1,6 @@
+local BioInd = require('common')('Bio_Industries')
+
+local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 
 
 function assembler2pipepicturesCokery()
@@ -5,13 +8,13 @@ function assembler2pipepicturesCokery()
   {
     north =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       shift = util.by_pixel(2.5, 14),
       hr_version = {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
         height = 1,
@@ -37,13 +40,13 @@ function assembler2pipepicturesCokery()
     },
     south =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       shift = util.by_pixel(0, -31.5),
       hr_version = {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
         height = 1,
@@ -76,7 +79,7 @@ function assembler2pipepicturesCokery()
   {
     north =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
@@ -92,7 +95,7 @@ function assembler2pipepicturesCokery()
     },
     south =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
@@ -114,13 +117,13 @@ function pipecoverspicturesCokery()
   return {
     north =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
         height = 1,
@@ -144,13 +147,13 @@ function pipecoverspicturesCokery()
     },
     south =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
         height = 1,
@@ -181,13 +184,13 @@ function assembler2pipepicturesBioreactor()
   {
     north =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       shift = util.by_pixel(2.5, 14),
       hr_version = {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 71,
         height = 38,
@@ -252,13 +255,13 @@ function pipecoverspicturesBioreactor()
   return {
     north =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       hr_version =
       {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
         height = 1,
@@ -311,7 +314,7 @@ function pipecoverspicturesBioreactor()
       }
     }
  }
- 
+
 end
 
 
@@ -324,7 +327,7 @@ function BioFarm_Pipe_Connectors_Left()
       priority = "extra-high",
       width = 51,
       height = 35,
-	  shift = {0.25, 1},
+          shift = {0.25, 1},
       hr_version = {
         filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_l.png",
         priority = "extra-high",
@@ -403,15 +406,15 @@ function bio_farm_pipe_pictures()
     },
     east =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       hr_version = {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
-		width = 1,
-		height = 1,
+                width = 1,
+                height = 1,
       }
     },
     south =
@@ -432,15 +435,15 @@ function bio_farm_pipe_pictures()
     },
     west =
     {
-      filename = "__Bio_Industries__/graphics/icons/empty.png",
+      filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       hr_version = {
-        filename = "__Bio_Industries__/graphics/icons/empty.png",
+        filename = ICONPATH .. "empty.png",
         priority = "extra-high",
-		width = 1,
-		height = 1,
+                width = 1,
+                height = 1,
       }
     }
   }
@@ -492,14 +495,14 @@ bio_farm_pipe_covers_pictures = function()
           priority = "extra-high",
           width = 64,
           height = 64,
-		  shift = {-0.22, 0},
+                  shift = {-0.22, 0},
           hr_version =
           {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east.png",
             priority = "extra-high",
             width = 128,
             height = 128,
-			shift = {-0.22, 0},
+                        shift = {-0.22, 0},
             scale = 0.5
           }
         },
@@ -508,7 +511,7 @@ bio_farm_pipe_covers_pictures = function()
           priority = "extra-high",
           width = 64,
           height = 64,
-		  shift = {-0.22, 0},
+                  shift = {-0.22, 0},
           draw_as_shadow = true,
           hr_version =
           {
@@ -517,7 +520,7 @@ bio_farm_pipe_covers_pictures = function()
             width = 128,
             height = 128,
             scale = 0.5,
-			shift = {-0.22, 0},
+                        shift = {-0.22, 0},
             draw_as_shadow = true
           }
         },
@@ -568,14 +571,14 @@ bio_farm_pipe_covers_pictures = function()
           priority = "extra-high",
           width = 64,
           height = 64,
-		  shift = {0.2, 0},
+                  shift = {0.2, 0},
           hr_version =
           {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west.png",
             priority = "extra-high",
             width = 128,
             height = 128,
-			shift = {0.2, 0},
+                        shift = {0.2, 0},
             scale = 0.5
           }
         },
@@ -584,7 +587,7 @@ bio_farm_pipe_covers_pictures = function()
           priority = "extra-high",
           width = 64,
           height = 64,
-		  shift = {0.2, 0},
+                  shift = {0.2, 0},
           draw_as_shadow = true,
           hr_version =
           {
@@ -593,7 +596,7 @@ bio_farm_pipe_covers_pictures = function()
             width = 128,
             height = 128,
             scale = 0.5,
-			shift = {0.2, 0},
+                        shift = {0.2, 0},
             draw_as_shadow = true
           }
         },
@@ -616,7 +619,7 @@ function BioFarm_Pipe_Connectors_Right()
       width = 51,
       height = 35,
       --shift = util.by_pixel(2.5, 14),
-	  shift = {-4, -4},
+          shift = {-4, -4},
       hr_version = {
         filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_r.png",
         priority = "extra-high",
