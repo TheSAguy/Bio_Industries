@@ -13,11 +13,11 @@ if BI.Settings.BI_Bio_Fuel then
                         type = "item",
                         name = "bi-cellulose",
                         icon = ICONPATH .. "cellulose.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "cellulose.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         --flags = {"goes-to-main-inventory"},
@@ -31,11 +31,11 @@ if BI.Settings.BI_Bio_Fuel then
                         type = "item",
                         name = "bi-bio-reactor",
                         icon = ICONPATH .. "bioreactor.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "bioreactor.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         --flags = {"goes-to-quickbar"},
@@ -49,11 +49,11 @@ if BI.Settings.BI_Bio_Fuel then
                         type = "item",
                         name = "bi-bio-boiler",
                         icon = ICONPATH .. "bio_boiler.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "bio_boiler.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         --flags = {"goes-to-quickbar"},

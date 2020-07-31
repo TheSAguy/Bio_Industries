@@ -68,14 +68,14 @@ set_tint_to_rails(
 
 -- vanilla rail icon & images update
 data.raw["straight-rail"]["straight-rail"].icon = ICONPATH .. "straight-rail-concrete.png"
-data.raw["straight-rail"]["straight-rail"].icon_size = 32
-data.raw["straight-rail"]["straight-rail"].icon_mipmaps = 1
+data.raw["straight-rail"]["straight-rail"].icon_size = 64
+data.raw["straight-rail"]["straight-rail"].icon_mipmaps = 4
 data.raw["curved-rail"]["curved-rail"].icon = ICONPATH .. "curved-rail-concrete.png"
-data.raw["curved-rail"]["curved-rail"].icon_size = 32
-data.raw["curved-rail"]["curved-rail"].icon_mipmaps = 1
+data.raw["curved-rail"]["curved-rail"].icon_size = 64
+data.raw["curved-rail"]["curved-rail"].icon_mipmaps = 4
 data.raw["rail-planner"]["rail"].icon = ICONPATH .. "rail-concrete.png"
-data.raw["rail-planner"]["rail"].icon_size = 32
-data.raw["rail-planner"]["rail"].icon_mipmaps = 1
+data.raw["rail-planner"]["rail"].icon_size = 64
+data.raw["rail-planner"]["rail"].icon_mipmaps = 4
 
 --- Wood Rail added to Tech
 thxbob.lib.tech.add_recipe_unlock("railway", "bi-rail-wood")
@@ -455,6 +455,9 @@ if BI.Settings.BI_Bio_Fuel then
   thxbob.lib.tech.add_recipe_unlock("bi-tech-advanced-biotechnology", "bi-acid")
   thxbob.lib.tech.add_recipe_unlock("bi-tech-advanced-biotechnology", "bi-bio-boiler")
 
+  -- Added for 0.17.49/0.18.17
+  thxbob.lib.tech.add_recipe_unlock("bi-tech-coal-processing-1", "bi-basic-gas-processing")
+
   -- Blacklist bioreactor in Assembler Pipe Passthrough
   if mods["assembler-pipe-passthrough"] then
     appmod.blacklist['bi-bio-reactor'] = true
@@ -503,9 +506,9 @@ end
 if data.raw["item"]["bob-greenhouse"] then
   data.raw["item"]["seedling"].place_result = "seedling"
   data.raw["item"]["seedling"].icon = ICONPATH .. "Seedling.png"
-  data.raw["item"]["seedling"].icon_size = 32
-  data.raw["item"]["fertiliser"].icon = ICONPATH .. "fertiliser_32.png"
-  data.raw["item"]["fertiliser"].icon_size = 32
+  data.raw["item"]["seedling"].icon_size = 64
+  data.raw["item"]["fertiliser"].icon = ICONPATH .. "fertiliser.png"
+  data.raw["item"]["fertiliser"].icon_size = 64
 
   if BioInd.AB_tiles() then
     data.raw["item"]["fertiliser"].place_as_tile = {
@@ -594,19 +597,19 @@ if data.raw.item["ash"] and mods["pycoalprocessing"] then
 
   -- Use ash icon from pycoalprocessing in icons of recipes using ash
   data.raw.recipe["bi-seed-2"].icon = ICONPATH .. "py_bio_seed2.png"
-  data.raw.recipe["bi-seed-2"].icon_size = 32
+  data.raw.recipe["bi-seed-2"].icon_size = 64
   data.raw.recipe["bi-seedling-2"].icon = ICONPATH .. "py_Seedling2.png"
-  data.raw.recipe["bi-seedling-2"].icon_size = 32
+  data.raw.recipe["bi-seedling-2"].icon_size = 64
   data.raw.recipe["bi-logs-2"].icon = ICONPATH .. "py_raw-wood-mk2.png"
-  data.raw.recipe["bi-logs-2"].icon_size = 32
+  data.raw.recipe["bi-logs-2"].icon_size = 64
   data.raw.recipe["bi-ash-1"].icon = ICONPATH .. "py_ash_raw-wood.png"
-  data.raw.recipe["bi-ash-1"].icon_size = 32
+  data.raw.recipe["bi-ash-1"].icon_size = 64
   data.raw.recipe["bi-ash-2"].icon = ICONPATH .. "py_ash_woodpulp.png"
-  data.raw.recipe["bi-ash-2"].icon_size = 32
+  data.raw.recipe["bi-ash-2"].icon_size = 64
   data.raw.recipe["bi-stone-brick"].icon = ICONPATH .. "py_bi_stone_brick.png"
-  data.raw.recipe["bi-stone-brick"].icon_size = 32
+  data.raw.recipe["bi-stone-brick"].icon_size = 64
   data.raw.recipe["bi-sulfur"].icon = ICONPATH .. "py_bio_sulfur.png"
-  data.raw.recipe["bi-sulfur"].icon_size = 32
+  data.raw.recipe["bi-sulfur"].icon_size = 64
 end
 
 ----- If Bob's bobrevamp, then ----
@@ -654,8 +657,8 @@ BI_Functions.lib.allow_productivity("bi-resin-wood")
 BI_Functions.lib.allow_productivity("bi-woodpulp")
 BI_Functions.lib.allow_productivity("bi-wood-from-pulp")
 
-BI_Functions.lib.allow_productivity("bi-liquid-air")
-BI_Functions.lib.allow_productivity("bi-nitrogen")
+--~ BI_Functions.lib.allow_productivity("bi-liquid-air")
+--~ BI_Functions.lib.allow_productivity("bi-nitrogen")
 
 BI_Functions.lib.allow_productivity("bi-biomass-1")
 BI_Functions.lib.allow_productivity("bi-biomass-2")
@@ -674,3 +677,6 @@ BI_Functions.lib.allow_productivity("bi-plastic-1")
 BI_Functions.lib.allow_productivity("bi-plastic-2")
 BI_Functions.lib.allow_productivity("bi-cellulose-1")
 BI_Functions.lib.allow_productivity("bi-cellulose-2")
+
+  -- Added for 0.17.49/0.18.17
+BI_Functions.lib.allow_productivity("bi-basic-gas-processing")

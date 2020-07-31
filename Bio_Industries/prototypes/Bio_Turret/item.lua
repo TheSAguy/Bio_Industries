@@ -9,11 +9,11 @@ data:extend({
     type = "item",
     name = "bi-dart-turret",
     icon = ICONPATH .. "bio_turret_icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
         {
             icon = ICONPATH .. "bio_turret_icon.png",
-            icon_size = 32,
+            icon_size = 64,
         }
     },
     subgroup = "defensive-structure",

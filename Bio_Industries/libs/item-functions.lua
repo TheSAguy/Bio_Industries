@@ -4,7 +4,18 @@ if not thxbob.lib.item then thxbob.lib.item = {} end
 
 
 function thxbob.lib.item.get_type(name)
-  local item_types = {"ammo", "armor", "capsule", "fluid", "gun", "item", "mining-tool", "module", "tool", "item-with-entity-data"}
+  local item_types = {
+    "ammo",
+    "armor",
+    "capsule",
+    "fluid",
+    "gun",
+    "item",
+    "mining-tool",
+    "module",
+    "tool",
+    "item-with-entity-data"
+  }
   local item_type = nil
   for i, type_name in pairs(item_types) do
     if data.raw[type_name][name] then item_type = type_name end
@@ -145,7 +156,9 @@ function thxbob.lib.item.add_new(list, item_in) --ignores if exists
   for i, object in pairs(list) do
     if item.name == thxbob.lib.item.basic_item(object).name then addit = false end
   end
-  if addit then table.insert(list, item) end
+  if addit then
+    table.insert(list, item)
+  end
 end
 
 function thxbob.lib.item.remove(list, item)

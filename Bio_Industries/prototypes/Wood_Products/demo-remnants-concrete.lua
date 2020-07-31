@@ -1,6 +1,8 @@
 local BioInd = require('common')('Bio_Industries')
 
-local ICONPATH = BioInd.modRoot .. "__base__/graphics/icons/"
+--~ local ICONPATH = BioInd.modRoot .. "__base__/graphics/icons/"
+local ICONPATH = "__base__/graphics/icons/"
+local BIGICONS = BioInd.base_version()
 
 --[[
 destroyed_rail_pictures_c = function()
@@ -19,11 +21,11 @@ data:extend(
     type = "rail-remnants",
     name = "straight-rail-remnants",
     icon = ICONPATH .. "straight-rail-remnants.png",
-    icon_size = 32,
+    icon_size = BIGICONS and 64 or 32,
     icons = {
       {
         icon = ICONPATH .. "straight-rail-remnants.png",
-        icon_size = 32,
+        icon_size = BIGICONS and 64 or 32,
       }
     },
     flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},
@@ -44,11 +46,11 @@ data:extend(
     type = "rail-remnants",
     name = "curved-rail-remnants",
     icon = ICONPATH .. "curved-rail-remnants.png",
-    icon_size = 32,
+    icon_size = BIGICONS and 64 or 32,
     icons = {
       {
         icon = ICONPATH .. "curved-rail-remnants.png",
-        icon_size = 32,
+        icon_size = BIGICONS and 64 or 32,
       }
     },
     flags = {"placeable-neutral", "building-direction-8-way", "not-on-map"},

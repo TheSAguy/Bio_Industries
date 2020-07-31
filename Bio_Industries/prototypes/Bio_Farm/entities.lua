@@ -4,6 +4,8 @@ local BioInd = require('common')('Bio_Industries')
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ENTITYPATH = BioInd.modRoot .. "/graphics/entities/biofarm/"
 
+--~ local BIGICONS = BioInd.base_version()
+
 require ("prototypes.Bio_Farm.pipeConnectors")
 require ("util")
 
@@ -77,11 +79,11 @@ data:extend({
     type = "simple-entity-with-force",
     name = "seedling",
     icon = ICONPATH .. "Seedling.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     order = "x[bi]-a[bi-seedling]",
@@ -107,9 +109,10 @@ data:extend({
     picture = {
       filename = ICONPATH .. "Seedling_b.png",
       priority = "extra-high",
-      width = 32,
-      height = 32,
-      scale = 0.75
+      width = 64,
+      height = 64,
+      --~ scale = 0.75
+      scale = 0.3
     },
   },
 
@@ -118,11 +121,11 @@ data:extend({
     type = "simple-entity-with-force",
     name = "seedling-2",
     icon = ICONPATH .. "Seedling.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     order = "x[bi]-a[bi-seedling]",
@@ -148,9 +151,10 @@ data:extend({
     picture = {
       filename = ICONPATH .. "Seedling_b.png",
       priority = "extra-high",
-      width = 32,
-      height = 32,
-      scale = 0.75
+      width = 64,
+      height = 64,
+      --~ scale = 0.75
+      scale = 0.3
     },
   },
 
@@ -158,11 +162,11 @@ data:extend({
     type = "simple-entity-with-force",
     name = "seedling-3",
     icon = ICONPATH .. "Seedling.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     order = "x[bi]-a[bi-seedling]",
@@ -188,9 +192,10 @@ data:extend({
     picture = {
       filename = ICONPATH .. "Seedling_b.png",
       priority = "extra-high",
-      width = 32,
-      height = 32,
-      scale = 0.75
+      width = 64,
+      height = 64,
+      --~ scale = 0.75
+      scale = 0.3
     },
   },
 
@@ -200,11 +205,11 @@ data:extend({
     type = "assembling-machine",
     name = "bi-bio-farm",
     icon = ICONPATH .. "Bio_Farm_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Farm_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -280,11 +285,11 @@ data:extend({
     type = "lamp",
     name = "bi-bio-farm-light",
     icon = ICONPATH .. "Bio_Farm_Lamp.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Farm_Lamp.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
@@ -327,11 +332,11 @@ data:extend({
     type = "electric-pole",
     name = "bi-bio-farm-electric-pole",
     icon = ICONPATH .. "Bio_Farm_Cabeling.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Farm_Cabeling.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
@@ -383,11 +388,11 @@ data:extend({
     type = "solar-panel",
     name = "bi-bio-farm-solar-panel",
     icon = ICONPATH .. "Bio_Farm_Solar.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Farm_Solar.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
@@ -414,11 +419,11 @@ data:extend({
     type = "assembling-machine",
     name = "bi-bio-greenhouse",
     icon = ICONPATH .. "bio_greenhouse.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_greenhouse.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -490,11 +495,11 @@ data:extend({
     type = "assembling-machine",
     name = "bi-cokery",
     icon = ICONPATH .. "cokery.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "cokery.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
@@ -536,7 +541,7 @@ data:extend({
     type = "furnace",
     name = "bi-stone-crusher",
     icon = ICONPATH .. "stone_crusher.png",
-    icon_size = 32,
+    icon_size = 64,
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-stone-crusher"},
     max_health = 100,
@@ -890,11 +895,11 @@ data:extend({
     type = "radar",
     name = "bi-arboretum-radar",
     icon = ICONPATH .. "Arboretum_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Arboretum_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-player", "player-creation", "not-deconstructable"},
@@ -956,11 +961,11 @@ data:extend({
     type = "ammo-turret",
     name = "bi-arboretum-area",
     icon = ICONPATH .. "Arboretum_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Arboretum_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable"},
@@ -1006,11 +1011,11 @@ data:extend({
     type = "assembling-machine",
     name = "bi-arboretum",
     icon = ICONPATH .. "Arboretum_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Arboretum_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "placeable-player", "player-creation"},

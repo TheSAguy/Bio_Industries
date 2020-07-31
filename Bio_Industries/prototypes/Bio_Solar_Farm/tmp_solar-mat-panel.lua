@@ -3,11 +3,11 @@
     type = "solar-panel",
     name = "bi-musk-mat-solar-panel",
     icon = ICONPATH .. "solar-mat.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
         {
             icon = ICONPATH .. "solar-mat.png",
-            icon_size = 32,
+            icon_size = 64,
         }
     },
     flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},

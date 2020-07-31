@@ -1,15 +1,13 @@
 local BioInd = require('common')('Bio_Industries')
+require ("util")
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ENTITYPATH = "__Bio_Industries__/graphics/entities/bio_solar_farm/"
 
-require ("util")
+local BIGICONS = BioInd.base_version()
+
 
 if BI.Settings.BI_Solar_Additions then
-
---~ local sounds = require("__base__.prototypes.entity.demo-sounds")
-local sound_def = require("__base__.prototypes.entity.demo-sounds")
-local sounds = {}
 
 -- This check is necessary because sounds.car_wood_impact didn't exist before Factorio 0.18.4 and
 -- was changed in Factorio 0.18.18!
@@ -20,20 +18,36 @@ for i=1, #version do
   version[i] = tonumber(version[i])
 end
 
+
 -- Does the active Factorio version support new sounds? (Must be >= 0.18.18)
-if ((version[2] or 0) == 18 and
-    (version[3] or 0) >= 18) and sound_def then
+
+local sound_def
+local sounds = {}
+
+if (tonumber(version[2]) or 0) == 18 then
+  --~ local sounds = require("__base__.prototypes.entity.demo-sounds")
+  sound_def = require("__base__.prototypes.entity.demo-sounds")
+  --~ sounds = {}
+end
+
+--Factorio >= 0.18.18
+if ((tonumber(version[2]) or 0) == 18) and ((tonumber(version[3]) or 0) >= 18) and sound_def then
 
   log("car_wood_impact sound is function")
   sounds.car_wood_impact = sound_def.car_wood_impact(1)
+  sounds.generic_impact = sound_def.generic_impact
 
-elseif ((version[2] or 0) == 18 and
-        (version[3] or 0) >= 4) and sound_def  then
+-- Factorio 0.18.4 -- 0.18.17
+elseif ((tonumber(version[2]) or 0) == 18 and
+        (tonumber(version[3]) or 0) >= 4) and sound_def  then
 
   sounds.car_wood_impact = sound_def.car_wood_impact
   for _, sound in ipairs(sounds.car_wood_impact) do
       sound.volume = 1
   end
+  sounds.generic_impact = sound_def.generic_impact
+
+-- Factorio 0.18.0 -- 0.18.4
 elseif version[2] >= 18 then
   sounds.car_wood_impact = {
     { filename = "__base__/sound/car-wood-impact.ogg", volume = 1 },
@@ -41,13 +55,17 @@ elseif version[2] >= 18 then
     { filename = "__base__/sound/car-wood-impact-03.ogg", volume = 1 },
     { filename = "__base__/sound/car-wood-impact-04.ogg", volume = 1 }
   }
+  sounds.generic_impact = sound_def.generic_impact
+-- Factorio 0.17
 else
   sounds.car_wood_impact = {
     { filename = "__base__/sound/car-wood-impact.ogg", volume = 1 },
   }
+  sounds.generic_impact = {
+    { filename = "__base__/sound/car-metal-impact.ogg", volume = 1 },
+  }
 end
 
-sounds.generic_impact = sound_def.generic_impact
 for _, sound in ipairs(sounds.generic_impact) do
   sound.volume = 0.65
 end
@@ -59,11 +77,11 @@ end
                 type = "solar-panel",
                 name = "bi-bio-solar-farm",
                 icon = ICONPATH .. "Bio_Solar_Farm_Icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "Bio_Solar_Farm_Icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 flags = {"placeable-neutral", "player-creation"},
@@ -99,11 +117,11 @@ end
                 type = "accumulator",
                 name = "bi-bio-accumulator",
                 icon = ICONPATH .. "bi_LargeAccumulator.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "bi_LargeAccumulator.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 flags = {"placeable-neutral", "player-creation"},
@@ -196,11 +214,11 @@ end
                 type = "electric-pole",
                 name = "bi-large-substation",
                 icon = ICONPATH .. "bi_LargeSubstation_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "bi_LargeSubstation_icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 flags = {"placeable-neutral", "player-creation"},
@@ -276,11 +294,11 @@ end
           type = "tile",
           name = "bi-solar-mat",
           icon = ICONPATH .. "solar-mat.png",
-          icon_size = 32,
+          icon_size = 64,
           icons = {
             {
               icon = ICONPATH .. "solar-mat.png",
-              icon_size = 32,
+              icon_size = 64,
             }
           },
           needs_correction = false,
@@ -367,11 +385,11 @@ end
     type = "electric-pole",
     name = "bi-musk-mat-pole",
     icon = ICONPATH .. "solar-mat.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "solar-mat.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
@@ -455,11 +473,11 @@ end
     type = "solar-panel",
     name = "bi-musk-mat-solar-panel",
     icon = ICONPATH .. "solar-mat.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "solar-mat.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
@@ -490,11 +508,11 @@ end
     type = "solar-panel",
     name = "bi-solar-boiler-panel",
     icon = ICONPATH .. "Bio_Solar_Boiler_Panel_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Solar_Boiler_Panel_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
@@ -549,11 +567,11 @@ end
     type = "boiler",
     name = "bi-solar-boiler",
     icon = ICONPATH .. "Bio_Solar_Boiler_Boiler_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Solar_Boiler_Boiler_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "player-creation"},

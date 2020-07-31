@@ -187,7 +187,6 @@ end
 
 function thxbob.lib.recipe.add_result(recipe, item)
   if data.raw.recipe[recipe] and thxbob.lib.item.get_type(thxbob.lib.item.basic_item(item).name) then
-
     if data.raw.recipe[recipe].expensive then
       thxbob.lib.result_check(data.raw.recipe[recipe].expensive)
       thxbob.lib.item.add(data.raw.recipe[recipe].expensive.results, item)

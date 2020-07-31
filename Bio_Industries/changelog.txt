@@ -1,4 +1,153 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.24
+Date: 2020-07-06
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.24 are also available for Factorio 0.17 (version 0.17.55).
+    - If you are feeling adventurous, you can be an early adopter of the new Bio Cannon! Instructions are included in the file "_README".
+      PLEASE NOTE: THIS WILL ONLY WORK WITH FACTORIO >=0.18.33!
+
+  Bugfixes:
+    - Fixed connection issue with Powered rails. (https://mods.factorio.com/mod/Bio_Industries/discussion/5eac04c6e0fdb1000c437b88/edit/3)
+    - Hopefully also fixed the big lag caused by placing powered rails with the connection fix. (https://mods.factorio.com/mod/Bio_Industries/discussion/5efcd751acf8d21414888772)
+    - Fixed that icon for the Nitrogen recipe wasn't the same as the icon for the fluid.
+
+  Changes:
+    - The recipe for sand from crushed stone is now also active if the "BioTech" mod is used. (https://mods.factorio.com/mod/Bio_Industries/discussion/5efbea86a9fc8de786653d1d)
+    - Added migration script to rewire powered rails. If you have a large rail network with lots of powered rails and then some, this may take a while to finish!
+
+  TODO:
+    - Compatibility with "Tree growth: Scaled trees." (https://mods.factorio.com/mod/Bio_Industries/discussion/5e7cd3f3304f21000db9542c)
+    - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.23
+Date: 2020-06-30
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.23 are also available for Factorio 0.17 (version 0.17.54).
+
+  Minor Features:
+    - Added recipe to make sand from crushed stone if any other mod provides sand. Implemented on request of TheSAguy, who also provided recipe icons.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.22
+Date: 2020-06-21
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.22 are also available for Factorio 0.17 (version 0.17.53).
+
+  Bugfixes:
+    - I was so focused on "Transport Drones" removing "object-layer" from all rail collision masks that I forgot to add it as default it "Transport Drones" wasn't active. That caused crashes with "Beautiful Bridge Railway" and "Cargo Ships" -- and probably other mods as well. Sorry for the inconvenience! (https://mods.factorio.com/mod/Bio_Industries/discussion/5eef8d3055f19e00373cda0b, https://mods.factorio.com/mod/Bio_Industries/discussion/5eef8c2155f19e000cce659d)
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.21
+Date: 2020-06-21
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.21 are also available for Factorio 0.17 (version 0.17.52).
+
+  Bugfixes:
+    - Fixed that wooden rail bridges had a wrong collision mask after the last change, so they couldn't be built in their natural habitat (on water) anymore. The same has been reported for powered rails, but as these are just rails (not bridges), it doesn't make sense to build them on water.  (https://mods.factorio.com/mod/Bio_Industries/discussion/5eee120d28bd58000f43d007)
+
+  Changes:
+    - Added hidden optional dependency on "Transport Drones", so if it's active and changes the collision mask of BI rails, the damage can be reverted in such a way that it's possible to build wooden bridges across water, but not through cliffs.
+---------------------------------------------------------------------------------------------------
+Version: 0.18.20
+Date: 2020-06-18
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.20 are also available for Factorio 0.17 (version 0.17.51).
+
+  Bugfixes:
+    - Fixed that wooden underground pipes were not fast-replaceable via upgrade planner (found by TheSAguy).
+    - Fixed that wooden rails had a wrong collision mask, so trains could drive through cliffs (found by TheSAguy).
+
+  Changes:
+    - Reverted change from 0.17.49/0.18.17: If "Angel's Petro Chemical Processing" is active, Basic Petroleum gas processing will output Methane gas again because it doesn't make sense that our recipe is the only one that will produce Petroleum gas (suggested by TheSAguy).
+
+  Locale:
+    - Renamed "Basic Petroleum gas processing" to "Basic gas processing" so the recipe name will still fit even if another mods (e.g. "Angel's Petro Chemical Processing") changes the result.
+
+  Modding:
+    - Migrated recipe "bi-basic-petroleum-gas-processing" to "bi-basic-gas-processing".
+    - Changed filename of icon from "bi_basic_petroleum_gas_processing.png" to "bi_basic_gas_processing.png".
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.19
+Date: 2020-06-08
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.18/19 are also available for Factorio 0.17 (version 0.17.50).
+
+  Bugfixes:
+    - Fixed size of more icons to prevent crashes on load. (https://mods.factorio.com/mod/Bio_Industries/discussion/5eddc5c5a9868c000c3950ab)
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.18
+Date: 2020-06-06
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Fixed crash on load because of a wrong icon size.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.17
+Date: 2020-06-06
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes are also available for Factorio 0.17 (version 0.17.49).
+
+  Changes:
+    - Added some logic to data stage code so that the same code can be used for Factorio 0.17 and 0.18 (concerns icon size, particles, and sound definitions).
+    - Changed icons to 64x64. Tanks to TheSAguy for providing these!
+    - By request of TheSAguy, it now takes just half the time to craft Bio-Nurseries (2.5 normal, 4 expensive) and Bio-Farms (5 normal, 7.5 expensive). I've also halved the time needed to mine wooden floor.
+    - If "Krastorio 2" is active, the recipes for Nitrogen and Liquid air will now be removed from "Bio Industries". (https://mods.factorio.com/mod/Bio_Industries/discussion/5e713a510e1f16000e1f6b0b)
+    - Recipes for Nitrogen and Liquid air will also be removed if "Krastorio" (for 0.17) or "Angel's Petro Chemical Processing" are active.
+    - If "Angel's Petro Chemical Processing" is active, revert that it changes the result of Basic petroleum gas processing from Petroleum gas to Methane gas.
+    - TheSAguy just added some mips, so items on belts don't look too monotonous.
+
+  Bugfixes:
+    - Prototype artillery and terraformer could be built directly or with the pipette tool. However, they wouldn't be blueprinted correctly (wrong entity was used), so the hidden entities were not created and things didn't work. Fixed that!
+
+  Major Features:
+    - TheSAguy provided a patch that adds a new recipe: "Inefficient Petroleum gas extraction". You now can generate the petroleum you'll need for BI from coal, resin, and steam. Thanks a lot!
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.16
+Date: 2020-05-08
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes are also available for Factorio 0.17 (version 0.17.48).
+
+  Changes:
+    - Removed pollution value from thorium-fuel-cell.
+
+  Locale:
+    - Added an update of the Russian translation. Thanks to Dragonling for providing it!
+      (His translations mod is here: <https://mods.factorio.com/mod/MyRUS2>.)
+
+  Bugfixes:
+    - Fixed size of several icons. Thanks to TheSAguy for pointing out errors!
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.15
 Date: 2020-05-02
   Uploaded by:
@@ -9,11 +158,6 @@ Date: 2020-05-02
 
   Bugfixes:
     - Fixed a crash when the player tried to start a minitutorial. (https://mods.factorio.com/mod/Bio_Industries/discussion/5eabe45ee99b81000cb9d79b)
-
-
-  TODO:
-    - Compatibility with "Tree growth: Scaled trees." (https://mods.factorio.com/mod/Bio_Industries/discussion/5e7cd3f3304f21000db9542c)
-    - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.14

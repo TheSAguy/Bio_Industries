@@ -11,11 +11,11 @@ if BI.Settings.Bio_Cannon then
       type = "ammo",
       name = "bi-bio-cannon-proto-ammo",
       icon = ICONPATH .. "Bio_Cannon_Proto_Ammo_Icon.png",
-      icon_size = 32,
+      icon_size = 64,
       icons = {
         {
           icon = ICONPATH .. "Bio_Cannon_Proto_Ammo_Icon.png",
-          icon_size = 32,
+          icon_size = 64,
         }
       },
       ammo_type =
@@ -50,11 +50,11 @@ if BI.Settings.Bio_Cannon then
       type = "ammo",
       name = "bi-bio-cannon-basic-ammo",
       icon = ICONPATH .. "Bio_Cannon_Basic_Ammo_Icon.png",
-      icon_size = 32,
+      icon_size = 64,
       icons = {
         {
           icon = ICONPATH .. "Bio_Cannon_Basic_Ammo_Icon.png",
-          icon_size = 32,
+          icon_size = 64,
         }
       },
       ammo_type =
@@ -88,11 +88,11 @@ if BI.Settings.Bio_Cannon then
       type = "ammo",
       name = "bi-bio-cannon-poison-ammo",
       icon = ICONPATH .. "Bio_Cannon_Poison_Ammo_Icon.png",
-      icon_size = 32,
+      icon_size = 64,
       icons = {
         {
           icon = ICONPATH .. "Bio_Cannon_Poison_Ammo_Icon.png",
-          icon_size = 32,
+          icon_size = 64,
         }
       },
       ammo_type =

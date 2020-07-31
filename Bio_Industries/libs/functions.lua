@@ -38,7 +38,7 @@ function thxbob.lib.result_check(object)
             -- Make sure objects also have an icons definition
             elseif not object.icons and data.raw[item.type][object.result].icons then
               object.icons = {
-                {icon = data.raw[item.type][object.result].icon, icon_size = 32}
+                {icon = data.raw[item.type][object.result].icon, icon_size = 64}
               }
             end
             if not object.subgroup and data.raw[item.type][object.result].subgroup then

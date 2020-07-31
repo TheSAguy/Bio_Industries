@@ -11,11 +11,11 @@ data:extend({
                 type = "recipe",
                 name = "bi-bio-garden",
                 icon = ICONPATH .. "bio_garden_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "bio_garden_icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 enabled = false,
@@ -47,11 +47,11 @@ data:extend({
                 localised_name = {"recipe-name.bi-purified-air-1"},
                 localised_description = {"recipe-description.bi-purified-air-1"},
                 icon = ICONPATH .. "clean-air_mk1.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "clean-air_mk1.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 order = "zzz-clean-air",
@@ -82,11 +82,11 @@ data:extend({
                 localised_name = {"recipe-name.bi-purified-air-2"},
                 localised_description = {"recipe-description.bi-purified-air-2"},
                 icon = ICONPATH .. "clean-air_mk2.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "clean-air_mk2.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 order = "zzz-clean-air2",

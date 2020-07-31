@@ -10,11 +10,11 @@ data:extend({
     type = "item",
     name = "bi-bio-garden",
     icon = ICONPATH .. "bio_garden_icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
         {
             icon = ICONPATH .. "bio_garden_icon.png",
-            icon_size = 32,
+            icon_size = 64,
         }
     },
    --flags = { "goes-to-quickbar" },
@@ -28,11 +28,11 @@ data:extend({
     type = "item",
     name = "bi-purified-air",
     icon = ICONPATH .. "Clean_Air2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
         {
             icon = ICONPATH .. "Clean_Air2.png",
-            icon_size = 32,
+            icon_size = 64,
         }
     },
     flags = {"hidden"},

@@ -44,11 +44,11 @@ end
                         type = "assembling-machine",
                         name = "bi-bio-reactor",
                         icon = ICONPATH .. "bioreactor.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "bioreactor.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         flags = {"placeable-neutral", "player-creation"},
@@ -136,11 +136,11 @@ end
                         type = "boiler",
                         name = "bi-bio-boiler",
                         icon = ICONPATH .. "bio_boiler.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "bio_boiler.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         flags = {"placeable-neutral", "player-creation"},

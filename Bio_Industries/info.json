@@ -1,6 +1,6 @@
 {
         "name": "Bio_Industries",
-        "version": "0.18.15",
+        "version": "0.18.24",
         "factorio_version": "0.18",
         "title": "Bio Industries",
         "author": "TheSAguy",
@@ -12,7 +12,8 @@
                                 "stdlib >= 1.4.0",
                                 "? alien-biomes",
                                 "? FARL",
-                                "? Krastorio2"
+                                "? Krastorio2",
+                                "(?) angelspetrochem",
+                                "(?) Transport_Drones"
                         ]
-
 }

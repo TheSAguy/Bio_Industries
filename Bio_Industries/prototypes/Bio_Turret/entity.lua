@@ -61,11 +61,11 @@ data:extend({
                 type = "ammo",
                 name = "bi-dart-magazine-basic",
                 icon = ICONPATH .. "basic_dart_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "basic_dart_icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 ammo_type =
@@ -107,11 +107,11 @@ data:extend({
                 type = "ammo",
                 name = "bi-dart-magazine-standard",
                 icon = ICONPATH .. "standard_dart_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "standard_dart_icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 ammo_type =
@@ -158,11 +158,11 @@ data:extend({
                 type = "ammo",
                 name = "bi-dart-magazine-enhanced",
                 icon = ICONPATH .. "enhanced_dart_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "enhanced_dart_icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 ammo_type =
@@ -213,11 +213,11 @@ data:extend({
                 type = "ammo",
                 name = "bi-dart-magazine-poison",
                 icon = ICONPATH .. "poison_dart_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                     {
                         icon = ICONPATH .. "poison_dart_icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                     }
                 },
                 ammo_type =
@@ -300,11 +300,11 @@ data:extend({
     type = "ammo-turret",
     name = "bi-dart-turret",
     icon = ICONPATH .. "bio_turret_icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_turret_icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-player", "player-creation"},
@@ -370,11 +370,11 @@ data:extend({
     type = "gun",
     name = "bi-dart-rifle",
     icon = ICONPATH .. "bi_dart_rifle_icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_dart_rifle_icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "gun",

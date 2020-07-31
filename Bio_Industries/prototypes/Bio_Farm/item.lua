@@ -1,6 +1,7 @@
 local BioInd = require('common')('Bio_Industries')
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
+local ICONPATHMIPS = BioInd.modRoot .. "/graphics/icons/mips/"
 
 data:extend(
 {
@@ -9,12 +10,24 @@ data:extend(
     type = "item",
     name = "bi-seed",
     icon = ICONPATH .. "bio_seed.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_seed.png",
-        icon_size = 32,
+        icon_size = 64,
       }
+    },
+    icon_mipmaps = 4,
+    pictures =
+    {
+      --~ { size = 64, filename = ICONPATHMIPS.."bio_seed_1.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."bio_seed_2.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."bio_seed_3.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."bio_seed_4.png", scale = 0.25, mipmap_count = 1 }
+      { size = 64, filename = ICONPATHMIPS.."bio_seed_1.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."bio_seed_2.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."bio_seed_3.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."bio_seed_4.png", scale = 0.25 }
     },
     category = "biofarm-mod-greenhouse",
     subgroup = "bio-bio-farm",
@@ -29,12 +42,34 @@ data:extend(
     type = "item",
     name = "seedling",
     icon = ICONPATH .. "Seedling.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling.png",
-        icon_size = 32,
+        icon_size = 64,
       }
+    },
+        icon_mipmaps = 9,
+    pictures =
+    {
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_1.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_2.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_3.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_4.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_5.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_6.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_7.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_8.png", scale = 0.25, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Seedling_9.png", scale = 0.25, mipmap_count = 1 }
+      { size = 64, filename = ICONPATHMIPS.."Seedling_1.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_2.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_3.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_4.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_5.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_6.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_7.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_8.png", scale = 0.25 },
+      { size = 64, filename = ICONPATHMIPS.."Seedling_9.png", scale = 0.25 }
     },
     subgroup = "bio-bio-farm",
     order = "x[bi]-b[bi-seedling]",
@@ -49,11 +84,11 @@ data:extend(
     type= "item",
     name= "bi-bio-farm",
     icon = ICONPATH .. "Bio_Farm_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Farm_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "production-machine",
@@ -67,11 +102,11 @@ data:extend(
     type= "item",
     name= "bi-bio-greenhouse",
     icon = ICONPATH .. "bio_greenhouse.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_greenhouse.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "production-machine",
@@ -85,11 +120,11 @@ data:extend(
     type = "item",
     name = "bi-cokery",
     icon = ICONPATH .. "cokery.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "cokery.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "production-machine",
@@ -103,11 +138,11 @@ data:extend(
     type = "item",
     name = "bi-stone-crusher",
     icon = ICONPATH .. "stone_crusher.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "stone_crusher.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "production-machine",
@@ -120,13 +155,25 @@ data:extend(
   {
     type = "item",
     name = "bi-woodpulp",
-    icon = ICONPATH .. "Woodpulp_32.png",
-    icon_size = 32,
+    icon = ICONPATH .. "woodpulp_64.png",
+    icon_size = 64,
     icons = {
       {
-        icon = ICONPATH .. "Woodpulp_32.png",
-        icon_size = 32,
+        icon = ICONPATH .. "woodpulp_64.png",
+        icon_size = 64,
       }
+    },
+    icon_mipmaps = 4,
+    pictures =
+    {
+      --~ { size = 64, filename = ICONPATHMIPS.."Woodpulp_1.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Woodpulp_2.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Woodpulp_3.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Woodpulp_4.png", scale = 0.2, mipmap_count = 1 }
+      { size = 64, filename = ICONPATHMIPS.."Woodpulp_1.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Woodpulp_2.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Woodpulp_3.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Woodpulp_4.png", scale = 0.2 }
     },
     fuel_value = "1MJ",
     fuel_category = "chemical",
@@ -144,7 +191,7 @@ data:extend(
     icons = {
       {
         icon = ICONPATH .. "Fuel_Brick.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "bio-bio-farm-raw",
@@ -160,12 +207,24 @@ data:extend(
     type = "item",
     name = "bi-ash",
     icon = ICONPATH .. "ash.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "ash.png",
-        icon_size = 32,
+        icon_size = 64,
       }
+    },
+    icon_mipmaps = 4,
+    pictures =
+    {
+      --~ { size = 64, filename = ICONPATHMIPS.."Ash_1.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Ash_2.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Ash_3.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Ash_4.png", scale = 0.2, mipmap_count = 1 }
+      { size = 64, filename = ICONPATHMIPS.."Ash_1.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Ash_2.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Ash_3.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Ash_4.png", scale = 0.2 }
     },
     --~ fuel_value = "1MJ",
     --~ fuel_category = "chemical",
@@ -179,12 +238,24 @@ data:extend(
     type = "item",
     name = "wood-charcoal",
     icon = ICONPATH .. "charcoal.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "charcoal.png",
-        icon_size = 32,
+        icon_size = 64,
       }
+    },
+    icon_mipmaps = 4,
+    pictures =
+    {
+      --~ { size = 64, filename = ICONPATHMIPS.."Charcoal_1.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Charcoal_2.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Charcoal_3.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Charcoal_4.png", scale = 0.2, mipmap_count = 1 }
+      { size = 64, filename = ICONPATHMIPS.."Charcoal_1.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Charcoal_2.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Charcoal_3.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Charcoal_4.png", scale = 0.2 }
     },
     fuel_value = "6MJ",
     fuel_category = "chemical",
@@ -198,11 +269,11 @@ data:extend(
     type = "item",
     name = "pellet-coke",
     icon = ICONPATH .. "coke-coal.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "coke-coal.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     fuel_value = "28MJ",
@@ -220,12 +291,24 @@ data:extend(
     type = "item",
     name = "stone-crushed",
     icon = ICONPATH .. "crushed-stone.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "crushed-stone.png",
-        icon_size = 32,
+        icon_size = 64,
       }
+    },
+    icon_mipmaps = 4,
+    pictures =
+    {
+      --~ { size = 64, filename = ICONPATHMIPS.."Crush_1.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Crush_2.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Crush_3.png", scale = 0.2, mipmap_count = 1 },
+      --~ { size = 64, filename = ICONPATHMIPS.."Crush_4.png", scale = 0.2, mipmap_count = 1 }
+      { size = 64, filename = ICONPATHMIPS.."Crush_1.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Crush_2.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Crush_3.png", scale = 0.2 },
+      { size = 64, filename = ICONPATHMIPS.."Crush_4.png", scale = 0.2 }
     },
     subgroup = "raw-material",
     order = "a[bi]-a-z[stone-crushed]",
@@ -238,11 +321,11 @@ data:extend(
     type = "ammo",
     name = "bi-seed-bomb-basic",
     icon = ICONPATH .. "Seed_bomb_icon_b.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seed_bomb_icon_b.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     ammo_type = {
@@ -270,11 +353,11 @@ data:extend(
     type = "ammo",
     name = "bi-seed-bomb-standard",
     icon = ICONPATH .. "Seed_bomb_icon_s.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seed_bomb_icon_s.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     ammo_type = {
@@ -302,11 +385,11 @@ data:extend(
     type = "ammo",
     name = "bi-seed-bomb-advanced",
     icon = ICONPATH .. "Seed_bomb_icon_a.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seed_bomb_icon_a.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     ammo_type = {
@@ -333,11 +416,11 @@ data:extend(
     type= "item",
     name= "bi-arboretum-area",
     icon = ICONPATH .. "Arboretum_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Arboretum_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "production-machine",
@@ -351,11 +434,11 @@ data:extend(
     type = "item",
     name = "bi-arboretum-r1",
     icon = ICONPATH .. "Seedling_b.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling_b.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"hidden"},
@@ -369,11 +452,11 @@ data:extend(
     type = "item",
     name = "bi-arboretum-r2",
     icon = ICONPATH .. "bi_change_1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"hidden"},
@@ -387,11 +470,11 @@ data:extend(
     type = "item",
     name = "bi-arboretum-r3",
     icon = ICONPATH .. "bi_change_2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"hidden"},
@@ -405,11 +488,11 @@ data:extend(
     type = "item",
     name = "bi-arboretum-r4",
     icon = ICONPATH .. "bi_change_plant_1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_plant_1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"hidden"},
@@ -423,11 +506,11 @@ data:extend(
     type = "item",
     name = "bi-arboretum-r5",
     icon = ICONPATH .. "bi_change_plant_2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_plant_2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
      flags = {"hidden"},
@@ -445,12 +528,12 @@ if BioInd.AB_tiles() then
     {
       type = "item",
       name = "fertiliser",
-      icon = ICONPATH .. "fertiliser_32.png",
-      icon_size = 32,
+      icon = ICONPATH .. "fertiliser_64.png",
+      icon_size = 64,
     icons = {
       {
-        icon = ICONPATH .. "fertiliser_32.png",
-        icon_size = 32,
+        icon = ICONPATH .. "fertiliser_64.png",
+        icon_size = 64,
       }
     },
       subgroup = "intermediate-product",
@@ -467,12 +550,12 @@ if BioInd.AB_tiles() then
     {
       type = "item",
       name = "bi-adv-fertiliser",
-      icon = ICONPATH .. "advanced_fertiliser_32.png",
-      icon_size = 32,
+      icon = ICONPATH .. "advanced_fertiliser_64.png",
+      icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "advanced_fertiliser_32.png",
-          icon_size = 32,
+          icon = ICONPATH .. "advanced_fertiliser_64.png",
+          icon_size = 64,
         }
       },
       subgroup = "intermediate-product",
@@ -492,12 +575,12 @@ else
     {
       type = "item",
       name = "fertiliser",
-      icon = ICONPATH .. "fertiliser_32.png",
-      icon_size = 32,
+      icon = ICONPATH .. "fertiliser_64.png",
+      icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "fertiliser_32.png",
-          icon_size = 32,
+          icon = ICONPATH .. "fertiliser_64.png",
+          icon_size = 64,
         }
       },
       subgroup = "intermediate-product",
@@ -514,12 +597,12 @@ else
     {
       type = "item",
       name = "bi-adv-fertiliser",
-      icon = ICONPATH .. "advanced_fertiliser_32.png",
-      icon_size = 32,
+      icon = ICONPATH .. "advanced_fertiliser_64.png",
+      icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "advanced_fertiliser_32.png",
-          icon_size = 32,
+          icon = ICONPATH .. "advanced_fertiliser_64.png",
+          icon_size = 64,
         }
       },
       subgroup = "intermediate-product",

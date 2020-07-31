@@ -6,6 +6,9 @@ local WOODPATH = BioInd.modRoot .. "/graphics/entities/wood_products/"
 local ENTITYPATH = "__base__/graphics/entity/"
 local PIPEPATH = ENTITYPATH .. "pipe/"
 
+local BIGICONS = BioInd.base_version()
+
+
 require("prototypes.Wood_Products.demo-remnants-wood")
 
 -- demo-sounds exists only in Factorio 0.18, so we need to check the game version!
@@ -82,8 +85,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-straight-vertical.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-straight-vertical.png",
@@ -97,8 +100,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-straight-vertical-window.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-straight-vertical-window.png",
@@ -112,8 +115,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-straight-horizontal-window.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-straight-horizontal-window.png",
@@ -127,8 +130,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-straight-horizontal.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-straight-horizontal.png",
@@ -142,8 +145,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-corner-up-right.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-corner-up-right.png",
@@ -157,8 +160,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-corner-up-left.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-corner-up-left.png",
@@ -172,8 +175,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-corner-down-right.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-corner-down-right.png",
@@ -187,8 +190,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-corner-down-left.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-corner-down-left.png",
@@ -202,8 +205,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-t-up.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-t-up.png",
@@ -217,8 +220,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-t-down.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-t-down.png",
@@ -232,8 +235,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-t-right.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-t-right.png",
@@ -247,8 +250,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-t-left.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
          filename = PIPEPATH .. "hr-pipe-t-left.png",
@@ -262,8 +265,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-cross.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-cross.png",
@@ -277,8 +280,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-ending-up.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-ending-up.png",
@@ -292,8 +295,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-ending-down.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-ending-down.png",
@@ -307,8 +310,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-ending-right.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-ending-right.png",
@@ -322,8 +325,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-ending-left.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-ending-left.png",
@@ -337,8 +340,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-horizontal-window-background.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-horizontal-window-background.png",
@@ -352,8 +355,8 @@ pipepictures_w = function()
     {
       filename = PIPEPATH .. "pipe-vertical-window-background.png",
       priority = "extra-high",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       hr_version =
       {
         filename = PIPEPATH .. "hr-pipe-vertical-window-background.png",
@@ -430,7 +433,8 @@ data:extend({
           type = "tile",
           name = "bi-wood-floor",
           needs_correction = false,
-          minable = {hardness = 0.2, mining_time = 0.5, result = "wood"},
+          --~ minable = {hardness = 0.2, mining_time = 0.5, result = "wood"},
+          minable = {hardness = 0.2, mining_time = 0.25, result = "wood"},
           mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
           collision_mask = {"ground-tile"},
           walking_speed_modifier = 1.2,
@@ -507,11 +511,11 @@ data:extend({
     type = "electric-pole",
     name = "bi-wooden-pole-big",
     icon = ICONPATH .. "big-wooden-pole.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "big-wooden-pole.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "player-creation"},
@@ -603,11 +607,11 @@ data:extend({
     type = "electric-pole",
     name = "bi-wooden-pole-huge",
     icon = ICONPATH .. "huge-wooden-pole.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "huge-wooden-pole.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "player-creation"},
@@ -714,11 +718,11 @@ data:extend({
     type = "wall",
     name = "bi-wooden-fence",
     icon = ICONPATH .. "wooden-fence.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "wooden-fence.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "player-creation"},
@@ -1011,11 +1015,11 @@ data:extend({
     type = "straight-rail",
     name = "bi-straight-rail-wood",
     icon = ICONPATH .. "straight-rail-wood.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "straight-rail-wood.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags =
@@ -1024,7 +1028,8 @@ data:extend({
         "building-direction-8-way",
         "fast-replaceable-no-cross-type-while-moving",
     },
-    collision_mask = {"object-layer"},
+    --~ collision_mask = {"object-layer"},
+    collision_mask = BioInd.RAIL_MASK,
     minable = {mining_time = 0.25, result = "bi-rail-wood"},
     max_health = 60,
     corpse = "straight-rail-remnants-wood",
@@ -1052,11 +1057,11 @@ data:extend({
     type = "curved-rail",
     name = "bi-curved-rail-wood",
     icon = ICONPATH .. "curved-rail-wood.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "curved-rail-wood.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags =
@@ -1066,7 +1071,8 @@ data:extend({
       "building-direction-8-way",
       "fast-replaceable-no-cross-type-while-moving"
     },
-    collision_mask = {"object-layer"},
+    --~ collision_mask = {"object-layer"},
+    collision_mask = BioInd.RAIL_MASK,
     minable = {mining_time = 0.25, result = "bi-rail-wood", count = 4},
     max_health = 120,
     corpse = "curved-rail-remnants-wood",
@@ -1094,15 +1100,18 @@ data:extend({
     type = "straight-rail",
     name = "bi-straight-rail-wood-bridge",
     icon = ICONPATH .. "straight-rail-wood.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "straight-rail-wood.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "player-creation", "building-direction-8-way"},
-    collision_mask = {"object-layer"},
+    --~ collision_mask = {"object-layer"},
+--~ collision_mask = { "item-layer", "object-layer"},
+    --~ collision_mask = {"ground-tile", "floor-layer", "object-layer", "consider-tile-transitions"},
+    collision_mask = BioInd.RAIL_BRIDGE_MASK,
     minable = {mining_time = 0.5, result = "bi-rail-wood-bridge"},
     max_health = 60,
     corpse = "straight-rail-remnants-wood-bridge",
@@ -1117,11 +1126,11 @@ data:extend({
     type = "curved-rail",
     name = "bi-curved-rail-wood-bridge",
     icon = ICONPATH .. "rail-wood.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "rail-wood.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags =
@@ -1130,7 +1139,10 @@ data:extend({
       "player-creation",
       "building-direction-8-way"
     },
-    collision_mask = {"object-layer"},
+    --~ collision_mask = {"object-layer"},
+--~ collision_mask = { "floor-layer", "item-layer", "object-layer"},
+    --~ collision_mask = {"ground-tile", "floor-layer", "object-layer", "consider-tile-transitions"},
+    collision_mask = BioInd.RAIL_BRIDGE_MASK,
     minable = {mining_time = 0.5, result = "bi-rail-wood-bridge", count = 4},
     max_health = 120,
     corpse = "curved-rail-remnants-wood-bridge",
@@ -1147,11 +1159,11 @@ data:extend({
     type = "straight-rail",
     name = "bi-straight-rail-power",
     icon = ICONPATH .. "rail-concrete-power.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "rail-concrete-power.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags =
@@ -1160,7 +1172,8 @@ data:extend({
       "player-creation",
       "building-direction-8-way"
     },
-    collision_mask = {"object-layer"},
+    --~ collision_mask = {"object-layer"},
+    collision_mask = BioInd.RAIL_MASK,
     minable = {mining_time = 0.5, result = "bi-rail-power"},
     max_health = 60,
     corpse = "straight-rail-remnants",
@@ -1175,11 +1188,11 @@ data:extend({
     type = "curved-rail",
     name = "bi-curved-rail-power",
     icon = ICONPATH .. "rail-concrete-power.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "rail-concrete-power.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags =
@@ -1188,7 +1201,8 @@ data:extend({
       "player-creation",
       "building-direction-8-way",
     },
-    collision_mask = {"object-layer"},
+    --~ collision_mask = {"object-layer"},
+    collision_mask = BioInd.RAIL_MASK,
     minable = {mining_time = 0.5, result = "bi-rail-power", count = 4},
     max_health = 120,
     corpse = "curved-rail-remnants",
@@ -1205,11 +1219,11 @@ data:extend({
     type = "electric-pole",
     name = "bi-rail-hidden-power-pole",
     icon = "__base__/graphics/icons/small-electric-pole.png",
-    icon_size = 32,
+    icon_size = BIGICONS and 64 or 32,
     icons = {
       {
         icon = "__base__/graphics/icons/small-electric-pole.png",
-        icon_size = 32,
+        icon_size = BIGICONS and 64 or 32,
       }
     },
     flags =
@@ -1227,7 +1241,7 @@ data:extend({
     collision_mask = {},
     collision_box = {{-0, -0}, {0, 0}},
     selection_box = {{0, 0}, {0, 0}},
-    maximum_wire_distance = 8,
+    maximum_wire_distance = 9,
     supply_area_distance = 2,
 
     pictures =
@@ -1578,11 +1592,11 @@ data:extend({
     type = "pipe",
     name = "bi-wood-pipe",
     icon = ICONPATH .. "wood_pipe.png",
-    icon_size = 32,
+    icon_size = BIGICONS and 64 or 32,
     icons = {
       {
         icon = ICONPATH .. "wood_pipe.png",
-        icon_size = 32,
+        icon_size = BIGICONS and 64 or 32,
       }
     },
     flags = {"placeable-neutral", "player-creation"},
@@ -1638,11 +1652,11 @@ data:extend({
     type = "pipe-to-ground",
     name = "bi-wood-pipe-to-ground",
     icon = ICONPATH .. "pipe-to-ground-wood.png",
-    icon_size = 32,
+    icon_size = BIGICONS and 64 or 32,
     icons = {
       {
         icon = ICONPATH .. "pipe-to-ground-wood.png",
-        icon_size = 32,
+        icon_size = BIGICONS and 64 or 32,
       }
     },
     flags = {"placeable-neutral", "player-creation"},
@@ -1660,6 +1674,7 @@ data:extend({
         percent = 40
       }
     },
+    fast_replaceable_group = "pipe",
     collision_box = {{-0.29, -0.29}, {0.29, 0.2}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     fluid_box =
@@ -1679,8 +1694,8 @@ data:extend({
     {
       filename = "__core__/graphics/arrows/underground-lines.png",
       priority = "extra-high-no-scale",
-      width = 64,
-      height = 64,
+      width = BIGICONS and 64 or 32,
+      height = BIGICONS and 64 or 32,
       scale = 0.5
     },
     --~ vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -1691,8 +1706,8 @@ data:extend({
       {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-up.png",
         priority = "high",
-        width = 64,
-        height = 64, --, shift = {0.10, -0.04}
+        width = BIGICONS and 64 or 32,
+        height = BIGICONS and 64 or 32, --, shift = {0.10, -0.04}
         hr_version =
         {
            filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-up.png",
@@ -1706,8 +1721,8 @@ data:extend({
       {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-down.png",
         priority = "high",
-        width = 64,
-        height = 64, --, shift = {0.05, 0}
+        width = BIGICONS and 64 or 32,
+        height = BIGICONS and 64 or 32, --, shift = {0.05, 0}
         hr_version =
         {
            filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-down.png",
@@ -1721,8 +1736,8 @@ data:extend({
       {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-left.png",
         priority = "high",
-        width = 64,
-        height = 64, --, shift = {-0.12, 0.1}
+        width = BIGICONS and 64 or 32,
+        height = BIGICONS and 64 or 32, --, shift = {-0.12, 0.1}
         hr_version =
         {
            filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-left.png",
@@ -1736,8 +1751,8 @@ data:extend({
       {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-right.png",
         priority = "high",
-        width = 64,
-        height = 64, --, shift = {0.1, 0.1}
+        width = BIGICONS and 64 or 32,
+        height = BIGICONS and 64 or 32, --, shift = {0.1, 0.1}
         hr_version =
         {
            filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-right.png",
@@ -1756,11 +1771,11 @@ data:extend({
     type = "container",
     name = "bi-wooden-chest-large",
     icon = ICONPATH .. "large_wooden_chest_icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "large_wooden_chest_icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     flags = {"placeable-neutral", "player-creation"},
@@ -1794,11 +1809,11 @@ data:extend({
     type = "container",
     name = "bi-wooden-chest-huge",
     icon = ICONPATH .. "huge_wooden_chest_icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "huge_wooden_chest_icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     scale_info_icons = true,
@@ -1833,11 +1848,11 @@ data:extend({
     type = "container",
     name = "bi-wooden-chest-giga",
     icon = ICONPATH .. "giga_wooden_chest_icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "giga_wooden_chest_icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     scale_info_icons = true,
@@ -1873,7 +1888,7 @@ data:extend({
 --~ local my_pole_2 = util.table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
 --~ my_pole_2.name = "bi-power-to-rail-pole"
 --~ my_pole_2.icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png"
---~ my_pole_2.icon_size = 32
+--~ my_pole_2.icon_size = 64
 --~ my_pole_2.icon_mipmaps = 1
 --~ my_pole_2.minable = {mining_time = 1, result = "bi-power-to-rail-pole"}
 --~ my_pole_2.maximum_wire_distance = 4
@@ -1882,16 +1897,17 @@ data:extend({
 local my_pole_2 = util.table.deepcopy(data.raw["electric-pole"]["medium-electric-pole"])
 my_pole_2.name = "bi-power-to-rail-pole"
 my_pole_2.icon = ICONPATH .. "electric-to-rail.png"
-my_pole_2.icon_size = 32
+my_pole_2.icon_size = 64
 my_pole_2.icons = {
       {
         icon = ICONPATH .. "electric-to-rail.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     }
 my_pole_2.icon_mipmaps = 1
 my_pole_2.minable = {mining_time = 1, result = "bi-power-to-rail-pole"}
-my_pole_2.maximum_wire_distance = 4
+--~ my_pole_2.maximum_wire_distance = 4
+my_pole_2.maximum_wire_distance = BioInd.POWER_TO_RAIL_WIRE_DISTANCE
 my_pole_2.supply_area_distance = 3.5 -- 3 doesn't look right, 2.5 is too small
 my_pole_2.pictures.tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
 data:extend({my_pole_2})
@@ -1920,3 +1936,20 @@ else
 
 end
 ]]
+
+--~ -- TESTING: Hidden power pole for powered rails
+--~ local hidden_pole = table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
+--~ hidden_pole.name = "bi-rail-hidden-power-pole"
+--~ hidden_pole.maximum_wire_distance = 9
+--~ hidden_pole.flags =
+  --~ {
+    --~ "not-deconstructable",
+    --~ "not-on-map",
+    --~ "placeable-off-grid",
+    --~ "not-repairable",
+    --~ "not-blueprintable",
+  --~ }
+--~ hidden_pole.collision_mask = {}
+--~ hidden_pole.collision_box = {{-0, -0}, {0, 0}}
+
+--~ data:extend({ hidden_pole })

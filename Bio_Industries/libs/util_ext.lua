@@ -28,8 +28,8 @@ function group(index_id, group_id, members)
   _init_group(index_id, group_id)
 
   if index_id == nil then
-   index_id = "default"
-   end
+    index_id = "default"
+  end
 
   if group_id then
     for ix, vx in ipairs(members) do

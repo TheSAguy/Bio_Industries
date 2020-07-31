@@ -9,11 +9,11 @@ data:extend({
                 type = "item",
                 name = "bi-wooden-pole-big",
                 icon = ICONPATH .. "big-wooden-pole.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "big-wooden-pole.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "energy-pipe-distribution",
@@ -29,11 +29,11 @@ data:extend({
                 type = "item",
                 name = "bi-wooden-pole-huge",
                 icon = ICONPATH .. "huge-wooden-pole.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "huge-wooden-pole.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "energy-pipe-distribution",
@@ -49,11 +49,11 @@ data:extend({
                 type = "item",
                 name = "bi-wooden-fence",
                 icon = ICONPATH .. "wooden-fence.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "wooden-fence.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "defensive-structure",
@@ -69,11 +69,11 @@ data:extend({
                 type = "rail-planner",
                 name = "bi-rail-wood",
                 icon = ICONPATH .. "rail-wood.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "rail-wood.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "transport",
@@ -89,11 +89,11 @@ data:extend({
                 type = "rail-planner",
                 name = "bi-rail-wood-bridge",
                 icon = ICONPATH .. "rail-wood-bridge.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "rail-wood-bridge.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "transport",
@@ -109,11 +109,11 @@ data:extend({
                 type = "rail-planner",
                 name = "bi-rail-power",
                 icon = ICONPATH .. "rail-concrete-power.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "rail-concrete-power.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "transport",
@@ -129,11 +129,11 @@ data:extend({
                 type = "item",
                 name = "bi-wood-pipe",
                 icon = ICONPATH .. "wood_pipe.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "wood_pipe.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "energy-pipe-distribution",
@@ -149,11 +149,11 @@ data:extend({
                 type = "item",
                 name = "bi-wood-pipe-to-ground",
                 icon = ICONPATH .. "pipe-to-ground-wood.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "pipe-to-ground-wood.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "energy-pipe-distribution",
@@ -169,11 +169,11 @@ data:extend({
                 type = "item",
                 name = "bi-wooden-chest-large",
                 icon = ICONPATH .. "large_wooden_chest_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "large_wooden_chest_icon.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 fuel_category = "chemical",
@@ -189,11 +189,11 @@ data:extend({
                 type = "item",
                 name = "bi-wooden-chest-huge",
                 icon = ICONPATH .. "huge_wooden_chest_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "huge_wooden_chest_icon.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 fuel_category = "chemical",
@@ -209,11 +209,11 @@ data:extend({
                 type = "item",
                 name = "bi-wooden-chest-giga",
                 icon = ICONPATH .. "giga_wooden_chest_icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "giga_wooden_chest_icon.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 fuel_category = "chemical",
@@ -228,12 +228,12 @@ data:extend({
                 type = "item",
                 name = "bi-power-to-rail-pole",
                 icon = ICONPATH .. "electric-to-rail.png",
-                icon_size = 32,
+                icon_size = 64,
                 icon_mipmaps = 1,
                 icons = {
                   {
                     icon = ICONPATH .. "electric-to-rail.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 subgroup = "transport",

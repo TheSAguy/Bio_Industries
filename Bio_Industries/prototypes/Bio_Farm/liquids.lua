@@ -9,7 +9,7 @@ data:extend({
     --~ type = "fluid",
     --~ name = "liquid-air",
     --~ icon = ICONPATH .. "liquid-air.png",
-    --~ icon_size = 32,
+    --~ icon_size = 64,
     --~ default_temperature = 25,
     --~ gas_temperature = -100,
     --~ max_temperature = 100,
@@ -26,7 +26,7 @@ data:extend({
     --~ type = "fluid",
     --~ name = "nitrogen",
     --~ icon = ICONPATH .. "nitrogen.png",
-    --~ icon_size = 32,
+    --~ icon_size = 64,
     --~ default_temperature = 25,
     --~ gas_temperature = -210,
     --~ max_temperature = 100,
@@ -43,11 +43,11 @@ data:extend({
     type = "fluid",
     name = "bi-biomass",
     icon = ICONPATH .. "biomass.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "biomass.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     default_temperature = 25,

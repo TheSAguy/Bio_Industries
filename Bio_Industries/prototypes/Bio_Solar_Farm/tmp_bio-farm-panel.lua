@@ -3,11 +3,11 @@
                 type = "solar-panel",
                 name = "bi-bio-solar-farm",
                 icon = ICONPATH .. "Bio_Solar_Farm_Icon.png",
-                icon_size = 32,
+                icon_size = 64,
                 icons = {
                   {
                     icon = ICONPATH .. "Bio_Solar_Farm_Icon.png",
-                    icon_size = 32,
+                    icon_size = 64,
                   }
                 },
                 flags = {"placeable-neutral", "player-creation"},

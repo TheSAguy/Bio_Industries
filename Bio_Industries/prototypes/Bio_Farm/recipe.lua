@@ -13,11 +13,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seed-1"},
     localised_description = {"recipe-description.bi-seed-1"},
     icon = ICONPATH .. "bio_seed1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_seed1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -50,11 +50,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seed-2"},
     localised_description = {"recipe-description.bi-seed-2"},
     icon = ICONPATH .. "bio_seed2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_seed2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -88,11 +88,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seed-3"},
     localised_description = {"recipe-description.bi-seed-3"},
     icon = ICONPATH .. "bio_seed3.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_seed3.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -126,11 +126,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seed-4"},
     localised_description = {"recipe-description.bi-seed-4"},
     icon = ICONPATH .. "bio_seed4.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_seed4.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -164,11 +164,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seedling-1"},
     localised_description = {"recipe-description.bi-seedling-1"},
     icon = ICONPATH .. "Seedling1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -201,11 +201,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seedling-2"},
     localised_description = {"recipe-description.bi-seedling-2"},
     icon = ICONPATH .. "Seedling2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -239,11 +239,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seedling-3"},
     localised_description = {"recipe-description.bi-seedling-3"},
     icon = ICONPATH .. "Seedling3.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling3.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -276,11 +276,11 @@ data:extend({
     localised_name = {"recipe-name.bi-seedling-4"},
     localised_description = {"recipe-description.bi-seedling-4"},
     icon = ICONPATH .. "Seedling4.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling4.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-greenhouse",
@@ -314,11 +314,11 @@ data:extend({
     localised_name = {"recipe-name.bi-logs-1"},
     localised_description = {"recipe-description.bi-logs-1"},
     icon = ICONPATH .. "raw-wood-mk1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "raw-wood-mk1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-farm",
@@ -352,11 +352,11 @@ data:extend({
     localised_name = {"recipe-name.bi-logs-2"},
     localised_description = {"recipe-description.bi-logs-2"},
     icon = ICONPATH .. "raw-wood-mk2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "raw-wood-mk2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-farm",
@@ -391,11 +391,11 @@ data:extend({
     localised_name = {"recipe-name.bi-logs-3"},
     localised_description = {"recipe-description.bi-logs-3"},
     icon = ICONPATH .. "raw-wood-mk3.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "raw-wood-mk3.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-farm",
@@ -430,11 +430,11 @@ data:extend({
     localised_name = {"recipe-name.bi-logs-4"},
     localised_description = {"recipe-description.bi-logs-4"},
     icon = ICONPATH .. "raw-wood-mk4.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "raw-wood-mk4.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-farm",
@@ -467,17 +467,18 @@ data:extend({
     type = "recipe",
     name = "bi-bio-greenhouse",
     icon = ICONPATH .. "bio_greenhouse.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bio_greenhouse.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
     {
       enabled = false,
-      energy_required = 5,
+      --~ energy_required = 5,
+      energy_required = 2.5,
       ingredients =
       {
         {"iron-stick", 10},
@@ -491,7 +492,8 @@ data:extend({
     expensive =
     {
       enabled = false,
-      energy_required = 8,
+      --~ energy_required = 8,
+      energy_required = 4,
       ingredients =
       {
         {"iron-stick", 15},
@@ -514,17 +516,18 @@ data:extend({
     type = "recipe",
     name = "bi-bio-farm",
     icon = ICONPATH .. "Bio_Farm_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Bio_Farm_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
     {
       enabled = false,
-      energy_required = 10,
+      --~ energy_required = 10,
+      energy_required = 5,
       ingredients =
       {
         {"bi-bio-greenhouse", 4},
@@ -538,7 +541,8 @@ data:extend({
     expensive =
     {
       enabled = false,
-      energy_required = 15,
+      --~ energy_required = 15,
+      energy_required = 7.5,
       ingredients =
       {
         {"bi-bio-greenhouse", 8},
@@ -561,11 +565,11 @@ data:extend({
     type = "recipe",
     name = "bi-woodpulp",
     icon = ICONPATH .. "Woodpulp_raw-wood.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Woodpulp_raw-wood.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "bio-bio-farm-raw",
@@ -590,11 +594,11 @@ data:extend({
     type = "recipe",
     name = "bi-resin-pulp",
     icon = ICONPATH .. "bi_resin_pulp.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_resin_pulp.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "bio-bio-farm-raw",
@@ -627,7 +631,7 @@ data:extend({
     icons = {
       {
         icon = ICONPATH .. "wood_from_pulp.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "bio-bio-farm-raw",
@@ -688,11 +692,11 @@ data:extend({
     localised_name = {"recipe-name.bi-ash-1"},
     localised_description = {"recipe-description.bi-ash-1"},
     icon = ICONPATH .. "ash_raw-wood.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "ash_raw-wood.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-smelting",
@@ -720,11 +724,11 @@ data:extend({
     localised_name = {"recipe-name.bi-ash-2"},
     localised_description = {"recipe-description.bi-ash-2"},
     icon = ICONPATH .. "ash_woodpulp.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "ash_woodpulp.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-smelting",
@@ -750,11 +754,11 @@ data:extend({
     type = "recipe",
     name = "bi-charcoal-1",
     icon = ICONPATH .. "charcoal_woodpulp.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "charcoal_woodpulp.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-smelting",
@@ -782,11 +786,11 @@ data:extend({
     localised_name = {"recipe-name.bi-charcoal-2"},
     localised_description = {"recipe-description.bi-charcoal-2"},
     icon = ICONPATH .. "charcoal_raw-wood.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "charcoal_raw-wood.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     subgroup = "bio-bio-farm-raw",
@@ -812,11 +816,11 @@ data:extend({
     type = "recipe",
     name = "bi-coal-1",
     icon = ICONPATH .. "coal_mk1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "coal_mk1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-smelting",
@@ -841,11 +845,11 @@ data:extend({
     localised_name = {"recipe-name.bi-coal-2"},
     localised_description = {"recipe-description.bi-coal-2"},
     icon = ICONPATH .. "coal_mk2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "coal_mk2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-smelting",
@@ -895,11 +899,11 @@ data:extend({
     type = "recipe",
     name = "bi-coke-coal",
     icon = ICONPATH .. "pellet_coke_coal.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "pellet_coke_coal.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-smelting",
@@ -922,11 +926,11 @@ data:extend({
     name = "bi-pellet-coke",
     icon = ICONPATH .. "pellet_coke_solid.png",
     --icon = "__Bio_Industries__/graphics/icons/pellet_coke_c.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "pellet_coke_solid.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-smelting",
@@ -942,17 +946,16 @@ data:extend({
     allow_as_intermediate = false,
   },
 
-
  -- CRUSHED STONE from stone --
   {
     type = "recipe",
     name = "bi-crushed-stone-1",
     icon = ICONPATH .. "crushed-stone-stone.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "crushed-stone-stone.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-crushing",
@@ -974,11 +977,11 @@ data:extend({
     type = "recipe",
     name = "bi-crushed-stone-2",
     icon = ICONPATH .. "crushed-stone-concrete.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "crushed-stone-concrete.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-crushing",
@@ -1000,11 +1003,11 @@ data:extend({
     type = "recipe",
     name = "bi-crushed-stone-3",
     icon = ICONPATH .. "crushed-stone-hazard-concrete.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "crushed-stone-hazard-concrete.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-crushing",
@@ -1026,11 +1029,11 @@ data:extend({
     type = "recipe",
     name = "bi-crushed-stone-4",
     icon = ICONPATH .. "crushed-stone-refined-concrete.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "crushed-stone-refined-concrete.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-crushing",
@@ -1052,11 +1055,11 @@ data:extend({
     type = "recipe",
     name = "bi-crushed-stone-5",
     icon = ICONPATH .. "crushed-stone-refined-hazard-concrete.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "crushed-stone-refined-hazard-concrete.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "biofarm-mod-crushing",
@@ -1078,11 +1081,11 @@ data:extend({
     type = "recipe",
     name = "bi-stone-brick",
     icon = ICONPATH .. "bi_stone_brick.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_stone_brick.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     --category = "smelting",
@@ -1106,17 +1109,16 @@ data:extend({
     allow_as_intermediate = false,
   },
 
-
   -- COKERY (ENTITY)--
   {
     type = "recipe",
     name = "bi-cokery",
     icon = ICONPATH .. "cokery.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "cokery.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
@@ -1157,11 +1159,11 @@ data:extend({
     type = "recipe",
     name = "bi-stone-crusher",
     icon = ICONPATH .. "stone_crusher.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "stone_crusher.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
@@ -1204,11 +1206,11 @@ data:extend({
     type = "recipe",
     name = "bi-liquid-air",
     icon = ICONPATH .. "liquid-air.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "liquid-air.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "chemistry",
@@ -1227,17 +1229,16 @@ data:extend({
     order = "aa",
   },
 
-
   ---NITROGEN --
   {
     type = "recipe",
     name = "bi-nitrogen",
-    icon = ICONPATH .. "liquid-nitrogen.png",
-    icon_size = 32,
+    icon = ICONPATH .. "nitrogen.png",
+    icon_size = 64,
     icons = {
       {
-        icon = ICONPATH .. "liquid-nitrogen.png",
-        icon_size = 32,
+        icon = ICONPATH .. "nitrogen.png",
+        icon_size = 64,
       }
     },
     category = "chemistry",
@@ -1268,11 +1269,11 @@ data:extend({
     localised_name = {"recipe-name.bi-fertiliser-1"},
     localised_description = {"recipe-description.bi-fertiliser-1"},
     icon = ICONPATH .. "fertiliser_sulfur.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "fertiliser_sulfur.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "chemistry",
@@ -1303,12 +1304,12 @@ data:extend({
     name = "bi-adv-fertiliser-1",
     localised_name = {"recipe-name.bi-adv-fertiliser-1"},
     localised_description = {"recipe-description.bi-adv-fertiliser-1"},
-    icon = ICONPATH .. "advanced_fertiliser_32.png",
-    icon_size = 32,
+    icon = ICONPATH .. "advanced_fertiliser_64.png",
+    icon_size = 64,
     icons = {
       {
-        icon = ICONPATH .. "advanced_fertiliser_32.png",
-        icon_size = 32,
+        icon = ICONPATH .. "advanced_fertiliser_64.png",
+        icon_size = 64,
       }
     },
     category = "chemistry",
@@ -1339,12 +1340,12 @@ data:extend({
     name = "bi-adv-fertiliser-2",
     localised_name = {"recipe-name.bi-adv-fertiliser-2"},
     localised_description = {"recipe-description.bi-adv-fertiliser-2"},
-    icon = ICONPATH .. "advanced_fertiliser_32.png",
-    icon_size = 32,
+    icon = ICONPATH .. "advanced_fertiliser_64.png",
+    icon_size = 64,
     icons = {
       {
-        icon = ICONPATH .. "advanced_fertiliser_32.png",
-        icon_size = 32,
+        icon = ICONPATH .. "advanced_fertiliser_64.png",
+        icon_size = 64,
       }
     },
     category = "chemistry",
@@ -1377,11 +1378,11 @@ data:extend({
     type = "recipe",
     name = "bi-seed-bomb-basic",
     icon = ICONPATH .. "Seed_bomb_icon_b.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seed_bomb_icon_b.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
@@ -1421,11 +1422,11 @@ data:extend({
     type = "recipe",
     name = "bi-seed-bomb-standard",
     icon = ICONPATH .. "Seed_bomb_icon_s.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seed_bomb_icon_s.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
@@ -1466,11 +1467,11 @@ data:extend({
     type = "recipe",
     name = "bi-seed-bomb-advanced",
     icon = ICONPATH .. "Seed_bomb_icon_a.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seed_bomb_icon_a.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
@@ -1511,11 +1512,11 @@ data:extend({
     type = "recipe",
     name = "bi-arboretum",
     icon = ICONPATH .. "Arboretum_Icon.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Arboretum_Icon.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     normal =
@@ -1560,11 +1561,11 @@ data:extend({
     localised_name = {"recipe-name.bi-arboretum-r1"},
     localised_description = {"recipe-description.bi-arboretum-r1"},
     icon = ICONPATH .. "Seedling_b.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "Seedling_b.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "bi-arboretum",
@@ -1595,11 +1596,11 @@ data:extend({
     localised_name = {"recipe-name.bi-arboretum-r2"},
     localised_description = {"recipe-description.bi-arboretum-r2"},
     icon = ICONPATH .. "bi_change_1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "bi-arboretum",
@@ -1630,11 +1631,11 @@ data:extend({
     localised_name = {"recipe-name.bi-arboretum-r3"},
     localised_description = {"recipe-description.bi-arboretum-r3"},
     icon = ICONPATH .. "bi_change_2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "bi-arboretum",
@@ -1665,11 +1666,11 @@ data:extend({
     localised_name = {"recipe-name.bi-arboretum-r4"},
     localised_description = {"recipe-description.bi-arboretum-r4"},
     icon = ICONPATH .. "bi_change_plant_1.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_plant_1.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "bi-arboretum",
@@ -1701,11 +1702,11 @@ data:extend({
     localised_name = {"recipe-name.bi-arboretum-r5"},
     localised_description = {"recipe-description.bi-arboretum-r5"},
     icon = ICONPATH .. "bi_change_plant_2.png",
-    icon_size = 32,
+    icon_size = 64,
     icons = {
       {
         icon = ICONPATH .. "bi_change_plant_2.png",
-        icon_size = 32,
+        icon_size = 64,
       }
     },
     category = "bi-arboretum",

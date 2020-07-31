@@ -10,11 +10,11 @@ if BI.Settings.BI_Solar_Additions then
                         type = "item",
                         name = "bi-bio-solar-farm",
                         icon = ICONPATH .. "Bio_Solar_Farm_Icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "Bio_Solar_Farm_Icon.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         subgroup = "energy",
@@ -28,11 +28,11 @@ if BI.Settings.BI_Solar_Additions then
                         type = "item",
                         name = "bi-solar-mat",
                         icon = ICONPATH .. "solar-mat.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "solar-mat.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         subgroup = "energy",
@@ -52,11 +52,11 @@ if BI.Settings.BI_Solar_Additions then
                         type = "item",
                         name = "bi-bio-accumulator",
                         icon = ICONPATH .. "bi_LargeAccumulator.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "bi_LargeAccumulator.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         subgroup = "energy",
@@ -71,11 +71,11 @@ if BI.Settings.BI_Solar_Additions then
                         type = "item",
                         name = "bi-large-substation",
                         icon = ICONPATH .. "bi_LargeSubstation_icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "bi_LargeSubstation_icon.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         subgroup = "energy-pipe-distribution",
@@ -89,11 +89,11 @@ if BI.Settings.BI_Solar_Additions then
                         type = "item",
                         name = "bi-solar-boiler",
                         icon = ICONPATH .. "Bio_Solar_Boiler_Icon.png",
-                        icon_size = 32,
+                        icon_size = 64,
                         icons = {
                           {
                             icon = ICONPATH .. "Bio_Solar_Boiler_Icon.png",
-                            icon_size = 32,
+                            icon_size = 64,
                           }
                         },
                         subgroup = "energy",
