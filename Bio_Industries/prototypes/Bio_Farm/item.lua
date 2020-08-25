@@ -18,8 +18,7 @@ data:extend(
       }
     },
     icon_mipmaps = 4,
-    pictures =
-    {
+    pictures = {
       --~ { size = 64, filename = ICONPATHMIPS.."bio_seed_1.png", scale = 0.25, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."bio_seed_2.png", scale = 0.25, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."bio_seed_3.png", scale = 0.25, mipmap_count = 1 },
@@ -50,8 +49,7 @@ data:extend(
       }
     },
         icon_mipmaps = 9,
-    pictures =
-    {
+    pictures = {
       --~ { size = 64, filename = ICONPATHMIPS.."Seedling_1.png", scale = 0.25, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Seedling_2.png", scale = 0.25, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Seedling_3.png", scale = 0.25, mipmap_count = 1 },
@@ -164,8 +162,7 @@ data:extend(
       }
     },
     icon_mipmaps = 4,
-    pictures =
-    {
+    pictures = {
       --~ { size = 64, filename = ICONPATHMIPS.."Woodpulp_1.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Woodpulp_2.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Woodpulp_3.png", scale = 0.2, mipmap_count = 1 },
@@ -215,8 +212,7 @@ data:extend(
       }
     },
     icon_mipmaps = 4,
-    pictures =
-    {
+    pictures = {
       --~ { size = 64, filename = ICONPATHMIPS.."Ash_1.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Ash_2.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Ash_3.png", scale = 0.2, mipmap_count = 1 },
@@ -246,8 +242,7 @@ data:extend(
       }
     },
     icon_mipmaps = 4,
-    pictures =
-    {
+    pictures = {
       --~ { size = 64, filename = ICONPATHMIPS.."Charcoal_1.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Charcoal_2.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Charcoal_3.png", scale = 0.2, mipmap_count = 1 },
@@ -299,8 +294,7 @@ data:extend(
       }
     },
     icon_mipmaps = 4,
-    pictures =
-    {
+    pictures = {
       --~ { size = 64, filename = ICONPATHMIPS.."Crush_1.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Crush_2.png", scale = 0.2, mipmap_count = 1 },
       --~ { size = 64, filename = ICONPATHMIPS.."Crush_3.png", scale = 0.2, mipmap_count = 1 },

@@ -254,25 +254,25 @@ if mods["Krastorio2"] then
   end
 
 
-  --~ -- Remove recipes for liquid air and nitrogen
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
-  --~ data.raw.recipe["bi-liquid-air"].hidden = true
-  --~ data.raw.recipe["bi-nitrogen"].hidden = true
+  -- Remove recipes for liquid air and nitrogen
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  data.raw.recipe["bi-liquid-air"].hidden = true
+  data.raw.recipe["bi-nitrogen"].hidden = true
 
-  --~ -- Replace liquid air with oxygen in Algae Biomass 2 and 3
-  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
-  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "oxygen")
+  -- Replace liquid air with oxygen in Algae Biomass 2 and 3
+  thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
+  thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "oxygen")
 end
 
 
 
 if mods["Krastorio"] then
-  --~ -- Remove recipes for liquid air and nitrogen
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
-  --~ data.raw.recipe["bi-liquid-air"].hidden = true
-  --~ data.raw.recipe["bi-nitrogen"].hidden = true
+  -- Remove recipes for liquid air and nitrogen
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  data.raw.recipe["bi-liquid-air"].hidden = true
+  data.raw.recipe["bi-nitrogen"].hidden = true
 
   -- Replace liquid air with oxygen in Algae Biomass 2 and 3
   --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
@@ -292,8 +292,8 @@ if mods["angelspetrochem"] then
   --~ })
 
   -- Liquid air and nitrogen aren't needed -- remove unlock recipes!
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
   --~ data.raw.recipe["bi-liquid-air"] = nil
   --~ data.raw.recipe["bi-nitrogen"] = nil
 end
@@ -333,6 +333,77 @@ if mods["Transport_Drones"] then
   end
 end
 
+-- We may need liquid air and nitrogen -- but not if any of the following mods is active!
+if not (mods["angelspetrochem"] or mods["Krastorio"] or mods["Krastorio2"]) then
+
+  local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
+
+  -- Other mods may already have created these fluids. Check if they exist before (re-) defining them!
+  -- Liquid-air
+  if not data.raw.fluid["liquid-air"] then
+    data:extend({
+      {
+        type = "fluid",
+        name = "liquid-air",
+        icon = ICONPATH .. "liquid-air.png",
+        icon_size = 64,
+        icons = {
+          {
+            icon = ICONPATH .. "liquid-air.png",
+            icon_size = 64,
+            icon_mipmaps = 1,
+          }
+        },
+        default_temperature = 25,
+        gas_temperature = -100,
+        max_temperature = 100,
+        heat_capacity = "1KJ",
+        base_color = {r = 0, g = 0, b = 0},
+        flow_color = {r = 0.5, g = 1.0, b = 1.0},
+        pressure_to_speed_ratio = 0.4,
+        flow_to_energy_ratio = 0.59,
+        order = "a[fluid]-b[liquid-air]"
+      },
+    })
+  end
+
+  ----- Nitrogen
+  if not data.raw.fluid["nitrogen"] then
+    data:extend({
+      {
+        type = "fluid",
+        name = "nitrogen",
+        icon = ICONPATH .. "nitrogen.png",
+        icon_size = 64,
+        icons = {
+          {
+            icon = ICONPATH .. "nitrogen.png",
+            icon_size = 64,
+            icon_mipmaps = 1,
+          }
+        },
+        default_temperature = 25,
+        gas_temperature = -210,
+        max_temperature = 100,
+        heat_capacity = "1KJ",
+        base_color = {r = 0.0, g = 0.0, b = 1.0},
+        flow_color = {r = 0.0, g = 0.0, b = 1.0},
+        pressure_to_speed_ratio = 0.4,
+        flow_to_energy_ratio = 0.59,
+        order = "a[fluid]-b[nitrogen]"
+      },
+    })
+  end
+
+  -- Allow productivity modules for the recipes
+  BI_Functions.lib.allow_productivity("bi-liquid-air")
+  BI_Functions.lib.allow_productivity("bi-nitrogen")
+
+else
+  -- If the fluids aren't needed, remove their recipes as well
+  data.raw.recipe["bi-liquid-air"] = nil
+  data.raw.recipe["bi-nitrogen"] = nil
+end
 
 
 ---TESTING!

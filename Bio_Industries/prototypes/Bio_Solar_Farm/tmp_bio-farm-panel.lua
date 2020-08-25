@@ -18,13 +18,11 @@
                 resistances = {{type = "fire", percent = 80}},
                 collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
                 selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
-                energy_source =
-                {
+                energy_source = {
                   type = "electric",
                   usage_priority = "solar"
                 },
-                picture =
-                {
+                picture = {
                   filename = ENTITYPATH .. "Bio_Solar_Farm_On.png",
                   priority = "low",
                   width = 312,

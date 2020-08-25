@@ -1,15 +1,15 @@
 local BioInd = require('common')('Bio_Industries')
 
 local ICONPATH = "__base__/graphics/icons/"
-local BIGICONS = BioInd.base_version()
+local BIGICONS = BioInd.check_base_version("0.18.0")
 
 --[[
 destroyed_rail_pictures = function()
   return rail_pictures_internal({{"metals", "metals-remnants", mipmap = true, variations = 3, priority = "high"},
-                                 {"backplates", "backplates-remnants", mipmap = true, variations = 3, priority = "high"},
-                                 {"ties", "ties-remnants", variations = 3, priority = "high"},
-                                 {"stone_path", "stone-path-remnants", variations = 3, priority = "high"},
-                                 {"stone_path_background", "stone-path-background-remnants", variations = 3, priority = "high"}})
+         {"backplates", "backplates-remnants", mipmap = true, variations = 3, priority = "high"},
+         {"ties", "ties-remnants", variations = 3, priority = "high"},
+         {"stone_path", "stone-path-remnants", variations = 3, priority = "high"},
+         {"stone_path_background", "stone-path-background-remnants", variations = 3, priority = "high"}})
 end
 ]]
 

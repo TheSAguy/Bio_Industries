@@ -26,8 +26,42 @@ end
 
 -- Disconnect all hidden rail poles
 for r, rail in pairs(global.bi_power_rail_table) do
-  rail.pole.disconnect_neighbour()
-BioInd.writeDebug("Disconnected pole number " .. rail.pole.unit_number)
+  -- Rail is still valid
+  if rail.base and rail.base.valid then
+    -- Disconnect pole if it's valid!
+    if rail.pole and rail.pole.valid then
+      rail.pole.disconnect_neighbour()
+      BioInd.writeDebug("Disconnected pole number " .. rail.pole.unit_number)
+    -- Place a new pole if we don't have one yet.
+    else
+      -- Create Hidden Power Pole
+      local track = rail.base
+      local new_pole = track.surface.create_entity({
+        name = "bi-rail-hidden-power-pole",
+        position = track.position,
+        force = track.force
+      })
+      new_pole.minable = false
+      new_pole.destructible = false
+      new_pole.disconnect_neighbour()
+
+      global.bi_power_rail_table[r].pole = new_pole
+      BioInd.writeDebug("Created new pole " .. new_pole.unit_number " on " ..
+                        track.name .. " " .. track.unit_number .. ".")
+    end
+  -- Rail doesn't exist anymore
+  elseif not rail.base.valid then
+     -- Check the pole!
+    if rail.pole and rail.pole.valid then
+      BioInd.writeDebug("Rail " .. r .. " doesn't exist anymore: Removing pole " ..
+                        rail.pole.unit_number .. " from surface " .. rail.pole.surface.name .. ".")
+      rail.pole.destroy()
+    end
+
+    -- Remove track from table!
+    global.bi_power_rail_table[r] = nil
+    BioInd.writeDebug("Removed powered rail " .. r .. " from table.")
+  end
 end
 
 -- Rewire hidden rail poles

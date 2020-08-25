@@ -9,30 +9,32 @@ if BI.Settings.Bio_Cannon then
     type = "recipe",
     name = "bi-bio-cannon",
 
-    normal = {
+    normal =
+      {
         enabled = false,
         energy_required = 50,
-        ingredients = {
+        ingredients =
+        {
           {"concrete", 100},
           {"radar", 1},
           {"steel-plate", 80},
           {"electric-engine-unit", 5},
         },
-        --~ result = "bi-bio-cannon-area",
-        result = "bi-bio-cannon",
+        result = "bi-bio-cannon-area",
         result_count = 1,
       },
-      expensive = {
+      expensive =
+      {
         enabled = false,
         energy_required = 100,
-        ingredients = {
+        ingredients =
+        {
           {"concrete", 100},
           {"radar", 1},
           {"steel-plate", 120},
           {"electric-engine-unit", 15},
         },
-        --~ result = "bi-bio-cannon-area",
-        result = "bi-bio-cannon",
+        result = "bi-bio-cannon-area",
         result_count = 1,
       },
       allow_as_intermediate = false,

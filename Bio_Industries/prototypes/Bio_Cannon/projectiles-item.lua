@@ -18,17 +18,14 @@ if BI.Settings.Bio_Cannon then
           icon_size = 64,
         }
       },
-      ammo_type =
-      {
+      ammo_type = {
         --~ category = "artillery-shell",
         category = "Bio_Cannon_Ammo",
         target_type = "direction",
-        action =
-        {
+        action = {
           {
             type = "direct",
-            action_delivery =
-            {
+            action_delivery = {
               type = "projectile",
               projectile = "bi-bio-cannon-proto-ammo",
               starting_speed = 1,
@@ -57,17 +54,14 @@ if BI.Settings.Bio_Cannon then
           icon_size = 64,
         }
       },
-      ammo_type =
-      {
+      ammo_type = {
         --~ category = "artillery-shell",
         category = "Bio_Cannon_Ammo",
         target_type = "direction",
-        action =
-        {
+        action = {
           {
             type = "direct",
-            action_delivery =
-            {
+            action_delivery = {
               type = "projectile",
               projectile = "bi-bio-cannon-basic-ammo",
               starting_speed = 1,
@@ -95,17 +89,14 @@ if BI.Settings.Bio_Cannon then
           icon_size = 64,
         }
       },
-      ammo_type =
-      {
+      ammo_type = {
         --~ category = "artillery-shell",
         category = "Bio_Cannon_Ammo",
         target_type = "direction",
-        action =
-        {
+        action = {
           {
             type = "direct",
-            action_delivery =
-            {
+            action_delivery = {
               type = "projectile",
               projectile = "bi-bio-cannon-poison-ammo",
               starting_speed = 1,

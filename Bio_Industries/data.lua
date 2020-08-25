@@ -94,6 +94,9 @@ require("prototypes.Bio_Fuel.entities")
 require("prototypes.Bio_Fuel.technology")
 
 
---~ BioInd.writeDebug("bi-solar-mat (tile): " .. serpent.block(data.raw["tile"]["bi-solar-mat"]))
---~ BioInd.writeDebug("bi-solar-mat: (pole)" .. serpent.block(data.raw["electric-pole"]["bi-musk-mat-pole"]))
---~ BioInd.writeDebug("bi-solar-mat (panel): " .. serpent.block(data.raw["solar-panel"]["bi-musk-mat-solar-panel"]))
+------------------------------------------------------------------------------------
+-- Alien Biomes will degrade tiles to "landfill" if more than 255 tiles are defined
+-- in the game. We can register the musk-floor tiles with Alien Biomes so it will
+-- try to prioritize the tiles if they exist.
+alien_biomes_priority_tiles = alien_biomes_priority_tiles or {}
+table.insert(alien_biomes_priority_tiles, "bi-solar-mat")

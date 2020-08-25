@@ -22,17 +22,18 @@ return function (mod_name)
     -- spamming real users.
     ------------------------------------------------------------------------------------
     local function is_debug()
-        local debugging
-        -- If the "_debug" is active, debugging will always be on. If you don't have this
-        -- dummy mod but want to turn on logging anyway, set the default value to "true"!
-        local default = false
+      local debugging
+      -- If the "_debug" is active, debugging will always be on. If you don't have this
+      -- dummy mod but want to turn on logging anyway, set the default value to "true"!
+      local default = false
 
-        if game then
-            debugging = game.active_mods["_debug"] and true or default
-        elseif mods then
-            debugging = mods and mods["_debug"] and true or default
-        end
-        return debugging
+      if game then
+        debugging = game.active_mods["_debug"] and true or default
+      elseif mods then
+        debugging = mods and mods["_debug"] and true or default
+      end
+
+      return debugging
     end
 
 
@@ -71,17 +72,43 @@ return function (mod_name)
     -- Determine which version of Factorio is running. Based on this result, we can set
     -- icon sizes of vanilla icons correctly, thus making the same code usable for both
     -- Factorio versions using the old 32x32 icons, and for new versions with 64x64 icons.
-    common.base_version = function()
+    common.check_base_version = function(target)
 
-        local F_version = util.split(mods["base"], '.')
-        local ret = true
+      local F_version = util.split(mods["base"], '.')
+      local required = util.split(target, '.')
+      local ret
 
-        if tonumber(F_version[1]) == 0 then
-            if tonumber(F_version[2]) < 18 then
-                ret = false
-            end
-        end
-        return ret
+      for i = 1, 3 do
+        F_version[i] = tonumber(F_version[i])
+        required[i] = tonumber(required[i])
+      end
+
+      common.writeDebug("Factorio version: " .. serpent.line(F_version))
+      common.writeDebug("Required version: " .. serpent.line(required))
+
+      -- First number may not be smaller
+      if F_version[1] < required[1] then
+        common.writeDebug(string.format("Major number is too small: %g < %g",
+                                            F_version[1], required[1]))
+        ret = false
+      -- First number is greater: Hit!
+      elseif F_version[1] > required[1] then
+        common.writeDebug(string.format("Major number is greater: %g > %g",
+                                            F_version[1], required[1]))
+        ret = true
+      -- First number is same, second number is greater: Hit!
+      elseif F_version[2] > required[2] then
+        common.writeDebug(string.format("Minor number is greater: %g > %g",
+                                            F_version[2], required[2]))
+        ret = true
+      -- First number is same, second number is same, third number is same or greater: Hit!
+      elseif F_version[2] == required[2] and F_version[3] >= required[3] then
+        common.writeDebug(string.format("Least number is greater or equal: %g >= %g",
+                                            F_version[3], required[3]))
+        ret = true
+      end
+
+      return ret
     end
 
 ------------------------------------------------------------------------------------

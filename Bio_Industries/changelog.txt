@@ -1,4 +1,68 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.28
+Date: 2020-08-14
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.28 are also available for Factorio 0.17 (version 0.17.59). Yes, I know 0.17.58 was supposed to be the last version. But a crash needs to be fixed …
+
+  Bugfixes:
+    - Fixed crash in migration script if a bio-reactor had no recipe set. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f36deb43b315081c5dd4496)
+
+  TODO:
+    - Compatibility with "Tree growth: Scaled trees." (https://mods.factorio.com/mod/Bio_Industries/discussion/5e7cd3f3304f21000db9542c)
+    - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
+    - Add Big gardens for absorbing more pollution. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f318f69f3644760ee6d001e)
+    - Add "fluid fertilizer" (fertilizer + water) as alternative to the existing fertilizer. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f318f69f3644760ee6d001e)
+    - Make algae grow on water to contain pollution there. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f07bed0b6dcd7af988b9fb0)
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.27
+Date: 2020-08-14
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.27 are also available for Factorio 0.17 (version 0.17.58).
+
+  Bugfixes:
+    - Fixed crash when recipes for liquid air and nitrogen don't exist because alternatives from other mods are used instead. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f369b1c4026d79854f0dad9)
+    - Fixed crash with Factorio 1.0 because of an error in the version checks. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f366429002cac73f72966f2, https://mods.factorio.com/mod/Bio_Industries/discussion/5f36a8d13b315081c5d2f903)
+
+  Changes:
+    - Pretty-formatted the rest of the code. Making it more readable makes it easier to maintain, and it doesn't hurt either that removing unnecessary white space shrinks filesizes a bit. :-)
+    - The internal names of the recipes "bi-biomass-2" and "bi-biomass-3" were not appropriate as "bi-biomass-2" was the more advanced recipe. Exchanged the recipe names in the complete code, and added a migration script so that bio-reactors would continue to work on the correct recipe after loading.
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.26
+Date: 2020-08-13
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.26 are also available for Factorio 0.17 (version 0.17.57).
+
+  Bugfixes:
+    - Fixed crash in migration script of versions 0.17.55/0.18.24. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f1613573883b1bffadfbdd2)
+    - Fixed that placing musk floor would mine existing path tile and remove the musk floor tiles from the inventory, but not place them. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f1613573883b1bffadfbdd2)
+    - In games where many mods are used and where more than 255 tiles are defined, Alien Biomes will convert some tiles to "landfill". Fixed that this would break musk-floor tiles.
+    - Fixed crash because of Nitrogen and Liquid air being created in data-final-fixes.lua. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f31f7ba75ce84907a09f877, https://mods.factorio.com/mod/Bio_Industries/discussion/5f330890606ff2dea2e30c02)
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.25
+Date: 2020-08-07
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes from 0.18.25 are also available for Factorio 0.17 (version 0.17.56).
+
+  Changes:
+    - Added setting to enable the BI recipe for Production science packs. You may want to disable this if you play with other mods where the additional recipe is much cheaper than the first one, so that using the BI recipe would break the balance.
+    - The BI recipe for Production science pack will be automatically disabled regardless of the setting above if "Krastorio" or "Krastorio 2" is active because the BI recipe definitely breaks balance with K2 (according to TheSAguy).
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.24
 Date: 2020-07-06
   Uploaded by:
@@ -17,10 +81,6 @@ Date: 2020-07-06
   Changes:
     - The recipe for sand from crushed stone is now also active if the "BioTech" mod is used. (https://mods.factorio.com/mod/Bio_Industries/discussion/5efbea86a9fc8de786653d1d)
     - Added migration script to rewire powered rails. If you have a large rail network with lots of powered rails and then some, this may take a while to finish!
-
-  TODO:
-    - Compatibility with "Tree growth: Scaled trees." (https://mods.factorio.com/mod/Bio_Industries/discussion/5e7cd3f3304f21000db9542c)
-    - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.23

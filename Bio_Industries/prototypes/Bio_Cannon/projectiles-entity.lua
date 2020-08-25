@@ -25,16 +25,13 @@ if BI.Settings.Bio_Cannon then
     name = "bi-bio-cannon-proto-ammo",
     flags = {"not-on-map"},
     acceleration = 0.0004,
-    action =
-    {
+    action = {
       {
         type = "area",
         radius = 2,
-        action_delivery =
-        {
+        action_delivery = {
           type = "instant",
-          target_effects =
-          {
+          target_effects = {
             {
             type = "damage",
             damage = {amount = 80 * NE_Damage, type = "physical"}
@@ -52,8 +49,7 @@ if BI.Settings.Bio_Cannon then
 
     },
     light = {intensity = 0.7, size = 3},
-    animation =
-    {
+    animation = {
       filename = ICONPATH .. "Bio_Cannon_Basic_Ammo.png",
       priority = "extra-high",
       width = 18,
@@ -61,8 +57,7 @@ if BI.Settings.Bio_Cannon then
       scale = 0.85,
       frame_count = 1
     },
-    shadow =
-    {
+    shadow = {
       filename = ICONPATH .. "Bio_Cannon_Ammo-shadow.png",
       priority = "extra-high",
       width = 18,
@@ -71,8 +66,7 @@ if BI.Settings.Bio_Cannon then
       frame_count = 1
     },
 
-    smoke =
-      {
+    smoke = {
         {
         name = "smoke-fast",
         deviation = {0.15, 0.15},
@@ -94,16 +88,13 @@ if BI.Settings.Bio_Cannon then
     name = "bi-bio-cannon-basic-ammo",
     flags = {"not-on-map"},
     acceleration = 0.0005,
-    action =
-    {
+    action = {
       {
         type = "area",
         radius = 8,
-        action_delivery =
-        {
+        action_delivery = {
           type = "instant",
-          target_effects =
-          {
+          target_effects = {
             {
             type = "damage",
             damage = {amount = 120 * NE_Damage, type = "physical"}
@@ -118,21 +109,17 @@ if BI.Settings.Bio_Cannon then
       },
       {
         type = "direct",
-        action_delivery =
-        {
+        action_delivery = {
           type = "instant",
-          target_effects =
-          {
+          target_effects = {
                {
               type = "nested-result",
-              action =
-              {
+              action = {
                 type = "area",
                 target_entities = false,
                 repeat_count = 10,
                 radius = 2,
-                action_delivery =
-                {
+                action_delivery = {
                 type = "projectile",
                 projectile = "NE-Napalm-Small",
                 starting_speed = 0.5
@@ -155,16 +142,14 @@ if BI.Settings.Bio_Cannon then
 
     },
     light = {intensity = 0.7, size = 6},
-    animation =
-    {
+    animation = {
       filename = ICONPATH .. "Bio_Cannon_Basic_Ammo.png",
       priority = "extra-high",
       width = 18,
       height = 47,
       frame_count = 1
     },
-    shadow =
-    {
+    shadow = {
       filename = ICONPATH .. "Bio_Cannon_Ammo-shadow.png",
       priority = "extra-high",
       width = 18,
@@ -172,16 +157,14 @@ if BI.Settings.Bio_Cannon then
       frame_count = 1
     },
     --[[
-    sound =
-    {
+    sound = {
       {
         filename = "__Natural_Evolution_Buildings__/sound/launch.ogg",
         volume = 4.0
       },
     },
     ]]
-    smoke =
-      {
+    smoke = {
         {
         name = "smoke-fast",
         deviation = {0.15, 0.15},
@@ -202,16 +185,13 @@ if BI.Settings.Bio_Cannon then
     name = "bi-bio-cannon-poison-ammo",
     flags = {"not-on-map"},
     acceleration = 0.0006,
-    action =
-    {
+    action = {
       {
         type = "area",
         radius = 12,
-        action_delivery =
-        {
+        action_delivery = {
           type = "instant",
-          target_effects =
-          {
+          target_effects = {
             {
             type = "damage",
             damage = {amount = 120 * NE_Damage, type = "physical"}
@@ -229,21 +209,17 @@ if BI.Settings.Bio_Cannon then
       },
       {
         type = "direct",
-        action_delivery =
-        {
+        action_delivery = {
           type = "instant",
-          target_effects =
-          {
+          target_effects = {
                {
               type = "nested-result",
-              action =
-              {
+              action = {
                 type = "area",
                 target_entities = false,
                 repeat_count = 20,
                 radius = 3,
-                action_delivery =
-                {
+                action_delivery = {
                 type = "projectile",
                 projectile = "NE-Napalm-Small",
                 starting_speed = 0.5
@@ -265,16 +241,14 @@ if BI.Settings.Bio_Cannon then
       },
     },
     light = {intensity = 0.8, size = 7},
-    animation =
-    {
+    animation = {
       filename = ICONPATH .. "Bio_Cannon_Poison_Ammo.png",
       priority = "extra-high",
       width = 18,
       height = 47,
       frame_count = 1
     },
-    shadow =
-    {
+    shadow = {
       filename = ICONPATH .. "Bio_Cannon_Ammo-shadow.png",
       priority = "extra-high",
       width = 18,
@@ -282,16 +256,14 @@ if BI.Settings.Bio_Cannon then
       frame_count = 1
     },
     --[[
-    sound =
-    {
+    sound = {
       {
         filename = "__Natural_Evolution_Buildings__/sound/launch.ogg",
         volume = 4.0
       },
     },
     ]]
-    smoke =
-      {
+    smoke = {
         {
         name = "smoke-fast",
         deviation = {0.15, 0.15},
@@ -313,8 +285,7 @@ if BI.Settings.Bio_Cannon then
       name = "bio-cannon-explosion",
       flags = {"not-on-map"},
       show_when_smoke_off = true,
-      animation =
-      {
+      animation = {
         filename = ICONPATH .. "explosion.png",
         priority = "low",
         width = 256,
@@ -324,8 +295,7 @@ if BI.Settings.Bio_Cannon then
         line_length = 3,
         scale = 2,
       },
-      sound =
-      {
+      sound = {
       {
         filename = "__Bio_Industries__/sound/boom.ogg",
         volume = 4.0
@@ -344,15 +314,12 @@ if BI.Settings.Bio_Cannon then
     name = "NE-Napalm-Small",
     flags = {"not-on-map"},
     acceleration = 0,
-    action =
-    {
+    action = {
       {
       type = "direct",
-      action_delivery =
-      {
+      action_delivery = {
         type = "instant",
-        target_effects =
-        {
+        target_effects = {
         {
           type = "create-entity",
           entity_name = "fire-flame"
@@ -363,16 +330,14 @@ if BI.Settings.Bio_Cannon then
       },
 
     },
-    animation =
-    {
+    animation = {
       filename = "__core__/graphics/empty.png",
       frame_count = 1,
       width = 1,
       height = 1,
       priority = "high"
     },
-    shadow =
-    {
+    shadow = {
       filename = "__core__/graphics/empty.png",
       frame_count = 1,
       width = 1,

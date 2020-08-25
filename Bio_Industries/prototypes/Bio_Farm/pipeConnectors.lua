@@ -6,8 +6,7 @@ local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 function assembler2pipepicturesCokery()
   return
   {
-    north =
-    {
+    north = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
@@ -22,8 +21,7 @@ function assembler2pipepicturesCokery()
         scale = 0.5,
       }
     },
-    east =
-    {
+    east = {
       filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-pipe-E.png",
       priority = "extra-high",
       width = 20,
@@ -38,8 +36,7 @@ function assembler2pipepicturesCokery()
         scale = 0.5,
       }
     },
-    south =
-    {
+    south = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
@@ -54,8 +51,7 @@ function assembler2pipepicturesCokery()
         scale = 0.5,
       }
     },
-    west =
-    {
+    west = {
       filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-pipe-W.png",
       priority = "extra-high",
       width = 19,
@@ -77,32 +73,28 @@ end
 function assembler2pipepicturesCokery()
   return
   {
-    north =
-    {
+    north = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       shift = {0.09375, 0.4375}
     },
-    east =
-    {
+    east = {
       filename = "__base__/graphics/entity/assembling-machine-2/pipe-east.png",
       priority = "extra-high",
       width = 41,
       height = 40,
       shift = {-0.71875, 0}
     },
-    south =
-    {
+    south = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
       shift = {0.0625, -1}
     },
-    west =
-    {
+    west = {
       filename = "__base__/graphics/entity/assembling-machine-2/pipe-west.png",
       priority = "extra-high",
       width = 41,
@@ -115,14 +107,12 @@ end
 
 function pipecoverspicturesCokery()
   return {
-    north =
-    {
+    north = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
-      hr_version =
-      {
+      hr_version = {
         filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
@@ -130,14 +120,12 @@ function pipecoverspicturesCokery()
         scale = 0.5
       }
     },
-    east =
-    {
+    east = {
       filename = "__base__/graphics/entity/pipe-covers/pipe-cover-east.png",
       priority = "extra-high",
       width = 64,
       height = 64,
-      hr_version =
-      {
+      hr_version = {
         filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east.png",
         priority = "extra-high",
         width = 128,
@@ -145,14 +133,12 @@ function pipecoverspicturesCokery()
         scale = 0.5
       }
     },
-    south =
-    {
+    south = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
-      hr_version =
-      {
+      hr_version = {
         filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
@@ -160,14 +146,12 @@ function pipecoverspicturesCokery()
         scale = 0.5
       }
     },
-    west =
-    {
+    west = {
       filename = "__base__/graphics/entity/pipe-covers/pipe-cover-west.png",
       priority = "extra-high",
       width = 64,
       height = 64,
-      hr_version =
-      {
+      hr_version = {
         filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west.png",
         priority = "extra-high",
         width = 128,
@@ -182,8 +166,7 @@ end
 function assembler2pipepicturesBioreactor()
   return
   {
-    north =
-    {
+    north = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
@@ -198,8 +181,7 @@ function assembler2pipepicturesBioreactor()
         scale = 0.5,
       }
     },
-    east =
-    {
+    east = {
       filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-pipe-E.png",
       priority = "extra-high",
       width = 20,
@@ -214,8 +196,7 @@ function assembler2pipepicturesBioreactor()
         scale = 0.5,
       }
     },
-    south =
-    {
+    south = {
       filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-pipe-S.png",
       priority = "extra-high",
       width = 44,
@@ -230,8 +211,7 @@ function assembler2pipepicturesBioreactor()
         scale = 0.5,
       }
     },
-    west =
-    {
+    west = {
       filename = "__base__/graphics/entity/assembling-machine-2/assembling-machine-2-pipe-W.png",
       priority = "extra-high",
       width = 19,
@@ -253,14 +233,12 @@ end
 
 function pipecoverspicturesBioreactor()
   return {
-    north =
-    {
+    north = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
       height = 1,
-      hr_version =
-      {
+      hr_version = {
         filename = ICONPATH .. "empty.png",
         priority = "extra-high",
         width = 1,
@@ -268,14 +246,12 @@ function pipecoverspicturesBioreactor()
         scale = 0.5
       }
     },
-    east =
-    {
+    east = {
       filename = "__base__/graphics/entity/pipe-covers/pipe-cover-east.png",
       priority = "extra-high",
       width = 64,
       height = 64,
-      hr_version =
-      {
+      hr_version = {
         filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east.png",
         priority = "extra-high",
         width = 128,
@@ -283,14 +259,12 @@ function pipecoverspicturesBioreactor()
         scale = 0.5
       }
     },
-    south =
-    {
+    south = {
       filename = "__base__/graphics/entity/pipe-covers/pipe-cover-south.png",
       priority = "extra-high",
       width = 64,
       height = 64,
-      hr_version =
-      {
+      hr_version = {
         filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-south.png",
         priority = "extra-high",
         width = 128,
@@ -298,14 +272,12 @@ function pipecoverspicturesBioreactor()
         scale = 0.5
       }
     },
-    west =
-    {
+    west = {
       filename = "__base__/graphics/entity/pipe-covers/pipe-cover-west.png",
       priority = "extra-high",
       width = 64,
       height = 64,
-      hr_version =
-      {
+      hr_version = {
         filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west.png",
         priority = "extra-high",
         width = 128,
@@ -321,8 +293,7 @@ end
 function BioFarm_Pipe_Connectors_Left()
   return
   {
-    north =
-    {
+    north = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_l.png",
       priority = "extra-high",
       width = 51,
@@ -336,8 +307,7 @@ function BioFarm_Pipe_Connectors_Left()
         shift = {0.25, 1},
       }
     },
-    east =
-    {
+    east = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-E_l.png",
       priority = "extra-high",
       width = 18,
@@ -351,8 +321,7 @@ function BioFarm_Pipe_Connectors_Left()
         shift = {-1, -0.25},
       }
     },
-    south =
-    {
+    south = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-S_l.png",
       priority = "extra-high",
       width = 49,
@@ -366,8 +335,7 @@ function BioFarm_Pipe_Connectors_Left()
         shift = {0.5, -1},
       }
     },
-    west =
-    {
+    west = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-W_l.png",
       priority = "extra-high",
       width = 16,
@@ -388,8 +356,7 @@ end
 function bio_farm_pipe_pictures()
   return
   {
-    north =
-    {
+    north = {
       filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-pipe-N.png",
       priority = "extra-high",
       width = 35,
@@ -404,8 +371,7 @@ function bio_farm_pipe_pictures()
         scale = 0.5,
       }
     },
-    east =
-    {
+    east = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
@@ -417,8 +383,7 @@ function bio_farm_pipe_pictures()
                 height = 1,
       }
     },
-    south =
-    {
+    south = {
       filename = "__base__/graphics/entity/assembling-machine-3/assembling-machine-3-pipe-S.png",
       priority = "extra-high",
       width = 44,
@@ -433,8 +398,7 @@ function bio_farm_pipe_pictures()
         scale = 0.5,
       }
     },
-    west =
-    {
+    west = {
       filename = ICONPATH .. "empty.png",
       priority = "extra-high",
       width = 1,
@@ -451,16 +415,14 @@ end
 
 bio_farm_pipe_covers_pictures = function()
   return {
-    north =
-    {
+    north = {
       layers = {
         {
           filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
           priority = "extra-high",
           width = 64,
           height = 64,
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north.png",
             priority = "extra-high",
             width = 128,
@@ -474,8 +436,7 @@ bio_farm_pipe_covers_pictures = function()
           width = 64,
           height = 64,
           draw_as_shadow = true,
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-north-shadow.png",
             priority = "extra-high",
             width = 128,
@@ -486,18 +447,15 @@ bio_farm_pipe_covers_pictures = function()
         },
       },
     },
-    east =
-    {
-      layers =
-      {
+    east = {
+      layers = {
         {
           filename = "__base__/graphics/entity/pipe-covers/pipe-cover-east.png",
           priority = "extra-high",
           width = 64,
           height = 64,
                   shift = {-0.22, 0},
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east.png",
             priority = "extra-high",
             width = 128,
@@ -513,8 +471,7 @@ bio_farm_pipe_covers_pictures = function()
           height = 64,
                   shift = {-0.22, 0},
           draw_as_shadow = true,
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-east-shadow.png",
             priority = "extra-high",
             width = 128,
@@ -526,17 +483,14 @@ bio_farm_pipe_covers_pictures = function()
         },
       },
     },
-    south =
-    {
-      layers =
-      {
+    south = {
+      layers = {
         {
           filename = "__base__/graphics/entity/pipe-covers/pipe-cover-south.png",
           priority = "extra-high",
           width = 64,
           height = 64,
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-south.png",
             priority = "extra-high",
             width = 128,
@@ -550,8 +504,7 @@ bio_farm_pipe_covers_pictures = function()
           width = 64,
           height = 64,
           draw_as_shadow = true,
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-south-shadow.png",
             priority = "extra-high",
             width = 128,
@@ -562,18 +515,15 @@ bio_farm_pipe_covers_pictures = function()
         },
       },
     },
-    west =
-    {
-      layers =
-      {
+    west = {
+      layers = {
         {
           filename = "__base__/graphics/entity/pipe-covers/pipe-cover-west.png",
           priority = "extra-high",
           width = 64,
           height = 64,
                   shift = {0.2, 0},
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west.png",
             priority = "extra-high",
             width = 128,
@@ -589,8 +539,7 @@ bio_farm_pipe_covers_pictures = function()
           height = 64,
                   shift = {0.2, 0},
           draw_as_shadow = true,
-          hr_version =
-          {
+          hr_version = {
             filename = "__base__/graphics/entity/pipe-covers/hr-pipe-cover-west-shadow.png",
             priority = "extra-high",
             width = 128,
@@ -612,8 +561,7 @@ end
 function BioFarm_Pipe_Connectors_Right()
   return
   {
-    north =
-    {
+    north = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-N_r.png",
       priority = "extra-high",
       width = 51,
@@ -628,8 +576,7 @@ function BioFarm_Pipe_Connectors_Right()
         shift = {0.5, 0.5},
       }
     },
-    east =
-    {
+    east = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-E_r.png",
       priority = "extra-high",
       width = 18,
@@ -643,8 +590,7 @@ function BioFarm_Pipe_Connectors_Right()
         shift = {-0.5, 0.5},
       }
     },
-    south =
-    {
+    south = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-S_r.png",
       priority = "extra-high",
       width = 49,
@@ -658,8 +604,7 @@ function BioFarm_Pipe_Connectors_Right()
         shift = {0.5, -0.5},
       }
     },
-    west =
-    {
+    west = {
       filename = "__Bio_Industries__/graphics/entities/biofarm/pipe_connections/Bio_Farm-pipe-W_r.png",
       priority = "extra-high",
       width = 16,

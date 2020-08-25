@@ -22,13 +22,11 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 200,
-    ingredients =
-    {
+    ingredients = {
       {type = "fluid", name = "water", amount = 100},
       {type = "item", name = "wood", amount = 20},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-seed", amount = 40},
     },
     main_product = "",
@@ -59,14 +57,12 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 150,
-    ingredients =
-    {
+    ingredients = {
       {type = "fluid", name = "water", amount = 40},
       {type = "item", name = "wood", amount = 20},
       {type = "item", name = "bi-ash", amount = 10},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-seed", amount = 50},
     },
     main_product = "",
@@ -97,14 +93,12 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 100,
-    ingredients =
-    {
+    ingredients = {
       {type = "fluid", name = "water", amount = 40},
       {type = "item", name = "wood", amount = 20},
       {type = "item", name = "fertiliser", amount = 10},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-seed", amount = 60},
     },
     main_product = "",
@@ -135,14 +129,12 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 50,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "wood", amount = 20},
       {type = "item", name = "bi-adv-fertiliser", amount = 10},
       {type = "fluid", name = "water", amount = 40},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-seed", amount = 80},
     },
     main_product = "",
@@ -173,13 +165,11 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 400,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "bi-seed", amount = 20},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "seedling", amount = 40},
     },
     main_product = "",
@@ -210,14 +200,12 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 300,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "bi-seed", amount = 25},
       {type = "item", name = "bi-ash", amount = 10},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "seedling", amount = 60},
     },
     main_product = "",
@@ -248,14 +236,12 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 200,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "bi-seed", amount = 30},
       {type = "item", name = "fertiliser", amount = 10},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "seedling", amount = 90},
     },
     main_product = "",
@@ -285,14 +271,12 @@ data:extend({
     },
     category = "biofarm-mod-greenhouse",
     energy_required = 100,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "bi-seed", amount = 40},
       {type = "fluid", name = "water", amount = 100},
       {type = "item", name = "bi-adv-fertiliser", amount = 10},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "seedling", amount = 160},
     },
     main_product = "",
@@ -326,13 +310,11 @@ data:extend({
     always_show_made_in = true,
     allow_decomposition = false,
     energy_required = 400,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "seedling", amount = 20},
       {type = "fluid", name = "water", amount = 100},
     },
-    results =
-    {
+    results = {
       {type = "item", name = "wood", amount = 40},
       {type = "item", name = "bi-woodpulp", amount = 80},
     },
@@ -364,14 +346,12 @@ data:extend({
     always_show_made_in = true,
     allow_decomposition = false,
     energy_required = 360,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "seedling", amount = 30},
       {type = "item", name = "bi-ash", amount = 10},
       {type = "fluid", name = "water", amount = 100},
     },
-    results =
-    {
+    results = {
       {type = "item", name = "wood", amount = 75},
       {type = "item", name = "bi-woodpulp", amount = 150},
     },
@@ -403,14 +383,12 @@ data:extend({
     always_show_made_in = true,
     allow_decomposition = false,
     energy_required = 300,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "seedling", amount = 45},
       {type = "item", name = "fertiliser", amount = 10},
       {type = "fluid", name = "water", amount = 100},
     },
-    results =
-    {
+    results = {
       {type = "item", name = "wood", amount = 135},
       {type = "item", name = "bi-woodpulp", amount = 270},
     },
@@ -442,14 +420,12 @@ data:extend({
     always_show_made_in = true,
     allow_decomposition = false,
     energy_required = 100,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "seedling", amount = 40},
       {type = "fluid", name = "water", amount = 100},
       {type = "item", name = "bi-adv-fertiliser", amount = 5},
     },
-    results =
-    {
+    results = {
       {type = "item", name = "wood", amount = 160},
       {type = "item", name = "bi-woodpulp", amount = 320},
     },
@@ -474,13 +450,11 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       --~ energy_required = 5,
       energy_required = 2.5,
-      ingredients =
-      {
+      ingredients = {
         {"iron-stick", 10},
         {"stone-brick", 10},
         {"small-lamp", 5},
@@ -489,13 +463,11 @@ data:extend({
       result_count = 1,
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       --~ energy_required = 8,
       energy_required = 4,
-      ingredients =
-      {
+      ingredients = {
         {"iron-stick", 15},
         {"stone-brick", 15},
         {"small-lamp", 5},
@@ -523,13 +495,11 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       --~ energy_required = 10,
       energy_required = 5,
-      ingredients =
-      {
+      ingredients = {
         {"bi-bio-greenhouse", 4},
         {"stone-crushed", 10},
         {"copper-cable", 10},
@@ -538,13 +508,11 @@ data:extend({
       result_count = 1,
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       --~ energy_required = 15,
       energy_required = 7.5,
-      ingredients =
-      {
+      ingredients = {
         {"bi-bio-greenhouse", 8},
         {"stone-crushed", 20},
         {"copper-cable", 20},
@@ -608,8 +576,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     energy_required = 1,
-    ingredients =
-    {
+    ingredients = {
        {type = "item", name = "bi-woodpulp", amount = 3},
     },
     result = "resin",
@@ -641,8 +608,7 @@ data:extend({
     allow_decomposition = false,
     allow_as_intermediate = false,
     energy_required = 2.5,
-    ingredients =
-    {
+    ingredients = {
        {type = "item", name = "bi-woodpulp", amount = 8},
        {type = "item", name = "resin", amount = 2},
     },
@@ -1093,13 +1059,11 @@ data:extend({
     subgroup = "bio-bio-farm-raw",
     order = "a[bi]-a-z2[bi-9-stone-brick]",
     energy_required = 5,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "stone-crushed", amount = 6},
       {type = "item", name = "bi-ash", amount = 2},
     },
-    results =
-    {
+    results = {
       {type = "item", name = "stone-brick", amount = 2},
     },
     enabled = false,
@@ -1121,12 +1085,10 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       energy_required = 8,
-      ingredients =
-      {
+      ingredients = {
         {"stone-furnace", 3},
         {"steel-plate", 10},
       },
@@ -1134,12 +1096,10 @@ data:extend({
       result_count = 1,
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       energy_required = 10,
-      ingredients =
-      {
+      ingredients = {
         {"stone-furnace", 3},
         {"steel-plate", 12},
       },
@@ -1166,12 +1126,10 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       energy_required = 3,
-      ingredients =
-      {
+      ingredients = {
         {"iron-plate", 10},
         {"steel-plate", 10},
         {"iron-gear-wheel", 5},
@@ -1180,12 +1138,10 @@ data:extend({
       result_count = 1,
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       energy_required = 5,
-      ingredients =
-      {
+      ingredients = {
         {"iron-plate", 12},
         {"steel-plate", 12},
         {"iron-gear-wheel", 8},
@@ -1216,8 +1172,7 @@ data:extend({
     category = "chemistry",
     energy_required = 1,
     ingredients = {},
-    results=
-    {
+    results = {
       {type = "fluid", name = "liquid-air", amount = 10}
     },
     main_product = "",
@@ -1243,12 +1198,10 @@ data:extend({
     },
     category = "chemistry",
     energy_required = 10,
-    ingredients =
-    {
+    ingredients = {
       {type = "fluid", name = "liquid-air", amount = 20}
     },
-    results=
-    {
+    results = {
       {type = "fluid", name = "nitrogen", amount = 20},
     },
     main_product = "",
@@ -1278,14 +1231,12 @@ data:extend({
     },
     category = "chemistry",
     energy_required = 5,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "sulfur", amount = 1},
       {type = "fluid", name = "nitrogen", amount = 10},
       {type = "item", name = "bi-ash", amount = 10}
     },
-    results=
-    {
+    results = {
       {type = "item", name = "fertiliser", amount = 5}
     },
     main_product = "",
@@ -1314,14 +1265,12 @@ data:extend({
     },
     category = "chemistry",
     energy_required = 50,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "fertiliser", amount = 25},
       --{type = "item", name = "bi-biomass", amount = 10}, -- <== Need to add during Data Updates
       --{type = "fluid", name = "NE_enhanced-nutrient-solution", amount = 5}, -- Will be added if you have Natural Evolution Buildings Mod installed.
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-adv-fertiliser", amount = 50}
     },
     main_product = "",
@@ -1350,14 +1299,12 @@ data:extend({
     },
     category = "chemistry",
     energy_required = 50,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "fertiliser", amount = 20},
       --{type = "item", name = "bi-biomass", amount = 10}, -- <== Need to add during Data Updates
       {type = "item", name = "bi-woodpulp", amount = 10},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-adv-fertiliser", amount = 20}
     },
     main_product = "",
@@ -1385,24 +1332,20 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       energy_required = 8,
-      ingredients =
-      {
+      ingredients = {
       {"bi-seed", 400},
       {"rocket", 1},
       },
       result = "bi-seed-bomb-basic",
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       energy_required = 8,
-      ingredients =
-      {
+      ingredients = {
       {"bi-seed", 400},
       {"rocket", 2},
       },
@@ -1429,12 +1372,10 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       energy_required = 8,
-      ingredients =
-      {
+      ingredients = {
       {"bi-seed", 400},
       {"fertiliser", 200},
       {"rocket", 1},
@@ -1442,12 +1383,10 @@ data:extend({
       result = "bi-seed-bomb-standard",
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       energy_required = 8,
-      ingredients =
-      {
+      ingredients = {
       {"bi-seed", 400},
       {"fertiliser", 200},
       {"rocket", 2},
@@ -1474,12 +1413,10 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       energy_required = 8,
-      ingredients =
-      {
+      ingredients = {
       {"bi-seed", 400},
       {"bi-adv-fertiliser", 200},
       {"rocket", 1},
@@ -1487,12 +1424,10 @@ data:extend({
       result = "bi-seed-bomb-advanced",
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       energy_required = 8,
-      ingredients =
-      {
+      ingredients = {
       {"bi-seed", 400},
       {"bi-adv-fertiliser", 200},
       {"rocket", 2},
@@ -1519,12 +1454,10 @@ data:extend({
         icon_size = 64,
       }
     },
-    normal =
-    {
+    normal = {
       enabled = false,
       energy_required = 10,
-      ingredients =
-      {
+      ingredients = {
         {"bi-bio-greenhouse", 4},
         {"assembling-machine-2", 2},
         {"stone-brick", 10},
@@ -1533,12 +1466,10 @@ data:extend({
       result_count = 1,
       main_product = "",
     },
-    expensive =
-    {
+    expensive = {
       enabled = false,
       energy_required = 15,
-      ingredients =
-      {
+      ingredients = {
         {"bi-bio-greenhouse", 4},
         {"assembling-machine-2", 4},
         {"stone-brick", 20},
@@ -1570,13 +1501,11 @@ data:extend({
     },
     category = "bi-arboretum",
     energy_required = 10000,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "seedling", amount = 1},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-arboretum-r1", amount = 1, probability = 0},
     },
     main_product = "",
@@ -1605,13 +1534,11 @@ data:extend({
     },
     category = "bi-arboretum",
     energy_required = 10000,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "fertiliser", amount = 1},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-arboretum-r2", amount = 1, probability = 0},
     },
     main_product = "",
@@ -1640,13 +1567,11 @@ data:extend({
     },
     category = "bi-arboretum",
     energy_required = 10000,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "bi-adv-fertiliser", amount = 1},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-arboretum-r3", amount = 1, probability = 0},
     },
     main_product = "",
@@ -1675,14 +1600,12 @@ data:extend({
     },
     category = "bi-arboretum",
     energy_required = 10000,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "seedling", amount = 1},
       {type = "item", name = "fertiliser", amount = 1},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-arboretum-r4", amount = 1, probability = 0},
     },
     main_product = "",
@@ -1711,14 +1634,12 @@ data:extend({
     },
     category = "bi-arboretum",
     energy_required = 10000,
-    ingredients =
-    {
+    ingredients = {
       {type = "item", name = "seedling", amount = 1},
       {type = "item", name = "bi-adv-fertiliser", amount = 1},
       {type = "fluid", name = "water", amount = 100},
     },
-    results=
-    {
+    results = {
       {type = "item", name = "bi-arboretum-r5", amount = 1, probability = 0},
     },
     main_product = "",

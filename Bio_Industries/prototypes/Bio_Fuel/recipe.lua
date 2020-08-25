@@ -299,6 +299,40 @@ if BI.Settings.BI_Bio_Fuel then
       name = "bi-biomass-2",
       localised_name = {"recipe-name.bi-biomass-2"},
       localised_description = {"recipe-description.bi-biomass-2"},
+      icon = ICONPATH .. "biomass_2.png",
+      icon_size = 64,
+      icons = {
+        {
+          icon = ICONPATH .. "biomass_2.png",
+          icon_size = 64,
+        }
+      },
+      category = "biofarm-mod-bioreactor",
+      energy_required = 60,
+      ingredients = {
+        {type = "fluid", name = "water", amount = 90},
+        {type = "fluid", name = "liquid-air", amount = 10},
+        {type = "fluid", name = "bi-biomass", amount = 10},
+      },
+      results = {
+        {type = "fluid", name = "bi-biomass", amount = 35},
+      },
+      main_product = "",
+      enabled = false,
+      always_show_made_in = true,
+      allow_decomposition = false,
+      --~ subgroup = "bio-bio-fuel-fluid",
+      --~ order = "x[oil-processing]-z3[bi-biomass]"
+      subgroup = "bio-bio-fuel-fluid",
+      order = "x[oil-processing]-z2[bi-biomass]" -- This recipe is not as good as bi_biomass_2!
+    },
+
+    -- BIOMASS 3 --
+    {
+      type = "recipe",
+      name = "bi-biomass-3",
+      localised_name = {"recipe-name.bi-biomass-3"},
+      localised_description = {"recipe-description.bi-biomass-3"},
       icon = ICONPATH .. "biomass_3.png",
       icon_size = 64,
       icons = {
@@ -326,40 +360,6 @@ if BI.Settings.BI_Bio_Fuel then
       --~ order = "x[oil-processing]-z2[bi-biomass]"
       subgroup = "bio-bio-fuel-fluid",
       order = "x[oil-processing]-z3[bi-biomass]" -- This recipe is more powerful than bi_biomass_3!
-    },
-
-    -- BIOMASS 3 --
-    {
-      type = "recipe",
-      name = "bi-biomass-3",
-      localised_name = {"recipe-name.bi-biomass-3"},
-      localised_description = {"recipe-description.bi-biomass-3"},
-      icon = ICONPATH .. "biomass_2.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "biomass_2.png",
-          icon_size = 64,
-        }
-      },
-      category = "biofarm-mod-bioreactor",
-      energy_required = 60,
-      ingredients = {
-        {type = "fluid", name = "water", amount = 90},
-        {type = "fluid", name = "liquid-air", amount = 10},
-        {type = "fluid", name = "bi-biomass", amount = 10},
-      },
-      results = {
-        {type = "fluid", name = "bi-biomass", amount = 35},
-      },
-      main_product = "",
-      enabled = false,
-      always_show_made_in = true,
-      allow_decomposition = false,
-      --~ subgroup = "bio-bio-fuel-fluid",
-      --~ order = "x[oil-processing]-z3[bi-biomass]"
-      subgroup = "bio-bio-fuel-fluid",
-      order = "x[oil-processing]-z2[bi-biomass]" -- This recipe is not as good as bi_biomass_2!
     },
 
     ---- Biomass to Light-oil
@@ -417,8 +417,7 @@ if BI.Settings.BI_Bio_Fuel then
       {type = "fluid", name = "bi-biomass", amount = 10},
       {type = "fluid", name = "water", amount = 10},
     },
-    results=
-    {
+    results = {
       {type = "fluid", name = "petroleum-gas", amount = 20}
     },
     main_product = "",
@@ -445,8 +444,7 @@ if BI.Settings.BI_Bio_Fuel then
     always_show_made_in = true,
     allow_decomposition = false,
     energy_required = 2.5,
-    ingredients =
-    {
+    ingredients = {
       {type = "fluid", name = "bi-biomass", amount = 10},
       {type = "fluid", name = "water", amount = 10},
     },
@@ -454,8 +452,7 @@ if BI.Settings.BI_Bio_Fuel then
       {type = "fluid", name = "lubricant", amount = 10}
     },
     main_product ="",
-    crafting_machine_tint =
-    {
+    crafting_machine_tint = {
       primary = {r = 0.000, g = 0.260, b = 0.010, a = 0.000}, -- #00420200
       secondary = {r = 0.071, g = 0.640, b = 0.000, a = 0.000}, -- #12a30000
       tertiary = {r = 0.026, g = 0.520, b = 0.000, a = 0.000}, -- #06840000
@@ -639,5 +636,4 @@ if BI.Settings.BI_Bio_Fuel then
 
 
   })
-
 end

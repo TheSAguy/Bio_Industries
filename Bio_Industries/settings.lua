@@ -112,6 +112,17 @@ data:extend(
   },
 
 
+        -- D9
+  {
+    type = "bool-setting",
+    name = "BI_Game_Tweaks_Production_Science",
+    setting_type = "startup",
+    default_value = true,
+        order = "d[modifier]-d9[Game_Tweaks]",
+    per_user = false,
+  },
+
+
         -- E
   {
     type = "bool-setting",

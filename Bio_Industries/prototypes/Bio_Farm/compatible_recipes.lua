@@ -42,13 +42,11 @@ data:extend({
     },
     category = "chemistry",
     energy_required = 5,
-    ingredients =
-    {
+    ingredients = {
       {type = "fluid", name = "nitrogen", amount = 10},
       {type = "item", name = "bi-ash", amount = 10}
     },
-    results=
-    {
+    results = {
       {type = "item", name = "fertiliser", amount = 5}
     },
     enabled = false,
@@ -117,8 +115,7 @@ if not data.raw.item["resin"] then
       always_show_made_in = true,
       allow_decomposition = false,
       energy_required = 1,
-      ingredients =
-      {
+      ingredients = {
          {type = "item", name = "wood", amount = 1}
       },
       result = "resin",

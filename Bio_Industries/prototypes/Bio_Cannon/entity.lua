@@ -115,8 +115,7 @@ if BI.Settings.Bio_Cannon then
       selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
       order = "i[items][Bio_Cannon]",
       inventory_size = 1,
-      attack_parameters =
-      {
+      attack_parameters = {
         type = "projectile",
         --~ ammo_category = "artillery-shell",
         ammo_category = "Bio_Cannon_Ammo",
@@ -157,8 +156,7 @@ if BI.Settings.Bio_Cannon then
       corpse = "big-remnants",
       dying_explosion = "massive-explosion",
       automated_ammo_count = 10,
-      resistances =
-      {
+      resistances = {
         {
         type = "fire",
         percent = 90
@@ -178,8 +176,7 @@ if BI.Settings.Bio_Cannon then
       inventory_size = 1,
       prepare_range = 90,
       preparing_speed = 0.012,
-      attack_parameters =
-      {
+      attack_parameters = {
         type = "projectile",
         --~ ammo_category = "artillery-shell",
         ammo_category = "Bio_Cannon_Ammo",
@@ -225,14 +222,12 @@ if BI.Settings.Bio_Cannon then
       max_distance_of_nearby_sector_revealed = 5,
       max_distance_of_sector_revealed = 5,
       energy_per_nearby_scan = "400kW",
-      energy_source =
-      {
+      energy_source = {
         type = "electric",
         usage_priority = "secondary-input"
       },
       energy_usage = "6kW",
-      pictures =
-      {
+      pictures = {
         filename = ICONPATH .. "biocannon_icon.png",
         priority = "low",
         width = 1,

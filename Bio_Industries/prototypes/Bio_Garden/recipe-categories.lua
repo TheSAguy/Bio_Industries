@@ -1,10 +1,9 @@
-data:extend(
-{
+data:extend({
 
-	-- Bio Garden
-	{
+  -- Bio Garden
+  {
     type = "recipe-category",
     name = "clean-air"
-	}
-}
-)
+  }
+
+})

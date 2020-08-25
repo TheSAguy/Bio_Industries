@@ -4,39 +4,45 @@ local BioInd = require('common')('Bio_Industries')
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ENTITYPATH = BioInd.modRoot .. "/graphics/entities/biofarm/"
 
---~ local BIGICONS = BioInd.base_version()
+--~ local BIGICONS = BioInd.check_base_version()
 
 require ("prototypes.Bio_Farm.pipeConnectors")
 require ("util")
 
 -- demo-sounds exists only in Factorio 0.18, so we need to check the game version!
-local version = util.split(mods["base"], '.')
-for i=1, #version do
-  version[i] = tonumber(version[i])
-end
+--~ local version = util.split(mods["base"], '.')
+--~ for i=1, #version do
+  --~ version[i] = tonumber(version[i])
+--~ end
 local sound_def = nil
 
-if version[2] >= 18 then
+--~ if version[2] >= 18 then
+  --~ sound_def = require("__base__.prototypes.entity.demo-sounds")
+--~ end
+if BioInd.check_base_version("0.18.0") then
   sound_def = require("__base__.prototypes.entity.demo-sounds")
 end
 local sounds = {}
 
 -- This check is necessary because sounds.car_wood_impact didn't exist before Factorio 0.18.4 and
 -- was changed in Factorio 0.18.18!
-if ((version[2] or 0) == 18) and
-   ((version[3] or 0) >= 18) and sound_def then
+--~ if ((version[2] or 0) == 18) and
+   --~ ((version[3] or 0) >= 18) and sound_def then
+if BioInd.check_base_version("0.18.18")  and sound_def then
 
   log("car_wood_impact sound is function")
   sounds.car_wood_impact = sound_def.car_wood_impact(0.8)
 
-elseif ((version[2] or 0) == 18 and
-        (version[3] or 0) >= 4) and sound_def  then
+--~ elseif ((version[2] or 0) == 18 and
+        --~ (version[3] or 0) >= 4) and sound_def  then
+elseif BioInd.check_base_version("0.18.4")  and sound_def  then
 
   sounds.car_wood_impact = sound_def.car_wood_impact
   for _, sound in ipairs(sounds.car_wood_impact) do
       sound.volume = 0.8
   end
-elseif version[2] >= 18 then
+--~ elseif version[2] >= 18 then
+elseif BioInd.check_base_version("0.18.0")  then
   sounds.car_wood_impact = {
     { filename = "__base__/sound/car-wood-impact.ogg", volume = 0.8 },
     { filename = "__base__/sound/car-wood-impact-02.ogg", volume = 0.8 },
@@ -51,7 +57,8 @@ else
 end
 
 
-if version[2] >= 18 then
+--~ if version[2] >= 18 then
+if BioInd.check_base_version("0.18.0")  then
   sounds.generic_impact = sound_def.generic_impact
   for _, sound in ipairs(sounds.generic_impact) do
     sound.volume = 0.65
@@ -585,8 +592,7 @@ data:extend({
       emissions_per_minute = 0.25,
     },
     energy_usage = "50kW",
-    module_specification =
-    {
+    module_specification = {
       module_slots = 2
     },
     allowed_effects = {"consumption", "speed", "pollution"},

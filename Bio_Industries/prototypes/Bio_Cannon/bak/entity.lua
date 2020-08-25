@@ -1,8 +1,8 @@
 local BioInd = require('common')('Bio_Industries')
 
-
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ENTITYPATH = BioInd.modRoot .. "/graphics/entities/bio_cannon/"
+
 require "util"
 
 if BI.Settings.Bio_Cannon then
@@ -91,48 +91,49 @@ if BI.Settings.Bio_Cannon then
   end
 
   data:extend({
-    --~ -- Bio Cannon Artillery Range Overlay
-    --~ {
-      --~ type = "ammo-turret",
-      --~ name = "bi-bio-cannon-area",
-      --~ icon = ICONPATH .. "biocannon_icon.png",
-      --~ icon_size = 64,
-      --~ icons = {
-        --~ {
-          --~ icon = ICONPATH .. "biocannon_icon.png",
-          --~ icon_size = 64,
-        --~ }
-      --~ },
-      --~ flags = {"placeable-neutral", "placeable-player", "player-creation"},
-      --~ open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
-      --~ close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-      --~ max_health = 900,
-      --~ corpse = "big-remnants",
-      --~ dying_explosion = "massive-explosion",
-      --~ automated_ammo_count = 10,
-      --~ resistances = {},
-      --~ collision_box = {{-4.25, -4.25}, {4.25, 4.25}},
-      --~ selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
-      --~ order = "i[items][Bio_Cannon]",
-      --~ inventory_size = 1,
-      --~ attack_parameters =
-      --~ {
-        --~ type = "projectile",
-        --~ ammo_category = "Bio_Cannon_Ammo",
-        --~ cooldown = 2,
-        --~ range = 90,
-        --~ min_range = 20,
-        --~ projectile_creation_distance = 1.8,
-        --~ action ={}
-      --~ },
-      --~ folding_speed = 0.08,
-      --~ preparing_animation = preparing_animation(),
-      --~ prepared_animation = prepared_animation(),
-      --~ --attacking_animation = attacking_animation(),
-      --~ folding_animation = folding_animation(),
-      --~ folded_animation = folded_animation(),
-      --~ call_for_help_radius = 40,
-    --~ },
+    -- Bio Cannon Artillery Range Overlay
+    {
+      type = "ammo-turret",
+      name = "bi-bio-cannon-area",
+      icon = ICONPATH .. "biocannon_icon.png",
+      icon_size = 64,
+      icons = {
+        {
+          icon = ICONPATH .. "biocannon_icon.png",
+          icon_size = 64,
+        }
+      },
+      flags = {"placeable-neutral", "placeable-player", "player-creation"},
+      open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
+      close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
+      max_health = 900,
+      corpse = "big-remnants",
+      dying_explosion = "massive-explosion",
+      automated_ammo_count = 10,
+      resistances = {},
+      collision_box = {{-4.25, -4.25}, {4.25, 4.25}},
+      selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+      order = "i[items][Bio_Cannon]",
+      inventory_size = 1,
+      attack_parameters =
+      {
+        type = "projectile",
+        --~ ammo_category = "artillery-shell",
+        ammo_category = "Bio_Cannon_Ammo",
+        cooldown = 2,
+        range = 90,
+        min_range = 20,
+        projectile_creation_distance = 1.8,
+        action ={}
+      },
+      folding_speed = 0.08,
+      preparing_animation = preparing_animation(),
+      prepared_animation = prepared_animation(),
+      --attacking_animation = attacking_animation(),
+      folding_animation = folding_animation(),
+      folded_animation = folded_animation(),
+      call_for_help_radius = 40
+    },
 
     -- Bio Cannon Artillery
     {
@@ -148,17 +149,16 @@ if BI.Settings.Bio_Cannon then
       },
       flags = {"placeable-neutral", "placeable-player", "player-creation"},
       -- makes cannon blueprintable
-      --~ placeable_by = {item = "bi-bio-cannon-area", count = 1},
-      placeable_by = {item = "bi-bio-cannon", count = 1},
+      placeable_by = {item = "bi-bio-cannon-area", count = 1},
       open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
       close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-      --~ minable = {mining_time = 10, result = "bi-bio-cannon-area"},
-      minable = {mining_time = 10, result = "bi-bio-cannon"},
+      minable = {mining_time = 10, result = "bi-bio-cannon-area"},
       max_health = 900,
       corpse = "big-remnants",
       dying_explosion = "massive-explosion",
       automated_ammo_count = 10,
-      resistances = {
+      resistances =
+      {
         {
         type = "fire",
         percent = 90
@@ -176,79 +176,73 @@ if BI.Settings.Bio_Cannon then
       selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
       order = "i[items][Bio_Cannon]",
       inventory_size = 1,
-      --prepare_range = 90,
-      prepare_range = 120,
+      prepare_range = 90,
       preparing_speed = 0.012,
-      attack_parameters = {
+      attack_parameters =
+      {
         type = "projectile",
         --~ ammo_category = "artillery-shell",
         ammo_category = "Bio_Cannon_Ammo",
-        cooldown = 600,
-        warmup = 600,
-        --~ range = 0,
-        range = 120,
-        min_range = 20,
+        cooldown = 2,
+        range = 0,
         projectile_creation_distance = 1.8,
-        action ={},
-        --~ lead_target_for_projectile_speed = 0.01,
+        action ={}
       },
       folding_speed = 0.012,
-      --~ folding_speed = 0.001,
 
       preparing_animation = preparing_animation(),
       prepared_animation = prepared_animation(),
       --attacking_animation = attacking_animation(),
       folding_animation = folding_animation(),
       folded_animation = folded_animation(),
-      call_for_help_radius = 90,
-      attack_target_mask = { "Bio_Cannon_Ammo" },
+      call_for_help_radius = 90
     },
 
-    --~ ---- Radar
-    --~ {
-      --~ type = "radar",
-      --~ name = "Bio-Cannon-r",
-      --~ icon = ICONPATH .. "biocannon_icon.png",
-      --~ icon_size = 64,
-      --~ icons = {
-        --~ {
-          --~ icon = ICONPATH .. "biocannon_icon.png",
-          --~ icon_size = 64,
-        --~ }
-      --~ },
-      --~ flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
-      --~ selectable_in_game = false,
-      --~ --minable = {mining_time = 5, result = "bi-bio-cannon-area"},
-      --~ max_health = 600,
-      --~ corpse = "big-remnants",
-      --~ dying_explosion = "massive-explosion",
-      --~ resistances = {},
-      --~ collision_box = {{-4.0, -4.0}, {4.0, 4.0}},
-      --~ selection_box = {{-4.25, -4.25}, {4.25, 4.25}},
-      --~ collision_mask = {},
-      --~ order = "i[items][Bio_Cannon]",
-      --~ energy_per_sector = "22MJ",
-      --~ max_distance_of_nearby_sector_revealed = 5,
-      --~ max_distance_of_sector_revealed = 5,
-      --~ energy_per_nearby_scan = "400kW",
-      --~ energy_source =
-      --~ {
-        --~ type = "electric",
-        --~ usage_priority = "secondary-input"
-      --~ },
-      --~ energy_usage = "6kW",
-      --~ pictures =
-      --~ {
-        --~ filename = ICONPATH .. "biocannon_icon.png",
-        --~ priority = "low",
-        --~ width = 1,
-        --~ height = 1,
-        --~ axially_symmetrical = false,
-        --~ apply_projection = false,
-        --~ direction_count = 1,
-        --~ line_length = 1,
-        --~ shift = {0, -0}
-      --~ },
-    --~ },
+    ---- Radar
+    {
+      type = "radar",
+      name = "Bio-Cannon-r",
+      icon = ICONPATH .. "biocannon_icon.png",
+      icon_size = 64,
+      icons = {
+        {
+          icon = ICONPATH .. "biocannon_icon.png",
+          icon_size = 64,
+        }
+      },
+      flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
+      selectable_in_game = false,
+      --minable = {mining_time = 5, result = "bi-bio-cannon-area"},
+      max_health = 600,
+      corpse = "big-remnants",
+      dying_explosion = "massive-explosion",
+      resistances = {},
+      collision_box = {{-4.0, -4.0}, {4.0, 4.0}},
+      selection_box = {{-4.25, -4.25}, {4.25, 4.25}},
+      collision_mask = {},
+      order = "i[items][Bio_Cannon]",
+      energy_per_sector = "22MJ",
+      max_distance_of_nearby_sector_revealed = 5,
+      max_distance_of_sector_revealed = 5,
+      energy_per_nearby_scan = "400kW",
+      energy_source =
+      {
+        type = "electric",
+        usage_priority = "secondary-input"
+      },
+      energy_usage = "6kW",
+      pictures =
+      {
+        filename = ICONPATH .. "biocannon_icon.png",
+        priority = "low",
+        width = 1,
+        height = 1,
+        axially_symmetrical = false,
+        apply_projection = false,
+        direction_count = 1,
+        line_length = 1,
+        shift = {0, -0}
+      },
+    },
   })
 end

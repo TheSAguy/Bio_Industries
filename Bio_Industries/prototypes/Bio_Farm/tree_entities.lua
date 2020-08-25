@@ -1,3 +1,5 @@
+local BioInd = require('common')('Bio_Industries')
+
 --[[
 
 Big thanks to OwnlyMe and his "Robot Tree Farm" code!
@@ -6,7 +8,8 @@ License:  CC BY-SA 4.0
 
 ]]
 
-local OPTIMIZED = tonumber(util.split(mods["base"], '.')[2]) > 17
+--~ local OPTIMIZED = tonumber(util.split(mods["base"], '.')[2]) > 17
+local OPTIMIZED = BioInd.check_base_version("0.18.0")
 
 local COLLISION_BOX = {{-0.1, -0.1}, {0.1, 0.1}}
 local TREE_LEVELS = 4

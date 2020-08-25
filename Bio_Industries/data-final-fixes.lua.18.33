@@ -30,29 +30,6 @@ if BI.Settings.BI_Game_Tweaks_Recipe then
 
   -- vanilla rail recipe update
   thxbob.lib.recipe.add_new_ingredient("rail", {type = "item", name = "concrete", amount = 6})
-
-  -- Update Production Science Pack to use Wood Rail vs. Regular rail.
-  --thxbob.lib.recipe.replace_ingredient ("production-science-pack", "rail", "bi-rail-wood")
-  --thxbob.lib.recipe.remove_ingredient ("production-science-pack", "rail")
-  --thxbob.lib.recipe.add_new_ingredient ("production-science-pack", {type = "item", name = "bi-rail-wood", amount = 30})
-
-  data:extend({
-    {
-      type = "recipe",
-      name = "bi-production-science-pack",
-      enabled = false,
-      energy_required = 21,
-      ingredients = {
-       {"electric-furnace", 1},
-       {"productivity-module", 1},
-       {"bi-rail-wood", 40}
-      },
-      result_count = 3,
-      result = "production-science-pack"
-    },
-  })
-  BI_Functions.lib.allow_productivity("bi-production-science-pack")
-  thxbob.lib.tech.add_recipe_unlock("production-science-pack", "bi-production-science-pack")
 end
 
 ---- Game Tweaks ---- Tree
@@ -143,6 +120,12 @@ if BI.Settings.BI_Game_Tweaks_Disassemble then
   end
 end
 
+---- Game Tweaks ---- Production science pack recipe
+if data.raw.recipe["bi-production-science-pack"] then
+  BI_Functions.lib.allow_productivity("bi-production-science-pack")
+  thxbob.lib.tech.add_recipe_unlock("production-science-pack", "bi-production-science-pack")
+  BioInd.writeDebug("Unlock for recipe \"bi-production-science-pack\" added.")
+end
 
 ---- Game Tweaks ---- Bots
 if BI.Settings.BI_Game_Tweaks_Bot then
@@ -236,6 +219,9 @@ if BI.Settings.BI_Game_Tweaks_Emissions_Multiplier then
   end
 end
 
+
+
+
 -- Make vanilla and Bio boilers exchangeable
 if BI.Settings.BI_Bio_Fuel then
   local boiler = data.raw["boiler"]["boiler"]
@@ -268,25 +254,25 @@ if mods["Krastorio2"] then
   end
 
 
-  -- Remove recipes for liquid air and nitrogen
-  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
-  data.raw.recipe["bi-liquid-air"].hidden = true
-  data.raw.recipe["bi-nitrogen"].hidden = true
+  --~ -- Remove recipes for liquid air and nitrogen
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  --~ data.raw.recipe["bi-liquid-air"].hidden = true
+  --~ data.raw.recipe["bi-nitrogen"].hidden = true
 
-  -- Replace liquid air with oxygen in Algae Biomass 2 and 3
-  thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
-  thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "oxygen")
+  --~ -- Replace liquid air with oxygen in Algae Biomass 2 and 3
+  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
+  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "oxygen")
 end
 
 
 
 if mods["Krastorio"] then
-  -- Remove recipes for liquid air and nitrogen
-  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
-  data.raw.recipe["bi-liquid-air"].hidden = true
-  data.raw.recipe["bi-nitrogen"].hidden = true
+  --~ -- Remove recipes for liquid air and nitrogen
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  --~ data.raw.recipe["bi-liquid-air"].hidden = true
+  --~ data.raw.recipe["bi-nitrogen"].hidden = true
 
   -- Replace liquid air with oxygen in Algae Biomass 2 and 3
   --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
@@ -347,89 +333,8 @@ if mods["Transport_Drones"] then
   end
 end
 
--- We may need liquid air and nitrogen -- but not if any of the following mods is active!
-if not (mods["angelspetrochem"] or mods["Krastorio"] or mods["Krastorio2"]) then
-
-  local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
-
-  -- Other mods may already have created these fluids. Check if they exist before (re-) defining them!
-  -- Liquid-air
-  if not data.raw.fluid["liquid-air"] then
-    data:extend({
-      {
-        type = "fluid",
-        name = "liquid-air",
-        icon = ICONPATH .. "liquid-air.png",
-        icon_size = 64,
-        icons = {
-          {
-            icon = ICONPATH .. "liquid-air.png",
-            icon_size = 64,
-            icon_mipmaps = 1,
-          }
-        },
-        default_temperature = 25,
-        gas_temperature = -100,
-        max_temperature = 100,
-        heat_capacity = "1KJ",
-        base_color = {r = 0, g = 0, b = 0},
-        flow_color = {r = 0.5, g = 1.0, b = 1.0},
-        pressure_to_speed_ratio = 0.4,
-        flow_to_energy_ratio = 0.59,
-        order = "a[fluid]-b[liquid-air]"
-      },
-    })
-  end
-
-  ----- Nitrogen
-  if not data.raw.fluid["nitrogen"] then
-    data:extend({
-      {
-        type = "fluid",
-        name = "nitrogen",
-        icon = ICONPATH .. "nitrogen.png",
-        icon_size = 64,
-        icons = {
-          {
-            icon = ICONPATH .. "nitrogen.png",
-            icon_size = 64,
-            icon_mipmaps = 1,
-          }
-        },
-        default_temperature = 25,
-        gas_temperature = -210,
-        max_temperature = 100,
-        heat_capacity = "1KJ",
-        base_color = {r = 0.0, g = 0.0, b = 1.0},
-        flow_color = {r = 0.0, g = 0.0, b = 1.0},
-        pressure_to_speed_ratio = 0.4,
-        flow_to_energy_ratio = 0.59,
-        order = "a[fluid]-b[nitrogen]"
-      },
-    })
-  end
-
-  -- Allow productivity modules for the recipes
-  BI_Functions.lib.allow_productivity("bi-liquid-air")
-  BI_Functions.lib.allow_productivity("bi-nitrogen")
-
-else
-  -- If the fluids aren't needed, remove their recipes as well
-  data.raw.recipe["bi-liquid-air"] = nil
-  data.raw.recipe["bi-nitrogen"] = nil
-end
 
 
----TESTING!
---~ for k,v in pairs(data.raw["curved-rail"]) do
---~ log(v.name .. " collision_mask: " .. serpent.line(v.collision_mask))
---~ end
---~ for k,v in pairs(data.raw["straight-rail"]) do
---~ log(v.name .. " collision_mask: " .. serpent.line(v.collision_mask))
---~ end
-
-
---
 local default_target_masks = data.raw["utility-constants"].default.default_trigger_target_mask_by_type
 default_target_masks["unit-spawner"] = default_target_masks["unit-spawner"] or { "common" } -- everything should have "common", unless there is specific reason not to
 table.insert(default_target_masks["unit-spawner"], "Bio_Cannon_Ammo")

@@ -16,8 +16,7 @@ if BI.Settings.Bio_Cannon then
           icon_size = 128,
         }
       },
-      effects =
-      {
+      effects = {
         {
           type = "unlock-recipe",
           recipe = "bi-bio-cannon"
@@ -37,11 +36,9 @@ if BI.Settings.Bio_Cannon then
 
       },
       prerequisites = {"military-2"},
-      unit =
-      {
+      unit = {
         count = 300,
-        ingredients =
-        {
+        ingredients = {
           {"automation-science-pack", 1},
           {"logistic-science-pack", 1},
           {"military-science-pack", 1},

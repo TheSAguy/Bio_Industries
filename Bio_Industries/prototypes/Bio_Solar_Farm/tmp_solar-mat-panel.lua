@@ -17,13 +17,11 @@
     collision_mask = {"ground-tile"},
     collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
     selection_box = {{0, 0}, {0, 0}},
-    energy_source =
-    {
+    energy_source = {
       type = "electric",
       usage_priority = "solar"
     },
-    picture =
-    {
+    picture = {
       filename = ICONPATH .. "empty.png",
       priority = "low",
       width = 1,

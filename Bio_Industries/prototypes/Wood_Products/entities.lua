@@ -6,39 +6,45 @@ local WOODPATH = BioInd.modRoot .. "/graphics/entities/wood_products/"
 local ENTITYPATH = "__base__/graphics/entity/"
 local PIPEPATH = ENTITYPATH .. "pipe/"
 
-local BIGICONS = BioInd.base_version()
+local BIGICONS = BioInd.check_base_version("0.18.0")
 
 
 require("prototypes.Wood_Products.demo-remnants-wood")
 
 -- demo-sounds exists only in Factorio 0.18, so we need to check the game version!
-local version = util.split(mods["base"], '.')
-for i=1, #version do
-  version[i] = tonumber(version[i])
-end
+--~ local version = util.split(mods["base"], '.')
+--~ for i=1, #version do
+  --~ version[i] = tonumber(version[i])
+--~ end
 local sound_def = nil
 
-if version[2] >= 18 then
+--~ if version[2] >= 18 then
+  --~ sound_def = require("__base__.prototypes.entity.demo-sounds")
+--~ end
+if BioInd.check_base_version("0.18.0") then
   sound_def = require("__base__.prototypes.entity.demo-sounds")
 end
 local sounds = {}
 
 -- This check is necessary because sounds.car_wood_impact didn't exist before Factorio 0.18.4 and
 -- was changed in Factorio 0.18.18!
-if ((version[2] or 0) == 18) and
-   ((version[3] or 0) >= 18) and sound_def then
+--~ if ((version[2] or 0) == 18) and
+   --~ ((version[3] or 0) >= 18) and sound_def then
+if BioInd.check_base_version("0.18.18") and sound_def then
 
   log("car_wood_impact sound is function")
   sounds.car_wood_impact = sound_def.car_wood_impact(0.8)
 
-elseif ((version[2] or 0) == 18 and
-        (version[3] or 0) >= 4) and sound_def  then
+--~ elseif ((version[2] or 0) == 18 and
+        --~ (version[3] or 0) >= 4) and sound_def  then
+elseif BioInd.check_base_version("0.18.4") and sound_def  then
 
   sounds.car_wood_impact = sound_def.car_wood_impact
   for _, sound in ipairs(sounds.car_wood_impact) do
       sound.volume = 0.8
   end
-elseif version[2] >= 18 then
+--~ elseif version[2] >= 18 then
+elseif BioInd.check_base_version("0.18.0")  then
   sounds.car_wood_impact = {
     { filename = "__base__/sound/car-wood-impact.ogg", volume = 1 },
     { filename = "__base__/sound/car-wood-impact-02.ogg", volume = 1 },
@@ -51,7 +57,8 @@ else
   }
 end
 
-if version[2] >= 18 then
+--~ if version[2] >= 18 then
+if BioInd.check_base_version("0.18.0") then
   sounds.generic_impact = sound_def.generic_impact
   for _, sound in ipairs(sounds.generic_impact) do
     sound.volume = 0.65
@@ -66,14 +73,12 @@ end
   -- Used for Wooden Pipe Pictures
 pipepictures_w = function()
   return {
-    straight_vertical_single =
-    {
+    straight_vertical_single = {
       filename = PIPEPATH .. "pipe-straight-vertical-single.png",
       priority = "extra-high",
       width = 80,
       height = 80,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-straight-vertical-single.png",
         priority = "extra-high",
         width = 160,
@@ -81,14 +86,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    straight_vertical =
-    {
+    straight_vertical = {
       filename = PIPEPATH .. "pipe-straight-vertical.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-straight-vertical.png",
         priority = "extra-high",
         width = 128,
@@ -96,14 +99,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    straight_vertical_window =
-    {
+    straight_vertical_window = {
       filename = PIPEPATH .. "pipe-straight-vertical-window.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-straight-vertical-window.png",
         priority = "extra-high",
         width = 128,
@@ -111,14 +112,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    straight_horizontal_window =
-    {
+    straight_horizontal_window = {
       filename = PIPEPATH .. "pipe-straight-horizontal-window.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-straight-horizontal-window.png",
         priority = "extra-high",
         width = 128,
@@ -126,14 +125,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    straight_horizontal =
-    {
+    straight_horizontal = {
       filename = PIPEPATH .. "pipe-straight-horizontal.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-straight-horizontal.png",
         priority = "extra-high",
         width = 128,
@@ -141,14 +138,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    corner_up_right =
-    {
+    corner_up_right = {
       filename = PIPEPATH .. "pipe-corner-up-right.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-corner-up-right.png",
         priority = "extra-high",
         width = 128,
@@ -156,14 +151,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    corner_up_left =
-    {
+    corner_up_left = {
       filename = PIPEPATH .. "pipe-corner-up-left.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-corner-up-left.png",
         priority = "extra-high",
         width = 128,
@@ -171,14 +164,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    corner_down_right =
-    {
+    corner_down_right = {
       filename = PIPEPATH .. "pipe-corner-down-right.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-corner-down-right.png",
         priority = "extra-high",
         width = 128,
@@ -186,14 +177,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    corner_down_left =
-    {
+    corner_down_left = {
       filename = PIPEPATH .. "pipe-corner-down-left.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-corner-down-left.png",
         priority = "extra-high",
         width = 128,
@@ -201,14 +190,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    t_up =
-    {
+    t_up = {
       filename = PIPEPATH .. "pipe-t-up.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-t-up.png",
         priority = "extra-high",
         width = 128,
@@ -216,14 +203,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    t_down =
-    {
+    t_down = {
       filename = PIPEPATH .. "pipe-t-down.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-t-down.png",
         priority = "extra-high",
         width = 128,
@@ -231,14 +216,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    t_right =
-    {
+    t_right = {
       filename = PIPEPATH .. "pipe-t-right.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-t-right.png",
         priority = "extra-high",
         width = 128,
@@ -246,29 +229,25 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    t_left =
-    {
+    t_left = {
       filename = PIPEPATH .. "pipe-t-left.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
-         filename = PIPEPATH .. "hr-pipe-t-left.png",
-         priority = "extra-high",
-         width = 128,
-         height = 128,
-         scale = 0.5
+      hr_version = {
+        filename = PIPEPATH .. "hr-pipe-t-left.png",
+        priority = "extra-high",
+        width = 128,
+        height = 128,
+        scale = 0.5
       }
     },
-    cross =
-    {
+    cross = {
       filename = PIPEPATH .. "pipe-cross.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-cross.png",
         priority = "extra-high",
         width = 128,
@@ -276,29 +255,25 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    ending_up =
-    {
+    ending_up = {
       filename = PIPEPATH .. "pipe-ending-up.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-ending-up.png",
         priority = "extra-high",
         width = 128,
         height = 128,
         scale = 0.5
       }
-      },
-    ending_down =
-    {
+    },
+    ending_down = {
       filename = PIPEPATH .. "pipe-ending-down.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-ending-down.png",
         priority = "extra-high",
         width = 128,
@@ -306,14 +281,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    ending_right =
-    {
+    ending_right = {
       filename = PIPEPATH .. "pipe-ending-right.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-ending-right.png",
         priority = "extra-high",
         width = 128,
@@ -321,14 +294,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    ending_left =
-    {
+    ending_left = {
       filename = PIPEPATH .. "pipe-ending-left.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-ending-left.png",
         priority = "extra-high",
         width = 128,
@@ -336,14 +307,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    horizontal_window_background =
-    {
+    horizontal_window_background = {
       filename = PIPEPATH .. "pipe-horizontal-window-background.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-horizontal-window-background.png",
         priority = "extra-high",
         width = 128,
@@ -351,14 +320,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    vertical_window_background =
-    {
+    vertical_window_background = {
       filename = PIPEPATH .. "pipe-vertical-window-background.png",
       priority = "extra-high",
       width = BIGICONS and 64 or 32,
       height = BIGICONS and 64 or 32,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-pipe-vertical-window-background.png",
         priority = "extra-high",
         width = 128,
@@ -366,14 +333,12 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    fluid_background =
-    {
+    fluid_background = {
       filename = PIPEPATH .. "fluid-background.png",
       priority = "extra-high",
       width = 32,
       height = 20,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-fluid-background.png",
         priority = "extra-high",
         width = 64,
@@ -381,29 +346,25 @@ pipepictures_w = function()
         scale = 0.5
       }
     },
-    low_temperature_flow =
-    {
+    low_temperature_flow = {
       filename = PIPEPATH .. "fluid-flow-low-temperature.png",
       priority = "extra-high",
       width = 160,
       height = 18
     },
-    middle_temperature_flow =
-    {
+    middle_temperature_flow = {
       filename = PIPEPATH .. "fluid-flow-medium-temperature.png",
       priority = "extra-high",
       width = 160,
       height = 18
     },
-    high_temperature_flow =
-    {
+    high_temperature_flow = {
       filename = PIPEPATH .. "fluid-flow-high-temperature.png",
       priority = "extra-high",
       width = 160,
       height = 18
     },
-    gas_flow =
-    {
+    gas_flow = {
       filename = PIPEPATH .. "steam.png",
       priority = "extra-high",
       line_length = 10,
@@ -412,8 +373,7 @@ pipepictures_w = function()
       frame_count = 60,
       axially_symmetrical = false,
       direction_count = 1,
-      hr_version =
-      {
+      hr_version = {
         filename = PIPEPATH .. "hr-steam.png",
         priority = "extra-high",
         line_length = 10,
@@ -427,87 +387,81 @@ pipepictures_w = function()
   }
 end
 
+---- Wood Floor
 data:extend({
-        ---- Wood Floor
+  {
+    type = "tile",
+    name = "bi-wood-floor",
+    needs_correction = false,
+    --~ minable = {hardness = 0.2, mining_time = 0.5, result = "wood"},
+    minable = {hardness = 0.2, mining_time = 0.25, result = "wood"},
+    mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
+    collision_mask = {"ground-tile"},
+    walking_speed_modifier = 1.2,
+    layer = 62,
+    decorative_removal_probability = 0.4,
+    variants = {
+      main = {
         {
-          type = "tile",
-          name = "bi-wood-floor",
-          needs_correction = false,
-          --~ minable = {hardness = 0.2, mining_time = 0.5, result = "wood"},
-          minable = {hardness = 0.2, mining_time = 0.25, result = "wood"},
-          mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
-          collision_mask = {"ground-tile"},
-          walking_speed_modifier = 1.2,
-          layer = 62,
-          decorative_removal_probability = 0.4,
-          variants =
-          {
-                main =
-                {
-                  {
-                        picture = WOODPATH .. "wood_floor/wood1.png",
-                        count = 4,
-                        size = 1
-                  },
-                  {
-                        picture = WOODPATH .. "wood_floor/wood2.png",
-                        count = 1,
-                        size = 2,
-                        probability = 1,
-                  },
-                },
-                inner_corner =
-                {
-                  picture = WOODPATH .. "wood_floor/wood-inner-corner.png",
-                  count = 8
-                },
-                outer_corner =
-                {
-                  picture = WOODPATH .. "wood_floor/wood-outer-corner.png",
-                  count = 8
-                },
-                side =
-                {
-                  picture = WOODPATH .. "wood_floor/wood-side.png",
-                  count = 8
-                },
-                u_transition =
-                {
-                  picture = WOODPATH .. "wood_floor/wood-u.png",
-                  count = 8
-                },
-                o_transition =
-                {
-                  picture = WOODPATH .. "wood_floor/wood-o.png",
-                  count = 1
-                }
-          },
-          walking_sound =
-          {
-                {
-                  filename = "__base__/sound/walking/concrete-01.ogg",
-                  volume = 1.2
-                },
-                {
-                  filename = "__base__/sound/walking/concrete-02.ogg",
-                  volume = 1.2
-                },
-                {
-                  filename = "__base__/sound/walking/concrete-03.ogg",
-                  volume = 1.2
-                },
-                {
-                  filename = "__base__/sound/walking/concrete-04.ogg",
-                  volume = 1.2
-                }
-          },
-          map_color = {r = 139, g = 115, b = 85},
-          pollution_absorption_per_second = 0,
-          vehicle_friction_modifier = dirt_vehicle_speed_modifer
+          picture = WOODPATH .. "wood_floor/wood1.png",
+          count = 4,
+          size = 1
         },
-
-    ---- Big Wooden Pole
         {
+          picture = WOODPATH .. "wood_floor/wood2.png",
+          count = 1,
+          size = 2,
+          probability = 1,
+        },
+      },
+      inner_corner = {
+        picture = WOODPATH .. "wood_floor/wood-inner-corner.png",
+        count = 8
+      },
+      outer_corner = {
+        picture = WOODPATH .. "wood_floor/wood-outer-corner.png",
+        count = 8
+      },
+      side = {
+        picture = WOODPATH .. "wood_floor/wood-side.png",
+        count = 8
+      },
+      u_transition = {
+        picture = WOODPATH .. "wood_floor/wood-u.png",
+        count = 8
+      },
+      o_transition = {
+        picture = WOODPATH .. "wood_floor/wood-o.png",
+        count = 1
+      }
+    },
+    walking_sound = {
+      {
+        filename = "__base__/sound/walking/concrete-01.ogg",
+        volume = 1.2
+      },
+      {
+        filename = "__base__/sound/walking/concrete-02.ogg",
+        volume = 1.2
+      },
+      {
+        filename = "__base__/sound/walking/concrete-03.ogg",
+        volume = 1.2
+      },
+      {
+        filename = "__base__/sound/walking/concrete-04.ogg",
+        volume = 1.2
+      }
+    },
+    map_color = {r = 139, g = 115, b = 85},
+    pollution_absorption_per_second = 0,
+    vehicle_friction_modifier = dirt_vehicle_speed_modifer
+  },
+})
+
+---- Big Wooden Pole
+data:extend({
+  {
     type = "electric-pole",
     name = "bi-wooden-pole-big",
     icon = ICONPATH .. "big-wooden-pole.png",
@@ -522,13 +476,12 @@ data:extend({
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-wooden-pole-big"},
     max_health = 150,
     corpse = "medium-remnants",
-    resistances =
-    {
+    resistances = {
       {
         type = "fire",
         percent = 100
       },
-          {
+      {
         type = "physical",
         percent = 10
       }
@@ -539,8 +492,7 @@ data:extend({
     maximum_wire_distance = 24,
     --~ supply_area_distance = 2,
     supply_area_distance = 1.5, -- This is the radius, so the supply area is 3x3.
-    pictures =
-    {
+    pictures = {
       filename = WOODPATH .. "big-wooden-pole-01.png",
       priority = "high",
       width = 180,
@@ -549,60 +501,54 @@ data:extend({
       direction_count = 1,
       shift = {2.2, -2.5}
     },
-    connection_points =
-    {
+    connection_points = {
       {
-        shadow =
-        {
+        shadow = {
           copper = {3.3, -0.1},
           green = {3.3, -0.2},
           red = {3.3, -0.3}
         },
-        wire =
-        {
+         wire = {
           copper = {0.7, -4.3},
           green = {0.7, -4.3},
           red = {0.7, -4.3}
         }
       }
     },
-    copper_wire_picture =
-    {
+    copper_wire_picture = {
       filename = ENTITYPATH .. "/small-electric-pole/copper-wire.png",
       priority = "extra-high-no-scale",
       width = 224,
-      height = 46
+      height = 46,
     },
-    green_wire_picture =
-    {
+    green_wire_picture = {
       filename = ENTITYPATH .. "/small-electric-pole/green-wire.png",
       priority = "extra-high-no-scale",
       width = 224,
       height = 46
     },
-    red_wire_picture =
-    {
+    red_wire_picture = {
       filename = ENTITYPATH .. "/small-electric-pole/red-wire.png",
       priority = "extra-high-no-scale",
       width = 224,
       height = 46
     },
-    wire_shadow_picture =
-    {
+    wire_shadow_picture = {
       filename = ENTITYPATH .. "/small-electric-pole/wire-shadow.png",
       priority = "extra-high-no-scale",
       width = 224,
       height = 46
     },
-    radius_visualisation_picture =
-    {
+    radius_visualisation_picture = {
       filename = ENTITYPATH .. "/small-electric-pole/electric-pole-radius-visualization.png",
       width = 12,
       height = 12
     },
-  },
+  }
+})
 
-  ---- Huge Wooden Pole
+---- Huge Wooden Pole
+data:extend({
   {
     type = "electric-pole",
     name = "bi-wooden-pole-huge",
@@ -618,8 +564,7 @@ data:extend({
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-wooden-pole-huge"},
     max_health = 250,
     corpse = "medium-remnants",
-    resistances =
-    {
+    resistances = {
       {
         type = "fire",
         percent = 100
@@ -635,8 +580,7 @@ data:extend({
     maximum_wire_distance = 64, -- Factorio Max
     --~ supply_area_distance = 2,
     supply_area_distance = 1,   -- This is the radius, so the supply area is 2x2.
-    pictures =
-    {
+    pictures = {
       filename = WOODPATH .. "huge-wooden-pole.png",
       priority = "high",
       width = 182,
@@ -645,75 +589,67 @@ data:extend({
       shift = {3, -3.45},
       scale = 1.5,
     },
-    connection_points =
-    {
+    connection_points = {
       {
-        shadow =
-        {
+        shadow = {
           copper = {5.7, -1.5},
           green = {4.8, -1.5},
           red = {6.6, -1.50}
         },
-        wire =
-        {
+        wire = {
           copper = {0, -6.125},
           green = {-0.59375, -6.125},
           red = {0.625, -6.125}
         }
       },
       {
-        shadow =
-        {
+        shadow = {
           copper = {6.1, -1.3},
           green = {5.3, -1.8},
           red = {6.8, -0.9}
         },
-        wire =
-        {
+        wire = {
           copper = {-0.0625, -6.125},
           green = {-0.5, -6.4375},
           red = {0.34375, -5.8125}
         }
       },
       {
-        shadow =
-        {
+        shadow = {
           copper = {5.9, -1.44},
           green = {6.0, -2.1},
           red = {6.0, -0.7}
         },
-        wire =
-        {
+        wire = {
           copper = {-0.09375, -6.09375},
           green = {-0.09375, -6.53125},
           red = {-0.09375, -5.65625}
         }
       },
       {
-        shadow =
-        {
+        shadow = {
           copper = {6.1, -1.3},
           green = {6.8, -1.8},
           red = {5.35, -0.9}
         },
-        wire =
-        {
+        wire = {
           copper = {-0.0625, -6.1875},
           green = {0.375, -6.5},
           red = {-0.46875, -5.90625}
         }
       }
     },
-    radius_visualisation_picture =
-    {
+    radius_visualisation_picture = {
       filename = ENTITYPATH .. "/small-electric-pole/electric-pole-radius-visualization.png",
       width = 12,
       height = 12,
       priority = "extra-high-no-scale"
     },
   },
+})
 
-  ---- Wood Fence
+---- Wood Fence
+data:extend({
  {
     type = "wall",
     name = "bi-wooden-fence",
@@ -736,8 +672,7 @@ data:extend({
     repair_sound = { filename = "__base__/sound/manual-repair-simple.ogg" },
     --~ vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
     vehicle_impact_sound = sounds.car_wood_impact,
-    resistances =
-    {
+    resistances = {
       {
         type = "physical",
         decrease = 2,
@@ -753,12 +688,9 @@ data:extend({
         percent = 20
       }
     },
-    pictures =
-    {
-      single =
-      {
-        layers =
-        {
+    pictures = {
+      single = {
+        layers = {
           {
             filename = WOODPATH .. "wood_fence/fence-single-1.png",
             priority = "extra-high",
@@ -776,11 +708,9 @@ data:extend({
           }
         }
       },
-      straight_vertical =
-      {
+      straight_vertical = {
         {
-          layers =
-          {
+          layers = {
             {
               filename = WOODPATH .. "wood_fence/fence-straight-vertical-1.png",
               priority = "extra-high",
@@ -798,13 +728,12 @@ data:extend({
             }
           }
         },
-       {
-          layers =
-          {
+        {
+          layers = {
             {
               filename = WOODPATH .. "wood_fence/fence-straight-vertical-1.png",
               priority = "extra-high",
-             width = 7,
+              width = 7,
               height = 53,
               shift = {0, -0.15625}
             },
@@ -819,8 +748,7 @@ data:extend({
           }
         },
         {
-          layers =
-          {
+          layers = {
             {
               filename = WOODPATH .. "wood_fence/fence-straight-vertical-1.png",
               priority = "extra-high",
@@ -839,11 +767,9 @@ data:extend({
           }
         }
       },
-      straight_horizontal =
-      {
+      straight_horizontal = {
         {
-          layers =
-          {
+          layers = {
             {
               filename = WOODPATH .. "wood_fence/fence-straight-horizontal-1.png",
               priority = "extra-high",
@@ -862,8 +788,7 @@ data:extend({
           }
         },
         {
-          layers =
-          {
+          layers = {
             {
               filename = WOODPATH .. "wood_fence/fence-straight-horizontal-2.png",
               priority = "extra-high",
@@ -882,8 +807,7 @@ data:extend({
           }
         },
         {
-          layers =
-          {
+          layers = {
             {
               filename = WOODPATH .. "wood_fence/fence-straight-horizontal-3.png",
               priority = "extra-high",
@@ -902,10 +826,8 @@ data:extend({
           }
         }
       },
-      corner_right_down =
-      {
-        layers =
-        {
+      corner_right_down = {
+        layers = {
           {
             filename = WOODPATH .. "wood_fence/fence-corner-right-down.png",
             priority = "extra-high",
@@ -923,10 +845,8 @@ data:extend({
           }
         }
       },
-      corner_left_down =
-      {
-        layers =
-        {
+      corner_left_down = {
+        layers = {
           {
             filename = WOODPATH .. "wood_fence/fence-corner-left-down.png",
             priority = "extra-high",
@@ -944,10 +864,8 @@ data:extend({
           }
         }
       },
-      t_up =
-      {
-        layers =
-        {
+      t_up = {
+        layers = {
           {
             filename = WOODPATH .. "wood_fence/fence-t-down.png",
             priority = "extra-high",
@@ -965,10 +883,8 @@ data:extend({
           }
         }
       },
-      ending_right =
-      {
-        layers =
-        {
+      ending_right = {
+        layers = {
           {
             filename = WOODPATH .. "wood_fence/fence-ending-right.png",
             priority = "extra-high",
@@ -986,10 +902,8 @@ data:extend({
           }
         }
       },
-      ending_left =
-      {
-        layers =
-        {
+      ending_left = {
+        layers = {
           {
             filename = WOODPATH .. "wood_fence/fence-ending-left.png",
             priority = "extra-high",
@@ -1009,9 +923,11 @@ data:extend({
       }
     }
   },
+})
 
-   ---- Rail straight (Wood)
-    {
+---- Rail straight (Wood)
+data:extend({
+  {
     type = "straight-rail",
     name = "bi-straight-rail-wood",
     icon = ICONPATH .. "straight-rail-wood.png",
@@ -1022,19 +938,18 @@ data:extend({
         icon_size = 64,
       }
     },
-    flags =
-    {   "placeable-neutral",
-        "player-creation",
-        "building-direction-8-way",
-        "fast-replaceable-no-cross-type-while-moving",
+    flags = {
+      "placeable-neutral",
+      "player-creation",
+      "building-direction-8-way",
+      "fast-replaceable-no-cross-type-while-moving",
     },
     --~ collision_mask = {"object-layer"},
     collision_mask = BioInd.RAIL_MASK,
     minable = {mining_time = 0.25, result = "bi-rail-wood"},
     max_health = 60,
     corpse = "straight-rail-remnants-wood",
-    resistances =
-    {
+    resistances = {
       {
         type = "fire",
         percent = 80
@@ -1051,8 +966,10 @@ data:extend({
     --next_upgrade = "straight-rail",
     pictures = rail_pictures(),
   },
+})
 
-  ---- Rail curved (Wood)
+---- Rail curved (Wood)
+data:extend({
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood",
@@ -1064,8 +981,7 @@ data:extend({
         icon_size = 64,
       }
     },
-    flags =
-    {
+    flags = {
       "placeable-neutral",
       "player-creation",
       "building-direction-8-way",
@@ -1076,8 +992,7 @@ data:extend({
     minable = {mining_time = 0.25, result = "bi-rail-wood", count = 4},
     max_health = 120,
     corpse = "curved-rail-remnants-wood",
-    resistances =
-    {
+    resistances = {
       {
         type = "fire",
         percent = 80
@@ -1094,8 +1009,10 @@ data:extend({
     pictures = rail_pictures(),
     placeable_by = { item = "bi-rail-wood", count = 4}
   },
+})
 
   --Wooden straight rail for Bridge
+data:extend({
   {
     type = "straight-rail",
     name = "bi-straight-rail-wood-bridge",
@@ -1120,8 +1037,10 @@ data:extend({
     rail_category = "regular",
     pictures = rail_pictures(),
   },
+})
 
-  --Wooden curved rail for Bridge
+--Wooden curved rail for Bridge
+data:extend({
   {
     type = "curved-rail",
     name = "bi-curved-rail-wood-bridge",
@@ -1133,8 +1052,7 @@ data:extend({
         icon_size = 64,
       }
     },
-    flags =
-    {
+    flags = {
       "placeable-neutral",
       "player-creation",
       "building-direction-8-way"
@@ -1153,8 +1071,10 @@ data:extend({
     pictures = rail_pictures(),
     placeable_by = { item = "bi-rail-wood-bridge", count = 4}
   },
+})
 
-  --- Power straight Rail
+--- Power straight Rail
+data:extend({
   {
     type = "straight-rail",
     name = "bi-straight-rail-power",
@@ -1166,8 +1086,7 @@ data:extend({
         icon_size = 64,
       }
     },
-    flags =
-    {
+    flags = {
       "placeable-neutral",
       "player-creation",
       "building-direction-8-way"
@@ -1182,8 +1101,10 @@ data:extend({
     rail_category = "regular",
     pictures = rail_pictures(),
   },
+})
 
-  --- Power curved Rail
+--- Power curved Rail
+data:extend({
   {
     type = "curved-rail",
     name = "bi-curved-rail-power",
@@ -1195,8 +1116,7 @@ data:extend({
         icon_size = 64,
       }
     },
-    flags =
-    {
+    flags = {
       "placeable-neutral",
       "player-creation",
       "building-direction-8-way",
@@ -1213,8 +1133,11 @@ data:extend({
     pictures = rail_pictures(),
     placeable_by = { item = "bi-rail-power", count = 4}
   },
+})
 
-  ------- Power Rail Pole - Hidden
+
+------- Power Rail Pole - Hidden
+data:extend({
   {
     type = "electric-pole",
     name = "bi-rail-hidden-power-pole",
@@ -1226,8 +1149,7 @@ data:extend({
         icon_size = BIGICONS and 64 or 32,
       }
     },
-    flags =
-    {
+    flags = {
       "not-deconstructable",
       "not-on-map",
       "placeable-off-grid",
@@ -1243,9 +1165,7 @@ data:extend({
     selection_box = {{0, 0}, {0, 0}},
     maximum_wire_distance = 9,
     supply_area_distance = 2,
-
-    pictures =
-    {
+    pictures = {
       filename = ICONPATH .. "empty.png",
       priority = "low",
       width = 1,
@@ -1254,340 +1174,27 @@ data:extend({
       axially_symmetrical = false,
       direction_count = 32,
     },
-    connection_points =
-    {
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-      {
-        shadow =
-        {
-
-        },
-        wire =
-        {
-          copper_wire_tweak = {-0, -0},
-        }
-      },
-    },
-    radius_visualisation_picture =
-    {
+    --~ connection_points = {},
+    radius_visualisation_picture = {
       filename = ICONPATH .. "empty.png",
       width = 1,
       height = 1,
       priority = "low"
     },
   },
+})
+-- Need 32 identical blank connection_points!
+local connection_points = {}
+for i = 1, 32 do
+  connection_points[i] = {
+    shadow = {},
+    wire = { copper_wire_tweak = {-0, -0} }
+  }
+end
+data.raw["electric-pole"]["bi-rail-hidden-power-pole"].connection_points = connection_points
 
-        ---- Wood Pipe
+---- Wood Pipe
+data:extend({
  {
     type = "pipe",
     name = "bi-wood-pipe",
@@ -1603,8 +1210,7 @@ data:extend({
     minable = {mining_time = 0.075, result = "bi-wood-pipe"},
     max_health = 100,
     corpse = "small-remnants",
-    resistances =
-    {
+    resistances = {
       {
         type = "fire",
         percent = 20
@@ -1617,11 +1223,9 @@ data:extend({
     fast_replaceable_group = "pipe",
     collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    fluid_box =
-    {
+    fluid_box = {
       base_area = 1,
-      pipe_connections =
-      {
+      pipe_connections = {
         { position = {0, -1} },
         { position = {1, 0} },
         { position = {0, 1} },
@@ -1632,8 +1236,7 @@ data:extend({
     vehicle_impact_sound = sounds.generic_impact,
     pictures = pipepictures_w(),
         --pictures = pipe_pictures,
-    working_sound =
-    {
+    working_sound = {
       sound = {
         {
           filename = "__base__/sound/pipe.ogg",
@@ -1646,8 +1249,10 @@ data:extend({
     horizontal_window_bounding_box = {{-0.25, -0.28125}, {0.25, 0.15625}},
     vertical_window_bounding_box = {{-0.28125, -0.5}, {0.03125, 0.125}}
   },
+})
 
-  ---- Wood Pipe to Ground
+---- Wood Pipe to Ground
+data:extend({
   {
     type = "pipe-to-ground",
     name = "bi-wood-pipe-to-ground",
@@ -1663,8 +1268,7 @@ data:extend({
     minable = {mining_time = 0.075, result = "bi-wood-pipe-to-ground"},
     max_health = 150,
     corpse = "small-remnants",
-    resistances =
-    {
+    resistances = {
       {
         type = "fire",
         percent = 20
@@ -1677,12 +1281,10 @@ data:extend({
     fast_replaceable_group = "pipe",
     collision_box = {{-0.29, -0.29}, {0.29, 0.2}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    fluid_box =
-    {
+    fluid_box = {
       base_area = 1,
       pipe_covers = pipecoverspictures(),
-      pipe_connections =
-      {
+      pipe_connections = {
         { position = {0, -1} },
         {
           position = {0, 1},
@@ -1690,8 +1292,7 @@ data:extend({
         }
       },
     },
-    underground_sprite =
-    {
+    underground_sprite = {
       filename = "__core__/graphics/arrows/underground-lines.png",
       priority = "extra-high-no-scale",
       width = BIGICONS and 64 or 32,
@@ -1700,73 +1301,65 @@ data:extend({
     },
     --~ vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     vehicle_impact_sound = sounds.generic_impact,
-    pictures =
-    {
-      up =
-      {
+    pictures = {
+      up = {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-up.png",
         priority = "high",
         width = BIGICONS and 64 or 32,
         height = BIGICONS and 64 or 32, --, shift = {0.10, -0.04}
-        hr_version =
-        {
-           filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-up.png",
-           priority = "extra-high",
-           width = 128,
-           height = 128,
-           scale = 0.5
+        hr_version = {
+          filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-up.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
         }
       },
-      down =
-      {
+      down = {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-down.png",
         priority = "high",
         width = BIGICONS and 64 or 32,
         height = BIGICONS and 64 or 32, --, shift = {0.05, 0}
-        hr_version =
-        {
-           filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-down.png",
-           priority = "extra-high",
-           width = 128,
-           height = 128,
-           scale = 0.5
+        hr_version = {
+          filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-down.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
         }
       },
-      left =
-      {
+      left = {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-left.png",
         priority = "high",
         width = BIGICONS and 64 or 32,
         height = BIGICONS and 64 or 32, --, shift = {-0.12, 0.1}
-        hr_version =
-        {
-           filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-left.png",
-           priority = "extra-high",
-           width = 128,
-           height = 128,
-           scale = 0.5
+        hr_version = {
+          filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-left.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
         }
       },
-      right =
-      {
+      right = {
         filename = ENTITYPATH .. "/pipe-to-ground/pipe-to-ground-right.png",
         priority = "high",
         width = BIGICONS and 64 or 32,
         height = BIGICONS and 64 or 32, --, shift = {0.1, 0.1}
-        hr_version =
-        {
-           filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-right.png",
-           priority = "extra-high",
-           width = 128,
-           height = 128,
-           scale = 0.5
+        hr_version = {
+          filename = ENTITYPATH .. "/pipe-to-ground/hr-pipe-to-ground-right.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
         }
       },
     },
   },
+})
 
-
-  ------- Large Wooden Chest
+------- Large Wooden Chest
+data:extend({
   {
     type = "container",
     name = "bi-wooden-chest-large",
@@ -1790,21 +1383,22 @@ data:extend({
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
     --~ vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
     vehicle_impact_sound = sounds.car_wood_impact,
-    picture =
-    {
+    picture = {
       filename = WOODPATH .. "large_wooden_chest.png",
       priority = "extra-high",
       width = 184,
       height = 132,
       shift = {0.5, 0},
-          scale = 0.5,
+      scale = 0.5,
     },
     circuit_wire_connection_point = circuit_connector_definitions["chest"].points,
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance
   },
+})
 
-  ------- Huge Wooden Chest
+------- Huge Wooden Chest
+data:extend({
   {
     type = "container",
     name = "bi-wooden-chest-huge",
@@ -1829,8 +1423,7 @@ data:extend({
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
     --~ vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
     vehicle_impact_sound = sounds.car_wood_impact,
-    picture =
-    {
+    picture = {
       filename = WOODPATH .. "huge_wooden_chest.png",
       priority = "extra-high",
       width = 184,
@@ -1842,8 +1435,10 @@ data:extend({
     circuit_connector_sprites = circuit_connector_definitions["chest"].sprites,
     circuit_wire_max_distance = default_circuit_wire_max_distance
   },
+})
 
 ------- Giga Wooden Chest
+data:extend({
   {
     type = "container",
     name = "bi-wooden-chest-giga",
@@ -1868,8 +1463,7 @@ data:extend({
     close_sound = { filename = "__base__/sound/wooden-chest-close.ogg" },
     --~ vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
     vehicle_impact_sound = sounds.car_wood_impact,
-    picture =
-    {
+    picture = {
       filename = WOODPATH .. "giga_wooden_chest.png",
       priority = "extra-high",
       width = 501,
@@ -1883,8 +1477,8 @@ data:extend({
   },
 })
 
--- Changed to medium-electric pole so the built entity resembles the icon (0.18.1)
 ------ Power to Rail Pole
+-- Changed to medium-electric pole so the built entity resembles the icon (0.18.1)
 --~ local my_pole_2 = util.table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
 --~ my_pole_2.name = "bi-power-to-rail-pole"
 --~ my_pole_2.icon = "__Bio_Industries__/graphics/icons/electric-to-rail.png"
@@ -1899,11 +1493,11 @@ my_pole_2.name = "bi-power-to-rail-pole"
 my_pole_2.icon = ICONPATH .. "electric-to-rail.png"
 my_pole_2.icon_size = 64
 my_pole_2.icons = {
-      {
-        icon = ICONPATH .. "electric-to-rail.png",
-        icon_size = 64,
-      }
-    }
+  {
+    icon = ICONPATH .. "electric-to-rail.png",
+    icon_size = 64,
+  }
+}
 my_pole_2.icon_mipmaps = 1
 my_pole_2.minable = {mining_time = 1, result = "bi-power-to-rail-pole"}
 --~ my_pole_2.maximum_wire_distance = 4
@@ -1940,16 +1534,81 @@ end
 --~ -- TESTING: Hidden power pole for powered rails
 --~ local hidden_pole = table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
 --~ hidden_pole.name = "bi-rail-hidden-power-pole"
---~ hidden_pole.maximum_wire_distance = 9
---~ hidden_pole.flags =
-  --~ {
-    --~ "not-deconstructable",
-    --~ "not-on-map",
-    --~ "placeable-off-grid",
-    --~ "not-repairable",
-    --~ "not-blueprintable",
+--~ hidden_pole.pictures = {
+  --~ filename = ICONPATH .. "empty.png",
+  --~ priority = "low",
+  --~ width = 1,
+  --~ height = 1,
+  --~ frame_count = 1,
+  --~ axially_symmetrical = false,
+  --~ direction_count = 32,
+--~ }
+--~ hidden_pole.connection_points = {}
+--~ for i = 1, 32 do
+  --~ hidden_pole.connection_points[i] = {
+    --~ shadow = {},
+    --~ wire = { copper_wire_tweak = {-0, -0} }
   --~ }
+--~ end
+
+--~ hidden_pole.flags = {
+  --~ "not-deconstructable",
+  --~ "not-on-map",
+  --~ "placeable-off-grid",
+  --~ "not-repairable",
+  --~ "not-blueprintable",
+--~ }
 --~ hidden_pole.collision_mask = {}
 --~ hidden_pole.collision_box = {{-0, -0}, {0, 0}}
-
+--~ hidden_pole.maximum_wire_distance = 9
+  ------- Power Rail Pole - Hidden
+--~ local hidden_pole = table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
+--~ hidden_pole.name = "bi-rail-hidden-power-pole"
+--~ hidden_pole.icon = "__base__/graphics/icons/small-electric-pole.png"
+--~ hidden_pole.icon_size = BIGICONS and 64 or 32
+--~ hidden_pole.icons = {
+  --~ {
+    --~ icon = "__base__/graphics/icons/small-electric-pole.png",
+    --~ icon_size = BIGICONS and 64 or 32,
+  --~ }
+--~ }
+--~ hidden_pole.flags = {
+  --~ "not-deconstructable",
+  --~ "not-on-map",
+  --~ "placeable-off-grid",
+  --~ "not-repairable",
+  --~ "not-blueprintable",
+--~ }
+--~ hidden_pole.selectable_in_game = false
+--~ hidden_pole.draw_copper_wires = false
+--~ hidden_pole.draw_circuit_wires = false
+--~ hidden_pole.max_health = 1
+--~ hidden_pole.resistances = {{type = "fire", percent = 100}}
+--~ hidden_pole.collision_mask = {}
+--~ hidden_pole.collision_box = {{-0, -0}, {0, 0}}
+--~ hidden_pole.selection_box = {{0, 0}, {0, 0}}
+--~ hidden_pole.maximum_wire_distance = 9
+--~ hidden_pole.supply_area_distance = 2
+--~ hidden_pole.pictures = {
+  --~ filename = ICONPATH .. "empty.png",
+  --~ priority = "low",
+  --~ width = 1,
+  --~ height = 1,
+  --~ frame_count = 1,
+  --~ axially_symmetrical = false,
+  --~ direction_count = 32,
+--~ }
+--~ hidden_pole.radius_visualisation_picture = {
+  --~ filename = ICONPATH .. "empty.png",
+  --~ width = 1,
+  --~ height = 1,
+  --~ priority = "low"
+--~ }
+--~ hidden_pole.connection_points = {}
+--~ for i = 1, 32 do
+  --~ hidden_pole.connection_points[i] = {
+    --~ shadow = {},
+    --~ wire = { copper_wire_tweak = {-0, -0} }
+  --~ }
+--~ end
 --~ data:extend({ hidden_pole })
