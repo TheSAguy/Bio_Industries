@@ -2,62 +2,15 @@ local BioInd = require('common')('Bio_Industries')
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 
--- demo-sounds exists only in Factorio 0.18, so we need to check the game version!
---~ local version = util.split(mods["base"], '.')
---~ for i=1, #version do
-  --~ version[i] = tonumber(version[i])
---~ end
-local sound_def = nil
-
---~ if version[2] >= 18 then
-  --~ sound_def = require("__base__.prototypes.entity.demo-sounds")
---~ end
-if BioInd.check_base_version("0.18.0")  then
-  sound_def = require("__base__.prototypes.entity.demo-sounds")
-end
+-- demo-sounds has been removed in Factorio 1.1, so we need to check the game version!
+local sound_def = BioInd.check_version("base", "<", "1.1.0") and
+                    require("__base__.prototypes.entity.demo-sounds") or
+                    require("__base__.prototypes.entity.sounds")
 local sounds = {}
-
--- This check is necessary because sounds.car_wood_impact didn't exist before Factorio 0.18.4 and
--- was changed in Factorio 0.18.18!
---~ if ((version[2] or 0) == 18) and
-   --~ ((version[3] or 0) >= 18) and sound_def then
-if BioInd.check_base_version("0.18.18")  and sound_def then
-
-  log("car_wood_impact sound is function")
-  sounds.car_wood_impact = sound_def.car_wood_impact(0.8)
-
---~ elseif ((version[2] or 0) == 18 and
-        --~ (version[3] or 0) >= 4) and sound_def  then
-elseif BioInd.check_base_version("0.18.4")  and sound_def  then
-
-  sounds.car_wood_impact = sound_def.car_wood_impact
-  for _, sound in ipairs(sounds.car_wood_impact) do
-      sound.volume = 0.8
-  end
---~ elseif version[2] >= 18 then
-elseif BioInd.check_base_version("0.18.0")  then
-  sounds.car_wood_impact = {
-    { filename = "__base__/sound/car-wood-impact.ogg", volume = 1 },
-    { filename = "__base__/sound/car-wood-impact-02.ogg", volume = 1 },
-    { filename = "__base__/sound/car-wood-impact-03.ogg", volume = 1 },
-    { filename = "__base__/sound/car-wood-impact-04.ogg", volume = 1 }
-  }
-else
-  sounds.car_wood_impact = {
-    { filename = "__base__/sound/car-wood-impact.ogg", volume = 1 },
-  }
-end
-
---~ if version[2] >= 18 then
-if BioInd.check_base_version("0.18.0")  then
-  sounds.generic_impact = sound_def.generic_impact
-  for _, sound in ipairs(sounds.generic_impact) do
-    sound.volume = 0.65
-  end
-else
-  sounds.generic_impact = {
-    { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 }
-  }
+sounds.car_wood_impact = sound_def.car_wood_impact(0.8)
+sounds.generic_impact = sound_def.generic_impact
+for _, sound in ipairs(sounds.generic_impact) do
+  sound.volume = 0.65
 end
 
 data:extend({
@@ -312,8 +265,6 @@ data:extend({
     folding_animation = turret_pic{direction_count = 8, line_length = 1, run_mode = "backward"},
 
     -- darkfrei: wood impact sound for woods!
-    --vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-    --~ vehicle_impact_sound = { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
     vehicle_impact_sound = sounds.car_wood_impact,
     attack_parameters = {
       type = "projectile",

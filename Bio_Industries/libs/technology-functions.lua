@@ -23,10 +23,10 @@ function thxbob.lib.tech.replace_science_pack(technology, old, new)
     end
   else
     if not data.raw.technology[technology] then
-      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {technology})
     end
     if not data.raw.tool[new] then
-      BioInd.writeDebug("Science pack " .. tostring(new) .. " does not exist.")
+      BioInd.writeDebug("Science pack %s does not exist.", {new})
     end
   end
 end
@@ -40,10 +40,10 @@ function thxbob.lib.tech.add_new_science_pack(technology, pack, amount)
     if addit then table.insert(data.raw.technology[technology].unit.ingredients, {pack, amount}) end
   else
     if not data.raw.technology[technology] then
-      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {technology})
     end
     if not data.raw.tool[pack] then
-      BioInd.writeDebug("Science pack " .. tostring(pack) .. " does not exist.")
+      BioInd.writeDebug("Science pack %s does not exist.", {pack})
     end
   end
 end
@@ -69,7 +69,7 @@ function thxbob.lib.tech.add_science_pack(technology, pack, amount)
       BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
     end
     if not data.raw.tool[pack] then
-      BioInd.writeDebug("Science pack " .. tostring(pack) .. " does not exist.")
+      BioInd.writeDebug("Science pack %s does not exist.", {pack})
     end
   end
 end
@@ -82,7 +82,7 @@ function thxbob.lib.tech.remove_science_pack(technology, pack)
       end
     end
   else
-    BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+    BioInd.writeDebug("Technology %s does not exist.", {technology})
   end
 end
 
@@ -99,10 +99,10 @@ function thxbob.lib.tech.add_recipe_unlock(technology, recipe)
     if addit then table.insert(data.raw.technology[technology].effects, {type = "unlock-recipe", recipe = recipe}) end
   else
     if not data.raw.technology[technology] then
-      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {technology})
     end
     if not data.raw.recipe[recipe] then
-      BioInd.writeDebug("Recipe " .. tostring(recipe) .. " does not exist.")
+      BioInd.writeDebug("Recipe %s does not exist.", {recipe})
     end
   end
 end
@@ -116,7 +116,7 @@ function thxbob.lib.tech.remove_recipe_unlock(technology, recipe)
     end
   else
     if not data.raw.technology[technology] then
-      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {technology})
     end
   end
 end
@@ -131,10 +131,10 @@ function thxbob.lib.tech.replace_prerequisite(technology, old, new)
     end
   else
     if not data.raw.technology[technology] then
-      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {technology})
     end
     if not data.raw.technology[new] then
-      BioInd.writeDebug("Technology " .. tostring(new) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {new})
     end
   end
 end
@@ -152,10 +152,10 @@ function thxbob.lib.tech.add_prerequisite(technology, prerequisite)
     if addit then table.insert(data.raw.technology[technology].prerequisites, prerequisite) end
   else
     if not data.raw.technology[technology] then
-      BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {technology})
     end
     if not data.raw.technology[prerequisite] then
-      BioInd.writeDebug("Technology " .. tostring(prerequisite) .. " does not exist.")
+      BioInd.writeDebug("Technology %s does not exist.", {prerequisite})
     end
   end
 end
@@ -168,6 +168,6 @@ function thxbob.lib.tech.remove_prerequisite(technology, prerequisite)
       end
     end
   else
-    BioInd.writeDebug("Technology " .. tostring(technology) .. " does not exist.")
+    BioInd.writeDebug("Technology %s does not exist.", {technology})
   end
 end

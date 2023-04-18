@@ -26,7 +26,7 @@ data:extend(
     },
 
 
-  --- Bio Farm and Nursary
+  --- Bio Farm and Nursery
     {
       type = "item-subgroup",
       name = "bio-bio-farm-fluid-1",

@@ -1,4 +1,272 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.10
+Date: 2021-02-14
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Fixed that the Bio Cannon didn't show a "No network" icon. As it will only shoot if the hidden radar is hooked up to power, visual feedback is important!
+    - Changed the collision_box of the Bio Cannon's hidden radar from zero to the base entity's size to make sure that it will get power if a pole is placed next to it.
+    - Fixed crash when invalid trees were removed from the table in on_configuration_changed. (https://mods.factorio.com/mod/Bio_Industries/discussion/6023229314e09f1463cc4950)
+    - Fixed that the tree.mining.results would be overwritten if both tree.mining.result and tree.mining.results exist, so trees would yield a variable amount of wood instead of, for example, "rubber-wood".
+    - Hopefully fixed that Solar boiler, Solar Farm, and Musk floor were not available when IR2 was active. (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+
+  Changes:
+    - If IR2 is active, put the "stone-brick" into the same subgroup as concrete again.
+    - If IR2 is active, ignore any trees it creates (for now, there's just the rubber trees). These trees won't grow if you plant trees manually, with seedbombs, or with terraformers, and their mining results won't be changed. This fixes that rubber trees would yield "wood" instead of "rubber-wood" when mined. (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+
+
+
+  TODO:
+    - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
+    - Add Big gardens for absorbing more pollution. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f318f69f3644760ee6d001e)
+    - Make algae grow on water to contain pollution there. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f07bed0b6dcd7af988b9fb0)
+    - Just an idea: Wood harvesters like they used to be in <https://mods.factorio.com/mod/WoodHarvester>. Could harvest (only) fully grown trees planted by terraformers, and output "trees" that would have to be processed by a sawmill to make wood and wood pulp. Bio farms would also output "trees". The current bio farms already look a bit like a sawmill, so use the current pix for it and get new ones for the bio farm! This would also solve a problem with the German translation: A "Baumschule" is a tree nursery -- it's just for growing trees, not for processing them!
+    - Add tar recipe if tar is available in the game.
+    - Activate new Bio-Cannon (0.18.33 version) once "NE Enemies" is updated -- we don't want different versions of the cannon in the game!
+    - Make a version of the wooden rail bridge with powered rails. Make version of bridges from other mods (so far "Beautiful Bridge Railway") with powered rails.
+    - Bigger trees give more wood (https://forums.factorio.com/viewtopic.php?f=16&t=95205)
+    - Don't plant lying trees
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.9
+Date: 2021-02-06
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Revert the change that bigger wooden chests will be disabled if any mod providing its own bigger chests or ware houses is active. (I'll keep the setting, so you can disable the chests yourself if you don't need them.) The general idea (less items cluttering up the menus) was good, but removing the chests altogether without giving players a choice breaks existing games. Sorry for the inconvenience! (https://mods.factorio.com/mod/Bio_Industries/discussion/601e8ee321aae5bce96ccd6b)
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.8
+Date: 2021-02-06
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Fixed crash when upgrading from an old version of the mod because some tables had not been initialized. (https://mods.factorio.com/mod/Bio_Industries/discussion/601a66a1067e93916960c12c)
+    - Fixed that some of our compound entities were missing icons in the "Electric network info" screen. (https://mods.factorio.com/mod/Bio_Industries/discussion/6017c3bba66ddaa92125380b)
+    - Fixed that Musk floor wood turn to black when one hovered the cursor over it with an inserter in the hand. (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+
+  Changes:
+    - Some more changes to the init process: If a compound entitiy needs additional tables or variables in the global table, their names will be stored with its data. On init, these tables/variables will be created if they didn't exist yet, or will be removed if the compound entity has been disabled.
+    - Added a setting to turn off BI's bigger wooden chests. The setting will be not available (and the chests won't be created) if any of these mods is active: "AAI Containers & Warehouses", "Advanced storage +", "Angel's Addons - Storage Options", "Bob's Logistics mod", "Crux Chests", "Warehousing Mod".
+    - Don't create the disassembly recipes if "AAI Industry" is active.
+    - If "Space Exploration" is active, a recipe for making sand from crushed stone will be added to the "Pulveriser" once that tech has been researched. Also, allow our "x to crushed stone" recipes to be crafted in the pulveriser.
+    - If "Space Exploration" is active, several of our entities (e.g. bio reactor, cokery, stone crusher,entities that produce/store electricity, poles, and chests) can now be built in space.
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.7
+Date: 2021-01-31
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Disabled disassemble recipes (and the associated setting) if IR2 is active. This takes care of a crash when both IR2 and "Resource Spawner Overhaul" are active. (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+    - If IR2 is active, it's not sufficient to replace "crushed stone" with "gravel" in the recipe ingredients and results only -- we must also replace it in main_product! This fixes a crash when BI was used together with IR2 and "Angel's Refining", and potentially with other mods as well.
+    - Wrongly assumed that a recipe will have either "icon" or "icons" as soon as it has been created (actually, they may be added later on), and created invalid "icons" entries by copying "icon" when it was nil. Added another check to fix a crash related to a missing icon when IR2 is active. (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.6
+Date: 2021-01-31
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Fixed crash on starting the game when both "Angel's Petrochemical Processing" and "Bob's Power" were active. (https://mods.factorio.com/mod/Bio_Industries/discussion/601594a0b16c8766cfae056b)
+    - Removed log spam.
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+Date: 2021-01-30
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes are also available for Factorio 0.18/1.0 (version 0.18.35 of this mod).
+
+  Bugfixes:
+    - Fixed graphics for the huge solar panel and huge accumulator. Sorry for the inconvenience! (https://mods.factorio.com/mod/Bio_Industries/discussion/600a308ac4310725ccdb30f9, https://mods.factorio.com/mod/Bio_Industries/discussion/600b4e922f7e7ca4a20b684f)
+    - Fixed crash with "Industrial Revolution 2". Thanks a lot to Deadlock989 for explaining what exactly his mod expects! (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+    - Fixed UPS issue when the "Game tweaks: Easy Gardens" setting wasn't enabled. (https://mods.factorio.com/mod/Bio_Industries/discussion/600b8ef119f43a94fc8fdfde)
+
+  Changes:
+    - If "Industrial Revolution 2" is active, the  recipe unlock for the big wooden pole will be moved from "Logistics" to "Energy Distribution 1". This change was necessary to fix the crash. (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+    - If IR2 is active, crushed stone will be replaced with gravel in all recipes (both as ingredient and as product). This fixes that the Bio Farm couldn't be built because crushed stone was never unlocked. (https://mods.factorio.com/mod/Bio_Industries/discussion/600a5cca5f9fe9c9952b0b8a)
+    - If IR2 is active, our stone crusher won't be available. The stone crushing recipes have been moved to the different crushers from IR2 instead.
+    - The terraformers have a visible radar that will show the scanning progress if you hover the cursor over it. It always bugged me that it would show a different amount of health points if the terraformer was damaged. Now, radar and the actual terraformer will always have the same health.
+
+  Modding:
+    - Reworked the initialization process. In on_configuration_changed, we now remove invalid compound entities (or parts of them) from the global tables, restore missing hidden entities, and register any compound entities (creating missing hidden entities) that may have been placed by other mods.
+    - Create separate prototypes of hidden entities for each compound entity. Previously, the same hidden pole prototype (among others) was used in different compound entities, which made it easy to mess up and removing the wrong entities when cleaning up.
+    - Migrated the names of several hidden entities to follow a common naming scheme. Also changed the names of several sub-tables in the global table, because the entity names are derived from the table names.
+    - Reworked the structure of the table storing the parts used for each compound entity type. This allows to easily add necessary data to some or all of the hidden entities. Also, adding entirely new compound entities is a cinch now -- we may need that in the not-so-far future!
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 2021-01-21
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes are also available for Factorio 0.18/1.0 (version 0.18.34 of this mod).
+    - There's some serious work going on in the background: Our new graphics artist (snouz) is currently reworking the graphics and the tech tree. You'll see the results in one of the next releases (the next, unless some more bugs have sneaked into this one).
+
+  Locale:
+    - Fixed Russian translation for "crushed stone". (https://mods.factorio.com/mod/Bio_Industries/discussion/5ff36051a449805c1c979d22)
+
+  Bugfixes:
+    - We really shouldn't create recipes in data-final-fixes.lua! Moved disassemble recipes over to data-updates.lua.
+    - Moved the recipe changes (setting "Game tweaks: Recipe") to from data-final-fixes.lua to data-updates.lua. This gives the "Schall Recipe Scaling" a chance to create a scaled version of the stone-wall, concrete, and rail recipes where our changes to the original recipes have been applied. (https://mods.factorio.com/mod/Bio_Industries/discussion/5ff570bd916993002371332a/edit_title)
+    - Moved the fix for rail collision masks from data-final-fixes.lua to data-updates.lua. This way, Klonan's "Construction Drones" will be able to move over rails again. (https://mods.factorio.com/mod/Bio_Industries/discussion/5ff517c391699300236170a2)
+    - Fixed that "Coal 2" wasn't shown in list of finished researches even when it was researched.
+    - Fixed crash when trees planted while "Alien Biomes" was used were still growing, but "Alien Biomes" had been removed from the game. (This will also work if any other mod providing new tree prototypes that could be planted with BI has been removed.)
+    - Did something stupid in on_configuration_changed. Fixed that the notifications for new recipes would be displayed again each time something changed.     (https://mods.factorio.com/mod/Bio_Industries/discussion/6005b910a417d7448960ef64)
+
+  Changes:
+    - "Bob's Character classes" makes several copies of the default character, and if character selector mods are active, there may also be several characters in the game. All of these characters would show up in the "Made in" list of hand-craftable recipes. Changed it so that hand-craftable recipes won't show "Made in" anymore.
+    - The Bio boiler now is in the same subgroup as the vanilla boiler, so it won't be on a line of its own in the crafting menu any longer. (Thanks to snouz for pointing this out!)
+    - Changed the range overlay of the huge substation so that it will cover whole tiles on the edges. (Again, thanks to snouz for finding this!)
+    - Previous versions of "Automatic Train Layer" didn't raise an event when rails were placed, so our powered rails did not transmit power. Also, there was a bug report related to crashes because of missing hidden entities. -- Added a migration that will add unregistered compound entities to the tables (creating hidden entities) and make sure that all required hidden entities exist for registered compound entities. (https://mods.factorio.com/mod/Bio_Industries/discussion/5ffb8424e005229d819cfc3f)
+    - Added an optional dependency on "Automatic Train Layer" to ensure only the latest version (1.0.6, fully compatible with BI) is used. If you are using BI 0.18.x, download the latest 1.1 version of ATL and change "factorio_version" in info.json from "1.1" to "1.0" or "0.18". (https://mods.factorio.com/mod/auto-track-laying/downloads)
+    - There may be multiple characters in the game. Apply character tweaks to the character prototypes that are recognized by "Minime". (Known dummy characters from other mods and characters created by "Bob's Character Classes" will be ignored. If there are any other characters that should/shouldn't be ignored by BI, please tell me!)
+    - Reduced default stack size of crushed stone to 400. (It still will be set to 800 if the startup setting "Game tweaks: Stack size" is enabled.)
+    - Modules can't be used with Bio gardens any longer. Using productivity or speed modules didn't make much sense anyway, and using efficiency modules will punish you by removing less instead of more than the base pollution value. (https://mods.factorio.com/mod/Bio_Industries/discussion/6004b7584a731a2870c4c0d5)
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 2021-01-02
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes are also available for Factorio 0.18/1.0 (version 0.18.33 of this mod).
+
+  Bugfixes:
+    - Fixed that the upgrade planner can be used with vanilla rails even with Factorio 1.1. It didn't work because the default collision mask of rails has changed. (https://mods.factorio.com/mod/Bio_Industries/discussion/5febd3c6ddddd4dd1a7ada73)
+
+  Changes:
+    - If "Beautiful Bridge Railway" is active, the upgrade planner can now be used to change our wooden bridges.
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2020-12-31
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes are also available for Factorio 0.18/1.0 (version 0.18.32 of this mod).
+
+  Bugfixes:
+    - Fixed crash with "Tral's Robot Tree Farm". (https://mods.factorio.com/mod/Bio_Industries/discussion/5e7cd3f3304f21000db9542c)
+    - If the upgrade planner was used to replace power rails with other rail types, the hidden power poles would not be removed, so electricity would still be transmitted along the rail track.
+
+  Changes:
+    - The tree-growing code of BI is based on OwnlyMe's "Robot Tree Farm" mod, as is "Tral's Robot Tree Farm". So, BI would create variations of all tree prototypes, then the other mods would make (unnecessary) variations of BI's variations. As the Robot Tree Farm mods allow for up to 200 growing stages (i.e. tree variations), this would result in a huge amount of prototypes! -- Tral's Robot Tree Farm" will be fixed later so that it ignores our trees. Until then, we remove the redundant prototypes again.
+
+  Minor features:
+    - Added an option to provide fluid fertilizer/advanced fertilizer. Fluid fertilizers can only be used in the Bio garden, where they replace fertilizer/advanced fertilizer + water. This allows for easy logistics when setting up many Bio gardens next to each other, but you'll have to pay for it: Prefabricating fluid fertilizers requires 50% more fertilizer/advanced fertilizer than combining the solid fertilizers with water on site. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f318f69f3644760ee6d001e)
+    - Wooden rails and power rails can be used with the upgrade planner again. (https://mods.factorio.com/mod/Bio_Industries/discussion/5febd3c6ddddd4dd1a7ada73)
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2020-12-24
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - All changes are also available for Factorio 0.18/1.0 (version 0.18.31 of this mod).
+
+  Bugfixes:
+    - Fixed crash in migration script for 0.18.29. (https://mods.factorio.com/mod/Bio_Industries/discussion/5fd97fcc31862922c0d70f66)
+    - Fixed crash caused by indexing a non-existing value. (https://mods.factorio.com/mod/Bio_Industries/discussion/5fdae5b9c83d2cb4de934a27)
+    - Fixed crash when "Pyanodons Coal Processing" was active but the startup setting for Bio Fuel was disabled.
+    - "Omnifluid" changes the ingredients of our terraformer recipes, and other mods may do the same. Fixed that our previous code only accounted for the original recipes and always removed just one item for each ingredient, regardless of what the active recipe specified.
+    - Fixed that in the English locale, the names of seedbomb recipes with fertilizer/advanced fertilizer contained German text -- stupid cut'n'paste error. :-)
+
+  Changes:
+    - Improved code of functions that are called when entities are created/removed.
+    - Improved code for terraformers and tree growing.
+    - Migrated "fertiliser" to "fertilizer" and "bi-adv-fertiliser" to "bi-adv-fertilizer".
+    - If "Pyanodons Raw Ores" is active, BI's technologies "Coal processing 1-3" will be removed and the unlocks will be moved to "Raw coal -- Stage 1-3". If "Pyanodons Coal Processing" is active and "Pyanodons Raw Ores" isn't the unlocks from the BI technologies will be moved to "Coal processing 1-3". There's no need to research similar techs from several mods. (https://mods.factorio.com/mod/Bio_Industries/discussion/5fc63d674158dd5b056174b9)
+    - Won't create liquid air and nitrogen anymore if any other mods provide these. Previously, we only did this if specific other mods were active, now it's more versatile. (https://mods.factorio.com/mod/Bio_Industries/discussion/5fc63d674158dd5b056174b9)
+    - It's no longer possible to use fertilizer on tiles where it doesn't make sense (e.g. Musk floor or concrete). If you do try it, you'll just waste fertilizer!
+
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2020-12-14
+  Uploaded by:
+    - Pi-C
+
+  Info:
+    - Updated for Factorio 1.1. This release contains all changes from version 0.18.30. Because we use the same code, most of the things that will be implemented in the future will also be released for the currently stable 0.18/1.0 branch.
+
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.30
+Date: 2020-12-14
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Fixed a crash caused by a stupid typo. (https://mods.factorio.com/mod/Bio_Industries/discussion/5fc622a14158dd5b055b4c7e)
+    - Fixed that terraformers wouldn't plant trees on landfill. (https://mods.factorio.com/mod/Bio_Industries/discussion/5fb01dbbeeb1d4a1fe0a7eac)
+    - Fixed crash with Omnifluid by blacklisting the "Bio Solar plant and boiler".
+    - Fixed a crash caused by a recently added global table that wasn't initialized from on_configuration_changed.
+    - Fixed tree-growing code. Once a seedling has been successfully planted, it will grow to a tree by passing up to 4 stages now, as originally intended.
+    - Removed "concrete" as prerequisite technology for "advanced-material-processing-2" because it's already an implicit prerequisite.
+
+  Changes:
+    - Bumped dependency on the base mod to the latest version of Factorio 0.18. This will allow me to remove a lot of version checks, providing a clean base for using the code in both the stable and the experimental branches of Factorio.
+    - Improved code of terraformer functions. Also removed the almost-duplicate function that was used for OmniFluid. (It's easier to maintain the code if everything is combined.)
+    - Significantly shortened the code for growing trees and made it work as originally intended: With each stage, mining a tree will take more time, but the chance to yield something will also grow. In the early stages ("Growing tree"), you'll only get back a sapling at best, in the last stage ("Young tree") a yield of 1 wood is guaranteed. Fully grown trees will yield 4 wood or 1…6 wood if the startup setting "Game tweaks: Tree yield" is active. So, it really makes sense now to wait for trees to be fully grown before mining them!
+
+
+---------------------------------------------------------------------------------------------------
+Version: 0.18.29
+Date: 2020-11-30
+  Uploaded by:
+    - Pi-C
+
+  Bugfixes:
+    - Fixed that some disassembling recipes were not available.
+    - Fixed crash with an old migration script. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f5f4f358985e0b8e5ba5115)
+    - Removed obsolete "per_user = false" attribute from settings. :-) (https://forums.factorio.com/viewtopic.php?p=305644#p305644)
+    - Fixed that we didn't reload technologies when the configuration changed. Thus, an alternative recipe we've added for another mod would remain in the game (and be useless) even after that mod had been removed.
+    - Fixed that compound entities (bio farm, cannon, powered rails etc.) placed by "Construction Drones" and similar mods reviving ghosts didn't work.  (https://mods.factorio.com/mod/Bio_Industries/discussion/5f824c45b1a1a0637d24d056)
+
+  Changes:
+    - Moved recipes "Solid fuel from wood bricks", "Bio stone brick", and "Basic gas processing" from "Coal processing 1" to "Coal processing 2". These recipes can only be used in chemical plants, which are guaranteed to be available when "Coal processing 2" is researched. Also, the move gives an incentive to really use wooden bricks as fuel instead of converting them to solid fuel almost immediately.
+    - Rearranged settings and unified/shortened setting names.
+    - Inverted setting: "Hide electric grid overlay" for Musk floor is now "Enable: Electric grid overlay". This way, it blends in with the other settings.
+    - Changed debugging routines so that debugging output is only formatted if debugging is activated. This should make the mod a bit more performant.
+    - The recipe for advanced fertilizer was only unlocked if Bio Fuels were enabled per startup setting. Advanced fertilizer (as well as the bioreactor and the basic recipe for algae biomass) will always be available now, regardless of this setting. (https://mods.factorio.com/mod/Bio_Industries/discussion/5ec7ff6cbe5352000eb8f875)
+
+  Graphics:
+    - Made new battery icon so it's in sync with the vanilla icon again.
+    - Gave all graphics the "optipng" treatment.
+    - TheSAguy provided alternative icons for use with the recipes "Bio-mass conversion 2" and "Basic gas processing" if "Angel's Petro Chemical Processing" is active.
+
+  Locale:
+    - Completely reworked localization -- no need to translate everything, using crossreferences is way easier! Also, the new descriptions should explain some things that many players apparently didn't understand.
+    - Removed some obsolete strings.
+    - Added German locale. Thanks to Tobilike! (https://forums.factorio.com/viewtopic.php?p=508622#p508622)
+    - Fixed some typos in the English localization.
+    - I've cleaned up the Russian localization by removing obsolete strings and adding placeholders for new ones. This should make work easier for translators. However, I don't speak Russian, so it would be best if somebody would look over all strings again and update them!
+
+  Modding:
+    - Added support for "Lua API global Variable Viewer (gvv)" by x2605. If that mod is active, you can inspect the global table of this mod at runtime -- just enter "/gvv" at the console, it's quite useful for debugging! (https://mods.factorio.com/mod/gvv)
+
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.28
 Date: 2020-08-14
   Uploaded by:
@@ -9,13 +277,6 @@ Date: 2020-08-14
 
   Bugfixes:
     - Fixed crash in migration script if a bio-reactor had no recipe set. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f36deb43b315081c5dd4496)
-
-  TODO:
-    - Compatibility with "Tree growth: Scaled trees." (https://mods.factorio.com/mod/Bio_Industries/discussion/5e7cd3f3304f21000db9542c)
-    - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
-    - Add Big gardens for absorbing more pollution. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f318f69f3644760ee6d001e)
-    - Add "fluid fertilizer" (fertilizer + water) as alternative to the existing fertilizer. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f318f69f3644760ee6d001e)
-    - Make algae grow on water to contain pollution there. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f07bed0b6dcd7af988b9fb0)
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.27

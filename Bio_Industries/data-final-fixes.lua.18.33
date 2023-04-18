@@ -106,11 +106,12 @@ end
 ---- Game Tweaks ---- Disassemble Recipes
 require("prototypes.Bio_Tweaks.recipe")
 if BI.Settings.BI_Game_Tweaks_Disassemble then
-  for tech, recipe in pairs({
-    ["advanced-material-processing"] = "bi-steel-furnace-disassemble",
-    ["automation-2"] = "bi-burner-mining-drill-disassemble",
-    ["automation-2"] = "bi-stone-furnace-disassemble",
-    ["automation-2"] = "bi-burner-inserter-disassemble",
+  for recipe, tech in pairs({
+    ["bi-burner-mining-drill-disassemble"] = "automation-2",
+    ["bi-burner-inserter-disassemble"] = "automation-2",
+    ["bi-long-handed-inserter-disassemble"] = "automation-2",
+    ["bi-stone-furnace-disassemble"] = "automation-2",
+    ["bi-steel-furnace-disassemble"] = "advanced-material-processing",
   }) do
     thxbob.lib.tech.add_recipe_unlock(tech, recipe)
   end
@@ -255,8 +256,8 @@ if mods["Krastorio2"] then
 
 
   --~ -- Remove recipes for liquid air and nitrogen
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-liquid-air")
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-nitrogen")
   --~ data.raw.recipe["bi-liquid-air"].hidden = true
   --~ data.raw.recipe["bi-nitrogen"].hidden = true
 
@@ -269,8 +270,8 @@ end
 
 if mods["Krastorio"] then
   --~ -- Remove recipes for liquid air and nitrogen
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-liquid-air")
+  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-nitrogen")
   --~ data.raw.recipe["bi-liquid-air"].hidden = true
   --~ data.raw.recipe["bi-nitrogen"].hidden = true
 
@@ -292,8 +293,8 @@ if mods["angelspetrochem"] then
   --~ })
 
   -- Liquid air and nitrogen aren't needed -- remove unlock recipes!
-  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-liquid-air")
-  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertiliser", "bi-nitrogen")
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-liquid-air")
+  thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-nitrogen")
   --~ data.raw.recipe["bi-liquid-air"] = nil
   --~ data.raw.recipe["bi-nitrogen"] = nil
 end
@@ -306,8 +307,8 @@ local AlienBiomes = data.raw.tile["vegetation-green-grass-3"] and
                     data.raw.tile["vegetation-green-grass-1"] and true or false
 
 if not AlienBiomes then
-  data.raw.item["fertiliser"].place_as_tile.result = "grass-3"
-  data.raw.item["bi-adv-fertiliser"].place_as_tile.result = "grass-1"
+  data.raw.item["fertilizer"].place_as_tile.result = "grass-3"
+  data.raw.item["bi-adv-fertilizer"].place_as_tile.result = "grass-1"
 end
 
 if mods["pycoalprocessing"] and BI.Settings.BI_Bio_Fuel then

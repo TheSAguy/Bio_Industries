@@ -8,14 +8,14 @@ for index, force in pairs(game.forces) do
 
   for _, tech in ipairs({"bi-tech-coal-processing-2", "bi-tech-coal-processing-3"}) do
         -- Technology exists and has already been researched
-BioInd.writeDebug("Checking tech: " .. tostring(tech) .. " for force ".. tostring(force.name) .. " (Researched: " .. tostring(technologies[tech].researched) ..")")
+BioInd.writeDebug("Checking tech: %s for force %s (Researched: %s)", {tech, force and force.name or "nil", technologies[tech] and technologies[tech].researched or "nil"})
 
     if game.technology_prototypes[tech] and technologies[tech].researched then
       -- Check if all prerequisite technologies have been researched
       local all_prereqs = true
       for pname, ptech in pairs(technologies[tech].prerequisites) do
-        BioInd.writeDebug("pname: " .. tostring(pname))
-        BioInd.writeDebug("ptech: " .. tostring(ptech))
+        BioInd.writeDebug("pname: %s", {pname})
+        BioInd.writeDebug("ptech: %s", {ptech})
         if not ptech.researched then
           all_prereqs = false
           break
@@ -35,8 +35,8 @@ BioInd.writeDebug("Checking tech: " .. tostring(tech) .. " for force ".. tostrin
         end
         -- unresearch the technology
         game.print({"", "Disabling technology \"", {"technology-name." .. tech}, "\"" })
-        technologies.tech.researched = false
-        technologies.tech.reload()
+        technologies[tech].researched = false
+        technologies[tech].reload()
       end
     end
   end

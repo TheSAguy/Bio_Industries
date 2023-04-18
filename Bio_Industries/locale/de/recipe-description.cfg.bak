@@ -1,0 +1,102 @@
+[recipe-description]
+bi-acid=Man braucht kein Öl, um Schwefelsäure zu gewinnen — es geht auch mit nachwachsenden Ressourcen!
+bi-adv-fertiliser-1=__ITEM__bi-adv-fertiliser__ (__ITEM__alien-artifact__)
+bi-adv-fertiliser-2=__ITEM__bi-adv-fertiliser__
+bi-fertiliser-1=__ITEM__fertiliser__
+bi-fertiliser-2=__ITEM__fertiliser__ (mit Natriumhydroxid)
+
+#~ bi-arboretum-r1=Bäume pflanzen
+#~ bi-arboretum-r2=Gelände verändern (__ITEM__fertiliser__)
+#~ bi-arboretum-r3=Gelände verändern (__ITEM__bi-adv-fertiliser__)y
+#~ bi-arboretum-r4=Gelände verändern & Bäume pflanzen (__ITEM__fertiliser__)
+#~ bi-arboretum-r5=Gelände verändern & Bäume pflanzen (__ITEM__bi-adv-fertiliser__)
+#~ bi-arboretum-r-fertilise+plant=Düngt den Boden und pflanzt Bäume, sobald der Radar einen Sektor vollständig abgetastet hat.
+#~ bi-arboretum-r-fertilise=Düngt den Boden, sobald der Radar einen Sektor vollständig abgetastet hat.
+bi-arboretum-r1=Pflanzt Bäume, sobald der Radar einen Sektor vollständig abgetastet hat.
+bi-arboretum-r2=Düngt den Boden, sobald der Radar einen Sektor vollständig abgetastet hat.
+bi-arboretum-r3=Düngt den Boden, sobald der Radar einen Sektor vollständig abgetastet hat.
+bi-arboretum-r4=Düngt den Boden und pflanzt Bäume, sobald der Radar einen Sektor vollständig abgetastet hat.
+bi-arboretum-r5=Düngt den Boden und pflanzt Bäume, sobald der Radar einen Sektor vollständig abgetastet hat.
+
+bi-ash-1=__ITEM__bi-ash__ aus __ITEM__wood__
+bi-ash-2=__ITEM__bi-ash__ aus __ITEM__bi-woodpulp__
+bi-basic-gas-processing=Flüssiggas aus __ITEM__coal__ und __ITEM__resin__
+#~ bi-basic-pumpjack-disassemble=Demontage: Brennerflüssigkeitspumpe
+
+#~ bi-battery=Bio-Batterie
+
+bi-biomass-1=Nimm __ITEM__fertiliser__, vermische es mit Wasser — und fertig ist die erste Biomasse!
+bi-biomass-2=Vermische etwas Biomasse mit Wasser und Flüssigluft, damit sie sich vermehrt!
+bi-biomass-3=Durch Zugabe von __ITEM__bi-ash__ lässt sich in kurzer Zeit ein Vielfaches an Biomasse herstellen!
+
+bi-biomass-conversion-1=Stelle __ITEM__bi-cellulose__ und Leichtöl aus Biomasse her!
+bi-biomass-conversion-2=Stelle Flüssiggas aus Biomasse her!
+bi-biomass-conversion-3=Stelle Schmiermittel aus Biomasse her!
+bi-biomass-conversion-4=Stelle Rohöl und Wasser/Schwefelhaltiges Wasser aus Biomasse her!
+
+bi-disassemble-recipes=Ein Teil der Materialien kann wiederverwendet werden.
+
+#~ bi-burner-inserter-disassemble=__ENTITY__burner-inserter__ zerlegen
+#~ bi-burner-mining-drill-disassemble=__ENTITY__burner-mining-drill__ zerlegen
+
+bi-cellulose-1=Produktion von __ITEM__bi-cellulose__ (einfach)
+bi-cellulose-2=Produktion von __ITEM__bi-cellulose__ (verbessert)
+bi-charcoal-1=__ITEM__wood-charcoal__ aus __ITEM__bi-woodpulp__
+bi-charcoal-2=__ITEM__wood-charcoal__ aus __ITEM__wood__
+bi-coal-1=Produktion von __ITEM__coal__ (einfach)
+bi-coal-2=Produktion von __ITEM__coal__ (verbessert)
+bi-coke-coal=__ITEM__pellet-coke__ aus __ITEM__coal__
+
+bi-crushed-stone-1=__ITEM__stone-crushed__ aus __ITEM__stone__
+bi-crushed-stone-2=__ITEM__stone-crushed__ aus __ITEM__concrete__
+bi-crushed-stone-3=__ITEM__stone-crushed__ aus __ITEM__hazard-concrete__
+bi-crushed-stone-4=__ITEM__stone-crushed__ aus __ITEM__refined-concrete__
+bi-crushed-stone-5=__ITEM__stone-crushed__ aus __ITEM__refined-hazard-concrete__
+
+#~ bi-liquid-air=Flüssigluft
+
+bi-logs-1=Bekommt er ordentlich Wasser, wächst aus einem Setzling ein Baum, der gleich zu __ITEM__wood__ und __ITEM__bi-woodpulp__ verarbeitet wird.
+bi-logs-2=__ITEM__bi-ash__ beschleunigt das Wachstum.
+bi-logs-3=__ITEM__fertiliser__ ist wohl gesund für Pflanzen – jedenfalls wachsen die Bäume damit noch schneller heran.
+bi-logs-4=Hier wird __ITEM__bi-adv-fertiliser__ eingesetzt. Muss ich noch mehr sagen?
+
+bi-seed-1=Man braucht nicht viel mehr als __ITEM__wood__ und Wasser, um an __ITEM__bi-seed__ zu kommen.
+bi-seed-2=Durch Zugabe von __ITEM__bi-ash__ erzielt man in kürzerer Zeit höhere Erträge.
+bi-seed-3=Mit __ITEM__fertiliser__  erhält man noch viel mehr __ITEM__bi-seed__.
+bi-seed-4=__ITEM__bi-adv-fertiliser__ – für die Superproduktion von __ITEM__bi-seed__!
+
+bi-seedling-1=Mit etwas Wasser wächst aus __ITEM__bi-seed__ ein __ENTITY__seedling__ heran.
+bi-seedling-2=__ITEM__bi-ash__ verbessert das Wachstum.
+bi-seedling-3=Wer seine Produktion steigern will, kommt nicht an __ITEM__fertiliser__ vorbei!
+bi-seedling-4=__ITEM__bi-adv-fertiliser__ macht Supererträge bei der Produktion von __ENTITY__seedling__ möglich!
+
+bi-seed-bomb-advanced=Pflanze Bäume in einem großen Radius mittels einer Samenbombe (__ITEM__bi-adv-fertiliser__)!
+bi-seed-bomb-basic=Pflanze Bäume in einem großen Radius mittels einer Samenbombe!
+bi-seed-bomb-standard=Pflanze Bäume in einem großen Radius mittels einer Samenbombe (__ITEM__fertiliser__)!
+
+#~ bi-long-handed-inserter-disassemble=__ENTITY__long-handed-inserter__ zerlegen
+#~ bi-mineralized-sulfuric-waste=Mineralized water & sulfuric waste from crushed stone, charcoal and pure water
+
+bi-pellet-coke=__ITEM__pellet-coke__ aus __ITEM__solid-fuel__
+bi-pellet-coke-2=__ITEM__pellet-coke__ aus Kohlenstoff
+bi-plastic-1=Bio-__ITEM__plastic-bar__ aus __ITEM__wood__
+bi-plastic-2=Bio-__ITEM__plastic-bar__ aus __ITEM__bi-cellulose__
+
+bi-purified-air-1=__ITEM__bi-purified-air__ (__ITEM__fertiliser__)
+bi-purified-air-2=__ITEM__bi-purified-air__ (__ITEM__bi-adv-fertiliser__)
+
+bi-resin-pulp=__ITEM__resin__ aus __ITEM__bi-woodpulp__
+bi-resin-wood=__ITEM__resin__ aus __ITEM__wood__
+
+bi-solid-fuel=__ITEM__solid-fuel__ aus __ITEM__wood-bricks__
+#~ bi-steel-furnace-disassemble=__ENTITY__steel-furnace__ zerlegen
+#~ bi-stone-brick=Bio-__ITEM__stone-brick__
+
+#~ bi-stone-furnace-disassemble=__ENTITY__stone-furnace__ zerlegen
+bi-sulfur-angels=Bio-__ITEM__sulfur__
+bi-sulfur=Bio-__ITEM__sulfur__
+bi-wood-from-pulp=__ITEM__wood__ aus __ITEM__bi-woodpulp__
+bi-rail-wood-to-concrete=__ENTITY__bi-rail-wood__ aufwerten
+
+bi-slag-slurry=Slag slurry from ash, crushed stone and saline water
+bi-sand=__ITEM__sand__ from __ITEM__stone-crushed__

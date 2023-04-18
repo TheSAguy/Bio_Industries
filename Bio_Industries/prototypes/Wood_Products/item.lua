@@ -8,6 +8,8 @@ data:extend({
   {
     type = "item",
     name = "bi-wooden-pole-big",
+    localised_name = {"entity-name.bi-wooden-pole-big"},
+    localised_description = {"entity-description.bi-wooden-pole-big"},
     icon = ICONPATH .. "big-wooden-pole.png",
     icon_size = 64,
     icons = {
@@ -28,6 +30,8 @@ data:extend({
   {
     type = "item",
     name = "bi-wooden-pole-huge",
+    localised_name = {"entity-name.bi-wooden-pole-huge"},
+    localised_description = {"entity-description.bi-wooden-pole-huge"},
     icon = ICONPATH .. "huge-wooden-pole.png",
     icon_size = 64,
     icons = {
@@ -48,6 +52,8 @@ data:extend({
   {
     type = "item",
     name = "bi-wooden-fence",
+    localised_name = {"entity-name.bi-wooden-fence"},
+    localised_description = {"entity-description.bi-wooden-fence"},
     icon = ICONPATH .. "wooden-fence.png",
     icon_size = 64,
     icons = {
@@ -68,6 +74,8 @@ data:extend({
   {
     type = "rail-planner",
     name = "bi-rail-wood",
+    localised_name = {"entity-name.bi-rail-wood"},
+    localised_description = {"entity-description.bi-rail-wood"},
     icon = ICONPATH .. "rail-wood.png",
     icon_size = 64,
     icons = {
@@ -88,6 +96,8 @@ data:extend({
   {
     type = "rail-planner",
     name = "bi-rail-wood-bridge",
+    localised_name = {"entity-name.bi-rail-wood-bridge"},
+    localised_description = {"entity-description.bi-rail-wood-bridge"},
     icon = ICONPATH .. "rail-wood-bridge.png",
     icon_size = 64,
     icons = {
@@ -108,6 +118,8 @@ data:extend({
   {
     type = "rail-planner",
     name = "bi-rail-power",
+    localised_name = {"entity-name.bi-rail-power"},
+    localised_description = {"entity-description.bi-rail-power"},
     icon = ICONPATH .. "rail-concrete-power.png",
     icon_size = 64,
     icons = {
@@ -128,6 +140,8 @@ data:extend({
   {
     type = "item",
     name = "bi-wood-pipe",
+    localised_name = {"entity-name.bi-wood-pipe"},
+    localised_description = {"entity-description.bi-wood-pipe"},
     icon = ICONPATH .. "wood_pipe.png",
     icon_size = 64,
     icons = {
@@ -148,6 +162,8 @@ data:extend({
   {
     type = "item",
     name = "bi-wood-pipe-to-ground",
+    localised_name = {"entity-name.bi-wood-pipe-to-ground"},
+    localised_description = {"entity-description.bi-wood-pipe-to-ground"},
     icon = ICONPATH .. "pipe-to-ground-wood.png",
     icon_size = 64,
     icons = {
@@ -164,70 +180,78 @@ data:extend({
     stack_size = 50
   },
 
-  --- Large wooden chest 2 x 2
-  {
-    type = "item",
-    name = "bi-wooden-chest-large",
-    icon = ICONPATH .. "large_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "large_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
-    fuel_category = "chemical",
-    fuel_value = "32MJ",
-    subgroup = "storage",
-    order = "a[items]-aa[wooden-chest]",
-    place_result = "bi-wooden-chest-large",
-    stack_size = 48
-  },
+  --~ --- Large wooden chest 2 x 2
+  --~ {
+    --~ type = "item",
+    --~ name = "bi-wooden-chest-large",
+    --~ localised_name = {"entity-name.bi-wooden-chest-large"},
+    --~ localised_description = {"entity-description.bi-wooden-chest-large"},
+    --~ icon = ICONPATH .. "large_wooden_chest_icon.png",
+    --~ icon_size = 64,
+    --~ icons = {
+      --~ {
+        --~ icon = ICONPATH .. "large_wooden_chest_icon.png",
+        --~ icon_size = 64,
+      --~ }
+    --~ },
+    --~ fuel_category = "chemical",
+    --~ fuel_value = "32MJ",
+    --~ subgroup = "storage",
+    --~ order = "a[items]-aa[wooden-chest]",
+    --~ place_result = "bi-wooden-chest-large",
+    --~ stack_size = 48
+  --~ },
 
-  --- Huge wooden chest 3 x 3
-  {
-    type = "item",
-    name = "bi-wooden-chest-huge",
-    icon = ICONPATH .. "huge_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "huge_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
-    fuel_category = "chemical",
-    fuel_value = "200MJ",
-    subgroup = "storage",
-    order = "a[items]-ab[wooden-chest]",
-    place_result = "bi-wooden-chest-huge",
-    stack_size = 32
-  },
+  --~ --- Huge wooden chest 3 x 3
+  --~ {
+    --~ type = "item",
+    --~ name = "bi-wooden-chest-huge",
+    --~ localised_name = {"entity-name.bi-wooden-chest-huge"},
+    --~ localised_description = {"entity-description.bi-wooden-chest-huge"},
+    --~ icon = ICONPATH .. "huge_wooden_chest_icon.png",
+    --~ icon_size = 64,
+    --~ icons = {
+      --~ {
+        --~ icon = ICONPATH .. "huge_wooden_chest_icon.png",
+        --~ icon_size = 64,
+      --~ }
+    --~ },
+    --~ fuel_category = "chemical",
+    --~ fuel_value = "200MJ",
+    --~ subgroup = "storage",
+    --~ order = "a[items]-ab[wooden-chest]",
+    --~ place_result = "bi-wooden-chest-huge",
+    --~ stack_size = 32
+  --~ },
 
-  --- Giga wooden chest 6 x 6
-  {
-    type = "item",
-    name = "bi-wooden-chest-giga",
-    icon = ICONPATH .. "giga_wooden_chest_icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "giga_wooden_chest_icon.png",
-        icon_size = 64,
-      }
-    },
-    fuel_category = "chemical",
-    fuel_value = "400MJ",
-    subgroup = "storage",
-    order = "a[items]-ac[wooden-chest]",
-    place_result = "bi-wooden-chest-giga",
-    stack_size = 16
-  },
+  --~ --- Giga wooden chest 6 x 6
+  --~ {
+    --~ type = "item",
+    --~ name = "bi-wooden-chest-giga",
+    --~ localised_name = {"entity-name.bi-wooden-chest-giga"},
+    --~ localised_description = {"entity-description.bi-wooden-chest-giga"},
+    --~ icon = ICONPATH .. "giga_wooden_chest_icon.png",
+    --~ icon_size = 64,
+    --~ icons = {
+      --~ {
+        --~ icon = ICONPATH .. "giga_wooden_chest_icon.png",
+        --~ icon_size = 64,
+      --~ }
+    --~ },
+    --~ fuel_category = "chemical",
+    --~ fuel_value = "400MJ",
+    --~ subgroup = "storage",
+    --~ order = "a[items]-ac[wooden-chest]",
+    --~ place_result = "bi-wooden-chest-giga",
+    --~ stack_size = 16
+  --~ },
 
   ---- Power pole to connect Rail to Power Grid
   {
     type = "item",
     name = "bi-power-to-rail-pole",
+    localised_name = {"entity-name.bi-power-to-rail-pole"},
+    localised_description = {"entity-description.bi-power-to-rail-pole"},
     icon = ICONPATH .. "electric-to-rail.png",
     icon_size = 64,
     icon_mipmaps = 1,

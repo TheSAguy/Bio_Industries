@@ -8,6 +8,8 @@ if BI.Settings.Bio_Cannon then
     {
       type = "item",
       name = "bi-bio-cannon",
+      localised_name = {"entity-name.bi-bio-cannon"},
+      localised_description = {"entity-description.bi-bio-cannon"},
       icon = ICONPATH .. "biocannon_icon.png",
       icon_size = 64,
       icon_mipmaps = 1,

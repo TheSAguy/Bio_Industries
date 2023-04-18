@@ -4,74 +4,29 @@ require ("util")
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
 local ENTITYPATH = "__Bio_Industries__/graphics/entities/bio_solar_farm/"
 
-local BIGICONS = BioInd.check_base_version("0.18.0")
+--~ local BIGICONS = BioInd.check_base_version("0.18.0")
 
 
 if BI.Settings.BI_Solar_Additions then
 
--- This check is necessary because sounds.car_wood_impact didn't exist before Factorio 0.18.4 and
--- was changed in Factorio 0.18.18!
---~ local game_version = mods["base"]
---~ if game_version then
---~ local version = util.split(mods["base"], '.')
---~ for i=1, #version do
-  --~ version[i] = tonumber(version[i])
---~ end
 
-
--- Does the active Factorio version support new sounds? (Must be >= 0.18.18)
-
-local sound_def
+-- demo-sounds has been removed in Factorio 1.1, so we need to check the game version!
+local sound_def = BioInd.check_version("base", "<", "1.1.0") and
+                    require("__base__.prototypes.entity.demo-sounds") or
+                    require("__base__.prototypes.entity.sounds")
 local sounds = {}
-
---~ if (tonumber(version[2]) or 0) == 18 then
-  --~ sound_def = require("__base__.prototypes.entity.demo-sounds")
---~ end
-if BioInd.check_base_version("0.18.0")  then
-  sound_def = require("__base__.prototypes.entity.demo-sounds")
-end
-
---Factorio >= 0.18.18
---~ if ((tonumber(version[2]) or 0) == 18) and ((tonumber(version[3]) or 0) >= 18) and sound_def then
-if BioInd.check_base_version("0.18.18")  and sound_def then
-
-  log("car_wood_impact sound is function")
-  sounds.car_wood_impact = sound_def.car_wood_impact(1)
-  sounds.generic_impact = sound_def.generic_impact
-
--- Factorio 0.18.4 -- 0.18.17
---~ elseif ((tonumber(version[2]) or 0) == 18 and
-        --~ (tonumber(version[3]) or 0) >= 4) and sound_def  then
-elseif BioInd.check_base_version("0.18.4") and sound_def  then
-
-  sounds.car_wood_impact = sound_def.car_wood_impact
-  for _, sound in ipairs(sounds.car_wood_impact) do
-      sound.volume = 1
-  end
-  sounds.generic_impact = sound_def.generic_impact
-
--- Factorio 0.18.0 -- 0.18.4
---~ elseif version[2] >= 18 then
-elseif BioInd.check_base_version("0.18.0")  then
-  sounds.car_wood_impact = {
-    { filename = "__base__/sound/car-wood-impact.ogg", volume = 1 },
-    { filename = "__base__/sound/car-wood-impact-02.ogg", volume = 1 },
-    { filename = "__base__/sound/car-wood-impact-03.ogg", volume = 1 },
-    { filename = "__base__/sound/car-wood-impact-04.ogg", volume = 1 }
-  }
-  sounds.generic_impact = sound_def.generic_impact
--- Factorio 0.17
-else
-  sounds.car_wood_impact = {
-    { filename = "__base__/sound/car-wood-impact.ogg", volume = 1 },
-  }
-  sounds.generic_impact = {
-    { filename = "__base__/sound/car-metal-impact.ogg", volume = 1 },
-  }
-end
-
+sounds.car_wood_impact = sound_def.car_wood_impact(1)
+sounds.generic_impact = sound_def.generic_impact
 for _, sound in ipairs(sounds.generic_impact) do
   sound.volume = 0.65
+end
+
+sounds.walking_sound = {}
+for i = 1, 11 do
+  sounds.walking_sound[i] = {
+    filename = "__base__/sound/walking/concrete-" .. (i < 10 and "0" or "")  .. i ..".ogg",
+    volume = 1.2
+  }
 end
 
 data:extend({
@@ -87,6 +42,9 @@ data:extend({
         icon_size = 64,
       }
     },
+    -- This is necessary for "Space Exploration" (if not true, the entity can only be
+    -- placed on Nauvis)!
+    se_allow_in_space = true,
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.25, mining_time = 0.5, result = "bi-bio-solar-farm"},
     max_health = 600,
@@ -125,6 +83,9 @@ data:extend({
         icon_size = 64,
       }
     },
+    -- This is necessary for "Space Exploration" (if not true, the entity can only be
+    -- placed on Nauvis)!
+    se_allow_in_space = true,
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-bio-accumulator"},
     max_health = 500,
@@ -172,7 +133,6 @@ data:extend({
     },
     discharge_cooldown = 60,
     discharge_light = {intensity = 0.7, size = 7, color = {r = 1.0, g = 1.0, b = 1.0}},
-    --~ vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     vehicle_impact_sound = sounds.generic_impact,
     working_sound = {
       sound = {
@@ -205,6 +165,8 @@ data:extend({
   {
     type = "electric-pole",
     name = "bi-large-substation",
+    localised_name = {"entity-name.bi-large-substation"},
+    localised_description = {"entity-description.bi-large-substation"},
     icon = ICONPATH .. "bi_LargeSubstation_icon.png",
     icon_size = 64,
     icons = {
@@ -213,6 +175,9 @@ data:extend({
         icon_size = 64,
       }
     },
+    -- This is necessary for "Space Exploration" (if not true, the entity can only be
+    -- placed on Nauvis)!
+    se_allow_in_space = true,
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.5, result = "bi-large-substation"},
     max_health = 600,
@@ -229,7 +194,9 @@ data:extend({
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     drawing_box = {{-2.5, -5}, {2.5, 2.5}},
     maximum_wire_distance = 25,
-    supply_area_distance = 50,
+    -- Changed for 0.18.34/1.1.4
+    --~ supply_area_distance = 50,
+    supply_area_distance = 50.5,
     pictures = {
       filename = ENTITYPATH .. "bi_LargeSubstation.png",
       priority = "high",
@@ -239,7 +206,6 @@ data:extend({
       direction_count = 1,
       scale = 0.5,
     },
-    --~ vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     vehicle_impact_sound = sounds.generic_impact,
     working_sound = {
       sound = { filename = "__base__/sound/substation.ogg" },
@@ -276,6 +242,8 @@ data:extend({
   {
     type = "tile",
     name = "bi-solar-mat",
+    localised_name = {"entity-name.bi-solar-mat"},
+    localised_description = {"entity-description.bi-solar-mat"},
     icon = ICONPATH .. "solar-mat.png",
     icon_size = 64,
     icons = {
@@ -331,195 +299,233 @@ data:extend({
         count = 1
       }
     },
-    walking_sound = {
-      {
-        filename = "__base__/sound/walking/concrete-01.ogg",
-        volume = 1.2
-      },
-      {
-        filename = "__base__/sound/walking/concrete-02.ogg",
-        volume = 1.2
-      },
-      {
-        filename = "__base__/sound/walking/concrete-03.ogg",
-        volume = 1.2
-      },
-      {
-        filename = "__base__/sound/walking/concrete-04.ogg",
-        volume = 1.2
-      }
-    },
+    walking_sound = sounds.walking_sound,
     map_color = {r = 93, g = 138, b = 168},
     pollution_absorption_per_second = 0,
     vehicle_friction_modifier = dirt_vehicle_speed_modifer
   },
+})
+
+   --~ ------- Hidden Electric pole for Solar Mat
+--~ local hidden_pole = table.deepcopy(data.raw["electric-pole"]["small-electric-pole"])
+--~ {
+--     type = "electric-pole",
+--     name = "bi-musk-mat-hidden-pole",
+--     icon = ICONPATH .. "solar-mat.png",
+--     icon_size = 64,
+--     icons = {
+--       {
+--         icon = ICONPATH .. "solar-mat.png",
+--         icon_size = 64,
+--       }
+--     },
+--     flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+--     selectable_in_game = false,
+--     draw_copper_wires = false,
+--     max_health = 10,
+--     resistances = {{type = "fire", percent = 100}},
+--     collision_mask = {"ground-tile"},
+--     collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
+--     selection_box = {{0, 0}, {0, 0}},
+--     maximum_wire_distance = 1,
+--     supply_area_distance = 3,
+--     pictures = {
+--       filename = ICONPATH .. "empty.png",
+--       filename = "__base__/graphics/icons/small-electric-pole.png",
+--       filename = BioInd.is_debug and
+--         "__base__/graphics/icons/small-electric-pole.png" or
+--         ICONPATH .. "empty.png",
+--       priority = "low",
+--       width = 1,
+--       height = 1,
+--       frame_count = 1,
+--       axially_symmetrical = false,
+--       direction_count = 4,
+--       shift = {0.75, 0},
+--     },
+--     connection_points = {
+--       {
+--         shadow = {
+--
+--         },
+--         wire = {
+--           copper_wire = {-0, -0},
+--         }
+--       },
+--       {
+--         shadow = {
+--
+--         },
+--         wire = {
+--           copper_wire = {-0, -0},
+--         }
+--       },
+--       {
+--         shadow = {
+--
+--         },
+--         wire = {
+--           copper_wire = {-0, -0},
+--         }
+--       },
+--       {
+--         shadow = {
+--
+--         },
+--         wire = {
+--           copper_wire = {-0, -0},
+--         }
+--       }
+--     },
+--
+--     radius_visualisation_picture = {
+--       filename = ICONPATH .. "empty.png",
+--       width = 1,
+--       height = 1,
+--       priority = "low"
+--     },
+--   },
+--~ hidden_pole.name = "bi-musk-mat-hidden-pole"
+--~ hidden_pole.icon = ICONPATH .. "solar-mat.png"
+--~ hidden_pole.icon_size = 64
+--~ hidden_pole.icons = {
+  --~ {
+    --~ icon = ICONPATH .. "solar-mat.png",
+    --~ icon_size = 64,
+  --~ }
+--~ }
+--~ hidden_pole.flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"}
+--~ hidden_pole.selectable_in_game = false
+--~ hidden_pole.draw_copper_wires = BioInd.is_debug
+--~ hidden_pole.max_health = 10
+--~ hidden_pole.resistances = {{type = "fire", percent = 100}}
+--~ hidden_pole.collision_mask = {"ground-tile"}
+--~ hidden_pole.collision_box = {{-0.0, -0.0}, {0.0, 0.0}}
+--~ hidden_pole.selection_box = {{0, 0}, {0, 0}}
+--~ hidden_pole.maximum_wire_distance = 1
+--~ hidden_pole.supply_area_distance = 3
+--~ hidden_pole.pictures = BioInd.is_debug and hidden_pole.pictures or {
+  --~ filename = ICONPATH .. "empty.png",
+  --~ priority = "low",
+  --~ width = 1,
+  --~ height = 1,
+  --~ frame_count = 1,
+  --~ axially_symmetrical = false,
+  --~ direction_count = 1,
+  --~ shift = {0.75, 0},
+--~ }
+--~ hidden_pole.connection_points = BioInd.is_debug and hidden_pole.connection_points or {
+  --~ {
+    --~ shadow = {},
+    --~ wire = { copper_wire = {-0, -0} }
+  --~ },
+--~ }
+--~ hidden_pole.radius_visualisation_picture = {
+  --~ filename = ICONPATH .. "empty.png",
+  --~ width = 1,
+  --~ height = 1,
+  --~ priority = "low"
+--~ }
+--~ data:extend({hidden_pole})
+
+data:extend({
+  --~ ------- Hidden Solar Panel for Solar Mat
+  --~ {
+    --~ type = "solar-panel",
+    --~ name = "bi-musk-mat-hidden-panel",
+    --~ icon = ICONPATH .. "solar-mat.png",
+    --~ icon_size = 64,
+    --~ icons = {
+      --~ {
+        --~ icon = ICONPATH .. "solar-mat.png",
+        --~ icon_size = 64,
+      --~ }
+    --~ },
+    --~ flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+    --~ selectable_in_game = false,
+    --~ max_health = 1,
+    --~ resistances = {{type = "fire", percent = 100}},
+    --~ collision_mask = {"ground-tile"},
+    --~ collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
+    --~ selection_box = {{0, 0}, {0, 0}},
+    --~ energy_source = {
+      --~ type = "electric",
+      --~ usage_priority = "solar"
+    --~ },
+    --~ picture = {
+      --~ -- filename = ICONPATH .. "empty.png",
+      --~ filename = "__base__/graphics/icons/solar-panel.png",
+      --~ priority = "low",
+      --~ width = 1,
+      --~ height = 1,
+    --~ },
+    --~ production = "10kW"
+  --~ },
 
 
-   ------- Hidden Electric pole for Solar Mat
-  {
-    type = "electric-pole",
-    name = "bi-musk-mat-pole",
-    icon = ICONPATH .. "solar-mat.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "solar-mat.png",
-        icon_size = 64,
-      }
-    },
-    flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
-    selectable_in_game = false,
-    draw_copper_wires = false,
-    max_health = 10,
-    resistances = {{type = "fire", percent = 100}},
-    collision_mask = {"ground-tile"},
-    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
-    selection_box = {{0, 0}, {0, 0}},
-    maximum_wire_distance = 1,
-    --~ maximum_wire_distance = 0,
-    supply_area_distance = 3,
-    pictures = {
+ --~ ------- Solar Panel for Solar Plant / Boiler
+  --~ {
+    --~ type = "solar-panel",
+    --~ name = "bi-solar-boiler-hidden-panel",
+    --~ localised_name = {"entity-name.bi-solar-boiler"},
+    --~ localised_description = {"entity-description.bi-solar-boiler"},
+    --~ icon = ICONPATH .. "Bio_Solar_Boiler_Panel_Icon.png",
+    --~ icon_size = 64,
+    --~ icons = {
+      --~ {
+        --~ icon = ICONPATH .. "Bio_Solar_Boiler_Panel_Icon.png",
+        --~ icon_size = 64,
+      --~ }
+    --~ },
+    --~ flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
+    --~ max_health = 400,
+    --~ render_no_power_icon = true,
+    --~ resistances = {{type = "fire", percent = 100}},
+    --~ -- collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
+    --~ -- selection_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    --~ collision_box = {{0, 0}, {0, 0}},
+    --~ selection_box = {{0, 0}, {0, 0}},
+--~ collision_mask = {},
+    --~ energy_source = {
+      --~ type = "electric",
+      --~ usage_priority = "solar"
+    --~ },
+    --~ -- picture = {
+      --~ -- filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
+      --~ -- priority = "low",
+      --~ -- width = 288,
+      --~ -- height = 288,
+      --~ -- hr_version = {
+        --~ -- filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
+        --~ -- priority = "low",
+        --~ -- width = 288,
+        --~ -- height = 288,
+      --~ -- }
+    --~ -- },
+    --~ picture = {
       --~ filename = ICONPATH .. "empty.png",
-      filename = "__base__/graphics/icons/small-electric-pole.png",
-      priority = "low",
-      width = 1,
-      height = 1,
-      frame_count = 1,
-      axially_symmetrical = false,
-      direction_count = 4,
-      shift = {0.75, 0},
-    },
-    connection_points = {
-      {
-        shadow = {
+      --~ priority = "low",
+      --~ size = 1,
+    --~ },
 
-        },
-        wire = {
-          copper_wire = {-0, -0},
-        }
-      },
-      {
-        shadow = {
-
-        },
-        wire = {
-          copper_wire = {-0, -0},
-        }
-      },
-      {
-        shadow = {
-
-        },
-        wire = {
-          copper_wire = {-0, -0},
-        }
-      },
-      {
-        shadow = {
-
-        },
-        wire = {
-          copper_wire = {-0, -0},
-        }
-      }
-    },
-
-    radius_visualisation_picture = {
-      filename = ICONPATH .. "empty.png",
-      width = 1,
-      height = 1,
-      priority = "low"
-    },
-  },
-
-
-        ------- Hidden Solar Panel for Solar Mat
-  {
-    type = "solar-panel",
-    name = "bi-musk-mat-solar-panel",
-    icon = ICONPATH .. "solar-mat.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "solar-mat.png",
-        icon_size = 64,
-      }
-    },
-    flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
-    selectable_in_game = false,
-    max_health = 1,
-    resistances = {{type = "fire", percent = 100}},
-    collision_mask = {"ground-tile"},
-    collision_box = {{-0.0, -0.0}, {0.0, 0.0}},
-    selection_box = {{0, 0}, {0, 0}},
-    energy_source = {
-      type = "electric",
-      usage_priority = "solar"
-    },
-    picture = {
-      --~ filename = ICONPATH .. "empty.png",
-      filename = "__base__/graphics/icons/solar-panel.png",
-      priority = "low",
-      width = 1,
-      height = 1,
-    },
-    production = "10kW"
-  },
-
-
- ------- Solar Panel for Solar Plant / Boiler
-  {
-    type = "solar-panel",
-    name = "bi-solar-boiler-panel",
-    icon = ICONPATH .. "Bio_Solar_Boiler_Panel_Icon.png",
-    icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "Bio_Solar_Boiler_Panel_Icon.png",
-        icon_size = 64,
-      }
-    },
-    flags = {"not-blueprintable", "not-deconstructable", "placeable-off-grid", "not-on-map", "not-repairable"},
-    max_health = 400,
-    render_no_power_icon = true,
-    resistances = {{type = "fire", percent = 100}},
-    collision_box = {{-4.2, -4.2}, {4.2, 4.2}},
-    selection_box = {{-1.2, -1.2}, {1.2, 1.2}},
-    energy_source = {
-      type = "electric",
-      usage_priority = "solar"
-    },
-    picture = {
-      filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
-      priority = "low",
-      width = 288,
-      height = 288,
-      hr_version = {
-        filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
-        priority = "low",
-        width = 288,
-        height = 288,
-      }
-    },
-
-    overlay = {
-        layers = {
-          {
-            filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
-            priority = "high",
-            width = 288,
-            height = 288,
-            hr_version = {
-            filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
-            priority = "high",
-            width = 288,
-            height = 288,
-          }
-        },
-      }
-    },
-    production = "1.8MW"
-  },
+    --~ overlay = {
+        --~ layers = {
+          --~ {
+            --~ filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
+            --~ priority = "high",
+            --~ width = 288,
+            --~ height = 288,
+            --~ hr_version = {
+            --~ filename = ENTITYPATH .. "Bio_Solar_Boiler.png",
+            --~ priority = "high",
+            --~ width = 288,
+            --~ height = 288,
+          --~ }
+        --~ },
+      --~ }
+    --~ },
+    --~ production = "1.8MW"
+  --~ },
 
 
   ------- Boiler for Solar Plant / Boiler
@@ -534,11 +540,13 @@ data:extend({
         icon_size = 64,
       }
     },
+    -- This is necessary for "Space Exploration" (if not true, the entity can only be
+    -- placed on Nauvis)!
+    se_allow_in_space = true,
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 1, result = "bi-solar-boiler"},
     max_health = 400,
     corpse = "small-remnants",
-    --~ vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
     vehicle_impact_sound = sounds.generic_impact,
     mode = "output-to-separate-pipe",
     resistances = {

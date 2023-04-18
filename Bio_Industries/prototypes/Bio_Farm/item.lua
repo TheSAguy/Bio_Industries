@@ -40,6 +40,8 @@ data:extend(
   {
     type = "item",
     name = "seedling",
+    localised_name = {"entity-name.seedling"},
+    localised_description = {"entity-description.seedling"},
     icon = ICONPATH .. "Seedling.png",
     icon_size = 64,
     icons = {
@@ -81,6 +83,8 @@ data:extend(
   {
     type= "item",
     name= "bi-bio-farm",
+    localised_name = {"entity-name.bi-bio-farm"},
+    localised_description = {"entity-description.bi-bio-farm"},
     icon = ICONPATH .. "Bio_Farm_Icon.png",
     icon_size = 64,
     icons = {
@@ -99,6 +103,8 @@ data:extend(
   {
     type= "item",
     name= "bi-bio-greenhouse",
+    localised_name = {"entity-name.bi-bio-greenhouse"},
+    localised_description = {"entity-description.bi-bio-greenhouse"},
     icon = ICONPATH .. "bio_greenhouse.png",
     icon_size = 64,
     icons = {
@@ -135,6 +141,8 @@ data:extend(
   {
     type = "item",
     name = "bi-stone-crusher",
+    localised_name = {"entity-name.bi-stone-crusher"},
+    localised_description = {"entity-description.bi-stone-crusher"},
     icon = ICONPATH .. "stone_crusher.png",
     icon_size = 64,
     icons = {
@@ -306,7 +314,9 @@ data:extend(
     },
     subgroup = "raw-material",
     order = "a[bi]-a-z[stone-crushed]",
-    stack_size = 800
+    -- Changed for 0.18.34/1.1.4
+    --~ stack_size = 800
+    stack_size = 400
   },
 
 
@@ -516,97 +526,102 @@ data:extend(
 })
 
 --- Fertilizer can change terrain to better terrain
-if BioInd.AB_tiles() then
+--~ if BioInd.AB_tiles() then
   data:extend({
-    --- Fertiliser
+    --- fertilizer
     {
       type = "item",
-      name = "fertiliser",
-      icon = ICONPATH .. "fertiliser_64.png",
-      icon_size = 64,
-    icons = {
-      {
-        icon = ICONPATH .. "fertiliser_64.png",
-        icon_size = 64,
-      }
-    },
-      subgroup = "intermediate-product",
-      order = "b[fertiliser]",
-      stack_size = 200,
-      place_as_tile = {
-        result = "vegetation-green-grass-3",
-        condition_size = 1,
-        condition = { "water-tile" }
-      },
-    },
-
-    --- Adv Fertiliser
-    {
-      type = "item",
-      name = "bi-adv-fertiliser",
-      icon = ICONPATH .. "advanced_fertiliser_64.png",
+      name = "fertilizer",
+      icon = ICONPATH .. "fertilizer_64.png",
       icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "advanced_fertiliser_64.png",
+          icon = ICONPATH .. "fertilizer_64.png",
           icon_size = 64,
         }
       },
       subgroup = "intermediate-product",
-      order = "b[fertiliser]-b[bi-adv-fertiliser]",
+      order = "b[fertilizer]",
       stack_size = 200,
-      place_as_tile = {
-        result = "vegetation-green-grass-1",
-        condition_size = 1,
-        condition = { "water-tile" }
+      -- 0.18.31/1.1.1: Moved to data-final-fixes.lua because we changed the name
+      -- fron "fertiliser" to "fertilizer" and now PyAlienLife removes place_as_tile!
+      --~ place_as_tile = {
+        --~ result = "vegetation-green-grass-3",
+        --~ condition_size = 1,
+        --~ condition = { "water-tile" }
+      --~ },
+    },
+
+    --- Adv fertilizer
+    {
+      type = "item",
+      name = "bi-adv-fertilizer",
+      icon = ICONPATH .. "advanced_fertilizer_64.png",
+      icon_size = 64,
+      icons = {
+        {
+          icon = ICONPATH .. "advanced_fertilizer_64.png",
+          icon_size = 64,
+        }
       },
+      subgroup = "intermediate-product",
+      order = "b[fertilizer]-b[bi-adv-fertilizer]",
+      stack_size = 200,
+      -- 0.18.31/1.1.1: Moved to data-final-fixes.lua because we changed the name
+      -- from "bi-adv-fertiliser" to "bi-adv-fertilizer" and now PyAlienLife removes
+      -- place_as_tile!
+      --~ place_as_tile = {
+        --~ result = "vegetation-green-grass-1",
+        --~ condition_size = 1,
+        --~ condition = { "water-tile" }
+      --~ },
     },
   })
 
-else
-  data:extend({
-    --- Fertiliser
-    {
-      type = "item",
-      name = "fertiliser",
-      icon = ICONPATH .. "fertiliser_64.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "fertiliser_64.png",
-          icon_size = 64,
-        }
-      },
-      subgroup = "intermediate-product",
-      order = "b[fertiliser]",
-      stack_size = 200,
-      place_as_tile = {
-        result = "grass-3",
-        condition_size = 1,
-        condition = { "water-tile" }
-      },
-    },
+--~ else
+  --~ data:extend({
+    --~ --- fertilizer
+    --~ {
+      --~ type = "item",
+      --~ name = "fertilizer",
+      --~ icon = ICONPATH .. "fertilizer_64.png",
+      --~ icon_size = 64,
+      --~ icons = {
+        --~ {
+          --~ icon = ICONPATH .. "fertilizer_64.png",
+          --~ icon_size = 64,
+        --~ }
+      --~ },
+      --~ subgroup = "intermediate-product",
+      --~ order = "b[fertilizer]",
+      --~ stack_size = 200,
+      --~ place_as_tile = {
+        --~ result = "grass-3",
+        --~ condition_size = 1,
+        --~ condition = { "water-tile" }
+      --~ },
+    --~ },
 
-    --- Adv Fertiliser
-    {
-      type = "item",
-      name = "bi-adv-fertiliser",
-      icon = ICONPATH .. "advanced_fertiliser_64.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "advanced_fertiliser_64.png",
-          icon_size = 64,
-        }
-      },
-      subgroup = "intermediate-product",
-      order = "b[fertiliser]-b[bi-adv-fertiliser]",
-      stack_size = 200,
-      place_as_tile = {
-        result = "grass-1",
-        condition_size = 1,
-        condition = { "water-tile" }
-      },
-    },
-  })
-end
+    --~ --- Adv fertilizer
+    --~ {
+      --~ type = "item",
+      --~ name = "bi-adv-fertilizer",
+      --~ icon = ICONPATH .. "advanced_fertilizer_64.png",
+      --~ icon_size = 64,
+      --~ icons = {
+        --~ {
+          --~ icon = ICONPATH .. "advanced_fertilizer_64.png",
+          --~ icon_size = 64,
+        --~ }
+      --~ },
+      --~ subgroup = "intermediate-product",
+      --~ order = "b[fertilizer]-b[bi-adv-fertilizer]",
+      --~ stack_size = 200,
+      --~ place_as_tile = {
+        --~ result = "grass-1",
+        --~ condition_size = 1,
+        --~ condition = { "water-tile" }
+      --~ },
+    --~ },
+  --~ })
+--~ end

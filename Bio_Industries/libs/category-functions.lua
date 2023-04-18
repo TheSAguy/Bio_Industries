@@ -24,7 +24,7 @@ function thxbob.lib.machine.add_category(machine, category)
     end
   else
     if not data.raw["recipe-category"][category] then
-      BioInd.writeDebug("Crafting category " .. tostring(category) .. " does not exist.")
+      BioInd.writeDebug("Crafting category %s does not exist.", {category})
     end
   end
 end
@@ -36,10 +36,10 @@ function thxbob.lib.machine.if_add_category(machine, category, category_to_add)
     end
   else
     if not data.raw["recipe-category"][category] then
-      BioInd.writeDebug("Crafting category " .. tostring(category) .. " does not exist.")
+      BioInd.writeDebug("Crafting category %s does not exist.", {category})
     end
     if not data.raw["recipe-category"][category_to_add] then
-      BioInd.writeDebug("Crafting category " .. tostring(category_to_add) .. " does not exist.")
+      BioInd.writeDebug("Crafting category %s does not exist.", {category_to_add})
     end
   end
 end
@@ -51,10 +51,10 @@ function thxbob.lib.machine.type_if_add_category(machine_type, category, categor
     end
   else
     if not data.raw["recipe-category"][category] then
-      BioInd.writeDebug("Crafting category " .. tostring(category) .. " does not exist.")
+      BioInd.writeDebug("Crafting category %s does not exist.", {category})
     end
     if not data.raw["recipe-category"][category_to_add] then
-      BioInd.writeDebug("Crafting category " .. tostring(category_to_add) .. " does not exist.")
+      BioInd.writeDebug("Crafting category %s does not exist.", {category_to_add})
     end
   end
 end
@@ -81,7 +81,7 @@ function thxbob.lib.machine.add_resource_category(machine, category)
     end
   else
     if not data.raw["resource-category"][category] then
-      BioInd.writeDebug("Resource category " .. tostring(category) .. " does not exist.")
+      BioInd.writeDebug("Resource category %s does not exist.", {category})
     end
   end
 end
@@ -93,10 +93,10 @@ function thxbob.lib.machine.if_add_resource_category(machine, category, category
     end
   else
     if not data.raw["resource-category"][category] then
-      BioInd.writeDebug("Resource category " .. tostring(category) .. " does not exist.")
+      BioInd.writeDebug("Resource category %s does not exist.", {category})
     end
     if not data.raw["resource-category"][category_to_add] then
-      BioInd.writeDebug("Resource category " .. tostring(category_to_add) .. " does not exist.")
+      BioInd.writeDebug("Resource category %s does not exist.", {category_to_add})
     end
   end
 end
@@ -108,10 +108,10 @@ function thxbob.lib.machine.type_if_add_resource_category(machine_type, category
     end
   else
     if not data.raw["resource-category"][category] then
-      BioInd.writeDebug("Resource category " .. tostring(category) .. " does not exist.")
+      BioInd.writeDebug("Resource category %s does not exist.", {category})
     end
     if not data.raw["resource-category"][category_to_add] then
-      BioInd.writeDebug("Resource category " .. tostring(category_to_add) .. " does not exist.")
+      BioInd.writeDebug("Resource category %s does not exist.", {category_to_add})
     end
   end
 end

@@ -39,7 +39,7 @@ if BI.Settings.Bio_Cannon then
       }}}
   end
 
-  --[[
+  --~ [[
   function attacking_animation()
     return {layers = {{
       priority = "medium",
@@ -55,7 +55,7 @@ if BI.Settings.Bio_Cannon then
       filename = ENTITYPATH .. "bio_cannon_attack.png",
       }}}
   end
-  ]]
+ --~ ]]
 
   function folding_animation()
     return {layers = {{
@@ -95,6 +95,8 @@ if BI.Settings.Bio_Cannon then
     {
       type = "ammo-turret",
       name = "bi-bio-cannon-area",
+      localised_name = {"entity-name.bi-bio-cannon"},
+      localised_description = {"entity-description.bi-bio-cannon"},
       icon = ICONPATH .. "biocannon_icon.png",
       icon_size = 64,
       icons = {
@@ -189,55 +191,57 @@ if BI.Settings.Bio_Cannon then
 
       preparing_animation = preparing_animation(),
       prepared_animation = prepared_animation(),
-      --attacking_animation = attacking_animation(),
+      attacking_animation = attacking_animation(),
       folding_animation = folding_animation(),
       folded_animation = folded_animation(),
       call_for_help_radius = 90
     },
 
-    ---- Radar
-    {
-      type = "radar",
-      name = "Bio-Cannon-r",
-      icon = ICONPATH .. "biocannon_icon.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "biocannon_icon.png",
-          icon_size = 64,
-        }
-      },
-      flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
-      selectable_in_game = false,
-      --minable = {mining_time = 5, result = "bi-bio-cannon-area"},
-      max_health = 600,
-      corpse = "big-remnants",
-      dying_explosion = "massive-explosion",
-      resistances = {},
-      collision_box = {{-4.0, -4.0}, {4.0, 4.0}},
-      selection_box = {{-4.25, -4.25}, {4.25, 4.25}},
-      collision_mask = {},
-      order = "i[items][Bio_Cannon]",
-      energy_per_sector = "22MJ",
-      max_distance_of_nearby_sector_revealed = 5,
-      max_distance_of_sector_revealed = 5,
-      energy_per_nearby_scan = "400kW",
-      energy_source = {
-        type = "electric",
-        usage_priority = "secondary-input"
-      },
-      energy_usage = "6kW",
-      pictures = {
-        filename = ICONPATH .. "biocannon_icon.png",
-        priority = "low",
-        width = 1,
-        height = 1,
-        axially_symmetrical = false,
-        apply_projection = false,
-        direction_count = 1,
-        line_length = 1,
-        shift = {0, -0}
-      },
-    },
+    --~ ---- Radar
+    --~ {
+      --~ type = "radar",
+      --~ name = "bi-bio-cannon-hidden-radar",
+      --~ localised_name = {"entity-name.bi-bio-cannon"},
+      --~ localised_description = {"entity-description.bi-bio-cannon"},
+      --~ icon = ICONPATH .. "biocannon_icon.png",
+      --~ icon_size = 64,
+      --~ icons = {
+        --~ {
+          --~ icon = ICONPATH .. "biocannon_icon.png",
+          --~ icon_size = 64,
+        --~ }
+      --~ },
+      --~ flags = {"not-deconstructable", "not-on-map", "placeable-off-grid", "not-repairable", "not-blueprintable"},
+      --~ selectable_in_game = false,
+      --~ --minable = {mining_time = 5, result = "bi-bio-cannon-area"},
+      --~ max_health = 600,
+      --~ corpse = "big-remnants",
+      --~ dying_explosion = "massive-explosion",
+      --~ resistances = {},
+      --~ collision_box = {{-4.0, -4.0}, {4.0, 4.0}},
+      --~ selection_box = {{-4.25, -4.25}, {4.25, 4.25}},
+      --~ collision_mask = {},
+      --~ order = "i[items][Bio_Cannon]",
+      --~ energy_per_sector = "22MJ",
+      --~ max_distance_of_nearby_sector_revealed = 5,
+      --~ max_distance_of_sector_revealed = 5,
+      --~ energy_per_nearby_scan = "400kW",
+      --~ energy_source = {
+        --~ type = "electric",
+        --~ usage_priority = "secondary-input"
+      --~ },
+      --~ energy_usage = "6kW",
+      --~ pictures = {
+        --~ filename = ICONPATH .. "biocannon_icon.png",
+        --~ priority = "low",
+        --~ width = 1,
+        --~ height = 1,
+        --~ axially_symmetrical = false,
+        --~ apply_projection = false,
+        --~ direction_count = 1,
+        --~ line_length = 1,
+        --~ shift = {0, -0}
+      --~ },
+    --~ },
   })
 end

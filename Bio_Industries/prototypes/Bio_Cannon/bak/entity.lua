@@ -95,6 +95,8 @@ if BI.Settings.Bio_Cannon then
     {
       type = "ammo-turret",
       name = "bi-bio-cannon-area",
+      localised_name = {"entity-name.bi-bio-cannon"},
+      localised_description = {"entity-description.bi-bio-cannon"},
       icon = ICONPATH .. "biocannon_icon.png",
       icon_size = 64,
       icons = {
@@ -202,6 +204,8 @@ if BI.Settings.Bio_Cannon then
     {
       type = "radar",
       name = "Bio-Cannon-r",
+      localised_name = {"entity-name.bi-bio-cannon"},
+      localised_description = {"entity-description.bi-bio-cannon"},
       icon = ICONPATH .. "biocannon_icon.png",
       icon_size = 64,
       icons = {

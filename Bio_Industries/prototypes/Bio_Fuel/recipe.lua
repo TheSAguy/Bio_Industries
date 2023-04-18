@@ -1,17 +1,104 @@
 local BioInd = require('common')('Bio_Industries')
 
 local ICONPATH = BioInd.modRoot .. "/graphics/icons/"
+--~ local new_battery_icon = BioInd.check_base_version("0.18.47")
+
+-- Changed for 0.18.29: We always want to make advanced fertilizer, so we need to
+-- unlock the bio-reactor and the most basic recipe for algae biomass even if
+-- BI.Settings.BI_Bio_Fuel has been turned off!
+data:extend({
+  -- BIO Reactor (ENTITY)--
+  {
+    type = "recipe",
+    name = "bi-bio-reactor",
+    localised_name = {"entity-name.bi-bio-reactor"},
+    localised_description = {"entity-description.bi-bio-reactor"},
+    icon = ICONPATH .. "bioreactor.png",
+    icon_size = 64,
+    icons = {
+      {
+        icon = ICONPATH .. "bioreactor.png",
+        icon_size = 64,
+      }
+    },
+    normal = {
+      enabled = false,
+      energy_required = 20,
+      ingredients = {
+        {"assembling-machine-1", 1},
+        {"steel-plate", 5},
+        {"electronic-circuit", 5},
+      },
+      result = "bi-bio-reactor",
+      result_count = 1,
+      main_product = "",
+      allow_as_intermediate = false,    -- Added for 0.18.34/1.1.4
+      always_show_made_in = false,      -- Added for 0.18.34/1.1.4
+      allow_decomposition = true,       -- Added for 0.18.34/1.1.4
+    },
+    expensive = {
+      enabled = false,
+      energy_required = 30,
+      ingredients = {
+        {"assembling-machine-1", 2},
+        {"steel-plate", 5},
+        {"electronic-circuit", 5},
+      },
+      result = "bi-bio-reactor",
+      result_count = 1,
+      main_product = "",
+      allow_as_intermediate = false,    -- Added for 0.18.34/1.1.4
+      always_show_made_in = false,      -- Added for 0.18.34/1.1.4
+      allow_decomposition = true,       -- Added for 0.18.34/1.1.4
+    },
+    subgroup = "bio-bio-fuel-fluid",
+    order = "a",
+    --~ always_show_made_in = true,
+    --~ allow_decomposition = false,
+    allow_as_intermediate = false,      -- Changed for 0.18.34/1.1.4
+    always_show_made_in = false,        -- Changed for 0.18.34/1.1.4
+    allow_decomposition = true,         -- Changed for 0.18.34/1.1.4  },
+  },
+  -- BIOMASS 1 --
+  {
+    type = "recipe",
+    name = "bi-biomass-1",
+    localised_name = {"recipe-name.bi-biomass-1"},
+    localised_description = {"recipe-description.bi-biomass-1"},
+    icon = ICONPATH .. "biomass_1.png",
+    icon_size = 64,
+    icons = {
+      {
+        icon = ICONPATH .. "biomass_1.png",
+        icon_size = 64,
+      }
+    },
+    category = "biofarm-mod-bioreactor",
+    energy_required = 10,
+    ingredients = {
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "fertilizer", amount = 10},
+    },
+    results = {
+      {type = "fluid", name = "bi-biomass", amount = 50},
+    },
+    main_product = "",
+    enabled = false,
+    always_show_made_in = true,
+    allow_decomposition = true,
+    subgroup = "bio-bio-fuel-fluid",
+    order = "x[oil-processing]-z1[bi-biomass]"
+  },
+})
+
 
 if BI.Settings.BI_Bio_Fuel then
-
   data:extend({
     -- Basic petroleum-gas processing
     -- (Added for 0.17.49/0.18.17)
     {
       type = "recipe",
       name = "bi-basic-gas-processing",
-      localised_name = {"recipe-name.bi-basic-gas-processing"},
-      localised_description = {"recipe-description.bi-basic-gas-processing"},
       icon = ICONPATH .. "bi_basic_gas_processing.png",
       icon_size = 64,
       icons = {
@@ -35,13 +122,18 @@ if BI.Settings.BI_Bio_Fuel then
       },
       subgroup = "bio-bio-fuel-other",
       order = "[bi_basic_gas_processing]",
-      main_product = ""
+      main_product = "",
+      allow_as_intermediate = false,    -- Added for 0.18.34/1.1.4
+      always_show_made_in = true,       -- Added for 0.18.34/1.1.4
+      allow_decomposition = true,       -- Added for 0.18.34/1.1.4
     },
 
     --- Bio Boiler (ENTITY) ---
     {
       type = "recipe",
       name = "bi-bio-boiler",
+      localised_name = {"entity-name.bi-bio-boiler"},
+      localised_description = {"entity-description.bi-bio-boiler"},
       icon = ICONPATH .. "bio_boiler.png",
       icon_size = 64,
       icons = {
@@ -61,6 +153,9 @@ if BI.Settings.BI_Bio_Fuel then
         result = "bi-bio-boiler",
         result_count = 1,
         main_product = "",
+        allow_as_intermediate = false,  -- Added for 0.18.34/1.1.4
+        always_show_made_in = false,    -- Added for 0.18.34/1.1.4
+        allow_decomposition = true,     -- Added for 0.18.34/1.1.4
       },
       expensive = {
         enabled = false,
@@ -73,53 +168,18 @@ if BI.Settings.BI_Bio_Fuel then
         result = "bi-bio-boiler",
         result_count = 1,
         main_product = "",
-      },
-      always_show_made_in = true,
-      allow_decomposition = false,
-      subgroup = "bio-energy-boiler",
+        allow_as_intermediate = false,  -- Added for 0.18.34/1.1.4
+        always_show_made_in = false,    -- Added for 0.18.34/1.1.4
+        allow_decomposition = true,     -- Added for 0.18.34/1.1.4
+     },
+      allow_as_intermediate = false,    -- Changed for 0.18.34/1.1.4
+      always_show_made_in = false,      -- Changed for 0.18.34/1.1.4
+      allow_decomposition = true,       -- Changed for 0.18.34/1.1.4
+      --~ subgroup = "bio-energy-boiler",
+      subgroup = "energy",              -- Changed for 0.18.34/1.1.4
+      order = "b-[steam-power]-a[boiler]-a[bi-bio-boiler]"      -- Changed for 0.18.34/1.1.4
     },
 
-    -- BIO Reactor (ENTITY)--
-    {
-      type = "recipe",
-      name = "bi-bio-reactor",
-      icon = ICONPATH .. "bioreactor.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "bioreactor.png",
-          icon_size = 64,
-        }
-      },
-      normal = {
-        enabled = false,
-        energy_required = 20,
-        ingredients = {
-          {"assembling-machine-1", 1},
-          {"steel-plate", 5},
-          {"electronic-circuit", 5},
-        },
-        result = "bi-bio-reactor",
-        result_count = 1,
-        main_product = "",
-      },
-      expensive = {
-        enabled = false,
-        energy_required = 30,
-        ingredients = {
-          {"assembling-machine-1", 2},
-          {"steel-plate", 5},
-          {"electronic-circuit", 5},
-        },
-        result = "bi-bio-reactor",
-        result_count = 1,
-        main_product = "",
-      },
-      subgroup = "bio-bio-fuel-fluid",
-      order = "a",
-      always_show_made_in = true,
-      allow_decomposition = false,
-    },
 
     -- CELLULOSE 1 --
     {
@@ -210,7 +270,11 @@ if BI.Settings.BI_Bio_Fuel then
       energy_required = 1,
       ingredients = {
         {type = "fluid", name = "steam", amount = 10},
+        -- Let's use woodpulp instead of wood for the new version! Not changing this
+        -- for 0.18.34/1.1.4  to avoid an additional (potentially factory-breaking)
+        -- change shortly before the new release will change so many things anyway!
         {type = "item", name = "wood", amount = 10},
+        --~ {type = "item", name = "bi-woodpulp", amount = 20},
         {type = "fluid", name = "light-oil", amount = 20},
       },
       results = {
@@ -260,37 +324,6 @@ if BI.Settings.BI_Bio_Fuel then
       order = "g[plastic-bar-2]",
       --~ subgroup = "intermediate-product",
       --~ order = "b[bi-plastic-2]",
-    },
-
-    -- BIOMASS 1 --
-    {
-      type = "recipe",
-      name = "bi-biomass-1",
-      localised_name = {"recipe-name.bi-biomass-1"},
-      localised_description = {"recipe-description.bi-biomass-1"},
-      icon = ICONPATH .. "biomass_1.png",
-      icon_size = 64,
-      icons = {
-        {
-          icon = ICONPATH .. "biomass_1.png",
-          icon_size = 64,
-        }
-      },
-      category = "biofarm-mod-bioreactor",
-      energy_required = 10,
-      ingredients = {
-        {type = "fluid", name = "water", amount = 100},
-        {type = "item", name = "fertiliser", amount = 10},
-      },
-      results = {
-        {type = "fluid", name = "bi-biomass", amount = 50},
-      },
-      main_product = "",
-      enabled = false,
-      always_show_made_in = true,
-      allow_decomposition = false,
-      subgroup = "bio-bio-fuel-fluid",
-      order = "x[oil-processing]-z1[bi-biomass]"
     },
 
     -- BIOMASS 2 --
@@ -499,17 +532,18 @@ if BI.Settings.BI_Bio_Fuel then
     order = "a[oil-processing]-b[advanced-oil-processing]-y[bi-Fuel_Conversion-4]",
     },
 
-
     --- Bio Battery
     {
       type = "recipe",
       name = "bi-battery",
       icon = ICONPATH .. "bio_battery.png",
       icon_size = 64,
+      icon_mipmaps = 4,
       icons = {
         {
           icon = ICONPATH .. "bio_battery.png",
           icon_size = 64,
+          icon_mipmaps = 4,
         }
       },
       category = "chemistry",
@@ -524,8 +558,11 @@ if BI.Settings.BI_Bio_Fuel then
       },
       main_product = "",
       enabled = false,
-      always_show_made_in = true,
-      allow_decomposition = false,
+      --~ always_show_made_in = true,
+      --~ allow_decomposition = false,
+      allow_as_intermediate = false,    -- Changed for 0.18.34/1.1.4
+      always_show_made_in = true,       -- Added for 0.18.34/1.1.4
+      allow_decomposition = true,       -- Added for 0.18.34/1.1.4
       crafting_machine_tint = {
         primary = {r = 0.970, g = 0.611, b = 0.000, a = 0.000}, -- #f79b0000
         secondary = {r = 0.000, g = 0.680, b = 0.894, a = 0.357}, -- #00ade45b
@@ -637,3 +674,4 @@ if BI.Settings.BI_Bio_Fuel then
 
   })
 end
+--~ log("recipe.lua: data.raw.recipe[\"bi-sulfur\"]: " .. serpent.block(data.raw.recipe["bi-sulfur"]))

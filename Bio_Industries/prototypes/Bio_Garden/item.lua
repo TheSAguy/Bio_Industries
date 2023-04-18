@@ -17,7 +17,6 @@ data:extend({
             icon_size = 64,
         }
     },
-   --flags = { "goes-to-quickbar" },
     subgroup = "production-machine",
     order = "x[bi]-b[bi-bio-garden]",
     place_result = "bi-bio-garden",

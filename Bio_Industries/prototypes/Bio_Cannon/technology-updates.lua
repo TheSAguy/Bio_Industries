@@ -1,8 +1,11 @@
 --~ local BioInd = require('common')('Bio_Industries')
 
-if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
-  -- Don't duplicate what NE does
-  if not mods["Natural_Evolution_Buildings"] then
+--~ if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
+
+-- Don't duplicate what NE does
+if BI.Settings.Bio_Cannon and not mods["Natural_Evolution_Buildings"] then
+
+  --~ if not mods["Natural_Evolution_Buildings"] then
 
     table.insert(data.raw.technology["physical-projectile-damage-5"].effects, {
       type = "ammo-damage",
@@ -34,5 +37,5 @@ if not mods["Natural_Evolution_Buildings"] and BI.Settings.Bio_Cannon then
       ammo_category = "Bio_Cannon_Ammo",
       modifier = 1.5
     })
-  end
+  --~ end
 end

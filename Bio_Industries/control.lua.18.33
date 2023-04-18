@@ -1,3 +1,8 @@
+if script.active_mods["gvv"] then
+  log("Activating support for gvv!")
+  require("__gvv__/gvv")
+end
+
 local BioInd = require('common')('Bio_Industries')
 
 local Event = require('__stdlib__/stdlib/event/event').set_protected_mode(true)
@@ -18,7 +23,7 @@ require ("control_arboretum")
 -- 0.17.45/0.18.13, there is a setting to hide the overlay again. If it is set to "true",
 -- a new force will be created that the hidden electric poles of musk floor belong to.
 local MuskForceName = "BI-Musk_floor_general_owner"
-local UseMuskForce = settings.startup["BI_Hide_musk_floor_in_mapview"].value
+local UseMuskForce = not settings.startup["BI_Show_musk_floor_in_mapview"].value
 
 local function Create_dummy_force()
   -- Create dummy force for musk floor if electric grid overlay should NOT be shown in map view
@@ -178,7 +183,7 @@ local function On_Config_Change(ConfigurationChangedData)
     end
   end
 
-  -- Has setting BI_Hide_musk_floor_in_mapview changed?
+  -- Has setting BI_Show_musk_floor_in_mapview changed?
   if ConfigurationChangedData.mod_startup_settings_changed then
     -- Create dummy force if necessary
     if UseMuskForce and not game.forces[MuskForceName] then
@@ -266,7 +271,7 @@ Event.register(defines.events.on_player_joined_game, function(event)
   if settings.startup["angels-use-angels-barreling"] and
      settings.startup["angels-use-angels-barreling"].value then
       techs['fluid-handling'].researched = false
-      techs['bi-tech-fertiliser'].reload()
+      techs['bi-tech-fertilizer'].reload()
       local _t = techs['angels-fluid-barreling'].researched
       techs['angels-fluid-barreling'].researched = false
       techs['angels-fluid-barreling'].researched = _t
@@ -910,19 +915,20 @@ local function On_Death(event)
 end
 
 
-----------------Radars Scanning Function, used by Terraformer (Arboretum)  -----------------------------
-Event.register(defines.events.on_sector_scanned, function(event)
+local function on_sector_scanned(event)
   ---- Each time a Arboretum-Radar scans a sector  ----
+  BioInd.writeDebug("Entered script for on_sector_scanned: " .. serpent.block(event))
+  log("Entered script for on_sector_scanned: " .. serpent.block(event))
   if event.radar.name == "bi-arboretum-radar" then
-    local num = (event.radar.unit_number-1) --< Unit number of arboretum assembler
+    local arboretum = global.Arboretum_Radar_Table[event.radar.unit_number]
 
     if game.active_mods["omnimatter_fluid"] then
-      Get_Arboretum_Recipe_omnimatter_fluid(global.Arboretum_Table[num], event)
+      Get_Arboretum_Recipe_omnimatter_fluid(global.Arboretum_Table[arboretum], event)
     else
-      Get_Arboretum_Recipe(global.Arboretum_Table[num], event)
+      Get_Arboretum_Recipe(global.Arboretum_Table[arboretum], event)
     end
   end
-end)
+end
 
 ----- Solar Mat stuff
 --------------------------------------------------------------------
@@ -1055,6 +1061,23 @@ Event.register(Event.tile_build_events, solar_mat_built)
 Event.register(Event.tile_remove_events, function(event)
   solar_mat_removed(game.surfaces[event.surface_index], event.tiles)
 end)
+
+Event.register({defines.events.on_sector_scanned}, on_sector_scanned)
+----------------Radars Scanning Function, used by Terraformer (Arboretum)  -----------------------------
+--~ Event.register(defines.events.on_sector_scanned, function(event)
+  --~ ---- Each time a Arboretum-Radar scans a sector  ----
+  --~ BioInd.writeDebug("Entered script for on_sector_scanned: " .. serpent.block(event))
+  --~ log("Entered script for on_sector_scanned: " .. serpent.block(event))
+  --~ if event.radar.name == "bi-arboretum-radar" then
+    --~ local arboretum = global.Arboretum_Radar_Table[event.radar.unit_number]
+
+    --~ if game.active_mods["omnimatter_fluid"] then
+      --~ Get_Arboretum_Recipe_omnimatter_fluid(global.Arboretum_Table[arboretum], event)
+    --~ else
+      --~ Get_Arboretum_Recipe(global.Arboretum_Table[arboretum], event)
+    --~ end
+  --~ end
+--~ end)
 --~ Event.register(Event.tile_script_action, function(event)
   --~ BioInd.writeDebug("Entered tile_script_action: " .. serpent.line(event))
 

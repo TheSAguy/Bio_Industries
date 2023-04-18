@@ -34,7 +34,7 @@ function set_tint_to_rails (rails_entities, tint)
   -- second is a tint
   --local wood_tint = {r = 183/255, g = 125/255, b = 62/255, a = 1}
   --local concrete_tint = {r = 183/255, g = 183/255, b = 183/255, a = 1}
-  local tint = tint
+  --~ local tint = tint
   local sheet_path_ties = "__Bio_Industries__/graphics/entities/wood_products/rails/ties/"
   local rails_entities = rails_entities or  -- or vanilla
     {
@@ -47,15 +47,15 @@ function set_tint_to_rails (rails_entities, tint)
   for i, v in pairs (rails_entities) do
     local r_table = serpent.block(find_ties(i, v, "rails"))
   end
-  --BioInd.writeDebug("global table of rails is complete :" .. tostring(#global.rails))
+  --BioInd.writeDebug("global table of rails is complete: %s", {#global.rails})
   for i, handler in pairs (global.rails) do
     --handler.name = "straight_rail_horizontal"
     local was_filename = handler.table.filename
     handler.table.filename = sheet_path_ties .. handler.name .. "-ties.png"
     handler.table.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties.png"
-    BioInd.writeDebug('Replaced: ' .. tostring(was_filename) .. ' ===>>> ' .. tostring(handler.table.filename))
+    BioInd.writeDebug('Replaced: %s ===>>> %s', {was_filename, handler.table.filename})
     handler.table.tint = tint
-    handler.table.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
+    handler.table.hr_version.tint = tint -- oops, i've forgot it, added in 0.0.3
   end
   --BioInd.writeDebug("End rails")        ---------------------
 end
@@ -65,8 +65,8 @@ end
 ------------------------------------ remnants
 ------------------------------------
 
-function set_tint_to_remnants (remnants_entities, tint)  -- tha same function, actually
-local tint = tint
+function set_tint_to_remnants(remnants_entities, tint)  -- tha same function, actually
+--~ local tint = tint
 local sheet_path_ties = "__Bio_Industries__/graphics/entities/wood_products/rails/ties/"
 local remnants_entities = remnants_entities or {  -- or vanilla  {
   data.raw["rail-remnants"]["straight-rail-remnants"],
@@ -78,13 +78,13 @@ global["remnants"] = {}
 for i, v in pairs (remnants_entities) do
   local r_table = serpent.block(find_ties(i, v, "remnants"))
 end
---BioInd.writeDebug("global table of remnants is complete :" .. tostring(#global.remnants))
+--BioInd.writeDebug("global table of remnants is complete: %s", {#global.remnants})
 for i, handler in pairs (global.remnants) do
   --remnants.name = "straight_rail_horizontal"
   local was_filename = handler.table.filename
   handler.table.filename = sheet_path_ties .. handler.name .. "-ties-remnants.png"
   handler.table.hr_version.filename = sheet_path_ties .. "hr-" .. handler.name .. "-ties-remnants.png"
-  BioInd.writeDebug('Replaced: ' .. tostring(was_filename) .. ' ===>>> ' .. tostring(handler.table.filename))
+  BioInd.writeDebug('Replaced: %s ===>>> %s', {was_filename, handler.table.filename})
   handler.table.tint = tint
   handler.table.hr_version.tint = tint -- oops, i'mm forgot it, added in 0.0.3
 end

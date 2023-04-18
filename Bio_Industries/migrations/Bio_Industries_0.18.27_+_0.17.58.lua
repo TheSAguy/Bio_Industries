@@ -18,25 +18,25 @@ for s, surface in pairs(game.surfaces) do
     type = "assembling-machine",
     name = "bi-bio-reactor"
   }
-  BioInd.writeDebug(string.format("Found %g bio-reactors on surface %s.",
-                                    #reactors, serpent.line(surface.name)))
+  BioInd.writeDebug("Found %g bio-reactors on surface \"%s\".",
+                                    {#reactors, surface.name})
 
   -- Get recipe of reactors
   for r, reactor in ipairs(reactors) do
     recipe = reactor.get_recipe()
     recipe = recipe and recipe.name or ""
-    BioInd.writeDebug(string.format("Reactor %g has recipe %s.",
-                                      reactor.unit_number, serpent.line(recipe)))
+    BioInd.writeDebug("Reactor %g has recipe \"%s\".",
+                                      {reactor.unit_number, recipe})
 
     -- Exchange "bi-biomass-2" against "bi-biomass-3"
     if recipe == "bi-biomass-2" then
       reactor.set_recipe("bi-biomass-3")
-      BioInd.writeDebug(string.format("Set recipe to %s.", reactor.get_recipe().name))
+      BioInd.writeDebug("Set recipe to %s.", {reactor.get_recipe().name})
 
     -- Exchange "bi-biomass-3" against "bi-biomass-2"
     elseif recipe == "bi-biomass-3" then
       reactor.set_recipe("bi-biomass-2")
-      BioInd.writeDebug(string.format("Set recipe to %s.", reactor.get_recipe().name))
+      BioInd.writeDebug("Set recipe to %s.", {reactor.get_recipe().name})
     end
   end
 
