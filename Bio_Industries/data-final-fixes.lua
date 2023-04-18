@@ -361,23 +361,7 @@ if BI.Settings.BI_Bio_Fuel then
   data.raw["boiler"]["bi-bio-boiler"].fast_replaceable_group = boiler_group
 end
 
---~ -- Make vanilla and wooden rails exchangeable
---~ -- local straight = data.raw["straight-rail"]["straight-rail"].fast_replaceable_group or "rail"
---~ -- local curved = data.raw["curved-rail"]["curved-rail"].fast_replaceable_group or "rail"
---~ local vanilla, group
 
---~ for f, form in ipairs({"straight", "curved"}) do
-  --~ vanilla = data.raw[form .. "-rail"][form .. "-rail"]
-  --~ group =vanilla and vanilla.fast_replaceable_group or "rail"
---~ BioInd.show("vanilla.name", vanilla and vanilla.name or "nil")
---~ BioInd.show("vanilla.fast_replaceable_group", vanilla and vanilla.fast_replaceable_group or "nil")
-  --~ if vanilla then
-    --~ vanilla.fast_replaceable_group = group
-  --~ end
-  --~ data.raw[form .. "-rail"]["bi-" .. form .. "-rail-power"].fast_replaceable_group = group
-  --~ data.raw[form .. "-rail"]["bi-" .. form .. "-rail-wood"].fast_replaceable_group = group
-  --~ data.raw[form .. "-rail"]["bi-" .. form .. "-rail-wood-bridge"].fast_replaceable_group = group
---~ end
 
 
 if mods["Krastorio2"] then
@@ -402,61 +386,10 @@ if mods["Krastorio2"] then
   end
 
 
-  --~ -- Remove recipes for liquid air and nitrogen
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-nitrogen")
-  --~ data.raw.recipe["bi-liquid-air"].hidden = true
-  --~ data.raw.recipe["bi-nitrogen"].hidden = true
-
-  --~ -- Replace liquid air with oxygen in Algae Biomass 2 and 3
-  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
-  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "oxygen")
 end
 
 
 
---~ if mods["Krastorio"] then
-  --~ -- Remove recipes for liquid air and nitrogen
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-nitrogen")
-  --~ data.raw.recipe["bi-liquid-air"].hidden = true
-  --~ data.raw.recipe["bi-nitrogen"].hidden = true
-
-  -- Replace liquid air with oxygen in Algae Biomass 2 and 3
-  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-2", "liquid-air", "oxygen")
-  --~ thxbob.lib.recipe.replace_ingredient("bi-biomass-3", "liquid-air", "oxygen")
---~ end
-
-
---~ if mods["angelspetrochem"] then
-  --~ -- "Angel's Petro Chemical Processing" replaces petroleum-gas with gas-methane.
-  --~ -- That doesn't make sense for our recipe, so we revert this change -- the
-  --~ -- petroleum gas can still be converted to methane-gas with the converter-valve.
-  --~ thxbob.lib.recipe.remove_result("bi-basic-gas-processing", "gas-methane")
-  --~ thxbob.lib.recipe.add_result("bi-basic-gas-processing", {
-      --~ amount = 15,
-      --~ name = "petroleum-gas",
-      --~ type = "fluid"
-  --~ })
-
-  -- Liquid air and nitrogen aren't needed -- remove unlock recipes!
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-liquid-air")
-  --~ thxbob.lib.tech.remove_recipe_unlock("bi-tech-fertilizer", "bi-nitrogen")
-  --~ data.raw.recipe["bi-liquid-air"] = nil
-  --~ data.raw.recipe["bi-nitrogen"] = nil
---~ end
-
---~ -- "Alien Biomes" overwrites tiles in item definitions even if these tiles have been
---~ -- disabled via start-up settings. (This has been fixed in "Alien Biomes" 0.5.2 for
---~ -- Factorio 0.18, but let's keep it the code for easier maintainability as long as
---~ --  Factorio 0.17.79 is stable!)
---~ local AlienBiomes = data.raw.tile["vegetation-green-grass-3"] and
-                    --~ data.raw.tile["vegetation-green-grass-1"] and true or false
-
---~ if not AlienBiomes then
-  --~ data.raw.item["fertilizer"].place_as_tile.result = "grass-3"
-  --~ data.raw.item["bi-adv-fertilizer"].place_as_tile.result = "grass-1"
---~ end
 
 -- Make sure fertilizers have the "place_as_tile" property!
 local AlienBiomes = data.raw.tile["vegetation-green-grass-3"] and
@@ -511,6 +444,46 @@ end
   --~ end
 --~ end
 --~ require("prototypes.Wood_Products.rail_updates")
+
+
+--- If Space Exploration Mod is installed.
+if mods["space-exploration"] then
+  -- Space Exploration Mod likes Stack Sizes to be 200 max.
+  -- Changed in 1.1.11
+  local tweaks = {
+    ["bi-solar-mat"]    = 400,
+    ["bi-seed"]         = 800,
+    ["seedling"]        = 400,
+    ["bi-woodpulp"]     = 800,
+    ["bi-ash"]          = 400,
+    ["wood-charcoal"]   = 400,
+    ["pellet-coke"]     = 400,
+    ["stone-crushed"]   = 400,
+  }
+  local item
+  
+  for tweak_name, tweak in pairs(tweaks) do
+    item = data.raw.item[tweak_name]
+    item.stack_size = 200
+  end
+
+  local ammo_tweaks = {
+    ["bi-dart-magazine-basic"]      = 400,
+    ["bi-dart-magazine-standard"]   = 400,
+    ["bi-dart-magazine-enhanced"]   = 400,
+    ["bi-dart-magazine-poison"]     = 400,
+  }
+  local item
+  
+  for tweak_name, tweak in pairs(ammo_tweaks) do
+    item = data.raw.ammo[tweak_name]
+    item.stack_size = 200
+  end
+  
+
+end
+
+
 
 ------------------------------------------------------------------------------------
 -- Add icons to our prototypes

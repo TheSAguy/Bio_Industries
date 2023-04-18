@@ -1,17 +1,5 @@
 local BioInd = require('common')('Bio_Industries')
 
---~ BI.Settings.Bio_Cannon = settings.startup["BI_Bio_Cannon"].value
---~ BI.Settings.BI_Bio_Fuel = settings.startup["BI_Bio_Fuel"].value
---~ BI.Settings.BI_Easy_Bio_Gardens = settings.startup["BI_Easy_Bio_Gardens"].value
-
---~ BI.Settings.BI_Game_Tweaks_Stack_Size = settings.startup["BI_Game_Tweaks_Stack_Size"].value
---~ BI.Settings.BI_Game_Tweaks_Recipe = settings.startup["BI_Game_Tweaks_Recipe"].value
---~ BI.Settings.BI_Game_Tweaks_Tree = settings.startup["BI_Game_Tweaks_Tree"].value
---~ BI.Settings.BI_Game_Tweaks_Player = settings.startup["BI_Game_Tweaks_Player"].value
---~ BI.Settings.BI_Game_Tweaks_Disassemble = settings.startup["BI_Game_Tweaks_Disassemble"].value
---~ BI.Settings.BI_Game_Tweaks_Bot = settings.startup["BI_Game_Tweaks_Bot"].value
---~ BI.Settings.BI_Solar_Additions = settings.startup["BI_Solar_Additions"].value
-
 for var, name in pairs({
   Bio_Cannon = "BI_Bio_Cannon",
   BI_Bio_Fuel = "BI_Bio_Fuel",
