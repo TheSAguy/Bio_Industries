@@ -1,11 +1,11 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.1.11
-Date: 2023-04-18
+Version: 1.1.12
+Date: 2023-04-27
   Uploaded by:
     - TheSAguy
 
-  Changes:
-    - Force max Stack-size to 200 for Bio Industry Items if Space Exploration Mod is active.
+  Bugfixes:
+    - Fixed Changelog.
 
   TODO (Need some helpers!):
     - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
@@ -17,6 +17,15 @@ Date: 2023-04-18
     - Make a version of the wooden rail bridge with powered rails. Make version of bridges from other mods (so far "Beautiful Bridge Railway") with powered rails.
     - Bigger trees give more wood (https://forums.factorio.com/viewtopic.php?f=16&t=95205)
     - Don't plant lying trees
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.11
+Date: 2023-04-18
+  Uploaded by:
+    - TheSAguy
+
+  Changes:
+    - Force max Stack-size to 200 for Bio Industry Items if Space Exploration Mod is active.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.10
