@@ -8,12 +8,12 @@ if BI.Settings.Bio_Cannon then
     {
       type = "technology",
       name = "bi-tech-bio-cannon",
-      icon_size = 128,
+      icon_size = 256,
       icon = ICONPATH .. "bi-tech-bio_cannon.png",
       icons = {
         {
           icon = ICONPATH .. "bi-tech-bio_cannon.png",
-          icon_size = 128,
+          icon_size = 256,
         }
       },
       effects = {
