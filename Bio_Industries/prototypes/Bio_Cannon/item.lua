@@ -7,7 +7,7 @@ if BI.Settings.Bio_Cannon then
     -- Hive Buster Turret
     {
       type = "item",
-      name = "bi-bio-cannon-area",
+      name = "bi-bio-cannon",
       localised_name = {"entity-name.bi-bio-cannon"},
       localised_description = {"entity-description.bi-bio-cannon"},
       icon = ICONPATH .. "biocannon_icon.png",
@@ -21,7 +21,7 @@ if BI.Settings.Bio_Cannon then
       },
       subgroup = "defensive-structure",
       order = "x[turret]-x[gun-turret]",
-      place_result = "bi-bio-cannon-area",
+      place_result = "bi-bio-cannon",
       stack_size = 1,
     },
   })

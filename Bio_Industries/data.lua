@@ -88,20 +88,23 @@ require ("prototypes.Bio_Turret.entity")
 
 
 --- Bio Cannon
--- Items Groups
-require ("prototypes.Bio_Cannon.item-group")
+if not mods["Natural_Evolution_Buildings"] then
 
--- Cannon
-require ("prototypes.Bio_Cannon.item")
-require ("prototypes.Bio_Cannon.recipe")
-require ("prototypes.Bio_Cannon.entity")
-require ("prototypes.Bio_Cannon.technology")
+  -- Items Groups
+  require ("prototypes.Bio_Cannon.item-group")
 
--- Projectiles
-require ("prototypes.Bio_Cannon.projectiles-item")
-require ("prototypes.Bio_Cannon.projectiles-recipe")
-require ("prototypes.Bio_Cannon.projectiles-entity")
+  -- Cannon
+  require ("prototypes.Bio_Cannon.item")
+  require ("prototypes.Bio_Cannon.recipe")
+  require ("prototypes.Bio_Cannon.entity")
+  require ("prototypes.Bio_Cannon.technology")
 
+  -- Projectiles
+  require ("prototypes.Bio_Cannon.projectiles-item")
+  require ("prototypes.Bio_Cannon.projectiles-recipe")
+  require ("prototypes.Bio_Cannon.projectiles-entity")
+
+end
 
 ---- Add Bio Fuel & Plastic, etc.
 require("prototypes.Bio_Fuel.item")

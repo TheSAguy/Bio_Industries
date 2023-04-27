@@ -7,5 +7,11 @@ if BI.Settings.Bio_Cannon then
       name = "Bio_Cannon_Ammo",
       order = "1"
     },
+
+    {
+      type = "trigger-target-type",
+      name = "Bio_Cannon_Ammo"
+    }
+
   })
 end

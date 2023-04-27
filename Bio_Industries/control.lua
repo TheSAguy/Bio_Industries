@@ -19,9 +19,8 @@ require ("util")
 require ("libs/util_ext")
 require ("control_tree")
 require ("control_arboretum")
-if BioInd.get_startup_setting("BI_Bio_Cannon") then
-  require ("control_bio_cannon")
-end
+
+
 ---************** Used for Testing -----
 --require ("Test_Spawn")
 ---*************
@@ -256,18 +255,14 @@ end
 --------------------------------------------------------------------
 local function On_Load()
   log("Entered On_Load!")
-  --~ if global.bi_bio_cannon_table ~= nil then
-    --~ Event.register(defines.events.on_tick, function(event) end)
-  --~ end
+
 end
 
 
 --------------------------------------------------------------------
 local function On_Config_Change(ConfigurationChangedData)
 BioInd.writeDebug("On Configuration changed: %s", {ConfigurationChangedData})
-  --~ if global.bi_bio_cannon_table ~= nil then
-    --~ Event.register(defines.events.on_tick, function(event) end)
-  --~ end
+
 
   -- Re-initialize global tables etc.
   init()

@@ -484,6 +484,18 @@ if mods["space-exploration"] then
 end
 
 
+if BI.Settings.Bio_Cannon then
+
+  local default_target_masks = data.raw["utility-constants"].default.default_trigger_target_mask_by_type
+  default_target_masks["unit-spawner"] = default_target_masks["unit-spawner"] or {"common"} -- everything should have "common", unless there is specific reason not to
+  table.insert(default_target_masks["unit-spawner"], "Bio_Cannon_Ammo")
+
+  for w, worm in pairs(data.raw.turret) do
+      worm.trigger_target_mask = worm.trigger_target_mask or default_target_masks["turret"] or {"common"}
+      table.insert(worm.trigger_target_mask, "Bio_Cannon_Ammo")
+  end
+
+end
 
 ------------------------------------------------------------------------------------
 -- Add icons to our prototypes
