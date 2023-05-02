@@ -1,22 +1,35 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.1.14
-Date: 2023-04-27
+Version: 1.1.15
+Date: 2023-05-2
   Uploaded by:
     - TheSAguy
 
   Changes:
-    - New Bio-Cannon Logic
+    - Incompatible with Industrial Revolution 3
+
+  Bugfixes:
+    - New Bio-Cannon Graphic
 
   TODO (Need some helpers!):
+    - Compatibility with Industrial Revolution 3 - Could use help here!
     - Add an alternative way to produce plastic without fluids. (https://mods.factorio.com/mod/Bio_Industries/discussion/5e3f5fadc359e6000d54cfb2)
     - Add Big gardens for absorbing more pollution. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f318f69f3644760ee6d001e)
     - Make algae grow on water to contain pollution there. (https://mods.factorio.com/mod/Bio_Industries/discussion/5f07bed0b6dcd7af988b9fb0)
     - Just an idea: Wood harvesters like they used to be in <https://mods.factorio.com/mod/WoodHarvester>. Could harvest (only) fully grown trees planted by terraformers, and output "trees" that would have to be processed by a sawmill to make wood and wood pulp. Bio farms would also output "trees". The current bio farms already look a bit like a sawmill, so use the current pix for it and get new ones for the bio farm! This would also solve a problem with the German translation: A "Baumschule" is a tree nursery -- it's just for growing trees, not for processing them!
     - Add tar recipe if tar is available in the game.
-    - Activate new Bio-Cannon (0.18.33 version) once "NE Enemies" is updated -- we don't want different versions of the cannon in the game!
     - Make a version of the wooden rail bridge with powered rails. Make version of bridges from other mods (so far "Beautiful Bridge Railway") with powered rails.
     - Bigger trees give more wood (https://forums.factorio.com/viewtopic.php?f=16&t=95205)
     - Don't plant lying trees
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.14
+Date: 2023-05-1
+  Uploaded by:
+    - TheSAguy
+
+  Changes:
+    - New Bio-Cannon Logic
+      (Activate new Bio-Cannon (0.18.33 version) once "NE Enemies" is updated -- we don't want different versions of the cannon in the game!) - DONE
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.13

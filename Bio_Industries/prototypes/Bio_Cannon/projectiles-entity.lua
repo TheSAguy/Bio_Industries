@@ -50,7 +50,7 @@ if BI.Settings.Bio_Cannon then
     },
     light = {intensity = 0.7, size = 3},
     animation = {
-      filename = ICONPATH .. "Bio_Cannon_Basic_Ammo.png",
+      filename = ICONPATH .. "bio_cannon_proto_ammo.png",
       priority = "extra-high",
       width = 18,
       height = 47,
@@ -58,7 +58,7 @@ if BI.Settings.Bio_Cannon then
       frame_count = 1
     },
     shadow = {
-      filename = ICONPATH .. "Bio_Cannon_Ammo-shadow.png",
+      filename = ICONPATH .. "bio_cannon_ammo-shadow.png",
       priority = "extra-high",
       width = 18,
       height = 47,
@@ -143,14 +143,14 @@ if BI.Settings.Bio_Cannon then
     },
     light = {intensity = 0.7, size = 6},
     animation = {
-      filename = ICONPATH .. "Bio_Cannon_Basic_Ammo.png",
+      filename = ICONPATH .. "bio_cannon_basic_ammo.png",
       priority = "extra-high",
       width = 18,
       height = 47,
       frame_count = 1
     },
     shadow = {
-      filename = ICONPATH .. "Bio_Cannon_Ammo-shadow.png",
+      filename = ICONPATH .. "bio_cannon_ammo-shadow.png",
       priority = "extra-high",
       width = 18,
       height = 47,
@@ -242,14 +242,14 @@ if BI.Settings.Bio_Cannon then
     },
     light = {intensity = 0.8, size = 7},
     animation = {
-      filename = ICONPATH .. "Bio_Cannon_Poison_Ammo.png",
+      filename = ICONPATH .. "bio_cannon_poison_ammo.png",
       priority = "extra-high",
       width = 18,
       height = 47,
       frame_count = 1
     },
     shadow = {
-      filename = ICONPATH .. "Bio_Cannon_Ammo-shadow.png",
+      filename = ICONPATH .. "bio_cannon_ammo-shadow.png",
       priority = "extra-high",
       width = 18,
       height = 47,
