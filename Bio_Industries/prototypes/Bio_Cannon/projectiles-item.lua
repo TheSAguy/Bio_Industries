@@ -1,6 +1,6 @@
 local BioInd = require('common')('Bio_Industries')
 
-local ICONPATH = BioInd.modRoot .. "/graphics/entities/bio_cannon/projectiles/"
+local ICONPATH = BioInd.modRoot .. "/graphics/icons/weapon/"
 
 if BI.Settings.Bio_Cannon then
 
@@ -10,11 +10,11 @@ if BI.Settings.Bio_Cannon then
     {
       type = "ammo",
       name = "bi-bio-cannon-proto-ammo",
-      icon = ICONPATH .. "Bio_Cannon_Proto_Ammo_Icon.png",
+      icon = ICONPATH .. "bio_cannon_proto_ammo_icon.png",
       icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "Bio_Cannon_Proto_Ammo_Icon.png",
+          icon = ICONPATH .. "bio_cannon_proto_ammo_icon.png",
           icon_size = 64,
         }
       },
@@ -46,11 +46,11 @@ if BI.Settings.Bio_Cannon then
     {
       type = "ammo",
       name = "bi-bio-cannon-basic-ammo",
-      icon = ICONPATH .. "Bio_Cannon_Basic_Ammo_Icon.png",
+      icon = ICONPATH .. "bio_cannon_basic_ammo_icon.png",
       icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "Bio_Cannon_Basic_Ammo_Icon.png",
+          icon = ICONPATH .. "bio_cannon_basic_ammo_icon.png",
           icon_size = 64,
         }
       },
@@ -81,11 +81,11 @@ if BI.Settings.Bio_Cannon then
     {
       type = "ammo",
       name = "bi-bio-cannon-poison-ammo",
-      icon = ICONPATH .. "Bio_Cannon_Poison_Ammo_Icon.png",
+      icon = ICONPATH .. "bio_cannon_poison_ammo_icon.png",
       icon_size = 64,
       icons = {
         {
-          icon = ICONPATH .. "Bio_Cannon_Poison_Ammo_Icon.png",
+          icon = ICONPATH .. "bio_cannon_poison_ammo_icon.png",
           icon_size = 64,
         }
       },
