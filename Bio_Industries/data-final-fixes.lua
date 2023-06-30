@@ -467,22 +467,24 @@ if mods["space-exploration"] then
     item.stack_size = 200
   end
 
-  local ammo_tweaks = {
-    ["bi-dart-magazine-basic"]      = 400,
-    ["bi-dart-magazine-standard"]   = 400,
-    ["bi-dart-magazine-enhanced"]   = 400,
-    ["bi-dart-magazine-poison"]     = 400,
-  }
-  local item
-  
-  for tweak_name, tweak in pairs(ammo_tweaks) do
-    item = data.raw.ammo[tweak_name]
-    item.stack_size = 200
+  if not mods["Natural_Evolution_Buildings"] then
+
+    local ammo_tweaks = {
+      ["bi-dart-magazine-basic"]      = 400,
+      ["bi-dart-magazine-standard"]   = 400,
+      ["bi-dart-magazine-enhanced"]   = 400,
+      ["bi-dart-magazine-poison"]     = 400,
+    }
+    local item
+    
+    for tweak_name, tweak in pairs(ammo_tweaks) do
+      item = data.raw.ammo[tweak_name]
+      item.stack_size = 200
+    end
+    
+
   end
-  
-
 end
-
 
 if BI.Settings.Bio_Cannon then
 

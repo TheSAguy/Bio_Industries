@@ -1,14 +1,11 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.1.15
-Date: 2023-05-2
+Version: 1.1.16
+Date: 2023-06-29
   Uploaded by:
     - TheSAguy
 
   Changes:
-    - Incompatible with Industrial Revolution 3
-
-  Bugfixes:
-    - New Bio-Cannon Graphic
+    - Tiny Compatibility tweak if playing with NE Buildings. No duplicate Dart turret stuff
 
   TODO (Need some helpers!):
     - Compatibility with Industrial Revolution 3 - Could use help here!
@@ -22,6 +19,16 @@ Date: 2023-05-2
     - Don't plant lying trees
 
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.15
+Date: 2023-05-2
+  Uploaded by:
+    - TheSAguy
+
+  Changes:
+    - Incompatible with Industrial Revolution 3
+    - New Bio-Cannon Graphic
+
+---------------------------------------------------------------------------------------------------
 Version: 1.1.14
 Date: 2023-05-1
   Uploaded by:
@@ -29,7 +36,7 @@ Date: 2023-05-1
 
   Changes:
     - New Bio-Cannon Logic
-      (Activate new Bio-Cannon (0.18.33 version) once "NE Enemies" is updated -- we don't want different versions of the cannon in the game!) - DONE
+      (Activate new Bio-Cannon (0.18.33 version) once "NE Buildings" is updated -- we don't want different versions of the cannon in the game!) - DONE
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.13

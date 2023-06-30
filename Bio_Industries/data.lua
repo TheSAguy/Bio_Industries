@@ -79,16 +79,17 @@ require ("prototypes.Wood_Products.containers-item")
 require ("prototypes.Wood_Products.containers-recipe")
 
 
---- Dart Turret (Bio turret)
-require ("prototypes.Bio_Turret.item-group")
-require ("prototypes.Bio_Turret.damage-type")
-require ("prototypes.Bio_Turret.item")
-require ("prototypes.Bio_Turret.recipe")
-require ("prototypes.Bio_Turret.entity")
+if not mods["Natural_Evolution_Buildings"] then
+  --- Dart Turret (Bio turret)
+  require ("prototypes.Bio_Turret.item-group")
+  require ("prototypes.Bio_Turret.damage-type")
+  require ("prototypes.Bio_Turret.item")
+  require ("prototypes.Bio_Turret.recipe")
+  require ("prototypes.Bio_Turret.entity")
 
 
 --- Bio Cannon
-if not mods["Natural_Evolution_Buildings"] then
+
 
   -- Items Groups
   require ("prototypes.Bio_Cannon.item-group")
