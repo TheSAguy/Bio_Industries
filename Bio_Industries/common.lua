@@ -355,7 +355,8 @@ common.writeDebug("h_key: %s\th_data: %s", {h_key, h_data})
         local related_vars = c_data.add_global_values
         if related_vars then
           for var_name, value in pairs(related_vars or {}) do
-            common.writeDebug("Removing global[%s] (was: %s)", {var_name, global[var_name]})
+            common.writeDebug("Removing global[%s] (was: %s)",
+                              {var_name, var_name and global[var_name] or "nil"})
             global[var_name] = nil
           end
         end

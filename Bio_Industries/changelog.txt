@@ -1,11 +1,12 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.1.16
-Date: 2023-06-29
+Version: 1.1.17
+Date: 2023-06-30
   Uploaded by:
-    - TheSAguy
+    - Pi-C
 
-  Changes:
-    - Tiny Compatibility tweak if playing with NE Buildings. No duplicate Dart turret stuff
+  Bugfixes:
+    - Fixed crash in function Tile_Changed(), caused by using a comparison instead of an assignment operator. (https://www.reddit.com/r/factorio/comments/14cjbss/help_with_a_mod_error_bio_industries/?utm_source=share&utm_medium=ios_app&utm_name=ioscss&utm_content=1&utm_term=10)
+    - Hopefully fixed crash when trying to get the force from player 1 in a singleplayer game. I couldn't reproduce that but I guess if a multiplayer game was saved after player 1 had been removed, and was loaded as a singleplayer game, we might get into a situation where the index of the single player is not 1. (https://mods.factorio.com/mod/Bio_Industries/discussion/649d41b778d997d29385b8cf)
 
   TODO (Need some helpers!):
     - Compatibility with Industrial Revolution 3 - Could use help here!
@@ -17,6 +18,15 @@ Date: 2023-06-29
     - Make a version of the wooden rail bridge with powered rails. Make version of bridges from other mods (so far "Beautiful Bridge Railway") with powered rails.
     - Bigger trees give more wood (https://forums.factorio.com/viewtopic.php?f=16&t=95205)
     - Don't plant lying trees
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.16
+Date: 2023-06-29
+  Uploaded by:
+    - TheSAguy
+
+  Changes:
+    - Tiny Compatibility tweak if playing with NE Buildings. No duplicate Dart turret stuff
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.15

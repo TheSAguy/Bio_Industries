@@ -10,6 +10,7 @@ local settings_changed = {}
 
 -- Adjust the force of hidden poles on Musk floor!
 settings_changed.musk_floor = function()
+log("Entered function settings_changed.musk_floor!")
   -- Look for solar panels on every surface. They determine the force poles will use
   -- if the electric grid overlay will be shown in mapview.
   local sm_panel_name = "bi-musk-mat-hidden-panel"
@@ -31,7 +32,19 @@ settings_changed.musk_floor = function()
     force = BioInd.MuskForceName
   -- Singleplayer mode: use force of first player
   elseif not game.is_multiplayer() then
-    force = game.players[1].force.name
+    -- Apparently, this crashed for someone (https://mods.factorio.com/mod/Bio_Industries/discussion/649d41b778d997d29385b8cf).
+    -- Could it be that a game that was originally a multiplayer game has been saved and reused
+    -- as singleplayer game, but there was no player 1? Let's go over all players and break after
+    -- the first hit, so we make sure we'll get the single player whatever its index!
+    --~ force = game.players[1].force.name
+    for p, player in pairs(game.players) do
+      force = player.force.name
+      break
+    end
+    -- Still got no force? Fall back to "player" -- as one of the 3 default forces,
+    -- it can't be removed, so we can use it!
+    force = force or "player"
+
   -- Multiplayer game
   else
     local count = 0

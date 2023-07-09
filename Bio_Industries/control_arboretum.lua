@@ -112,6 +112,8 @@ function Get_Arboretum_Recipe(ArboretumTable, event)
   -- 'AlienBiomes' is a bool value -- we don't want to read it again if it's false,
   -- but only if it hasn't been set yet!
   AB = global.compatible.AlienBiomes
+  --~ terrain_name_g1 = terrain_name_g1 or (AB and "vegetation-green-grass-1" or "grass-1")
+  --~ terrain_name_g3 = terrain_name_g3 or (AB and "vegetation-green-grass-3" or "grass-3")
   terrain_name_g1 = terrain_name_g1 or (AB and "vegetation-green-grass-1" or "grass-1")
   terrain_name_g3 = terrain_name_g3 or (AB and "vegetation-green-grass-3" or "grass-3")
 

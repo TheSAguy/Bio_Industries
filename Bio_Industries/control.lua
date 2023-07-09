@@ -929,18 +929,17 @@ BioInd.show("Placed tile", tile.name)
 BioInd.show("Musk floor tile in position", tile_force)
       if tile_force then
         old_musk_floor_tiles[#old_musk_floor_tiles + 1] = {
-          old_tile = { name == "bi-solar-mat" },
+          old_tile = { name = "bi-solar-mat" },
           position = pos,
           force = tile_force
         }
-
-      -- Other tile was placed on a Musk floor tile -- remove Musk floor from lists!
-      elseif tile_force then
-        remove_musk_floor_tiles[#remove_musk_floor_tiles + 1] = {
-          old_tile = { name == "bi-solar-mat" },
-          position = pos,
-        }
       end
+    -- Other tile was placed on a Musk floor tile -- remove Musk floor from lists!
+    elseif tile_force then
+      remove_musk_floor_tiles[#remove_musk_floor_tiles + 1] = {
+        old_tile = { name = "bi-solar-mat" },
+        position = pos,
+      }
     end
   end
 BioInd.show("new_musk_floor_tiles", new_musk_floor_tiles)
